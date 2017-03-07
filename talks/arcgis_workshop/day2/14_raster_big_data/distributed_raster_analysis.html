@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>conda_cheat_sheet</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>distributed_raster_analysis</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11654,10 +11631,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11668,11 +11643,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11778,10 +11751,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="some-useful-productivity-tools">some useful productivity tools<a class="anchor-link" href="#some-useful-productivity-tools">&#182;</a></h4><ul>
-<li>code editor: sublime text: <a href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a></li>
-<li>nicer command line tool for Windows: <a href="http://cmder.net/">http://cmder.net/</a></li>
-</ul>
+<h1 id="Creating-Raster-Information-Product-using-Raster-Analytics">Creating Raster Information Product using Raster Analytics<a class="anchor-link" href="#Creating-Raster-Information-Product-using-Raster-Analytics">&#182;</a></h1><h2 id="Raster-Analytics">Raster Analytics<a class="anchor-link" href="#Raster-Analytics">&#182;</a></h2><p>ArcGIS Enterprise at 10.5 provides you with the ability to perform large raster data analytics using distributed computing using raster analytics tools. This analytics capability is provided in the <code>arcgis.raster.analytics</code> module and includes functionality to summarize data, analyze patterns, images, terrain and manage data. This sample show the capabilities of imagery layers and raster analytics.</p>
 
 </div>
 </div>
@@ -11791,20 +11761,260 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Conda-commands">Conda commands<a class="anchor-link" href="#Conda-commands">&#182;</a></h1><p><strong>What is conda?</strong></p>
-<ul>
-<li>Conda is a powerful environment and package manager. </li>
-<li>Create multiple environments with different versions of Python with different sets of libraries</li>
-<li>easily switch between environments</li>
-<li><a href="http://anaconda.org/">http://anaconda.org/</a> provides free hosting for Python libraries</li>
-<li>conda helps to easily search for, install libraries and also to keep them up to date</li>
-</ul>
-<p><strong>Learn resources</strong>:</p>
-<ul>
-<li>getting started: <a href="http://conda.pydata.org/docs/test-drive.html#managing-environments">http://conda.pydata.org/docs/test-drive.html#managing-environments</a></li>
-<li>reference doc: <a href="http://conda.pydata.org/docs/">http://conda.pydata.org/docs/</a></li>
-</ul>
+<h2 id="Imagery-layers">Imagery layers<a class="anchor-link" href="#Imagery-layers">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">arcgis</span>
+<span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
 
+<span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we're searchcing for multispectral landsat imagery layer:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Landsat 8 Views and owner:esri&quot;</span><span class="p">,</span> <span class="n">max_items</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href='http://www.arcgis.com/home/item.html?id=a5fef63517cd4a099b437e55713d3d54' target='_blank'>
+                        <img src='http://www.arcgis.com/sharing/rest//content/items/a5fef63517cd4a099b437e55713d3d54/info/thumbnail/Imagery.png' class="itemThumbnail">
+                       </a>
+                    </div>
+
+                    <div class="item_right"     style="float: none; width: auto; overflow: hidden;">
+                        <a href='http://www.arcgis.com/home/item.html?id=a5fef63517cd4a099b437e55713d3d54' target='_blank'><b>Imagery</b>
+                        </a>
+                        <br/>This LYR file combines the World Imagery map service and World Transportation and World Boundaries and Places reference overlay services in one convenient group layer<img src='http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/layers16.png' style="vertical-align:middle;">Layer by esri
+                        <br/>Last Modified: January 16, 2012
+                        <br/>2 comments, 352,000 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href='http://www.arcgis.com/home/item.html?id=4ca13f0e4e29403fa68c46d188c4be73' target='_blank'>
+                        <img src='http://www.arcgis.com/sharing/rest//content/items/4ca13f0e4e29403fa68c46d188c4be73/info/thumbnail/ago_downloaded.jpg' class="itemThumbnail">
+                       </a>
+                    </div>
+
+                    <div class="item_right"     style="float: none; width: auto; overflow: hidden;">
+                        <a href='http://www.arcgis.com/home/item.html?id=4ca13f0e4e29403fa68c46d188c4be73' target='_blank'><b>Landsat 8 Views</b>
+                        </a>
+                        <br/>Landsat 8 OLI, 30m Multispectral 8 band scenes with visual renderings and indices. Updated daily.<img src='http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/imagery16.png' style="vertical-align:middle;">Imagery Layer by esri
+                        <br/>Last Modified: December 07, 2016
+                        <br/>0 comments, 116,294 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">landast_item</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">imglyr</span> <span class="o">=</span> <span class="n">landast_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">imglyr</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>arcgis.raster._layer.ImageryLayer</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This layer has been published with several Raster Functions, that the code below is cycling through, and listing out:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">imglyr</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s1">&#39;rasterFunctionInfos&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">fn</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Agriculture with DRA
+Bathymetric with DRA
+Color Infrared with DRA
+Natural Color with DRA
+Short-wave Infrared with DRA
+Geology with DRA
+Agriculture
+Bathymetric
+Color Infrared
+Geology
+Natural Color
+Short-wave Infrared
+NDVI Colorized
+Normalized Difference Moisture Index Colorized
+NDVI Raw
+NBR Raw
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us create a map widget and load this layer</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">&quot;Pallikaranai&quot;</span><span class="p">,</span> <span class="n">zoomlevel</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">map1</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">imglyr</span><span class="p">)</span>
+<span class="n">map1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">imglyr</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s1">&#39;rasterFunctionInfos&#39;</span><span class="p">][:</span><span class="mi">6</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fn</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+    <span class="n">map1</span><span class="o">.</span><span class="n">remove_layers</span><span class="p">()</span>
+    <span class="n">map1</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">imglyr</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;imageServiceParameters&quot;</span> <span class="p">:{</span> <span class="s2">&quot;renderingRule&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;rasterFunction&quot;</span><span class="p">:</span> <span class="n">fn</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]}}})</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Agriculture with DRA
+Bathymetric with DRA
+Color Infrared with DRA
+Natural Color with DRA
+Short-wave Infrared with DRA
+Geology with DRA
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Raster-functions">Raster functions<a class="anchor-link" href="#Raster-functions">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11813,12 +12023,82 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="List-all-environments">List all environments<a class="anchor-link" href="#List-all-environments">&#182;</a></h2>
-<pre><code>conda env list
+<p>Developers can create their own <strong>raster functions</strong>, by chaining different raster functions. For instance, the code below is doing an Extract Band and extracting out the [4,5,3] band combination, and applying a Stretch to get the land-water boundary visualization that makes it easy to see where land is and where water is. Its worth noting that the raster function is applied at display resolution and only for the visible extent using on the fly image processing.</p>
 
-</code></pre>
-<p>Run the above command in terminal</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A raster function is created as a python dictionary as shown below:</span>
+<span class="k">def</span> <span class="nf">extract_bands</span><span class="p">(</span><span class="n">bands</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+               <span class="s2">&quot;rasterFunction&quot;</span><span class="p">:</span> <span class="s2">&quot;Stretch&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;rasterFunctionArguments&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;Raster&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;rasterFunction&quot;</span><span class="p">:</span> <span class="s2">&quot;ExtractBand&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;rasterFunctionArguments&quot;</span><span class="p">:{</span><span class="s2">&quot;BandIds&quot;</span><span class="p">:</span> <span class="n">bands</span><span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;StretchType&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                    <span class="s2">&quot;DRA&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;Gamma&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;UseGamma&quot;</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="p">},</span>
+               <span class="s2">&quot;outputPixelType&quot;</span><span class="p">:</span><span class="s2">&quot;U8&quot;</span>
+            <span class="p">}</span>
+</pre></div>
 
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us apply this raster function to the image layer to visualize the results.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">&quot;Pallikaranai&quot;</span><span class="p">,</span> <span class="n">zoomlevel</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">map2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">imglyr</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;imageServiceParameters&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;renderingRule&quot;</span><span class="p">:</span> <span class="n">extract_bands</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="p">}})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Creating-a-Raster-Information-Product-using-Landsat-8-imagery">Creating a Raster Information Product using Landsat 8 imagery<a class="anchor-link" href="#Creating-a-Raster-Information-Product-using-Landsat-8-imagery">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11827,82 +12107,228 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Create-a-new-environment">Create a new environment<a class="anchor-link" href="#Create-a-new-environment">&#182;</a></h2>
-<pre><code>conda create --name &lt;name_of_env&gt; package=version
-
-conda create --name devsummit_precon python=3.6
-
-conda create --name data_sci_proj scipy pandas
-
-</code></pre>
-<p>Check if new folder was created in <code>C:\anaconda3\envs</code></p>
+<p>This part of the notebook shows how <strong>Raster Analytics</strong> (in ArcGIS Enterprise 10.5) can be used to generate a raster information product, by applying the same raster function across the extent of an image service on the portal. The raster function is applied at source resolution and creates an Information Product, that can be used for further analysis and visualization.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
+<span class="n">portal</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s2">&quot;https://dev003246.esri.com/portal&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>········
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">montana_landsat</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Landast_Montana&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">montana_landsat</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href='https://dev003246.esri.com/portal/home/item.html?id=8c921ea4373c4238b77d526abe3838f5' target='_blank'>
+                        <img src='data:image/png;base64,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' width='200' height='133' class="itemThumbnail">
+                       </a>
+                    </div>
+
+                    <div class="item_right"     style="float: none; width: auto; overflow: hidden;">
+                        <a href='https://dev003246.esri.com/portal/home/item.html?id=8c921ea4373c4238b77d526abe3838f5' target='_blank'><b>ImgSrv_Landast_Montana2015</b>
+                        </a>
+                        <br/>Show the burned area  from the montana fires<img src='https://dev003246.esri.com/portal/home/js/jsapi/esri/css/images/item_type_icons/imagery16.png' style="vertical-align:middle;">Imagery Layer by admin
+                        <br/>Last Modified: November 11, 2016
+                        <br/>0 comments, 0 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install-packages">Install packages<a class="anchor-link" href="#Install-packages">&#182;</a></h2>
-<pre><code>conda install &lt;package name&gt;
-
-conda install pandas
-conda install requests
-
-conda instal --channel &lt;channel_name&gt; &lt;package name&gt;
-conda install --channel esri arcgis
-conda install -c esri arcgis</code></pre>
+<p>We can use the <code>arcgis.raster.analytics.generate_raster()</code> tool to apply the raster function across the entire extext of the input image layer at source resolution, and presist the result in another output image layer. This creates a raster product similar that can be used for further analysis and visualization.</p>
+<p>In the code below, we use a raster function that extracts the [7, 5, 2] band combination. This improves visibility of fire and burn scars by pushing further into the SWIR range of the electromagnetic spectrum, as there is less susceptibility to smoke and haze generated by a burning fire.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">&quot;Marthas basin Montana&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">map3</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">montana_landsat</span><span class="p">)</span>
+<span class="n">map3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">arcgis.raster.analytics</span> <span class="k">import</span> <span class="n">generate_raster</span>
+<span class="n">montana_fires</span> <span class="o">=</span> <span class="n">generate_raster</span><span class="p">(</span><span class="n">extract_bands</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span> <span class="n">montana_landsat</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Submitted.
+Executing...
+Executing (GenerateRaster): GenerateRaster {&#34;outputPixelType&#34;:&#34;U8&#34;,&#34;rasterFunction&#34;:&#34;Stretch&#34;,&#34;rasterFunctionArguments&#34;:{&#34;DRA&#34;:true,&#34;Gamma&#34;:[1,1,1],&#34;UseGamma&#34;:true,&#34;Raster&#34;:{&#34;rasterFunction&#34;:&#34;ExtractBand&#34;,&#34;rasterFunctionArguments&#34;:{&#34;BandIds&#34;:[7,5,2]}},&#34;StretchType&#34;:6}} {&#34;serviceProperties&#34;:{&#34;name&#34;:&#34;GeneratedRasterProduct_6OPKGO&#34;,&#34;serviceUrl&#34;:&#34;http://dev003248.esri.com/rax/rest/services/Hosted/GeneratedRasterProduct_6OPKGO/ImageServer&#34;},&#34;itemProperties&#34;:{&#34;itemId&#34;:&#34;effdded28d5a47d99b32c6ce24609929&#34;}} {&#34;Raster&#34;:{&#34;itemId&#34;:&#34;8c921ea4373c4238b77d526abe3838f5&#34;}} # #
+Start Time: Mon Mar 06 16:04:05 2017
+Running script GenerateRaster...
+Image service GeneratedRasterProduct_6OPKGO already existed.
+GetPrivateUrl returns: https://dev003248.esri.com:6443/arcgis/rest/services/Hosted/GeneratedRasterProduct_6OPKGO/ImageServer
+The service got from item ID is: https://dev003248.esri.com:6443/arcgis/rest/services/Hosted/GeneratedRasterProduct_6OPKGO/ImageServer
+Output item id is: effdded28d5a47d99b32c6ce24609929
+Output image service url is: https://dev003248.esri.com:6443/arcgis/rest/services/Hosted/GeneratedRasterProduct_6OPKGO/ImageServer
+Output cloud raster name is: Hosted_GeneratedRasterProduct_6OPKGO
+GetPrivateUrl returns: https://dev003248.esri.com:6443/arcgis/rest/services/ImgSrv_Landast_Montana2015/ImageServer
+The service got from item ID is: https://dev003248.esri.com:6443/arcgis/rest/services/ImgSrv_Landast_Montana2015/ImageServer
+Using input dataset&#39;s spatial reference.
+Using full extent of input dataset.
+Use default resampling method.
+Output raster will be the same resolution as input.
+Updating service with data store URI.
+Updating service: https://dev003248.esri.com:6443/arcgis/admin/services/Hosted/GeneratedRasterProduct_6OPKGO.ImageServer/edit
+Starting service: https://dev003248.esri.com:6443/arcgis/admin/services/Hosted/GeneratedRasterProduct_6OPKGO.ImageServer/start
+Update item service: https://dev003248.esri.com:6443/arcgis/admin/services/Hosted/GeneratedRasterProduct_6OPKGO.ImageServer successfully.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">montana_fires</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">arcgis</span><span class="o">.</span><span class="n">geocoding</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;Marthas Basin, Montana&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">base_map</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">natural_color_map</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">natural_color_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">montana_landsat</span><span class="p">)</span>
+
+<span class="n">false_color_map</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">false_color_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">montana_fires</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="search-packages">search packages<a class="anchor-link" href="#search-packages">&#182;</a></h3>
-<pre><code>conda search &lt;package name&gt;
-conda search --channel &lt;channel name&gt; &lt;package name&gt;
-
-conda search beautifulsoup</code></pre>
+<p>We can compare the natural color and false color images uaing a tabbed widget.</p>
+<p>In the false color image the red and brownish pixels correspond to burn scars of the fire:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">([</span><span class="n">base_map</span><span class="p">,</span> <span class="n">natural_color_map</span><span class="p">,</span> <span class="n">false_color_map</span><span class="p">])</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;base map&#39;</span><span class="p">)</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Natural Color&#39;</span><span class="p">)</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;False Color&#39;</span><span class="p">)</span>
+<span class="n">tab</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="List-all-packages-in-current-active-environment">List all packages in current active environment<a class="anchor-link" href="#List-all-packages-in-current-active-environment">&#182;</a></h2>
-<pre><code>conda list
-conda list nb*   # wild card search</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remove-a-package">Remove a package<a class="anchor-link" href="#Remove-a-package">&#182;</a></h2>
-<pre><code>conda remove &lt;package name&gt;</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remove-an-environment">Remove an environment<a class="anchor-link" href="#Remove-an-environment">&#182;</a></h2>
-<pre><code>conda env remove --name &lt;name of env&gt;
-conda env remove --name devsummit_precon</code></pre>
+<p>Thus using the same raster function, we were able to both visualize on the fly (in the case of Pallikaranai marsh example) and also derive a persisted image service (in the case of Montana example) with the power of raster analytics.</p>
 
 </div>
 </div>
@@ -11910,8 +12336,4 @@ conda env remove --name devsummit_precon</code></pre>
     </div>
   </div>
 </body>
-
- 
-
-
 </html>

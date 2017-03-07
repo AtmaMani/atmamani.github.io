@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>python_cheat_sheet_2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>editing_features</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,26 +11778,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-cheat-sheet---iterations">Python cheat sheet - iterations<a class="anchor-link" href="#Python-cheat-sheet---iterations">&#182;</a></h1><p><strong>Table of contents</strong></p>
-<ul>
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Classes">Classes</a></li>
-<li><a href="#Exception-handling">Exception handling</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h2><p>Specify optional parameters in the end. Specify the default values for optional parameters with = value notation</p>
-
-<pre><code>def func_name(arg1, arg2=None):
-    operations
-    return value</code></pre>
+<h1 id="Editing-Features">Editing Features<a class="anchor-link" href="#Editing-Features">&#182;</a></h1><p><code>edit_features()</code> method on <code>FeatureLayer</code> object can be used for editing features. In the example below, we see how to add, update and delete features from a point feature layer</p>
 
 </div>
 </div>
@@ -11807,8 +11788,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_add_numbers</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#connect to GIS</span>
+<span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
 </pre></div>
 
 </div>
@@ -11821,7 +11804,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_add_numbers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
+<span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s1">&#39;https://pycontraptions.maps.arcgis.com&#39;</span><span class="p">,</span><span class="s1">&#39;atma_mani&#39;</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11833,14 +11817,12 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt"></div>
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>12</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>········
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -11852,7 +11834,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_add_numbers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">34</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#search for the feature layer named Ports along west coast</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;title:fortune_500_styled_wfl&#39;</span><span class="p">)</span>
+<span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11867,9 +11851,23 @@ div#notebook {
 <div class="prompt output_prompt">Out[3]:</div>
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href='https://pycontraptions.maps.arcgis.com/home/item.html?id=0a3a3963fb4a452b8c34c484f8383b48' target='_blank'>
+                        <img src='data:image/png;base64,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' width='200' height='133' class="itemThumbnail">
+                       </a>
+                    </div>
 
-<div class="output_text output_subarea output_execute_result">
-<pre>36</pre>
+                    <div class="item_right"     style="float: none; width: auto; overflow: hidden;">
+                        <a href='https://pycontraptions.maps.arcgis.com/home/item.html?id=0a3a3963fb4a452b8c34c484f8383b48' target='_blank'><b>fortune_500_styled_wfl</b>
+                        </a>
+                        <br/>fortune 500<img src='https://pycontraptions.maps.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png' style="vertical-align:middle;">Feature Layer Collection by atma_mani
+                        <br/>Last Modified: March 04, 2017
+                        <br/>0 comments, 6 views
+                    </div>
+                </div>
+                
 </div>
 
 </div>
@@ -11883,7 +11881,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">func_add_numbers</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access the item&#39;s feature layers</span>
+<span class="n">fortune_500_item</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">fortune_500_layers</span> <span class="o">=</span> <span class="n">fortune_500_item</span><span class="o">.</span><span class="n">layers</span>
+<span class="n">fortune_500_layers</span>
 </pre></div>
 
 </div>
@@ -11895,17 +11896,17 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[4]:</div>
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-4-0d259ef4c90e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>func_add_numbers<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: func_add_numbers() missing 1 required positional argument: &#39;num1&#39;</pre>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;FeatureLayer url:&#34;https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer/0&#34;&gt;,
+ &lt;FeatureLayer url:&#34;https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer/1&#34;&gt;,
+ &lt;FeatureLayer url:&#34;https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer/2&#34;&gt;,
+ &lt;FeatureLayer url:&#34;https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer/3&#34;&gt;]</pre>
 </div>
+
 </div>
 
 </div>
@@ -11917,24 +11918,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Classes">Classes<a class="anchor-link" href="#Classes">&#182;</a></h2><p>Everything is an object in Python including native types. You define class names with camel casing.
-You define the constructor with special name <code>__init__()</code>. The fields (private) are denoted with <code>_variable_name</code> specification and properties are decorated with <code>@property</code> decorator.</p>
-<p>Fields and properties are accessed within the class using <code>self.name</code> notation. This helps differentiate a class field / property from a local variable or method argument of the same name.</p>
-<h3 id="A-simple-class">A simple class<a class="anchor-link" href="#A-simple-class">&#182;</a></h3>
-<pre><code>class myClass:
-    _local_variables = "value"
-
-    def __init__(self, args):  #constructor
-        statements
-        self._local_variables = args   # assign values to fields
-
-    def func_1(self, args):
-        statements
-
-</code></pre>
-<p>You use this method by instantiating an object.</p>
-
-<pre><code>obj1 = myClass(args_defined_in_constructor)</code></pre>
+<h2 id="Query-the-features">Query the features<a class="anchor-link" href="#Query-the-features">&#182;</a></h2><p>Let us query the features on this layer</p>
 
 </div>
 </div>
@@ -11944,47 +11928,29 @@ You define the constructor with special name <code>__init__()</code>. The fields
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define a class to hold a satellite or aerial imagery file. Its properties give information</span>
-<span class="c1"># such as location of the ground, area, dimensions, spatial and spectral resolution etc.</span>
-
-<span class="k">class</span> <span class="nc">ImageryObject</span><span class="p">:</span>
-    <span class="n">_default_gsd</span> <span class="o">=</span> <span class="mf">5.0</span>
-    
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_file_path</span> <span class="o">=</span> <span class="n">file_path</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_gps_location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-        
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">bands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">#count number of bands</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">3</span>
-        <span class="k">return</span> <span class="n">count</span>
-    
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">gsd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># logic to calculate the ground sample distance</span>
-        <span class="n">gsd</span> <span class="o">=</span> <span class="mf">10.0</span>
-        <span class="k">return</span> <span class="n">gsd</span>
-    
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">address</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># logic to reverse geocode the self._gps_location to get address</span>
-        <span class="c1"># reverse geocode self._gps_location</span>
-        <span class="n">address</span> <span class="o">=</span> <span class="s2">&quot;123 XYZ Street&quot;</span>
-        <span class="k">return</span> <span class="n">address</span>
-    
-    <span class="c1">#class methods</span>
-    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">#logic to display picture</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;image is displayed&quot;</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">shuffle_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">#logic to shift RGB combination</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shifting pands&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_flayer</span> <span class="o">=</span> <span class="n">fortune_500_layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cities_flayer</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;cities_over1mil&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11994,8 +11960,9 @@ You define the constructor with special name <code>__init__()</code>. The fields
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># class instantiation</span>
-<span class="n">img1</span> <span class="o">=</span> <span class="n">ImageryObject</span><span class="p">(</span><span class="s2">&quot;user\img</span><span class="se">\f</span><span class="s2">ile.img&quot;</span><span class="p">)</span> <span class="c1">#pass value to constructor</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#query all the features and display it on a map</span>
+<span class="n">cities_fset</span> <span class="o">=</span> <span class="n">cities_flayer</span><span class="o">.</span><span class="n">query</span><span class="p">()</span> <span class="c1">#an empty query string will return all </span>
+                                        <span class="c1">#the features or the first 1000 which ever is smaller</span>
 </pre></div>
 
 </div>
@@ -12003,12 +11970,22 @@ You define the constructor with special name <code>__init__()</code>. The fields
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>df</code> property of <code>FeatureSet</code> class is a powerful way to visualize all the features as a pandas dataframe table.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img1</span><span class="o">.</span><span class="n">address</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_fset</span><span class="o">.</span><span class="n">df</span>
 </pre></div>
 
 </div>
@@ -12023,9 +12000,95 @@ You define the constructor with special name <code>__init__()</code>. The fields
 <div class="prompt output_prompt">Out[7]:</div>
 
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;123 XYZ Street&#39;</pre>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FEATURE</th>
+      <th>NAME</th>
+      <th>POP</th>
+      <th>geometry.x</th>
+      <th>geometry.y</th>
+    </tr>
+    <tr>
+      <th>OBJECTID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Los Angeles</td>
+      <td>3485398</td>
+      <td>-1.316297e+07</td>
+      <td>4.035820e+06</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>San Diego</td>
+      <td>1110549</td>
+      <td>-1.304195e+07</td>
+      <td>3.857562e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>New York</td>
+      <td>7322564</td>
+      <td>-8.238278e+06</td>
+      <td>4.970310e+06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Philadelphia</td>
+      <td>1585577</td>
+      <td>-8.367174e+06</td>
+      <td>4.859018e+06</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Dallas</td>
+      <td>1006877</td>
+      <td>-1.077579e+07</td>
+      <td>3.866612e+06</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Houston</td>
+      <td>1630553</td>
+      <td>-1.061585e+07</td>
+      <td>3.473191e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Chicago</td>
+      <td>2783726</td>
+      <td>-9.757182e+06</td>
+      <td>5.138534e+06</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Detroit</td>
+      <td>1027974</td>
+      <td>-9.244611e+06</td>
+      <td>5.210796e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -12034,63 +12097,25 @@ You define the constructor with special name <code>__init__()</code>. The fields
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img1</span><span class="o">.</span><span class="n">_gps_location</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Visualize-the-features-on-a-map">Visualize the features on a map<a class="anchor-link" href="#Visualize-the-features-on-a-map">&#182;</a></h2>
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(3, 4)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">img1</span><span class="o">.</span><span class="n">shuffle_bands</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;USA&#39;</span><span class="p">)</span>
+<span class="n">map1</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>shifting pands
-image is displayed
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12100,9 +12125,277 @@ image is displayed
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get help on any object. Only public methods, properties are displayed.</span>
-<span class="c1"># fields are private, properties are public. Class variables beginning with _ are private fields.</span>
-<span class="n">help</span><span class="p">(</span><span class="n">img1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">cities_1mil</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Editing-features">Editing features<a class="anchor-link" href="#Editing-features">&#182;</a></h1><h2 id="Check-if-the-layer-can-be-edited">Check if the layer can be edited<a class="anchor-link" href="#Check-if-the-layer-can-be-edited">&#182;</a></h2><p>Check if <code>edit</code> capability is found on the <code>FeatureLayer</code> object.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_flayer</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">capabilities</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Create,Delete,Query,Update,Editing&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Change the capabilities in the home app. In the next demo we will observe how to change this programmatically</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_flayer</span><span class="o">.</span><span class="n">_refresh</span><span class="p">()</span>
+<span class="n">cities_flayer</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">capabilities</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Create,Delete,Query,Update,Editing&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Updating-features">Updating features<a class="anchor-link" href="#Updating-features">&#182;</a></h3><p>Change 'New York' to 'New York City'</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_features</span> <span class="o">=</span> <span class="n">cities_fset</span><span class="o">.</span><span class="n">features</span>
+
+<span class="c1"># select &#39;NAME=New York&#39;</span>
+<span class="n">ny_feature</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">cities_features</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;New York&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ny_feature</span><span class="o">.</span><span class="n">attributes</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;FEATURE&#39;: &#39;Population greater than 999,999   County Seat&#39;,
+ &#39;NAME&#39;: &#39;New York&#39;,
+ &#39;OBJECTID&#39;: 3,
+ &#39;POP&#39;: 7322564}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets make a deep copy of ny_feature so we can edit the copy</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ny_edit</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">ny_feature</span><span class="p">)</span>
+<span class="n">ny_edit</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;New York City&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">ny_edit</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_text output_subarea ">
+<pre>{&#34;attributes&#34;: {&#34;NAME&#34;: &#34;New York City&#34;, &#34;POP&#34;: 7322564, &#34;OBJECTID&#34;: 3, &#34;FEATURE&#34;: &#34;Population greater than 999,999   County Seat&#34;}, &#34;geometry&#34;: {&#34;y&#34;: 4970310.197143376, &#34;x&#34;: -8238277.756585079}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let us send this feature object to the <code>edit_features()</code> method and edit the original feature layer.</p>
+<p><code>edit_features()</code> <a href="http://esri.github.io/arcgis-python-api/apidoc/html/arcgis.features.toc.html#arcgis.features.FeatureLayer.edit_features">signature</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">update_result</span> <span class="o">=</span> <span class="n">cities_flayer</span><span class="o">.</span><span class="n">edit_features</span><span class="p">(</span><span class="n">updates</span><span class="o">=</span><span class="p">[</span><span class="n">ny_edit</span><span class="p">])</span>
+<span class="n">update_result</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;addResults&#39;: [],
+ &#39;deleteResults&#39;: [],
+ &#39;updateResults&#39;: [{&#39;globalId&#39;: None, &#39;objectId&#39;: 3, &#39;success&#39;: True}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Check if the updates are reflected in arcgis.com</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Adding-features">Adding features<a class="anchor-link" href="#Adding-features">&#182;</a></h3><p>Call <code>edit_features()</code> and pass the new <code>Feature</code> object to the <code>adds</code> argument</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets add San Francisco as the new feature</span>
+<span class="c1"># make use of the ny_edit Feature object and substitute it</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ny_edit</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12117,34 +12410,7 @@ image is displayed
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on ImageryObject in module __main__ object:
-
-class ImageryObject(builtins.object)
- |  Methods defined here:
- |  
- |  __init__(self, file_path)
- |      Initialize self.  See help(type(self)) for accurate signature.
- |  
- |  display(self)
- |      #class methods
- |  
- |  shuffle_bands(self)
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  __dict__
- |      dictionary for instance variables (if defined)
- |  
- |  __weakref__
- |      list of weak references to the object (if defined)
- |  
- |  address
- |  
- |  bands
- |  
- |  gsd
-
+<pre>{&#34;attributes&#34;: {&#34;NAME&#34;: &#34;New York City&#34;, &#34;POP&#34;: 7322564, &#34;OBJECTID&#34;: 3, &#34;FEATURE&#34;: &#34;Population greater than 999,999   County Seat&#34;}, &#34;geometry&#34;: {&#34;y&#34;: 4970310.197143376, &#34;x&#34;: -8238277.756585079}}
 </pre>
 </div>
 </div>
@@ -12158,39 +12424,19 @@ class ImageryObject(builtins.object)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exception-handling">Exception handling<a class="anchor-link" href="#Exception-handling">&#182;</a></h2><p>Exceptions are classes. You can define your own by inheriting from <code>Exception</code> class.</p>
-
-<pre><code>try:
-    statements
-
-except Exception_type1 as e1:
-    handling statements
-
-except Exception_type2 as e2:
-    specific handling statements
-
-except Exception as generic_ex:
-    generic handling statements
-
-else:
-    some more statements
-
-finally:
-    default statements which will always be executed</code></pre>
+<p>Use Geocoding tools to find the X,Y of SFO.
+But to use the geocoding tools we need to know the spatial reference of existing features. We are going to see more of geocoding tomorrow.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">img2</span> <span class="o">=</span> <span class="n">ImageryObject</span><span class="p">(</span><span class="s2">&quot;user\img</span><span class="se">\f</span><span class="s2">ile2.img&quot;</span><span class="p">)</span>
-    <span class="n">img2</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;something bad happened&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get the SRS from cities FeatureSet object</span>
+<span class="n">cities_fset</span><span class="o">.</span><span class="n">spatial_reference</span>
 </pre></div>
 
 </div>
@@ -12202,12 +12448,14 @@ finally:
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[23]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>image is displayed
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;latestWkid&#39;: 3857, &#39;wkid&#39;: 102100}</pre>
 </div>
+
 </div>
 
 </div>
@@ -12216,14 +12464,13 @@ finally:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">img2</span> <span class="o">=</span> <span class="n">ImageryObject</span><span class="p">()</span>
-    <span class="n">img2</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;something bad happened&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now call the geocoding tools</span>
+<span class="kn">from</span> <span class="nn">arcgis</span> <span class="k">import</span> <span class="n">geocoding</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="n">out_sr</span> <span class="o">=</span> <span class="n">cities_fset</span><span class="o">.</span><span class="n">spatial_reference</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12235,12 +12482,58 @@ finally:
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[24]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>something bad happened
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;address&#39;: &#39;San Francisco, California, United States&#39;,
+ &#39;attributes&#39;: {&#39;AddBldg&#39;: &#39;&#39;,
+  &#39;AddNum&#39;: &#39;&#39;,
+  &#39;AddNumFrom&#39;: &#39;&#39;,
+  &#39;AddNumTo&#39;: &#39;&#39;,
+  &#39;Addr_type&#39;: &#39;POI&#39;,
+  &#39;City&#39;: &#39;&#39;,
+  &#39;Country&#39;: &#39;USA&#39;,
+  &#39;DisplayX&#39;: -122.41942,
+  &#39;DisplayY&#39;: 37.774928,
+  &#39;Distance&#39;: 0,
+  &#39;LangCode&#39;: &#39;&#39;,
+  &#39;Loc_name&#39;: &#39;Gaz.WorldGazetteer.POI1&#39;,
+  &#39;Match_addr&#39;: &#39;San Francisco, California, United States&#39;,
+  &#39;Nbrhd&#39;: &#39;&#39;,
+  &#39;Phone&#39;: &#39;&#39;,
+  &#39;PlaceName&#39;: &#39;San Francisco&#39;,
+  &#39;Place_addr&#39;: &#39;&#39;,
+  &#39;Postal&#39;: &#39;&#39;,
+  &#39;PostalExt&#39;: &#39;&#39;,
+  &#39;Rank&#39;: &#39;2.5&#39;,
+  &#39;Region&#39;: &#39;California&#39;,
+  &#39;Score&#39;: 100,
+  &#39;Side&#39;: &#39;&#39;,
+  &#39;StAddr&#39;: &#39;&#39;,
+  &#39;StDir&#39;: &#39;&#39;,
+  &#39;StName&#39;: &#39;&#39;,
+  &#39;StPreDir&#39;: &#39;&#39;,
+  &#39;StPreType&#39;: &#39;&#39;,
+  &#39;StType&#39;: &#39;&#39;,
+  &#39;Subregion&#39;: &#39;San Francisco&#39;,
+  &#39;Type&#39;: &#39;City&#39;,
+  &#39;URL&#39;: &#39;&#39;,
+  &#39;X&#39;: -122.41942,
+  &#39;Xmax&#39;: -122.31742,
+  &#39;Xmin&#39;: -122.52142,
+  &#39;Y&#39;: 37.774928,
+  &#39;Ymax&#39;: 37.876928,
+  &#39;Ymin&#39;: 37.672928},
+ &#39;extent&#39;: {&#39;xmax&#39;: -13616312.909546977,
+  &#39;xmin&#39;: -13639022.085668804,
+  &#39;ymax&#39;: 4562054.425915602,
+  &#39;ymin&#39;: 4533323.9884680845},
+ &#39;location&#39;: {&#39;x&#39;: -13627667.422244564, &#39;y&#39;: 4547679.260407308},
+ &#39;score&#39;: 100}</pre>
 </div>
+
 </div>
 
 </div>
@@ -12249,16 +12542,11 @@ finally:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">img2</span> <span class="o">=</span> <span class="n">ImageryObject</span><span class="p">()</span>
-    <span class="n">img2</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;something bad happened&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exactly what whent bad? : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sfo_location</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">]</span>
+<span class="n">sfo_location</span>
 </pre></div>
 
 </div>
@@ -12270,13 +12558,14 @@ finally:
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[25]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>something bad happened
-exactly what whent bad? : __init__() missing 1 required positional argument: &#39;file_path&#39;
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;x&#39;: -13627667.422244564, &#39;y&#39;: 4547679.260407308}</pre>
 </div>
+
 </div>
 
 </div>
@@ -12285,17 +12574,28 @@ exactly what whent bad? : __init__() missing 1 required positional argument: &#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">img2</span> <span class="o">=</span> <span class="n">ImageryObject</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
-    <span class="n">img2</span><span class="o">.</span><span class="n">dddisplay</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sfo_new_feature</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">ny_edit</span><span class="p">)</span>
+<span class="n">sfo_new_feature</span><span class="o">.</span><span class="n">as_dict</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sfo_location</span>
+<span class="n">sfo_new_feature</span><span class="o">.</span><span class="n">as_dict</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;FEATURE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;created with Python API&#39;</span>
+<span class="n">sfo_new_feature</span><span class="o">.</span><span class="n">as_dict</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;POP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1234567</span> <span class="c1">#about 1.2 million hypothetically</span>
+<span class="n">sfo_new_feature</span><span class="o">.</span><span class="n">as_dict</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;San Francisco&#39;</span>
+<span class="c1">#sfo_new_feature.as_dict[&#39;attributes&#39;][&#39;OBJECTID&#39;] =??  # dont mess with this system field</span>
+</pre></div>
 
-<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">terr</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;looks like you forgot a parameter&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nope, it went worng here: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sfo_new_feature</span>
 </pre></div>
 
 </div>
@@ -12307,17 +12607,238 @@ exactly what whent bad? : __init__() missing 1 required positional argument: &#3
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[34]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>nope, it went worng here: &#39;ImageryObject&#39; object has no attribute &#39;dddisplay&#39;
-</pre>
-</div>
-</div>
 
-</div>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#34;attributes&#34;: {&#34;NAME&#34;: &#34;San Francisco_sr3&#34;, &#34;POP&#34;: 1234567, &#34;OBJECTID&#34;: 3, &#34;FEATURE&#34;: &#34;created with Python API&#34;}, &#34;geometry&#34;: {&#34;y&#34;: 4547679.260407308, &#34;x&#34;: -13627667.422244564}}</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">add_result</span> <span class="o">=</span> <span class="n">cities_flayer</span><span class="o">.</span><span class="n">edit_features</span><span class="p">(</span><span class="n">adds</span> <span class="o">=</span> <span class="p">[</span><span class="n">sfo_new_feature</span><span class="o">.</span><span class="n">as_dict</span><span class="p">])</span>
+<span class="n">add_result</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;addResults&#39;: [{&#39;globalId&#39;: None, &#39;objectId&#39;: 11, &#39;success&#39;: True}],
+ &#39;deleteResults&#39;: [],
+ &#39;updateResults&#39;: []}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Deleting-features">Deleting features<a class="anchor-link" href="#Deleting-features">&#182;</a></h3><p>Call <code>edit_features()</code> method and passing the object id of the feature we want to be remove to the <code>deletes</code> parameter. 
+<strong>Note</strong>: pass object id as a string</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pass the object id as a string to the delete parameter</span>
+<span class="n">delete_result</span> <span class="o">=</span> <span class="n">cities_flayer</span><span class="o">.</span><span class="n">edit_features</span><span class="p">(</span><span class="n">deletes</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">delete_result</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;addResults&#39;: [],
+ &#39;deleteResults&#39;: [{&#39;globalId&#39;: None, &#39;objectId&#39;: 9, &#39;success&#39;: True}],
+ &#39;updateResults&#39;: []}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Check-results-of-edit-operations">Check results of edit operations<a class="anchor-link" href="#Check-results-of-edit-operations">&#182;</a></h2><p>We have successfully added, removed and edited features. Let us query the layer once again and display the resutls as a dataframe and verify them.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cities_fset_edited</span> <span class="o">=</span> <span class="n">cities_flayer</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+<span class="n">cities_fset_edited</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[39]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FEATURE</th>
+      <th>NAME</th>
+      <th>POP</th>
+      <th>geometry.x</th>
+      <th>geometry.y</th>
+    </tr>
+    <tr>
+      <th>OBJECTID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Los Angeles</td>
+      <td>3485398</td>
+      <td>-1.316297e+07</td>
+      <td>4.035820e+06</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>San Diego</td>
+      <td>1110549</td>
+      <td>-1.304195e+07</td>
+      <td>3.857562e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>New York City</td>
+      <td>7322564</td>
+      <td>-8.238278e+06</td>
+      <td>4.970310e+06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Philadelphia</td>
+      <td>1585577</td>
+      <td>-8.367174e+06</td>
+      <td>4.859018e+06</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Dallas</td>
+      <td>1006877</td>
+      <td>-1.077579e+07</td>
+      <td>3.866612e+06</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Houston</td>
+      <td>1630553</td>
+      <td>-1.061585e+07</td>
+      <td>3.473191e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Chicago</td>
+      <td>2783726</td>
+      <td>-9.757182e+06</td>
+      <td>5.138534e+06</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Population greater than 999,999   County Seat</td>
+      <td>Detroit</td>
+      <td>1027974</td>
+      <td>-9.244611e+06</td>
+      <td>5.210796e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, we no longer see 'Redlands' which we deleted. We see a new objectid of 23 corresponding to Los Angeles that we added. Also the short_form of San Francisco is corrected to 'SFO'.</p>
+<p>The edits we performed on the features are persisted in the feature layer and will reflect in all clients accessing it.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>

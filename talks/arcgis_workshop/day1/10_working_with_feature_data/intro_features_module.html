@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Ex_download_course_data</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>intro_features_module</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,88 +11778,113 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Download-course-data-from-ArcGIS-open-data-portal">Download course data from ArcGIS open data portal<a class="anchor-link" href="#Download-course-data-from-ArcGIS-open-data-portal">&#182;</a></h1><p>We are going to use city of Boston's datasets from its open data portal. Lookup the datasets here: <a href="http://bostonopendata-boston.opendata.arcgis.com/datasets/">http://bostonopendata-boston.opendata.arcgis.com/datasets/</a>.</p>
-<p>You can either download them from the website or run the cells below to download them into your data directory</p>
+<h1 id="Introduction-to-the-features-module">Introduction to the features module<a class="anchor-link" href="#Introduction-to-the-features-module">&#182;</a></h1><p><code>Feature</code>, <code>FeatureSet</code>, <code>FeatureLayer</code>, <code>FeatureCollection</code>, <code>FeatureLayerCollection</code></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="k">import</span> <span class="n">urlretrieve</span>
-<span class="n">download_path</span> <span class="o">=</span> <span class="s1">&#39;../../datasets&#39;</span> <span class="c1">#datasets folder which is two levels up from this current notebook</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="City-of-Boston-projects">City of Boston projects<a class="anchor-link" href="#City-of-Boston-projects">&#182;</a></h2><p>Page url: <a href="http://bostonopendata-boston.opendata.arcgis.com/datasets/6aa4e089f88e46a88caa93b3eee69c10_1">http://bostonopendata-boston.opendata.arcgis.com/datasets/6aa4e089f88e46a88caa93b3eee69c10_1</a></p>
+<p><img src="http://esri.github.io/arcgis-python-api/notebooks/nbimages/guide_features_01.png" alt=""></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">download_url</span> <span class="o">=</span> <span class="s1">&#39;http://bostonopendata-boston.opendata.arcgis.com/datasets/6aa4e089f88e46a88caa93b3eee69c10_1.zip&#39;</span>
-
-<span class="n">urlretrieve</span><span class="p">(</span><span class="n">download_url</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_path</span><span class="p">,</span> <span class="s1">&#39;boston_projects.zip&#39;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Colleges-and-universities">Colleges and universities<a class="anchor-link" href="#Colleges-and-universities">&#182;</a></h2><p>Page url: <a href="http://bostonopendata-boston.opendata.arcgis.com/datasets/cbf14bb032ef4bd38e20429f71acb61a_2">http://bostonopendata-boston.opendata.arcgis.com/datasets/cbf14bb032ef4bd38e20429f71acb61a_2</a></p>
+<p>Fortune 500 company example</p>
+<ul>
+<li>Each company (single point in space) =  <code>Feature</code> object.</li>
+<li>All East-coast companies profit &gt; 5B = <code>FeatureSet</code>. A <code>FeatureSet</code> is a collection of <code>Feature</code> objects.</li>
+<li>When published as a feature service on your GIS. That layer is a <code>FeatureLayer</code>.</li>
+<li>The collection of all layers in the feature service is read as a <code>FeatureLayerCollection</code> object.</li>
+<li>Alternate to <code>FeatureLayer</code> - can store as lightweight item = <code>FeatureCollection</code>.<ul>
+<li><code>FeatureCollection</code> is a <code>FeatureSet</code> + <code>layerDefinition</code> info</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">download_url</span> <span class="o">=</span><span class="s1">&#39;http://bostonopendata-boston.opendata.arcgis.com/datasets/cbf14bb032ef4bd38e20429f71acb61a_2&#39;</span>
-<span class="n">urlretrieve</span><span class="p">(</span><span class="n">download_url</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_path</span><span class="p">,</span> <span class="s1">&#39;colleges.zip&#39;</span><span class="p">))</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On your enterprise, your feature data live either as a <code>FeatureLayer</code> or <code>FeatureCollection</code> which can also be an item without a feature service. The latter has a size limit though</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><code>Item</code> object in your enterprise. Eg: fortune_500_2017</p>
+<ul>
+<li><code>Item.layers</code> property will give either a <ul>
+<li>list of [<code>FeatureLayer</code>] objects</li>
+<li>or a [<code>FeatureCollection</code>] object</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>call the <code>query()</code> method on either a <code>FeatureLayer</code> or <code>FeatureCollection</code> you get</p>
+<ul>
+<li><code>FeatureSet</code></li>
+<li><code>features</code> property of <code>FeatureSet</code> gives a list of <code>[Feature]</code> objects</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Where-to-use-what?">Where to use what?<a class="anchor-link" href="#Where-to-use-what?">&#182;</a></h3><ul>
+<li><code>Feature</code> - smallest entity. Cannot draw a single feature object.<ul>
+<li><code>geometry</code>, <code>attributes</code>, <code>fields</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>FeatureSet</code> - inputs to GP, can be drawn on map widget<ul>
+<li><code>df</code>, <code>spatial_reference</code>, <code>features</code>, <code>fields</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>FeatureCollection</code> - items in GIS, input to GP, output from GP<ul>
+<li><code>query()</code> [does not support where clause]</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>FeatureLayer</code> - through individual layers of a feature services.<ul>
+<li><code>query()</code> [supports where clause], <code>attachments</code></li>
+<li><code>manager</code>, <code>edit_features()</code>, <code>calculate()</code>, <code>query_related_records()</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>FeatureLayerCollection</code> - through publishing as feature services</li>
+</ul>
 
+</div>
+</div>
 </div>
     </div>
   </div>
