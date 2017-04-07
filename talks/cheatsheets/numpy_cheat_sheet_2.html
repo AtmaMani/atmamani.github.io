@@ -11791,6 +11791,11 @@ div#notebook {
 </ul>
 </li>
 <li><a href="#Array-searching">Array searching</a></li>
+<li><a href="#Array-operations">Array operations</a><ul>
+<li><a href="#Caveats">NumPy Caveats</a></li>
+<li><a href="#Universal-functions">Universal functions</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -11798,7 +11803,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11811,7 +11816,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
@@ -11827,12 +11832,12 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([13, 10, 12, 14, 12, 23, 13, 14])</pre>
+<pre>array([12, 21, 19, 14, 16, 20, 24, 21])</pre>
 </div>
 
 </div>
@@ -11843,7 +11848,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>  <span class="c1">#method chaining - numbers from 0 to 50</span>
@@ -11859,16 +11864,16 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[123,  46,  28,  25,  47,  46,  25, 176,  73, 174],
-       [152, 105,  87, 137,  41, 174,  87, 142,  32, 149],
-       [184, 118,  22, 104, 177, 113, 170, 147, 125, 113],
-       [ 47, 148,  95, 102, 125, 146, 109,  82,  42, 118],
-       [109,  40,  28,  52,  61,  54, 129,  92,  82,  30]])</pre>
+<pre>array([[ 94,  59,  25,  97,  71,  86, 178,  56,  43, 142],
+       [ 87, 105, 170,  90, 110, 199, 124, 199,  81,  63],
+       [158, 164, 138,  66, 144, 158,  81, 116, 132,  78],
+       [121, 198,  55, 134, 118,  36,  71,  72,  23, 138],
+       [ 53,  48, 106,  98,  81,  66,  34,  64,  31,  38]])</pre>
 </div>
 
 </div>
@@ -12823,6 +12828,227 @@ Make <strong>deep copies</strong> using <strong><code>copy()</code></strong> met
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Array-operations">Array operations<a class="anchor-link" href="#Array-operations">&#182;</a></h2><p>NumPy has operators like <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code> overloaded so you can add two matrices like scalars</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr_sum</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">+</span> <span class="n">arr1</span>
+<span class="n">arr_sum</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([24, 42, 38, 28, 32, 40, 48, 42])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr_cubed</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">arr_cubed</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([144, 441, 361, 196, 256, 400, 576, 441])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly, you can add a scalar to an array and NumPy will <code>broadcast</code> that operation on all the elements.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr_cubed</span> <span class="o">-</span> <span class="mi">100</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 44, 341, 261,  96, 156, 300, 476, 341])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Caveats">Caveats<a class="anchor-link" href="#Caveats">&#182;</a></h3><p>Numpy does not throw errors for divide by zero or for 0/0. Intead it sets value to <code>inf</code> and <code>nan</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr_cubed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">arr_cubed</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([  0, 441, 361, 196, 256, 400, 576, 441])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr_cubed</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\atma6951\AppData\Local\Continuum\Anaconda3\envs\pychakras\lib\site-packages\ipykernel_launcher.py:1: RuntimeWarning: divide by zero encountered in true_divide
+  &#34;&#34;&#34;Entry point for launching an IPython kernel.
+C:\Users\atma6951\AppData\Local\Continuum\Anaconda3\envs\pychakras\lib\site-packages\ipykernel_launcher.py:1: RuntimeWarning: invalid value encountered in true_divide
+  &#34;&#34;&#34;Entry point for launching an IPython kernel.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ nan,  inf,  inf,  inf,  inf,  inf,  inf,  inf])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus 0/0 = <code>nan</code> and num/0 = <code>inf</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Universal-functions">Universal functions<a class="anchor-link" href="#Universal-functions">&#182;</a></h2><p>Numpy has a bunch of <a href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html">universal functions</a> that work on the array elements one at a time and allow arrays to be used or treated as scalars.</p>
+<p>Before writing a loop, look up the <a href="https://docs.scipy.org/doc/numpy/reference/ufuncs.html#available-ufuncs">function list here</a></p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
