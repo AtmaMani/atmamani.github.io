@@ -11814,10 +11814,7 @@ div#notebook {
 <li><a href="#right-merge">right merge</a></li>
 </ul>
 </li>
-<li><a href="#join">join</a><ul>
-<li><a href="#beautify-describe-output">beautify describe output</a></li>
-</ul>
-</li>
+<li><a href="#join">join</a></li>
 </ul>
 </li>
 </ul>
@@ -11841,7 +11838,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Index Levels</span>
@@ -11860,7 +11857,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -11876,7 +11873,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create a multiindex</span>
@@ -11893,7 +11890,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -11910,7 +11907,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a dataframe (6,2) with multi level index</span>
@@ -11927,11 +11924,24 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11945,34 +11955,34 @@ div#notebook {
     <tr>
       <th rowspan="3" valign="top">G1</th>
       <th>1</th>
-      <td>-1.647150</td>
-      <td>1.056271</td>
+      <td>-0.349997</td>
+      <td>1.372488</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.159391</td>
-      <td>-0.927214</td>
+      <td>0.090160</td>
+      <td>0.121530</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.314953</td>
-      <td>-0.293073</td>
+      <td>0.751559</td>
+      <td>-0.335218</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">G2</th>
       <th>1</th>
-      <td>-1.135697</td>
-      <td>-0.962066</td>
+      <td>1.501890</td>
+      <td>0.835727</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.304753</td>
-      <td>0.829451</td>
+      <td>-1.542555</td>
+      <td>-1.878225</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.455330</td>
-      <td>-0.124798</td>
+      <td>0.721939</td>
+      <td>-0.121186</td>
     </tr>
   </tbody>
 </table>
@@ -11997,7 +12007,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access columns as usual</span>
@@ -12013,17 +12023,17 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>G1  1   -1.647150
-    2   -0.159391
-    3   -1.314953
-G2  1   -1.135697
-    2   -0.304753
-    3    0.455330
+<pre>G1  1   -0.349997
+    2    0.090160
+    3    0.751559
+G2  1    1.501890
+    2   -1.542555
+    3    0.721939
 Name: A, dtype: float64</pre>
 </div>
 
@@ -12035,7 +12045,7 @@ Name: A, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access rows</span>
@@ -12051,11 +12061,24 @@ Name: A, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12067,18 +12090,18 @@ Name: A, dtype: float64</pre>
   <tbody>
     <tr>
       <th>1</th>
-      <td>-1.647150</td>
-      <td>1.056271</td>
+      <td>-0.349997</td>
+      <td>1.372488</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.159391</td>
-      <td>-0.927214</td>
+      <td>0.090160</td>
+      <td>0.121530</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.314953</td>
-      <td>-0.293073</td>
+      <td>0.751559</td>
+      <td>-0.335218</td>
     </tr>
   </tbody>
 </table>
@@ -12093,7 +12116,7 @@ Name: A, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#acess a single row form inner</span>
@@ -12109,13 +12132,13 @@ Name: A, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>A   -1.647150
-B    1.056271
+<pre>A   -0.349997
+B    1.372488
 Name: 1, dtype: float64</pre>
 </div>
 
@@ -12169,7 +12192,7 @@ Name: 1, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span>
@@ -12184,7 +12207,7 @@ Name: 1, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12200,7 +12223,7 @@ Name: 1, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="s1">&#39;Serial&#39;</span><span class="p">]</span>
@@ -12216,11 +12239,24 @@ Name: 1, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12240,34 +12276,34 @@ Name: 1, dtype: float64</pre>
     <tr>
       <th rowspan="3" valign="top">G1</th>
       <th>1</th>
-      <td>-1.647150</td>
-      <td>1.056271</td>
+      <td>-0.349997</td>
+      <td>1.372488</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.159391</td>
-      <td>-0.927214</td>
+      <td>0.090160</td>
+      <td>0.121530</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.314953</td>
-      <td>-0.293073</td>
+      <td>0.751559</td>
+      <td>-0.335218</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">G2</th>
       <th>1</th>
-      <td>-1.135697</td>
-      <td>-0.962066</td>
+      <td>1.501890</td>
+      <td>0.835727</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.304753</td>
-      <td>0.829451</td>
+      <td>-1.542555</td>
+      <td>-1.878225</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.455330</td>
-      <td>-0.124798</td>
+      <td>0.721939</td>
+      <td>-0.121186</td>
     </tr>
   </tbody>
 </table>
@@ -12292,7 +12328,7 @@ Name: 1, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get all rows with Serial 1</span>
@@ -12308,11 +12344,24 @@ Name: 1, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12329,13 +12378,13 @@ Name: 1, dtype: float64</pre>
   <tbody>
     <tr>
       <th>G1</th>
-      <td>-1.647150</td>
-      <td>1.056271</td>
+      <td>-0.349997</td>
+      <td>1.372488</td>
     </tr>
     <tr>
       <th>G2</th>
-      <td>-1.135697</td>
-      <td>-0.962066</td>
+      <td>1.501890</td>
+      <td>0.835727</td>
     </tr>
   </tbody>
 </table>
@@ -12350,7 +12399,7 @@ Name: 1, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get rows with serial 2 in group 1</span>
@@ -12366,13 +12415,13 @@ Name: 1, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[23]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>A   -0.159391
-B   -0.927214
+<pre>A    0.09016
+B    0.12153
 Name: (G1, 2), dtype: float64</pre>
 </div>
 
@@ -12395,7 +12444,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]}</span>
@@ -12412,11 +12461,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12458,7 +12520,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dropping rows with one or more na values</span>
@@ -12474,11 +12536,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12508,7 +12583,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dropping cols with one or more na values</span>
@@ -12524,11 +12599,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12562,7 +12650,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping rows only if 2 or more cols have na values</span>
@@ -12578,11 +12666,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12627,7 +12728,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfna</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">999</span><span class="p">)</span>
@@ -12642,11 +12743,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12688,7 +12802,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filling with mean value of entire dataframe</span>
@@ -12704,11 +12818,24 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12750,7 +12877,7 @@ Name: (G1, 2), dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fill with mean value row by row</span>
@@ -12766,7 +12893,7 @@ Name: (G1, 2), dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -12796,7 +12923,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Company&#39;</span><span class="p">:[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">],</span>
@@ -12816,11 +12943,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12889,10 +13029,10 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># mean sales by company</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># mean sales by company - automatically only applies mean on numerical columns</span>
 <span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -12905,11 +13045,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12947,7 +13100,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># standard deviation in sales by company</span>
@@ -12963,11 +13116,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13015,7 +13181,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -13030,123 +13196,86 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[23]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr>
       <th></th>
+      <th colspan="8" halign="left">Sales</th>
+    </tr>
+    <tr>
       <th></th>
-      <th>Sales</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
     </tr>
     <tr>
       <th>Company</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="8" valign="top">FB</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>296.500000</td>
-    </tr>
-    <tr>
-      <th>std</th>
+      <th>FB</th>
+      <td>2.0</td>
+      <td>296.5</td>
       <td>75.660426</td>
+      <td>243.0</td>
+      <td>269.75</td>
+      <td>296.5</td>
+      <td>323.25</td>
+      <td>350.0</td>
     </tr>
     <tr>
-      <th>min</th>
-      <td>243.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>269.750000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>296.500000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>323.250000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>350.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="8" valign="top">GOOG</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>160.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
+      <th>GOOG</th>
+      <td>2.0</td>
+      <td>160.0</td>
       <td>56.568542</td>
+      <td>120.0</td>
+      <td>140.00</td>
+      <td>160.0</td>
+      <td>180.00</td>
+      <td>200.0</td>
     </tr>
     <tr>
-      <th>min</th>
-      <td>120.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>140.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>160.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>180.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>200.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="8" valign="top">MSFT</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
+      <th>MSFT</th>
+      <td>2.0</td>
+      <td>232.0</td>
       <td>152.735065</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>124.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>178.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>286.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>340.000000</td>
+      <td>124.0</td>
+      <td>178.00</td>
+      <td>232.0</td>
+      <td>286.00</td>
+      <td>340.0</td>
     </tr>
   </tbody>
 </table>
@@ -13171,7 +13300,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -13186,72 +13315,86 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr>
-      <th>Company</th>
-      <th colspan="8" halign="left">FB</th>
-      <th colspan="5" halign="left">GOOG</th>
-      <th colspan="8" halign="left">MSFT</th>
-    </tr>
-    <tr>
+    <tr style="text-align: right;">
       <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
-      <th>count</th>
-      <th>mean</th>
-      <th>...</th>
-      <th>75%</th>
-      <th>max</th>
-      <th>count</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>min</th>
-      <th>25%</th>
-      <th>50%</th>
-      <th>75%</th>
-      <th>max</th>
+      <th>Company</th>
+      <th>FB</th>
+      <th>GOOG</th>
+      <th>MSFT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Sales</th>
-      <td>2.0</td>
-      <td>296.5</td>
+      <th rowspan="8" valign="top">Sales</th>
+      <th>count</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+    <tr>
+      <th>std</th>
       <td>75.660426</td>
-      <td>243.0</td>
-      <td>269.75</td>
-      <td>296.5</td>
-      <td>323.25</td>
-      <td>350.0</td>
-      <td>2.0</td>
-      <td>160.0</td>
-      <td>...</td>
-      <td>180.0</td>
-      <td>200.0</td>
-      <td>2.0</td>
-      <td>232.0</td>
+      <td>56.568542</td>
       <td>152.735065</td>
-      <td>124.0</td>
-      <td>178.0</td>
-      <td>232.0</td>
-      <td>286.0</td>
-      <td>340.0</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>243.000000</td>
+      <td>120.000000</td>
+      <td>124.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>269.750000</td>
+      <td>140.000000</td>
+      <td>178.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>323.250000</td>
+      <td>180.000000</td>
+      <td>286.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>350.000000</td>
+      <td>200.000000</td>
+      <td>340.000000</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 24 columns</p>
 </div>
 </div>
 
@@ -13263,7 +13406,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
@@ -13278,14 +13421,12 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>MultiIndex(levels=[[&#39;FB&#39;, &#39;GOOG&#39;, &#39;MSFT&#39;], [&#39;count&#39;, &#39;mean&#39;, &#39;std&#39;, &#39;min&#39;, &#39;25%&#39;, &#39;50%&#39;, &#39;75%&#39;, &#39;max&#39;]],
-           labels=[[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2], [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7]],
-           names=[&#39;Company&#39;, None])</pre>
+<pre>Index([&#39;FB&#39;, &#39;GOOG&#39;, &#39;MSFT&#39;], dtype=&#39;object&#39;, name=&#39;Company&#39;)</pre>
 </div>
 
 </div>
@@ -13307,7 +13448,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
@@ -13323,7 +13464,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span>
@@ -13338,11 +13479,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13395,7 +13549,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span>
@@ -13410,11 +13564,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[16]:</div>
+<div class="prompt output_prompt">Out[28]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13477,7 +13644,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># extend along rows</span>
@@ -13493,11 +13660,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
+<div class="prompt output_prompt">Out[29]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13578,7 +13758,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extend along columns</span>
@@ -13594,11 +13774,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[30]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13719,14 +13912,14 @@ Name: a, dtype: float64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="merge">merge<a class="anchor-link" href="#merge">&#182;</a></h3><p>merge lets you do a sql merge with <code>inner, outer, right</code> and <code>left</code> joins.
-<code>pd.marge(left, right, how='outer', on='key')</code> where, <code>left</code> and <code>right</code> are your two DataFrames (tables) and <code>on</code> refers to the <code>foreign key</code></p>
+<code>pd.merge(left, right, how='outer', on='key')</code> where, <code>left</code> and <code>right</code> are your two DataFrames (tables) and <code>on</code> refers to the <code>foreign key</code></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K3&#39;</span><span class="p">],</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
@@ -13746,11 +13939,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[33]:</div>
+<div class="prompt output_prompt">Out[31]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13798,7 +14004,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">right</span>
@@ -13813,11 +14019,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[32]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13875,7 +14094,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#merge along key1</span>
@@ -13891,11 +14110,24 @@ Name: a, dtype: float64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[35]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13974,7 +14206,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">]</span>
@@ -13990,11 +14222,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[36]:</div>
+<div class="prompt output_prompt">Out[34]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14047,7 +14292,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">right</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">]</span>
@@ -14063,11 +14308,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[37]:</div>
+<div class="prompt output_prompt">Out[35]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14120,7 +14378,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
@@ -14135,11 +14393,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[38]:</div>
+<div class="prompt output_prompt">Out[36]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14195,7 +14466,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">om</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
@@ -14211,11 +14482,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[37]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14306,7 +14590,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">om</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span> <span class="c1">#now you got the merge sorted by columns.</span>
@@ -14321,11 +14605,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[42]:</div>
+<div class="prompt output_prompt">Out[38]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14416,7 +14713,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
@@ -14431,11 +14728,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[44]:</div>
+<div class="prompt output_prompt">Out[39]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14508,7 +14818,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
@@ -14523,11 +14833,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[45]:</div>
+<div class="prompt output_prompt">Out[40]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14600,7 +14923,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span>
@@ -14622,11 +14945,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[47]:</div>
+<div class="prompt output_prompt">Out[41]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14664,7 +15000,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_b</span>
@@ -14679,11 +15015,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[48]:</div>
+<div class="prompt output_prompt">Out[42]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14721,10 +15070,10 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join b to a, default mode = keep all rows of a and matching rows of b</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join b to a, default mode = keep all rows of a and matching rows of b (left join)</span>
 <span class="n">df_a</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
 </pre></div>
 
@@ -14737,11 +15086,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[49]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14797,7 +15159,7 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join b to a</span>
@@ -14813,11 +15175,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[50]:</div>
+<div class="prompt output_prompt">Out[44]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14863,10 +15238,10 @@ Now lets add a key2 column to both the tables.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#outer join</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#outer join - union of outputs</span>
 <span class="n">df_b</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -14879,11 +15254,24 @@ Now lets add a key2 column to both the tables.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[51]:</div>
+<div class="prompt output_prompt">Out[45]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -14922,259 +15310,6 @@ Now lets add a key2 column to both the tables.</p>
       <td>D3</td>
       <td>NaN</td>
       <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus values are sorted on index by default.</p>
-<h4 id="beautify-describe-output">beautify describe output<a class="anchor-link" href="#beautify-describe-output">&#182;</a></h4><p>Ok, now lets see how join can be used to extend the columns of <code>describe</code> aggregation output</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_des</span> <span class="o">=</span> <span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="n">comp_des</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[55]:</div>
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>Sales</th>
-    </tr>
-    <tr>
-      <th>Company</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="8" valign="top">FB</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>296.500000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>75.660426</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>243.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>269.750000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>296.500000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>323.250000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>350.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="8" valign="top">GOOG</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>160.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>56.568542</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>120.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>140.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>160.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>180.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>200.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="8" valign="top">MSFT</th>
-      <th>count</th>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>152.735065</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>124.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>178.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>286.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>340.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_fb</span> <span class="o">=</span> <span class="n">comp_des</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;FB&#39;</span><span class="p">]</span>
-<span class="n">comp_go</span> <span class="o">=</span> <span class="n">comp_des</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">]</span>
-<span class="n">comp_ms</span> <span class="o">=</span> <span class="n">comp_des</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]</span>
-
-<span class="n">comp_fb</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">comp_go</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_FB&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_GOOG&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">comp_ms</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_GOOG&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_MSFT&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[63]:</div>
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Sales_FB</th>
-      <th>Sales_GOOG</th>
-      <th>Sales</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>2.000000</td>
-      <td>2.000000</td>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>296.500000</td>
-      <td>160.000000</td>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>75.660426</td>
-      <td>56.568542</td>
-      <td>152.735065</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>243.000000</td>
-      <td>120.000000</td>
-      <td>124.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>269.750000</td>
-      <td>140.000000</td>
-      <td>178.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>296.500000</td>
-      <td>160.000000</td>
-      <td>232.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>323.250000</td>
-      <td>180.000000</td>
-      <td>286.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>350.000000</td>
-      <td>200.000000</td>
-      <td>340.000000</td>
     </tr>
   </tbody>
 </table>
