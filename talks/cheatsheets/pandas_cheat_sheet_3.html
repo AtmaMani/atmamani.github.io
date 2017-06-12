@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>cheat_sheet_index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>pandas_cheat_sheet_3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,20 +11778,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="cheat_sheets.jpg" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="All-my-cheat-sheets">All my cheat sheets<a class="anchor-link" href="#All-my-cheat-sheets">&#182;</a></h1><h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><ul>
-<li><a href="python_cheat_sheet_1.html">Python basics, comprehensions</a></li>
-<li><a href="python_cheat_sheet_2.html">Python object oriented and exception handling</a></li>
-<li><a href="python_cheat_sheet_3.html">Productive in Python - map reduce lambdas</a></li>
+<h1 id="Productivity-with-pandas">Productivity with pandas<a class="anchor-link" href="#Productivity-with-pandas">&#182;</a></h1><p><img src="http://pandas.pydata.org/_static/pandas_logo.png" alt=""></p>
+<p><strong>ToC</strong></p>
+<ul>
+<li><a href="#unique---find-unique-rows">unique - find unique rows</a><ul>
+<li><a href="#nunique---find-number-of-unique-rows">nunique - find number of unique rows</a></li>
+<li><a href="#value_counts---find-unique-values-and-number-of-occurrences">value_counts - find unique values and number of occurrences</a></li>
+</ul>
+</li>
+<li><a href="#apply---batch-process-column-values">apply - batch process column values</a></li>
+<li><a href="#sort_values---sorting-rows">sort_values - sorting rows</a></li>
+<li><a href="#isnull---finding-null-values-throughout-the-DataFrame">isnull - finding null values throughtout the DataFrame</a></li>
 </ul>
 
 </div>
@@ -11802,42 +11799,813 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conda">Conda<a class="anchor-link" href="#Conda">&#182;</a></h2><ul>
-<li><a href="conda_cheat_sheet.html">Conda basics</a></li>
-</ul>
+<h2 id="unique---find-unique-rows">unique - find unique rows<a class="anchor-link" href="#unique---find-unique-rows">&#182;</a></h2><p>Find unique rows in dataset</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Company&#39;</span><span class="p">:[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">],</span>
+       <span class="s1">&#39;Person&#39;</span><span class="p">:[</span><span class="s1">&#39;Sam&#39;</span><span class="p">,</span><span class="s1">&#39;Charlie&#39;</span><span class="p">,</span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span><span class="s1">&#39;Vanessa&#39;</span><span class="p">,</span><span class="s1">&#39;Carl&#39;</span><span class="p">,</span><span class="s1">&#39;Sarah&#39;</span><span class="p">],</span>
+       <span class="s1">&#39;Sales&#39;</span><span class="p">:[</span><span class="mi">200</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">340</span><span class="p">,</span><span class="mi">124</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span><span class="mi">350</span><span class="p">]}</span>
+
+<span class="n">comp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comp_data</span><span class="p">)</span>
+<span class="n">comp_df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find unique company names</span>
+<span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;Company&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;GOOG&#39;, &#39;MSFT&#39;, &#39;FB&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h2><ul>
-<li><a href="numpy_cheat_sheet_1.html">Numpy basics</a></li>
-<li><a href="numpy_cheat_sheet_2.html">Numpy array slicing dicing searching</a></li>
-</ul>
-<h2 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">&#182;</a></h2><ul>
-<li><a href="pandas_cheat_sheet_1.html">Pandas basics</a></li>
-<li><a href="pandas_cheat_sheet_2.html">Intermediate - multilevel index, missing data, aggregation, merge join concat</a></li>
-<li><a href="pandas_cheat_sheet_3.html">Productivity with Pandas</a></li>
-</ul>
+<h3 id="nunique---find-number-of-unique-rows">nunique - find number of unique rows<a class="anchor-link" href="#nunique---find-number-of-unique-rows">&#182;</a></h3><p>More efficient than finding the unique array and finding the length of it.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;Company&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R">R<a class="anchor-link" href="#R">&#182;</a></h2><ul>
-<li><a href="r_cheat_sheet_1.html">R basics</a></li>
-</ul>
+<h3 id="value_counts---find-unique-values-and-number-of-occurrences">value_counts - find unique values and number of occurrences<a class="anchor-link" href="#value_counts---find-unique-values-and-number-of-occurrences">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;Company&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>FB      2
+MSFT    2
+GOOG    2
+Name: Company, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="apply---batch-process-column-values">apply - batch process column values<a class="anchor-link" href="#apply---batch-process-column-values">&#182;</a></h2><p>Calling the apply() is similar to calling the <code>map()</code> in Python. It can apply an operation on all records of a selected column. For instance, to find the squared sales, do the following</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;sq_sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">comp_df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+      <th>sq_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+      <td>40000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+      <td>14400</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+      <td>115600</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+      <td>15376</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+      <td>59049</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+      <td>122500</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also define a function and call that within the <code>apply()</code> method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cuber</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;cu_sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cuber</span><span class="p">)</span> <span class="c1">#note - how the function is called as an obj</span>
+<span class="n">comp_df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+      <th>sq_sales</th>
+      <th>cu_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+      <td>40000</td>
+      <td>8000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+      <td>14400</td>
+      <td>1728000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+      <td>115600</td>
+      <td>39304000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+      <td>15376</td>
+      <td>1906624</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+      <td>59049</td>
+      <td>14348907</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+      <td>122500</td>
+      <td>42875000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="sort_values---sorting-rows">sort_values - sorting rows<a class="anchor-link" href="#sort_values---sorting-rows">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+      <th>sq_sales</th>
+      <th>cu_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+      <td>14400</td>
+      <td>1728000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+      <td>15376</td>
+      <td>1906624</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+      <td>40000</td>
+      <td>8000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+      <td>59049</td>
+      <td>14348907</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+      <td>115600</td>
+      <td>39304000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+      <td>122500</td>
+      <td>42875000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note how the index remains attached to the original rows.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#sorting along multiple columns</span>
+<span class="n">comp_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Company&#39;</span><span class="p">,</span><span class="s1">&#39;Sales&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+      <th>sq_sales</th>
+      <th>cu_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+      <td>59049</td>
+      <td>14348907</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+      <td>122500</td>
+      <td>42875000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+      <td>14400</td>
+      <td>1728000</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+      <td>40000</td>
+      <td>8000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+      <td>15376</td>
+      <td>1906624</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+      <td>115600</td>
+      <td>39304000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="isnull---finding-null-values-throughout-the-DataFrame">isnull - finding null values throughout the DataFrame<a class="anchor-link" href="#isnull---finding-null-values-throughout-the-DataFrame">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+      <th>sq_sales</th>
+      <th>cu_sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
