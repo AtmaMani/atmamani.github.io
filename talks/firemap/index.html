@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Title</title>
+  <link href="https://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap-open.min.css" rel="stylesheet">
+  <style>
+    .footer {
+      height: 6.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-header col-md-12">
+      <h1>Active SoCal Fires</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Building and embedding web maps using ArcGIS</h1>
+        <p>
+          This page was built in less than 10 minutes. Build something like this, refer to
+          <a href="http://support.esri.com/technical-article/000012322">Esri Tech support KB article</a> Then get sample code from <a href="https://developers.arcgis.com/javascript/3/jssamples/portal_embed_in_website.html">Esri JS developers site</a> thats ready to use. For conceptual information, check out <a href="http://doc.arcgis.com/en/arcgis-online/share-maps/embed-maps-groups.htm"> the AGO help</a>
+        </p>
+      </div>
+      <div class="col-md-8 embed-responsive embed-responsive-16by9">
+        
+        <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="US Wildfire Activity Web Map" src="//www.arcgis.com/apps/Embed/index.html?webmap=df8bcc10430f48878b01c96e907a1fc3&amp;extent=-118.538,33.019,-115.904,34.8578&amp;zoom=true&amp;scale=true&amp;search=true&amp;searchextent=true&amp;details=true&amp;legendlayers=true&amp;active_panel=legend&amp;basemap_gallery=true&amp;disable_scroll=false&amp;theme=dark"></iframe></div>
+        
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Footer content</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://esri.github.io/calcite-bootstrap/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
