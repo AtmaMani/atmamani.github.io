@@ -2,32 +2,28 @@
 Introspections on practicing scrum for 3 years.
 
 ## Table of contents
-<!-- MarkdownTOC -->
-
-	- [Misconceptions][misconceptions]
-	- [What is scrum?][what-is-scrum]
-		- [History of scrum][history-of-scrum]
-		- [Core tenets of scrum][core-tenets-of-scrum]
-	- [The scrum framework][the-scrum-framework]
-		- [4 formal scrum events][4-formal-scrum-events]
-		- [Roles in a scrum][roles-in-a-scrum]
-			- [Scrum team][scrum-team]
-			- [Product Owner \(PO\)][product-owner-po]
-				- [PO responsibilities][po-responsibilities]
-			- [Development team][development-team]
-			- [Scrum Master \(SM\)][scrum-master-sm]
-		- [Management tools and metrics in scrum][management-tools-and-metrics-in-scrum]
-			- [Product backlog][product-backlog]
-			- [User stories \(PBIs\)][user-stories-pbis]
-			- [Tasks][tasks]
-			- [Epics][epics]
-			- [PBI estimates][pbi-estimates]
-			- [Sprint velocity][sprint-velocity]
-			- [The burn down chart][the-burn-down-chart]
-	- [Using scrum to plan your projects][using-scrum-to-plan-your-projects]
-- [Lessons learned][lessons-learned]
-
-<!-- /MarkdownTOC -->
+- [Misconceptions](#misconceptions)
+- [What is scrum?](#what-is-scrum)
+	- [History of scrum](#history-of-scrum)
+	- [Core tenets of scrum](#core-tenets-of-scrum)
+- [The scrum framework](#the-scrum-framework)
+	- [4 formal scrum events](#4-formal-scrum-events)
+	- [Roles in a scrum](#roles-in-a-scrum)
+		- [Scrum team](#scrum-team)
+		- [Product Owner \(PO\)](#product-owner-po)
+			- [PO responsibilities](#po-responsibilities)
+		- [Development team](#development-team)
+		- [Scrum Master \(SM\)](#scrum-master-sm)
+	- [Management tools and metrics in scrum](#management-tools-and-metrics-in-scrum)
+		- [Product backlog](#product-backlog)
+		- [User stories \(PBIs\)](#user-stories-pbis)
+		- [Tasks](#tasks)
+		- [Epics](#epics)
+		- [PBI estimates](#pbi-estimates)
+		- [Sprint velocity](#sprint-velocity)
+		- [The burn down chart](#the-burn-down-chart)
+- [Using scrum to plan your projects](#using-scrum-to-plan-your-projects)
+- [Lessons learned](#lessons-learned)
 
 ## Misconceptions
 What scrum is not? - not just a software development process. It is independent of industry, in fact can be applied even in your household.

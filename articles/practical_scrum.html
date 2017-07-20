@@ -1,0 +1,925 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><title>practical_scrum</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-practical-scrum-for-agile-teams" class="anchor" href="#practical-scrum-for-agile-teams" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practical scrum for agile teams</h1>
+<p>Introspections on practicing scrum for 3 years.</p>
+<h2>
+<a id="user-content-table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents</h2>
+<ul>
+<li><a href="#misconceptions">Misconceptions</a></li>
+<li>
+<a href="#what-is-scrum">What is scrum?</a>
+<ul>
+<li><a href="#history-of-scrum">History of scrum</a></li>
+<li><a href="#core-tenets-of-scrum">Core tenets of scrum</a></li>
+</ul>
+</li>
+<li>
+<a href="#the-scrum-framework">The scrum framework</a>
+<ul>
+<li><a href="#4-formal-scrum-events">4 formal scrum events</a></li>
+<li>
+<a href="#roles-in-a-scrum">Roles in a scrum</a>
+<ul>
+<li><a href="#scrum-team">Scrum team</a></li>
+<li>
+<a href="#product-owner-po">Product Owner (PO)</a>
+<ul>
+<li><a href="#po-responsibilities">PO responsibilities</a></li>
+</ul>
+</li>
+<li><a href="#development-team">Development team</a></li>
+<li><a href="#scrum-master-sm">Scrum Master (SM)</a></li>
+</ul>
+</li>
+<li>
+<a href="#management-tools-and-metrics-in-scrum">Management tools and metrics in scrum</a>
+<ul>
+<li><a href="#product-backlog">Product backlog</a></li>
+<li><a href="#user-stories-pbis">User stories (PBIs)</a></li>
+<li><a href="#tasks">Tasks</a></li>
+<li><a href="#epics">Epics</a></li>
+<li><a href="#pbi-estimates">PBI estimates</a></li>
+<li><a href="#sprint-velocity">Sprint velocity</a></li>
+<li><a href="#the-burn-down-chart">The burn down chart</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#using-scrum-to-plan-your-projects">Using scrum to plan your projects</a></li>
+<li><a href="#lessons-learned">Lessons learned</a></li>
+</ul>
+<h2>
+<a id="user-content-misconceptions" class="anchor" href="#misconceptions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Misconceptions</h2>
+<p>What scrum is not? - not just a software development process. It is independent of industry, in fact can be applied even in your household.</p>
+<p>Scrum is not all about the stand-up meetings - although that is sometimes trademark of teams that follow scrum. The stand up meetings is a means to improve communication and camaraderie through regular in-person or video conference meetings.</p>
+<h2>
+<a id="user-content-what-is-scrum" class="anchor" href="#what-is-scrum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is scrum?</h2>
+<p>It's a framework for teams that want to be self-organizing, agile and adapt quickly to changing requirements and deliver in short manageable time line.</p>
+<p>It is surprising to observe even how considerably large projects can be broken down into smaller pieces and delivered in half or quarter of the projected time and expense by adopting scrum methodology.</p>
+<h3>
+<a id="user-content-history-of-scrum" class="anchor" href="#history-of-scrum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>History of scrum</h3>
+<p>Founded on empirical process control theory or empiricism, scrum believes knowledge comes from experience and emphasizes on making decisions based on what is known. Scrum employs iterative, incremental approach to improve predictability and control risk. There are 3 important principles of empirical process control theory:</p>
+<ul>
+<li>Transparency - a common metric to measure progress and a shared definition of done</li>
+<li>Inspection - regular and frequent inspection of progress is required. But inspection should never get in the way of work or stop or modify the project.</li>
+<li>Adaptation - if inspection leads to a discovery of something in deviation then an adjustment should be made at the earliest.</li>
+</ul>
+<h3>
+<a id="user-content-core-tenets-of-scrum" class="anchor" href="#core-tenets-of-scrum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core tenets of scrum</h3>
+<p>Let us look at a few process management techniques that take a systems approach to understand where scrum fits in:</p>
+<ul>
+<li>
+<strong>Lean</strong> - The goal of lean is simple: minimize the time between customer request and fulfillment by continually improving and reducing non-value adding work.</li>
+<li>
+<strong>Agile</strong> - Uses business value as primary measure of progress. Reduces risk through continuous delivery</li>
+<li>
+<strong>Scrum</strong> - a wrapper around agile and is a process to practice agile delivery / development. Scrum is industry and technology agnostic.</li>
+</ul>
+<p>In this light, it is relevant to discuss about the key points of the Agile manifesto: An agile process values:</p>
+<ul>
+<li>
+<strong>Individual and interactions</strong> over processes and tools. Teams are self-organizing and self-solving all the way. Teams are self-contained as they figure out what to do and also how to do.</li>
+<li>
+<strong>Working software</strong> over detailed doc explaining the eccentricities and caveats while using the product. Customers pay for value, which should be provided by the main product and not by a bunch of explanations about the product. Scrum lays emphasis on developing a 'definition of done' and arriving at a consensus with the customer / stakeholder. This <code>done</code> definition could be such that</li>
+<li>
+<strong>Customer collaboration</strong> over contract negotiation. Most successful businesses attribute their success to one thing - listening and providing what the customer wants. This can be achieved only involving the customer / stakeholder not only in the beginning but also at regular intervals during the development life cycle.</li>
+<li>
+<strong>Responding to change (agile)</strong> over following a process. In today's world with increased access to real-time information in all fronts, companies can continue to remain on top only by embracing change and adapting to it. This means, as your customers constantly adapt to change, so do you. By delivering working software in increments and but periodically collaborating with the customer, scrum helps you to be agile to these changes. As needs change, your development team can change trajectory without much losses or overheads.</li>
+</ul>
+<h2>
+<a id="user-content-the-scrum-framework" class="anchor" href="#the-scrum-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The scrum framework</h2>
+<p>Now, we are getting into the details of scrum. Let us visit some concepts about scrum that will help us better understand how to adopt it:</p>
+<h3>
+<a id="user-content-4-formal-scrum-events" class="anchor" href="#4-formal-scrum-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4 formal scrum events</h3>
+<p>Although scrum encourages daily stand-up meetings, it discourages longer more formal events. It recommends each team to organically figure out at what frequency they meet and for how long they discuss. Having said, below are four formal events that scrum teams practice:</p>
+<ul>
+<li>sprint planning - a meeting where the entire team plans the work to be done during that sprint / iteration</li>
+<li>daily scrum - a short daily meeting where entire team takes stock of work done the previous day</li>
+<li>sprint review - a meeting toward the end of the sprint where the product delivered incrementally is visited and reviewed.</li>
+<li>sprint retrospective - another meeting toward the end of the sprint with emphasis on interpersonal relationships, productivity where the team discusses their development methodology, impedances and figure what can be improved.</li>
+</ul>
+<h3>
+<a id="user-content-roles-in-a-scrum" class="anchor" href="#roles-in-a-scrum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roles in a scrum</h3>
+<p>Scrum believes in teams composed of multi-disciplinary and cross-functional team members such that all the talent and skills required to finish the product are self-contained within the team. As product complexities grow, inevitably each of your team members start becoming subject matter experts specializing in a narrow functional area. Yet this introduces a unique risk in the form of single point failure. Thus scrum encourages developing a healthy mix of multi-disciplinary team members who are sufficiently acquainted in areas other than their own. Some managers call these as T members (since their spread both horizontally and also vertically). Thus whenever a shortage of resource or skill set arises, the existing team can expand and fulfill the gap without immediately becoming brittle. In this light, each of the team member fit into one of the following roles:</p>
+<h4>
+<a id="user-content-scrum-team" class="anchor" href="#scrum-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scrum team</h4>
+<p>A team consists of</p>
+<ul>
+<li>product owner</li>
+<li>development team</li>
+<li>scrum master</li>
+</ul>
+<p>Scrum teams are self organizing - they decide how to work on things without external direction, cross functional - have all competencies to finish the project without relying on other teams</p>
+<h4>
+<a id="user-content-product-owner-po" class="anchor" href="#product-owner-po" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product Owner (PO)</h4>
+<p>Manages product backlog (more on this later) - furnishing with details, prioritizing it, exposing it to all team members.</p>
+<p>Only the PO has the right to change the backlog and the entire organization must respect this decision. The development team works from this backlog and no one can inject a different set of requirements bypassing the PO.</p>
+<h5>
+<a id="user-content-po-responsibilities" class="anchor" href="#po-responsibilities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PO responsibilities</h5>
+<ul>
+<li>Manage profitability and ROI (return on investment). A PO does this by prioritizing the backlog to maximize the business value delivered. To start with, the PO must arrive at a way to determine the value delivered, a metric of sorts</li>
+<li>Call for releases. PO decides what constitutes a minimum shippable product. PO also has liberty to move the release time line forward or backward to maximize the ROI.</li>
+<li>Guides product development. PO would establish, nurture and communicate the vision. Knows what to build and in what sequence (note, how to build is not a requirement for PO. The development team figures this out).</li>
+</ul>
+<h4>
+<a id="user-content-development-team" class="anchor" href="#development-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development team</h4>
+<p>This amazing team is self organizing, not even the scrum master tells how to turn the backlog into products. Scrum calls <strong>everyone a developer</strong> no matter the work performed by the person. No sub teams can exist within a scrum team. 3-9 is a valid team size not including PO and SM unless they also act as development team.</p>
+<h4>
+<a id="user-content-scrum-master-sm" class="anchor" href="#scrum-master-sm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scrum Master (SM)</h4>
+<p>Ensure scrum is understood and practiced. SM plays a <strong>servant-leader</strong> role in helping teams be self organizing and helping PO with backlog grooming, arrangement, interfacing with external influencers etc. The scrum master usually drives the team meetings.</p>
+<h3>
+<a id="user-content-management-tools-and-metrics-in-scrum" class="anchor" href="#management-tools-and-metrics-in-scrum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Management tools and metrics in scrum</h3>
+<p>Scrum provides a set of tools, terms and metrics to organize and manage your project. Let us visit them briefly here:</p>
+<h4>
+<a id="user-content-product-backlog" class="anchor" href="#product-backlog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product backlog</h4>
+<p>The backlog contains the list of all requirements. Each item (a PBI - product backlog item) in the backlog is written as a <strong>user story</strong>. The PO prioritizes the backlog and arranges the items in the order in which it has to be finished. The order of backlog should maximize the ROI.</p>
+<h4>
+<a id="user-content-user-stories-pbis" class="anchor" href="#user-stories-pbis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User stories (PBIs)</h4>
+<p>Each PBI is written as a user story. User stories are of format:</p>
+<pre><code>As a &lt;role&gt;,
+I can &lt;feature / function&gt;,
+so that &lt;goal / value&gt;.
+</code></pre>
+<p>For example, the user story for backup camera in a car can be written as</p>
+<pre><code>As a driver, I can use the back up camera when I am reversing the car so I can see what's behind the car more clearly than what my rear view mirrors show.
+</code></pre>
+<p>What is management without acronyms :) Lets throw one for user stories.. A user story is good if its INVESTable: Independent, Negotiable, Valuable, Estimatable, Small and Testable. Resist from writing a user story until you have a clear understanding of what you are building.</p>
+<h4>
+<a id="user-content-tasks" class="anchor" href="#tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tasks</h4>
+<p>Each PBI written as a user story will have a set of clearly defined tasks which need to be finished to call that PBI <code>done</code>. The scrum master encourages the team to come up with a definition of done. This definition can vary slightly between each PBI. The purpose of this definition to establish and maintain the quality of the product being delivered over several sprints.</p>
+<p>Tasks are usually technical in nature and they are collectively created as a team during the scrum planning meeting.</p>
+<h4>
+<a id="user-content-epics" class="anchor" href="#epics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Epics</h4>
+<p>When a bunch of user stories come together, they form an epic. Consider an epic as a large feature that is composed of many sub features that together make a functionality complete and usable. In the case of the backup camera we user story we visited earlier, an epic would be a collection of few more user stories such as:</p>
+<p>Backup camera Epic:</p>
+<pre><code>1. Turn on back up camera when put in reverse
+2. Enhance back up camera feed with steering predictors / guides
+3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed
+4. Alert lane departures using back up camera feed.
+</code></pre>
+<p>Next, let us discuss about some metrics to quantify and estimate progress of a scrum team.</p>
+<h4>
+<a id="user-content-pbi-estimates" class="anchor" href="#pbi-estimates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PBI estimates</h4>
+<p>Scrum believes in breaking down your product releases (or epics) into smaller identical building blocks called PBIs. No matter how you try, not all of your PBIs would be of identical nature in terms of complexity and effort. Further, some of your PBIs may be diagonally opposite that they may nothing in common. Some of your PBIs may be so new to everyone in your team that nobody knows exactly how to finish it. Then how do you compare and estimate their effort, provide a delivery date and bill the customer?</p>
+<p>One way to estimate is treat the PBIs as abstract entities and judge them relative to one another in terms of time or effort required to finish them. As a team, during the sprint planning meeting you sort arrange the PBIs in ascending order of effort involved. It is much easier to compare a PBI against another PBI which your team has completed and evaluate comparatively if it requires the same time, lesser or greater time. Then you assign effort in abstract terms such as T shirt sizes (S, M, L, XL, XXL, ..) or Fibonacci number sequence (1, 2, 3, 5, 8, 13 ..).</p>
+<p>Thus, in the backup camera example from earlier, a team may evaluate</p>
+<pre><code>1. Turn on back up camera when put in reverse --&gt; **S or 2**
+2. Enhance back up camera feed with steering predictors / guides --&gt; **M or 3**
+3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed --&gt; **L or 5**
+4. Alert lane departures using back up camera feed. --&gt; **M or 3**
+</code></pre>
+<p>Time and effort estimation are much accurate as long as you work with smaller numbers (S, M or 1, 2, 3 ..) and they get fuzzy and uncertain once they go beyond 8 or XL size. If you find yourself with PBIs that are in larger end of effort spectrum, try to break it into smaller pieces.</p>
+<p>Since you write the PBIs as user stories, the PBI estimates are also called as <code>story points</code>.</p>
+<h4>
+<a id="user-content-sprint-velocity" class="anchor" href="#sprint-velocity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sprint velocity</h4>
+<p>Once you start to quantify your PBIs with story points, you can calculate how much you manage to finish during a sprint. Remember, a PBI is considered finished only after it meets the <code>definition of done</code> explained earlier. This number which is the sum of finished PBI story points is your sprint velocity.</p>
+<p>In the backup camera example, if your team finishes the first two PBIs in a sprint, then your <code>velocity</code> is <code>2 + 3 = 5</code>. If your sprint consisted of 3 weeks then you may understand that is the time required for finishing an effort 5.</p>
+<p>Just like the story points, the velocity is highly subjective to each team. Two scrum teams cannot compare their velocities since it is arbitrary in nature. However, the velocity is a useful metric as it allows you to estimate how many PBIs can be completed in a typical sprint.</p>
+<p>From the example above, if your sprint velocity is a <code>5</code>, then you may estimate that you need a minimum of <code>2</code> more sprints to finish the remaining 5 and 3 story point PBIs. Once that epic is finished, the PO can call for a release cycle and release the full product.</p>
+<h4>
+<a id="user-content-the-burn-down-chart" class="anchor" href="#the-burn-down-chart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The burn down chart</h4>
+<p>Now that you have enough metrics to play with, you can create a chart to visualize them. Simply plot the time (perhaps in the form of sprints) in X axis and PBI story points for an epic in the Y axis. Next plot your the velocity for each sprint as a line chart, you get yourself a burn down chart.</p>
+<p><a href="https://camo.githubusercontent.com/aae7530510865f7ccae3d33bc50d9c4bd304c21e/68747470733a2f2f656e2e77696b6970656469612e6f72672f77696b692f4275726e5f646f776e5f6368617274232f6d656469612f46696c653a53616d706c654275726e646f776e43686172742e706e67" target="_blank"><img src="https://camo.githubusercontent.com/aae7530510865f7ccae3d33bc50d9c4bd304c21e/68747470733a2f2f656e2e77696b6970656469612e6f72672f77696b692f4275726e5f646f776e5f6368617274232f6d656469612f46696c653a53616d706c654275726e646f776e43686172742e706e67" alt="Burn down chart pic" data-canonical-src="https://en.wikipedia.org/wiki/Burn_down_chart#/media/File:SampleBurndownChart.png" style="max-width:100%;"></a></p>
+<p>The chart helps you to inspect the pace and estimate when the epic would get done. You can take precautionary measures if you anticipate requiring more time.</p>
+<h2>
+<a id="user-content-using-scrum-to-plan-your-projects" class="anchor" href="#using-scrum-to-plan-your-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using scrum to plan your projects</h2>
+<p>Now that you are familiar with the terminologies and tools involved, let us review how to apply them in project management. In the agile management approach, you plan for releases in three levels.</p>
+<ol>
+<li>First is the <code>release plan</code>. Here, you arrange the PBIs and or epics in the order of importance or value. The PO takes a call on what to include and what to leave out. All the PBIs go into the product backlog list.</li>
+<li>Each release is composed of one or more <code>sprints</code>. A sprint is a short two to three week period where the entire scrum team comes together, works on one or two PBIs and finishes it. During the <code>sprint planning</code> meeting, the scrum master coaches the development team to work with the PO and pick the PBIs they want to finish during that sprint. These PBIs enter the <code>sprint backlog</code>.</li>
+<li>During the sprint, the team meets for a short 15 min stand-up meeting where each member states what they worked on, plan to work and if they have anything impeding their progress. The scrum master takes responsibility to clear these impedences. The product owner clarifies any questions the team has.</li>
+</ol>
+<p>At the end of the sprint, in a <code>sprint review</code> meeting the team demonstrates the finished product increment to the stake holders and get their sign off. This is also a chance for the stake holders to request for new features or modify the goal of the project based on changing market needs. If such a case arises, the product owner adds them to the product backlog. At no cost can the stake holders interfere a scrum team during a development cycle.</p>
+<p>Also at the end of the sprint, the team convenes for a <code>sprint retrospective</code> to discuss how the iteration went, what can be improved or changed. The team either proceeds to or reconvenes to plan the next sprint in a <code>sprint planning</code> meeting. The cycle repeats with the team working with product owner to pick the PBIs they want to finish in that sprint cycle and so on.</p>
+<p>Over this course, each team member have clearly defined roles and know what they are responsible for. The product owner continues to interface with the stake holders, get new requirements, keep the product backlog organized and prioritized by business value. The scrum master continues to perform the servant-leader role and coaches the team toward peak performance. The SM ensures the team is safe from external disturbances or injection of work items. The development team continues make progress by working on as few PBIs possible at a time as a team. They finish the PBIs to meet the <code>done</code> specification before proceeding to work on a new PBI. If a task is left undone, the team members feel free to grab it and work on it. There is no ownership of duties, but there is ownership of the product as a whole.</p>
+<h1>
+<a id="user-content-lessons-learned" class="anchor" href="#lessons-learned" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lessons learned</h1>
+<ol>
+<li>Don't compare velocities between teams</li>
+<li>your velocity will change as members are added or removed from your team</li>
+<li>velocity changes seasonally as your members go on vacations, fall sick, or other tasks impede them</li>
+<li>when you break a larger PBI down to smaller ones, you almost always realize they break down into larger than expected pieces. For instance, I have noticed, breaking a 8 will not simply yield a 5 and 3 story point PBI, but often into two 5s or if we are lucky into three 3s. This is not bad, since it benefits you to over estimate time required than otherwise.</li>
+</ol>
+</article></body></html>
