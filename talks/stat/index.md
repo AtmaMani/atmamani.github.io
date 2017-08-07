@@ -4,8 +4,9 @@ One of my goals is to explain math using programming. Much has been said and don
 In these pages, I use Python and its rich stat analysis packages to teach the basics of probability and statistics. All those formulas which one could only apply on a limited number of problems (when calculating by hand) can now be applied across the entire dataset. You can literally verify if the central limit theorem holds good, without having to spend a week with your calculator. Enough said, checkout the pages below
 
 -------------------------------------
+- [Collecting data](01_data_collection.html)
 - [Describing data](02_data_description.html)
 - [Conditional probability](03_conditional_probability.html)
-- [Probability distributions](04_probability_distributions_1.html)
-  - [Binomial and Poisson distributions](04_probability_distributions_2.html)
+- Probability distributions
+  - [Binomial and Poisson distributions](04_probability_distributions_1.html)
 -------------------------------------
