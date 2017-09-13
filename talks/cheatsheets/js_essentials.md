@@ -5,11 +5,29 @@
  - JS can be run in browsers and outside - node.js, windows script host
  - JS cannot access file system since the browser runs it in a sandbox. user needs to give explicit permission.
 
+**Table of contents**
+- [Javascript essentials](#javascript-essentials)
+    - [Placement](#placement)
+    - [Types and programming constructs](#types-and-programming-constructs)
+        - [switches](#switches)
+        - [loops - while](#loops---while)
+        - [functions](#functions)
+        - [Objects](#objects)
+        - [namespaces](#namespaces)
+        - [strings](#strings)
+        - [dates](#dates)
+    - [JS and DOM](#js-and-dom)
+    - [Functional programming](#functional-programming)
+        - [Closures](#closures)
+    - [Inheritance](#inheritance)
+    - [Appendix - Run web server using node.js](#appendix---run-web-server-using-nodejs)
+    - [Appendix - documentation](#appendix---documentation)
+
 ## Placement
 Place `<script></script>` within the end of `<body>` tags. This ensures the page is fully loaded since your JS scripts may have to read elements of the page itself. You can also run a html file with JS in a browser. It loads as a file. This is not scalable for large sites. You need a web server - use `node.js`.
 
 If your JS is in a file, then link to that using the format `<script src="./scripts/site.js">`
-**Note** Dont self close the script tag (<script/>)
+**Note** Dont self close the script tag `(<script/>)`
 
  - sequence of operation, is by the content of the html page. So if you have two scripts 1, 2 they are executed by their precedence in the html page. This same as a stand-alone python script.
 
@@ -74,6 +92,7 @@ function add(par1, par2){
  - built-in variable `arguments[]` to get all the arguments passed to the function.
  - declare variables within functions using `var`. If you use without `var`, then you are using or overwriting the global version of the same variable!
  - type `"use strict"` in your script to print all errors and break on them. Place the strict within your functions and not at a gobal scope - this is because you will use other folks libraries and they may not be up to high standards of coding.
+ - JS does **not** support default arguments!!
 
 ### Objects
  - In object literal notation, you define an object like a JSON file
@@ -92,6 +111,20 @@ function add(par1, par2){
  ```
  - use `JSON.stringify()` to serialize it to JSON and to hydrate it back, use `JSON.parse()`.
 
+### namespaces
+ - while JS does not give you a great namespace construct, you can fashion one by creating an object (of object class) and add your methods, classes to it.
+```js
+if (!yourNamespace){
+	var yourNamespace={}; //this is checked everytime yoru scrip is loaded
+}
+
+//extend it
+yourNamespace.logic1 = function(){};
+yourNamespace.obj1 = {
+	property1:'value'
+}
+ ```
+
 ### strings
  - strings are immutable
  - you can call regular methods like `strobj.length`, `str.split()`, `str.trim()` to get another string returned by that method.
@@ -106,6 +139,44 @@ function add(par1, par2){
  - YOu can debug JS from chrome, set breakpoints, use watch window and variable explorer.
  - the console window of chrome is a good JS sandbox. You can simply type commands in the console and use JS
  - you can do the same from console after starting `node`.
+
+## Functional programming
+For essential purposes, functional programming is declaring functions and passing them around using their references. You can extend the functionality or modify it.
+
+### Closures
+ - closures mean, if you have nested functions, the inner function has access to the arguments and variables created in the outer and also modify them.
+ - with closures pattern, you can return an object that points to the nested functions as methods. with this you can instantiate an object from a method (blown mind) and 
+
+## Inheritance
+ - `prototyping` concept allows you to not only inherit, but also extend your base class.
+```js
+classname.prototype.your_extension = function(){logic};
+```
+ - when inheriting your own objects, you will use the `call()` method to call the super's constructor
+```js
+function Animal(name){
+                this.name=name;
+            }
+function Person(name, age){
+                Animal.call(this, name); //calling the super's constructor
+                this.age = age;
+            }
+```
+ - if you extended your base class using a constructor, then you got to also inherit the prototypes like below:
+```js
+Animal.prototype.speak = function(){
+                alert(this.name +  " is barking");
+            }
+//then you in herit the prototype as
+Person.prototype = Object.create(Animal.prototype);
+//when you inherit, you overwrite your own constructor, so you set it back.
+Person.prototype.constructor = Person;
+```
+ - when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.
+ - you can, in this way, have prototype chaining.
+ - The concept `defineProperties` allows you to declare some properties as read only, making it not possible for inheriting objects to change some properties. It also gives you getters and setters.
+ - **ECMAScript 6** makes creating classes way more like a proper OO language. You get `class`, `constructor()` `super` keywords and looses a lot of bad verbage making things simpler
+ - You really dont play with prototypes in ecma6.
 
 ## Appendix - Run web server using node.js
 In terminal, after installing node.js, type:

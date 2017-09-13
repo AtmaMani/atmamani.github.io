@@ -734,17 +734,51 @@ pre {
 <p>JS cannot access file system since the browser runs it in a sandbox. user needs to give explicit permission.</p>
 </li>
 </ul>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li>
+<a href="#javascript-essentials">Javascript essentials</a>
+<ul>
+<li><a href="#placement">Placement</a></li>
+<li>
+<a href="#types-and-programming-constructs">Types and programming constructs</a>
+<ul>
+<li><a href="#switches">switches</a></li>
+<li><a href="#loops---while">loops - while</a></li>
+<li><a href="#functions">functions</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#namespaces">namespaces</a></li>
+<li><a href="#strings">strings</a></li>
+<li><a href="#dates">dates</a></li>
+</ul>
+</li>
+<li><a href="#js-and-dom">JS and DOM</a></li>
+<li>
+<a href="#functional-programming">Functional programming</a>
+<ul>
+<li><a href="#closures">Closures</a></li>
+</ul>
+</li>
+<li><a href="#inheritance">Inheritance</a></li>
+<li><a href="#appendix---run-web-server-using-nodejs">Appendix - Run web server using node.js</a></li>
+<li><a href="#appendix---documentation">Appendix - documentation</a></li>
+</ul>
+</li>
+</ul>
 <h2>
 <a id="user-content-placement" class="anchor" href="#placement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Placement</h2>
 <p>Place <code>&lt;script&gt;&lt;/script&gt;</code> within the end of <code>&lt;body&gt;</code> tags. This ensures the page is fully loaded since your JS scripts may have to read elements of the page itself. You can also run a html file with JS in a browser. It loads as a file. This is not scalable for large sites. You need a web server - use <code>node.js</code>.</p>
 <p>If your JS is in a file, then link to that using the format <code>&lt;script src="./scripts/site.js"&gt;</code>
-<strong>Note</strong> Dont self close the script tag (&lt;script/&gt;)</p>
+<strong>Note</strong> Dont self close the script tag <code>(&lt;script/&gt;)</code></p>
 <ul>
 <li>
 <p>sequence of operation, is by the content of the html page. So if you have two scripts 1, 2 they are executed by their precedence in the html page. This same as a stand-alone python script.</p>
 </li>
 <li>
 <p>more nuance. all contents within the same <code>&lt;script&gt;</code> tag is loaded at the same time. If you write a funciton in one <code>&lt;script&gt;</code> tag and call it from another tag, then you need to place the scripts in sequence.</p>
+</li>
+<li>
+<p>JS does a 2 pass loading. It first passes to find all the variables, objects and functions. In the second pass it actually executes. However if you are playing with function assignment, it would not happen until execution, so you need to be careful and not call it before it is available.</p>
 </li>
 </ul>
 <h2>
@@ -771,6 +805,11 @@ pre {
 <code>null</code> is not same as Python <code>None</code>, it is also different from <code>undefined</code>. <code>null</code> is the lack of any type.</li>
 <li>
 <code>typeof(obj)</code> for type inspection</li>
+<li>
+<code>a===1</code> the triple equals is a script value check</li>
+<li>checking <code>"12" == 12</code> will return true! Also checking <code>"12.0"==12"</code> will return true. If you are checking for object type equality, then use triple equals.</li>
+<li>
+<code>arrayobj.pop()</code> to get remove and get the last element. Use <code>arrayobj.push(value)</code> to insert at the end.</li>
 </ul>
 <h3>
 <a id="user-content-switches" class="anchor" href="#switches" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>switches</h3>
@@ -805,6 +844,56 @@ pre {
 <li><strong>all parameters are optional</strong></li>
 <li>you can also pass more than the declared number of parameters to the function.</li>
 <li>disambiguate named functions - cannot. Use need to use namespaces and modular pattern.</li>
+<li>built-in variable <code>arguments[]</code> to get all the arguments passed to the function.</li>
+<li>declare variables within functions using <code>var</code>. If you use without <code>var</code>, then you are using or overwriting the global version of the same variable!</li>
+<li>type <code>"use strict"</code> in your script to print all errors and break on them. Place the strict within your functions and not at a gobal scope - this is because you will use other folks libraries and they may not be up to high standards of coding.</li>
+<li>JS does <strong>not</strong> support default arguments!!</li>
+</ul>
+<h3>
+<a id="user-content-objects" class="anchor" href="#objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Objects</h3>
+<ul>
+<li>In object literal notation, you define an object like a JSON file</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> person<span class="pl-k">=</span>{
+	firstName<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>atma<span class="pl-pds">"</span></span>,
+	lastName<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>mani<span class="pl-pds">"</span></span>
+};</pre></div>
+<ul>
+<li>You can extend an object with new properties and assign them at runtime. (same as in a property map in Python or a dict during runtime)</li>
+<li>You can use <code>for in</code> loop to <strong>reflect</strong> over the kvp of an array</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> key <span class="pl-k">in</span> object){
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>(key, object[key]);
+}</pre></div>
+<ul>
+<li>use <code>JSON.stringify()</code> to serialize it to JSON and to hydrate it back, use <code>JSON.parse()</code>.</li>
+</ul>
+<h3>
+<a id="user-content-namespaces" class="anchor" href="#namespaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>namespaces</h3>
+<ul>
+<li>while JS does not give you a great namespace construct, you can fashion one by creating an object (of object class) and add your methods, classes to it.</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">if</span> (<span class="pl-k">!</span>yourNamespace){
+	<span class="pl-k">var</span> yourNamespace<span class="pl-k">=</span>{}; <span class="pl-c"><span class="pl-c">//</span>this is checked everytime yoru scrip is loaded</span>
+}
+
+<span class="pl-c"><span class="pl-c">//</span>extend it</span>
+<span class="pl-smi">yourNamespace</span>.<span class="pl-en">logic1</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){};
+<span class="pl-smi">yourNamespace</span>.<span class="pl-smi">obj1</span> <span class="pl-k">=</span> {
+	property1<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>
+}</pre></div>
+<h3>
+<a id="user-content-strings" class="anchor" href="#strings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>strings</h3>
+<ul>
+<li>strings are immutable</li>
+<li>you can call regular methods like <code>strobj.length</code>, <code>str.split()</code>, <code>str.trim()</code> to get another string returned by that method.</li>
+<li>you can also access individual elements of the string just like in an array <code>stringobj[index]</code>
+</li>
+</ul>
+<h3>
+<a id="user-content-dates" class="anchor" href="#dates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>dates</h3>
+<ul>
+<li><code>var rightNow = new Date();</code></li>
 </ul>
 <h2>
 <a id="user-content-js-and-dom" class="anchor" href="#js-and-dom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JS and DOM</h2>
@@ -814,6 +903,50 @@ pre {
 <li>YOu can debug JS from chrome, set breakpoints, use watch window and variable explorer.</li>
 <li>the console window of chrome is a good JS sandbox. You can simply type commands in the console and use JS</li>
 <li>you can do the same from console after starting <code>node</code>.</li>
+</ul>
+<h2>
+<a id="user-content-functional-programming" class="anchor" href="#functional-programming" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functional programming</h2>
+<p>For essential purposes, functional programming is declaring functions and passing them around using their references. You can extend the functionality or modify it.</p>
+<h3>
+<a id="user-content-closures" class="anchor" href="#closures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Closures</h3>
+<ul>
+<li>closures mean, if you have nested functions, the inner function has access to the arguments and variables created in the outer and also modify them.</li>
+<li>with closures pattern, you can return an object that points to the nested functions as methods. with this you can instantiate an object from a method (blown mind) and</li>
+</ul>
+<h2>
+<a id="user-content-inheritance" class="anchor" href="#inheritance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inheritance</h2>
+<ul>
+<li>
+<code>prototyping</code> concept allows you to not only inherit, but also extend your base class.</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">classname</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">your_extension</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){logic};</pre></div>
+<ul>
+<li>when inheriting your own objects, you will use the <code>call()</code> method to call the super's constructor</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Animal</span>(<span class="pl-smi">name</span>){
+                <span class="pl-c1">this</span>.<span class="pl-c1">name</span><span class="pl-k">=</span>name;
+            }
+<span class="pl-k">function</span> <span class="pl-en">Person</span>(<span class="pl-smi">name</span>, <span class="pl-smi">age</span>){
+                <span class="pl-smi">Animal</span>.<span class="pl-c1">call</span>(<span class="pl-c1">this</span>, name); <span class="pl-c"><span class="pl-c">//</span>calling the super's constructor</span>
+                <span class="pl-c1">this</span>.<span class="pl-smi">age</span> <span class="pl-k">=</span> age;
+            }</pre></div>
+<ul>
+<li>if you extended your base class using a constructor, then you got to also inherit the prototypes like below:</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">Animal</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">speak</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
+                <span class="pl-en">alert</span>(<span class="pl-c1">this</span>.<span class="pl-c1">name</span> <span class="pl-k">+</span>  <span class="pl-s"><span class="pl-pds">"</span> is barking<span class="pl-pds">"</span></span>);
+            }
+<span class="pl-c"><span class="pl-c">//</span>then you in herit the prototype as</span>
+<span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>(<span class="pl-smi">Animal</span>.<span class="pl-c1">prototype</span>);
+<span class="pl-c"><span class="pl-c">//</span>when you inherit, you overwrite your own constructor, so you set it back.</span>
+<span class="pl-smi">Person</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">=</span> Person;</pre></div>
+<ul>
+<li>when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.</li>
+<li>you can, in this way, have prototype chaining.</li>
+<li>The concept <code>defineProperties</code> allows you to declare some properties as read only, making it not possible for inheriting objects to change some properties. It also gives you getters and setters.</li>
+<li>
+<strong>ECMAScript 6</strong> makes creating classes way more like a proper OO language. You get <code>class</code>, <code>constructor()</code> <code>super</code> keywords and looses a lot of bad verbage making things simpler</li>
+<li>You really dont play with prototypes in ecma6.</li>
 </ul>
 <h2>
 <a id="user-content-appendix---run-web-server-using-nodejs" class="anchor" href="#appendix---run-web-server-using-nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appendix - Run web server using node.js</h2>
