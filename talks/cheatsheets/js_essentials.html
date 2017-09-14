@@ -735,9 +735,7 @@ pre {
 </li>
 </ul>
 <p><strong>Table of contents</strong></p>
-<ul>
-<li>
-<a href="#javascript-essentials">Javascript essentials</a>
+
 <ul>
 <li><a href="#placement">Placement</a></li>
 <li>
@@ -760,11 +758,19 @@ pre {
 </ul>
 </li>
 <li><a href="#inheritance">Inheritance</a></li>
+<li><a href="#ecmascript-6-pattern">ECMAScript 6 pattern</a></li>
+<li>
+<a href="#dom">DOM</a>
+<ul>
+<li><a href="#jquery-for-dom-manipulation">jQuery for DOM manipulation</a></li>
+<li><a href="#ajax---jquery-library-for-io-with-backend">AJAX - jQuery library for IO with backend</a></li>
+</ul>
+</li>
+<li><a href="#node-js">Node JS</a></li>
 <li><a href="#appendix---run-web-server-using-nodejs">Appendix - Run web server using node.js</a></li>
 <li><a href="#appendix---documentation">Appendix - documentation</a></li>
 </ul>
-</li>
-</ul>
+
 <h2>
 <a id="user-content-placement" class="anchor" href="#placement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Placement</h2>
 <p>Place <code>&lt;script&gt;&lt;/script&gt;</code> within the end of <code>&lt;body&gt;</code> tags. This ensures the page is fully loaded since your JS scripts may have to read elements of the page itself. You can also run a html file with JS in a browser. It loads as a file. This is not scalable for large sites. You need a web server - use <code>node.js</code>.</p>
@@ -944,9 +950,73 @@ pre {
 <li>when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.</li>
 <li>you can, in this way, have prototype chaining.</li>
 <li>The concept <code>defineProperties</code> allows you to declare some properties as read only, making it not possible for inheriting objects to change some properties. It also gives you getters and setters.</li>
+</ul>
+<h2>
+<a id="user-content-ecmascript-6-pattern" class="anchor" href="#ecmascript-6-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ECMAScript 6 pattern</h2>
+<ul>
 <li>
 <strong>ECMAScript 6</strong> makes creating classes way more like a proper OO language. You get <code>class</code>, <code>constructor()</code> <code>super</code> keywords and looses a lot of bad verbage making things simpler</li>
 <li>You really dont play with prototypes in ecma6.</li>
+<li>you get <code>arrow</code> functions, which are lambda functions, similar to that in C#.</li>
+</ul>
+<div class="highlight highlight-source-js"><pre>()<span class="pl-k">=&gt;</span> {<span class="pl-c"><span class="pl-c">/*</span>function declaration<span class="pl-c">*/</span></span>}
+(<span class="pl-smi">x</span>,<span class="pl-smi">y</span>)<span class="pl-k">=&gt;</span> {<span class="pl-c"><span class="pl-c">/*</span>function declaration<span class="pl-c">*/</span></span>} <span class="pl-c"><span class="pl-c">//</span>for a function wiht one or more args</span></pre></div>
+<ul>
+<li>you read <code>=&gt;</code> as <code>goes to</code>.</li>
+</ul>
+<h2>
+<a id="user-content-dom" class="anchor" href="#dom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DOM</h2>
+<ul>
+<li>tree of nodes. Each tag is a node.</li>
+<li>JS can parse the DOM, modify it based on event the user is triggering.</li>
+<li>methods like <code>createElement</code>, <code>getElementById</code>, <code>getElementByName</code>, <code>getElementByTagName</code> lets you read DOM or search DOM.</li>
+<li>You can inject html by setting <code>&lt;div&gt;</code> tags <code>innerHTML</code> to the html text you need.</li>
+<li>since the browser support varies a lot, you can use <a href="http://caniuse.com">http://caniuse.com</a> to find support across browsers.</li>
+</ul>
+<h3>
+<a id="user-content-jquery-for-dom-manipulation" class="anchor" href="#jquery-for-dom-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jQuery for DOM manipulation</h3>
+<ul>
+<li>jQuery is a library and a very popular one. You can use the Google CDN or download and put it in your server as well. <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js</a> is Google's CDN.</li>
+<li>If you are installing this locally instead of using the CDN, then use <code>npm</code> and <code>bower</code>. Bower will install it in the root of your site, so when you host your site, you will not forget to host the dependent libraries.</li>
+</ul>
+<pre><code>npm install -g bower
+bower install jquery
+</code></pre>
+<ul>
+<li>a couple of two different package managers is <code>yarn</code> and <code>webpack</code>.</li>
+<li>jQuery tutorial <a href="https://www.w3schools.com/jquery/">https://www.w3schools.com/jquery/</a>
+</li>
+<li>a case for installing the lib locally is, you can step-in to the jQuery code when needed to understand the implementaiton.</li>
+<li>when you call jQuery, you <strong>dont</strong> get back a DOM. Instead you get back a jQuery result object.</li>
+<li>in code, <code>$</code> is a shorthand representation of lib name <code>jQuery</code>.</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">ready</span>(<span class="pl-k">function</span>(){
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>page loaded, ready for JS<span class="pl-pds">"</span></span>)
+    })
+
+<span class="pl-c"><span class="pl-c">//</span>general syntax is </span>
+<span class="pl-en">$</span>(selector).<span class="pl-c1">action</span>()</pre></div>
+<ul>
+<li>it is good to check if the page has fully loaded before running JS. you can check it like above.</li>
+<li>a programming pattern is to use <code>$</code> suffix for jQuery result sets to differentiate from JS variables</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> divs$ <span class="pl-k">=</span> $.(<span class="pl-s"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>); <span class="pl-c"><span class="pl-c">//</span>get all the selectors of div</span></pre></div>
+<h3>
+<a id="user-content-ajax---jquery-library-for-io-with-backend" class="anchor" href="#ajax---jquery-library-for-io-with-backend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AJAX - jQuery library for IO with backend</h3>
+<ul>
+<li>operations are async. AJAX - Asynchronous Javascript And XML. AJAX is used to make calls to backend server or any remote server via HTTP, REST.</li>
+<li>AJAX call will return a value called a <code>promise</code>, while the rest of the script is executed.</li>
+<li>AJAX object is a <code>XHR</code> - XML HTTP Request object - something microsoft came up. There is no JSON in the name since it was not invented yet. However, today's tech still keeps the name XHR to send and receive JSON.</li>
+<li>AJAX methods - <code>$.get(url, data, success, dataType)</code>, <code>$.getJSON()</code>, <code>$.post()</code>, <code>.load(url, data, complete)</code> are some popular methods.</li>
+<li>When doing async work, you use the <code>$.ajax()</code> which will give you a <code>promise</code> and you will call <code>$.then(function(){})</code> which will perform the operation once the async op is complete.</li>
+<li>use <code>$.ajaxSetup({})</code> to declare some defaults like the url prefix, method, dataType etc and this will apply for all calls made.</li>
+<li>
+<code>JSONP</code> is JSON with padding.</li>
+</ul>
+<h2>
+<a id="user-content-node-js" class="anchor" href="#node-js" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node JS</h2>
+<ul>
+<li>With node JS, you can power up a server and a client set up. See the node js example.</li>
 </ul>
 <h2>
 <a id="user-content-appendix---run-web-server-using-nodejs" class="anchor" href="#appendix---run-web-server-using-nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Appendix - Run web server using node.js</h2>

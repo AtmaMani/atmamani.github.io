@@ -6,22 +6,30 @@
  - JS cannot access file system since the browser runs it in a sandbox. user needs to give explicit permission.
 
 **Table of contents**
-- [Javascript essentials](#javascript-essentials)
-    - [Placement](#placement)
-    - [Types and programming constructs](#types-and-programming-constructs)
-        - [switches](#switches)
-        - [loops - while](#loops---while)
-        - [functions](#functions)
-        - [Objects](#objects)
-        - [namespaces](#namespaces)
-        - [strings](#strings)
-        - [dates](#dates)
-    - [JS and DOM](#js-and-dom)
-    - [Functional programming](#functional-programming)
-        - [Closures](#closures)
-    - [Inheritance](#inheritance)
-    - [Appendix - Run web server using node.js](#appendix---run-web-server-using-nodejs)
-    - [Appendix - documentation](#appendix---documentation)
+<!-- MarkdownTOC -->
+
+- [Placement](#placement)
+- [Types and programming constructs](#types-and-programming-constructs)
+    - [switches](#switches)
+    - [loops - while](#loops---while)
+    - [functions](#functions)
+    - [Objects](#objects)
+    - [namespaces](#namespaces)
+    - [strings](#strings)
+    - [dates](#dates)
+- [JS and DOM](#js-and-dom)
+- [Functional programming](#functional-programming)
+    - [Closures](#closures)
+- [Inheritance](#inheritance)
+- [ECMAScript 6 pattern](#ecmascript-6-pattern)
+- [DOM](#dom)
+    - [jQuery for DOM manipulation](#jquery-for-dom-manipulation)
+    - [AJAX - jQuery library for IO with backend](#ajax---jquery-library-for-io-with-backend)
+- [Node JS](#node-js)
+- [Appendix - Run web server using node.js](#appendix---run-web-server-using-nodejs)
+- [Appendix - documentation](#appendix---documentation)
+
+<!-- /MarkdownTOC -->
 
 ## Placement
 Place `<script></script>` within the end of `<body>` tags. This ensures the page is fully loaded since your JS scripts may have to read elements of the page itself. You can also run a html file with JS in a browser. It loads as a file. This is not scalable for large sites. You need a web server - use `node.js`.
@@ -175,8 +183,61 @@ Person.prototype.constructor = Person;
  - when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.
  - you can, in this way, have prototype chaining.
  - The concept `defineProperties` allows you to declare some properties as read only, making it not possible for inheriting objects to change some properties. It also gives you getters and setters.
+
+## ECMAScript 6 pattern
  - **ECMAScript 6** makes creating classes way more like a proper OO language. You get `class`, `constructor()` `super` keywords and looses a lot of bad verbage making things simpler
  - You really dont play with prototypes in ecma6.
+ - you get `arrow` functions, which are lambda functions, similar to that in C#.
+```js
+()=> {/*function declaration*/}
+(x,y)=> {/*function declaration*/} //for a function wiht one or more args
+```
+ - you read `=>` as `goes to`.
+
+## DOM
+ - tree of nodes. Each tag is a node.
+ - JS can parse the DOM, modify it based on event the user is triggering.
+ - methods like `createElement`, `getElementById`, `getElementByName`, `getElementByTagName` lets you read DOM or search DOM.
+ - You can inject html by setting `<div>` tags `innerHTML` to the html text you need.
+ - since the browser support varies a lot, you can use [http://caniuse.com](http://caniuse.com) to find support across browsers.
+
+### jQuery for DOM manipulation
+ - jQuery is a library and a very popular one. You can use the Google CDN or download and put it in your server as well. [https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js](https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js) is Google's CDN.
+ - If you are installing this locally instead of using the CDN, then use `npm` and `bower`. Bower will install it in the root of your site, so when you host your site, you will not forget to host the dependent libraries.
+```
+npm install -g bower
+bower install jquery
+```
+ - a couple of two different package managers is `yarn` and `webpack`.
+ - jQuery tutorial [https://www.w3schools.com/jquery/](https://www.w3schools.com/jquery/)
+ - a case for installing the lib locally is, you can step-in to the jQuery code when needed to understand the implementaiton.
+ - when you call jQuery, you **dont** get back a DOM. Instead you get back a jQuery result object.
+ - in code, `$` is a shorthand representation of lib name `jQuery`.
+```js
+$(document).ready(function(){
+    console.log("page loaded, ready for JS")
+    })
+
+//general syntax is 
+$(selector).action()
+```
+ - it is good to check if the page has fully loaded before running JS. you can check it like above.
+ - a programming pattern is to use `$` suffix for jQuery result sets to differentiate from JS variables
+```js
+var divs$ = $.('div'); //get all the selectors of div
+```
+
+### AJAX - jQuery library for IO with backend
+ - operations are async. AJAX - Asynchronous Javascript And XML. AJAX is used to make calls to backend server or any remote server via HTTP, REST.
+ - AJAX call will return a value called a `promise`, while the rest of the script is executed.
+ - AJAX object is a `XHR` - XML HTTP Request object - something microsoft came up. There is no JSON in the name since it was not invented yet. However, today's tech still keeps the name XHR to send and receive JSON.
+ - AJAX methods - `$.get(url, data, success, dataType)`, `$.getJSON()`, `$.post()`, `.load(url, data, complete)` are some popular methods. 
+ - When doing async work, you use the `$.ajax()` which will give you a `promise` and you will call `$.then(function(){})` which will perform the operation once the async op is complete.
+ - use `$.ajaxSetup({})` to declare some defaults like the url prefix, method, dataType etc and this will apply for all calls made.
+ - `JSONP` is JSON with padding.
+
+## Node JS
+ - With node JS, you can power up a server and a client set up. See the node js example.
 
 ## Appendix - Run web server using node.js
 In terminal, after installing node.js, type:
