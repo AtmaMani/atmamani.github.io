@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>cheat_sheet_index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>plotly_cufflinks_cheat_sheet_1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,7 +11778,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="cheat_sheets.jpg" alt=""></p>
+<p><center><h1>Interactive plots with Plotly and Cufflinks</h1></center>
+<img src=https://s3-us-west-1.amazonaws.com/plotly-tutorials/plotly-marketing-pages/images/new-branding/logo/images/plotly-logo-01-stripe%402x.png height="100" width="400"></p>
 
 </div>
 </div>
@@ -11788,109 +11789,282 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="All-my-cheat-sheets">All my cheat sheets<a class="anchor-link" href="#All-my-cheat-sheets">&#182;</a></h1><h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><ul>
-<li><a href="python_cheat_sheet_1.html">Python basics, comprehensions</a></li>
-<li><a href="python_cheat_sheet_2.html">Python object oriented and exception handling</a></li>
-<li><a href="python_cheat_sheet_3.html">Productive in Python - map reduce lambdas</a></li>
+<p>Plotly is a JS based plotting library with Python bindings (similar to bokeh). Plotly also has a portal online where users can upload their charts for public use.</p>
+<h4 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h4>
+<pre><code>pip instal plotly</code></pre>
+<h4 id="login">login<a class="anchor-link" href="#login">&#182;</a></h4>
+<pre><code>import plotly
+plotly.tools.set_credentials_file(username='', api_key='')</code></pre>
+<p>create your key here: <a href="https://plot.ly/settings/api">https://plot.ly/settings/api</a></p>
+<h2 id="Online-and-Offline-plotting">Online and Offline plotting<a class="anchor-link" href="#Online-and-Offline-plotting">&#182;</a></h2><p>Plotly allows you to plot both</p>
+<ul>
+<li>online - plot data is set online to your account.<ul>
+<li><code>plot()</code> - returns a unique url and opens it new tab</li>
+<li><code>iplot()</code> - when using notebook to embed the plot</li>
+</ul>
+</li>
+<li>offline - explicit call<ul>
+<li><code>offline.plot</code> - creates a <strong>new html</strong> output page</li>
+<li><code>offline.iplot</code> - interactive while in a notebook</li>
+</ul>
+</li>
 </ul>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotly</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">set_credentials_file</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;aaa&#39;</span><span class="p">,</span>
+                                  <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conda">Conda<a class="anchor-link" href="#Conda">&#182;</a></h2><ul>
-<li><a href="conda_cheat_sheet.html">Conda basics</a></li>
-</ul>
+<h3 id="Online-plotting">Online plotting<a class="anchor-link" href="#Online-plotting">&#182;</a></h3><h4 id="plot-command"><code>plot</code> command<a class="anchor-link" href="#plot-command">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">trace0</span> <span class="o">=</span> <span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">trace1</span> <span class="o">=</span> <span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">([</span><span class="n">trace0</span><span class="p">,</span> <span class="n">trace1</span><span class="p">])</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;basic-line2&#39;</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;https://plot.ly/~AtmaMani/2&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h2><ul>
-<li><a href="numpy_cheat_sheet_1.html">Numpy basics</a></li>
-<li><a href="numpy_cheat_sheet_2.html">Numpy array slicing dicing searching</a></li>
-</ul>
-<h2 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">&#182;</a></h2><ul>
-<li><a href="pandas_cheat_sheet_1.html">Pandas basics</a></li>
-<li><a href="pandas_cheat_sheet_2.html">Intermediate - multilevel index, missing data, aggregation, merge join concat</a></li>
-<li><a href="pandas_cheat_sheet_3.html">Productivity with Pandas</a></li>
-</ul>
-<h3 id="Data-viz-with-Pandas">Data viz with Pandas<a class="anchor-link" href="#Data-viz-with-Pandas">&#182;</a></h3><ul>
-<li><a href="pandas_data_viz_1.html">data viz with pandas</a></li>
-</ul>
+<h4 id="iplot-command"><code>iplot</code> command<a class="anchor-link" href="#iplot-command">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">trace0</span> <span class="o">=</span> <span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">trace1</span> <span class="o">=</span> <span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">([</span><span class="n">trace0</span><span class="p">,</span> <span class="n">trace1</span><span class="p">])</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;basic-line&#39;</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>High five! You successfully sent some data to your account on plotly. View your plot in your browser at https://plot.ly/~AtmaMani/0 or inside your plot.ly account where it is named &#39;basic-line&#39;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~AtmaMani/0.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Matplotlib">Matplotlib<a class="anchor-link" href="#Matplotlib">&#182;</a></h2><ul>
-<li><a href="matplotlib_1.html">matplotlib basics</a></li>
-<li><a href="matplotlib_2.html">advanced matplotlib plotting</a></li>
-</ul>
+<h2 id="Offline-plotting">Offline plotting<a class="anchor-link" href="#Offline-plotting">&#182;</a></h2><h4 id="plot-command"><code>plot</code> command<a class="anchor-link" href="#plot-command">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="n">Scatter</span><span class="p">,</span> <span class="n">Layout</span>
+
+<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">plot</span><span class="p">({</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])],</span>
+    <span class="s2">&quot;layout&quot;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;file:///Users/atma6951/Documents/code/pychakras/pychakras/python_crash_course/temp-plot.html&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Seaborn">Seaborn<a class="anchor-link" href="#Seaborn">&#182;</a></h2><ul>
-<li><a href="seaborn_cheat_sheet_1.html">Seaborn basics</a> - distplot, jointplot, pairplot, rugplot</li>
-<li><a href="seaborn_cheat_sheet_2.html">Seaborn categorical plotting</a> - bar, count, box, violin, strip, swarm plots</li>
-<li><a href="seaborn_cheat_sheet_3.html">Seaborn matrix and regression plots</a> - heatmap, cluster, regression</li>
-<li><a href="seaborn_cheat_sheet_4.html">Seaborn grids and customization</a> - pairgrid, facetgrid, customization</li>
-</ul>
+<h4 id="iplot-command"><code>iplot</code> command<a class="anchor-link" href="#iplot-command">&#182;</a></h4><p>You need to set initialization code, similar to matplotlib</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="k">import</span> <span class="n">Scatter</span><span class="p">,</span> <span class="n">Layout</span>
+
+<span class="c1"># init code</span>
+<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plotly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])],</span>
+    <span class="s2">&quot;layout&quot;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+<div class="output_html rendered_html output_subarea ">
+<script>requirejs.config({paths: { 'plotly': ['https://cdn.plot.ly/plotly-latest.min']},});if(!window.Plotly) {{require(['plotly'],function(plotly) {window.Plotly=plotly;});}}</script>
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+<div class="output_html rendered_html output_subarea ">
+<div id="9a9d9db9-d30c-48d8-b9ca-7feadeec148c" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("9a9d9db9-d30c-48d8-b9ca-7feadeec148c", [{"type": "scatter", "x": [1, 2, 3, 4], "y": [4, 3, 2, 1]}], {"title": "hello world"}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interactive-plotting-with-Plotly">Interactive plotting with Plotly<a class="anchor-link" href="#Interactive-plotting-with-Plotly">&#182;</a></h2><ul>
-<li><a href="plotly_cufflinks_cheat_sheet_1.html">Plotly introduction</a></li>
-<li><a href="plotly_cufflinks_cheat_sheet_2.html">Interactive plotting with Plotly</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R">R<a class="anchor-link" href="#R">&#182;</a></h2><ul>
-<li><a href="r_cheat_sheet_1.html">R basics</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Javascript">Javascript<a class="anchor-link" href="#Javascript">&#182;</a></h2><ul>
-<li><a href="js_essentials.html">JS essentials</a></li>
-</ul>
+<h2 id="Building-dashboards-with-Plotly-Dash">Building dashboards with Plotly Dash<a class="anchor-link" href="#Building-dashboards-with-Plotly-Dash">&#182;</a></h2><p>Minimal HTML and no JS. Pure Python based dashboards. More info here: <a href="https://plot.ly/dash/">https://plot.ly/dash/</a></p>
 
 </div>
 </div>
