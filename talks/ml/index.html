@@ -721,7 +721,33 @@ pre {
   position: relative;
   border-color: #4078c0;
 }
-</style><title>index</title></head><body><article class="markdown-body"><h1>
+</style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>index</title></head><body><article class="markdown-body"><h1>
 <a id="user-content-machine-learning" class="anchor" href="#machine-learning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Machine Learning</h1>
 <p>Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)</p>
 <h4>
@@ -729,7 +755,12 @@ pre {
 <hr>
 <ul>
 <li><a href="stat/index.html">It's not ML if its not rooted in stats</a></li>
-<li><a href="sklearn/sklearn-1.html">Scikit-learn</a></li>
+<li>
+<a href="sklearn/sklearn-1.html">Scikit-learn</a>
+<ul>
+<li><a href="sklearn/sklearn_linear_regression.html">Linear regression in sklearn</a></li>
+</ul>
+</li>
 </ul>
 <hr>
 </article></body></html>
