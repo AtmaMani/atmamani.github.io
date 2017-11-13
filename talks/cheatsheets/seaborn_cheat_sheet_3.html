@@ -11778,7 +11778,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Seaborn---matrix-plots">Seaborn - matrix plots<a class="anchor-link" href="#Seaborn---matrix-plots">&#182;</a></h1>
+<h1 id="Seaborn---matrix-and-regression-plots">Seaborn - matrix and regression plots<a class="anchor-link" href="#Seaborn---matrix-and-regression-plots">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12336,6 +12336,492 @@ AAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the heatmap above, we see there are more passengers in summer (June, July, August) and the number of passengers increases by the year as well.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Heatmap-for-null-data-visualization">Heatmap for null data visualization<a class="anchor-link" href="#Heatmap-for-null-data-visualization">&#182;</a></h3><p>SNS Heatmap is great to view how many nulls are in your data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#from ml chapter, read titanic data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../udemy_ml_bootcamp/Machine Learning Sections/Logistic-Regression/titanic_train.csv&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(891, 12)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">titanic</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115ae64a8&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+qRm6TY8tXmjBBiZbAQ9o2Z6k5W0y/S4i7gbsztT015pqhm7TY4tXY3oDkx9SNjWRpLV1LnApK0/i
+ngc+WOviNUN34bHFTfYKiJWn105vYHJXyq7ykrS2frymo4JqqDZPdyLKscU/ysxbql545fU/SdmP
+4KJhKfC+DBuYZObOLdqUNB4RcRhwPaW3C0BmVtstseYy4OdS9im9C+XwweMy8/W1rj+l5+m1ksZn
+V0qO7T58PU855qmKmuWFQylbsb2fMm3sXKBF6HY7vVbSKG3ScpvYmqF74/D52uE8o6o780zpfnqt
+pFG5JCKeTdnrYbK6ttr5izWD8XLKANqLI+IVwEUVr327dXl6raRReATlWKLJ1pwbA4+tdfGqA2kR
+sUlmXhcRW2TmlXf+JyRpaYiID2Tms4bHfzUZk4qIT00OqK2h2tLZiHgCsMuwQ8/5EeFmMJJ+mdxn
+6vH0atqqU7xq7lfwasppnS8CdgYOqHhtSeqp2akfNUP3BsomNLdk5vdpf6SGJNU0v4bHVdUcSPsJ
+5SibdwyHKv6g4rUlqbXV7Z09Bzy0ZiM1Q/eZlE1vLo2IXwPeWfHaktTamvbOrrqPds3jerYD9gY2
+pLw7bJWZTY8pl6RfNjVrupNjbHYBHgTcq+K1JWlZqBm612Xma4HvZObzgC0qXluSloWaoTs/HOK2
+aUSsoJyiKUmaUiV0I2Iz4EjgacBplCXBn6xxbUlaTtZ6IC0iDgYOA24BDsnMc2r8YJK0HNXo6T4H
+CMqGEIdWuJ4kLVs1QvenmfmzzLwKj8yRpDtUcyANGq5XlqTloEZN90rKoNkcsAdTA2iZ6U5jkjSl
+xjLgNS2dkyQtUP00YEnSmtWu6UqS7oChK0kdGbqS1JGhK0kdGbqS1NH/A08tq0aWjcKoAAAAAElF
+TkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see <code>Age</code> and <code>Cabin</code> columns have lots of null while others have none or very few.</p>
 
 </div>
 </div>
