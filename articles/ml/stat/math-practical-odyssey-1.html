@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>cheat_sheet_index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>math-practical-odyssey-1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,20 +11778,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="cheat_sheets.jpg" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="All-my-cheat-sheets">All my cheat sheets<a class="anchor-link" href="#All-my-cheat-sheets">&#182;</a></h1><h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><ul>
-<li><a href="python_cheat_sheet_1.html">Python basics, comprehensions</a></li>
-<li><a href="python_cheat_sheet_2.html">Python object oriented and exception handling</a></li>
-<li><a href="python_cheat_sheet_3.html">Productive in Python - map reduce lambdas</a></li>
+<h1 id="Mathematics---a-practical-odyssey">Mathematics - a practical odyssey<a class="anchor-link" href="#Mathematics---a-practical-odyssey">&#182;</a></h1><p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Set-theory">set theory</a><ul>
+<li><a href="#Notations">notations</a></li>
+<li><a href="#De-Morgan&#39;s-laws">De Morgans's laws</a></li>
+<li><a href="#Permutations-and-combinations">Permutations and combinations</a></li>
+</ul>
+</li>
+<li><a href="#Probability">Probability</a><ul>
+<li><a href="#Combinatronics-and-probability">Combinatronics and probability</a></li>
+<li><a href="#Conditional-probability">Conditional probability</a></li>
+</ul>
+</li>
+<li><a href="#Statistics">Statistics</a><ul>
+<li><a href="#Measures-of-central-tendency">Measures of central tendency</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -11802,8 +11805,286 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conda">Conda<a class="anchor-link" href="#Conda">&#182;</a></h2><ul>
-<li><a href="conda_cheat_sheet.html">Conda basics</a></li>
+<h2 id="Set-theory">Set theory<a class="anchor-link" href="#Set-theory">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Notations">Notations<a class="anchor-link" href="#Notations">&#182;</a></h3><p>Set builder notation for representing a set:
+$$ G = \{ x\mid x < 0 ~and~ x \in R \} $$
+which is read as 'the set of all x, such that x is less than 0 and x is a real number'.</p>
+<p><strong>Cardinal number</strong> of a set is the number of elements in it. It is denoted as <code>n(A)</code>. An <strong>empty set</strong> has 0 elements. It is represented as $\phi$ or as <code>{}</code>. <strong>Universal set</strong> is always represented as <code>U</code>.</p>
+<p>A is a <strong>proper subset</strong> of B, if all elements of A are in B and B has more elements than A. It is represented as $A \subset B$. A is an improper subset of B if A and B have the same elements. A <strong>not a subset</strong> is represented a $A  \not\subset B$. Thus 
+$$ A \cup B = \{ x \mid x \in A ~or~ x\in B\}$$
+$$ A \cap B = \{ x \mid x \in A ~and~ x\in B\}$$</p>
+<p><strong>Intersection of sets</strong> represents the common elements and is written as $ A \cap B$. <strong>Union of sets</strong> represents all elements, <strong>without repetition</strong> and is written as $A \cup B$.</p>
+<p>Two sets are <strong>Mutually exclusive</strong>, if there are no common elements. Written as $ A \cap B = \phi $.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Cardinal-number-formula-for-union-of-two-sets">Cardinal number formula for union of two sets<a class="anchor-link" href="#Cardinal-number-formula-for-union-of-two-sets">&#182;</a></h4>$$n(A \cup B) = n(A) + n(b) - n(A\cap B)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Complement</strong> of a set is the set of all elements <strong>not</strong> in that set, but in Universal set. It is represented as 
+$$ A' = \{x\mid x \in U ~and~ x \not\in A \}$$
+$$ n(A') = n(U) - n(A)$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="De-Morgan's-laws">De Morgan's laws<a class="anchor-link" href="#De-Morgan's-laws">&#182;</a></h4><p>For any two sets A and B (no need to be independent or mutually exclusive)
+$$ (A\cup B)' = A' \cap B'$$
+$$ (A\cap B)' = A' \cup B'$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Permutations-and-combinations">Permutations and combinations<a class="anchor-link" href="#Permutations-and-combinations">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Fundamental-principle-of-counting">Fundamental principle of counting<a class="anchor-link" href="#Fundamental-principle-of-counting">&#182;</a></h4><p>The number of possible ways in which you can choose a 4 digit PIN number: Here, you can <strong>repeat</strong> numbers (or, your choices are replaced once you chose them so they can be chosen another time). Here, you simply raise the choices by number of selections.</p>
+<p><strong>Number of ways to select 4 digit PIN</strong> = <code>10 x 10 x 10 x 10</code> = <code>10,000</code>.</p>
+<h4 id="Permutations">Permutations<a class="anchor-link" href="#Permutations">&#182;</a></h4><p>Selection without replacement (no repetition) and <strong>order of selection is important</strong>, meaning, if you change the order, you can count that selection as a whole new choice. The formula is</p>
+$$ _{n}P_{r} = \frac{n!}{(n-r)!}$$<p>where <code>n</code> is number of items in the pool and <code>r</code> is the number of choices to be made.</p>
+<p>The number of ways to choose the first 3 places from a pool of 10 contestants:
+$$_{10}P_{3} = \frac{10!}{7!} = 720$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use itertools to calculate permutations in Python</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">permutations</span>
+
+<span class="c1"># create list of items in pool</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">npr_choices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># since you get back a iterable</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">npr_choices</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>720
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Combinations</strong>
+Selection without replacement and <strong>order is not important</strong>. If you change the order, that choice is not counted as a new choice. Thus, there are generally fewer combinations than permutations possible in a given scenario. Exceptions are narrow choices like choose 1 or 0 items from a pool of items. In this case, number of permutations and combinaions are the same.</p>
+$$ _{n}C_{r} = \frac{n!}{r! (n-r)!}$$<p>Thus, the various combinations of choosing 3 balls from a bag of 10 balls are:
+$$ _{10}C_{3} = \frac{10!}{3! \cdot 7!} = 120$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use combinations method from itertools module</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">ncr_choices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncr_choices</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>120
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Probability">Probability<a class="anchor-link" href="#Probability">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probability is the measure of likelihood of an event happening. In general, it is the ratio of number of outcomes in the event <code>E</code> to the total number of possible outcomes. Thus</p>
+$$ p(E) = \frac{n(E)}{n(S)}$$<p>Probability is a computed value. If you are conducting an empirical study, you can measure probability of an event by measuring the relative frequency of that event. The <strong>law of large numbers</strong> states that</p>
+
+<pre><code>If an experiment is repeated a large number of times, the relative frequency of an outcome will tend to be close to the probability of the outcome.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Probability-rules">Probability rules<a class="anchor-link" href="#Probability-rules">&#182;</a></h4>$$ 
+p(\phi) = 0 \\
+p(S) = 1 \\
+0 \leq p \leq 1
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Combinatronics-and-probability">Combinatronics and probability<a class="anchor-link" href="#Combinatronics-and-probability">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of being dealt 4 Aces in poker</strong>
+First find the sample space. Sample space includes all possible ways of selecting 5 cards from a pack of 52.</p>
+<p>Thus, n(S) = $_{52}C_{5} = 2,598,960$.</p>
+<p>Now, n(E) = number of ways of selecting 4 aces + 1 any other card.</p>
+<p>n(E) = $_{4}C_{4} \cdot _{48}C_{1}$</p>
+<p>p(E) = n(E) / n(S) = (4*48)/2,598,960 = 0.00001847</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of being dealt 4 of a kind.</strong></p>
+<p>The, n(S) remains same. But n(E) is expanded 13 times as there are 13 different ways to select a 4 of a kind in a single pack of cards.</p>
+<p>p(E) = 13* (probability of 4 aces)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of getting 5 hearts</strong>.</p>
+<p>The n(S) remains same as $_{52}C_{5}$. Now the n(E) is written as $_{13}C_{5}$ as there are 13C5 number of ways to select a set of 5 hearts.</p>
+<p>Thus, p(E) = 13C5 / 52C5 = 0.0004951</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditional-probability">Conditional probability<a class="anchor-link" href="#Conditional-probability">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Conditional probability of event <strong>A</strong> given event <strong>B</strong> is written as
+$$p(A|B) = \frac{n(A\cap B)}{n(B)} $$</p>
+<p>dividing both numerator and demoninator of right side by n(S), we can rewrite this as</p>
+<p><div class="alert alert-info">
+$$p(A|B) = \frac{p(A \cap B)}{p(B)} $$
+</div>
+and, more commonly</p>
+$$p(A \cap B) = p(A|B) \cdot p(B) $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Understanding-the-difference-between-'A-given-B'-and-'A-and-B'">Understanding the difference between 'A given B' and 'A and B'<a class="anchor-link" href="#Understanding-the-difference-between-'A-given-B'-and-'A-and-B'">&#182;</a></h4><p>Two cards are dealt from a pack of cards, find the probability that</p>
+<ul>
+<li>both cards are hearts. This is $p(A \cap B)$</li>
+<li>second card is heart, given first is a heart. This is looking for the odds of the 2nd card. It is $p(A|B)$ where <em>A</em> is second card and <em>B</em> is first card being heart.</li>
 </ul>
 
 </div>
@@ -11814,18 +12095,46 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h2><ul>
-<li><a href="numpy_cheat_sheet_1.html">Numpy basics</a></li>
-<li><a href="numpy_cheat_sheet_2.html">Numpy array slicing dicing searching</a></li>
-</ul>
-<h2 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">&#182;</a></h2><ul>
-<li><a href="pandas_cheat_sheet_1.html">Pandas basics</a></li>
-<li><a href="pandas_cheat_sheet_2.html">Intermediate - multilevel index, missing data, aggregation, merge join concat</a></li>
-<li><a href="pandas_cheat_sheet_3.html">Productivity with Pandas</a></li>
-</ul>
-<h3 id="Data-viz-with-Pandas">Data viz with Pandas<a class="anchor-link" href="#Data-viz-with-Pandas">&#182;</a></h3><ul>
-<li><a href="pandas_data_viz_1.html">data viz with pandas</a></li>
-</ul>
+<p>The probability of selecting 1st heart is 13/52. Hence:</p>
+$$p(B) = \frac{13}{52}$$<p>Since the 1st card is heart, you are left with 12 hearts and 51 total cards. So the probability of selecting another heart is:
+$$ p(A|B) = \frac{12}{51} = 0.2352$$</p>
+<p>Thus:</p>
+$$p(A \cap B) = \frac{12}{51} \cdot \frac{13}{52} = 0.0588$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also calculate probability of both hearts without conditional probability using <strong>combinatronics</strong> as below:</p>
+$$p(A \cap B) = \frac{_{13}C_{2}}{_{52}C_{2}} $$$$p(A \cap B) = \frac{13}{52} \cdot \frac{12}{51} $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Dependent-and-Independent-events">Dependent and Independent events<a class="anchor-link" href="#Dependent-and-Independent-events">&#182;</a></h4><p>If A and B are independent, then knowing B occurred does not affect the probability of A. Thus:</p>
+<div class="alert alert-info">
+$$p(A|B) = p(A)$$
+</div><p>Conversely, if $p(A|B) \neq p(A)$ then A and B are dependent.</p>
+<div class="alert alert-info">
+Thus, for A and B **independent** events,
+$$p(A \cap B) = p(A) \cdot p(B) $$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An example of independent events is, "find the probability of getting a 6 when tossing a pair of die, given the first also yielded a 6". Here the event of getting a 6 in one or first try does not affect getting 6 another time. Hence, they are simply independent events.</p>
 
 </div>
 </div>
@@ -11835,10 +12144,49 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Matplotlib">Matplotlib<a class="anchor-link" href="#Matplotlib">&#182;</a></h2><ul>
-<li><a href="matplotlib_1.html">matplotlib basics</a></li>
-<li><a href="matplotlib_2.html">advanced matplotlib plotting</a></li>
-</ul>
+<p>Using cardinal number of sets, in set theory,</p>
+<div class="alert alert-info">
+$$ p(A \cup B) = p(A) + p(B) - p(A \cap B)$$
+</div><p>for mutually exclusive A and B events, the $p(A \cap B) = 0$ thus,
+$$ p(A \cup B) = p(A) + p(B)$$</p>
+<p>Using De Morgan's laws,</p>
+<div class="alert alert-info">
+$$p(A' \cap B') = p(A \cup B)' $$
+
+and 
+
+$$p(A' \cup B') = p(A \cap B)' $$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Measures-of-central-tendency">Measures of central tendency<a class="anchor-link" href="#Measures-of-central-tendency">&#182;</a></h3><p>Population mean $\mu$ and median cannot be calculated. We generally calculate the sample mean and median.</p>
+$$Sample ~ mean: \bar x = \frac{\sum x}{n} $$$$Sample ~ median: ~ L = \frac{n+1}{2} $$<h3 id="Measures-of-dispersion">Measures of dispersion<a class="anchor-link" href="#Measures-of-dispersion">&#182;</a></h3><p>Variance is the squared deviation from the mean.</p>
+$$Sample ~ variance: s^{2} = \frac{\sum{(x - \bar x)^{2}}}{n-1}$$$$Sample ~ standard ~ deviation: s = \sqrt{\frac{\sum{(x - \bar x)^{2}}}{n-1}}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Normal-distribution">Normal distribution<a class="anchor-link" href="#Normal-distribution">&#182;</a></h3><p>If you plot the outcomes of a continuous random variable (of a process occurring in nature, like rainfall), it takes the shape of a bell curve, with values close to mean occurring more often than those farther from it. Since the curve represents the the probabilities of various outcomes, it is also a probability distribution.</p>
+<p><img src="https://s3.amazonaws.com/magoosh-company-site/wp-content/uploads/mat/files/2016/06/07130639/Bell-Curve-1.png" alt=""></p>
 
 </div>
 </div>
@@ -11848,12 +12196,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Seaborn">Seaborn<a class="anchor-link" href="#Seaborn">&#182;</a></h2><ul>
-<li><a href="seaborn_cheat_sheet_1.html">Seaborn basics</a> - distplot, jointplot, pairplot, rugplot</li>
-<li><a href="seaborn_cheat_sheet_2.html">Seaborn categorical plotting</a> - bar, count, box, violin, strip, swarm plots</li>
-<li><a href="seaborn_cheat_sheet_3.html">Seaborn matrix and regression plots</a> - heatmap, cluster, regression</li>
-<li><a href="seaborn_cheat_sheet_4.html">Seaborn grids and customization</a> - pairgrid, facetgrid, customization</li>
-</ul>
+<p>The <strong>Area under the curve</strong> = 1. Here $\mu$ is <strong>population mean</strong> and $\sigma$ is <strong>population standard deviation</strong>. Thus, <strong>68%</strong> values vall within $\mu \pm 1 \sigma$ and <strong>95%</strong> with $\mu \pm 2 \sigma$ and <strong>99.74%</strong> within $\mu \pm 3 \sigma$. We use the <strong>Z table</strong> to find the area / probability for any other values of x.</p>
 
 </div>
 </div>
@@ -11863,13 +12206,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interactive-plotting-with-Plotly">Interactive plotting with Plotly<a class="anchor-link" href="#Interactive-plotting-with-Plotly">&#182;</a></h2><ul>
-<li><a href="plotly_cufflinks_cheat_sheet_1.html">Plotly introduction</a></li>
-<li><a href="plotly_cufflinks_cheat_sheet_2.html">Interactive plotting with Plotly</a></li>
-</ul>
-<h3 id="Geographical-plotting-with-Plotly">Geographical plotting with Plotly<a class="anchor-link" href="#Geographical-plotting-with-Plotly">&#182;</a></h3><ul>
-<li><a href="plotly_geographical_plotting_1.html">Choropleth maps of USA</a></li>
-</ul>
+<h4 id="Transformation-to-standard-normal">Transformation to standard normal<a class="anchor-link" href="#Transformation-to-standard-normal">&#182;</a></h4><p>The Z table gives probabilities for standard normal dist ($\mu = 0$ and $\sigma=1$). To transfrom a normal dist with any other mean and SD, use the formula</p>
+$$ z= \frac{x - \mu}{\sigma}$$<p>where x is the value in the given distribution and z is the value in std. normal dist.</p>
 
 </div>
 </div>
@@ -11879,36 +12217,24 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R">R<a class="anchor-link" href="#R">&#182;</a></h2><ul>
-<li><a href="r_cheat_sheet_1.html">R basics</a></li>
-</ul>
+<h4 id="Central-limit-theorem">Central limit theorem<a class="anchor-link" href="#Central-limit-theorem">&#182;</a></h4><p>Since it is hard to find the population mean, SD, we use the CLT. According to CLT, <strong>means of a large number of samples is normally distributed around the population mean</strong>. Same applies for the SD and other measures.</p>
+<h4 id="Level-of-confidence">Level of confidence<a class="anchor-link" href="#Level-of-confidence">&#182;</a></h4><p>"We might say we are 95% confident the maximum error of a poll is plus or minus 3%". This means, if 100 samples are analyzed, 95 of them would differ from population by under 0.03 of that measure, and 5 would be greater than 0.03.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Javascript">Javascript<a class="anchor-link" href="#Javascript">&#182;</a></h2><ul>
-<li><a href="js_essentials.html">JS essentials</a></li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Latex-in-notebooks">Latex in notebooks<a class="anchor-link" href="#Latex-in-notebooks">&#182;</a></h2><ul>
-<li><a href="latex-1.html">latex</a></li>
-</ul>
 
-</div>
-</div>
 </div>
     </div>
   </div>

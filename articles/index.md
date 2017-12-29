@@ -2,9 +2,11 @@
 #### Opinionated view on many things
 
 - [DevOps today](DevOps_today.html)
-- [Practical scrum](practical_scrum.html)
 - [Building stand-alone command line apps with Python](stand_alone_cli_python.html)
 - [The Big Data Ecosystem](the-big-data-ecosystem.html)
+- [A crash course on Scrum part 1 - an agile project management methodology](https://www.linkedin.com/pulse/crash-course-scrum-part-1-agile-project-management-methodology/)
+- [A crash course on Scrum part 2 - an agile project management methodology](https://www.linkedin.com/pulse/crash-course-scrum-part-2-agile-project-management-methodology/)
+- [Demystifying Python jargon found in Data Science](https://www.linkedin.com/pulse/demystifying-python-jargon-found-data-science-atma-b-mani/)
 -------------------------------------
 
 #### Cheat sheets
@@ -14,8 +16,8 @@
 -------------------------------------
 
 #### Articles written for ArcGIS
- - [ArcUser: A whole new way to experience ArcGIS](www.esri.com/esri-news/arcuser/fall-2017/a-whole-new-way-to-experience-gis)
- - [ArcUser: Harness the power of ArcGIS with ArcGIS API for Python](www.esri.com/esri-news/arcuser/fall-2017/harness-the-power-of-gis-arcgis-api-for-python)
+ - [ArcUser: A whole new way to experience ArcGIS](https://www.esri.com/esri-news/arcuser/fall-2017/a-whole-new-way-to-experience-gis)
+ - [ArcUser: Harness the power of ArcGIS with ArcGIS API for Python](https://www.esri.com/esri-news/arcuser/fall-2017/harness-the-power-of-gis-arcgis-api-for-python)
  - [Announcement: Just in time for Esri UC, ArcGIS API for Python v1.2 is here](https://blogs.esri.com/esri/arcgis/2017/07/09/just-in-time-for-the-esri-uc-arcgis-api-for-python-v1-2-is-here/)
  - [Announcement: Turbocharge your Python scripts with ArcGIS API for Python v1.3](https://blogs.esri.com/esri/arcgis/2017/12/22/turbocharge-your-python-scripts-with-arcgis-api-for-python-v1-3/)
 -------------------------------------
