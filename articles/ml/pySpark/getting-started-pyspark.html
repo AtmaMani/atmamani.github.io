@@ -747,27 +747,87 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>index</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-machine-learning" class="anchor" href="#machine-learning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Machine Learning</h1>
-<p>Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)</p>
-<h4>
-<a id="user-content-ml-projects" class="anchor" href="#ml-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ML projects</h4>
-<hr>
+<title>getting-started-pyspark</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-getting-started-with-pyspark" class="anchor" href="#getting-started-with-pyspark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started with PySpark</h1>
+<p>PySpark library gives you a Python API to read and work with your RDDs in HDFS through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.</p>
+<h2>
+<a id="user-content-installing-pyspark-scala-java-spark" class="anchor" href="#installing-pyspark-scala-java-spark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing PySpark, Scala, Java, Spark</h2>
+<p><a href="https://medium.com/@josemarcialportilla/getting-spark-python-and-jupyter-notebook-running-on-amazon-ec2-dec599e1c297" rel="nofollow">Follow this tutorial</a>. The overall steps are</p>
 <ul>
-<li>Mathematics - a practical odyssey
-<ul>
-<li><a href="stat/math-practical-odyssey-1.html">Set theory, probability, statistics</a></li>
-<li><a href="stat/math-practical-odyssey-2.html">Mensuration, Analytical geometry, Trigonometry, Fractals</a></li>
-</ul>
+<li>get a linux VM ready. It could be an EC2 instance on AWS</li>
+<li>get SSH ability into this VM</li>
+<li>install anaconda. <strong>Note</strong>: Spark 2.0.0 cannot work with Python 3.6 and needs 3.5. So you can get a version of anaconda that installs 3.5 by default or you can get a higher version of Spark.</li>
+<li>change the default system Python to use Anaconda python</li>
+<li>install pip and <code>py4j</code> lib that allows you to run java via Python.</li>
+<li>download and extract Spark. Here if you get <code>spark-2.0.0-bin-hadoop2.7.tgz</code>, then you need Python 3.5 and not higher. I am getting <code>spark-2.2.1-bin-hadoop2.7.tgz</code> and it works well. <a href="https://issues.apache.org/jira/browse/SPARK-19019" rel="nofollow">Spark JIRA issue for reference</a>
 </li>
-<li><a href="stat/index.html">It's not ML if its not rooted in stats</a></li>
+</ul>
+<p>To premanently store the SPARK path store this in the <code>.bashrc</code> file on the home dir of the user account</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> PATH=<span class="pl-s"><span class="pl-pds">"</span>your default path output<span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> anaconda bin dir - this replaces default Python to anaconda python</span>
+<span class="pl-k">export</span> PATH=<span class="pl-s"><span class="pl-pds">"</span>/home/USERNAME/anaconda3/bin:<span class="pl-smi">$PATH</span><span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> linux uses : for path separators</span>
+<span class="pl-c"><span class="pl-c">#</span> now add Spark home to Path and PythonPath</span>
+<span class="pl-k">export</span> SPARK_HOME=<span class="pl-s"><span class="pl-pds">"</span>/home/USERNAME/spark-2.2.1-bin-hadoop2.7<span class="pl-pds">"</span></span>
+<span class="pl-k">export</span> PATH=<span class="pl-smi">$SPARK_HOME</span>:<span class="pl-smi">$PATH</span>
+<span class="pl-k">export</span> PYTHONPATH=<span class="pl-smi">$SPARK_HOME</span>/python <span class="pl-c"><span class="pl-c">#</span>this adds pyspark to python path.</span></pre></div>
+<h3>
+<a id="user-content-scala-vs-python" class="anchor" href="#scala-vs-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scala vs Python</h3>
+<p><strong>Advantages of using Scala</strong></p>
+<ul>
+<li>concurrency as Scala supports async.</li>
+<li>Type safety during compile time</li>
+<li>User Defined Functions (UDF) are more efficient in Scala</li>
+<li>type safety - Scala is suitable for bigger projects as its hassle free when you are refactoring a large codebase.</li>
+<li>due to absence of type safety, it does not make sense to with spark Datasets in Python. You can only work with RDD and DataFrames.</li>
+</ul>
+<p><strong>Advantages of using Python</strong></p>
+<ul>
+<li>easy to learn and use</li>
+<li>suitable for ad-hoc and small projects</li>
+<li>SparkMLib for ML.</li>
+</ul>
+<p><strong>tie points</strong></p>
+<ul>
+<li>Spark streaming is equally good in both</li>
+<li>DataFrames are similar in both</li>
+</ul>
+<h2>
+<a id="user-content-rdds-dataframes-datasets" class="anchor" href="#rdds-dataframes-datasets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RDDs, DataFrames, Datasets</h2>
+<p>For an overview on RDDs, refer <a href="the-big-data-ecosystem.html#rdd">here</a>. RDDs are compile-time type-safe and evaluate lazily. RDDs can slow in non-JVM langs like Python, cannot be optimized by spark. DataFrames are built on top of RDDs and you let Spark figure out how to work with RDDs. Hence DF is optimized. The only downside is compile-time type-safety. To rectify this, Spark built Datasets.</p>
+<p>In Spark 2.0, DataFrames and Datasets are merged. Conceptually, if you work with untyped data (as in Python, R), you can use a DataFrame where as if you work in typed languages (Scala), you can work with DataSets.</p>
+<h2>
+<a id="user-content-actions-and-transformations" class="anchor" href="#actions-and-transformations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Actions and transformations</h2>
+<p>Transformations create a new dataset. Actions return a value (like a summary statistic). All transformations in Spark are lazy. You can also persist RDDs on disk if you expect to read it later.</p>
+<p>When working with Spark, you use lambda functions a lot. Lambda plays well with Spark's motto of lazy evaluations.</p>
+<h3>
+<a id="user-content-some-spark-commands" class="anchor" href="#some-spark-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Spark commands</h3>
+<ul>
 <li>
-<a href="sklearn/sklearn-1.html">Scikit-learn</a>
+<code>rdd.textFile()</code> to read text files, csv files etc.</li>
+<li>
+<code>rdd.collect()</code> brings entire RDD to a single machine for processing and displays the result. This is mem intensive and can overwhelm the master if you use it on a large dataset.</li>
+<li>
+<code>rdd.take(n)</code> on the other hand will only collect and return <code>n</code> lines.</li>
+<li>
+<code>rdd.toDF()</code> to convert RDD to Spark DF</li>
+<li>
+<code>df.first()</code> and <code>df.top(n)</code> also work like take.</li>
+<li>
+<code>df.printSchema()</code> to list the columns and their types.</li>
+<li>You can also use <code>df.describe().show()</code> to get summary stats.</li>
+<li>
+<code>df.select('column1','column2').show(m)</code> to select a couple of columns and show their first m rows.</li>
+<li>
+<code>df.withColumn('colname', transformation_expression)</code> is the primary way you to update values in a DataFrame column.</li>
+</ul>
+<h3>
+<a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h3>
 <ul>
-<li><a href="sklearn/sklearn_linear_regression.html">Linear regression in sklearn</a></li>
+<li><a href="https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html" rel="nofollow">A tale of 3 Apache Spark APIs - RDDs, DataFrames, Datasets</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-python" rel="nofollow">Datacamp - Apache Spark and Python</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning#install" rel="nofollow">Datacamp - Predict CA housing prices using SparkMLib and PySpark</a></li>
 </ul>
-</li>
-<li><a href="pySpark/getting-started-pyspark.html">PySpark</a></li>
-</ul>
-<hr>
 </article></body></html>
