@@ -11,5 +11,6 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
 - [Scikit-learn](sklearn/sklearn-1.html)
   - [Linear regression in sklearn](sklearn/sklearn_linear_regression.html)
 - [PySpark](pySpark/getting-started-pyspark.html)
+  - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 
 -------------------------------------
