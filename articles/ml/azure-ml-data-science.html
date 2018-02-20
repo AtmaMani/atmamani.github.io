@@ -754,15 +754,29 @@ MathJax.Hub.Config({
 
 <ul>
 <li>
-<a href="#what-is-azure-ml-workbench">What is Azure ML Workbench</a>
+<a href="#azure-ml-workbench">Azure ML Workbench</a>
 <ul>
 <li><a href="#runtime-environments">Runtime environments</a></li>
+<li><a href="#deployment-environments">Deployment environments</a></li>
+</ul>
+</li>
+<li><a href="#azure-ml-portal">Azure ML portal</a></li>
+<li>
+<a href="#walk-through">Walk through</a>
+<ul>
+<li><a href="#initialization">Initialization</a></li>
+<li><a href="#model-development">Model development</a></li>
 </ul>
 </li>
 </ul>
 
+<p>Azure ML consists of two major parts</p>
+<ul>
+<li>Azure ML portal</li>
+<li>Azure ML Workbench</li>
+</ul>
 <h2>
-<a id="user-content-what-is-azure-ml-workbench" class="anchor" href="#what-is-azure-ml-workbench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is Azure ML Workbench</h2>
+<a id="user-content-azure-ml-workbench" class="anchor" href="#azure-ml-workbench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Azure ML Workbench</h2>
 <p>Azure ML provides a cloud infrastructure to turn your machine learning projects into production code with the scalability and availability of its cloud infrastructure. As of this blog, Azure itself does not have ML as Service, but it allows you to turn your projects into one.</p>
 <p>The Workbench is a <strong>desktop application + Python libraries</strong> with which you build your ML experiments, taking it from data cleaning, model building to refinement. It provides frameworks to</p>
 <ul>
@@ -778,8 +792,59 @@ MathJax.Hub.Config({
 <li>
 <code>local</code> - This is your local anaconda Python environment (or R env)</li>
 <li>
-<code>docker-python</code> - This encapsulates the <code>local</code> environment as a Docker container and runs it with this container</li>
+<code>docker-python</code> - This encapsulates the <code>local</code> environment as a Docker container and runs it with this container. This container could run locally, on host OS, or can run on a remote machine as well (such as a VM or HDInsights cluster).</li>
 <li>
 <code>docker-pyspark</code> - similar, but is useful for distributed computation using Spark.</li>
+</ul>
+<h3>
+<a id="user-content-deployment-environments" class="anchor" href="#deployment-environments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deployment environments</h3>
+<p>The output from Workbench is your Docker image. Azure ML helps you to deploy this image on <strong>Azure Container Services</strong> and get a <code>REST</code> API for predictions and inference during production.</p>
+<p>The ML model consists of</p>
+<ul>
+<li>model file (or dir of such files)</li>
+<li>Python file implementing model scoring function</li>
+<li>Conda dependency file (.yml)</li>
+<li>runtime environment file</li>
+<li>schema file for REST API parameters</li>
+<li>manifest file (auto generated) for building Docker image</li>
+</ul>
+<p><a href="https://camo.githubusercontent.com/1d0a29fd1d12efe7f3ee9dd09852e4fd490f19f1/68747470733a2f2f646f63732e6d6963726f736f66742e636f6d2f656e2d75732f617a7572652f6d616368696e652d6c6561726e696e672f707265766965772f6d656469612f6d6f64656c2d6d616e6167656d656e742d6f766572766965772f6d6f64656c6d616e6167656d656e742e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/1d0a29fd1d12efe7f3ee9dd09852e4fd490f19f1/68747470733a2f2f646f63732e6d6963726f736f66742e636f6d2f656e2d75732f617a7572652f6d616368696e652d6c6561726e696e672f707265766965772f6d656469612f6d6f64656c2d6d616e6167656d656e742d6f766572766965772f6d6f64656c6d616e6167656d656e742e706e67" alt="schematic" data-canonical-src="https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/model-management-overview/modelmanagement.png" style="max-width:100%;"></a></p>
+<p>Azure ML Model Management console allows your register and track your models like a version control system.</p>
+<h2>
+<a id="user-content-azure-ml-portal" class="anchor" href="#azure-ml-portal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Azure ML portal</h2>
+<p><a href="https://portal.azure.com/" rel="nofollow">Azure dashboard</a> contains all Azure sub products, including the ML services. Sign in with free Outlook account or Office 365 account and you get <code>$200</code> in free credits.</p>
+<p>In the console, search for <a href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearningExperimentation" rel="nofollow">Machine learning experimentation</a> (which is in preview at the time of this article). This service / dashboard provides an environment for the rest of this article.</p>
+<h2>
+<a id="user-content-walk-through" class="anchor" href="#walk-through" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Walk through</h2>
+<h3>
+<a id="user-content-initialization" class="anchor" href="#initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialization</h3>
+<ol>
+<li>Log into the ML portal, create a new experiment. <a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/quickstart-installation/portal-create-experimentation.png" rel="nofollow">Help image</a>
+</li>
+<li>Install Workbench. Note: You need macOS, Win 10 or higher for Docker to run. Then sign into the workbench using the same account. Your experimentation account shows up on Workbench. <a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/quickstart-installation/run_view.png" rel="nofollow">Help image</a>
+</li>
+<li>Create a new project, pick from a template if necessary. <a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview/media/tutorial-classifying-iris/new_project.png" rel="nofollow">Help image</a>
+</li>
+</ol>
+<h3>
+<a id="user-content-model-development" class="anchor" href="#model-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Model development</h3>
+<p>Your Azure ML projects are primarily <code>git</code> repositories. When you open an existing template project, the <code>home</code> tab renders the <code>readme.md</code> file.</p>
+<ol>
+<li>
+<strong>Add datasets</strong> - Click on the data tab and plus sign. Use wizard to add data sources. If data is tabular, the Workbench attempts to display it as a table and provide some preliminary statistics.</li>
+</ol>
+<p>ML Workbench wants to keep a record of all your EDA and data wrangling steps, to aid reproducibility. Hence it stores a <code>.dsource</code> to record how data is input and a <code>.dprep</code> to record the transformations performed on the data.</p>
+<ol start="2">
+<li>
+<p>A <code>.dsource</code> file gets created that contains connections to your dataset and how your file is read.</p>
+</li>
+<li>
+<p>Any data preparation performed by using the built-in <strong>prepare</strong> tool is stored in <code>.dprep</code> file.</p>
+</li>
+</ol>
+<hr>
+<p><strong>Sources</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/preview" rel="nofollow">Azure ML help</a></li>
 </ul>
 </article></body></html>
