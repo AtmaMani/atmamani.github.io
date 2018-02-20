@@ -766,6 +766,12 @@ MathJax.Hub.Config({
 <ul>
 <li><a href="#initialization">Initialization</a></li>
 <li><a href="#model-development">Model development</a></li>
+<li>
+<a href="#operationalization">Operationalization</a>
+<ul>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -816,6 +822,7 @@ MathJax.Hub.Config({
 <p>In the console, search for <a href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearningExperimentation" rel="nofollow">Machine learning experimentation</a> (which is in preview at the time of this article). This service / dashboard provides an environment for the rest of this article.</p>
 <h2>
 <a id="user-content-walk-through" class="anchor" href="#walk-through" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Walk through</h2>
+<p>An important process is to write the Python code (in scripts and notebooks) by using <strong><code>azureml</code> Python library</strong> for data access, logging and printing. This is the hook for the Workbench UX to interpret model refinement and display them in the dashboard.</p>
 <h3>
 <a id="user-content-initialization" class="anchor" href="#initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialization</h3>
 <ol>
@@ -842,6 +849,55 @@ MathJax.Hub.Config({
 <p>Any data preparation performed by using the built-in <strong>prepare</strong> tool is stored in <code>.dprep</code> file.</p>
 </li>
 </ol>
+<p>At any time, you can do the same actions in Python, or turn the UX actions into Python code by right clicking the <code>.dprep</code> or <code>.dsource</code> file and generating code file. The sample code that reads from <code>.dsource</code> and returns a pandas DataFrame is below. Script proceeds to run data preparation using <code>.dprep</code> file.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> azureml.dataprep <span class="pl-k">import</span> datasource
+<span class="pl-k">from</span> azureml.dataprep <span class="pl-k">import</span> package
+
+df <span class="pl-k">=</span> datasource.load_datasource(<span class="pl-s"><span class="pl-pds">'</span>iris.dsource<span class="pl-pds">'</span></span>)
+<span class="pl-c"><span class="pl-c">#</span> df.head(10)</span>
+
+<span class="pl-c"><span class="pl-c">#</span> column-prep.dprep is my data prep file name.</span>
+df <span class="pl-k">=</span> package.run(<span class="pl-s"><span class="pl-pds">'</span>column-prep.dprep<span class="pl-pds">'</span></span>, <span class="pl-v">dataflow_idx</span><span class="pl-k">=</span><span class="pl-c1">0</span>)
+df.head(<span class="pl-c1">10</span>)</pre></div>
+<ol start="4">
+<li>Serialize your model and its weights using <code>pickle</code> library</li>
+</ol>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">with</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>./outputs/model.pkl<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> mh:
+	pickle.dump(classifier, mh)</pre></div>
+<ol start="5">
+<li>
+<p>Save your plots as <code>.png</code> files into the <code>./outputs</code> folder. The Workbench picks this up automatically. For each run, the Workbench stores the outputs within the run numbered folder. From the run dashboard, you can download a file later for any run.</p>
+</li>
+<li>
+<p>Choose runtime as <code>docker-python</code>. The Docker base image is specified in the <code>aml_config/docker.compute</code> and run configurations, Python dependencies in <code>docker-python.runconfig</code> files. Workbench first builds a Docker image from base image, installs dependencies and then runs the file.</p>
+</li>
+</ol>
+<h3>
+<a id="user-content-operationalization" class="anchor" href="#operationalization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Operationalization</h3>
+<p>Once model is developed, you need to create a <strong>schema</strong> file that contains the inputs and output of the prediction service. This service is a Python file that reads the <strong>pickled</strong> model file, accepts inputs, performs predictions and returns the results.</p>
+<p>The <code>azureml</code> Python library has methods such as <code>azureml.api.realtime.services.generate_schema()</code> to generate schema. To specify the data types, use <code>azureml.api.schema.dataTypes.DataTypes</code> and <code>azureml.api.schema.sampleDefinition.SampleDefinition</code> to specify a sample input. Documentation on these is very thin and is left to user experimentation.</p>
+<h4>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h4>
+<ul>
+<li>It appears that using Workbench UX to read and clean data into DataFrames is optional. You can as well do all in Python in standard way and create a DF from a .csv file.</li>
+<li>You accept script parameters as <strong>command line arguments</strong>. The Workbench UX provides a generic args text box into which you can type the values when running from UX.</li>
+<li>The text you want persisted in the logs should be sent to Azure ML logger</li>
+</ul>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> azureml.logging <span class="pl-k">import</span> get_azureml_logger
+run_logger <span class="pl-k">=</span> get_azureml_logger()
+
+run_logger.log(<span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>)</pre></div>
+<ul>
+<li>
+<p>Write your scripts such that there is <code>1</code> main Python file which in turn calls other files that are necessary.</p>
+</li>
+<li>
+<p><code>control_log</code> file contains the running log of the job with details injected by Workbench</p>
+</li>
+<li>
+<p><code>driver_log</code> file contains the print statements</p>
+</li>
+</ul>
 <hr>
 <p><strong>Sources</strong></p>
 <ul>

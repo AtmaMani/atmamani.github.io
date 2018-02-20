@@ -11,6 +11,7 @@ This wiki covers the steps involved in building a data science project using Azu
 - [Walk through](#walk-through)
 	- [Initialization](#initialization)
 	- [Model development](#model-development)
+	- [Operationalization](#operationalization)
 		- [Notes](#notes)
 
 <!-- /MarkdownTOC -->
@@ -99,6 +100,11 @@ with open('./outputs/model.pkl', 'wb') as mh:
  5. Save your plots as `.png` files into the `./outputs` folder. The Workbench picks this up automatically. For each run, the Workbench stores the outputs within the run numbered folder. From the run dashboard, you can download a file later for any run.
 
  6. Choose runtime as `docker-python`. The Docker base image is specified in the `aml_config/docker.compute` and run configurations, Python dependencies in `docker-python.runconfig` files. Workbench first builds a Docker image from base image, installs dependencies and then runs the file.
+
+### Operationalization
+Once model is developed, you need to create a **schema** file that contains the inputs and output of the prediction service. This service is a Python file that reads the **pickled** model file, accepts inputs, performs predictions and returns the results.
+
+The `azureml` Python library has methods such as `azureml.api.realtime.services.generate_schema()` to generate schema. To specify the data types, use `azureml.api.schema.dataTypes.DataTypes` and `azureml.api.schema.sampleDefinition.SampleDefinition` to specify a sample input. Documentation on these is very thin and is left to user experimentation.
 
 #### Notes
  - It appears that using Workbench UX to read and clean data into DataFrames is optional. You can as well do all in Python in standard way and create a DF from a .csv file.
