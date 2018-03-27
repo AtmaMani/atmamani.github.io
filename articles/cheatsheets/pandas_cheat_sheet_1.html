@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>pandas_cheat_sheet_1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>pandas_cheat_sheet_1</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11654,10 +11631,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11668,11 +11643,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11870,9 +11843,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11910,9 +11881,7 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11949,9 +11918,7 @@ dtype: int32</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11997,9 +11964,7 @@ dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12043,9 +12008,7 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12080,7 +12043,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -12095,16 +12058,14 @@ dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 0.77641492,  0.43508319,  0.23615116,  0.16908685],
-       [ 0.79040316,  0.9874595 ,  0.37056958,  0.73414595],
-       [ 0.88478283,  0.23380278,  0.69163867,  0.72539764],
-       [ 0.69303786,  0.71682376,  0.76693718,  0.49082056]])</pre>
+<pre>array([[ 0.13430231,  0.62520675,  0.97098126,  0.71760504],
+       [ 0.71376565,  0.77318189,  0.05968879,  0.45089927],
+       [ 0.05898965,  0.90430093,  0.43148674,  0.08768307],
+       [ 0.50989094,  0.50103695,  0.24427914,  0.76313491]])</pre>
 </div>
 
 </div>
@@ -12115,7 +12076,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">row_lables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Car1&#39;</span><span class="p">,</span> <span class="s1">&#39;Car2&#39;</span><span class="p">,</span> <span class="s1">&#39;Car3&#39;</span><span class="p">,</span> <span class="s1">&#39;Car4&#39;</span><span class="p">]</span>
@@ -12134,9 +12095,7 @@ dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12153,31 +12112,31 @@ dtype: object</pre>
   <tbody>
     <tr>
       <th>Car1</th>
-      <td>0.776415</td>
-      <td>0.435083</td>
-      <td>0.236151</td>
-      <td>0.169087</td>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
     </tr>
     <tr>
       <th>Car2</th>
-      <td>0.790403</td>
-      <td>0.987459</td>
-      <td>0.370570</td>
-      <td>0.734146</td>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
     </tr>
     <tr>
       <th>Car3</th>
-      <td>0.884783</td>
-      <td>0.233803</td>
-      <td>0.691639</td>
-      <td>0.725398</td>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
     </tr>
     <tr>
       <th>Car4</th>
-      <td>0.693038</td>
-      <td>0.716824</td>
-      <td>0.766937</td>
-      <td>0.490821</td>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
     </tr>
   </tbody>
 </table>
@@ -12219,9 +12178,7 @@ dtype: object</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12256,9 +12213,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[16]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12302,9 +12257,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[18]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12337,9 +12290,7 @@ Name: Car4, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12381,9 +12332,7 @@ Name: Car4, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0.894051123737
 &lt;class &#39;numpy.float64&#39;&gt;
@@ -12413,9 +12362,7 @@ Name: Car4, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[23]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12448,9 +12395,7 @@ Name: Car1, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[24]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12490,9 +12435,7 @@ Name: Car1, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[26]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12554,9 +12497,7 @@ Name: Car1, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[27]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12616,9 +12557,7 @@ Name: Car1, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12689,9 +12628,7 @@ Name: Car1, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12725,9 +12662,7 @@ Name: reliability, dtype: bool</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12777,9 +12712,7 @@ Name: reliability, dtype: bool</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[20]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12821,9 +12754,7 @@ Name: reliability, dtype: bool</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12854,9 +12785,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12912,9 +12841,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[24]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12971,9 +12898,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[26]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13034,7 +12959,7 @@ Name: reliability, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#add full life column</span>
@@ -13050,9 +12975,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[28]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13070,35 +12993,35 @@ Name: reliability, dtype: float64</pre>
   <tbody>
     <tr>
       <th>Car1</th>
-      <td>0.894051</td>
-      <td>0.849727</td>
-      <td>0.538400</td>
-      <td>0.863986</td>
-      <td>1.727972</td>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
     </tr>
     <tr>
       <th>Car2</th>
-      <td>0.014127</td>
-      <td>0.935368</td>
-      <td>0.719570</td>
-      <td>0.992872</td>
-      <td>1.985744</td>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
     </tr>
     <tr>
       <th>Car3</th>
-      <td>0.351610</td>
-      <td>0.659950</td>
-      <td>0.605077</td>
-      <td>0.666057</td>
-      <td>1.332114</td>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+      <td>0.175366</td>
     </tr>
     <tr>
       <th>Car4</th>
-      <td>0.601929</td>
-      <td>0.854320</td>
-      <td>0.391956</td>
-      <td>0.759363</td>
-      <td>1.518725</td>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
     </tr>
   </tbody>
 </table>
@@ -13127,7 +13050,7 @@ Name: reliability, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;full_life&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13141,9 +13064,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[29]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13160,31 +13081,31 @@ Name: reliability, dtype: float64</pre>
   <tbody>
     <tr>
       <th>Car1</th>
-      <td>0.894051</td>
-      <td>0.849727</td>
-      <td>0.538400</td>
-      <td>0.863986</td>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
     </tr>
     <tr>
       <th>Car2</th>
-      <td>0.014127</td>
-      <td>0.935368</td>
-      <td>0.719570</td>
-      <td>0.992872</td>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
     </tr>
     <tr>
       <th>Car3</th>
-      <td>0.351610</td>
-      <td>0.659950</td>
-      <td>0.605077</td>
-      <td>0.666057</td>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
     </tr>
     <tr>
       <th>Car4</th>
-      <td>0.601929</td>
-      <td>0.854320</td>
-      <td>0.391956</td>
-      <td>0.759363</td>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
     </tr>
   </tbody>
 </table>
@@ -13199,7 +13120,7 @@ Name: reliability, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Car3&#39;</span><span class="p">)</span> <span class="c1">#all else is the default</span>
@@ -13213,9 +13134,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[30]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13233,27 +13152,96 @@ Name: reliability, dtype: float64</pre>
   <tbody>
     <tr>
       <th>Car1</th>
-      <td>0.894051</td>
-      <td>0.849727</td>
-      <td>0.538400</td>
-      <td>0.863986</td>
-      <td>1.727972</td>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
     </tr>
     <tr>
       <th>Car2</th>
-      <td>0.014127</td>
-      <td>0.935368</td>
-      <td>0.719570</td>
-      <td>0.992872</td>
-      <td>1.985744</td>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
     </tr>
     <tr>
       <th>Car4</th>
-      <td>0.601929</td>
-      <td>0.854320</td>
-      <td>0.391956</td>
-      <td>0.759363</td>
-      <td>1.518725</td>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Drop a row based on a condition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;cost&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.43521</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.52627</td>
     </tr>
   </tbody>
 </table>
@@ -13294,9 +13282,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[30]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13326,9 +13312,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[36]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13404,9 +13388,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[37]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13500,9 +13482,7 @@ Name: reliability, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[38]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13569,8 +13549,4 @@ Name: reliability, dtype: float64</pre>
     </div>
   </div>
 </body>
-
- 
-
-
 </html>
