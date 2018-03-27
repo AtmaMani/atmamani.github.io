@@ -12,5 +12,5 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
   - [Linear regression in sklearn](sklearn/sklearn_linear_regression.html)
 - [PySpark](pySpark/getting-started-pyspark.html)
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
-- [Building data science projects using Azure-ML stack](/azure-ml-data-science.html)
+- [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
 -------------------------------------
