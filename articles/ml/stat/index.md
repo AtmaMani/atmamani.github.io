@@ -9,4 +9,8 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [Conditional probability](03_conditional_probability.html)
 - Probability distributions
   - [Binomial and Poisson distributions](04_probability_distributions_1.html)
+
 -------------------------------------
+
+## Statistical learning
+ - [Statistical learning](islr_02_stat_learning.html)

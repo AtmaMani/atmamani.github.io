@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>01_data_collection</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>02_stat_learning</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11778,7 +11778,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-collection-methodologies">Data collection methodologies<a class="anchor-link" href="#Data-collection-methodologies">&#182;</a></h1>
+<h1 id="Chap-2:-Start-Learning">Chap 2: Start Learning<a class="anchor-link" href="#Chap-2:-Start-Learning">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11787,16 +11787,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In scientific studies, data collection can fall under two broad categories</p>
-<ul>
-<li><strong>observational study</strong> - where data is recorded without interfering with the process under study. These can be of 3 basic types<ul>
-<li><strong>sample survey</strong> - provides info about a population at a particular point in time</li>
-<li><strong>prospective study</strong> - describes the population at present using sample survey and proceeds to follow forward in time to record specific outcomes</li>
-<li><strong>retrospective study</strong> - describes the population at present using sample survey and records specific occurrence that have already taken place</li>
-</ul>
-</li>
-<li><strong>experimental study</strong> - where explanatory variables are actively manipulated and the effects on response variables are studied.</li>
-</ul>
+<h2 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h2><p>In a prediction / regression problem, the inputs (denoted by <code>X</code>) are called as <code>predictors</code>, <code>independent variables</code>, <code>features</code> and the predicted variable is called as <code>response</code>, <code>dependent variable</code> and is denoted by <code>Y</code>.</p>
+<p>The relationship betwen input and predicted is represented as</p>
+$$
+Y = f(X) + \epsilon
+$$<p>where $f$ is some fixed, unknown function that is to be determined. $\epsilon$ is <strong>random error</strong> term that is independent of <code>X</code> and has <strong>zero mean</strong>.</p>
+<p>In reality, $f$ may depend on more than 1 input variable $X$, for instance 2. In this case, $f$ is a <code>2D</code> surface that is fit. In general, the process of <strong>estimating</strong> $f$ is <strong>statistical learning</strong>.</p>
 
 </div>
 </div>
@@ -11806,17 +11802,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sampling-designs-for-surveys---observational-study">Sampling designs for surveys - observational study<a class="anchor-link" href="#Sampling-designs-for-surveys---observational-study">&#182;</a></h3><p>The various ways in which data collection experiments can be designed:</p>
-<ul>
-<li><p><strong>Simple random sampling</strong> - Selecting a group of <em>n</em> units in such a way that each sample of size <em>n</em> has the equal probability of being selected.</p>
-</li>
-<li><p><strong>Stratified random sampling</strong> - grouping the target population into strata based on a known auxiliary variable and then performing simple random sampling on each of the strata</p>
-</li>
-<li><p><strong>cluster sampling</strong> - this involves selecting groups (based on convenience of study, such as buildings or city blocks) based on simple random sampling and then surveying or measuring all units within the groups.</p>
-</li>
-<li><p><strong>systematic sampling</strong> - this involves selecting every <em>n</em>th value from a finite list as the sample. This technique is economical but can he heavily biased.</p>
-</li>
-</ul>
+<h3 id="Reducible-and-Irreducible-errors">Reducible and Irreducible errors<a class="anchor-link" href="#Reducible-and-Irreducible-errors">&#182;</a></h3><p>Since $f$ and $Y$ cannot be <strong>calculated</strong>, the best we can get is to <strong>estimate</strong> them. Thus, the estimates are called $\hat f$ and $\hat Y$</p>
+$$
+\hat Y = \hat f(X)
+$$<p>The accuracy of $\hat Y$ depends on <strong>reducible</strong> and <strong>irreducible</strong> errors. The error in prediction of $\hat f$ is <strong>reduible</strong> and can be improved wth more data and better models. However, $\hat Y$ is also a function of $\epsilon$ which is <strong>irreducible</strong>. Thus, the best our predictions can get is</p>
+$$
+\hat Y = f(X)
+$$<p>Focus of Statistical learning is to estimating $f$ as $\hat f$ with least <strong>reducible</strong> error. However, the accuracy of $\hat Y$ will always be controlled by <strong>irreducible</strong> and <strong>unknown</strong> error $\epsilon$.</p>
+<p>In <strong>prediction problems</strong>, $\hat f$ can be treated as <strong>blackbox</strong> as we are only interested in predicting $Y$.</p>
 
 </div>
 </div>
@@ -11826,12 +11819,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Design-of-experiments---experimental-study">Design of experiments - experimental study<a class="anchor-link" href="#Design-of-experiments---experimental-study">&#182;</a></h3><p>There are 2 types of variables in an experimental study - controlled variables (factors) and measured variables (response variables) which are under study</p>
+<h2 id="Inference">Inference<a class="anchor-link" href="#Inference">&#182;</a></h2><p>We are interested in understanding how each of the different $X_{1}... X_{p}$ affect the dependent variable $Y$, hence the name <strong>inference</strong>. Here, $f \hat$ <strong>cannot be treated as blackbox</strong> and we need to know its exact form. Some questions that are sought to be answered through inference:</p>
 <ul>
-<li><p><strong>factorial treatment</strong> - each of the various factors (m,n,o..) affecting the phenomena are combined with one-another. The resulting combinations (m<em>n</em>o..) are studied individually</p>
-</li>
-<li><p><strong>fractional factorial treatment</strong> - as the number of factors increase, factorial treatment becomes impossible to complete. Then, only a few selected combinations are picked for the study forming a fractional factorial treatment.</p>
-</li>
+<li>which predictor variables are associated with the response?</li>
+<li>what is the relationship b/w response and each predictor?</li>
+<li>is the relationship linear or is more complicated?</li>
 </ul>
 
 </div>

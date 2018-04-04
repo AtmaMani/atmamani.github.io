@@ -7,6 +7,15 @@
 
 -------------------------------------
 #### Talks for Esri / ArcGIS
+- 2018 Esri Partner conference
+  - Plenary: Automation and analytics in the ArcGIS Platform with Python
+  - ArcGIS API for Python for developers, administrators and data scientists
+- 2018 Esri Developer summit
+  - [Plenary: Automation in the ArcGIS platform](https://www.youtube.com/watch?v=mZM0zYI1KUE&t=462s&list=PLaPDDLTCmy4aE-073hhwZQplvJ8MmKZCe&index=21)
+  - [ArcGIS In a notebook]()
+  - [ArcGIS Python API: Advanced Scripting]()
+  - [Mapping visualization and analysis with ArcGIS API for Python]()
+
 - 2017 Esri User Conference talks
   - [Introduction to scripting your WebGIS with ArcGIS API for Python](https://www.youtube.com/watch?v=o9x0dtNrGEU&list=PLGZUzt4E4O2JaOMx_XZc85VdMIrqLGaVf&index=2)
   - [Advanced scripting with ArcGIS API for Python](https://www.youtube.com/watch?v=TwweBIsbtJo&list=PLGZUzt4E4O2JaOMx_XZc85VdMIrqLGaVf&index=3)
