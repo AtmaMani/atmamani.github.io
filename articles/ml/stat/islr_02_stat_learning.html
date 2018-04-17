@@ -11778,7 +11778,26 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Chap-2:-Start-Learning">Chap 2: Start Learning<a class="anchor-link" href="#Chap-2:-Start-Learning">&#182;</a></h1>
+<h1 id="Chap-2:-Start-Learning">Chap 2: Start Learning<a class="anchor-link" href="#Chap-2:-Start-Learning">&#182;</a></h1><p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Prediction">Prediction</a><ul>
+<li><a href="#Reducible-and-Irreducible-errors">Reducible and irreducible errors</a></li>
+</ul>
+</li>
+<li><a href="#Inference">Inference</a></li>
+<li><a href="#Parametric-and-Unparametric-methods-for-Estimating-f">Parametric and unparametric methods</a><ul>
+<li><a href="#Parametric-methods-for-estimating-f">Parametric methods of estimating f</a></li>
+<li><a href="#Non-parametric-methods-for-estimating-f">Non parametric methods of estimating f</a></li>
+</ul>
+</li>
+<li><a href="#General-concepts">General concepts</a></li>
+<li><a href="#Model-accuracy---Regression-problems">Model accuracy - Regression problems</a><ul>
+<li><a href="#Bias-variance-trade-off">Bias variance trade-off</a></li>
+</ul>
+</li>
+<li><a href=""></a></li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -11819,7 +11838,7 @@ $$<p>Focus of Statistical learning is to estimating $f$ as $\hat f$ with least <
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Inference">Inference<a class="anchor-link" href="#Inference">&#182;</a></h2><p>We are interested in understanding how each of the different $X_{1}... X_{p}$ affect the dependent variable $Y$, hence the name <strong>inference</strong>. Here, $f \hat$ <strong>cannot be treated as blackbox</strong> and we need to know its exact form. Some questions that are sought to be answered through inference:</p>
+<h2 id="Inference">Inference<a class="anchor-link" href="#Inference">&#182;</a></h2><p>We are interested in understanding how each of the different $X_{1}... X_{p}$ affect the dependent variable $Y$, hence the name <strong>inference</strong>. Here, $\hat f$ <strong>cannot be treated as blackbox</strong> and we need to know its exact form. Some questions that are sought to be answered through inference:</p>
 <ul>
 <li>which predictor variables are associated with the response?</li>
 <li>what is the relationship b/w response and each predictor?</li>
@@ -11828,6 +11847,111 @@ $$<p>Focus of Statistical learning is to estimating $f$ as $\hat f$ with least <
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parametric-and-Unparametric-methods-for-Estimating-f">Parametric and Unparametric methods for Estimating f<a class="anchor-link" href="#Parametric-and-Unparametric-methods-for-Estimating-f">&#182;</a></h2><p>The observations for X and Y can be written as ${(x_{1}, y_{1}),(x_{2}, y_{2}),...,(x_{n}, y_{n})}$ where each <em>x</em> has many predictor variables that can be written as $x_{i} = (x_{i1},x_{i2},..,x_{ip})^{T}$. The goal is to find $\hat f$ such that $Y \approx \hat f (X)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parametric-methods-for-estimating-f">Parametric methods for estimating f<a class="anchor-link" href="#Parametric-methods-for-estimating-f">&#182;</a></h3><p>Parametric methods take a <strong>model based</strong> approach (<strong>deterministic</strong>).
+We make an assumption about the functional form of <em>f</em> (whether it is linear, non linear, higher order, logistic etc). For instance, if we assume that <em>f</em> is linear, then</p>
+$$
+Y \approx f(X) = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + .. + \beta_{p}X_{p}
+$$<p>we only need to find $p+1$ coefficients. Through training or fitting (using methods like <em>ordinary least squares</em>), we can estimate the coefficients.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Notes</strong></p>
+<ul>
+<li>parametric methods are an approximation of the true functional form of <em>f</em>.</li>
+<li>simpler (lower order, less flexible) models may lead to poorer estimates of <em>f</em></li>
+<li>more flexible (higher order, complex) models may lead to <strong>overfitting</strong>.</li>
+<li>Since the model is trained on a subset of values, it might be very different from true nature of <em>f</em>. Hence the model developed is only valid for the range of data it was trained on.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Non-parametric-methods-for-estimating-f">Non parametric methods for estimating f<a class="anchor-link" href="#Non-parametric-methods-for-estimating-f">&#182;</a></h3><p>Non parametric methods <strong>avoid assuming the functional form of f</strong>. However, these methods require <strong>a very large</strong> number of observations since they do not try to reduce the phenomenon to a model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="General-concepts">General concepts<a class="anchor-link" href="#General-concepts">&#182;</a></h2><p><strong>Model interpretability and complexity</strong>: The more complex a model is (higher order more flexible models, decision trees..), the less interpretable it is.</p>
+<p><strong>Supervised vs Unsupervised algorithms</strong>: Supervised methods are used when both the <code>predictor</code> and <code>response</code> variables can be measured and data is available. Unsupervised methods are used when little is known about the data and only <code>predictor</code> variables are available. Unsupervised are best when put to classification / clustering problems.</p>
+<p><strong>Regression vs Classification</strong>: When the <code>response</code> variable is <code>quantitative</code> and continuous, the problem is considered a regression. When the <code>response</code> is <code>qualitative</code> and falls within categories, then the problem is a classification problem. Howerver, this distinction is not really solid as many algorithms can be used for both.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-accuracy---Regression-problems">Model accuracy - Regression problems<a class="anchor-link" href="#Model-accuracy---Regression-problems">&#182;</a></h2><h3 id="Measuring-quality-of-fit">Measuring quality of fit<a class="anchor-link" href="#Measuring-quality-of-fit">&#182;</a></h3><p>Here the deviation between <code>predicted</code> and actual values is measured. In regression, <code>Mean Squared Error (MSE)</code> is commonly used.</p>
+$$
+MSE = \frac{1}{n} \sum_{i=1}^{n}(y_{i} - \hat f(x_{i}))^2
+$$<p>The MSE obtained is called <strong>training MSE</strong>. When used against unseen test data, we get <strong>test MSE</strong>. Our objective is to choose the method with lowest <em>test MSE</em>. There is no guarantee that a low training MSE will yield a low test MSE.</p>
+<p>A fundamental property in statistical learning is <strong>as model flexibility increases, training MSE might decrease, but test MSE might not</strong>. When a given learning method yields a <strong>small training MSE</strong> but a <strong>large test MSE</strong>, we are <strong>overfitting</strong> the data. This is because, our data might have noise from <strong>irreducible error</strong> and the model is trying to fit it.</p>
+<h3 id="Bias-variance-trade-off">Bias variance trade-off<a class="anchor-link" href="#Bias-variance-trade-off">&#182;</a></h3><p>If you plot the <strong>test MSE</strong> against <strong>model flexibility</strong>, it follows a <em>U shaped curve</em>. Thus it first reduces then increases. The expected test MSE for observation $x_{0}$ $E(y_{0} - \hat f(x_{0}))$ can be decomposed to <code>3</code> fundamental quantities: (a) the <strong>variance of</strong> $\hat f(x_{0})$, (b) <strong>the squared bias</strong> of $\hat f(x_{0})$ and (c) <strong>variance of irreducible error</strong> $\epsilon$. Thus:</p>
+$$
+E(y_{0} - \hat f(x_{0}))^{2} = Var(\hat f(x_{0})) + [Bias(\hat f(x_{0}))]^{2} + Var(\epsilon)
+$$<p>Thus, to reduce the expected test MSE, we need to reduce both the <strong>variance of $\hat f$</strong> and <strong>bias of $\hat f$</strong>.</p>
+<p><strong>Variance</strong> refers to the amount by which $\hat f$ would change if we estimated it using a different training dataset. Ideally, $\hat f$ should not change much if a slightly different data set is used. A statistical learning method with high variance would yield a very different $\hat f$ for different training data sets. <strong>Higher the model flexibility, the higher is its variance</strong> as the model closely fits the training data.</p>
+<p><strong>Bias</strong> refers to the error introduced by approximating a real-life problem. Generally, <strong>higher model flexibility, the lower is the bias</strong>. Thus as we use more flexible methods, the variance will increase and bias would decrease.</p>
+<p>As model <strong>flexibility increases</strong>, the <strong>bias reduces faster</strong> than the rate at which <strong>variance increases</strong>. Thus, the <strong>test MSE</strong> drops initially before increasing (<code>U shape</code>). This relationship is called the <strong>bias variance trade-off</strong> and the objective is to pick the model flexibility that has the least of both.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-accuracy---Classification-problems">Model accuracy - Classification problems<a class="anchor-link" href="#Model-accuracy---Classification-problems">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
