@@ -11795,7 +11795,7 @@ div#notebook {
 <li><a href="#Bias-variance-trade-off">Bias variance trade-off</a></li>
 </ul>
 </li>
-<li><a href=""></a></li>
+<li><a href="#Model-accuracy---Classification-problems">Model accuracy - Classification problems</a></li>
 </ul>
 
 </div>
@@ -11936,22 +11936,40 @@ $$<p>Thus, to reduce the expected test MSE, we need to reduce both the <strong>v
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Model-accuracy---Classification-problems">Model accuracy - Classification problems<a class="anchor-link" href="#Model-accuracy---Classification-problems">&#182;</a></h2>
+<h2 id="Model-accuracy---Classification-problems">Model accuracy - Classification problems<a class="anchor-link" href="#Model-accuracy---Classification-problems">&#182;</a></h2><h3 id="Measuring-quality-of-classification">Measuring quality of classification<a class="anchor-link" href="#Measuring-quality-of-classification">&#182;</a></h3><p><code>error rate</code> is used to quantify the errors in classification. It is the ratio of <code>sum of misclassifications</code> to <code>number of observations</code>.</p>
+$$
+error rate = \frac{1}{n}\sum_{i=1}^{n}I(y_{i} \ne \hat y_{i})
+$$<p>where $\hat y_{i}$ is predicted class label for ith observation using $\hat f$. When computed against training data, this yields <strong>training error rate</strong>. When computed for test data, this yields <strong>test error rate</strong>.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bayes-Classifier">Bayes Classifier<a class="anchor-link" href="#Bayes-Classifier">&#182;</a></h3><p>Bayes classifier is a simple but idealistic classifier. It assigns each observation to the <strong>most likely class</strong> given its predictor class. This can be written using <strong>conditional probability</strong> as below:</p>
+$$
+P(Y=j \ | \ X=x_{0})
+$$<p>Thus, the error rate with <strong>Bayes classifier</strong> becomes the average of (1 - max probability for different classes). The Bayes error rate is analogous to *<em>irreducible error</em>.</p>
+<h3 id="KNN-classifier">KNN classifier<a class="anchor-link" href="#KNN-classifier">&#182;</a></h3><p>In reality, Bayes classifier is not possible as the conditional probability is unknown. Instead, algorithms attempt to derive the conditional probability. One such is KNN.</p>
+<p>The KNN classifier identifies <strong>K</strong> points in training data that are closest to test observation $x_{0}$, represented at $N_{0}$. It then <strong>estimates</strong> conditional proabability for class $j$ as the fraction of points in $N_{0}$ whose classes equal $j$. This can be written as:</p>
+$$
+P(Y = j \ | \ X = x_{0}) = \frac{1}{K} \sum_{i \in N_{0}} I(y_{i} = j)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When <strong>K=1</strong>, the decision boundary is of highest flexibility and <strong>overfits</strong> with low bias and high variance. When <strong>K</strong> is very large, it <strong>underfits</strong> with low flexibility. It has high bias and low variance. As in regression, with classification, increasing flexibility reduces the training error, but does not affect test error rate.</p>
 
 </div>
 </div>
-</div>
-
 </div>
     </div>
   </div>

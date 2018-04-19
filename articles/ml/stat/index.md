@@ -10,7 +10,11 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - Probability distributions
   - [Binomial and Poisson distributions](04_probability_distributions_1.html)
 
+### Fun
+- [Verifying central limit theorem](verifying_central_limit_theorem.html)
+- [Verifying central limit theorem in regression](verifying_clt_in_regression.html)
 -------------------------------------
 
 ## Statistical learning
  - [Statistical learning](islr_02_stat_learning.html)
+ - [Linear regression](islr_03_linear_regression.html)
