@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11773,14 +11771,11 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Description">Data Description<a class="anchor-link" href="#Data-Description">&#182;</a></h1><p>Chap 3 - An introduction to statistical methods and data analysis
-<img src="https://images-na.ssl-images-amazon.com/images/I/51KRlvXpygL._SX398_BO1,204,203,200_.jpg" alt=""></p>
-
+<h1 id="Data-Description">Data Description<a class="anchor-link" href="#Data-Description">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11807,7 +11802,9 @@ div#notebook {
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[8]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -11876,8 +11873,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11904,7 +11900,9 @@ div#notebook {
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Mean 118.7
@@ -11919,8 +11917,7 @@ dtype: float64
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11946,7 +11943,9 @@ dtype: float64
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[17]:</div>
+
 
 
 
@@ -11981,7 +11980,9 @@ Name: Sales, dtype: float64</pre>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[21]:</div>
+
 
 
 
@@ -11995,8 +11996,7 @@ Name: Sales, dtype: float64</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12075,7 +12075,9 @@ Name: Sales, dtype: float64</pre>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[88]:</div>
+
 
 
 
@@ -12086,7 +12088,9 @@ Name: Sales, dtype: float64</pre>
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -12478,24 +12482,23 @@ UvgQERGRUCl8iIiISKgUPkRERCRUCh8iIiISKoUPERERCdX/A2ivif0+b2FJAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Measures-of-dispersion---Standard-Deviation">Measures of dispersion - Standard Deviation<a class="anchor-link" href="#Measures-of-dispersion---Standard-Deviation">&#182;</a></h2><p>Range (max val - min val), IQR - inter quartile range are a few measures to find the spread of data and outliers. Another quantitative way is variance and standard deviation.</p>
-$$
+<p>$$
 \mu = \verb !population mean (cannot be calculated in most cases)!
 \\
 \bar y = \verb !(y bar) sample mean!
 \\
 \bar y = \frac{\sum_{i}^{n}y_i}{n}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12504,19 +12507,18 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$
+<p>$$
 s^2 = \frac{\sum_{i}^{n}(y_i - \bar y)^2}{(n-1)}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12528,8 +12530,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12546,8 +12547,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12556,36 +12556,59 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Coefficient-of-variability">Coefficient of variability<a class="anchor-link" href="#Coefficient-of-variability">&#182;</a></h4><p>To compare the dispersion of two different variables (of different ranges and units), we can normalize them to a common unitless measure called <code>CV</code>.</p>
-$$
+<p>$$
 CV = \frac{s}{|\bar y|}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dispersion-based-on-percentiles">Dispersion based on percentiles<a class="anchor-link" href="#Dispersion-based-on-percentiles">&#182;</a></h3><p>A <code>percentile</code> : <code>p</code>th percentile is the value such that <code>p</code>% of values are less than this and <code>100-p</code>% are higher than that value. Thus <code>80</code>th percentile means, <code>79.9%</code> of data points are less than this and <code>19.9%</code> values are higher than this.</p>
+<p><strong>Quantile</strong> is the same as <strong>percentile</strong> but expressed in <strong>decimals</strong>. Thus <code>80</code>th percentile = <code>0.8</code> quantile.</p>
+<p><strong>Quartile</strong> is quantile at every quarter. Thus <code>0.25</code>, <code>0.5</code>, <code>0.75</code> quantiles are quartiles. <strong>Note</strong>: <code>0.5</code> quantile is same as <strong>Median</strong>.</p>
+<p><code>IQR</code> <strong>InterQuartile Range</strong> is the difference between <code>75</code>th and <code>25</code>th percentiles. (0.75 and 0.25 quartiles).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Correlation-coefficient">Correlation coefficient<a class="anchor-link" href="#Correlation-coefficient">&#182;</a></h3><p>To determine the linear relationship between two variables, we determine how each of the measurement pairs deviate from their corresponding means.</p>
-$$
-r = \frac{\sum_{i}^{n}(\frac{x_i - \bar x}{s_x})(\frac{y_i - \bar y}{s_y})}{(n-1)}
-$$
+<p>$$
+r = \frac{\sum_{i}^{n}(x_i - \bar x)(y_i - \bar y)}{(n-1)s_x s_y}
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>where $s_x$ is standard deviation of $x$ and so on. <strong>$r$</strong> is called <strong>Pearson's r</strong></p>
 <p><code>r</code> ranges from <code>-1 to 1</code>. A value of <code>-1</code> indicates strong negative relationship and vice versa. A value close to <code>0</code> might represent no relationship or presence of a non-linear relationship.</p>
+<p>The numerator, is called the <code>covariance</code> of <code>x</code> and <code>y</code>, which is the combined deviation from their corresponding means.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="When-is-big-data-needed?">When is big data needed?<a class="anchor-link" href="#When-is-big-data-needed?">&#182;</a></h3><p>Are all problems a big data problem? Can problems be solved with sampling and handling a subset of data? <strong>Yes</strong>, most often, quality and <strong>representiveness</strong> of data is more important than quantity.</p>
+<p>The cases where big-data is needed is when data is <strong>sparse</strong>, when thousands of <strong>predictors</strong> is required over millions of data points, where values of most predictors is <strong>0</strong>. This is a very sparse data set. For such cases, big data improves the accuracy and random sampling cannot just produce a representative sample.</p>
 
 </div>
 </div>
