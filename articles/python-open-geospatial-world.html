@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="a-short-tour-of-open-geospatial-tools-of-the-scientific-python-ecosystem">A short tour of Open Geospatial Tools of the scientific Python ecosystem</h1>
+<p>One of my favorite statistics is that about 80% of data in the world, contain some element that is spatial. For instance, take the list of gas stations in a city or restaurants in a city, revenue from medical industry, there is always some element of this data that can be categorized as being spatial - be it locations, routes the products take, cost variations in gas prices etc.</p>
+<p>This spatial relationship is of significant interest to me and I have been analyzing them for over a decade and have been building software to analyze them for more than half of the past decade. While majority of what I built were proprietary, this blog is a look at what is available in the open-source ecosystem and when to use which tool.</p>
+<p>Something that is common and beautiful about the opensource Python data analysis ecosystem is, a number of these libraries have self-organized themselves around a common platform or standard of interoperability. You will find many libraries interchangeably using each other for parts they are good at, emphasizing the 'dont reinvent the wheel' philosophy. For then end user, even though the number of libraries is large, it is possible to mark a clear boundary of what lib does what functionality and why it is needed.</p>
+<p>This blog is just a high level overview to navigate this python-open-geospatial community and packages. For any details, refer to my <a href="/cheatsheets/index.html">cheatsheets</a>.</p>
+<h2 id="data-io">Data IO</h2>
+<p><strong>Fiona</strong> is a <strong><a href="http://www.gdal.org/">GDAL</a></strong> Python wrapper and is for reading vector data. Fiona is written to be a clean Pythonic wrapper at the cost of performance and memory usage.</p>
+<p>An alternate is <strong><a href="https://github.com/GeospatialPython/pyshp">PyShape</a></strong> which reads and writes Esri Shape files in <strong>pure Python</strong> vs Fiona which is a GDAL wrapper for libs in C.</p>
+<h2 id="geometry-and-projection-engines">Geometry and projection engines</h2>
+<p><strong><a href="http://geopandas.org/">Geopandas</a></strong> provides a spatial extension to the famous <a href="http://pandas.pydata.org/">pandas</a> library. It uses <a href="http://toblerity.github.io/shapely">shapely</a> for <strong>geometry</strong>, <a href="http://toblerity.github.io/fiona">fiona</a> for reading vector data, <a href="https://pypi.python.org/pypi/descartes">descartes</a> and matplotlib ofr plotting. Geopandas allows spatial operations that would otherwise require <strong>PostGIS</strong>.</p>
+<p><strong>Shapely</strong> is a Python package for manipulation and analysis of geometries. Shapely cannot IO datasets, but can help in projections. Shapely is a Pythonic wrapper to <a href="https://trac.osgeo.org/geos/">GEOS</a> (Geometry Engine, Open Source), which in turn is a <code>C++</code> port of <a href="https://trac.osgeo.org/geos/">Java Topology Suite</a>. You can already see a heavy re-use of libraries.</p>
+<h3 id="spatial-indexing">Spatial indexing</h3>
+<h2 id="data-wrangling">Data wrangling</h2>
+<p>Geopandas supports pretty much all data wrangling provided by pandas. Thus you can treat it as a regular data frame and work with its non-spatial columns.</p>
+<h2 id="visualization">Visualization</h2>
+<p><strong>Descartes</strong> uses Shapely to convert them to matplotlib paths and patches. Thus it uses matplotlib for plotting geometries.</p>
+<p><strong>Folium</strong> uses Leaflet.js to plot an interactive map on the Jupyter notebook. It is pretty slick and looks great. Folium, in its current release does not seem to support reading Geopandas dataframes. You need to serialize it to a GeoJSON and then add it to the map. Although this can happen in memory, it may become problematic for large datasets. Another option to look into is <strong>IpyLeaflet</strong>.</p>
+<h2 id="sharing---web-gis">Sharing - web GIS</h2>
+<h2 id="spatial-analysis">Spatial analysis</h2>
+<p><strong>Geopandas</strong> allows for basic overlay and set operations. You can do</p>
+<ul>
+<li>intersection,</li>
+<li>union,</li>
+<li>symmetrical difference,</li>
+<li>difference,</li>
+<li>buffer</li>
+<li>dissolve</li>
+<li>attribute and spatial joins</li>
+<li>geocoding using google, bing, googlev3, yahoo, mapquest, openmapquest.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>By no means this is an exhaustive list, and that is the beauty of open source ecosystem. There are parallel efforts around the world to improve existing packages and building simpler and more powerful packages. Here is a blog that lists <a href="https://automating-gis-processes.github.io/CSC18/lessons/L1/Intro-Python-GIS.html#what-tools-are-available-for-doing-gis-in-pure-python">a few more packages</a> for Python geospatial work.</p>
+<p><strong>Learning resources</strong></p>
+<ul>
+<li><a href="https://geohackweek.github.io/">Geohackweek</a> has a nice tutorial for vector, raster data processing using open source Python packages.</li>
+<li><a href="https://automating-gis-processes.github.io/CSC18/index.html">Python GIS course by Henrikki Tenkanen</a></li>
+</ul>
+
+    </body>
+    </html>
