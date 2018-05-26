@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>cheat_sheet_index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>geopandas-2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,54 +11771,39 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="cheat_sheets.jpg" alt=""></p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">LineString</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pyepsg</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="All-my-cheat-sheets">All my cheat sheets<a class="anchor-link" href="#All-my-cheat-sheets">&#182;</a></h1><h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><ul>
-<li><a href="python_cheat_sheet_1.html">Python basics, comprehensions</a></li>
-<li><a href="python_cheat_sheet_2.html">Python object oriented and exception handling</a></li>
-<li><a href="python_cheat_sheet_3.html">Productive in Python - map reduce lambdas</a></li>
-</ul>
 
 </div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conda">Conda<a class="anchor-link" href="#Conda">&#182;</a></h2><ul>
-<li><a href="conda_cheat_sheet.html">Conda basics</a></li>
+<p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Read-CSV-data">Read CSV data</a></li>
+<li><a href="#Create-a-geopandas-data-frame-from-pandas-dataframe">Create a geopandas data frame from pandas dataframe</a></li>
+<li><a href="#Viz-on-Folium-map">Visualize on Folium Map</a><ul>
+<li><a href="">Find projection using pyproj and pyepsg</a></li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h2><ul>
-<li><a href="numpy_cheat_sheet_1.html">Numpy basics</a></li>
-<li><a href="numpy_cheat_sheet_2.html">Numpy array slicing dicing searching</a></li>
-</ul>
-<h2 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">&#182;</a></h2><ul>
-<li><a href="pandas_cheat_sheet_1.html">Pandas basics</a></li>
-<li><a href="pandas_cheat_sheet_2.html">Intermediate - multilevel index, missing data, aggregation, merge join concat</a></li>
-<li><a href="pandas_cheat_sheet_3.html">Productivity with Pandas</a></li>
-</ul>
-<h3 id="Data-viz-with-Pandas">Data viz with Pandas<a class="anchor-link" href="#Data-viz-with-Pandas">&#182;</a></h3><ul>
-<li><a href="pandas_data_viz_1.html">data viz with pandas</a></li>
+</li>
+<li><a href="#Geocoding">Geocoding</a></li>
 </ul>
 
 </div>
@@ -11828,92 +11813,1360 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Matplotlib">Matplotlib<a class="anchor-link" href="#Matplotlib">&#182;</a></h2><ul>
-<li><a href="matplotlib_1.html">matplotlib basics</a></li>
-<li><a href="matplotlib_2.html">advanced matplotlib plotting</a></li>
-</ul>
+<h2 id="Read-CSV-data">Read CSV data<a class="anchor-link" href="#Read-CSV-data">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/2015-06-21.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[55]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Calories (kcal)</th>
+      <th>Distance (m)</th>
+      <th>Average heart rate (bpm)</th>
+      <th>Max heart rate (bpm)</th>
+      <th>Min heart rate (bpm)</th>
+      <th>Height (m)</th>
+      <th>Low latitude (deg)</th>
+      <th>Low longitude (deg)</th>
+      <th>...</th>
+      <th>High longitude (deg)</th>
+      <th>Average speed (m/s)</th>
+      <th>Max speed (m/s)</th>
+      <th>Min speed (m/s)</th>
+      <th>Step count</th>
+      <th>Average weight (kg)</th>
+      <th>Max weight (kg)</th>
+      <th>Min weight (kg)</th>
+      <th>Inactive duration (ms)</th>
+      <th>Walking duration (ms)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00:00:00.000-07:00</td>
+      <td>00:15:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054939</td>
+      <td>-117.242691</td>
+      <td>...</td>
+      <td>-117.242432</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00:15:00.000-07:00</td>
+      <td>00:30:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054955</td>
+      <td>-117.242424</td>
+      <td>...</td>
+      <td>-117.242401</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00:30:00.000-07:00</td>
+      <td>00:45:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054939</td>
+      <td>-117.242706</td>
+      <td>...</td>
+      <td>-117.242416</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00:45:00.000-07:00</td>
+      <td>01:00:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054970</td>
+      <td>-117.242661</td>
+      <td>...</td>
+      <td>-117.242447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01:00:00.000-07:00</td>
+      <td>01:15:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054977</td>
+      <td>-117.242668</td>
+      <td>...</td>
+      <td>-117.242409</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[56]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(96, 21)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[57]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;Start time&#39;, &#39;End time&#39;, &#39;Calories (kcal)&#39;, &#39;Distance (m)&#39;,
+       &#39;Average heart rate (bpm)&#39;, &#39;Max heart rate (bpm)&#39;,
+       &#39;Min heart rate (bpm)&#39;, &#39;Height (m)&#39;, &#39;Low latitude (deg)&#39;,
+       &#39;Low longitude (deg)&#39;, &#39;High latitude (deg)&#39;, &#39;High longitude (deg)&#39;,
+       &#39;Average speed (m/s)&#39;, &#39;Max speed (m/s)&#39;, &#39;Min speed (m/s)&#39;,
+       &#39;Step count&#39;, &#39;Average weight (kg)&#39;, &#39;Max weight (kg)&#39;,
+       &#39;Min weight (kg)&#39;, &#39;Inactive duration (ms)&#39;, &#39;Walking duration (ms)&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Seaborn">Seaborn<a class="anchor-link" href="#Seaborn">&#182;</a></h2><ul>
-<li><a href="seaborn_cheat_sheet_1.html">Seaborn basics</a> - distplot, jointplot, pairplot, rugplot</li>
-<li><a href="seaborn_cheat_sheet_2.html">Seaborn categorical plotting</a> - bar, count, box, violin, strip, swarm plots</li>
-<li><a href="seaborn_cheat_sheet_3.html">Seaborn matrix and regression plots</a> - heatmap, cluster, regression</li>
-<li><a href="seaborn_cheat_sheet_4.html">Seaborn grids and customization</a> - pairgrid, facetgrid, customization</li>
-</ul>
+<p>filter out columns without data</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[58]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Calories (kcal)</th>
+      <th>Distance (m)</th>
+      <th>Average heart rate (bpm)</th>
+      <th>Max heart rate (bpm)</th>
+      <th>Min heart rate (bpm)</th>
+      <th>Height (m)</th>
+      <th>Low latitude (deg)</th>
+      <th>Low longitude (deg)</th>
+      <th>High latitude (deg)</th>
+      <th>High longitude (deg)</th>
+      <th>Average speed (m/s)</th>
+      <th>Max speed (m/s)</th>
+      <th>Min speed (m/s)</th>
+      <th>Step count</th>
+      <th>Average weight (kg)</th>
+      <th>Max weight (kg)</th>
+      <th>Min weight (kg)</th>
+      <th>Inactive duration (ms)</th>
+      <th>Walking duration (ms)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>96.000000</td>
+      <td>2.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>91.000000</td>
+      <td>91.000000</td>
+      <td>91.000000</td>
+      <td>91.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>15.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>96.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>16.411472</td>
+      <td>31.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.055033</td>
+      <td>-117.242620</td>
+      <td>34.055120</td>
+      <td>-117.242453</td>
+      <td>0.799705</td>
+      <td>0.799705</td>
+      <td>0.799705</td>
+      <td>116.600000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>880833.302083</td>
+      <td>150074.200000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.665210</td>
+      <td>2.828427</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000113</td>
+      <td>0.000092</td>
+      <td>0.000075</td>
+      <td>0.000097</td>
+      <td>0.333833</td>
+      <td>0.333833</td>
+      <td>0.333833</td>
+      <td>157.019016</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>87443.309515</td>
+      <td>142937.658018</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.434296</td>
+      <td>29.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054150</td>
+      <td>-117.242844</td>
+      <td>34.054996</td>
+      <td>-117.242722</td>
+      <td>0.563649</td>
+      <td>0.563649</td>
+      <td>0.563649</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>190607.000000</td>
+      <td>40929.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>16.215914</td>
+      <td>30.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.054996</td>
+      <td>-117.242691</td>
+      <td>34.055063</td>
+      <td>-117.242500</td>
+      <td>0.681677</td>
+      <td>0.681677</td>
+      <td>0.681677</td>
+      <td>16.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000.000000</td>
+      <td>50464.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>16.215914</td>
+      <td>31.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.055023</td>
+      <td>-117.242653</td>
+      <td>34.055122</td>
+      <td>-117.242447</td>
+      <td>0.799705</td>
+      <td>0.799705</td>
+      <td>0.799705</td>
+      <td>64.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000.000000</td>
+      <td>62575.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>16.215914</td>
+      <td>32.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.055098</td>
+      <td>-117.242538</td>
+      <td>34.055174</td>
+      <td>-117.242405</td>
+      <td>0.917733</td>
+      <td>0.917733</td>
+      <td>0.917733</td>
+      <td>121.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000.000000</td>
+      <td>233586.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>34.519853</td>
+      <td>33.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>34.055172</td>
+      <td>-117.242409</td>
+      <td>34.055359</td>
+      <td>-117.242027</td>
+      <td>1.035761</td>
+      <td>1.035761</td>
+      <td>1.035761</td>
+      <td>581.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>900000.000000</td>
+      <td>362817.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Start time&#39;</span><span class="p">,</span> <span class="s1">&#39;End time&#39;</span><span class="p">,</span><span class="s1">&#39;Calories (kcal)&#39;</span><span class="p">,</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;High longitude (deg)&#39;</span><span class="p">,</span><span class="s1">&#39;Average speed (m/s)&#39;</span><span class="p">,</span><span class="s1">&#39;Step count&#39;</span><span class="p">]]</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[59]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Calories (kcal)</th>
+      <th>High latitude (deg)</th>
+      <th>High longitude (deg)</th>
+      <th>Average speed (m/s)</th>
+      <th>Step count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00:00:00.000-07:00</td>
+      <td>00:15:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.054996</td>
+      <td>-117.242432</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00:15:00.000-07:00</td>
+      <td>00:30:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055000</td>
+      <td>-117.242401</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00:30:00.000-07:00</td>
+      <td>00:45:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055065</td>
+      <td>-117.242416</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00:45:00.000-07:00</td>
+      <td>01:00:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055058</td>
+      <td>-117.242447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01:00:00.000-07:00</td>
+      <td>01:15:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055061</td>
+      <td>-117.242409</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interactive-plotting-with-Plotly">Interactive plotting with Plotly<a class="anchor-link" href="#Interactive-plotting-with-Plotly">&#182;</a></h2><ul>
-<li><a href="plotly_cufflinks_cheat_sheet_1.html">Plotly introduction</a></li>
-<li><a href="plotly_cufflinks_cheat_sheet_2.html">Interactive plotting with Plotly</a></li>
-</ul>
-<h3 id="Geographical-plotting-with-Plotly">Geographical plotting with Plotly<a class="anchor-link" href="#Geographical-plotting-with-Plotly">&#182;</a></h3><ul>
-<li><a href="plotly_geographical_plotting_1.html">Choropleth maps of USA</a></li>
-</ul>
+<h3 id="Create-a-geopandas-data-frame-from-pandas-dataframe">Create a geopandas data frame from pandas dataframe<a class="anchor-link" href="#Create-a-geopandas-data-frame-from-pandas-dataframe">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">point_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;High longitude (deg)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">])]</span>
+<span class="n">point_list</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[60]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;shapely.geometry.point.Point at 0x1a23842a90&gt;,
+ &lt;shapely.geometry.point.Point at 0x1a23842b70&gt;,
+ &lt;shapely.geometry.point.Point at 0x1a23842be0&gt;,
+ &lt;shapely.geometry.point.Point at 0x1a23842a20&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R">R<a class="anchor-link" href="#R">&#182;</a></h2><ul>
-<li><a href="r_cheat_sheet_1.html">R basics</a></li>
-</ul>
+<p>It is not necessary to construct a geoseries, but Folium needs a geoseries and that to have a coordinate system set. So I am building it here</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gseries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">point_list</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wgs84</span><span class="o">=</span><span class="n">pyepsg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># gseries.crs = pyepsg.get(4326)</span>
+<span class="n">gseries</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span><span class="s1">&#39;epsg:4326&#39;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gseries</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[128]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Calories (kcal)</th>
+      <th>High latitude (deg)</th>
+      <th>High longitude (deg)</th>
+      <th>Average speed (m/s)</th>
+      <th>Step count</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00:00:00.000-07:00</td>
+      <td>00:15:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.054996</td>
+      <td>-117.242432</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POINT (-117.242431640625 34.05499649047852)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00:15:00.000-07:00</td>
+      <td>00:30:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055000</td>
+      <td>-117.242401</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POINT (-117.2424011230469 34.05500030517578)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00:30:00.000-07:00</td>
+      <td>00:45:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055065</td>
+      <td>-117.242416</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POINT (-117.2424163818359 34.0550651550293)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00:45:00.000-07:00</td>
+      <td>01:00:00.000-07:00</td>
+      <td>16.215914</td>
+      <td>34.055058</td>
+      <td>-117.242447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POINT (-117.2424468994141 34.05505752563477)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span><span class="p">[[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">,</span><span class="s1">&#39;High longitude (deg)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[129]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High latitude (deg)</th>
+      <th>High longitude (deg)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>91.000000</td>
+      <td>91.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>34.055120</td>
+      <td>-117.242453</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.000075</td>
+      <td>0.000097</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>34.054996</td>
+      <td>-117.242722</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>34.055063</td>
+      <td>-117.242500</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>34.055122</td>
+      <td>-117.242447</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>34.055174</td>
+      <td>-117.242405</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>34.055359</td>
+      <td>-117.242027</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Javascript">Javascript<a class="anchor-link" href="#Javascript">&#182;</a></h2><ul>
-<li><a href="js_essentials.html">JS essentials</a></li>
-</ul>
+<p>Drop the rows that don't have coordinates</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[130]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(91, 8)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># ax.set_xlim([-117.2,-117.4])</span>
+<span class="c1"># ax.set_ylim([34.054, 34.055])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[131]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a23b40400&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Latex-in-notebooks">Latex in notebooks<a class="anchor-link" href="#Latex-in-notebooks">&#182;</a></h2><ul>
-<li><a href="latex-1.html">latex</a></li>
-</ul>
+<h2 id="Viz-on-Folium-map">Viz on Folium map<a class="anchor-link" href="#Viz-on-Folium-map">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[132]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;0.5.0&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from folium.plugins import HeatMap</span>
+<span class="c1"># hm = HeatMap(data=[xy for xy in zip(gdf[&#39;geometry&#39;].x, gdf[&#39;geometry&#39;].y)])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">34.054</span><span class="p">,</span><span class="o">-</span><span class="mf">117.2</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gdf</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[135]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw+CjxoZWFkPiAgICAKICAgIDxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPgogICAgPHNjcmlwdD5MX1BSRUZFUl9DQU5WQVMgPSBmYWxzZTsgTF9OT19UT1VDSCA9IGZhbHNlOyBMX0RJU0FCTEVfM0QgPSBmYWxzZTs8L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2FqYXguZ29vZ2xlYXBpcy5jb20vYWpheC9saWJzL2pxdWVyeS8xLjExLjEvanF1ZXJ5Lm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvanMvYm9vdHN0cmFwLm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvTGVhZmxldC5hd2Vzb21lLW1hcmtlcnMvMi4wLjIvbGVhZmxldC5hd2Vzb21lLW1hcmtlcnMuanMiPjwvc2NyaXB0PgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvY3NzL2Jvb3RzdHJhcC10aGVtZS5taW4uY3NzIi8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vZm9udC1hd2Vzb21lLzQuNi4zL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9MZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy8yLjAuMi9sZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9yYXdnaXQuY29tL3B5dGhvbi12aXN1YWxpemF0aW9uL2ZvbGl1bS9tYXN0ZXIvZm9saXVtL3RlbXBsYXRlcy9sZWFmbGV0LmF3ZXNvbWUucm90YXRlLmNzcyIvPgogICAgPHN0eWxlPmh0bWwsIGJvZHkge3dpZHRoOiAxMDAlO2hlaWdodDogMTAwJTttYXJnaW46IDA7cGFkZGluZzogMDt9PC9zdHlsZT4KICAgIDxzdHlsZT4jbWFwIHtwb3NpdGlvbjphYnNvbHV0ZTt0b3A6MDtib3R0b206MDtyaWdodDowO2xlZnQ6MDt9PC9zdHlsZT4KICAgIAogICAgICAgICAgICA8c3R5bGU+ICNtYXBfOWY0MTlhMWY0YWU1NGYyMmJlZDhlNTI4YzdkMDA0M2QgewogICAgICAgICAgICAgICAgcG9zaXRpb24gOiByZWxhdGl2ZTsKICAgICAgICAgICAgICAgIHdpZHRoIDogMTAwLjAlOwogICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAuMCU7CiAgICAgICAgICAgICAgICBsZWZ0OiAwLjAlOwogICAgICAgICAgICAgICAgdG9wOiAwLjAlOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgIAo8L2hlYWQ+Cjxib2R5PiAgICAKICAgIAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb2xpdW0tbWFwIiBpZD0ibWFwXzlmNDE5YTFmNGFlNTRmMjJiZWQ4ZTUyOGM3ZDAwNDNkIiA+PC9kaXY+CiAgICAgICAgCjwvYm9keT4KPHNjcmlwdD4gICAgCiAgICAKCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgdmFyIGJvdW5kcyA9IG51bGw7CiAgICAgICAgICAgIAoKICAgICAgICAgICAgdmFyIG1hcF85ZjQxOWExZjRhZTU0ZjIyYmVkOGU1MjhjN2QwMDQzZCA9IEwubWFwKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ21hcF85ZjQxOWExZjRhZTU0ZjIyYmVkOGU1MjhjN2QwMDQzZCcsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y2VudGVyOiBbMzQuMDU0LC0xMTcuMl0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB6b29tOiAxNSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1heEJvdW5kczogYm91bmRzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGF5ZXJzOiBbXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdvcmxkQ29weUp1bXA6IGZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY3JzOiBMLkNSUy5FUFNHMzg1NwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgCiAgICAgICAgCiAgICAKICAgICAgICAgICAgdmFyIHRpbGVfbGF5ZXJfZWI1NWUyMTJmN2FmNDY4MDkzZDc5NTQzMTViNjVmYzkgPSBMLnRpbGVMYXllcigKICAgICAgICAgICAgICAgICdodHRwczovL3tzfS50aWxlLm9wZW5zdHJlZXRtYXAub3JnL3t6fS97eH0ve3l9LnBuZycsCiAgICAgICAgICAgICAgICB7CiAgImF0dHJpYnV0aW9uIjogbnVsbCwKICAiZGV0ZWN0UmV0aW5hIjogZmFsc2UsCiAgIm1heFpvb20iOiAxOCwKICAibWluWm9vbSI6IDEsCiAgIm5vV3JhcCI6IGZhbHNlLAogICJzdWJkb21haW5zIjogImFiYyIKfQogICAgICAgICAgICAgICAgKS5hZGRUbyhtYXBfOWY0MTlhMWY0YWU1NGYyMmJlZDhlNTI4YzdkMDA0M2QpOwogICAgICAgIAogICAgCgogICAgICAgICAgICAKCiAgICAgICAgICAgICAgICB2YXIgZ2VvX2pzb25fNzE5OTU1ZTI1MDgxNGI5ZWE4MGQ4OGViMGVjN2U4ZDggPSBMLmdlb0pzb24oCiAgICAgICAgICAgICAgICAgICAgeyJiYm94IjogWy0xMTcuMjQyNzIxNTU3NjE3MTksIDM0LjA1NDk5NjQ5MDQ3ODUyLCAtMTE3LjI0MjAyNzI4MjcxNDgzLCAzNC4wNTUzNTg4ODY3MTg3NV0sICJmZWF0dXJlcyI6IFt7ImJib3giOiBbLTExNy4yNDI0MzE2NDA2MjUwMSwgMzQuMDU0OTk2NDkwNDc4NTIsIC0xMTcuMjQyNDMxNjQwNjI1MDEsIDM0LjA1NDk5NjQ5MDQ3ODUyXSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQzMTY0MDYyNTAxLCAzNC4wNTQ5OTY0OTA0Nzg1Ml0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIwIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDA6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTQ5OTY0OTA0Nzg1MiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MzE2NDA2MjUsICJTdGFydCB0aW1lIjogIjAwOjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDAxMTIzMDQ2ODgsIDM0LjA1NTAwMDMwNTE3NTc4LCAtMTE3LjI0MjQwMTEyMzA0Njg4LCAzNC4wNTUwMDAzMDUxNzU3OF0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MDExMjMwNDY4OCwgMzQuMDU1MDAwMzA1MTc1NzhdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjAwOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDAwMzA1MTc1NzgsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDAxMTIzMDQ2ODgsICJTdGFydCB0aW1lIjogIjAwOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDE2MzgxODM1OTQsIDM0LjA1NTA2NTE1NTAyOTMwNCwgLTExNy4yNDI0MTYzODE4MzU5NCwgMzQuMDU1MDY1MTU1MDI5MzA0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUwNjUxNTUwMjkzMDRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjAwOjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDY1MTU1MDI5MzA0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQxNjM4MTgzNTk0LCAiU3RhcnQgdGltZSI6ICIwMDozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQ0Njg5OTQxNDA2LCAzNC4wNTUwNTc1MjU2MzQ3NywgLTExNy4yNDI0NDY4OTk0MTQwNiwgMzQuMDU1MDU3NTI1NjM0NzddLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDQ2ODk5NDE0MDYsIDM0LjA1NTA1NzUyNTYzNDc3XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjMiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwMTowMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA1NzUyNTYzNDc3LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ0Njg5OTQxNDA2LCAiU3RhcnQgdGltZSI6ICIwMDo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUwNjEzNDAzMzIwMywgLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MDYxMzQwMzMyMDNdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTA2MTM0MDMzMjAzXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwMToxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA2MTM0MDMzMjAzLCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQwODc1MjQ0MTQsICJTdGFydCB0aW1lIjogIjAxOjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDE2MzgxODM1OTQsIDM0LjA1NTAyMzE5MzM1OTM3LCAtMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUwMjMxOTMzNTkzN10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MTYzODE4MzU5NCwgMzQuMDU1MDIzMTkzMzU5MzddLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjAxOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDIzMTkzMzU5MzcsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDE2MzgxODM1OTQsICJTdGFydCB0aW1lIjogIjAxOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzkzNDkzNjUyMzQsIDM0LjA1NTAxNTU2Mzk2NDg0NCwgLTExNy4yNDIzOTM0OTM2NTIzNCwgMzQuMDU1MDE1NTYzOTY0ODQ0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM5MzQ5MzY1MjM0LCAzNC4wNTUwMTU1NjM5NjQ4NDRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjAyOjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDE1NTYzOTY0ODQ0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjM5MzQ5MzY1MjM0LCAiU3RhcnQgdGltZSI6ICIwMTo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUwMzg0NTIxNDg0NDUsIC0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTAzODQ1MjE0ODQ0NV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MDM4NDUyMTQ4NDQ1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjgiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwMjoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTAzODQ1MjE0ODQ0NSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MjQwMTEyMzA0OCwgIlN0YXJ0IHRpbWUiOiAiMDI6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MDA0MTE5ODczMDU0LCAtMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUwMDQxMTk4NzMwNTRdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTAwNDExOTg3MzA1NF0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI5IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDI6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwMDQxMTk4NzMwNTQsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDI0MDExMjMwNDgsICJTdGFydCB0aW1lIjogIjAyOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTUzNzEwOTM3NTEsIDM0LjA1NTA0MjI2Njg0NTY5NiwgLTExNy4yNDI1NTM3MTA5Mzc1MSwgMzQuMDU1MDQyMjY2ODQ1Njk2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjU1MzcxMDkzNzUxLCAzNC4wNTUwNDIyNjY4NDU2OTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMTAiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwMjo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA0MjI2Njg0NTY5NiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1NTM3MTA5Mzc1LCAiU3RhcnQgdGltZSI6ICIwMjozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUwNTM3MTA5Mzc1LCAtMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUwNTM3MTA5Mzc1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUwNTM3MTA5Mzc1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjExIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDM6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwNTM3MTA5Mzc1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQxNjM4MTgzNTk0LCAiU3RhcnQgdGltZSI6ICIwMjo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjUxNTU2Mzk2NDg0LCAzNC4wNTUwOTU2NzI2MDc0MiwgLTExNy4yNDI1MTU1NjM5NjQ4NCwgMzQuMDU1MDk1NjcyNjA3NDJdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTE1NTYzOTY0ODQsIDM0LjA1NTA5NTY3MjYwNzQyXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjEyIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDM6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwOTU2NzI2MDc0MiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1MTU1NjM5NjQ4NCwgIlN0YXJ0IHRpbWUiOiAiMDM6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUxMDMzMDIwMDE5NDYsIC0xMTcuMjQyNDc3NDE2OTkyMiwgMzQuMDU1MTAzMzAyMDAxOTQ2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ3NzQxNjk5MjIsIDM0LjA1NTEwMzMwMjAwMTk0Nl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIxMyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjAzOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTAzMzAyMDAxOTQ2LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ3NzQxNjk5MjIsICJTdGFydCB0aW1lIjogIjAzOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzkzNDkzNjUyMzQsIDM0LjA1NTA2NTE1NTAyOTMwNCwgLTExNy4yNDIzOTM0OTM2NTIzNCwgMzQuMDU1MDY1MTU1MDI5MzA0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM5MzQ5MzY1MjM0LCAzNC4wNTUwNjUxNTUwMjkzMDRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMTQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwMzo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA2NTE1NTAyOTMwNCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDIzOTM0OTM2NTIzNCwgIlN0YXJ0IHRpbWUiOiAiMDM6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0NjIxNTgyMDMxMiwgMzQuMDU1MDg4MDQzMjEyODksIC0xMTcuMjQyNDYyMTU4MjAzMTIsIDM0LjA1NTA4ODA0MzIxMjg5XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ2MjE1ODIwMzEyLCAzNC4wNTUwODgwNDMyMTI4OV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIxNSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA0OjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDg4MDQzMjEyODksICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDYyMTU4MjAzMTIsICJTdGFydCB0aW1lIjogIjAzOjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTA0OTg5NjI0MDIzNCwgLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MDQ5ODk2MjQwMjM0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUwNDk4OTYyNDAyMzRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMTYiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNDoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA0OTg5NjI0MDIzNCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MDg3NTI0NDE0LCAiU3RhcnQgdGltZSI6ICIwNDowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQ4NTA0NjM4NjcyLCAzNC4wNTUwMDc5MzQ1NzAzMDUsIC0xMTcuMjQyNDg1MDQ2Mzg2NzIsIDM0LjA1NTAwNzkzNDU3MDMwNV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0ODUwNDYzODY3MiwgMzQuMDU1MDA3OTM0NTcwMzA1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjE3IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDQ6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwMDc5MzQ1NzAzMDUsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDg1MDQ2Mzg2NzIsICJTdGFydCB0aW1lIjogIjA0OjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDkyNjc1NzgxMjUsIDM0LjA1NTEwNzExNjY5OTIyLCAtMTE3LjI0MjQ5MjY3NTc4MTI1LCAzNC4wNTUxMDcxMTY2OTkyMl0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0OTI2NzU3ODEyNSwgMzQuMDU1MTA3MTE2Njk5MjJdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMTgiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNDo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTEwNzExNjY5OTIyLCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ5MjY3NTc4MTI0LCAiU3RhcnQgdGltZSI6ICIwNDozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjUwNzkzNDU3MDMxLCAzNC4wNTUwNzY1OTkxMjEwOSwgLTExNy4yNDI1MDc5MzQ1NzAzMSwgMzQuMDU1MDc2NTk5MTIxMDldLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTA3OTM0NTcwMzEsIDM0LjA1NTA3NjU5OTEyMTA5XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjE5IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDU6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwNzY1OTkxMjEwOSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1MDc5MzQ1NzAzMSwgIlN0YXJ0IHRpbWUiOiAiMDQ6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUwNzY1OTkxMjEwOSwgLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUwNzY1OTkxMjEwOV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUwNzY1OTkxMjEwOV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIyMCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA1OjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDc2NTk5MTIxMDksICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDc3NDE2OTkyMiwgIlN0YXJ0IHRpbWUiOiAiMDU6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUwNjg5Njk3MjY1NTUsIC0xMTcuMjQyNDc3NDE2OTkyMiwgMzQuMDU1MDY4OTY5NzI2NTU1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ3NzQxNjk5MjIsIDM0LjA1NTA2ODk2OTcyNjU1NV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIyMSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA1OjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDY4OTY5NzI2NTU1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ3NzQxNjk5MjIsICJTdGFydCB0aW1lIjogIjA1OjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDYyMTU4MjAzMTIsIDM0LjA1NTAxNTU2Mzk2NDg0NCwgLTExNy4yNDI0NjIxNTgyMDMxMiwgMzQuMDU1MDE1NTYzOTY0ODQ0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ2MjE1ODIwMzEyLCAzNC4wNTUwMTU1NjM5NjQ4NDRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMjIiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNTo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTAxNTU2Mzk2NDg0NCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0NjIxNTgyMDMxMiwgIlN0YXJ0IHRpbWUiOiAiMDU6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MTE4NTYwNzkxMDE2LCAtMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUxMTg1NjA3OTEwMTZdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTExODU2MDc5MTAxNl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIyMyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA2OjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTE4NTYwNzkxMDE2LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQwODc1MjQ0MTQsICJTdGFydCB0aW1lIjogIjA1OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDMxNjQwNjI1MDEsIDM0LjA1NTA0OTg5NjI0MDIzNCwgLTExNy4yNDI0MzE2NDA2MjUwMSwgMzQuMDU1MDQ5ODk2MjQwMjM0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQzMTY0MDYyNTAxLCAzNC4wNTUwNDk4OTYyNDAyMzRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMjQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNjoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA0OTg5NjI0MDIzNCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MzE2NDA2MjUsICJTdGFydCB0aW1lIjogIjA2OjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDM5MjcwMDE5NTIsIDM0LjA1NTA0MjI2Njg0NTY5NiwgLTExNy4yNDI0MzkyNzAwMTk1MiwgMzQuMDU1MDQyMjY2ODQ1Njk2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQzOTI3MDAxOTUyLCAzNC4wNTUwNDIyNjY4NDU2OTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMjUiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNjozMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA0MjI2Njg0NTY5NiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MzkyNzAwMTk1MiwgIlN0YXJ0IHRpbWUiOiAiMDY6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MDExMjMwNDY4OCwgMzQuMDU1MDc2NTk5MTIxMDksIC0xMTcuMjQyNDAxMTIzMDQ2ODgsIDM0LjA1NTA3NjU5OTEyMTA5XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQwMTEyMzA0Njg4LCAzNC4wNTUwNzY1OTkxMjEwOV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIyNiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA2OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDc2NTk5MTIxMDksICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDAxMTIzMDQ2ODgsICJTdGFydCB0aW1lIjogIjA2OjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDY5Nzg3NTk3NjYsIDM0LjA1NTAzNDYzNzQ1MTE3LCAtMTE3LjI0MjQ2OTc4NzU5NzY2LCAzNC4wNTUwMzQ2Mzc0NTExN10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0Njk3ODc1OTc2NiwgMzQuMDU1MDM0NjM3NDUxMTddLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMjciLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNzowMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTAzNDYzNzQ1MTE3LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ2OTc4NzU5NzY2LCAiU3RhcnQgdGltZSI6ICIwNjo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQ4NTA0NjM4NjcyLCAzNC4wNTUwNDIyNjY4NDU2OTYsIC0xMTcuMjQyNDg1MDQ2Mzg2NzIsIDM0LjA1NTA0MjI2Njg0NTY5Nl0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0ODUwNDYzODY3MiwgMzQuMDU1MDQyMjY2ODQ1Njk2XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjI4IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDc6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwNDIyNjY4NDU2OTYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDg1MDQ2Mzg2NzIsICJTdGFydCB0aW1lIjogIjA3OjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDMxNjQwNjI1MDEsIDM0LjA1NTAyMzE5MzM1OTM3LCAtMTE3LjI0MjQzMTY0MDYyNTAxLCAzNC4wNTUwMjMxOTMzNTkzN10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MzE2NDA2MjUwMSwgMzQuMDU1MDIzMTkzMzU5MzddLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMjkiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwNzozMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTAyMzE5MzM1OTM3LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQzMTY0MDYyNSwgIlN0YXJ0IHRpbWUiOiAiMDc6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUwNjg5Njk3MjY1NTUsIC0xMTcuMjQyNDc3NDE2OTkyMiwgMzQuMDU1MDY4OTY5NzI2NTU1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ3NzQxNjk5MjIsIDM0LjA1NTA2ODk2OTcyNjU1NV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIzMCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA3OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDY4OTY5NzI2NTU1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ3NzQxNjk5MjIsICJTdGFydCB0aW1lIjogIjA3OjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDQ2ODk5NDE0MDYsIDM0LjA1NTA0MjI2Njg0NTY5NiwgLTExNy4yNDI0NDY4OTk0MTQwNiwgMzQuMDU1MDQyMjY2ODQ1Njk2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ0Njg5OTQxNDA2LCAzNC4wNTUwNDIyNjY4NDU2OTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMzEiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwODowMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA0MjI2Njg0NTY5NiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0NDY4OTk0MTQwNiwgIlN0YXJ0IHRpbWUiOiAiMDc6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDIzOTM0OTM2NTIzNCwgMzQuMDU1MDgwNDEzODE4MzYsIC0xMTcuMjQyMzkzNDkzNjUyMzQsIDM0LjA1NTA4MDQxMzgxODM2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM5MzQ5MzY1MjM0LCAzNC4wNTUwODA0MTM4MTgzNl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIzMiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA4OjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDgwNDEzODE4MzYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMzkzNDkzNjUyMzQsICJTdGFydCB0aW1lIjogIjA4OjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDg1MDQ2Mzg2NzIsIDM0LjA1NTE4MzQxMDY0NDUzLCAtMTE3LjI0MjQ4NTA0NjM4NjcyLCAzNC4wNTUxODM0MTA2NDQ1M10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0ODUwNDYzODY3MiwgMzQuMDU1MTgzNDEwNjQ0NTNdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMzMiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTQ0MjgyMzQxLCAiRW5kIHRpbWUiOiAiMDg6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxODM0MTA2NDQ1MywgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0ODUwNDYzODY3MiwgIlN0YXJ0IHRpbWUiOiAiMDg6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiAxMjAuMCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzQwMDg3ODkwNjQsIDM0LjA1NTIxMzkyODIyMjY1NiwgLTExNy4yNDIzNDAwODc4OTA2NCwgMzQuMDU1MjEzOTI4MjIyNjU2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM0MDA4Nzg5MDY0LCAzNC4wNTUyMTM5MjgyMjI2NTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMzUiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxMy42Mzc5OTc2MjcyNTgzLCAiRW5kIHRpbWUiOiAiMDk6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUyMTM5MjgyMjI2NTYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMzQwMDg3ODkwNjIsICJTdGFydCB0aW1lIjogIjA4OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogNDYuMCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzU1MzQ2Njc5NjksIDM0LjA1NTA3NjU5OTEyMTA5LCAtMTE3LjI0MjM1NTM0NjY3OTY5LCAzNC4wNTUwNzY1OTkxMjEwOV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIzNTUzNDY2Nzk2OSwgMzQuMDU1MDc2NTk5MTIxMDldLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMzYiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIwOToxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA3NjU5OTEyMTA5LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjM1NTM0NjY3OTY5LCAiU3RhcnQgdGltZSI6ICIwOTowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUwMzQ2Mzc0NTExNywgLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MDM0NjM3NDUxMTddLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTAzNDYzNzQ1MTE3XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjM3IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMDk6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwMzQ2Mzc0NTExNywgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MjQwMTEyMzA0OCwgIlN0YXJ0IHRpbWUiOiAiMDk6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MDExNzQ5MjY3NTgsIC0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTAxMTc0OTI2NzU4XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUwMTE3NDkyNjc1OF0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIzOCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjA5OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDExNzQ5MjY3NTgsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDA4NzUyNDQxNCwgIlN0YXJ0IHRpbWUiOiAiMDk6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MDc2NTk5MTIxMDksIC0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTA3NjU5OTEyMTA5XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUwNzY1OTkxMjEwOV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIzOSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEwOjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDc2NTk5MTIxMDksICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDI0MDExMjMwNDgsICJTdGFydCB0aW1lIjogIjA5OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTE1NTYzOTY0ODQsIDM0LjA1NTA3Mjc4NDQyMzgzNSwgLTExNy4yNDI1MTU1NjM5NjQ4NCwgMzQuMDU1MDcyNzg0NDIzODM1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjUxNTU2Mzk2NDg0LCAzNC4wNTUwNzI3ODQ0MjM4MzVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNDAiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxMDoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA3Mjc4NDQyMzgzLCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjUxNTU2Mzk2NDg0LCAiU3RhcnQgdGltZSI6ICIxMDowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjUxNTU2Mzk2NDg0LCAzNC4wNTUwMTU1NjM5NjQ4NDQsIC0xMTcuMjQyNTE1NTYzOTY0ODQsIDM0LjA1NTAxNTU2Mzk2NDg0NF0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI1MTU1NjM5NjQ4NCwgMzQuMDU1MDE1NTYzOTY0ODQ0XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjQxIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTA6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwMTU1NjM5NjQ4NDQsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNTE1NTYzOTY0ODQsICJTdGFydCB0aW1lIjogIjEwOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTIxMDExMzUyNTM5LCAtMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUyMTAxMTM1MjUzOV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MjEwMTEzNTI1MzldLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNDIiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxMDo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTIxMDExMzUyNTM5LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQwODc1MjQ0MTQsICJTdGFydCB0aW1lIjogIjEwOjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogMTg2LjAsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjUwNzkzNDU3MDMxLCAzNC4wNTUxNzE5NjY1NTI3MywgLTExNy4yNDI1MDc5MzQ1NzAzMSwgMzQuMDU1MTcxOTY2NTUyNzNdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTA3OTM0NTcwMzEsIDM0LjA1NTE3MTk2NjU1MjczXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjQzIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTE6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNzE5NjY1NTI3MywgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1MDc5MzQ1NzAzMSwgIlN0YXJ0IHRpbWUiOiAiMTA6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiA4LjAsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjUzODQ1MjE0ODQ0LCAzNC4wNTUxOTQ4NTQ3MzYzMywgLTExNy4yNDI1Mzg0NTIxNDg0NCwgMzQuMDU1MTk0ODU0NzM2MzNdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTM4NDUyMTQ4NDQsIDM0LjA1NTE5NDg1NDczNjMzXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjQ0IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTE6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxOTQ4NTQ3MzYzMywgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1Mzg0NTIxNDg0NCwgIlN0YXJ0IHRpbWUiOiAiMTE6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiAxMjEuMCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzQ3NzE3Mjg1MTYsIDM0LjA1NTIxMzkyODIyMjY1NiwgLTExNy4yNDIzNDc3MTcyODUxNiwgMzQuMDU1MjEzOTI4MjIyNjU2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM0NzcxNzI4NTE2LCAzNC4wNTUyMTM5MjgyMjI2NTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNDUiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAzNC41MTk4NTMxMTUwODE3OSwgIkVuZCB0aW1lIjogIjExOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjEzOTI4MjIyNjU2LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjM0NzcxNzI4NTE2LCAiU3RhcnQgdGltZSI6ICIxMToxNTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IDM0NS4wLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4NiwgLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4Nl0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4Nl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI0NiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDEyLjQ5MzE5MDg4NDU5MDE0OSwgIkVuZCB0aW1lIjogIjExOjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjAyNDg0MTMwODYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDc3NDE2OTkyMiwgIlN0YXJ0IHRpbWUiOiAiMTE6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiAxNy4wLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Njk3ODc1OTc2NiwgMzQuMDU1MjM2ODE2NDA2MjUsIC0xMTcuMjQyNDY5Nzg3NTk3NjYsIDM0LjA1NTIzNjgxNjQwNjI1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ2OTc4NzU5NzY2LCAzNC4wNTUyMzY4MTY0MDYyNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI0NyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEyOjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjM2ODE2NDA2MjUsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDY5Nzg3NTk3NjYsICJTdGFydCB0aW1lIjogIjExOjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogNi4wLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4NiwgLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4Nl0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0Nzc0MTY5OTIyLCAzNC4wNTUyMDI0ODQxMzA4Nl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI0OCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEyOjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjAyNDg0MTMwODYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDc3NDE2OTkyMiwgIlN0YXJ0IHRpbWUiOiAiMTI6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiA2NC4wLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1MjMxOTMzNTkzNiwgMzQuMDU1MTcxOTY2NTUyNzMsIC0xMTcuMjQyNTIzMTkzMzU5MzYsIDM0LjA1NTE3MTk2NjU1MjczXSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjUyMzE5MzM1OTM2LCAzNC4wNTUxNzE5NjY1NTI3M10sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI0OSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEyOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTcxOTY2NTUyNzMsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNTIzMTkzMzU5MzgsICJTdGFydCB0aW1lIjogIjEyOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzcwNjA1NDY4NzgsIDM0LjA1NTEyNjE5MDE4NTU1NCwgLTExNy4yNDIzNzA2MDU0Njg3OCwgMzQuMDU1MTI2MTkwMTg1NTU0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM3MDYwNTQ2ODc4LCAzNC4wNTUxMjYxOTAxODU1NTRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNTAiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxMjo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTEyNjE5MDE4NTU1NCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDIzNzA2MDU0Njg3NiwgIlN0YXJ0IHRpbWUiOiAiMTI6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1OTE4NTc5MTAxNiwgMzQuMDU1MTMwMDA0ODgyODA1LCAtMTE3LjI0MjU5MTg1NzkxMDE2LCAzNC4wNTUxMzAwMDQ4ODI4MDVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTkxODU3OTEwMTYsIDM0LjA1NTEzMDAwNDg4MjgwNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI1MSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEzOjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTMwMDA0ODgyODA1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjU5MTg1NzkxMDE2LCAiU3RhcnQgdGltZSI6ICIxMjo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjYwNzExNjY5OTIyLCAzNC4wNTUxMjIzNzU0ODgyOCwgLTExNy4yNDI2MDcxMTY2OTkyMiwgMzQuMDU1MTIyMzc1NDg4MjhdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNjA3MTE2Njk5MjIsIDM0LjA1NTEyMjM3NTQ4ODI4XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjUyIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTM6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxMjIzNzU0ODgyOCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI2MDcxMTY2OTkyMiwgIlN0YXJ0IHRpbWUiOiAiMTM6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1OTk0ODczMDQ3LCAzNC4wNTUxMzc2MzQyNzczNSwgLTExNy4yNDI1OTk0ODczMDQ3LCAzNC4wNTUxMzc2MzQyNzczNV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI1OTk0ODczMDQ3LCAzNC4wNTUxMzc2MzQyNzczNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI1MyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjEzOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTM3NjM0Mjc3MzQ0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjU5OTQ4NzMwNDY5LCAiU3RhcnQgdGltZSI6ICIxMzoxNTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQwMTEyMzA0Njg4LCAzNC4wNTUxNzk1OTU5NDcyNjYsIC0xMTcuMjQyNDAxMTIzMDQ2ODgsIDM0LjA1NTE3OTU5NTk0NzI2Nl0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MDExMjMwNDY4OCwgMzQuMDU1MTc5NTk1OTQ3MjY2XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjU0IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTM6NDU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNzk1OTU5NDcyNjYsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDAxMTIzMDQ2ODgsICJTdGFydCB0aW1lIjogIjEzOjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDAxMTIzMDQ2ODgsIDM0LjA1NTE3NTc4MTI1LCAtMTE3LjI0MjQwMTEyMzA0Njg4LCAzNC4wNTUxNzU3ODEyNV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MDExMjMwNDY4OCwgMzQuMDU1MTc1NzgxMjVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNTUiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxNDowMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE3NTc4MTI1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQwMTEyMzA0Njg4LCAiU3RhcnQgdGltZSI6ICIxMzo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQzOTI3MDAxOTUyLCAzNC4wNTUxNzE5NjY1NTI3MywgLTExNy4yNDI0MzkyNzAwMTk1MiwgMzQuMDU1MTcxOTY2NTUyNzNdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDM5MjcwMDE5NTIsIDM0LjA1NTE3MTk2NjU1MjczXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjU2IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTQ6MTU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNzE5NjY1NTI3MywgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MzkyNzAwMTk1MiwgIlN0YXJ0IHRpbWUiOiAiMTQ6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1NjEzNDAzMzIwNiwgMzQuMDU1MTMzODE5NTgwMDgsIC0xMTcuMjQyNTYxMzQwMzMyMDYsIDM0LjA1NTEzMzgxOTU4MDA4XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjU2MTM0MDMzMjA2LCAzNC4wNTUxMzM4MTk1ODAwOF0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI1NyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE0OjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTMzODE5NTgwMDgsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNTYxMzQwMzMyMDUsICJTdGFydCB0aW1lIjogIjE0OjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNjA3MTE2Njk5MjIsIDM0LjA1NTExNDc0NjA5Mzc1LCAtMTE3LjI0MjYwNzExNjY5OTIyLCAzNC4wNTUxMTQ3NDYwOTM3NV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI2MDcxMTY2OTkyMiwgMzQuMDU1MTE0NzQ2MDkzNzVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNTgiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxNDo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTExNDc0NjA5Mzc1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjYwNzExNjY5OTIyLCAiU3RhcnQgdGltZSI6ICIxNDozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQ4NTA0NjM4NjcyLCAzNC4wNTUxMjYxOTAxODU1NTQsIC0xMTcuMjQyNDg1MDQ2Mzg2NzIsIDM0LjA1NTEyNjE5MDE4NTU1NF0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0ODUwNDYzODY3MiwgMzQuMDU1MTI2MTkwMTg1NTU0XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjU5IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTU6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxMjYxOTAxODU1NTQsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDg1MDQ2Mzg2NzIsICJTdGFydCB0aW1lIjogIjE0OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTM4NDUyMTQ4NDQsIDM0LjA1NTE0OTA3ODM2OTE0LCAtMTE3LjI0MjUzODQ1MjE0ODQ0LCAzNC4wNTUxNDkwNzgzNjkxNF0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI1Mzg0NTIxNDg0NCwgMzQuMDU1MTQ5MDc4MzY5MTRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNjAiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxNToxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE0OTA3ODM2OTE0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjUzODQ1MjE0ODQ0LCAiU3RhcnQgdGltZSI6ICIxNTowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjAyNzI4MjcxNDgzLCAzNC4wNTUzNTg4ODY3MTg3NSwgLTExNy4yNDIwMjcyODI3MTQ4MywgMzQuMDU1MzU4ODg2NzE4NzVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyMDI3MjgyNzE0ODMsIDM0LjA1NTM1ODg4NjcxODc1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjYxIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTguNzYxNzk3NjY2NTQ5NjgzLCAiRW5kIHRpbWUiOiAiMTU6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUzNTg4ODY3MTg3NSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDIwMjcyODI3MTQ4NCwgIlN0YXJ0IHRpbWUiOiAiMTU6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiA3NC4wLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDIzODU4NjQyNTc4LCAzNC4wNTUxNDE0NDg5NzQ2MSwgLTExNy4yNDIzODU4NjQyNTc4LCAzNC4wNTUxNDE0NDg5NzQ2MV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIzODU4NjQyNTc4LCAzNC4wNTUxNDE0NDg5NzQ2MV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI2MiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE1OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTQxNDQ4OTc0NjEsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMzg1ODY0MjU3OCwgIlN0YXJ0IHRpbWUiOiAiMTU6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0NTQ1Mjg4MDg2MSwgMzQuMDU1MDA3OTM0NTcwMzA1LCAtMTE3LjI0MjQ1NDUyODgwODYxLCAzNC4wNTUwMDc5MzQ1NzAzMDVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDU0NTI4ODA4NjEsIDM0LjA1NTAwNzkzNDU3MDMwNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI2MyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE2OjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDA3OTM0NTcwMzA1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ1NDUyODgwODYsICJTdGFydCB0aW1lIjogIjE1OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMjcxNDIzMzM5ODQsIDM0LjA1NTE3NTc4MTI1LCAtMTE3LjI0MjI3MTQyMzMzOTg0LCAzNC4wNTUxNzU3ODEyNV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIyNzE0MjMzMzk4NCwgMzQuMDU1MTc1NzgxMjVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNjQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxNjoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE3NTc4MTI1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjI3MTQyMzMzOTg0LCAiU3RhcnQgdGltZSI6ICIxNjowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUxNDE0NDg5NzQ2MSwgLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MTQxNDQ4OTc0NjFdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTE0MTQ0ODk3NDYxXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjY1IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTY6MzA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNDE0NDg5NzQ2MSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MjQwMTEyMzA0OCwgIlN0YXJ0IHRpbWUiOiAiMTY6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0Njk3ODc1OTc2NiwgMzQuMDU1MjUyMDc1MTk1MzA1LCAtMTE3LjI0MjQ2OTc4NzU5NzY2LCAzNC4wNTUyNTIwNzUxOTUzMDVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDY5Nzg3NTk3NjYsIDM0LjA1NTI1MjA3NTE5NTMwNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI2NiIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE2OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjUyMDc1MTk1MzA1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ2OTc4NzU5NzY2LCAiU3RhcnQgdGltZSI6ICIxNjozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQxNjM4MTgzNTk0LCAzNC4wNTUxNDkwNzgzNjkxNCwgLTExNy4yNDI0MTYzODE4MzU5NCwgMzQuMDU1MTQ5MDc4MzY5MTRdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDE2MzgxODM1OTQsIDM0LjA1NTE0OTA3ODM2OTE0XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjY3IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTc6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNDkwNzgzNjkxNCwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MTYzODE4MzU5NCwgIlN0YXJ0IHRpbWUiOiAiMTY6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0NTQ1Mjg4MDg2MSwgMzQuMDU1MTY0MzM3MTU4MTk2LCAtMTE3LjI0MjQ1NDUyODgwODYxLCAzNC4wNTUxNjQzMzcxNTgxOTZdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDU0NTI4ODA4NjEsIDM0LjA1NTE2NDMzNzE1ODE5Nl0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI2OCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE3OjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTY0MzM3MTU4MTk2LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQ1NDUyODgwODYsICJTdGFydCB0aW1lIjogIjE3OjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTkxODU3OTEwMTYsIDM0LjA1NTE1NjcwNzc2MzY3LCAtMTE3LjI0MjU5MTg1NzkxMDE2LCAzNC4wNTUxNTY3MDc3NjM2N10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI1OTE4NTc5MTAxNiwgMzQuMDU1MTU2NzA3NzYzNjddLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNjkiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxNzozMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE1NjcwNzc2MzY3LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjU5MTg1NzkxMDE2LCAiU3RhcnQgdGltZSI6ICIxNzoxNTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjY0NTI2MzY3MTg5LCAzNC4wNTUxMDcxMTY2OTkyMiwgLTExNy4yNDI2NDUyNjM2NzE4OSwgMzQuMDU1MTA3MTE2Njk5MjJdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNjQ1MjYzNjcxODksIDM0LjA1NTEwNzExNjY5OTIyXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjcwIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTc6NDU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxMDcxMTY2OTkyMiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI2NDUyNjM2NzE4OCwgIlN0YXJ0IHRpbWUiOiAiMTc6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1OTE4NTc5MTAxNiwgMzQuMDU1MTQ1MjYzNjcxODc1LCAtMTE3LjI0MjU5MTg1NzkxMDE2LCAzNC4wNTUxNDUyNjM2NzE4NzVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTkxODU3OTEwMTYsIDM0LjA1NTE0NTI2MzY3MTg3NV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI3MSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE4OjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTQ1MjYzNjcxODc1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjU5MTg1NzkxMDE2LCAiU3RhcnQgdGltZSI6ICIxNzo0NTowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjM5MzQ5MzY1MjM0LCAzNC4wNTUxOTEwNDAwMzkwNTUsIC0xMTcuMjQyMzkzNDkzNjUyMzQsIDM0LjA1NTE5MTA0MDAzOTA1NV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIzOTM0OTM2NTIzNCwgMzQuMDU1MTkxMDQwMDM5MDU1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjczIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiAwLjU2MzY0ODgxOTkyMzQwMDksICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxODozMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE5MTA0MDAzOTA1NSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDIzOTM0OTM2NTIzNCwgIlN0YXJ0IHRpbWUiOiAiMTg6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiAxLjAsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjM3ODIzNDg2MzI4LCAzNC4wNTUyMTc3NDI5MTk5MiwgLTExNy4yNDIzNzgyMzQ4NjMyOCwgMzQuMDU1MjE3NzQyOTE5OTJdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyMzc4MjM0ODYzMjgsIDM0LjA1NTIxNzc0MjkxOTkyXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjc0IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMTg6NDU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUyMTc3NDI5MTk5MiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDIzNzgyMzQ4NjMyOCwgIlN0YXJ0IHRpbWUiOiAiMTg6MzA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0NDY4OTk0MTQwNiwgMzQuMDU1MTk0ODU0NzM2MzMsIC0xMTcuMjQyNDQ2ODk5NDE0MDYsIDM0LjA1NTE5NDg1NDczNjMzXSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ0Njg5OTQxNDA2LCAzNC4wNTUxOTQ4NTQ3MzYzM10sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI3NSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE5OjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTk0ODU0NzM2MzMsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNDQ2ODk5NDE0MDYsICJTdGFydCB0aW1lIjogIjE4OjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDA4NzUyNDQxNDIsIDM0LjA1NTE5NDg1NDczNjMzLCAtMTE3LjI0MjQwODc1MjQ0MTQyLCAzNC4wNTUxOTQ4NTQ3MzYzM10sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI0MDg3NTI0NDE0MiwgMzQuMDU1MTk0ODU0NzM2MzNdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNzYiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxOToxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE5NDg1NDczNjMzLCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQwODc1MjQ0MTQsICJTdGFydCB0aW1lIjogIjE5OjAwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDAxMTIzMDQ2ODgsIDM0LjA1NTIwNjI5ODgyODEyNSwgLTExNy4yNDI0MDExMjMwNDY4OCwgMzQuMDU1MjA2Mjk4ODI4MTI1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQwMTEyMzA0Njg4LCAzNC4wNTUyMDYyOTg4MjgxMjVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiNzciLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIxOTozMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTIwNjI5ODgyODEyNSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0MDExMjMwNDY4OCwgIlN0YXJ0IHRpbWUiOiAiMTk6MTU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI0MjQwMTEyMzA0OCwgMzQuMDU1MTYwNTIyNDYwOTQ1LCAtMTE3LjI0MjQyNDAxMTIzMDQ4LCAzNC4wNTUxNjA1MjI0NjA5NDVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDI0MDExMjMwNDgsIDM0LjA1NTE2MDUyMjQ2MDk0NV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI3OCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjE5OjQ1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTYwNTIyNDYwOTQ1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQyNDAxMTIzMDQ4LCAiU3RhcnQgdGltZSI6ICIxOTozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjI4NjY4MjEyODg5LCAzNC4wNTUxNjA1MjI0NjA5NDUsIC0xMTcuMjQyMjg2NjgyMTI4ODksIDM0LjA1NTE2MDUyMjQ2MDk0NV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIyODY2ODIxMjg4OSwgMzQuMDU1MTYwNTIyNDYwOTQ1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjc5IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMjA6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNjA1MjI0NjA5NDUsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMjg2NjgyMTI4OSwgIlN0YXJ0IHRpbWUiOiAiMTk6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDIzNDc3MTcyODUxNiwgMzQuMDU1MTk4NjY5NDMzNTk0LCAtMTE3LjI0MjM0NzcxNzI4NTE2LCAzNC4wNTUxOTg2Njk0MzM1OTRdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyMzQ3NzE3Mjg1MTYsIDM0LjA1NTE5ODY2OTQzMzU5NF0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI4MCIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjIwOjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTk4NjY5NDMzNTk0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjM0NzcxNzI4NTE2LCAiU3RhcnQgdGltZSI6ICIyMDowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IG51bGwsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjYwNzExNjY5OTIyLCAzNC4wNTUwOTk0ODczMDQ2OTUsIC0xMTcuMjQyNjA3MTE2Njk5MjIsIDM0LjA1NTA5OTQ4NzMwNDY5NV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI2MDcxMTY2OTkyMiwgMzQuMDU1MDk5NDg3MzA0Njk1XSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjgyIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTYuMjE1OTEzNzcyNTgzMDA4LCAiRW5kIHRpbWUiOiAiMjA6NDU6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUwOTk0ODczMDQ2OTUsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyNjA3MTE2Njk5MjIsICJTdGFydCB0aW1lIjogIjIwOjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDMxNjQwNjI1MDEsIDM0LjA1NTI4MjU5Mjc3MzQ0NSwgLTExNy4yNDI0MzE2NDA2MjUwMSwgMzQuMDU1MjgyNTkyNzczNDQ1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQzMTY0MDYyNTAxLCAzNC4wNTUyODI1OTI3NzM0NDVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiODMiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAyOC4wMDAyMTQ1NzY3MjExOSwgIkVuZCB0aW1lIjogIjIxOjAwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjgyNTkyNzczNDQ1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjQzMTY0MDYyNSwgIlN0YXJ0IHRpbWUiOiAiMjA6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiA1ODEuMCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMjQ4NTM1MTU2MjQsIDM0LjA1NTIzMzAwMTcwODk4NCwgLTExNy4yNDIyNDg1MzUxNTYyNCwgMzQuMDU1MjMzMDAxNzA4OTg0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjI0ODUzNTE1NjI0LCAzNC4wNTUyMzMwMDE3MDg5ODRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiODQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxOC4yODA3NjE3MTg3NSwgIkVuZCB0aW1lIjogIjIxOjE1OjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjMzMDAxNzA4OTg0LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjI0ODUzNTE1NjI0LCAiU3RhcnQgdGltZSI6ICIyMTowMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IDE1LjAsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjI3OTA1MjczNDM4LCAzNC4wNTUyNjM1MTkyODcxMSwgLTExNy4yNDIyNzkwNTI3MzQzOCwgMzQuMDU1MjYzNTE5Mjg3MTFdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyMjc5MDUyNzM0MzgsIDM0LjA1NTI2MzUxOTI4NzExXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjg1IiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiAxLjAzNTc2MDUyMTg4ODczMywgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjIxOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MjYzNTE5Mjg3MTEsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMjc5MDUyNzM0MzgsICJTdGFydCB0aW1lIjogIjIxOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNzIxNTU3NjE3MTksIDM0LjA1NTA3NjU5OTEyMTA5LCAtMTE3LjI0MjcyMTU1NzYxNzE5LCAzNC4wNTUwNzY1OTkxMjEwOV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI3MjE1NTc2MTcxOSwgMzQuMDU1MDc2NTk5MTIxMDldLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiODYiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMTo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA3NjU5OTEyMTA5LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjcyMTU1NzYxNzIsICJTdGFydCB0aW1lIjogIjIxOjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNjUyODkzMDY2NCwgMzQuMDU1MDg4MDQzMjEyODksIC0xMTcuMjQyNjUyODkzMDY2NCwgMzQuMDU1MDg4MDQzMjEyODldLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNjUyODkzMDY2NCwgMzQuMDU1MDg4MDQzMjEyODldLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiODciLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMjowMDowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTA4ODA0MzIxMjg5LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjY1Mjg5MzA2NjQsICJTdGFydCB0aW1lIjogIjIxOjQ1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTY4OTY5NzI2NTUsIDM0LjA1NTIxMzkyODIyMjY1NiwgLTExNy4yNDI1Njg5Njk3MjY1NSwgMzQuMDU1MjEzOTI4MjIyNjU2XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjU2ODk2OTcyNjU1LCAzNC4wNTUyMTM5MjgyMjI2NTZdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiODgiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMjoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTIxMzkyODIyMjY1NiwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI1Njg5Njk3MjY1NiwgIlN0YXJ0IHRpbWUiOiAiMjI6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDIzOTM0OTM2NTIzNCwgMzQuMDU1MTU2NzA3NzYzNjcsIC0xMTcuMjQyMzkzNDkzNjUyMzQsIDM0LjA1NTE1NjcwNzc2MzY3XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjM5MzQ5MzY1MjM0LCAzNC4wNTUxNTY3MDc3NjM2N10sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI4OSIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjIyOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MTU2NzA3NzYzNjcsICJIaWdoIGxvbmdpdHVkZSAoZGVnKSI6IC0xMTcuMjQyMzkzNDkzNjUyMzQsICJTdGFydCB0aW1lIjogIjIyOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyMzQwMDg3ODkwNjQsIDM0LjA1NTE1Mjg5MzA2NjQxLCAtMTE3LjI0MjM0MDA4Nzg5MDY0LCAzNC4wNTUxNTI4OTMwNjY0MV0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDIzNDAwODc4OTA2NCwgMzQuMDU1MTUyODkzMDY2NDFdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiOTAiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMjo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE1Mjg5MzA2NjQxLCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjM0MDA4Nzg5MDYyLCAiU3RhcnQgdGltZSI6ICIyMjozMDowMC4wMDAtMDc6MDAiLCAiU3RlcCBjb3VudCI6IDQ0LjAsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjI0MjQ0Njg5OTQxNDA2LCAzNC4wNTUxNDE0NDg5NzQ2MSwgLTExNy4yNDI0NDY4OTk0MTQwNiwgMzQuMDU1MTQxNDQ4OTc0NjFdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNDQ2ODk5NDE0MDYsIDM0LjA1NTE0MTQ0ODk3NDYxXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjkxIiwgInByb3BlcnRpZXMiOiB7IkF2ZXJhZ2Ugc3BlZWQgKG0vcykiOiBudWxsLCAiQ2Fsb3JpZXMgKGtjYWwpIjogMTkuMzcyNzkxMjkwMjgzMjAzLCAiRW5kIHRpbWUiOiAiMjM6MDA6MDAuMDAwLTA3OjAwIiwgIkhpZ2ggbGF0aXR1ZGUgKGRlZykiOiAzNC4wNTUxNDE0NDg5NzQ2MSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0NDY4OTk0MTQwNiwgIlN0YXJ0IHRpbWUiOiAiMjI6NDU6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiAxMjEuMCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNDkyNjc1NzgxMjUsIDM0LjA1NTE0NTI2MzY3MTg3NSwgLTExNy4yNDI0OTI2NzU3ODEyNSwgMzQuMDU1MTQ1MjYzNjcxODc1XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjI0MjQ5MjY3NTc4MTI1LCAzNC4wNTUxNDUyNjM2NzE4NzVdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiOTIiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMzoxNTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTE0NTI2MzY3MTg3NSwgIkhpZ2ggbG9uZ2l0dWRlIChkZWcpIjogLTExNy4yNDI0OTI2NzU3ODEyNCwgIlN0YXJ0IHRpbWUiOiAiMjM6MDA6MDAuMDAwLTA3OjAwIiwgIlN0ZXAgY291bnQiOiBudWxsLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4yNDI1NTM3MTA5Mzc1MSwgMzQuMDU1MDg0MjI4NTE1NjI1LCAtMTE3LjI0MjU1MzcxMDkzNzUxLCAzNC4wNTUwODQyMjg1MTU2MjVdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjQyNTUzNzEwOTM3NTEsIDM0LjA1NTA4NDIyODUxNTYyNV0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICI5MyIsICJwcm9wZXJ0aWVzIjogeyJBdmVyYWdlIHNwZWVkIChtL3MpIjogbnVsbCwgIkNhbG9yaWVzIChrY2FsKSI6IDE2LjIxNTkxMzc3MjU4MzAwOCwgIkVuZCB0aW1lIjogIjIzOjMwOjAwLjAwMC0wNzowMCIsICJIaWdoIGxhdGl0dWRlIChkZWcpIjogMzQuMDU1MDg0MjI4NTE1NjI1LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjU1MzcxMDkzNzUsICJTdGFydCB0aW1lIjogIjIzOjE1OjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifSwgeyJiYm94IjogWy0xMTcuMjQyNTMwODIyNzUzOTIsIDM0LjA1NTEzMzgxOTU4MDA4LCAtMTE3LjI0MjUzMDgyMjc1MzkyLCAzNC4wNTUxMzM4MTk1ODAwOF0sICJnZW9tZXRyeSI6IHsiY29vcmRpbmF0ZXMiOiBbLTExNy4yNDI1MzA4MjI3NTM5MiwgMzQuMDU1MTMzODE5NTgwMDhdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiOTQiLCAicHJvcGVydGllcyI6IHsiQXZlcmFnZSBzcGVlZCAobS9zKSI6IG51bGwsICJDYWxvcmllcyAoa2NhbCkiOiAxNi4yMTU5MTM3NzI1ODMwMDgsICJFbmQgdGltZSI6ICIyMzo0NTowMC4wMDAtMDc6MDAiLCAiSGlnaCBsYXRpdHVkZSAoZGVnKSI6IDM0LjA1NTEzMzgxOTU4MDA4LCAiSGlnaCBsb25naXR1ZGUgKGRlZykiOiAtMTE3LjI0MjUzMDgyMjc1MzksICJTdGFydCB0aW1lIjogIjIzOjMwOjAwLjAwMC0wNzowMCIsICJTdGVwIGNvdW50IjogbnVsbCwgImhpZ2hsaWdodCI6IHt9LCAic3R5bGUiOiB7fX0sICJ0eXBlIjogIkZlYXR1cmUifV0sICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIn0KICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICApLmFkZFRvKG1hcF85ZjQxOWExZjRhZTU0ZjIyYmVkOGU1MjhjN2QwMDQzZCk7CiAgICAgICAgICAgICAgICBnZW9fanNvbl83MTk5NTVlMjUwODE0YjllYTgwZDg4ZWIwZWM3ZThkOC5zZXRTdHlsZShmdW5jdGlvbihmZWF0dXJlKSB7cmV0dXJuIGZlYXR1cmUucHJvcGVydGllcy5zdHlsZTt9KTsKCiAgICAgICAgICAgIAo8L3NjcmlwdD4=" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Open-source-geospatial">Open source geospatial<a class="anchor-link" href="#Open-source-geospatial">&#182;</a></h2><ul>
-<li><a href="../python-open-geospatial-world.html">A short tour of Open Geospatial Tools of the scientific Python ecosystem</a>
-### Vector - GeoPandas, Fiona, Shapely, Pyepsg, Folium</li>
-<li><a href="geopandas-1.html">Introduction to GeoPandas</a> Covers Data IO, projections, basic plotting.</li>
-<li><a href="geopandas-2.html">Geoprocessing with GeoPandas</a> dissolve data, spatial joins</li>
-</ul>
-<h3 id="Raster---rasterio,-rasterstats">Raster - rasterio, rasterstats<a class="anchor-link" href="#Raster---rasterio,-rasterstats">&#182;</a></h3><ul>
-<li><a href=""></a></li>
-</ul>
+<h2 id="Geocoding">Geocoding<a class="anchor-link" href="#Geocoding">&#182;</a></h2><p>Geocoding is the process of turning addresses into coordinates by plotting them on a map. It is a combination of search and computation (when you interpolate street addresses for unknown extents) that is typically performed on server side due to the amount of data required on a global scale.</p>
+<p>Geopandas uses <a href="http://geopy.readthedocs.io/en/1.11.0/"><code>geopy</code></a> to perform geocoding and returns the result of hits as a <code>geodataframe</code>.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">geopandas.tools</span> <span class="k">import</span> <span class="n">geocode</span><span class="p">,</span> <span class="n">geocoding</span><span class="p">,</span> <span class="n">reverse_geocode</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">geocode</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">reverse_geocode</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">geocoding</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(function, function, module)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Get list of providers from <code>geopy</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">geopy</span><span class="o">,</span> <span class="nn">inspect</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">geopy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># use inspection, but limit to just classes</span>
+<span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">geopy</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.14.0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&#39;ArcGIS&#39;, geopy.geocoders.arcgis.ArcGIS),
+ (&#39;Baidu&#39;, geopy.geocoders.baidu.Baidu),
+ (&#39;Bing&#39;, geopy.geocoders.bing.Bing),
+ (&#39;DataBC&#39;, geopy.geocoders.databc.DataBC),
+ (&#39;GeoNames&#39;, geopy.geocoders.geonames.GeoNames),
+ (&#39;GeocodeFarm&#39;, geopy.geocoders.geocodefarm.GeocodeFarm),
+ (&#39;GoogleV3&#39;, geopy.geocoders.googlev3.GoogleV3),
+ (&#39;IGNFrance&#39;, geopy.geocoders.ignfrance.IGNFrance),
+ (&#39;LiveAddress&#39;, geopy.geocoders.smartystreets.LiveAddress),
+ (&#39;Location&#39;, geopy.location.Location),
+ (&#39;Mapzen&#39;, geopy.geocoders.mapzen.Mapzen),
+ (&#39;Nominatim&#39;, geopy.geocoders.osm.Nominatim),
+ (&#39;OpenCage&#39;, geopy.geocoders.opencage.OpenCage),
+ (&#39;OpenMapQuest&#39;, geopy.geocoders.openmapquest.OpenMapQuest),
+ (&#39;Photon&#39;, geopy.geocoders.photon.Photon),
+ (&#39;PickPoint&#39;, geopy.geocoders.pickpoint.PickPoint),
+ (&#39;Point&#39;, geopy.point.Point),
+ (&#39;What3Words&#39;, geopy.geocoders.what3words.What3Words),
+ (&#39;Yandex&#39;, geopy.geocoders.yandex.Yandex)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocode</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="s1">&#39;Hollywood sign&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">_query</span><span class="ansi-blue-fg">(data, forward, provider, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    119</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 120</span><span class="ansi-red-fg">         </span>Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>YahooPlaceFinder
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span class="ansi-green-fg">except</span> AttributeError<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">AttributeError</span>: module &#39;geopy.geocoders&#39; has no attribute &#39;YahooPlaceFinder&#39;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-18-1315ffc7eaf6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>geocode<span class="ansi-blue-fg">(</span>strings<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;Hollywood sign&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">geocode</span><span class="ansi-blue-fg">(strings, provider, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> 
+<span class="ansi-green-intense-fg ansi-bold">     61</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">---&gt; 62</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _query<span class="ansi-blue-fg">(</span>strings<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> provider<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     63</span> 
+<span class="ansi-green-intense-fg ansi-bold">     64</span> 
+
+<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">_query</span><span class="ansi-blue-fg">(data, forward, provider, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span>         Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>YahooPlaceFinder
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span class="ansi-green-fg">except</span> AttributeError<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 122</span><span class="ansi-red-fg">         </span>Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>Yahoo
+<span class="ansi-green-intense-fg ansi-bold">    123</span> 
+<span class="ansi-green-intense-fg ansi-bold">    124</span>     coders = {&#39;googlev3&#39;: geopy.geocoders.GoogleV3,
+
+<span class="ansi-red-fg">AttributeError</span>: module &#39;geopy.geocoders&#39; has no attribute &#39;Yahoo&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;0.3.0&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
