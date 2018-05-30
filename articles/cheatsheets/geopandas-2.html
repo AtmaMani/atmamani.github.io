@@ -11804,6 +11804,11 @@ div#notebook {
 </ul>
 </li>
 <li><a href="#Geocoding">Geocoding</a></li>
+<li><a href="#Spatial-overlays">Spatial overlays</a><ul>
+<li><a href="#Point-in-polygon-problem">Point in polygon problem</a></li>
+<li><a href="#Spatial-intertsections">Spatial intersections</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -11819,7 +11824,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/2015-06-21.csv&#39;</span><span class="p">)</span>
@@ -11836,7 +11841,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[55]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -12017,7 +12022,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -12033,7 +12038,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[56]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -12050,7 +12055,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
@@ -12066,7 +12071,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -12099,7 +12104,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -12115,7 +12120,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[58]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -12349,7 +12354,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Start time&#39;</span><span class="p">,</span> <span class="s1">&#39;End time&#39;</span><span class="p">,</span><span class="s1">&#39;Calories (kcal)&#39;</span><span class="p">,</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">,</span>
@@ -12367,7 +12372,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -12471,7 +12476,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">point_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;High longitude (deg)&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">])]</span>
@@ -12488,16 +12493,16 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;shapely.geometry.point.Point at 0x1a23842a90&gt;,
- &lt;shapely.geometry.point.Point at 0x1a23842b70&gt;,
- &lt;shapely.geometry.point.Point at 0x1a23842be0&gt;,
- &lt;shapely.geometry.point.Point at 0x1a23842a20&gt;]</pre>
+<pre>[&lt;shapely.geometry.point.Point at 0x10f8b5630&gt;,
+ &lt;shapely.geometry.point.Point at 0x10f8b5668&gt;,
+ &lt;shapely.geometry.point.Point at 0x10f8b5710&gt;,
+ &lt;shapely.geometry.point.Point at 0x10f8b56a0&gt;]</pre>
 </div>
 
 </div>
@@ -12517,7 +12522,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gseries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">point_list</span><span class="p">)</span>
@@ -12530,7 +12535,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wgs84</span><span class="o">=</span><span class="n">pyepsg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
@@ -12543,7 +12548,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># gseries.crs = pyepsg.get(4326)</span>
@@ -12557,7 +12562,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gseries</span><span class="p">)</span>
@@ -12574,7 +12579,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[128]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -12665,7 +12670,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span><span class="p">[[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">,</span><span class="s1">&#39;High longitude (deg)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -12681,7 +12686,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[129]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -12771,7 +12776,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;High latitude (deg)&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -12788,7 +12793,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[130]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -12805,7 +12810,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -12824,13 +12829,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[131]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a23b40400&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10f99f0f0&gt;</pre>
 </div>
 
 </div>
@@ -12864,7 +12869,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
@@ -12881,7 +12886,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[132]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -12898,7 +12903,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from folium.plugins import HeatMap</span>
@@ -12956,7 +12961,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">geopandas.tools</span> <span class="k">import</span> <span class="n">geocode</span><span class="p">,</span> <span class="n">geocoding</span><span class="p">,</span> <span class="n">reverse_geocode</span>
@@ -12969,7 +12974,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">geocode</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">reverse_geocode</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">geocoding</span><span class="p">)</span>
@@ -12985,7 +12990,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13077,10 +13082,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocode</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="s1">&#39;Hollywood sign&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocode</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="s1">&#39;Hollywood sign&#39;</span><span class="p">)</span> <span class="c1"># default provider is googlev3</span>
 </pre></div>
 
 </div>
@@ -13093,42 +13098,44 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">_query</span><span class="ansi-blue-fg">(data, forward, provider, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    119</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 120</span><span class="ansi-red-fg">         </span>Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>YahooPlaceFinder
-<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span class="ansi-green-fg">except</span> AttributeError<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">AttributeError</span>: module &#39;geopy.geocoders&#39; has no attribute &#39;YahooPlaceFinder&#39;
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-During handling of the above exception, another exception occurred:
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-1315ffc7eaf6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>geocode<span class="ansi-blue-fg">(</span>strings<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;Hollywood sign&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">geocode</span><span class="ansi-blue-fg">(strings, provider, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span> 
-<span class="ansi-green-intense-fg ansi-bold">     61</span>     &#34;&#34;&#34;
-<span class="ansi-green-fg">---&gt; 62</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _query<span class="ansi-blue-fg">(</span>strings<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> provider<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     63</span> 
-<span class="ansi-green-intense-fg ansi-bold">     64</span> 
-
-<span class="ansi-green-fg">~/anaconda3/envs/geopandasenv/lib/python3.6/site-packages/geopandas/tools/geocoding.py</span> in <span class="ansi-cyan-fg">_query</span><span class="ansi-blue-fg">(data, forward, provider, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    120</span>         Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>YahooPlaceFinder
-<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span class="ansi-green-fg">except</span> AttributeError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 122</span><span class="ansi-red-fg">         </span>Yahoo <span class="ansi-blue-fg">=</span> geopy<span class="ansi-blue-fg">.</span>geocoders<span class="ansi-blue-fg">.</span>Yahoo
-<span class="ansi-green-intense-fg ansi-bold">    123</span> 
-<span class="ansi-green-intense-fg ansi-bold">    124</span>     coders = {&#39;googlev3&#39;: geopy.geocoders.GoogleV3,
-
-<span class="ansi-red-fg">AttributeError</span>: module &#39;geopy.geocoders&#39; has no attribute &#39;Yahoo&#39;</pre>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>address</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Los Angeles, CA 90068, USA</td>
+      <td>POINT (-118.3215482 34.1341151)</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -13137,10 +13144,10 @@ During handling of the above exception, another exception occurred:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocode</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="s1">&#39;Hollywood sign&#39;</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="s1">&#39;arcgis&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13153,13 +13160,842 @@ During handling of the above exception, another exception occurred:
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>address</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Hollywood Sign</td>
+      <td>POINT (-118.3219799999999 34.13438000000008)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">address_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hospitals near Redlands, CA&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;groceries near Redlands, CA&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;schools near Redlands, CA&#39;</span><span class="p">]</span>
+
+<span class="n">geocoded_gdf</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="n">strings</span><span class="o">=</span><span class="n">address_list</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="s1">&#39;arcgis&#39;</span><span class="p">)</span>
+<span class="n">geocoded_gdf</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>address</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Redlands Community Hospital-ER</td>
+      <td>POINT (-117.2044100362101 34.03633005943772)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Target</td>
+      <td>POINT (-117.2072099744647 34.07031003505633)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Redlands East Valley High School</td>
+      <td>POINT (-117.12776 34.06201000000004)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">34.054</span><span class="p">,</span><span class="o">-</span><span class="mf">117.2</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">geocoded_gdf</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<span class="n">m2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw+CjxoZWFkPiAgICAKICAgIDxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPgogICAgPHNjcmlwdD5MX1BSRUZFUl9DQU5WQVMgPSBmYWxzZTsgTF9OT19UT1VDSCA9IGZhbHNlOyBMX0RJU0FCTEVfM0QgPSBmYWxzZTs8L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2FqYXguZ29vZ2xlYXBpcy5jb20vYWpheC9saWJzL2pxdWVyeS8xLjExLjEvanF1ZXJ5Lm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvanMvYm9vdHN0cmFwLm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvTGVhZmxldC5hd2Vzb21lLW1hcmtlcnMvMi4wLjIvbGVhZmxldC5hd2Vzb21lLW1hcmtlcnMuanMiPjwvc2NyaXB0PgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvY3NzL2Jvb3RzdHJhcC10aGVtZS5taW4uY3NzIi8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vZm9udC1hd2Vzb21lLzQuNi4zL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9MZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy8yLjAuMi9sZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9yYXdnaXQuY29tL3B5dGhvbi12aXN1YWxpemF0aW9uL2ZvbGl1bS9tYXN0ZXIvZm9saXVtL3RlbXBsYXRlcy9sZWFmbGV0LmF3ZXNvbWUucm90YXRlLmNzcyIvPgogICAgPHN0eWxlPmh0bWwsIGJvZHkge3dpZHRoOiAxMDAlO2hlaWdodDogMTAwJTttYXJnaW46IDA7cGFkZGluZzogMDt9PC9zdHlsZT4KICAgIDxzdHlsZT4jbWFwIHtwb3NpdGlvbjphYnNvbHV0ZTt0b3A6MDtib3R0b206MDtyaWdodDowO2xlZnQ6MDt9PC9zdHlsZT4KICAgIAogICAgICAgICAgICA8c3R5bGU+ICNtYXBfOTRhYTczZTgwNGYyNDVlYzhmNGUzNDQzNmE0YTI0MTIgewogICAgICAgICAgICAgICAgcG9zaXRpb24gOiByZWxhdGl2ZTsKICAgICAgICAgICAgICAgIHdpZHRoIDogMTAwLjAlOwogICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAuMCU7CiAgICAgICAgICAgICAgICBsZWZ0OiAwLjAlOwogICAgICAgICAgICAgICAgdG9wOiAwLjAlOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgIAo8L2hlYWQ+Cjxib2R5PiAgICAKICAgIAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb2xpdW0tbWFwIiBpZD0ibWFwXzk0YWE3M2U4MDRmMjQ1ZWM4ZjRlMzQ0MzZhNGEyNDEyIiA+PC9kaXY+CiAgICAgICAgCjwvYm9keT4KPHNjcmlwdD4gICAgCiAgICAKCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgdmFyIGJvdW5kcyA9IG51bGw7CiAgICAgICAgICAgIAoKICAgICAgICAgICAgdmFyIG1hcF85NGFhNzNlODA0ZjI0NWVjOGY0ZTM0NDM2YTRhMjQxMiA9IEwubWFwKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ21hcF85NGFhNzNlODA0ZjI0NWVjOGY0ZTM0NDM2YTRhMjQxMicsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y2VudGVyOiBbMzQuMDU0LC0xMTcuMl0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB6b29tOiAxMiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1heEJvdW5kczogYm91bmRzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGF5ZXJzOiBbXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdvcmxkQ29weUp1bXA6IGZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY3JzOiBMLkNSUy5FUFNHMzg1NwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgCiAgICAgICAgCiAgICAKICAgICAgICAgICAgdmFyIHRpbGVfbGF5ZXJfNmUzMjcxMTBlZDIzNDU5Zjg2ODQwMDgyYjQyNzgzNWQgPSBMLnRpbGVMYXllcigKICAgICAgICAgICAgICAgICdodHRwczovL3tzfS50aWxlLm9wZW5zdHJlZXRtYXAub3JnL3t6fS97eH0ve3l9LnBuZycsCiAgICAgICAgICAgICAgICB7CiAgImF0dHJpYnV0aW9uIjogbnVsbCwKICAiZGV0ZWN0UmV0aW5hIjogZmFsc2UsCiAgIm1heFpvb20iOiAxOCwKICAibWluWm9vbSI6IDEsCiAgIm5vV3JhcCI6IGZhbHNlLAogICJzdWJkb21haW5zIjogImFiYyIKfQogICAgICAgICAgICAgICAgKS5hZGRUbyhtYXBfOTRhYTczZTgwNGYyNDVlYzhmNGUzNDQzNmE0YTI0MTIpOwogICAgICAgIAogICAgCgogICAgICAgICAgICAKCiAgICAgICAgICAgICAgICB2YXIgZ2VvX2pzb25fYmQ1NGYwOWQzNGU2NDhmZmJkOWE1ODNkYzYyNjU4MmYgPSBMLmdlb0pzb24oCiAgICAgICAgICAgICAgICAgICAgeyJiYm94IjogWy0xMTcuMjA3MjA5OTc0NDY0NzIsIDM0LjAzNjMzMDA1OTQzNzcyNCwgLTExNy4xMjc3NTk5OTk5OTk5NywgMzQuMDcwMzEwMDM1MDU2MzNdLCAiZmVhdHVyZXMiOiBbeyJiYm94IjogWy0xMTcuMjA0NDEwMDM2MjEwMDgsIDM0LjAzNjMzMDA1OTQzNzcyNCwgLTExNy4yMDQ0MTAwMzYyMTAwOCwgMzQuMDM2MzMwMDU5NDM3NzI0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjIwNDQxMDAzNjIxMDA4LCAzNC4wMzYzMzAwNTk0Mzc3MjRdLCAidHlwZSI6ICJQb2ludCJ9LCAiaWQiOiAiMCIsICJwcm9wZXJ0aWVzIjogeyJhZGRyZXNzIjogIlJlZGxhbmRzIENvbW11bml0eSBIb3NwaXRhbC1FUiIsICJoaWdobGlnaHQiOiB7fSwgInN0eWxlIjoge319LCAidHlwZSI6ICJGZWF0dXJlIn0sIHsiYmJveCI6IFstMTE3LjIwNzIwOTk3NDQ2NDcyLCAzNC4wNzAzMTAwMzUwNTYzMywgLTExNy4yMDcyMDk5NzQ0NjQ3MiwgMzQuMDcwMzEwMDM1MDU2MzNdLCAiZ2VvbWV0cnkiOiB7ImNvb3JkaW5hdGVzIjogWy0xMTcuMjA3MjA5OTc0NDY0NzIsIDM0LjA3MDMxMDAzNTA1NjMzXSwgInR5cGUiOiAiUG9pbnQifSwgImlkIjogIjEiLCAicHJvcGVydGllcyI6IHsiYWRkcmVzcyI6ICJUYXJnZXQiLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9LCB7ImJib3giOiBbLTExNy4xMjc3NTk5OTk5OTk5NywgMzQuMDYyMDEwMDAwMDAwMDQsIC0xMTcuMTI3NzU5OTk5OTk5OTcsIDM0LjA2MjAxMDAwMDAwMDA0XSwgImdlb21ldHJ5IjogeyJjb29yZGluYXRlcyI6IFstMTE3LjEyNzc1OTk5OTk5OTk3LCAzNC4wNjIwMTAwMDAwMDAwNF0sICJ0eXBlIjogIlBvaW50In0sICJpZCI6ICIyIiwgInByb3BlcnRpZXMiOiB7ImFkZHJlc3MiOiAiUmVkbGFuZHMgRWFzdCBWYWxsZXkgSGlnaCBTY2hvb2wiLCAiaGlnaGxpZ2h0Ijoge30sICJzdHlsZSI6IHt9fSwgInR5cGUiOiAiRmVhdHVyZSJ9XSwgInR5cGUiOiAiRmVhdHVyZUNvbGxlY3Rpb24ifQogICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICkuYWRkVG8obWFwXzk0YWE3M2U4MDRmMjQ1ZWM4ZjRlMzQ0MzZhNGEyNDEyKTsKICAgICAgICAgICAgICAgIGdlb19qc29uX2JkNTRmMDlkMzRlNjQ4ZmZiZDlhNTgzZGM2MjY1ODJmLnNldFN0eWxlKGZ1bmN0aW9uKGZlYXR1cmUpIHtyZXR1cm4gZmVhdHVyZS5wcm9wZXJ0aWVzLnN0eWxlO30pOwoKICAgICAgICAgICAgCjwvc2NyaXB0Pg==" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m2</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;0.3.0&#39;</pre>
+<pre>&#39;EPSG3857&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m2</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;{&#34;name&#34;: &#34;Map&#34;, &#34;id&#34;: &#34;94aa73e804f245ec8f4e34436a4a2412&#34;, &#34;children&#34;: {&#34;openstreetmap&#34;: {&#34;name&#34;: &#34;TileLayer&#34;, &#34;id&#34;: &#34;6e327110ed23459f86840082b427835d&#34;, &#34;children&#34;: {}}, &#34;geo_json_bd54f09d34e648ffbd9a583dc626582f&#34;: {&#34;name&#34;: &#34;GeoJson&#34;, &#34;id&#34;: &#34;bd54f09d34e648ffbd9a583dc626582f&#34;, &#34;children&#34;: {}}}}&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Spatial-overlays">Spatial overlays<a class="anchor-link" href="#Spatial-overlays">&#182;</a></h2><h3 id="Point-in-polygon-problem">Point in polygon problem<a class="anchor-link" href="#Point-in-polygon-problem">&#182;</a></h3><p><code>Geopandas</code> is capable of higher level spatial overlay operations, but we can use <code>shapely</code> to perform low level geometry <code>predicate</code> operations as below:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">24.952242</span><span class="p">,</span> <span class="mf">60.1696017</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">24.976567</span><span class="p">,</span> <span class="mf">60.1612500</span><span class="p">)</span>
+
+<span class="c1"># Create a Polygon</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">24.950899</span><span class="p">,</span> <span class="mf">60.169158</span><span class="p">),</span> <span class="p">(</span><span class="mf">24.953492</span><span class="p">,</span> <span class="mf">60.169158</span><span class="p">),</span> <span class="p">(</span><span class="mf">24.953510</span><span class="p">,</span> <span class="mf">60.170104</span><span class="p">),</span> <span class="p">(</span><span class="mf">24.950958</span><span class="p">,</span> <span class="mf">60.169990</span><span class="p">)]</span>
+<span class="n">poly1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf_points</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">])</span>
+<span class="n">gdf_poly</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">poly1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">gdf_poly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">gdf_points</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[42]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11032d898&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the <code>within()</code> and <code>contains()</code> spatial topology operators</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">poly1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[39]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p2</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">poly1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[43]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poly1</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[44]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Spatial-intertsections">Spatial intertsections<a class="anchor-link" href="#Spatial-intertsections">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">MultiLineString</span>
+
+<span class="n">line_a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">line_b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">gdf_lines</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">line_a</span><span class="p">,</span> <span class="n">line_b</span><span class="p">])</span>
+<span class="n">gdf_lines</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[50]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11041aac8&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">line_a</span><span class="o">.</span><span class="n">touches</span><span class="p">(</span><span class="n">line_b</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[51]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">line_a</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">line_b</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[52]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rough">Rough<a class="anchor-link" href="#Rough">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">addresses_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/addresses.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">addresses_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[55]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>Itämerenkatu 14, 00101 Helsinki, Finland</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1001</td>
+      <td>Kampinkuja 1, 00100 Helsinki, Finland</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1002</td>
+      <td>Kaivokatu 8, 00101 Helsinki, Finland</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1003</td>
+      <td>Hermanstads strandsväg 1, 00580 Helsingfors, F...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocoded_df2</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="n">addresses_df</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">],</span> <span class="n">provider</span><span class="o">=</span><span class="s1">&#39;arcgis&#39;</span><span class="p">)</span>
+<span class="n">geocoded_df2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[56]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>address</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Itämerenkatu 14, 00180, Helsinki</td>
+      <td>POINT (24.91455731946443 60.1633495461657)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kampinkuja 1, 00100, Helsinki</td>
+      <td>POINT (24.9302491820648 60.16845702637194)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kaivokatu 8, 00100, Helsinki</td>
+      <td>POINT (24.94145758673324 60.17029551067582)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hermanstads strandväg 1, 00580, Helsingfors</td>
+      <td>POINT (24.97741793978296 60.18745461226845)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addresses_merged</span> <span class="o">=</span> <span class="n">geocoded_df2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">addresses_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="n">addresses_merged</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[75]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>address</th>
+      <th>geometry</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Itämerenkatu 14, 00180, Helsinki</td>
+      <td>POINT (24.91455731946443 60.1633495461657)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kampinkuja 1, 00100, Helsinki</td>
+      <td>POINT (24.9302491820648 60.16845702637194)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kaivokatu 8, 00100, Helsinki</td>
+      <td>POINT (24.94145758673324 60.17029551067582)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Hermanstads strandväg 1, 00580, Helsingfors</td>
+      <td>POINT (24.97741793978296 60.18745461226845)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocoded_df2</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;./data/addresses_geocoded.shp&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">geocoded_df2</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[79]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;init&#39;: &#39;epsg:4326&#39;, &#39;no_defs&#39;: True}</pre>
 </div>
 
 </div>
