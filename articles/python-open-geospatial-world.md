@@ -42,6 +42,8 @@ Geopandas supports pretty much all data wrangling provided by pandas. Thus you c
  - attribute and spatial joins
  - geocoding using google, bing, googlev3, yahoo, mapquest, openmapquest.
 
+## Geocoding
+[`geopy`](http://geopy.readthedocs.io/en/1.11.0/) is a Pythonic wrapper for a number of different providers (including Google, Esri, Yahoo, Mapzen etc.) `geopandas` integrates with `geopy` and returns the hits as a `geodataframe`, how neat! Another option is [`geocoder`](http://geocoder.readthedocs.io/)
 
 ## Conclusion
 By no means this is an exhaustive list, and that is the beauty of open source ecosystem. There are parallel efforts around the world to improve existing packages and building simpler and more powerful packages. Here is a blog that lists [a few more packages](https://automating-gis-processes.github.io/CSC18/lessons/L1/Intro-Python-GIS.html#what-tools-are-available-for-doing-gis-in-pure-python) for Python geospatial work.
