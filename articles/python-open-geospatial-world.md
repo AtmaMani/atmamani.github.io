@@ -7,10 +7,25 @@ Something that is common and beautiful about the opensource Python data analysis
 
 This blog is just a high level overview to navigate this python-open-geospatial community and packages. For any details, refer to my [cheatsheets](/cheatsheets/index.html).
 
+**ToC**
+- [A short tour of Open Geospatial Tools of the scientific Python ecosystem](#a-short-tour-of-open-geospatial-tools-of-the-scientific-python-ecosystem)
+    - [Data IO](#data-io)
+    - [Geometry and projection engines](#geometry-and-projection-engines)
+        - [Spatial indexing](#spatial-indexing)
+    - [Data wrangling](#data-wrangling)
+    - [Visualization](#visualization)
+    - [Sharing - web GIS](#sharing---web-gis)
+    - [Spatial analysis](#spatial-analysis)
+        - [Pysal](#pysal)
+    - [Geocoding](#geocoding)
+    - [Conclusion](#conclusion)
+
 ## Data IO
 **[Fiona](https://pypi.python.org/pypi/Fiona)** is a **[GDAL](http://www.gdal.org/)** Python wrapper and is for reading vector data. Fiona is written to be a clean Pythonic wrapper at the cost of performance and memory usage.
 
 An alternate is **[PyShape](https://github.com/GeospatialPython/pyshp)** which reads and writes Esri Shape files in **pure Python** vs Fiona which is a GDAL wrapper for libs in C.
+
+**[OSMnx](https://github.com/gboeing/osmnx)** is a library used to retrieve network and vector data from Open Street Maps database. This library pairs well with **[networkx](https://networkx.github.io/)** library that can perform network analysis
 
 ## Geometry and projection engines
 **[Geopandas](http://geopandas.org/)** provides a spatial extension to the famous [pandas](http://pandas.pydata.org/) library. It uses [shapely](http://toblerity.github.io/shapely) for **geometry**, [fiona](http://toblerity.github.io/fiona) for reading vector data, [descartes](https://pypi.python.org/pypi/descartes) and matplotlib for plotting. Geopandas allows spatial operations that would otherwise require **PostGIS**.
