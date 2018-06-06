@@ -27,9 +27,11 @@ ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-le
 <p>This blog is just a high level overview to navigate this python-open-geospatial community and packages. For any details, refer to my <a href="/cheatsheets/index.html">cheatsheets</a>.</p>
 <p><strong>ToC</strong></p>
 <ul>
-<li><a href="#a-short-tour-of-open-geospatial-tools-of-the-scientific-python-ecosystem">A short tour of Open Geospatial Tools of the scientific Python ecosystem</a>
+<li><a href="#data-io">Data IO</a>
 <ul>
-<li><a href="#data-io">Data IO</a></li>
+<li><a href="#raster-data-io">Raster data IO</a></li>
+</ul>
+</li>
 <li><a href="#geometry-and-projection-engines">Geometry and projection engines</a>
 <ul>
 <li><a href="#spatial-indexing">Spatial indexing</a></li>
@@ -46,12 +48,13 @@ ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-le
 <li><a href="#geocoding">Geocoding</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-</li>
-</ul>
 <h2 id="data-io">Data IO</h2>
 <p><strong><a href="https://pypi.python.org/pypi/Fiona">Fiona</a></strong> is a <strong><a href="http://www.gdal.org/">GDAL</a></strong> Python wrapper and is for reading vector data. Fiona is written to be a clean Pythonic wrapper at the cost of performance and memory usage.</p>
 <p>An alternate is <strong><a href="https://github.com/GeospatialPython/pyshp">PyShape</a></strong> which reads and writes Esri Shape files in <strong>pure Python</strong> vs Fiona which is a GDAL wrapper for libs in C.</p>
 <p><strong><a href="https://github.com/gboeing/osmnx">OSMnx</a></strong> is a library used to retrieve network and vector data from Open Street Maps database. This library pairs well with <strong><a href="https://networkx.github.io/">networkx</a></strong> library that can perform network analysis</p>
+<h3 id="raster-data-io">Raster data IO</h3>
+<p><strong><a href="https://rasterio.readthedocs.io/en/latest/index.html">rasterio</a></strong> is a popular library from Mapbox that is a Pythonic wrapper over GDAL Python bindings. This library makes it easy to read satellite images, DEMs (and all formats supported by GDAL) quickly into a <strong>numpy</strong> array. In addition, it has some handy methods such as plotting, histogram to quickly visualize the images.</p>
+<p>Once in numpy, you can perform any analysis over raw arrays. However, rasterio provides modules to perform several different processing such as Georeferencing, masking, mosaicing, reprojecting, resampling and writing to disk.</p>
 <h2 id="geometry-and-projection-engines">Geometry and projection engines</h2>
 <p><strong><a href="http://geopandas.org/">Geopandas</a></strong> provides a spatial extension to the famous <a href="http://pandas.pydata.org/">pandas</a> library. It uses <a href="http://toblerity.github.io/shapely">shapely</a> for <strong>geometry</strong>, <a href="http://toblerity.github.io/fiona">fiona</a> for reading vector data, <a href="https://pypi.python.org/pypi/descartes">descartes</a> and matplotlib for plotting. Geopandas allows spatial operations that would otherwise require <strong>PostGIS</strong>.</p>
 <p><strong><a href="http://toblerity.org/shapely/manual.html">Shapely</a></strong> is a Python package for manipulation and analysis of geometries. Shapely cannot IO datasets, but can help in projections. Shapely is a Pythonic wrapper to <a href="https://trac.osgeo.org/geos/">GEOS</a> (Geometry Engine, Open Source), which in turn is a <code>C++</code> port of <a href="https://trac.osgeo.org/geos/">Java Topology Suite</a>. You can already see a heavy re-use of libraries. Shapely forms the geometry backbone of geopandas</p>

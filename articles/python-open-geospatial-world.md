@@ -8,17 +8,18 @@ Something that is common and beautiful about the opensource Python data analysis
 This blog is just a high level overview to navigate this python-open-geospatial community and packages. For any details, refer to my [cheatsheets](/cheatsheets/index.html).
 
 **ToC**
-- [A short tour of Open Geospatial Tools of the scientific Python ecosystem](#a-short-tour-of-open-geospatial-tools-of-the-scientific-python-ecosystem)
-    - [Data IO](#data-io)
-    - [Geometry and projection engines](#geometry-and-projection-engines)
-        - [Spatial indexing](#spatial-indexing)
-    - [Data wrangling](#data-wrangling)
-    - [Visualization](#visualization)
-    - [Sharing - web GIS](#sharing---web-gis)
-    - [Spatial analysis](#spatial-analysis)
-        - [Pysal](#pysal)
-    - [Geocoding](#geocoding)
-    - [Conclusion](#conclusion)
+
+- [Data IO](#data-io)
+    - [Raster data IO](#raster-data-io)
+- [Geometry and projection engines](#geometry-and-projection-engines)
+    - [Spatial indexing](#spatial-indexing)
+- [Data wrangling](#data-wrangling)
+- [Visualization](#visualization)
+- [Sharing - web GIS](#sharing---web-gis)
+- [Spatial analysis](#spatial-analysis)
+    - [Pysal](#pysal)
+- [Geocoding](#geocoding)
+- [Conclusion](#conclusion)
 
 ## Data IO
 **[Fiona](https://pypi.python.org/pypi/Fiona)** is a **[GDAL](http://www.gdal.org/)** Python wrapper and is for reading vector data. Fiona is written to be a clean Pythonic wrapper at the cost of performance and memory usage.
@@ -26,6 +27,11 @@ This blog is just a high level overview to navigate this python-open-geospatial 
 An alternate is **[PyShape](https://github.com/GeospatialPython/pyshp)** which reads and writes Esri Shape files in **pure Python** vs Fiona which is a GDAL wrapper for libs in C.
 
 **[OSMnx](https://github.com/gboeing/osmnx)** is a library used to retrieve network and vector data from Open Street Maps database. This library pairs well with **[networkx](https://networkx.github.io/)** library that can perform network analysis
+
+### Raster data IO
+**[rasterio](https://rasterio.readthedocs.io/en/latest/index.html)** is a popular library from Mapbox that is a Pythonic wrapper over GDAL Python bindings. This library makes it easy to read satellite images, DEMs (and all formats supported by GDAL) quickly into a **numpy** array. In addition, it has some handy methods such as plotting, histogram to quickly visualize the images.
+
+Once in numpy, you can perform any analysis over raw arrays. However, rasterio provides modules to perform several different processing such as Georeferencing, masking, mosaicing, reprojecting, resampling and writing to disk.
 
 ## Geometry and projection engines
 **[Geopandas](http://geopandas.org/)** provides a spatial extension to the famous [pandas](http://pandas.pydata.org/) library. It uses [shapely](http://toblerity.github.io/shapely) for **geometry**, [fiona](http://toblerity.github.io/fiona) for reading vector data, [descartes](https://pypi.python.org/pypi/descartes) and matplotlib for plotting. Geopandas allows spatial operations that would otherwise require **PostGIS**.
