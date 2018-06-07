@@ -1,6 +1,7 @@
 # Atma's articles
 #### Opinionated view on many things
 
+- [The world of Geospatial Python](python-open-geospatial-world.html). A summary of the various Python libraries used in processing, visualization and analysis of spatial data.
 - [DevOps today](DevOps_today.html)
 - [Building stand-alone command line apps with Python](stand_alone_cli_python.html)
 - [The Big Data Ecosystem](the-big-data-ecosystem.html)
