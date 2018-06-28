@@ -9,6 +9,7 @@
 - [A crash course on Scrum part 2 - an agile project management methodology](https://www.linkedin.com/pulse/crash-course-scrum-part-2-agile-project-management-methodology/)
 - [Demystifying Python jargon found in Data Science](https://www.linkedin.com/pulse/demystifying-python-jargon-found-data-science-atma-b-mani/)
 - [Imagery in ArcGIS ecosystem](imagery_in_arcgis_ecosystem.html)
+- [A short tour of Open Geospatial Tools of the scientific Python ecosystem](python-open-geospatial-world.html)
 -------------------------------------
 
 #### Cheat sheets
