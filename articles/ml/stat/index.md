@@ -8,6 +8,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [Describing data](02_data_description.html)
 - [Conditional probability](03_conditional_probability.html)
 - Probability distributions
+  - [Normal distribution](04_normal_distribution.html)
   - [Binomial and Poisson distributions](04_probability_distributions_1.html)
 
 ### Fun
