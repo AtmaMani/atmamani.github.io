@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>04_normal_distribution</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>05_hypothesis_testing</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,250 +11775,22 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Normal-distribution">Normal distribution<a class="anchor-link" href="#Normal-distribution">&#182;</a></h1><p>Standard normal distribution takes a bell curve. It is also called as <strong>gaussian distribution</strong>. Values in nature are believed to take a normal distribution. The equation for normal distribution is</p>
-<p>$$y = \frac{1}{\sigma\sqrt{2\pi}} e^{\frac{(x-\mu)^2}{2\sigma^2}}$$
-where
-$\mu$ is mean</p>
-<p>$\sigma$ is standard deviation</p>
-<p>$\pi$ = 3.14159..</p>
-<p>$e$ = 2.71828.. (natural log)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>100000</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">hist_vals</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The above is the standard normal distribution. Its mean is 0 and SD is 1. About <code>95%</code> values fall within $\mu \pm 2 SD$ and <code>98%</code> within $\mu \pm 3 SD$</p>
-<p>The area under this curve is <code>1</code> which gives the probability of values falling within the range of standard normal.</p>
-<p>A common use is to find the probability of a value falling at a particular range. For instance, find $p(-2 \le z \le 2)$ which is the probability of a value falling within $\mu \pm 2SD$. This calculated by summing the area under the curve between these bounds.</p>
-<p>$$p(-2 \le z \le 2) = 0.9544$$ which is <code>95.44%</code> probability. Its <code>z</code> score is <code>0.9544</code>.</p>
-<p>Similarly
-$$p(z \ge 5.1) = 0.00000029$$</p>
-<h3 id="Levels-of-significance">Levels of significance<a class="anchor-link" href="#Levels-of-significance">&#182;</a></h3><p>By rule of thumb, a <code>z</code> score greater than <code>0.005</code> is considered <strong>significant</strong> as such a value has a very low probability of occuring. Thus, there is less chance of it occurring <strong>randomly</strong> and hence, there is probably a force acting on it (significant force, not random chance).</p>
-<h3 id="Transformation-to-standard-normal">Transformation to standard normal<a class="anchor-link" href="#Transformation-to-standard-normal">&#182;</a></h3><p>If the distribution of a phenomena follows normal dist, then you can transform it to standard normal, so you can measure the <code>z</code> scores. To do so,
-$$std normal value = \frac{observed - \mu}{\sigma}$$ You subtract the mean and divide by SD of the distribution.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Example</strong>
-Let X be age of US presidents at inaugration. $X \in N(\mu = 54.8, \sigma=6.2)$. What is the probability of choosing a president at random that is less than <code>44</code> years of age.</p>
-<p>We need to find $p(x&lt;44)$. First we need to transform to standard normal.</p>
-<p>$$p(z&lt; \frac{44-54.8}{6.2})$$
-$$p(z&lt;-1.741) = 0.0409 \approx 4\%$$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Assessing-normality-of-a-distribution">Assessing normality of a distribution<a class="anchor-link" href="#Assessing-normality-of-a-distribution">&#182;</a></h3><p>To assess how normal a distribution of values is, we sort the values, then plot them against sorted values of standard normal distribution. If the values fall on a straight line, then they are normally distributed, else they exhibit skewness and or kurtosis.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">demo_dist</span> <span class="o">=</span> <span class="mi">55</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.4</span>
-<span class="n">std_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">demo_dist</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">demo_dist</span><span class="p">)</span>
-<span class="n">std_normal</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">std_normal</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">demo_dist</span><span class="p">,</span> <span class="n">std_normal</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[22]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x111e56dd8&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For the most part, the values fall on a straight line, except in the fringes. Thus, the demo distribution is fairly normal.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Standard-error">Standard error<a class="anchor-link" href="#Standard-error">&#182;</a></h3><p>As can be seen, we use statistics to estimate population mean $\mu$ from sample mean $\bar x$. Standard error of $\bar x$ represents on average, how far will it be from $\mu$.</p>
-<p>As you suspect, the quality of $\bar x$, or its <strong>standard error</strong> will depend on the sample size. In addition, it also depends on population standard deviation. Thus for a tighter population, it is much easy to estimate mean from a small sample as there are fewer outliers.</p>
-<p>Nonetheless,
-$$SE(\bar x) = \frac{\sigma}{\sqrt{n}}$$ where $\sigma$ is <strong>population SD</strong> and $n$ is sample size.</p>
-<p>Empirically, $SE(\bar x)$ is same as the <strong>SD</strong> of a distribution of sample means. If you were to collect a number of samples, find their means to form a distribution, the SD of this distribution represents the <strong>standard error</strong> of that estimate (mean in this case).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals">&#182;</a></h3><p>From a population, many samples of size &gt; <code>30</code> is drawn and their means are computed and plotted, then with $\bar x$ or $\bar y$ - mean of a sample and $n$ - size of 1 sample, $\sigma_{\bar x}$ or $\sigma_{\bar y}$ is SD of distribution of samples, you can observe that</p>
+<h1 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">&#182;</a></h1><p>The goal of hypothesis testing is to answer a simple <strong>yes / no</strong> question about a population parameter. There are two types of hypothesis, $H_{0}$ the <strong>null hypothesis</strong> and $H_{A}$ the <strong>Alternate hypothesis</strong>.</p>
+<p>The steps followed are:</p>
 <ul>
-<li>$\mu_{\bar x} = \mu$ (mean of distribution of sample means equals population mean)</li>
-<li>$\frac{\sigma_{\bar x}}{\sqrt n} = \sigma$ - (SD of sample means over sqrt of sample size equals population SD)</li>
-<li>relationship between population mean and mean of a single sample is </li>
-<li>$$ \mu = \bar y \pm z(\frac{s}{\sqrt n})$$</li>
+<li>set up the hypothesis (null, alternate)</li>
+<li>choose $\alpha$ level (confidence interval)</li>
+<li>determine rejection region (on the z curve)</li>
+<li>compute the test statistic (p value based on z score)</li>
+<li>make a decision</li>
 </ul>
+<p><strong>Rules in hypothesis testing</strong></p>
+<ol>
+<li>No <em>equal</em> sign in $H_{A}$. Only $\ne, &lt;, &gt;$ signs</li>
+<li>Put what you want to test in $H_{A}$, unless you violate rule 1, then you put that in $H_{0}$</li>
+<li>Believe $H_{0}$ unless the dataset shows otherwise</li>
+<li>when we make our decision, we either reject $H_{0}$ or fail to reject it.</li>
+</ol>
 
 </div>
 </div>
@@ -12027,36 +11799,56 @@ $$SE(\bar x) = \frac{\sigma}{\sqrt{n}}$$ where $\sigma$ is <strong>population SD
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>z</code> table and normal distribution are used to derive confidence intervals. Popular intervals and their corresponding <code>z</code> scores are</p>
-<table>
-<thead><tr>
-<th>interval</th>
-<th>z-value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>99%</td>
-<td>$\pm 2.576$</td>
-</tr>
-<tr>
-<td>98%</td>
-<td>$\pm 2.326$</td>
-</tr>
-<tr>
-<td>95%</td>
-<td>$\pm 1.96$</td>
-</tr>
-<tr>
-<td>90%</td>
-<td>$\pm 1.645$</td>
-</tr>
-</tbody>
-</table>
-<p>As you imagine, these are the values of <code>z</code> on X axis of the standard normal distribution and the area they cover.</p>
-<p>For a normal distribution, confidence intervals for an estimate (such as mean) can be given as
-$$CI = \bar x \pm z\frac{s}{\sqrt{n}}$$
-where $s$ is sample SD that is substituted in place of population SD, if sample size is larger than <strong>30</strong>.</p>
+<h3 id="Examples-of-formulating-hypothesis">Examples of formulating hypothesis<a class="anchor-link" href="#Examples-of-formulating-hypothesis">&#182;</a></h3><ol>
+<li><p>Nitrate levels are unsafe if &gt; 10ppm. Test if out water is unsafe on average.</p>
+<ul>
+<li>$H_{0} =&gt; \mu \le 10ppm$</li>
+<li>$H_{A} =&gt; \mu &gt; 10 ppm$</li>
+</ul>
+</li>
+<li><p>Test if a coin is fair.</p>
+<ul>
+<li>$H_{0} =&gt; p(h)=0.5$</li>
+<li>$H_{A} =&gt; p(h)\ne 0.5$ This is because alt hypothesis should not have equal sign.</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Type-1,-2-errors">Type 1, 2 errors<a class="anchor-link" href="#Type-1,-2-errors">&#182;</a></h3><p>For a jury trial, our motto is <strong>innocent until proven guilty</strong>. Hence</p>
+<ul>
+<li>$H_{0} =&gt; innocent$ as we reject H0 or fail to do so</li>
+<li><p>$H_{A} =&gt; guilty$</p>
+</li>
+<li><p>Type 1 error: <strong>False positive</strong></p>
+<ul>
+<li>we reject $H_{0}$ when it is still true</li>
+<li>$\alpha$ = p(type 1 error) = p(rejecting $H_{0}$ when it is still true)</li>
+</ul>
+</li>
+<li>Type 2 error: <strong>False negative</strong><ul>
+<li>$\beta$ = p(type 2 error) = p(failing to reject $H_{0}$ when $H_{A}$ is true)</li>
+</ul>
+</li>
+</ul>
+<p>In practice, we fix $\alpha = 0.5$ and calculate $\beta' = (1-\beta)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Testing-your-hypothesis">Testing your hypothesis<a class="anchor-link" href="#Testing-your-hypothesis">&#182;</a></h2><p>You calculate the test statistic as
+$$TS = \frac{\bar x - \mu}{\frac{s}{\sqrt n}}$$
+You either reject or approve the $H_{0}$ based on the value of the TS compared against the p value for the said $\alpha$ value (confidence interval)</p>
 
 </div>
 </div>
@@ -12066,11 +11858,16 @@ where $s$ is sample SD that is substituted in place of population SD, if sample 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Example</strong>
-The average TV viewing times of <code>40</code> adults sampled in Iowa is <code>7.75</code> hours per week. The SD of this sample is <code>12.5</code>. <strong>Find the <code>95%</code> CI population's average TV viewing times</strong>.</p>
-<p>$\bar x = 40$, $s=12.5$, $n=40$, $Z=1.96$ for 95% CI. Thus
-$$95\%CI = 7.75 \pm 1.96\frac{12.5}{\sqrt{40}}$$
-$$95\%CI = (3.877 | 11.623)$$</p>
-<p>Thus the <code>95</code>% CI is pretty wide. Intuitively, if SD of sample is smaller, then so is the CI.</p>
+A sample of <code>49</code> batteries are tested for their limetimes. The SD is <code>15.0</code>, mean longivity is <code>1006.2</code>. Is it possible to claim the batteries last longer than <code>1000</code> hours on average?</p>
+<p>$\bar x = 1006.2$, $n=49$, $s=15$, $\alpha = 0.01$ assumed.
+$$H_{0} =&gt; \mu \le 1000$$
+$$H_{A} =&gt; \mu &gt; 1000$$</p>
+<p>Find Test Statistic
+$$TS = \frac{1006.2-1000}{15/\sqrt{49}}$$
+$$TS=2.89$$
+This is a right tailed hypothesis as we test if test statistic is &gt; z score for the said alpha.</p>
+<p>z score for $\alpha=0.01$ = 2.576 (for 99% CI)
+The TS is &gt; z score. Hence <strong>reject $H_{0}$. Thus mean battery life &gt; 1000 hours</strong> by significance.</p>
 
 </div>
 </div>
