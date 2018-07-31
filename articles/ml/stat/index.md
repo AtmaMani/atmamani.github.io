@@ -10,6 +10,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - Probability distributions
   - [Normal distribution](04_normal_distribution.html)
   - [Binomial and Poisson distributions](04_probability_distributions_1.html)
+- [Hypothesis testing](05_hypothesis_testing.html)
 
 ### Fun
 - [Verifying central limit theorem](verifying_central_limit_theorem.html)
