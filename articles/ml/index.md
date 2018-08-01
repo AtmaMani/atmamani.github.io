@@ -18,3 +18,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
 - [PySpark](pySpark/getting-started-pyspark.html)
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
+
+------------------------------------------
+## Fun
+ - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
