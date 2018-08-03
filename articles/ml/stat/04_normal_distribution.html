@@ -11881,6 +11881,23 @@ $\mu$ is mean</p>
 <p>$$p(-2 \le z \le 2) = 0.9544$$ which is <code>95.44%</code> probability. Its <code>z</code> score is <code>0.9544</code>.</p>
 <p>Similarly
 $$p(z \ge 5.1) = 0.00000029$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Finding-z-score-and-p-values-using-SciPy">Finding z score and p values using SciPy<a class="anchor-link" href="#Finding-z-score-and-p-values-using-SciPy">&#182;</a></h3><p>The standard normal is useful as a <strong>z table</strong> to look up the probability of a <strong>z score</strong> (x axis). You can use Scipy to accomplish this.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Levels-of-significance">Levels of significance<a class="anchor-link" href="#Levels-of-significance">&#182;</a></h3><p>By rule of thumb, a <code>z</code> score greater than <code>0.005</code> is considered <strong>significant</strong> as such a value has a very low probability of occuring. Thus, there is less chance of it occurring <strong>randomly</strong> and hence, there is probably a force acting on it (significant force, not random chance).</p>
 <h3 id="Transformation-to-standard-normal">Transformation to standard normal<a class="anchor-link" href="#Transformation-to-standard-normal">&#182;</a></h3><p>If the distribution of a phenomena follows normal dist, then you can transform it to standard normal, so you can measure the <code>z</code> scores. To do so,
 $$std normal value = \frac{observed - \mu}{\sigma}$$ You subtract the mean and divide by SD of the distribution.</p>
@@ -11897,6 +11914,194 @@ Let X be age of US presidents at inaugration. $X \in N(\mu = 54.8, \sigma=6.2)$.
 <p>We need to find $p(x&lt;44)$. First we need to transform to standard normal.</p>
 <p>$$p(z&lt; \frac{44-54.8}{6.2})$$
 $$p(z&lt;-1.741) = 0.0409 \approx 4\%$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Finding-z-score-and-p-values-using-SciPy">Finding z score and p values using SciPy<a class="anchor-link" href="#Finding-z-score-and-p-values-using-SciPy">&#182;</a></h3><p>The standard normal is useful as a <strong>z table</strong> to look up the probability of a <strong>z score</strong> (x axis). You can use Scipy to accomplish this.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="c1"># compute the p value for a z score</span>
+<span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="mf">1.741</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.04084178926110883</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us try for some common <code>z scores</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.0013498980316300933,
+ 0.15865525393145707,
+ 0.5,
+ 0.8413447460685429,
+ 0.9772498680518208]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you noticed, the <code>norm.cdf()</code> function gives the <strong>cumulative probability</strong> (<strong>left tail</strong>) from <code>-3</code> to <code>3</code> approx. If you need right tailed distribution, you simply subtract this value from <code>1</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Finding-z-score-from-a-p-value">Finding z score from a p value<a class="anchor-link" href="#Finding-z-score-from-a-p-value">&#182;</a></h4><p>Sometimes, you have the probability (p value), but want to find the <code>z score</code> or how many SD does this value fall from mean. You can do this inverse using <code>ppf()</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Find Z score for a probability of 0.97 (2sd)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.97</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.8807936081512509</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.97</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.98</span><span class="p">),</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1.6448536269514722,
+ 1.8807936081512509,
+ 2.0537489106318225,
+ 2.3263478740408408]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As is the <code>ppf()</code> function gives only positive <code>z</code> scores, you need to apply $\pm$ to it.</p>
 
 </div>
 </div>
