@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>03_probability_distributions_1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>04_conditional_probability</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11773,8 +11771,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11791,18 +11788,18 @@ div#notebook {
 </ul>
 </li>
 </ul>
-<h3 id="Axioms-of-probability">Axioms of probability<a class="anchor-link" href="#Axioms-of-probability">&#182;</a></h3>$$
+<h3 id="Axioms-of-probability">Axioms of probability<a class="anchor-link" href="#Axioms-of-probability">&#182;</a></h3><p>$$
 0 \leq P(A) \leq 1
 \\
 P(A) + P(\bar A) = 1
 \\
 P(A \verb ! or ! B) = P(A) + P(B)
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11813,19 +11810,18 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$
+<p>$$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11855,7 +11851,9 @@ $$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 
@@ -11866,7 +11864,9 @@ $$
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -12006,16 +12006,16 @@ QmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">&#182;</a></h2><p>Generally, conditional probability is more helpful in explaining a situtation than general probabilities.</p>
 <p>Given two events <code>A</code> and <code>B</code> with non zero probabilities, then the probability of A occurring, given that B has occurs is</p>
-$$
+<p>$$
 P(A|B) = \frac{P(A \cap B)}{P(B)}
-$$<p>and
+$$</p>
+<p>and
 $$
 P(B|A) = \frac{P(A \cap B)}{P(A)}
 $$</p>
@@ -12023,8 +12023,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12033,20 +12032,143 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example</strong>
+Consider the case of insurance fraud. In table below, you are given insurance type and what rate of them are fraud claims.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Fradulent&#39;</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="s1">&#39;Not Fradulent&#39;</span><span class="p">]],</span> 
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Fire&#39;</span><span class="p">,</span> <span class="s1">&#39;Auto&#39;</span><span class="p">,</span><span class="s1">&#39;Other&#39;</span><span class="p">,</span><span class="s1">&#39;Status&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fire</th>
+      <th>Auto</th>
+      <th>Other</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Fradulent</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>14</td>
+      <td>29</td>
+      <td>47</td>
+      <td>Not Fradulent</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>total number of claims</strong>: 100, <strong>number of fraud claims</strong>: 10. Thus 10% of all claims are fraud. However, with additional information about type of claims, we can fine grain whether a given claim is fraud, <strong>if we knew the type of claim</strong> (predictor variable).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To answer the question, <strong>what is the probability that a claim is fraud, given that it is a Fire claim</strong>?:</p>
+<p>$$
+p(Fraud \ |\ fire \ policy) = \frac{p(fire \cap fraud)}{p(fire \ policy)}
+$$
+$$
+p(Fraud \ | \ fire \ policy) = \frac{0.06}{0.20} = .30
+$$
+or 30% of claims are fraud, given that they are of type fire.</p>
+<p>Here, <strong><code>30%</code></strong> is called the <code>conditional probability</code> and the general <strong><code>10%</code></strong> is called the <code>unconditional</code> or <code>marginal</code> probability. Clearly, knowing the conditional probability is of much higher value than knowing the unconditional probability.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Bayesian-conditional-probability">Bayesian conditional probability<a class="anchor-link" href="#Bayesian-conditional-probability">&#182;</a></h3><p>The Bayesian theorem builds on conditional probability, specifically on prior and posterior probabilities. It states that, if <code>A</code> and <code>B</code> are any events whose probabilities are not 0 or 1, then:</p>
-$$
+<p>$$
 P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\bar A)P(\bar A)}
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12055,14 +12177,23 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$
+<p>$$
 P(A_i | B_j) = \frac{P(B_j | A_i)P(A_i)}{P(B_j | A_1)P(A_1) + P(B_j | A_2)P(A_2) + ... + P(B_j | A_k)P(A_k)}
-$$
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consider $A_1 ,... A_k$ as $k$ predictor variables in machine learning. The Naive Bayes classifier will build the conditional probabilities of $p(B_j|A_k)$ to later predict what would $p(A_i | B_j)$ be.</p>
+
 </div>
 </div>
 </div>
