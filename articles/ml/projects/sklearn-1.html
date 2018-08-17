@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11773,8 +11771,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11783,8 +11780,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11796,6 +11792,22 @@ div#notebook {
 <span class="n">lm_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="o">&lt;</span><span class="n">estimator</span> <span class="n">parameters</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 <p><strong>Estimator parameters</strong> are provided as arguments when you instantiate an Estimator. Sklearn provides good defaults.</p>
+<p>In Scikit-learn, Estimators are designed such that</p>
+<ul>
+<li><strong>consistency</strong>: all estimators share a common interface</li>
+<li><strong>inspection</strong>: the hyperparameters you set when you instantiate an estimator is available for inspection as properties of that object</li>
+<li><strong>limited hierarchy</strong>: only the algorithms are represented as Python objects. Training data, results, parameter names follow standard Python or Numpy / Pandas types</li>
+<li><strong>composition</strong>: many workflows can be achieved as a series of more fundamental algorithms</li>
+<li><strong>sensible defaults</strong>: you guessed it.</li>
+</ul>
+<h3 id="General-steps-when-using-Scikit-learn">General steps when using Scikit-learn<a class="anchor-link" href="#General-steps-when-using-Scikit-learn">&#182;</a></h3><ul>
+<li>choose a class of model</li>
+<li>instantiate a model from the class by specifying hyperparameters to its constructor</li>
+<li>arrange data into <code>X</code> and <code>y</code> and split them for training and testing</li>
+<li>fit / learn the model on training data by calling <strong><code>fit()</code></strong> method</li>
+<li>predict new values by calling the <strong><code>predict()</code></strong> method</li>
+<li>evaluate results</li>
+</ul>
 <h3 id="Train-test-split">Train-test split<a class="anchor-link" href="#Train-test-split">&#182;</a></h3><p>To split the input data into train and validation sets, use</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -11807,6 +11819,7 @@ div#notebook {
 <p>In case of <strong>unsupervised models</strong> you only have a training data, no test data. Hence</p>
 <div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
 </pre></div>
+<p>In Scikit-Learn, by convention all model parameters that were learned during the <code>fit()</code> process have trailing underscores; for example in this linear model, we have <code>model.coef_</code>, <code>model.intercept_</code></p>
 <h4 id="Training-score">Training score<a class="anchor-link" href="#Training-score">&#182;</a></h4><p>A <code>model.score()</code> method returns the a value <code>0-1</code> illustrating how well the model fitted the training data. Note this is useful to understand the influence of <strong>underfitting</strong> and <strong>overfitting</strong> of training data.</p>
 <h3 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h3><p>Use <code>model.predict(&lt;independent_test data&gt;)</code>. Thus for linear reg,</p>
 <div class="highlight"><pre><span></span><span class="n">y_predicted</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>

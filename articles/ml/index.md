@@ -23,8 +23,8 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [Hypothesis testing](stat/05_hypothesis_testing.html)
 
 #### Theory of Statistical learning
- - [Statistical learning](islr_02_stat_learning.html)
- - [Linear regression](islr_03_linear_regression.html)
+ - [Statistical learning](stat/islr_02_stat_learning.html)
+ - [Linear regression](stat/islr_03_linear_regression.html)
 
 -------------------------------------------
 ## ML projects
