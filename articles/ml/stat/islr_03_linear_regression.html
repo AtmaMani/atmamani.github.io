@@ -11775,7 +11775,30 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Chapter-3---Linear-regression">Chapter 3 - Linear regression<a class="anchor-link" href="#Chapter-3---Linear-regression">&#182;</a></h1><p>Mathematically, a linear relationship between <code>X</code> and <code>Y</code> can be written as 
+<h1 id="Chapter-3---Linear-regression">Chapter 3 - Linear regression<a class="anchor-link" href="#Chapter-3---Linear-regression">&#182;</a></h1><p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Standard-error">Standard error</a></li>
+<li><a href="#Hallmarks-of-a-valid-regression-analysis">Hallmarks of a valid regression analysis</a><ul>
+<li><a href="#What-to-put-in-a-regression-output">What to put in a regression output</a></li>
+<li><a href="#R-squared">R-squared</a></li>
+<li><a href="#S---Standard-error-in-Regression">S - Std. Error in regression</a></li>
+</ul>
+</li>
+<li><a href="#Problems">Problems in regression</a></li>
+<li><a href="#Types-of-regression-analysis">Types of regression analysis</a><ul>
+<li><a href="#Linear-vs-Non-linear-regression-vs-Transformation">Linear vs Non-linear vs Transformations</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mathematically, a linear relationship between <code>X</code> and <code>Y</code> can be written as 
 $$Y \approx \beta_{0} + \beta_{1}X$$</p>
 <p>$\beta_{0}$ and $\beta_{1}$ represent the intercept and slope. They are the model coefficients or parameters. Through regression we estimate these parameters. The estimates are represented as $\hat\beta_{0}$ and $\hat\beta_{1}$. Thus,</p>
 <p>$$\hat y = \hat\beta_{0} + \hat\beta_{1}x$$</p>
@@ -11814,7 +11837,137 @@ where $\hat\mu$ is the estimate for which we calculate the standard error for (s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Standard-error-in-regression">Standard error in regression<a class="anchor-link" href="#Standard-error-in-regression">&#182;</a></h3>
+<hr>
+<h1 id="Hallmarks-of-a-valid-regression-analysis">Hallmarks of a valid regression analysis<a class="anchor-link" href="#Hallmarks-of-a-valid-regression-analysis">&#182;</a></h1><p><strong>Source</strong>: <a href="http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-tutorial-and-examples">Regression tutorial from Minitab</a></p>
+<p>Applications of regression analysis:</p>
+<ul>
+<li>multiple predictor variables</li>
+<li>continuous and categorical variables</li>
+<li>higher-order terms to model curvature</li>
+<li>interaction terms to see if the effect of one predictor depends upon the value of another</li>
+</ul>
+<h3 id="What-to-put-in-a-regression-output">What to put in a regression output<a class="anchor-link" href="#What-to-put-in-a-regression-output">&#182;</a></h3><ul>
+<li>Coefficients of each predictors. The coefficients indicate how influential a predictor is.</li>
+<li>Std. Error $S$ of coefficients</li>
+<li><code>p-value</code> of each coefficient. A low <code>p-value</code>, (lower than <code>0.05</code>) indicates the confidence in predicting the coefficient.</li>
+<li><code>95%</code> CI of each coefficient prediction</li>
+<li><strong>residual plots</strong> <ul>
+<li><strong>Fitted vs Residual</strong> plot to ensure the residuals don't follow any pattern. Residuals should be random around the prediction line, with <code>mean=0</code>). If residuals follow a pattern, then the model is missing or leaking some phenomena into the error term. You may be missing an important predictor variable.</li>
+<li><strong>QQ plot of residuals</strong> against standard normal to assess normalcy of residuals</li>
+<li><strong>histograms of residuals</strong> can also be used to assess normalcy.</li>
+</ul>
+</li>
+</ul>
+<p>Example from Minitab
+<img src="https://blog.minitab.com/hubfs/Imported_Blog_Media/binary_output_2.gif?t=1534779282249" alt=""></p>
+<h4 id="R-squared">R-squared<a class="anchor-link" href="#R-squared">&#182;</a></h4><p>$R^2$ is calculated as the ratio of variance in predicted <code>Y</code> to actual <code>Y</code>. In other words, it compares the distance between actual values to mean vs predicted values to mean.
+$$
+R^2 = \frac{(\hat y - \bar y)^2}{(y-\bar y)^2}
+$$</p>
+<p>$R^2$ measures the strength of the relationship between predictors and response. It ranges from <code>0-100%</code> or <code>0-1</code>.</p>
+<p>$R^2$ is limited, it cannot quite tell you if the model is systematically under or over predicting values. Since it compares deviation from mean, if values fall farther from regression line, yet keep the same variation from mean as actual, then $R^2$ is high. However, this does not mean the model is a good fit.</p>
+<p>Since it is inherently biased, some researchers don't use this at all.</p>
+<h4 id="S---Standard-error-in-Regression"><code>S</code> - Standard error in Regression<a class="anchor-link" href="#S---Standard-error-in-Regression">&#182;</a></h4><p>A better estimate of regression is <strong>Standard Error</strong> which measures <strong>average distance each actual value falls from regression line</strong>. It is calculated as below:</p>
+<p>$$
+S = \sqrt{\frac{\sum (\hat y -y)^2}{n-2}}
+$$</p>
+<p><code>S</code> represents, in the units of predicted variable, <strong>on average</strong> how far the actual values fall from prediction.
+<img src="https://blog.minitab.com/hubfs/Imported_Blog_Media/bmi_flp.gif?t=1534800995936" alt=""></p>
+<h4 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals">&#182;</a></h4><p>Approximately <code>95%</code> of predictions fall within $\pm 2 standard error$ of regression from regression line.</p>
+<h3 id="Problems">Problems<a class="anchor-link" href="#Problems">&#182;</a></h3><p><strong>Multicollinearity</strong> is when predictors are correlated. In ideal case, each predictor should be independent which helps us properly assess their individual influence on the phenomena.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-interpret-a-regression-analysis">How to interpret a regression analysis<a class="anchor-link" href="#How-to-interpret-a-regression-analysis">&#182;</a></h2><h3 id="P-values">P-values<a class="anchor-link" href="#P-values">&#182;</a></h3><p>The <code>p-value</code> of a coefficient is the probability of</p>
+<ul>
+<li>$H_{0} \ = \ 0$ : Null hypothesis that coefficient is 0. That is, it has no effect on the model / phenomena</li>
+<li>$\alpha$ is the threshold you set to determine what is statistically significant. By convention it is <code>0.95</code> for <code>p-values</code>.
+Thus, those coefficents whose <code>p-value</code>s are less than $\alpha$ have a significant coefficient. The size of the coefficient determines their influence on the model itself, not the <code>p-value</code>.</li>
+</ul>
+<p>When you simplify your model (step-wise forward or hierarchical), you start by removing those predictors whose <code>p-value</code> is greater than $\alpha$.</p>
+<h3 id="Coefficients">Coefficients<a class="anchor-link" href="#Coefficients">&#182;</a></h3><p>Regression coefficients represent the mean value by which the predicted variable will change for <code>1</code> unit change in that particular predictor variable while holding all other variables constant. Thus, regression provides a high level of explainability associated with each variable and its influence on the phenomena.</p>
+<h3 id="R-squared">R-squared<a class="anchor-link" href="#R-squared">&#182;</a></h3><p>As said before, $R^{2}$ measures the variability of predicted data vs actual data with mean. A regression with <strong>high <code>p-value</code> and low $R^{2}$</strong> is problematic. What this means is the trend (slope) is significant where as the data has a lot of inherent variability that the model does not explain well.</p>
+<h3 id="S">S<a class="anchor-link" href="#S">&#182;</a></h3><p>The Std. Error in regression quantifies how far the points are spread from the regression line. This also helps build the prediction interval and understand what the error would be on average when you predict unknown dataset.</p>
+<h3 id="Explaining-a-regression-analysis">Explaining a regression analysis<a class="anchor-link" href="#Explaining-a-regression-analysis">&#182;</a></h3><p><a href="http://blog.minitab.com/blog/adventures-in-statistics-2/how-to-identify-the-most-important-predictor-variables-in-regression-models">Resource</a> Follow the axioms below when you try to explain a regression analysis</p>
+<ul>
+<li>do not use <code>p-value</code> to explain influence of a predictor. <code>p-value</code> only suggests the significance of the coefficient not being <code>0</code></li>
+<li>do not compare the importance of two predictors based on their coefficients (slopes). The variables might be in different units and hence may not be a fair comparison</li>
+<li>To compare predictors, <strong>standardize</strong> them (subtract mean and divide by SD -&gt; <strong>transform to std. normal Z scores</strong>)</li>
+<li>Now compare the coefficients for influence.</li>
+<li>When you add more variables to the model, the $R^{2}$ increases, but this does not mean the model improves. In this case, calculate the <strong>adj.$R^{2}$</strong> which accounts for this.</li>
+<li>Another approach is, when you build the model step-wise, find the variable that accounts for greatest increase in $R^{2}$ value. That is the most influential predictor.</li>
+<li>Another adavantage of standardization is it reduces <strong>multicollinearity</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Types-of-regression-analysis">Types of regression analysis<a class="anchor-link" href="#Types-of-regression-analysis">&#182;</a></h1><p><a href="http://blog.minitab.com/blog/statistics-and-quality-data-analysis/giving-thanks-for-the-regression-menu-v2">Resource - minitab blog</a></p>
+<h4 id="Predicting-categorical-response-variable:">Predicting categorical response variable:<a class="anchor-link" href="#Predicting-categorical-response-variable:">&#182;</a></h4><ul>
+<li><strong>binary logistic regression</strong>: response falls into one of two categories (Yes or No)</li>
+<li><strong>ordinal logistic regression</strong>: response is in categories (discrete) and can be ordered from least to greatest</li>
+<li><strong>nominal logistic regression</strong>: response is in categories (discrete) and not follow any order.</li>
+</ul>
+<h4 id="Regressing-a-continuous-response:">Regressing a continuous response:<a class="anchor-link" href="#Regressing-a-continuous-response:">&#182;</a></h4><p>The response is on a continuous scale.</p>
+<ul>
+<li><strong>OLS - ordinary least squares regression</strong>: Linear and multiple regressions. One or more continuous predictors and a continuous response. Note: here, the predictors are also continuous, not categorical.</li>
+<li><strong>Stepwise regession</strong>: This is a technique to find influential predictors, not a type of regression. Methods include forward selection, backward elimination.</li>
+<li><strong>Nonlinear regression</strong>: use a non-linear function to model a set of continuous predictors and predict continuous response variable.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Linear-vs-Non-linear-regression-vs-Transformation">Linear vs Non linear regression vs Transformation<a class="anchor-link" href="#Linear-vs-Non-linear-regression-vs-Transformation">&#182;</a></h2><p>Contrary to popular belief, linear regression can produce curved fits! An equation is considered non linear when the predictor variables are multiplicative rather than additive. Using log, quadratic, cubic functions, you can produce a curved linear fit.</p>
+<p>In general, you choose the order of the equation <strong>based on number of curves you need</strong> in the fit.</p>
+<p><img src="https://atmamani.github.io/img/model-order-vs-curves.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you see, quadratic produces 1 curve while cubic produces 2 curves.</p>
+<h3 id="Reciprocal-transformation">Reciprocal transformation<a class="anchor-link" href="#Reciprocal-transformation">&#182;</a></h3><p>As X increases, if your data (Y) descends to floor or ascends to a ceiling and flat lines, then the effect of X <strong>flattens out</strong> as it increases. In these cases, you can do a <strong>reciprocal</strong> of X and fit against it. Sometimes a quadratic fit of reciprocal of X would be a good fit.</p>
+<h3 id="Log-transformation">Log transformation<a class="anchor-link" href="#Log-transformation">&#182;</a></h3><p>Log transform can rescue a model from non-linear to linear territory. When you take log on both sides of equation, multiplication signs become additions and exponential signs become multiplications.</p>
+<p>For instance:
+$$
+Y = e^{B_{0}}X_{1}^{B_{1}}X_{2}^{B_{2}}
+$$
+transforms to below when you take log on both sides (double-log form):
+$$
+Ln Y = B_{0} + B_{1}lnX_{1} + B_{2}lnX_{2}
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Non-linear-models">Non-linear models<a class="anchor-link" href="#Non-linear-models">&#182;</a></h3><p>Non linear models have predictors that in product with each other. In general, nonlinear models can take any number of formats. The trick is to finding one that will fit the data. Some limits of non-linear models</p>
+<ul>
+<li>lack of interpretability. You cannot clearly state the influence each predictors have on the phenomena</li>
+<li>You cannot find <code>p-values</code> and <code>CI</code> for the coefficients.</li>
+<li>You don't have $R^2$ statistic to evaluate the goodness of fit.</li>
+</ul>
+
 </div>
 </div>
 </div>
