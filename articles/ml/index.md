@@ -29,7 +29,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 -------------------------------------------
 ## ML projects
 - [Scikit-learn](projects/sklearn-1.html)
-  - [Linear regression in sklearn](projects/sklearn_linear_regression.html)
+- [Linear regression with `sklearn` and `statmodels`](projects/sklearn_statmoels_linear_regression.html)
 - [PySpark](pySpark/getting-started-pyspark.html)
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
@@ -39,3 +39,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
  - [Verifying central limit theorem](stat/verifying_central_limit_theorem.html)
  - [Verifying central limit theorem in regression](stat/verifying_clt_in_regression.html)
+
+------------------------------------------
+## Resources
+ - [Minitab blog on regression analysis](http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-tutorial-and-examples)
