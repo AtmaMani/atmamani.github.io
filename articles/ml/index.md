@@ -33,7 +33,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [PySpark](pySpark/getting-started-pyspark.html)
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
-
+- [Working on larger than memory hurricane datasets with Dask](projects/cleaning_hurricane_observations_with_dask.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
