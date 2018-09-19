@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-113202945-1");</script><title>03_linear_regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>03_linear_regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11777,7 +11777,10 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Chapter-3---Linear-regression">Chapter 3 - Linear regression<a class="anchor-link" href="#Chapter-3---Linear-regression">&#182;</a></h1><p><strong>ToC</strong></p>
 <ul>
-<li><a href="#Standard-error">Standard error</a></li>
+<li><a href="#Standard-error">Standard error</a><ul>
+<li><a href="#Applications-of-Standard-Error">Applications of standard error</a></li>
+</ul>
+</li>
 <li><a href="#Hallmarks-of-a-valid-regression-analysis">Hallmarks of a valid regression analysis</a><ul>
 <li><a href="#What-to-put-in-a-regression-output">What to put in a regression output</a></li>
 <li><a href="#R-squared">R-squared</a></li>
@@ -11829,6 +11832,35 @@ where $\hat\mu$ is the estimate for which we calculate the standard error for (s
 <p>Note, SE is likely to be smaller if you have a large sample. The value of SE is the <strong>average amount your $\hat\mu$ deviates from $\mu$</strong>.</p>
 <p>In reality, you don't have $\sigma$ or $\mu$. Thus, using the SE formula, we can calculate the SD of population as:</p>
 <p>$$\sigma = \sigma_{\hat\mu}*\sqrt n $$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Applications-of-Standard-Error">Applications of Standard Error<a class="anchor-link" href="#Applications-of-Standard-Error">&#182;</a></h2><p><strong>Confidence Intervals</strong>: SE is used to compute <code>CI</code>. A <code>95</code>% CI is defined as the range of values such that with <code>95</code>% probability, the range will contain the true unknown value of the parameter. Similar is <code>99</code>% CI. Thus, <code>95</code>% CI for $\beta_{1}$ is written as</p>
+<p>$$
+\hat \beta_{1} \pm 2 * SE(\hat \beta_{1})
+$$
+Same for $\beta_{0}$.</p>
+<p><strong>Hypothesis tests</strong>: SE is also used to perform hypothesis tests on coefficients. Commonly,</p>
+<ul>
+<li>null hypothesis: $H_{0}$: there is no relationship between X and Y - meaning $\beta_{1} \ = \ 0$</li>
+<li>alternate hypothesis: $H_{a}$: there is some significant relationship</li>
+</ul>
+<p>To disprove $H_{0}$, we need</p>
+<ul>
+<li>$\hat \beta_{1}$ to be sufficiently large: (either positive or negative), or,</li>
+<li>$SE(\hat \beta_{1})$ to be small, then even relatively small values of $\hat \beta_{1}$ would be statistically significant. Else, slope has to be really large.</li>
+</ul>
+<p>We compute <code>t-statistic</code> to evaluate the significance of $\beta$, which is similar to computing <code>z scores</code>.
+$$
+t \ = \ \frac{\hat \beta_{1} - 0}{SE(\hat \beta_{1})}
+$$
+We get scores for <code>t</code> distribution. <strong>t</strong> follows <strong>standard normal</strong> for <code>n&gt;30</code>. The <code>p-value</code> we get is used to evaluate the significance of the estimate. A small <code>p-value</code> indicates the relationship between predictor and response is unlikely to be by chance.</p>
+<p>To reject the <strong>null hypothesis</strong>, we need a <code>p-value &lt; 0.005</code> and <code>t-statistic &lt; 2</code></p>
 
 </div>
 </div>
