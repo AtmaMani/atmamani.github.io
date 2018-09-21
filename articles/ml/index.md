@@ -34,6 +34,9 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
 - [Working on larger than memory hurricane datasets with Dask](projects/cleaning_hurricane_observations_with_dask.html)
+- [Portland housing]()
+  - [Cleaning data](projects/portland-housing-clean-housing-data.html)
+  - [Exploratory data analysis](projects/portland-housing-exploratory-data-analysis.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
