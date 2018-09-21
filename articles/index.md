@@ -11,10 +11,10 @@
 - [Imagery in ArcGIS ecosystem](imagery_in_arcgis_ecosystem.html)
 - [A short tour of Open Geospatial Tools of the scientific Python ecosystem](python-open-geospatial-world.html)
 -------------------------------------
-
 #### Cheat sheets
-
 - [All my cheatsheets](cheatsheets/index.html)
+
+#### Math and Machine Learning
 - [Machine Learning](ml/index.html)
 -------------------------------------
 

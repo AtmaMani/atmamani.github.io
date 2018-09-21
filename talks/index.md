@@ -4,6 +4,7 @@
 -------------------------------------
 - [2017 Dev Summit precon workshop](arcgis_workshop/index.html)
 - [2017 PyCon](pycon_2017/index.html)
+- [2018 Portland GeoDev Meetup]()
 
 -------------------------------------
 #### Talks for Esri / ArcGIS
