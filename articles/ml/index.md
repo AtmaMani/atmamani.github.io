@@ -37,6 +37,9 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [Portland housing]()
   - [Cleaning data](projects/portland-housing-clean-housing-data.html)
   - [Exploratory data analysis](projects/portland-housing-exploratory-data-analysis.html)
+  - [Feature engineering - neighboring facilities](projects/portland-housing-feature-engineering-neighboring-facilities.html)
+  - [Feature engineering - batch](projects/portland-housing-feature-engineering-neighboring-facilities-batch.html)
+  - [Ranking properties](projects/portland-housing-rank-properties-using-features.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
