@@ -4,7 +4,8 @@
 -------------------------------------
 - [2017 Dev Summit precon workshop](arcgis_workshop/index.html)
 - [2017 PyCon](pycon_2017/index.html)
-- [2018 Portland GeoDev Meetup]()
+- [2018 Portland GeoDev Meetup](https://www.meetup.com/DevMeetUpOregon/events/254393668/)
+  - [more resources about this talk](https://atmamani.github.io/articles/ml/index#ml-projects)
 
 -------------------------------------
 #### Talks for Esri / ArcGIS

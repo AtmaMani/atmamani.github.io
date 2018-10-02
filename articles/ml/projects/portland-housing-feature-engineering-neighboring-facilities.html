@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>03_feature-engineering-neighboring-facilities</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-113202945-1");</script><title>03_feature-engineering-neighboring-facilities</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11791,7 +11791,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11824,10 +11824,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s1">&#39;amani_geosaurus&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11845,7 +11845,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_list_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/houses_for_sale_att_filtered.csv&#39;</span><span class="p">)</span>
@@ -11862,7 +11862,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[114]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -11879,7 +11879,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_list_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">from_xy</span><span class="p">(</span><span class="n">prop_list_df</span><span class="p">,</span> <span class="s1">&#39;LONGITUDE&#39;</span><span class="p">,</span><span class="s1">&#39;LATITUDE&#39;</span><span class="p">)</span>
@@ -11896,7 +11896,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[115]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -11913,7 +11913,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop1</span> <span class="o">=</span> <span class="n">prop_list_df</span><span class="p">[</span><span class="n">prop_list_df</span><span class="p">[</span><span class="s1">&#39;MLS&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">18389440</span><span class="p">]</span>
@@ -11930,7 +11930,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[116]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -12024,7 +12024,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">house_symbol</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;angle&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;xoffset&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;yoffset&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span><span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://static.arcgis.com/images/Symbols/Shapes/RedStarLargeB.png&quot;</span><span class="p">,</span><span class="s2">&quot;contentType&quot;</span><span class="p">:</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span><span class="s2">&quot;width&quot;</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="s2">&quot;height&quot;</span><span class="p">:</span><span class="mi">24</span><span class="p">}</span>
@@ -12066,7 +12066,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">paddress</span> <span class="o">=</span> <span class="n">prop1</span><span class="o">.</span><span class="n">ADDRESS</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">prop1</span><span class="o">.</span><span class="n">CITY</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">prop1</span><span class="o">.</span><span class="n">STATE</span>
@@ -12089,7 +12089,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_geom</span> <span class="o">=</span> <span class="n">prop_geom_fset</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -12106,7 +12106,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[119]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12125,16 +12125,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_geom</span> <span class="o">=</span> <span class="n">prop_geom_fset</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">prop_buffer</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">([</span><span class="n">prop_geom</span><span class="o">.</span><span class="n">geometry</span><span class="p">],</span> 
                      <span class="n">in_sr</span> <span class="o">=</span> <span class="mi">102100</span><span class="p">,</span> <span class="n">buffer_sr</span><span class="o">=</span><span class="mi">102100</span><span class="p">,</span>
                      <span class="n">distances</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="mi">9001</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># prop_buffer[&#39;spatialReference&#39;]={&quot;wkid&quot; : 4326}</span>
-<span class="c1"># prop_buffer_geom = Geometry(prop_buffer)</span>
 
 <span class="n">prop_buffer_f</span> <span class="o">=</span> <span class="n">Feature</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">prop_buffer</span><span class="p">)</span>
 <span class="n">prop_buffer_fset</span> <span class="o">=</span> <span class="n">FeatureSet</span><span class="p">([</span><span class="n">prop_buffer_f</span><span class="p">])</span>
@@ -12181,13 +12178,13 @@ div#notebook {
 
  
  
-<div id="73d5d0f9-aa89-456b-ab12-302f4984358a"></div>
+<div id="e27ae979-7681-45b7-83f9-3b98b9c4a006"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#73d5d0f9-aa89-456b-ab12-302f4984358a');
+var element = $('#e27ae979-7681-45b7-83f9-3b98b9c4a006');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "940c5732bf8d4f3196db8960f270c0d1", "version_major": 2, "version_minor": 0}
+{"model_id": "d047c74070214a459950c039b52af659", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -12196,6 +12193,15 @@ var element = $('#73d5d0f9-aa89-456b-ab12-302f4984358a');
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="resources/map12.png" alt=""></p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12211,100 +12217,31 @@ var element = $('#73d5d0f9-aa89-456b-ab12-302f4984358a');
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map</span><span class="o">.</span><span class="n">remove_layers</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map</span><span class="o">.</span><span class="n">clear_graphics</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Geocode-for-facilities">Geocode for facilities<a class="anchor-link" href="#Geocode-for-facilities">&#182;</a></h2><h3 id="Groceries">Groceries<a class="anchor-link" href="#Groceries">&#182;</a></h3>
+<h2 id="Geocode-for-facilities">Geocode for facilities<a class="anchor-link" href="#Geocode-for-facilities">&#182;</a></h2><p>We use the ArcGIS Geocoding service to search for facilities around this house</p>
+<h3 id="Groceries">Groceries<a class="anchor-link" href="#Groceries">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">neighborhood_data_dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(-122.86532305026238,
- 45.49674878544642,
- -122.76532305026238,
- 45.596748785446415)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">groceries</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;groceries&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> 
@@ -12316,35 +12253,6 @@ var element = $('#73d5d0f9-aa89-456b-ab12-302f4984358a');
     <span class="s2">&quot;content&quot;</span> <span class="p">:</span> <span class="n">place</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;Place_addr&#39;</span><span class="p">]}</span>
     <span class="n">pdx_map</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">place</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">grocery_symbol</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="n">popup</span><span class="p">)</span>
     <span class="n">neighborhood_data_dict</span><span class="p">[</span><span class="s1">&#39;groceries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">place</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;PlaceName&#39;</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># rough</span>
-<span class="n">pdx_map</span><span class="o">.</span><span class="n">remove_layers</span><span class="p">()</span>
-<span class="n">pdx_map</span><span class="o">.</span><span class="n">clear_graphics</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">prop_buffer_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">fill_symbol2</span><span class="p">)</span>
-<span class="n">pdx_map</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">prop_geom_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">house_symbol</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12382,7 +12290,7 @@ Education</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map2</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;Portland, OR&#39;</span><span class="p">)</span>
@@ -12408,13 +12316,13 @@ Education</code></pre>
 
  
  
-<div id="c4dd6ca8-a318-443a-ac4f-5ca03ce38b84"></div>
+<div id="18fdb3a7-9b03-4de6-86dc-a7844bc547ac"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
+var element = $('#18fdb3a7-9b03-4de6-86dc-a7844bc547ac');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "fb2b9a98ec034b338d514bbd7f8062c6", "version_major": 2, "version_minor": 0}
+{"model_id": "c0f5d85280c046d78d5520013e1e2416", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -12453,7 +12361,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[121]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">prop_buffer_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">fill_symbol2</span><span class="p">)</span>
@@ -12467,7 +12375,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">restaurants</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;restaurant&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
@@ -12495,7 +12403,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hospitals</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;hospital&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12523,7 +12431,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[124]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">coffees</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12551,7 +12459,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[125]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bars</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12579,7 +12487,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gas</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s1">&#39;gas station&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12607,7 +12515,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">shops_service</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;shops and service&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12635,7 +12543,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">transport</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;travel and transport&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12663,7 +12571,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">parks</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;parks and outdoors&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12691,7 +12599,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">education</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -12719,7 +12627,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">neighborhood_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">neighborhood_data_dict</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
@@ -12737,7 +12645,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[75]:</div>
 
 
 
@@ -13436,7 +13344,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">neighborhood_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
@@ -13453,7 +13361,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[76]:</div>
 
 
 
@@ -13493,7 +13401,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_service_url</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">helperServices</span><span class="o">.</span><span class="n">route</span><span class="o">.</span><span class="n">url</span>
@@ -13507,7 +13415,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stops</span> <span class="o">=</span> <span class="p">[</span><span class="n">paddress</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;309 SW 6th Ave #600, Portland, OR 97204&#39;</span><span class="p">]</span>
@@ -13530,7 +13438,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[30]:</div>
+<div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -13547,7 +13455,7 @@ var element = $('#c4dd6ca8-a318-443a-ac4f-5ca03ce38b84');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">modes</span> <span class="o">=</span> <span class="n">route_service</span><span class="o">.</span><span class="n">retrieve_travel_modes</span><span class="p">()[</span><span class="s1">&#39;supportedTravelModes&#39;</span><span class="p">]</span>
@@ -13587,7 +13495,7 @@ Trucking Distance
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_service</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">impedance</span>
@@ -13603,7 +13511,7 @@ Trucking Distance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[34]:</div>
+<div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -13629,7 +13537,7 @@ Trucking Distance
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_result</span> <span class="o">=</span> <span class="n">route_service</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">stops_geocoded2</span><span class="p">,</span> <span class="n">return_routes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
@@ -13647,7 +13555,7 @@ Trucking Distance
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_length</span> <span class="o">=</span> <span class="n">route_result</span><span class="p">[</span><span class="s1">&#39;directions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">][</span><span class="s1">&#39;totalLength&#39;</span><span class="p">]</span>
@@ -13683,7 +13591,7 @@ Trucking Distance
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_features</span> <span class="o">=</span> <span class="n">route_result</span><span class="p">[</span><span class="s1">&#39;routes&#39;</span><span class="p">][</span><span class="s1">&#39;features&#39;</span><span class="p">]</span>
@@ -13694,7 +13602,6 @@ Trucking Distance
 <span class="n">route_pop_up</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span>
                <span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="s1">&#39;Total_Miles&#39;</span><span class="p">}</span>
 <span class="n">pdx_map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">route_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">route_symbol</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="n">route_pop_up</span><span class="p">)</span>
-<span class="n">pdx_map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">stop_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">destination_symbol</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13704,13 +13611,10 @@ Trucking Distance
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">route_pop_up</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;Communte to work&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="s2">&quot;route length: </span><span class="si">{}</span><span class="s2"> miles, route duration: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">route_length</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
-                                                         <span class="n">route_duration_str</span><span class="p">)}</span>
-<span class="n">pdx_map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="n">route_pop_up</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pdx_map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">stop_fset</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="n">destination_symbol</span><span class="p">)</span>
 </pre></div>
 
 </div>

@@ -34,12 +34,18 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
 - [Working on larger than memory hurricane datasets with Dask](projects/cleaning_hurricane_observations_with_dask.html)
-- [Portland housing]()
-  - [Cleaning data](projects/portland-housing-clean-housing-data.html)
-  - [Exploratory data analysis](projects/portland-housing-exploratory-data-analysis.html)
-  - [Feature engineering - neighboring facilities](projects/portland-housing-feature-engineering-neighboring-facilities.html)
-  - [Feature engineering - batch](projects/portland-housing-feature-engineering-neighboring-facilities-batch.html)
-  - [Ranking properties](projects/portland-housing-rank-properties-using-features.html)
+- Portland housing
+  - [Slides](https://slides.com/atma_mani/deck-1)
+  - [Screen cast](https://youtu.be/nDChU97sSB0)
+  - [Recording of my presentation](https://youtu.be/CAryqB8Bl5o)
+  ### Notebooks
+  Get my notebooks from: [arcgis-python-api/talks/GeoDevPDX2018](https://github.com/Esri/arcgis-python-api/tree/master/talks/GeoDevPDX2018)
+    - [Cleaning data](projects/portland-housing-clean-housing-data.html)
+    - [Exploratory data analysis](projects/portland-housing-exploratory-data-analysis.html)
+    - [Feature engineering - neighboring facilities](projects/portland-housing-feature-engineering-neighboring-facilities.html)
+    - [Feature engineering - batch](projects/portland-housing-feature-engineering-neighboring-facilities-batch.html)
+    - [Ranking properties](projects/portland-housing-rank-properties-using-features.html)
+    - [Building a recommendation engine](projects/portland-housing-build-recommendation-engine.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
