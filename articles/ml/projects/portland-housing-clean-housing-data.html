@@ -11776,7 +11776,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h1>**Table of Contents**<span class="tocSkip"></span></h1></p>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Prepare-housing-data-for-viz-and-analysis" data-toc-modified-id="Prepare-housing-data-for-viz-and-analysis-1">Prepare housing data for viz and analysis</a></span><ul class="toc-item"><li><span><a href="#Read-data-from-all-CSV-files" data-toc-modified-id="Read-data-from-all-CSV-files-1.1">Read data from all CSV files</a></span></li><li><span><a href="#Merge-all-CSV-into-a-single-sheet" data-toc-modified-id="Merge-all-CSV-into-a-single-sheet-1.2">Merge all CSV into a single sheet</a></span><ul class="toc-item"><li><span><a href="#Find-if-there-are-duplicates" data-toc-modified-id="Find-if-there-are-duplicates-1.2.1">Find if there are duplicates</a></span></li><li><span><a href="#Clean-column-names" data-toc-modified-id="Clean-column-names-1.2.2">Clean column names</a></span></li><li><span><a href="#Drop-unnecessary-columns" data-toc-modified-id="Drop-unnecessary-columns-1.2.3">Drop unnecessary columns</a></span></li><li><span><a href="#Find-and-fill-missing-values" data-toc-modified-id="Find-and-fill-missing-values-1.2.4">Find and fill missing values</a></span></li></ul></li><li><span><a href="#Explore-distribution-of-numeric-columns" data-toc-modified-id="Explore-distribution-of-numeric-columns-1.3">Explore distribution of numeric columns</a></span><ul class="toc-item"><li><span><a href="#Build-statistical-filters-to-remove-outliers" data-toc-modified-id="Build-statistical-filters-to-remove-outliers-1.3.1">Build statistical filters to remove outliers</a></span></li><li><span><a href="#Filter-columns-using-both-filters-and-compare" data-toc-modified-id="Filter-columns-using-both-filters-and-compare-1.3.2">Filter columns using both filters and compare</a></span></li></ul></li><li><span><a href="#Write-cleaned,-appended-table-to-disk" data-toc-modified-id="Write-cleaned,-appended-table-to-disk-1.4">Write cleaned, appended table to disk</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Clean-housing-data" data-toc-modified-id="Clean-housing-data-1">Clean housing data</a></span><ul class="toc-item"><li><span><a href="#Read-data-from-all-CSV-files" data-toc-modified-id="Read-data-from-all-CSV-files-1.1">Read data from all CSV files</a></span></li><li><span><a href="#Merge-all-CSV-into-a-single-sheet" data-toc-modified-id="Merge-all-CSV-into-a-single-sheet-1.2">Merge all CSV into a single sheet</a></span><ul class="toc-item"><li><span><a href="#Find-if-there-are-duplicates" data-toc-modified-id="Find-if-there-are-duplicates-1.2.1">Find if there are duplicates</a></span></li><li><span><a href="#Clean-column-names" data-toc-modified-id="Clean-column-names-1.2.2">Clean column names</a></span></li><li><span><a href="#Drop-unnecessary-columns" data-toc-modified-id="Drop-unnecessary-columns-1.2.3">Drop unnecessary columns</a></span></li><li><span><a href="#Find-and-fill-missing-values" data-toc-modified-id="Find-and-fill-missing-values-1.2.4">Find and fill missing values</a></span></li></ul></li><li><span><a href="#Explore-distribution-of-numeric-columns" data-toc-modified-id="Explore-distribution-of-numeric-columns-1.3">Explore distribution of numeric columns</a></span><ul class="toc-item"><li><span><a href="#Build-statistical-filters-to-remove-outliers" data-toc-modified-id="Build-statistical-filters-to-remove-outliers-1.3.1">Build statistical filters to remove outliers</a></span><ul class="toc-item"><li><span><a href="#6-sigma-filter" data-toc-modified-id="6-sigma-filter-1.3.1.1">6 sigma filter</a></span></li><li><span><a href="#IQR-filter" data-toc-modified-id="IQR-filter-1.3.1.2">IQR filter</a></span></li></ul></li><li><span><a href="#Filter-columns-using-both-filters-and-compare" data-toc-modified-id="Filter-columns-using-both-filters-and-compare-1.3.2">Filter columns using both filters and compare</a></span></li></ul></li><li><span><a href="#Write-cleaned,-appended-table-to-disk" data-toc-modified-id="Write-cleaned,-appended-table-to-disk-1.4">Write cleaned, appended table to disk</a></span></li></ul></li></ul></div>
 </div>
 </div>
 </div>
@@ -11784,7 +11784,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Prepare-housing-data-for-viz-and-analysis">Prepare housing data for viz and analysis<a class="anchor-link" href="#Prepare-housing-data-for-viz-and-analysis">&#182;</a></h1>
+<h1 id="Clean-housing-data">Clean housing data<a class="anchor-link" href="#Clean-housing-data">&#182;</a></h1><p>In this notebook, we download housing data from a popular MLS website, merge, clean, filter and prepare it for subsequent spatial and statistical analysis.</p>
+
 </div>
 </div>
 </div>
@@ -11817,9 +11818,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">csv1_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/atma6951/Documents/GIS_data/Analytics/PDX/redfin_2018-09-20-14-42-11_4k.csv&#39;</span>
-<span class="n">csv2_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/atma6951/Documents/GIS_data/Analytics/PDX/redfin_2018-09-20-15-04-20_g.csv&#39;</span>
-<span class="n">csv3_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/atma6951/Documents/GIS_data/Analytics/PDX/redfin_2018-09-20-16-02-01_b.csv&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">csv1_path</span> <span class="o">=</span> <span class="s1">&#39;resources/file1_2018-09-20-14-42-11_4k.csv&#39;</span>
+<span class="n">csv2_path</span> <span class="o">=</span> <span class="s1">&#39;resources/file2_2018-09-20-15-04-20_g.csv&#39;</span>
+<span class="n">csv3_path</span> <span class="o">=</span> <span class="s1">&#39;resources/file3_2018-09-20-16-02-01_b.csv&#39;</span>
 
 <span class="n">prop_df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv1_path</span><span class="p">)</span>
 <span class="n">prop_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv2_path</span><span class="p">)</span>
@@ -12216,7 +12217,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Drop-unnecessary-columns">Drop unnecessary columns<a class="anchor-link" href="#Drop-unnecessary-columns">&#182;</a></h3>
+<h3 id="Drop-unnecessary-columns">Drop unnecessary columns<a class="anchor-link" href="#Drop-unnecessary-columns">&#182;</a></h3><p>While it is beneficial to have a lot of features (columns) in our dataset, it is also important to drop those that are highly correlated to an existing field or a derivative of one or fields that we will never use. In the following, we drop fields that we will never use in this analysis.</p>
+
 </div>
 </div>
 </div>
@@ -12276,6 +12278,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Find-and-fill-missing-values">Find and fill missing values<a class="anchor-link" href="#Find-and-fill-missing-values">&#182;</a></h3><p>Missing values in certain columns are critical - <code>beds</code>, <code>bath</code>, <code>price</code>, <code>latitude</code>, <code>longitude</code>. We will drop these rows. Missing values in remaining columns are not so critical, we will fill them with <code>0</code> or average values.</p>
+<p>Before we fill, let us explore the histograms of numerical columns. With pandas, this can be accomplished with a single command as shown below:</p>
 
 </div>
 </div>
@@ -12351,6 +12354,15 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us impute for missing values using different strategies for different columns.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12637,9 +12649,17 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Build-statistical-filters-to-remove-outliers">Build statistical filters to remove outliers<a class="anchor-link" href="#Build-statistical-filters-to-remove-outliers">&#182;</a></h3><p>In this segment, we build $6\sigma$ and Inter Quartile Range (<code>IQR</code>) filters to remove outliers from our dataset.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*3tcjd64JtWcl37MSidL7Cg.png" alt="">
+<h4 id="6-sigma-filter">6 sigma filter<a class="anchor-link" href="#6-sigma-filter">&#182;</a></h4><p><img src="https://cdn-images-1.medium.com/max/800/1*3tcjd64JtWcl37MSidL7Cg.png" alt="">
 Statistically, about <code>99.5%</code> of data falls within $\pm 3 \sigma$ from $\mu$ (mean). Thus, for fairly normally distributed data, $6\sigma$ filter yields a good resultant dataset.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*igFam1Zx-r4boy1T_5LKlw.png" alt="">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="IQR-filter">IQR filter<a class="anchor-link" href="#IQR-filter">&#182;</a></h4><p><img src="https://cdn-images-1.medium.com/max/800/1*igFam1Zx-r4boy1T_5LKlw.png" alt="">
 Howerver, certain columns such as <code>BEDS</code>, <code>LOT SIZE</code> are heavily sqewed. For such, the Inter Quartile Range filter (which uses median as a measure of centrality unlike 6sigma which uses mean) yields a robust filter as it is unaffected by outliers like the 6 sigma filter.</p>
 
 </div>
