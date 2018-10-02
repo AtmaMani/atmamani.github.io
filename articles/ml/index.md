@@ -38,8 +38,8 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
   - [Slides](https://slides.com/atma_mani/deck-1)
   - [Screen cast](https://youtu.be/nDChU97sSB0)
   - [Recording of my presentation](https://youtu.be/CAryqB8Bl5o)
-  ### Notebooks
-  Get my notebooks from: [arcgis-python-api/talks/GeoDevPDX2018](https://github.com/Esri/arcgis-python-api/tree/master/talks/GeoDevPDX2018)
+  - Notebooks:
+    Get my notebooks from: [arcgis-python-api/talks/GeoDevPDX2018](https://github.com/Esri/arcgis-python-api/tree/master/talks/GeoDevPDX2018)
     - [Cleaning data](projects/portland-housing-clean-housing-data.html)
     - [Exploratory data analysis](projects/portland-housing-exploratory-data-analysis.html)
     - [Feature engineering - neighboring facilities](projects/portland-housing-feature-engineering-neighboring-facilities.html)
