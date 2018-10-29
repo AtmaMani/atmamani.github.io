@@ -33,7 +33,6 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
 - [PySpark](pySpark/getting-started-pyspark.html)
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
-- [Working on larger than memory hurricane datasets with Dask](projects/cleaning_hurricane_observations_with_dask.html)
 - Portland housing
   - [Slides](https://slides.com/atma_mani/deck-1)
   - [Screen cast](https://youtu.be/nDChU97sSB0)
@@ -46,6 +45,11 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
     - [Feature engineering - batch](projects/portland-housing-feature-engineering-neighboring-facilities-batch.html)
     - [Ranking properties](projects/portland-housing-rank-properties-using-features.html)
     - [Building a recommendation engine](projects/portland-housing-build-recommendation-engine.html)
+- Historic hurricane analysis
+  - [1. Download historic hurricane data over FTP](projects/hurr1-download_hurricane_raw_over_ftp.html)
+  - [2. Cleaning multi-dataset, larger than memory hurricane point observations using DASK](projects/hurr2-cleaning_hurricane_observations_with_dask.html)
+  - [3. Creating tracks out of point observations using ArcGIS GeoAnalytics data aggregation](projects/hurr3-creating_hurricane_tracks_using_geoanalytics.html)
+  - [4. Data Analysis, hypothesis on hurricane tracks](projects/hurr4-analyzing_hurricane_tracks.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
