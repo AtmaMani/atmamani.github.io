@@ -11,6 +11,7 @@
 - [Imagery in ArcGIS ecosystem](imagery_in_arcgis_ecosystem.html)
 - [A short tour of Open Geospatial Tools of the scientific Python ecosystem](python-open-geospatial-world.html)
 - [House hunting - the data scientist way](https://medium.com/geoai/house-hunting-the-data-scientist-way-b32d93f5a42f)
+- [Coding standards for your Jupyter notebooks](https://medium.com/@atma_mani/coding-standards-for-your-jupyter-notebooks-f4e2af7db3a9)
 -------------------------------------
 #### Cheat sheets
 - [All my cheatsheets](cheatsheets/index.html)
