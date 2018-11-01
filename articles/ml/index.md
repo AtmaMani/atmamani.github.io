@@ -34,6 +34,7 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
   - [CA housing price prediction](pySpark/spark-ml-CA-housing.html)
 - [Building data science projects using Azure-ML stack](azure-ml-data-science.html)
 - Portland housing
+  - [Blog post on Medium.com](https://medium.com/geoai/house-hunting-the-data-scientist-way-b32d93f5a42f)
   - [Slides](https://slides.com/atma_mani/deck-1)
   - [Screen cast](https://youtu.be/nDChU97sSB0)
   - [Recording of my presentation](https://youtu.be/CAryqB8Bl5o)
