@@ -47,10 +47,14 @@ In these pages, I use Python and its rich stat analysis packages to teach the ba
     - [Ranking properties](projects/portland-housing-rank-properties-using-features.html)
     - [Building a recommendation engine](projects/portland-housing-build-recommendation-engine.html)
 - Historic hurricane analysis
-  - [1. Download historic hurricane data over FTP](projects/hurr1-download_hurricane_raw_over_ftp.html)
-  - [2. Cleaning multi-dataset, larger than memory hurricane point observations using DASK](projects/hurr2-cleaning_hurricane_observations_with_dask.html)
-  - [3. Creating tracks out of point observations using ArcGIS GeoAnalytics data aggregation](projects/hurr3-creating_hurricane_tracks_using_geoanalytics.html)
-  - [4. Data Analysis, hypothesis on hurricane tracks](projects/hurr4-analyzing_hurricane_tracks.html)
+  - [Part 1: Preparing larger-than-memory hurricane data using Dask and GeoAnalytics](projects/part1_prepare_hurricane_data.html)
+  - [Part 2: EDA on hurricane tracks](projects/part2_explore_hurricane_tracks.html)
+  - [Part 3: Does intensity of hurricanes increase over time?](projects/part3_analyze_hurricane_tracks.html)
+  - Older articles
+    - [1. Download historic hurricane data over FTP](projects/hurr1-download_hurricane_raw_over_ftp.html)
+    - [2. Cleaning multi-dataset, larger than memory hurricane point observations using DASK](projects/hurr2-cleaning_hurricane_observations_with_dask.html)
+    - [3. Creating tracks out of point observations using ArcGIS GeoAnalytics data aggregation](projects/hurr3-creating_hurricane_tracks_using_geoanalytics.html)
+    - [4. Data Analysis, hypothesis on hurricane tracks](projects/hurr4-analyzing_hurricane_tracks.html)
 ------------------------------------------
 ## Fun
  - [Model complexity vs accuracy - an empirical anlysis](model-complexity-vs-accuracy.html)
