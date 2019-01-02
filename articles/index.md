@@ -21,6 +21,7 @@
 -------------------------------------
 
 #### Articles written for ArcGIS
+ - [ArcUser: Coding standards for your Jupyter Notebook](https://www.esri.com/about/newsroom/arcuser/coding-standards-for-jupyter-notebook/)
  - [ArcUser: A whole new way to experience ArcGIS](https://www.esri.com/esri-news/arcuser/fall-2017/a-whole-new-way-to-experience-gis)
  - [ArcUser: Harness the power of ArcGIS with ArcGIS API for Python](https://www.esri.com/esri-news/arcuser/fall-2017/harness-the-power-of-gis-arcgis-api-for-python)
  - [Announcement: Just in time for Esri UC, ArcGIS API for Python v1.2 is here](https://blogs.esri.com/esri/arcgis/2017/07/09/just-in-time-for-the-esri-uc-arcgis-api-for-python-v1-2-is-here/)
