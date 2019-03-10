@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-113202945-1");</script>        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>This is PostGIS</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="this-is-postgis">This is PostGIS</h1>
+<h2 id="set-up">Set up</h2>
+<h3 id="installation">Installation</h3>
+<p>I am installing the all-in-one package - Postgres APP which inclues Postgres, PostGIS, PLV8. Once installed, it looks like below:</p>
+<p><img src="file:///Users/atma6951/Documents/code/pychakras/atmamani.github.io/img/postgresql-1.jpg" alt=""></p>
+<p>I am following the <a href="https://postgis.net/workshops/postgis-intro/">tutorial from here</a></p>
+<p>Note: There is an alternate download called 'OpenGeo Suite', but this is no longer in active development. It may have been acquired by boundless and now it does not resemble its original suite of products. Instead, I am installing <a href="https://www.pgadmin.org/download/">pgadmin</a> to admin the DB. The new pgAdmin4 is a complete rewrite. It is web based, written in Python, Qt, JS and core components in C++.</p>
+<p>Once you install both the Postgres database and PgAdmin4 app, start both, connect to the database server using <code>localhost:5432</code> port (which you can look up from properties of db server). PgAdmin will now list the databases. Below is an image of the pgAdmin window running SQL queries on a custom DB I created.</p>
+<p><img src="file:///Users/atma6951/Documents/code/pychakras/atmamani.github.io/img/pgAdmin-1.jpg" alt=""></p>
+<h2 id="introduction">Introduction</h2>
+<p>PostGIS is a spatial database. It turns PostgreSQL database into a spatial database. PostGIS inherits all enterprise functionality of PostgreSQL. There are 3 aspects that make a database spatial</p>
+<ul>
+<li><strong>spatial data types</strong> - store shapes as points ,lines, polygons. They abstract and encapsulate spatial structures such as boundary, dimension.</li>
+<li><strong>spatial indexing</strong> - for efficient spatial operations</li>
+<li><strong>spatial functions</strong> - exposed in SQL for querying spatial properties and relationships. Eg: answers which objects are within this particular envelope.</li>
+</ul>
+<p>True spatial databases treat spatial features as first class database objs. Spatial DBs are used not just in geospatial env, but to store data related to anatomy of human body, large-scale integrated circuits, molecular structures, EMF etc.</p>
+<p>More about <strong>Spatial index</strong>: Bounding boxes are used for spatial containment queries. Computing containment for polygons is very computationally intensive, hence it is performed over their respective bounding boxes. Computing this for rectangles is very simple and fast.</p>
+<p>More about <strong>spatial functions</strong>: 5 main categories of spatial functions</p>
+<ul>
+<li><strong>conversion</strong> of geometries</li>
+<li><strong>management</strong> of spatial tables, PostGIS administration</li>
+<li><strong>retrieval</strong> of properties and measurements of geometries</li>
+<li><strong>comparison</strong> of geometries, wrt spatial relationship</li>
+<li><strong>generation</strong> of new geometries.</li>
+</ul>
+<p><strong>Notes</strong>: The PostGIS team outlines their reason behind choosing PostgreSQL as the foundation and not some other popular open source ORDBMS like mySQL.</p>
+<h3 id="history-of-postgis">History of PostGIS</h3>
+<p>Started in May of 2001. For many years, the functionality, power and ease of use was limited. <strong>MapServer</strong> became the first app to provide visualization of PostGIS. Later, another open source initiative <strong>GOES</strong> (Geometry Engine, Open Source) was integrated with PostGIS to make it complete</p>
+<h2 id="tutorial">Tutorial</h2>
+<p>Follow tutorial from <a href="https://postgis.net/workshops/postgis-intro">postgis-intro</a></p>
+<ol>
+<li>To enable postGIS, run <code>CREATE EXTENSION postgis;</code>. Run by hitting <code>F5</code>. Then confirm it is installed by running <code>SELECT postgis_full_version();</code></li>
+<li>To import data into postGIS, the tool <code>shp2pgis</code> extension does not seem available. Hence I did the import using QGIS. You can connect to the postGIS from qGIS using the same database server, port, db name. Then install the <strong>DB Admin</strong> QGIS extension to manage postGIS. The db manager looks like below:
+<img src="file:///Users/atma6951/Documents/code/pychakras/atmamani.github.io/img/qgis-to-postgis.jpg" alt=""></li>
+</ol>
+<p>Once imported, you can query for the features from pgAdmin and also visualize the results like below:
+<img src="file:///Users/atma6951/Documents/code/pychakras/atmamani.github.io/img/postgis-query.jpg" alt=""></p>
+
+    </body>
+    </html>
