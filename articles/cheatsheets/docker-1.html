@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Docker tutorial</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="docker-tutorial">Docker tutorial</h1>
+<h4 id="need-for-docker">Need for Docker</h4>
+<p>Pre-virtualization had a number of problems</p>
+<ul>
+<li>huge cost of VMs</li>
+<li>slow deployment, hard to manage</li>
+<li>VMWare and VirtualBox provided virtualization software which improved the process</li>
+<li>things improved when Azure, AWS started providing VMs for hire. They provided pay-as-you-go model. Also deployment was extremely fast.</li>
+</ul>
+<p>Virtualization changed the game as they allowed to almost eliminate the virtual OS.</p>
+<ul>
+<li>all containers run on the same linux kernel. However, isolation is provided at runtime.</li>
+<li>containers pack up only the needed parts of the OS. Thus they are faster to deploy, scale up</li>
+<li>containers are fully portable</li>
+</ul>
+<h2 id="docker-architecture">Docker architecture</h2>
+<p>There are 2 distinct parts</p>
+<ul>
+<li><code>docker client</code> - you interact with this layer, typically via CLI apps</li>
+<li><code>docker daemon</code> - the background process which powers the containers. We don't talk to this directly, but only via the <code>docker client</code>.</li>
+</ul>
+<p>Typically, the docker client and daemon run on the same machine, but it is possible from the client to connect to a remote daemon.</p>
+<h3 id="images-and-containers-registries-and-repositories">Images and Containers, Registries and Repositories</h3>
+<p><strong>Images</strong> are read-only templates composed by stacking up other images. They are hosted on docker registry.</p>
+<p><strong>Containers</strong> is an instance of an image.</p>
+<p><strong>Registry</strong> is where we store our images. You can host this yourself or use Docker's public registry called <code>DockerHub</code>. <strong>Repositories</strong> are repos within the registry where images of a particular type are stored.</p>
+<p><strong>Docker Hub</strong> - is a public registry. Official repos are encouraged to be used as they are vetted by Docker and ensure they get security updates frequently. Generally, user created repos have a prefixing <code>username/repo_name/image_name</code>. Usually, <code>tags</code> are used to specify docker versions.</p>
+<h2 id="docker-commands">Docker commands</h2>
+<ul>
+<li>list all images held locally - <code>docker images</code></li>
+<li>run an image - <code>docker run busybox:1.23 echo &quot;hello world&quot;</code> which is of syntax <code>docker run image &lt;command to run on image&gt;</code></li>
+</ul>
+
+    </body>
+    </html>
