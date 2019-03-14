@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-113202945-1");</script>        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
         <title>Docker tutorial</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
@@ -22,7 +22,7 @@
     </head>
     <body>
         <h1 id="docker-tutorial">Docker tutorial</h1>
-<h4 id="need-for-docker">Need for Docker</h4>
+<h2 id="need-for-docker">Need for Docker</h2>
 <p>Pre-virtualization had a number of problems</p>
 <ul>
 <li>huge cost of VMs</li>
@@ -48,11 +48,144 @@
 <p><strong>Containers</strong> is an instance of an image.</p>
 <p><strong>Registry</strong> is where we store our images. You can host this yourself or use Docker's public registry called <code>DockerHub</code>. <strong>Repositories</strong> are repos within the registry where images of a particular type are stored.</p>
 <p><strong>Docker Hub</strong> - is a public registry. Official repos are encouraged to be used as they are vetted by Docker and ensure they get security updates frequently. Generally, user created repos have a prefixing <code>username/repo_name/image_name</code>. Usually, <code>tags</code> are used to specify docker versions.</p>
-<h2 id="docker-commands">Docker commands</h2>
+<h2 id="docker-commands---quickstart">Docker commands - quickstart</h2>
 <ul>
 <li>list all images held locally - <code>docker images</code></li>
-<li>run an image - <code>docker run busybox:1.23 echo &quot;hello world&quot;</code> which is of syntax <code>docker run image &lt;command to run on image&gt;</code></li>
+<li>run an image - <code>docker run busybox:1.23 echo &quot;hello world&quot;</code> which is of syntax <code>docker run image &lt;command to run on image&gt; &lt;argument for command&gt;</code> On running this, Docker will try to find the image locally, if not found, will download from docker hub and run. Example output below:</li>
 </ul>
+<pre><code class="language-cmd"><div>open-geo [master] $ docker run busybox:latest <span class="hljs-built_in">echo</span> "hello atma"
+Unable to <span class="hljs-built_in">find</span> image 'busybox:latest' locally
+<span class="hljs-function">latest: <span class="hljs-title">Pulling</span> <span class="hljs-title">from</span> <span class="hljs-title">library</span>/<span class="hljs-title">busybox</span>
+697743189<span class="hljs-title">b6d</span>: <span class="hljs-title">Pull</span> <span class="hljs-title">complete</span> 
+<span class="hljs-title">Digest</span>: <span class="hljs-title">sha256</span>:061<span class="hljs-title">ca9704a714ee3e8b80523ec720c64f6209ad3f97c0ff7cb9ec7d19f15149f</span>
+<span class="hljs-title">Status</span>: <span class="hljs-title">Downloaded</span> <span class="hljs-title">newer</span> <span class="hljs-title">image</span> <span class="hljs-title">for</span> <span class="hljs-title">busybox:latest</span>
+<span class="hljs-title">hello</span> <span class="hljs-title">atma</span>
+<span class="hljs-title">open</span>-<span class="hljs-title">geo</span> [<span class="hljs-title">master</span>] $ 
+</span></div></code></pre>
+<ul>
+<li>if you run the same command agin, it will run faster as there is no downloading.</li>
+<li>you can do other things like look at the contents of the image by calling <code>docker run busybox:latest ls /</code></li>
+</ul>
+<h4 id="running-docker-in-interactive-mode">Running docker in interactive mode</h4>
+<ul>
+<li>run the image with <code>-i</code>, <code>-t</code> commands for interactive, TTY mode.</li>
+<li><code>docker run -i -t busybox:latest</code>. You can exit by typing <code>exit</code></li>
+</ul>
+<h4 id="running-in-foreground-vs-detached-modes">Running in foreground vs detached modes</h4>
+<p>The default mode is to run in foreground. Docker will start the process in container, attaches the console to this process' std output. You terminate the process and the connection together. When running, the terminal cannot be used for other things.</p>
+<p>Background / detached mode on the other hand can be stared with <code>-d</code> flag. The container is killed when the root process of container terminates. You can use the terminal to do other things while the container is running.</p>
+<ul>
+<li><code>docker run -d busybox:latest sleep 100</code> will run it in background mode.</li>
+<li>You can list the running <strong>containers</strong> using <code>docker ps</code> command. Add the <code>-a</code> to list all containers that are stopped as well.</li>
+<li>By default, docker remembers both your containers and images. So you can rerun a docker container. If you do not want to retain a container, use <code>docker run --rm</code> option. The container is removed after it is run.</li>
+<li>to remove a container, run <code>docker rm &lt;name of container&gt;</code>.</li>
+<li>to run a container with a custom name, run <code>docker run --name &lt;custom_name&gt; &lt;commands&gt;</code>. Then you can verify this using <code>docker ps -a</code> command.</li>
+<li>When running in <strong>background mode</strong>, you cannot see the logs. Thus, you can call <code>docker logs &lt;container_name_or_id&gt;</code> to view the logs.</li>
+</ul>
+<h4 id="docker-inspect">Docker inspect</h4>
+<p>Use inspect to display low level information about a container or image.</p>
+<ul>
+<li>to get low level details, run <code>docker inspect &lt;container_id&gt;</code> or <code>docker inspect &lt;conatiner_name&gt;</code></li>
+</ul>
+<h4 id="port-mapping">Port mapping</h4>
+<p>We can expose a port on the container and map that to port on host using <code>-p</code> option. For instance: <code>docker run -it -p 8888:8080 tomcat:8.0</code> will run tomcat and map its <code>8888</code> port to the default <code>80</code> port on host.</p>
+<h2 id="docker-images-in-detail">Docker images in detail</h2>
+<h3 id="docker-image-layers">Docker image layers</h3>
+<p>A docker image is built as a list of read-only layers. At the bottom is a <strong>base layer</strong> on which other docker images or custom apps are installed. You can see all the <strong>layers</strong> of an image using <code>docker history &lt;image name:tag&gt;</code> command.</p>
+<p>When a new container is instantiated, a new <strong>editable, writable (container) layer</strong> is added on top of this read-only image layers. Thus when container is deleted, all changes are lost and the image remains unchanged. Thus different containers instantiated from same image can have different <strong>data states</strong> emanating from their thin, editable layers.</p>
+<h3 id="build-docker-image">Build docker image</h3>
+<p>There are 2 ways of building an image</p>
+<ol>
+<li>commit changes made to a container (yay!)</li>
+<li>by writing a <strong><code>Dockerfile</code></strong>.</li>
+</ol>
+<h4 id="build-docker-image-by-committing-a-container">Build docker image by committing a container</h4>
+<p>Here we make changes to the container, typically running it in interactive mode. Then after exiting the container (container can be stopped at this point), we call <code>docker commit &lt;container name or id&gt; &lt;username/image_name:tag&gt;</code>. Thus in this ex for example, I did the following</p>
+<ul>
+<li><code>docker run -it debian:jessie</code> which downloads and runs debian OS in interactive mode</li>
+<li>from within the container, run <code>apt-get update &amp;&amp; apt-get install -y git</code> to install GIT</li>
+<li>exit container and to commit, I do <code>docker commit hopeful_ellis atmamani/debian:0.1</code></li>
+<li>then running <code>docker images</code> will report the <code>atmamani/debian</code> image.</li>
+<li>finally, running <code>docker history atmamani/debian:0.1</code> lists the changes I made. Note, it only states modification as bash, meaning it was a bash command, but not what the command is.</li>
+</ul>
+<h4 id="build-docker-image-using-dockerfile">Build docker image using <code>Dockerfile</code></h4>
+<p>Dockerfile is a text based manifest. The file should not have any extension and must start with a capital <code>D</code>. Below is a sample Dockerfile</p>
+<pre><code class="language-docker"><div><span class="hljs-keyword">FROM</span> debain:jessie
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update
+</span><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y git
+</span><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y vim
+</span></div></code></pre>
+<p>Then build it using command <code>docker build -t &lt;username/imagename:tag&gt; &lt;buildcontext&gt;</code> The build context here needs path to the dockerfile on disk. You can also use the build context to package up additional files into the docker image. Docker daemon will create a tarball of these files, send it to the contain, unpack. So I ran <code>docker build -t atmamani/debian:frmdckfile .</code> from the folder containing the Dockerfile.</p>
+<p>Once built, you can inspect the history and now it reports it correctly:</p>
+<pre><code><div>docker-trials $ docker history atmamani/debian:frmdckfile
+IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
+a9d62a3217ae        25 seconds ago       /bin/sh -c apt-get install -y vim               29.7MB              
+a4c2ad02f957        39 seconds ago       /bin/sh -c apt-get install -y git               85MB                
+cdfcdde0ccab        About a minute ago   /bin/sh -c apt-get update                       10.3MB              
+b6ebaf83dd59        8 days ago           /bin/sh -c #(nop)  CMD [&quot;bash&quot;]                 0B                  
+&lt;missing&gt;           8 days ago           /bin/sh -c #(nop) ADD file:e044496893d9e2cbf…   129MB               
+docker-trials $ 
+</div></code></pre>
+<h5 id="optimizing-docker-images">Optimizing docker images</h5>
+<p>One aspect is to reduce the number of layers a docker image has. Each line in the Dockerfile corresponds to a layer. Thus chaining the lines into a single line will reduce this to 1 layer. For instance, the earlier Dockerfile can be trimmed to</p>
+<pre><code><div>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get instal -y git vim
+</div></code></pre>
+<h4 id="baking-run-commands-into-docker-image">Baking run commands into Docker image</h4>
+<p>We can bake commands to be run when a container starts up from an image. The preferred way is to use <code>exec</code> commands, an alternate is to specify <code>bash</code> commands. We prefix such with <code>CMD</code> keyword. If you do not specify a CMD, the default is to bring up <code>bash</code>.</p>
+<pre><code><div>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get install -y \
+    git \
+    python \
+    vim
+CMD [&quot;echo&quot;, &quot;helllo world&quot;]
+</div></code></pre>
+<p>When a container is created, it runs this <code>helllo world</code> with a typo. You can also modify this at runtime, by specifying <code>docker run &lt;image_name&gt; &lt;commands&gt; &lt;arguments&gt;</code> such as <code>docker run atmamani/echoer echo hello hello</code>.</p>
+<h4 id="copying-files-into-the-image">Copying files into the image</h4>
+<pre><code><div>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get install -y \
+    git \
+    python \
+    vim
+COPY ./abc.txt /tmp/abc.txt
+</div></code></pre>
+<p>The above will copy <code>abc.txt</code> from local dir into the <code>tmp</code> dir of the image. This will be available for all containers spun up from this image.</p>
+<h4 id="pushing-images-to-docker-hub">Pushing images to Docker hub</h4>
+<p>Some people say don't use <code>latest</code> tag, instead use a real SEMVER version. To tag an image before pushing to hub or production, you need to tag it appropriately. <code>docker tag &lt;image name&gt; &lt;reponame/newname:tag&gt;</code> Thus, <code>docker tag atmamani/debian:frmdckfile atmamani/debian:0.2</code></p>
+<p>Then push using <code>docker push &lt;imagename&gt;</code> as <code>docker push atmamani/debian:0.2</code></p>
+<h2 id="a-hello-world-app-using-flask">A Hello world app using Flask</h2>
+<p>Download the repo using <code>git clone -b v0.1 https://github.com/jleetutorial/dockerapp.git</code>. Then build the docker image using <code>docker build -t tut-dockerapp:v0.1 .</code></p>
+<p>Run the container as <code>docker run -d -p 5000:5000 tut-dockerapp:v0.1</code> this spins up the container and maps the port. You can use the web app at <code>localhost:5000</code>. If for some reason, this is not available or unknown, you can find the IP address of the docker using <code>docker-machine ls</code> or find which port is mapped using <code>docker ps</code>.</p>
+<p>To <strong>step into a running container</strong>, use <code>docker exec -it &lt;cont name or id&gt; &lt;command&gt;</code>, such as <code>docker exec -it keen_noyce bash</code>. The <code>-i</code> flag makes it interactive. To <strong>see the running process within the container</strong> do <code>ps axu</code> from within the <code>home</code> directory:</p>
+<pre><code><div>dockerapp [(no branch)] $ docker exec -it keen_noyce bash
+admin@dd29aef6445a:/app$ cd ~
+admin@dd29aef6445a:~$ ps axu
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+admin        1  0.0  1.2 102852 25080 ?        Ss   19:33   0:00 python app.py
+admin       17  0.1  0.1  19964  3680 pts/0    Ss   19:47   0:00 bash
+admin       24  0.0  0.1  38380  3216 pts/0    R+   19:47   0:00 ps axu
+admin@dd29aef6445a:~$ 
+</div></code></pre>
+<p>To exit out of the container's bash, type <code>exit</code>. To stop the container running as daemon, type <code>docker stop &lt;container_name&gt;</code>.</p>
+<h2 id="kvp-lookup-app-using-flask">KVP lookup app using Flask</h2>
+<h2 id="linking-containers-using-redis">Linking containers using <code>redis</code></h2>
+<p><code>redis</code> is a message broker, inmemory cache, db service that is containerized. We need a redis Python client.</p>
+<h2 id="linking-with-docker-compose">Linking with Docker compose</h2>
+<p><code>docker-compose.yml</code> is a YAML file. Verison 3 is up to date. You start with a version number. Then specify the services that needs to be run. The <code>dockerapp</code> contains the main, user facing app, the <code>depends_on</code> contains all other microservices that need to be spun up and the order in which they need to be spun up.
+A sample looks like:</p>
+<pre><code class="language-yaml"><div><span class="hljs-attr">verison:</span> <span class="hljs-string">'3'</span>
+<span class="hljs-attr">services:</span>
+<span class="hljs-attr">  dockerapp:</span>
+<span class="hljs-attr">    build:</span> <span class="hljs-string">.</span>
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">"5000:5000"</span>
+<span class="hljs-attr">    depends_on:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">redis</span>
+<span class="hljs-attr">  redis:</span>
+<span class="hljs-attr">    image:</span> <span class="hljs-attr">redis:3.2.0</span>
+</div></code></pre>
+<p>To build and run using docker compose, run <code>docker-compose up -d</code> from dir that contains the yaml file. Once done, you can run <code>docker ps</code> to see the containers created and being run.</p>
+<p>To rebuild a docker compose, you may have to force it if are changing just the python stack. To force rebuild use <code>docker-compose build</code>.</p>
 
     </body>
     </html>
