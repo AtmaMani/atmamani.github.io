@@ -18,7 +18,8 @@
 
 #### Math and Machine Learning
 - [Machine Learning](ml/index.html)
-- [Spatial analysi concepts](spatial-analysis/guide-to-spatial-analysis-1.md)
+- [Spatial analysi concepts](spatial-analysis/guide-to-spatial-analysis-1.html)
+- [Deep Learning](dl/index.html)
 -------------------------------------
 
 #### Articles written for ArcGIS

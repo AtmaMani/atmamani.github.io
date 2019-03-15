@@ -729,93 +729,19 @@ pre {
   }
 }
 </style><title>index</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-atmas-articles" class="anchor" href="#atmas-articles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Atma's articles</h1>
+<a id="user-content-deep-learning" class="anchor" href="#deep-learning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deep Learning</h1>
+<h2>
+<a id="user-content-prologue" class="anchor" href="#prologue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prologue</h2>
+<p>GPUs are required to learn DL, this far seems clear. But why you ask.. <a href="https://www.fast.ai/2017/11/16/what-you-need/" rel="nofollow">read this for more</a>. At a high level, GPUs by Nvidia is optimal for DL as most libraries support this hardware. <code>CUDA</code> prog language developed by Nvidia is also the most developed in terms of features.</p>
 <h4>
-<a id="user-content-opinionated-view-on-many-things" class="anchor" href="#opinionated-view-on-many-things" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Opinionated view on many things</h4>
-<ul>
-<li>
-<a href="python-open-geospatial-world.html">The world of Geospatial Python</a>. A summary of the various Python libraries used in processing, visualization and analysis of spatial data.</li>
-<li><a href="DevOps_today.html">DevOps today</a></li>
-<li><a href="stand_alone_cli_python.html">Building stand-alone command line apps with Python</a></li>
-<li><a href="the-big-data-ecosystem.html">The Big Data Ecosystem</a></li>
-<li><a href="https://www.linkedin.com/pulse/crash-course-scrum-part-1-agile-project-management-methodology/" rel="nofollow">A crash course on Scrum part 1 - an agile project management methodology</a></li>
-<li><a href="https://www.linkedin.com/pulse/crash-course-scrum-part-2-agile-project-management-methodology/" rel="nofollow">A crash course on Scrum part 2 - an agile project management methodology</a></li>
-<li><a href="https://www.linkedin.com/pulse/demystifying-python-jargon-found-data-science-atma-b-mani/" rel="nofollow">Demystifying Python jargon found in Data Science</a></li>
-<li><a href="imagery_in_arcgis_ecosystem.html">Imagery in ArcGIS ecosystem</a></li>
-<li><a href="python-open-geospatial-world.html">A short tour of Open Geospatial Tools of the scientific Python ecosystem</a></li>
-<li><a href="https://medium.com/geoai/house-hunting-the-data-scientist-way-b32d93f5a42f" rel="nofollow">House hunting - the data scientist way</a></li>
-<li><a href="https://medium.com/@atma_mani/coding-standards-for-your-jupyter-notebooks-f4e2af7db3a9" rel="nofollow">Coding standards for your Jupyter notebooks</a></li>
-</ul>
-<hr>
+<a id="user-content-dl-libraries-in-the-market" class="anchor" href="#dl-libraries-in-the-market" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DL Libraries in the market</h4>
+<p>The libraries for DL come and go; <code>theano</code>, <code>caffe</code> to name a few. <code>fastai</code> library is built on top of <code>pyTorch</code> from Facebook. Why pyTorch you ask, Rachel reasons that "the speed at which programmers can experiment and iterate is more important than theoretical speedps". Hence pytorch which supports dynamic computation. <strong>Dynamic computation</strong> means the program is executed in the order you wrote it. Contrast this with <strong>static computation</strong> where you define the architecture of neural net and run code on it. Tensorflow famously uses static computation, but announced support for dynamic computation recently.</p>
 <h4>
-<a id="user-content-cheat-sheets" class="anchor" href="#cheat-sheets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cheat sheets</h4>
+<a id="user-content-uncommon-wisdom" class="anchor" href="#uncommon-wisdom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uncommon wisdom</h4>
 <ul>
-<li><a href="cheatsheets/index.html">All my cheatsheets</a></li>
+<li>You don't need GPU in production. Rachel writes about a number of reasons why this is the case. Even if you need to train your model every day.</li>
+<li>You don't need to be an expert in Math</li>
+<li>You don't need to be an expert programmer. Knowing the above two will certainly help.</li>
+<li>You don't need massive datasets... hold on. With techniques like transfer learning, data augmentation make it easy to take a pre-trained model and apply it to your problem.</li>
 </ul>
-<h4>
-<a id="user-content-math-and-machine-learning" class="anchor" href="#math-and-machine-learning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Math and Machine Learning</h4>
-<ul>
-<li><a href="ml/index.html">Machine Learning</a></li>
-<li><a href="spatial-analysis/guide-to-spatial-analysis-1.html">Spatial analysi concepts</a></li>
-<li><a href="dl/index.html">Deep Learning</a></li>
-</ul>
-<hr>
-<h4>
-<a id="user-content-articles-written-for-arcgis" class="anchor" href="#articles-written-for-arcgis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles written for ArcGIS</h4>
-<ul>
-<li><a href="https://www.esri.com/about/newsroom/arcuser/coding-standards-for-jupyter-notebook/" rel="nofollow">ArcUser: Coding standards for your Jupyter Notebook</a></li>
-<li><a href="https://www.esri.com/esri-news/arcuser/fall-2017/a-whole-new-way-to-experience-gis" rel="nofollow">ArcUser: A whole new way to experience ArcGIS</a></li>
-<li><a href="https://www.esri.com/esri-news/arcuser/fall-2017/harness-the-power-of-gis-arcgis-api-for-python" rel="nofollow">ArcUser: Harness the power of ArcGIS with ArcGIS API for Python</a></li>
-<li><a href="https://blogs.esri.com/esri/arcgis/2017/07/09/just-in-time-for-the-esri-uc-arcgis-api-for-python-v1-2-is-here/" rel="nofollow">Announcement: Just in time for Esri UC, ArcGIS API for Python v1.2 is here</a></li>
-<li><a href="https://blogs.esri.com/esri/arcgis/2017/12/22/turbocharge-your-python-scripts-with-arcgis-api-for-python-v1-3/" rel="nofollow">Announcement: Turbocharge your Python scripts with ArcGIS API for Python v1.3</a></li>
-</ul>
-<hr>
-<h4>
-<a id="user-content-tutorials-written-for-arcgis" class="anchor" href="#tutorials-written-for-arcgis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tutorials written for ArcGIS</h4>
-<ul>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/fighting-california-forest-fires-using-spatial-analysis/" rel="nofollow">Analysis: Fighting California forest fires using spatial analysis</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/creating-hurricane-tracks-using-geoanalytics/" rel="nofollow">Analysis: Creating hurricane tracks using Geoanalytics</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/analyze-new-york-city-taxi-data/" rel="nofollow">Analysis: Analyzing New York City taxi data using big data tools</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/finding-suitable-spots-for-aed-devices-using-raster-analytics/" rel="nofollow">Analysis: Finding suitable spots for placing heart defibrillator equipments in public</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/publishing-sd-shapefiles-and-csv/" rel="nofollow">Automation: Publishing SDs, Shapefiles and CSVs</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/publishing-packages-as-web-layers/" rel="nofollow">Automation: Publishing packages as web layers</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/publishing-web-maps-and-web-scenes/" rel="nofollow">Automation: Publishing web maps and web scenes</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/using-and-updating-gis-content/" rel="nofollow">Automation: Using and updating GIS content</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/updating-features-in-a-feature-layer/" rel="nofollow">Automation: Updating features in a feature layer</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/batch-creation-of-groups/" rel="nofollow">Automation: Batch creation of Groups</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/your-first-notebook/" rel="nofollow">Automation: Your first notebook</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/clone-portal-users-groups-and-content/" rel="nofollow">Automation: Clone Portal users, groups and content</a></li>
-<li><a href="https://developers.arcgis.com/python/sample-notebooks/overwriting-feature-layers/" rel="nofollow">Overwriting feature layers</a></li>
-<li><a href="https://developers.arcgis.com/python/guide/" rel="nofollow">Most guide pages here</a></li>
-</ul>
-<hr>
-<h5>
-<a id="user-content-articles-on-remote-sensing" class="anchor" href="#articles-on-remote-sensing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Articles on remote sensing</h5>
-<ul>
-<li><a href="https://sites.google.com/site/atmabharathi/physics-of/shadow-within-shadow" rel="nofollow">Shadow within shadow</a></li>
-<li><a href="https://sites.google.com/site/atmabharathi/hyperspectral-remote-sensing/analysis-and-programming-on-hdf5" rel="nofollow">Programming: A tool read and analyze HDF5 data</a></li>
-<li><a href="https://sites.google.com/site/atmabharathi/hyperspectral-remote-sensing/essentials-of-image-processing" rel="nofollow">Essentials of image processing</a></li>
-<li><a href="https://sites.google.com/site/atmabharathi/hyperspectral-remote-sensing/hysi-analysis" rel="nofollow">Programming: A look at Optimum Index Factor algorithm to choose best bands for visualization</a></li>
-<li><a href="https://sites.google.com/site/atmabharathi/physics-of/microwave-rs-physical-concepts" rel="nofollow">Microwave remote sensing concepts</a></li>
-</ul>
-<hr>
-<h5>
-<a id="user-content-some-really-old-blog-posts" class="anchor" href="#some-really-old-blog-posts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some really old blog posts</h5>
-<ul>
-<li><a href="http://geodexter.blogspot.com/2014/08/iwatch-and-ripe-market.html" rel="nofollow">iWatch and a ripe market</a></li>
-<li><a href="http://geodexter.blogspot.com/2014/06/why-kochadaiiyaan-is-not-anachronism.html" rel="nofollow">Fun: Why Kochadiiyaan is not an anachronism</a></li>
-<li><a href="http://geodexter.blogspot.com/2013/02/how-to-buy-new-car-in-us.html" rel="nofollow">Finance: Nuances in buying a new car</a></li>
-<li><a href="http://geodexter.blogspot.com/2012/04/remote-sensing-at-consumer-end.html" rel="nofollow">Geospatial: Satellite remote sensin at the consumer end</a></li>
-<li><a href="http://geodexter.blogspot.com/2012/03/correct-until-proved-otherwise.html" rel="nofollow">Empirical modeling: Correct until proven otherwise</a></li>
-<li><a href="http://geodexter.blogspot.com/2011/09/buying-used-car-in-us.html" rel="nofollow">Finance: Nuances in buying a used car</a></li>
-<li><a href="http://geodexter.blogspot.com/2011/02/new-age-tools-for-researcher-part-1.html" rel="nofollow">Productivity: New age tools for the researcher</a></li>
-<li><a href="http://geodexter.blogspot.com/2009/01/above-abode-of-clouds.html" rel="nofollow">Travel: Above the abode of clouds</a></li>
-<li><a href="http://geodexter.blogspot.com/2008/08/are-you-martian-world-is-looking-for.html" rel="nofollow">Fiction: Are you the martian the world is looking for?</a></li>
-<li><a href="http://geodexter.blogspot.com/2008/05/global-food-crisis-urban-animals-work.html" rel="nofollow">Global food crisis - the urban animal's work of art</a></li>
-<li><a href="http://geodexter.blogspot.com/2008/04/bangalore-fly-by.html" rel="nofollow">Travel: A Bangalore fly-by</a></li>
-<li><a href="http://geodexter.blogspot.com/2007/12/solar-spheres.html" rel="nofollow">Ideas: Solar spheres</a></li>
-<li><a href="http://geodexter.blogspot.com/2006/01/interlinking-of-rivers.html" rel="nofollow">Ideas: Interlinking of Indian rivers</a></li>
-<li><a href="http://geodexter.blogspot.com/2006/05/colour-of-sound.html" rel="nofollow">Ideas: Color of sound</a></li>
-</ul>
-<hr>
 </article></body></html>
