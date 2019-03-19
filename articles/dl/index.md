@@ -11,3 +11,12 @@ The libraries for DL come and go; `theano`, `caffe` to name a few. `fastai` libr
  - You don't need to be an expert in Math
  - You don't need to be an expert programmer. Knowing the above two will certainly help.
  - You don't need massive datasets... hold on. With techniques like transfer learning, data augmentation make it easy to take a pre-trained model and apply it to your problem.
+
+## Setup - Google Colab, the free GPU notebook service
+Google colab at this point lacks an interface to see what notebooks you have and the interface to import notebooks from GitHub and other sources is hidden somewhere deep. 
+
+However, once you open, you need to run `!curl -s https://course.fast.ai/setup/colab | bash` to prepare the colab runtime to use Fast.ai and GPU. After this, you can run fastai course materials for free on GPU. THere are some notes about GPU availability, but this is yet to be seen by me.
+
+
+### Detailed notes
+ - [Getting started with fast.ai](fastai-1.html)
