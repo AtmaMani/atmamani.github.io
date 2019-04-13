@@ -6,17 +6,21 @@
 - [2017 PyCon](pycon_2017/index.html)
 - [2018 Portland GeoDev Meetup](https://www.meetup.com/DevMeetUpOregon/events/254393668/)
   - [more resources about this talk](https://atmamani.github.io/articles/ml/index#ml-projects)
+- [2019 FOSS4GNA - Let's take the machines house hunting]()
 
 -------------------------------------
 #### Talks for Esri / ArcGIS
+- 2019 Esri Developer Summit
+  - [Python across the ArcGIS platform](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2019)
+  - [Imagery in ArcGIS](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2019/imagery-in-arcgis)
+  - [Spatial Data Science with ArcGIS]()
 - 2018 Esri Partner conference
-  - Plenary: Automation and analytics in the ArcGIS Platform with Python
+  - [Plenary: Automation and analytics in the ArcGIS Platform with Python](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2018/Plenary/automation)
   - ArcGIS API for Python for developers, administrators and data scientists
 - 2018 Esri Developer summit
   - [Plenary: Automation in the ArcGIS platform](https://www.youtube.com/watch?v=mZM0zYI1KUE&t=462s&list=PLaPDDLTCmy4aE-073hhwZQplvJ8MmKZCe&index=21)
-  - [ArcGIS In a notebook]()
-  - [ArcGIS Python API: Advanced Scripting]()
-  - [Mapping visualization and analysis with ArcGIS API for Python]()
+  - [ArcGIS Python API: Advanced Scripting](https://www.youtube.com/watch?v=KA0AysGnSf4&list=PLaPDDLTCmy4aA6oxJVe1YsJlxJO_0psyv&index=17&t=7s)
+  - [Mapping visualization and analysis with ArcGIS API for Python](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2018/Mapping%20Visualization%20and%20Analysis)
 
 - 2017 Esri User Conference talks
   - [Introduction to scripting your WebGIS with ArcGIS API for Python](https://www.youtube.com/watch?v=o9x0dtNrGEU&list=PLGZUzt4E4O2JaOMx_XZc85VdMIrqLGaVf&index=2)
