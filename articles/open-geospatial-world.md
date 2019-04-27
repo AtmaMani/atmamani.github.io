@@ -32,6 +32,9 @@ Python is everywhere. Most scientific analysis presentations used Python APIs to
 
 FOSS is struggling to maintain funding and a number of core projects have a very tiny team that's building them.
 
+> While the above is about what was seen at FOSS4G, it is also important to note what was missing. There was little mention about native smartphone applications. I could not find a framework that allowed platform agnostic (or not) development of runtime applications. There wasn't an equivalent to ArcGIS Runtime stack.
+> Satish noted the absence of the term `Data Science`. While this crowd is certainly technical and does advanced machine learning, they don't to use or associate with the term Data Science.
+
 ### Points to ponder
 1. Should AGS Image Server evaluate Spark stack for distributed raster processing (like GeoAnalytics)?
 2. AGO needs an **easy, one step imagery publishing** functionality. The barrier to analyzing raster is to purchase and set up ArcGIS Desktop or ArcGIS Enterprise. Further, the AGS JS API cannot display and work with local rasters. These shortcomings raise the barrier when users need to analyze their own imagery datasets. Contrast this with [GeoTiff.io](http://geotiff.io/) which allows you to quickly analyze your local rasters right in your browser.
@@ -41,7 +44,7 @@ FOSS is struggling to maintain funding and a number of core projects have a very
 ## Products seen in the wild at FOSS4GNA
 
 ### [Cesium GIS](https://cesium.com/pricing/): 
-![](../img/cesium_gis_logo.svg)
+![](/img/cesium_gis_logo.svg)
 Ceasium is primarily for 3D GIS. Products include
     - ion - cloud platform
     - 3D tiling pipeline
@@ -49,7 +52,7 @@ Ceasium is primarily for 3D GIS. Products include
     - 3D Content - imagery, 3D Tiles etc.
 
 ### [Crunchy data](https://www.crunchydata.com/) 
-![](../img/crunchy_data_logo.svg)
+![](/img/crunchy_data_logo.svg)
 
 Crunchy is enterprise postgreSQL leader. They got postgres for cloud etc. As is, this is not a FOSS4G company. Just that Paul Ramsey works there.
 ### [Geosurge.io] - no website yet. 
