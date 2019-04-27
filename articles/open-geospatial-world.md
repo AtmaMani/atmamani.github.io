@@ -129,4 +129,4 @@ AWS and a few other companies sponsor the https://spacenet.ai/ contains ML chall
 There isn't a formal place where the decks are shared. These are the ones I manage to source from Twitter and other similar sources
  - [Paul Ramsey's keynote on FOSS lifecycle](https://docs.google.com/presentation/d/1-PAgIk9--nedCdfMGEwhcnqxqy1fGYUXwWhxzMfqJZg/edit#slide=id.g564eb4321c_0_59)
  - [Gretchen's blog post](http://blog.gretchenpeterson.com/archives/5129)
- - 
+ - [My slide deck on 'Let's take the machines house hunting'](https://slides.com/atma_mani/deck#/)
