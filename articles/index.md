@@ -16,6 +16,7 @@
 -------------------------------------
 #### Cheat sheets
 - [All my cheatsheets](cheatsheets/index.html)
+- [General learning resources](learning-resources.html)
 
 #### Math and Machine Learning
 - [Machine Learning](ml/index.html)

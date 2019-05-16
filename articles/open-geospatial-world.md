@@ -67,7 +67,7 @@ Works on http://app.geotiff.io/ a UX for analyzing raster data on the browser us
   - They talk about "VAST data" (volume, agility, spatio temporal data) and their platform is uniquely positioned to analyze that.
   - From a climate science talk: A typical data analysis workflow is to use omnisci (cloud) for cleaning big data in the cloud. Then download to disk for Jupyter Notebooks and Python libraries like seaborn, geopandas, xarray to visualize, explore and analyze.
   - Below is an architecture diagram of Omnisci cloud:
-  - ![](../img/omnisci-platform.png)
+  - ![](https://atmamani.github.io/img/omnisci-platform.png)
 
 ### [Google Earth Engine](http://www.opengee.org/) OSS server: 
 ![](https://atmamani.github.io/img/open-gee-logo.png) GEE is not dead, it is being maintained at http://www.opengee.org/. The talk showed how to build tilecache for local datasets, load on GEE. But the speaker ran into many issues and it looked cumbersome to work with.
