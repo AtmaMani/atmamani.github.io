@@ -1,0 +1,1514 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../static/favicon.svg">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>Pandas cheat sheet - Atma Mani's blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#pandas-cheat-sheet" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Atma Mani's blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">blur_on</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Atma Mani's blog
+            </span>
+            <span class="md-header-nav__topic">
+              Pandas cheat sheet
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Atma Mani's blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon">blur_on</i>
+      
+    </a>
+    Atma Mani's blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../talks/" title="Talks" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/readme/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../readme/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#series" title="Series" class="md-nav__link">
+    Series
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-series" title="Create a series" class="md-nav__link">
+    Create a series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations-on-series" title="Operations on series" class="md-nav__link">
+    Operations on series
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataframes" title="DataFrames" class="md-nav__link">
+    DataFrames
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-dataframes" title="Creating dataFrames" class="md-nav__link">
+    Creating dataFrames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicing-and-dicing-dataframes" title="Slicing and dicing DataFrames" class="md-nav__link">
+    Slicing and dicing DataFrames
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-columns" title="Access columns" class="md-nav__link">
+    Access columns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-rows" title="Access rows" class="md-nav__link">
+    Access rows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-using-index-number" title="Accessing using index number" class="md-nav__link">
+    Accessing using index number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dicing-dataframes" title="Dicing DataFrames" class="md-nav__link">
+    Dicing DataFrames
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-selection" title="Conditional selection" class="md-nav__link">
+    Conditional selection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chaining-conditions" title="Chaining conditions" class="md-nav__link">
+    Chaining conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-conditions" title="Multiple conditions" class="md-nav__link">
+    Multiple conditions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations-on-dataframes" title="Operations on DataFrames" class="md-nav__link">
+    Operations on DataFrames
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-columns" title="Adding new columns" class="md-nav__link">
+    Adding new columns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropping-rows-and-columns" title="Dropping rows and columns" class="md-nav__link">
+    Dropping rows and columns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe-index" title="DataFrame Index" class="md-nav__link">
+    DataFrame Index
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-index" title="Set index" class="md-nav__link">
+    Set index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest-index" title="Rest index" class="md-nav__link">
+    Rest index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="pandas-cheat-sheet">Pandas cheat sheet<a class="headerlink" href="#pandas-cheat-sheet" title="Permanent link">&para;</a></h1>
+<p><img alt="" src="http://www.madmaximshen.com/wp-content/uploads/2016/06/pandas.png" /></p>
+<p>Pandas is Python Data Analysis library. Series and Dataframes are major data structures in Pandas. Pandas is built on top of NumPy arrays.</p>
+<p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Series">Series</a></li>
+<li><a href="#Create-a-series">Create a series</a></li>
+<li><a href="#Operations-on-series">Operations on series</a></li>
+<li><a href="#DataFrames">DataFrames</a></li>
+<li><a href="#Creating-dataFrames">Creating dataFrames</a></li>
+<li><a href="#Slicing-and-dicing-DataFrames">Slicing and dicing DataFrames</a><ul>
+<li><a href="#Access-columns">Access columns</a></li>
+<li><a href="#Access-rows">Access rows</a></li>
+<li><a href="#Accessing-using-index-number">Accessing using index number</a></li>
+<li><a href="#Dicing-DataFrames">Dicing DataFrames</a></li>
+</ul>
+</li>
+<li><a href="#Conditional-selection">Conditional selection</a><ul>
+<li><a href="#Chaining-conditions">Chaining conditions</a></li>
+<li><a href="#Multiple-conditions">Multiple conditions</a></li>
+</ul>
+</li>
+<li><a href="#Operations-on-DataFrames">Operations on DataFrames</a><ul>
+<li><a href="#Adding-new-columns">Adding new columns</a></li>
+<li><a href="#Dropping-rows-and-columns">Dropping rows and columns</a></li>
+</ul>
+</li>
+<li><a href="#DataFrame-index">DataFrame index</a><ul>
+<li><a href="#Set-index">Set index</a></li>
+<li><a href="#Reset-index">Reset index</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="series">Series<a class="headerlink" href="#series" title="Permanent link">&para;</a></h2>
+<p>Series is 1 dimensional data structure. It is similar to numpy array, but each data point has a label in the place of an index.</p>
+<h3 id="create-a-series">Create a series<a class="headerlink" href="#create-a-series" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#from a list</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">ser1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">l1</span><span class="p">)</span>  <span class="c1">#when you dont specify labels for index, it is autogenerated</span>
+<span class="n">ser1</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#from a numpy array</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">ser2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">arr1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">l2</span><span class="p">)</span> <span class="c1">#indices can of any data type, here string</span>
+<span class="n">ser2</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>a    1
+b    2
+c    3
+e    4
+d    5
+dtype: int32
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#from a dictionary</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;usa&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;india&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;germany&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;japan&#39;</span><span class="p">:</span><span class="s1">&#39;china&#39;</span><span class="p">,</span> <span class="s1">&#39;china&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
+<span class="n">ser3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="n">ser3</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>china          4
+germany        3
+india          2
+japan      china
+usa            1
+dtype: object
+</pre></div>
+</td></tr></table>
+
+<p>Thus Series can have <strong>different</strong> datatypes.</p>
+<h3 id="operations-on-series">Operations on series<a class="headerlink" href="#operations-on-series" title="Permanent link">&para;</a></h3>
+<p>You can add, multiply and other numerical opertions on Series just like on numpy arrays.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ser1a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">ser1</span> <span class="o">+</span> <span class="n">ser1a</span> <span class="c1">#each individual element with matching index/label is summed</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0     2
+1     4
+2     6
+3     8
+4    10
+dtype: int64
+</pre></div>
+</td></tr></table>
+
+<p>When labels dont match, it puts a nan. Thus when two series are added, you <strong>may or may not get the same number of elements</strong></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ser1</span> <span class="o">+</span> <span class="n">ser3</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0          NaN
+1          NaN
+2          NaN
+3          NaN
+4          NaN
+china      NaN
+germany    NaN
+india      NaN
+japan      NaN
+usa        NaN
+dtype: object
+</pre></div>
+</td></tr></table>
+
+<h2 id="dataframes">DataFrames<a class="headerlink" href="#dataframes" title="Permanent link">&para;</a></h2>
+<h3 id="creating-dataframes">Creating dataFrames<a class="headerlink" href="#creating-dataframes" title="Permanent link">&para;</a></h3>
+<p>Pandas DataFrames are built on top of Series. It looks similar to a NumPy array, but has labels for both columns and rows.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">arr1</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>array([[ 0.13430231,  0.62520675,  0.97098126,  0.71760504],
+       [ 0.71376565,  0.77318189,  0.05968879,  0.45089927],
+       [ 0.05898965,  0.90430093,  0.43148674,  0.08768307],
+       [ 0.50989094,  0.50103695,  0.24427914,  0.76313491]])
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">row_lables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Car1&#39;</span><span class="p">,</span> <span class="s1">&#39;Car2&#39;</span><span class="p">,</span> <span class="s1">&#39;Car3&#39;</span><span class="p">,</span> <span class="s1">&#39;Car4&#39;</span><span class="p">]</span>
+<span class="n">col_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">,</span> <span class="s1">&#39;cost&#39;</span><span class="p">,</span> <span class="s1">&#39;competition&#39;</span><span class="p">,</span> <span class="s1">&#39;halflife&#39;</span><span class="p">]</span>
+
+<span class="c1">#create a dataframe</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">arr1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">row_lables</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">col_labels</span><span class="p">)</span>
+<span class="n">df1</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="slicing-and-dicing-dataframes">Slicing and dicing DataFrames<a class="headerlink" href="#slicing-and-dicing-dataframes" title="Permanent link">&para;</a></h3>
+<p>You can access DataFrames similar to Series and slice it similar to NumPy arrays</p>
+<h4 id="access-columns">Access columns<a class="headerlink" href="#access-columns" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DataFrameObj[&#39;column_name&#39;] ==&gt; returns a pandas.core.series.Series
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Accessing a whole column</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Car1    0.894051
+Car2    0.014127
+Car3    0.351610
+Car4    0.601929
+Name: reliability, dtype: float64
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#can access as a property, but this is not advisable </span>
+<span class="c1">#since it can clobber builtin methods and properties</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">reliability</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Car1    0.894051
+Car2    0.014127
+Car3    0.351610
+Car4    0.601929
+Name: reliability, dtype: float64
+</pre></div>
+</td></tr></table>
+
+<h4 id="access-rows">Access rows<a class="headerlink" href="#access-rows" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DataFrameobj.loc[&#39;row_label&#39;] also returns a Series. Notice the .loc
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Car4&#39;</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>reliability    0.601929
+cost           0.854320
+competition    0.391956
+halflife       0.759363
+Name: Car4, dtype: float64
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Car3&#39;</span><span class="p">])</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</td></tr></table>
+
+<h4 id="accessing-using-index-number">Accessing using index number<a class="headerlink" href="#accessing-using-index-number" title="Permanent link">&para;</a></h4>
+<p>If you don't know the labels, but know the index like in an array, use <code>iloc</code> and pass the index number.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#get first row, first col</span>
+<span class="n">val1</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">val1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">val1</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>0.894051123737
+&lt;class &#39;numpy.float64&#39;&gt;
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#get full first row</span>
+<span class="n">val2</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">val2</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>reliability    0.894051
+cost           0.849727
+competition    0.538400
+halflife       0.863986
+Name: Car1, dtype: float64
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">val2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</td></tr></table>
+
+<h4 id="dicing-dataframes">Dicing DataFrames<a class="headerlink" href="#dicing-dataframes" title="Permanent link">&para;</a></h4>
+<p>Dicing using labels ==&gt; use <code>DataFrameObj.loc[[row_labels],[col_labels]]</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Get cost and competition of cars 2,3</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Car2&#39;</span><span class="p">,</span> <span class="s1">&#39;Car3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;cost&#39;</span><span class="p">,</span> <span class="s1">&#39;competition&#39;</span><span class="p">]]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cost</th>
+      <th>competition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car2</th>
+      <td>0.935368</td>
+      <td>0.719570</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.659950</td>
+      <td>0.605077</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>With index number, dice using</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DataFrameObj.iloc[[row_indices], [col_indices]]
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cost</th>
+      <th>competition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car2</th>
+      <td>0.935368</td>
+      <td>0.719570</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.659950</td>
+      <td>0.605077</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="conditional-selection">Conditional selection<a class="headerlink" href="#conditional-selection" title="Permanent link">&para;</a></h3>
+<p>When running a condition on a DataFrame, you are returned a Bool dataframe.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># find cars with reliability &gt; 0.85</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Car1    False
+Car2    False
+Car3     True
+Car4    False
+Name: reliability, dtype: bool
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#to get the car select the data elements using the bool series</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#To get only the car name, which in this case is the index</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&#39;Car3&#39;
+</pre></div>
+</td></tr></table>
+
+<h4 id="chaining-conditions">Chaining conditions<a class="headerlink" href="#chaining-conditions" title="Permanent link">&para;</a></h4>
+<p>In a Pythonic way, you can chain conditions</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>df[df condition][selection][selection]
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#to get the actual value of reliablity for this car</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">][</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Car3    0.884783
+Name: reliability, dtype: float64
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># get both reliability and cost</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">][[</span><span class="s1">&#39;reliability&#39;</span><span class="p">,</span> <span class="s1">&#39;cost&#39;</span><span class="p">]]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="multiple-conditions">Multiple conditions<a class="headerlink" href="#multiple-conditions" title="Permanent link">&para;</a></h4>
+<p>You can select dataframe elements with multiple conditions. <strong>Note</strong> cannot use Python <code>and</code> , <code>or</code>. Instead use <code>&amp;</code>, <code>|</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#select cars that have reliability &gt; 0.7 but competition less than 0.5</span>
+<span class="n">df1</span><span class="p">[(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;reliability&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;competition&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># select cars that have half life &gt; 0.5 or competition &lt; 0.4</span>
+<span class="n">df1</span><span class="p">[(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;halflife&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;competition&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)]</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="operations-on-dataframes">Operations on DataFrames<a class="headerlink" href="#operations-on-dataframes" title="Permanent link">&para;</a></h3>
+<h4 id="adding-new-columns">Adding new columns<a class="headerlink" href="#adding-new-columns" title="Permanent link">&para;</a></h4>
+<p>Create new columns just like adding a kvp to a dictionary.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DataFrameObj[&#39;new_col&#39;] = Series
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#add full life column</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">&#39;full_life&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="s1">&#39;halflife&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1">#similar to array, series broadcast multiplication</span>
+<span class="n">df1</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+      <td>0.175366</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="dropping-rows-and-columns">Dropping rows and columns<a class="headerlink" href="#dropping-rows-and-columns" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DataFrameObj.drop(label, axis, inplace=True / False)
+</pre></div>
+</td></tr></table>
+
+<p>Row labels are <code>axis = 0</code> and columns are <code>axis = 1</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;full_life&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Car3&#39;</span><span class="p">)</span> <span class="c1">#all else is the default</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Drop a row based on a condition.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;cost&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.43521</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.52627</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="dataframe-index">DataFrame Index<a class="headerlink" href="#dataframe-index" title="Permanent link">&para;</a></h3>
+<p>So far, <code>Car1</code>, <code>Car2</code>.. is the index for rows. If you would like to set a different column as an index, use <code>set_index</code>. If you want to make index as a column rather, and use numerals for index, use <code>reset_index</code></p>
+<h4 id="set-index">Set index<a class="headerlink" href="#set-index" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#set car names as index for the data frame</span>
+<span class="n">car_names</span> <span class="o">=</span> <span class="s1">&#39;altima outback taurus mustang&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">car_names</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[&#39;altima&#39;, &#39;outback&#39;, &#39;taurus&#39;, &#39;mustang&#39;]
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;car_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_names</span>
+<span class="n">df1</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+    <tr>
+      <th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+    <tr>
+      <th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+    <tr>
+      <th>Car4</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">df_new_index</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="s1">&#39;car_names&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_new_index</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr>
+    <tr>
+      <th>car_names</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>altima</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+    <tr>
+      <th>outback</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+    <tr>
+      <th>taurus</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+    <tr>
+      <th>mustang</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Note, the old index is lost.</p>
+<h4 id="rest-index">Rest index<a class="headerlink" href="#rest-index" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#reset df1 index to numerals and convert existing to a column</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Car1</td>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Car2</td>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Car3</td>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Car4</td>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Atma Mani
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.267712eb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
