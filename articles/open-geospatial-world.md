@@ -33,12 +33,11 @@ Python is everywhere. Most scientific analysis presentations used Python APIs to
 FOSS is struggling to maintain funding and a number of core projects have a very tiny team that's building them.
 
 > While the above is about what was seen at FOSS4G, it is also important to note what was missing. There was little mention about native smartphone applications. I could not find a framework that allowed platform agnostic (or not) development of runtime applications. There wasn't an equivalent to ArcGIS Runtime stack.
-> Satish noted the absence of the term `Data Science`. While this crowd is certainly technical and does advanced machine learning, they don't to use or associate with the term Data Science.
+> My colleague noted the absence of the term `Data Science`. While this crowd is certainly technical and does advanced machine learning, they don't to use or associate with the term Data Science.
 
 ### Points to ponder
-1. Should AGS Image Server evaluate Spark stack for distributed raster processing (like GeoAnalytics)?
-2. AGO needs an **easy, one step imagery publishing** functionality. The barrier to analyzing raster is to purchase and set up ArcGIS Desktop or ArcGIS Enterprise. Further, the AGS JS API cannot display and work with local rasters. These shortcomings raise the barrier when users need to analyze their own imagery datasets. Contrast this with [GeoTiff.io](http://geotiff.io/) which allows you to quickly analyze your local rasters right in your browser.
-3. AGO and AGS Enterprise and Pro should support STAC
+1. Should ArcGIS Image Server evaluate Spark stack for distributed raster processing (like it's existing GeoAnalytics stack)?
+2. A participant noted that ArcGIS Online needs an **easy, one step imagery publishing** functionality. The barrier to analyzing raster is to purchase and set up ArcGIS Desktop or ArcGIS Enterprise. Further, the AGS JS API cannot display and work with local rasters. These shortcomings raise the barrier when users need to analyze their own imagery datasets. FOSS on the other hand has identified this shortcoming and products like [GeoTiff.io](http://geotiff.io/) were created which allows you to quickly analyze your local rasters right in your browser.
 
 -----------
 ## Products seen in the wild at FOSS4GNA
@@ -128,8 +127,11 @@ AWS and a few other companies sponsor the https://spacenet.ai/ contains ML chall
 ![](https://atmamani.github.io/img/here-logo.svg) showed off their geospatial platform. It looked good, but I didn't go into the details. Their emphasis however, seemed to be around managing **mapping data from and for autonomous vehicles**.
 
 ---------------
-## Speaker slide decks
+## Speaker slide decks and other resources
 There isn't a formal place where the decks are shared. These are the ones I manage to source from Twitter and other similar sources
  - [Paul Ramsey's keynote on FOSS lifecycle](https://docs.google.com/presentation/d/1-PAgIk9--nedCdfMGEwhcnqxqy1fGYUXwWhxzMfqJZg/edit#slide=id.g564eb4321c_0_59)
  - [Gretchen's blog post](http://blog.gretchenpeterson.com/archives/5129)
  - [My slide deck on 'Let's take the machines house hunting'](https://slides.com/atma_mani/deck#/)
+
+Resources:
+ - [GIS Carpentry](https://datacarpentry.org/geospatial-workshop/) This teaches EDA using R. The root page for all geosaptial data carpentry is [here](https://datacarpentry.org/lessons/#geospatial-curriculum).
