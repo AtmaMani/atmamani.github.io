@@ -1,4 +1,4 @@
-# Atma's apps
+Title: Atma's apps
 Although I prefer static pages, from time to time, I like to build web apps
 
 -------------------------------------

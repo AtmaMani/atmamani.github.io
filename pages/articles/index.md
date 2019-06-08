@@ -1,30 +1,23 @@
-# Atma's articles
-#### Opinionated view on many things
+Title: Atma's articles
+## Opinionated view on many things
 
-- [The world of Geospatial Python](python-open-geospatial-world.html). A summary of the various Python libraries used in processing, visualization and analysis of spatial data.
-- [The FOSS4G world](open-geospatial-world.html). A summary of various free and open source geospatial products and my views and takeaways from attending the FOSS4GNA 2019 conference.
-- [DevOps today](DevOps_today.html)
-- [Building stand-alone command line apps with Python](stand_alone_cli_python.html)
-- [The Big Data Ecosystem](the-big-data-ecosystem.html)
+- [The world of Geospatial Python](python-open-geospatial-world/). A summary of the various Python libraries used in processing, visualization and analysis of spatial data.
+- [The FOSS4G world](open-geospatial-world/). A summary of various free and open source geospatial products and my views and takeaways from attending the FOSS4GNA 2019 conference.
+- [DevOps today](DevOps_today/)
+- [Building stand-alone command line apps with Python](stand_alone_cli_python/)
+- [The Big Data Ecosystem](the-big-data-ecosystem/)
 - [A crash course on Scrum part 1 - an agile project management methodology](https://www.linkedin.com/pulse/crash-course-scrum-part-1-agile-project-management-methodology/)
 - [A crash course on Scrum part 2 - an agile project management methodology](https://www.linkedin.com/pulse/crash-course-scrum-part-2-agile-project-management-methodology/)
 - [Demystifying Python jargon found in Data Science](https://www.linkedin.com/pulse/demystifying-python-jargon-found-data-science-atma-b-mani/)
-- [Imagery in ArcGIS ecosystem](imagery_in_arcgis_ecosystem.html)
-- [A short tour of Open Geospatial Tools of the scientific Python ecosystem](python-open-geospatial-world.html)
+- [Imagery in ArcGIS ecosystem](imagery_in_arcgis_ecosystem/)
 - [House hunting - the data scientist way](https://medium.com/geoai/house-hunting-the-data-scientist-way-b32d93f5a42f)
 - [Coding standards for your Jupyter notebooks](https://medium.com/@atma_mani/coding-standards-for-your-jupyter-notebooks-f4e2af7db3a9)
--------------------------------------
-#### Cheat sheets
-- [All my cheatsheets](cheatsheets/index.html)
-- [General learning resources](learning-resources.html)
 
-#### Math and Machine Learning
-- [Machine Learning](ml/index.html)
-- [Spatial analysi concepts](spatial-analysis/guide-to-spatial-analysis-1.html)
-- [Deep Learning](dl/index.html)
 -------------------------------------
+- [General learning resources](learning-resources/)
 
-#### Articles written for ArcGIS
+
+## Articles written for ArcGIS
  - [ArcUser: Coding standards for your Jupyter Notebook](https://www.esri.com/about/newsroom/arcuser/coding-standards-for-jupyter-notebook/)
  - [ArcUser: A whole new way to experience ArcGIS](https://www.esri.com/esri-news/arcuser/fall-2017/a-whole-new-way-to-experience-gis)
  - [ArcUser: Harness the power of ArcGIS with ArcGIS API for Python](https://www.esri.com/esri-news/arcuser/fall-2017/harness-the-power-of-gis-arcgis-api-for-python)
@@ -32,7 +25,7 @@
  - [Announcement: Turbocharge your Python scripts with ArcGIS API for Python v1.3](https://blogs.esri.com/esri/arcgis/2017/12/22/turbocharge-your-python-scripts-with-arcgis-api-for-python-v1-3/)
 -------------------------------------
 
-#### Tutorials written for ArcGIS
+## Tutorials written for ArcGIS
  - [Analysis: Fighting California forest fires using spatial analysis](https://developers.arcgis.com/python/sample-notebooks/fighting-california-forest-fires-using-spatial-analysis/)
  - [Analysis: Creating hurricane tracks using Geoanalytics](https://developers.arcgis.com/python/sample-notebooks/creating-hurricane-tracks-using-geoanalytics/)
  - [Analysis: Analyzing New York City taxi data using big data tools](https://developers.arcgis.com/python/sample-notebooks/analyze-new-york-city-taxi-data/)
@@ -49,7 +42,7 @@
  - [Most guide pages here](https://developers.arcgis.com/python/guide/)
 -------------------------------------
 
-##### Articles on remote sensing
+## Articles on remote sensing
 
  - [Shadow within shadow](https://sites.google.com/site/atmabharathi/physics-of/shadow-within-shadow)
  - [Programming: A tool read and analyze HDF5 data](https://sites.google.com/site/atmabharathi/hyperspectral-remote-sensing/analysis-and-programming-on-hdf5)
@@ -58,7 +51,7 @@
  - [Microwave remote sensing concepts](https://sites.google.com/site/atmabharathi/physics-of/microwave-rs-physical-concepts)
 -------------------------------------
 
-##### Some really old blog posts
+## Some really old blog posts
  - [iWatch and a ripe market](http://geodexter.blogspot.com/2014/08/iwatch-and-ripe-market.html)
  - [Fun: Why Kochadiiyaan is not an anachronism](http://geodexter.blogspot.com/2014/06/why-kochadaiiyaan-is-not-anachronism.html)
  - [Finance: Nuances in buying a new car](http://geodexter.blogspot.com/2013/02/how-to-buy-new-car-in-us.html)

@@ -1,4 +1,4 @@
-# Javascript essentials
+Title: Javascript essentials
 
  - Use `;` to terminate lines. JS supports OO and functional programming. HTML5 is HTML + CSS+ JS.
 
@@ -10,23 +10,11 @@
 
 - [Placement](#placement)
 - [Types and programming constructs](#types-and-programming-constructs)
-    - [switches](#switches)
-    - [loops - while](#loops---while)
-    - [functions](#functions)
-    - [Objects](#objects)
-    - [namespaces](#namespaces)
-    - [strings](#strings)
-    - [dates](#dates)
-- [JS and DOM](#js-and-dom)
-- [Functional programming](#functional-programming)
-    - [Closures](#closures)
-- [Inheritance](#inheritance)
-- [ECMAScript 6 pattern](#ecmascript-6-pattern)
-- [DOM](#dom)
-    - [jQuery for DOM manipulation](#jquery-for-dom-manipulation)
-    - [AJAX - jQuery library for IO with backend](#ajax---jquery-library-for-io-with-backend)
-- [Node JS](#node-js)
-- [Appendix - Run web server using node.js](#appendix---run-web-server-using-nodejs)
+  - [switches](#switches)
+  - [loops - while](#loops---while)
+  - [functions](#functions)
+  - [Objects](#objects)
+  - [namespaces](#namespaces)
 - [Appendix - documentation](#appendix---documentation)
 
 <!-- /MarkdownTOC -->

@@ -3,7 +3,7 @@
 ### Installation
 I am installing the all-in-one package - Postgres APP which inclues Postgres, PostGIS, PLV8. Once installed, it looks like below:
 
-![](img/postgresql-1.jpg)
+![](/images/postgresql-1.jpg)
 
 I am following the [tutorial from here](https://postgis.net/workshops/postgis-intro/)
 
@@ -11,7 +11,7 @@ Note: There is an alternate download called 'OpenGeo Suite', but this is no long
 
 Once you install both the Postgres database and PgAdmin4 app, start both, connect to the database server using `localhost:5432` port (which you can look up from properties of db server). PgAdmin will now list the databases. Below is an image of the pgAdmin window running SQL queries on a custom DB I created.
 
-![](img/pgAdmin-1.jpg)
+![](/images/pgAdmin-1.jpg)
 
 #### SQLAlchemy set up
 I am tripping when setting up sqlalchemy with postgres server in the geopandas env. It turns out, sqlalchemy requires a package called `psycopg2` which is not installed by default. In a clean env, installing these two works well. I am trying out in the geopandas env now.
@@ -45,10 +45,10 @@ Follow tutorial from [postgis-intro](https://postgis.net/workshops/postgis-intro
 
 1. To enable postGIS, run `CREATE EXTENSION postgis;`. Run by hitting `F5`. Then confirm it is installed by running `SELECT postgis_full_version();`
 2. To import data into postGIS, the tool `shp2pgis` extension does not seem available. Hence I did the import using QGIS. You can connect to the postGIS from qGIS using the same database server, port, db name. Then install the **DB Admin** QGIS extension to manage postGIS. The db manager looks like below:
-   ![](img/qgis-to-postgis.jpg)
+   ![](/images/qgis-to-postgis.jpg)
 
 Once imported, you can query for the features from pgAdmin and also visualize the results like below:
-![](img/postgis-query.jpg)
+![](/images/postgis-query.jpg)
 
 ## Working with Geometries in PostGIS
 A special table called `geometry_columns` exists which lists all tables within postGIS that are spatial. It lists details such as what their `SRID` is, their geometry type etc.
