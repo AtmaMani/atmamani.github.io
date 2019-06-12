@@ -1,12 +1,17 @@
-# Imagery in ArcGIS ecosystem
+Title: Imagery in ArcGIS ecosystem
+Date: 2018-03-30 10:20
+Category: arcgis
+Tags: arcgis, esri, GIS, remote-sensing
+Slug: imagery-in-arcgis-ecosystem
+
 ArcGIS apps give you access to work imagery data from a variety of file formats. The goal is to unify the differences in image characteristics (spatial, spectral, temportal resolutions), file formats (local - different types of image formats, mosaic and web). However, it is useful to understand the basics. This page does not teach you remote sensing or spatial analysis, it just gives you a roadmap to navigate the software.
+<!-- TEASER_END -->
 
 **Toc**
-- [Imagery in ArcGIS ecosystem](#imagery-in-arcgis-ecosystem)
-    - [File formats](#file-formats)
-    - [ArcGIS Imagery products and terms](#arcgis-imagery-products-and-terms)
-        - [Mosaic dataset](#mosaic-dataset)
-        - [Raster Products](#raster-products)
+- [File formats](#file-formats)
+- [ArcGIS Imagery products and terms](#arcgis-imagery-products-and-terms)
+  - [Mosaic dataset](#mosaic-dataset)
+  - [Raster Products](#raster-products)
 
 ## File formats
 ArcGIS with the help of GDAL system, supports over 400 file formats. ArcGIS Pro extends this support by giving you templates for common imagery providers and satellite/aerial platforms. Thus you can access imagery from

@@ -1,5 +1,13 @@
-# The Big Data Ecosystem
-![](big-data-ecosystem-1.png)
+Title: The Big Data Ecosystem
+Date: 2017-12-10 10:20
+Category: technology
+Tags: bigdata
+Slug: the-big-data-ecosystem
+
+Big data is the talk of the town. What is it? What are the components? Let us demystify some of these jargons
+<!-- TEASER_END-->
+
+![](/images/big-data-ecosystem-1.png)
 ## Spark
 Open source - Apache. New, but very widely used.
  - flexible alternative to MapReduce
@@ -56,7 +64,7 @@ Apache open source framework that allows performing batch and real-time data pro
 
 Integrates very well if Python, Scala, Java. New products like `Spark Streaming` is designed for developer ease of use.
 
-![](apache-spark-stack.png)
+![](/images/apache-spark-stack.png)
 
 ##### RDD
 `Resilient Distributed Datasets` representation of data in object format and allow computation on them. They contain data lineage. `Transformation`s are what you do to `RDD` that result in creation of a new `RDD`. `Action`s is questions / searches on the `RDD` to get your answer.

@@ -1,6 +1,11 @@
-# Building stand-alone command line tools using Python
+Title: Building stand-alone command line tools using Python
+Date: 2017-06-20 10:20
+Category: tools
+Tags: python, cli
+Slug: building-stand-alone-cli-using-python
 
 You have built a neat little tool using Python. Following modern software building paradigms, you built your tool to be user friendly, used a number of FOSS libraries instead of reinventing the wheel, etc. Now you are ready to ship and you face the dilemma of whether to package it as a conda package or PyPI package or whether to send it as a GitHub repository. What if your user does not want to even install Python on their computer?
+<!-- TEASER_END -->
 
 Fear not, you can build truly self-contained stand-alone applications using [PyInstaller](https://pyinstaller.readthedocs.io). The rest of this blog walks you through an example.
 

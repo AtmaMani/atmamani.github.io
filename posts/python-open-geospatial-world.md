@@ -1,23 +1,28 @@
-# A short tour of Open Geospatial Tools of the scientific Python ecosystem
+Title: A short tour of Open Geospatial Tools of the scientific Python ecosystem
+Date: 2018-06-06 10:20
+Category: technology
+Tags: open-source, geo, FOSS4G, opengeo
+Slug: python-geospatial-world
+
 One of my favorite statistics is that about 80% of data in the world, contain some element that is spatial. For instance, take the list of gas stations in a city or restaurants in a city, revenue from medical industry, there is always some element of this data that can be categorized as being spatial - be it locations, routes the products take, cost variations in gas prices etc.
 
 This spatial relationship is of significant interest to me and I have been analyzing them for over a decade and have been building software to analyze them for more than half of the past decade. While majority of what I built were proprietary, this blog is a look at what is available in the open-source ecosystem and when to use which tool.
-
+<!-- TEASER_END -->
 Something that is common and beautiful about the opensource Python data analysis ecosystem is, a number of these libraries have self-organized themselves around a common platform or standard of interoperability. You will find many libraries interchangeably using each other for parts they are good at, emphasizing the 'dont reinvent the wheel' philosophy. For then end user, even though the number of libraries is large, it is possible to mark a clear boundary of what lib does what functionality and why it is needed.
 
-This blog is just a high level overview to navigate this python-open-geospatial community and packages. For any details, refer to my [cheatsheets](/cheatsheets/index.html).
+This blog is just a high level overview to navigate this python-open-geospatial community and packages.
 
 **ToC**
 
 - [Data IO](#data-io)
-    - [Raster data IO](#raster-data-io)
+  - [Raster data IO](#raster-data-io)
 - [Geometry and projection engines](#geometry-and-projection-engines)
-    - [Spatial indexing](#spatial-indexing)
+  - [Spatial indexing](#spatial-indexing)
 - [Data wrangling](#data-wrangling)
 - [Visualization](#visualization)
 - [Sharing - web GIS](#sharing---web-gis)
 - [Spatial analysis](#spatial-analysis)
-    - [Pysal](#pysal)
+  - [Pysal](#pysal)
 - [Geocoding](#geocoding)
 - [Conclusion](#conclusion)
 

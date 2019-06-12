@@ -1,5 +1,5 @@
 Title: DevOps Today
-Date: 2017-02-03 10:20
+Date: 2017-07-20 10:20
 Category: technology
 Tags: devops, chef, automation, containers, version-control
 Slug: devops-today
@@ -7,9 +7,6 @@ Slug: devops-today
 As software development matures as an industry, there arose a need to identify and a group a set of tasks and folks, typically in back office, that are required to keep the rest of the software development shop running. These are the folks that keep the servers spinning, repositories and build process going, plumb and connect the various automation tools into a giant contraption. The industry came around to classify the various roles as `DevOps` short for Developers in Operations.
 
 This blog is a short compendium of tools used by DevOps today (early 2017).
-
-.. previewimage:: /images/docker_logo.png
-   :alt: Nikola Tesla
 
 <!-- TEASER_END -->
 

@@ -1,5 +1,12 @@
-# Practical scrum for agile teams
-Introspections on practicing scrum for 3 years.
+Title: Practical scrum for agile teams
+Date: 2017-07-10 10:20
+Category: teamwork
+Tags: scrum, teamwork, leadership, management
+Slug: practical-scrum-for-agile-teams
+
+In this blog, I introduce the concept of scrumming, which is used widely by agile software development teams. I draw upon my introspections of practicing scrum for 3 years.
+<!-- TEASER_END -->
+
 
 ## Table of contents
 - [Misconceptions](#misconceptions)
@@ -99,13 +106,13 @@ The backlog contains the list of all requirements. Each item (a PBI - product ba
 #### User stories (PBIs)
 Each PBI is written as a user story. User stories are of format:
 
-	As a <role>,
-	I can <feature / function>,
-	so that <goal / value>.
+ 	As a <role>,
+ 	I can <feature / function>,
+ 	so that <goal / value>.
 
 For example, the user story for backup camera in a car can be written as
 	
-	As a driver, I can use the back up camera when I am reversing the car so I can see what's behind the car more clearly than what my rear view mirrors show.
+> As a driver, I can use the back up camera when I am reversing the car so I can see what's behind the car more clearly than what my rear view mirrors show.
 
 What is management without acronyms :) Lets throw one for user stories.. A user story is good if its INVESTable: Independent, Negotiable, Valuable, Estimatable, Small and Testable. Resist from writing a user story until you have a clear understanding of what you are building.
 
@@ -119,10 +126,10 @@ When a bunch of user stories come together, they form an epic. Consider an epic 
 
 Backup camera Epic:
 
-	1. Turn on back up camera when put in reverse
-	2. Enhance back up camera feed with steering predictors / guides
-	3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed
-	4. Alert lane departures using back up camera feed.
+1. Turn on back up camera when put in reverse
+2. Enhance back up camera feed with steering predictors / guides
+3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed
+4. Alert lane departures using back up camera feed.
 
 Next, let us discuss about some metrics to quantify and estimate progress of a scrum team.
 
@@ -133,10 +140,10 @@ One way to estimate is treat the PBIs as abstract entities and judge them relati
 
 Thus, in the backup camera example from earlier, a team may evaluate
 
-	1. Turn on back up camera when put in reverse --> **S or 2**
-	2. Enhance back up camera feed with steering predictors / guides --> **M or 3**
-	3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed --> **L or 5**
-	4. Alert lane departures using back up camera feed. --> **M or 3**
+1. Turn on back up camera when put in reverse --> **S or 2**
+2. Enhance back up camera feed with steering predictors / guides --> **M or 3**
+3. Alert with audio and steering wheel vibrators when a moving object is detected in back up camera feed --> **L or 5**
+4. Alert lane departures using back up camera feed. --> **M or 3**
 
 Time and effort estimation are much accurate as long as you work with smaller numbers (S, M or 1, 2, 3 ..) and they get fuzzy and uncertain once they go beyond 8 or XL size. If you find yourself with PBIs that are in larger end of effort spectrum, try to break it into smaller pieces.
 

@@ -1,5 +1,11 @@
-# The FOSS4G world
+Title: A short tour of Open Geospatial Tools of the scientific Python ecosystem
+Date: 2019-05-31 10:20
+Category: geospatial
+Tags: open-source, geo, FOSS4G, opengeo
+Slug: open-geospatial-world
+
 This article represents my takeaways from [FOSS4GNA 2019](https://2019.foss4g-na.org/) conference. FOSS4G - free and open source software for geospatial industry is part of the larger [OSGeo](http://osgeo.org/) organization.
+<!-- TEASER_END -->
 
 ## Executive summary
 ### Big data
@@ -43,68 +49,63 @@ FOSS is struggling to maintain funding and a number of core projects have a very
 ## Products seen in the wild at FOSS4GNA
 
 ### [Cesium GIS](https://cesium.com/pricing/): 
-![](https://atmamani.github.io/img/cesium_gis_logo.svg)
-Ceasium is primarily for 3D GIS. Products include
+<img src="/images/cesium_gis_logo.png" width=100> Ceasium is primarily for 3D GIS. Products include
     - ion - cloud platform
     - 3D tiling pipeline
     - SDK
     - 3D Content - imagery, 3D Tiles etc.
 
 ### [Crunchy data](https://www.crunchydata.com/) 
-![](https://atmamani.github.io/img/crunchy_data_logo.svg)
-
-Crunchy is enterprise postgreSQL leader. They got postgres for cloud etc. As is, this is not a FOSS4G company. Just that Paul Ramsey works there.
+<img src="/images/crunchy_data_logo.png" width=200> Crunchy is enterprise postgreSQL leader. They got postgres for cloud etc. As is, this is not a FOSS4G company. Just that Paul Ramsey works there.
 ### [Geosurge.io] - no website yet. 
-![](https://atmamani.github.io/img/geotiff.io_logo.png)
+![](/images/geotiff.io_logo.png)
 
 Works on http://app.geotiff.io/ a UX for analyzing raster data on the browser using JS, client side computations
 
 ### [Omnisci](https://www.omnisci.com) 
-![](https://atmamani.github.io/img/omnisci_logo.svg) Omnisci has GPU based high speed sql queries. Their chief evangelist said "Speed is so high, that we don't worry about spaital indexing". Go to https://www.omnisci.com/demos/ and https://omnisci.cloud/accounts/login/?next=/ to spin up a trial omnisci cloud for you.
+<img src="/images/omnisci_logo.svg" width=75> Omnisci has GPU based high speed sql queries. Their chief evangelist said "Speed is so high, that we don't worry about spaital indexing". Go to https://www.omnisci.com/demos/ and https://omnisci.cloud/accounts/login/?next=/ to spin up a trial omnisci cloud for you.
   - Omnisci's core is FOSS, but higher stacks are SAAS, something similar to carto.com.
   - [Omnisci Immerse](https://www.omnisci.com/platform/immerse) is similar to Insights for ArcGIS product.
   - They talk about "VAST data" (volume, agility, spatio temporal data) and their platform is uniquely positioned to analyze that.
   - From a climate science talk: A typical data analysis workflow is to use omnisci (cloud) for cleaning big data in the cloud. Then download to disk for Jupyter Notebooks and Python libraries like seaborn, geopandas, xarray to visualize, explore and analyze.
   - Below is an architecture diagram of Omnisci cloud:
-  - ![](https://atmamani.github.io/img/omnisci-platform.png)
+  - ![](/images/omnisci-platform.png)
 
 ### [Google Earth Engine](http://www.opengee.org/) OSS server: 
-![](https://atmamani.github.io/img/open-gee-logo.png) GEE is not dead, it is being maintained at http://www.opengee.org/. The talk showed how to build tilecache for local datasets, load on GEE. But the speaker ran into many issues and it looked cumbersome to work with.
+![](/images/open-gee-logo.png) GEE is not dead, it is being maintained at http://www.opengee.org/. The talk showed how to build tilecache for local datasets, load on GEE. But the speaker ran into many issues and it looked cumbersome to work with.
 
 ### [GeoTrellis](https://geotrellis.io)
-![](https://atmamani.github.io/img/geotrellis-logo.png) is a Scala Lib to work with raster data using Apache spark. It can do fast IO, map algebra, R2V, V2R conversions. It can render outputs to PNGs. It can perform dynamic computations as well as batch processing. The diagram below shows their overall architecture:
-![](https://atmamani.github.io/img/geotrellis-architecture.jpg)
+![](/images/geotrellis-logo.png) is a Scala Lib to work with raster data using Apache spark. It can do fast IO, map algebra, R2V, V2R conversions. It can render outputs to PNGs. It can perform dynamic computations as well as batch processing. The diagram below shows their overall architecture:
+![](/images/geotrellis-architecture.jpg)
 
 Some recent additions allow GeoTrellis to build vector tiles off vector data, work with point cloud data, streaming data and they are working to enable GeoTrellis speak to GeoServer.
 
 Geotrellis had a lot of contributors and speakers from Azavea and the theme of this talk was 'cloud native GIS apps' as opposed to  Service Oriented Architecture (SOA) of traditional GIS Server apps.
 			
 #### [Geotrellis/RasterFrames](http://rasterframes.io/getting-started.html)
-![](https://atmamani.github.io/img/RasterFrames-logo.png) is spark DF for raster data. It allows to perform spatiotemporal queries, map algebra ops on rasters along side Spark ML algorithms.
-![](https://atmamani.github.io/img/rasterframe-pipeline.svg)
+<img src="/images/RasterFrames-logo.png" width=200> is spark DF for raster data. It allows to perform spatiotemporal queries, map algebra ops on rasters along side Spark ML algorithms.
+![](/images/rasterframe-pipeline.svg)
 
 The [PyRasterFrames](http://rasterframes.io/reference.html) provides Python bindings for Geotrellis scala API. PyRF is based on PySpark API. Their [MAML](https://geotrellis.github.io/maml/) (map algebra modeling language) was shown off significantly.
 
 ### [Azavea](https://github.com/azavea/)
-![](https://atmamani.github.io/img/azavea-logo.png) appears to sponsor most of GeoTrellis work, their demo servers and speakers at this conference. Most of Azavea's talks were packed.
+<img src="/images/azavea-logo.png" width=50> appears to sponsor most of GeoTrellis work, their demo servers and speakers at this conference. Most of Azavea's talks were packed.
 
 #### [Azavea/rasterVision](https://docs.rastervision.io/en/0.9/)
-![](https://atmamani.github.io/img/raster-vision-logo.jpeg) framework is something to be noted. This API builds on top of **Tensorflow** and supports workflows such as classification, object detection and semantic segmentation of satellite images.
-![](https://atmamani.github.io/img/raster-vision-workflow.png)
+![](/images/raster-vision-logo.jpeg) framework is something to be noted. This API builds on top of **Tensorflow** and supports workflows such as classification, object detection and semantic segmentation of satellite images.
+![](/images/raster-vision-workflow.png)
 
 Raster Vision's goal seems to be well defined. The [why?](https://docs.rastervision.io/en/0.9/why.html#why-do-we-need-yet-another-deep-learning-library) article clearly outlines how Azavea pictures this library as a **plumber** and how it benefits in creating a repeatable and deployable deep learning pipeline.
 
 > In these ways, raster vision is aligned with the 'learn' module of the ArcGIS API for Python.
 
 ### [GeoMesa](https://www.geomesa.org/)
-![](https://atmamani.github.io/img/geomesa-logo.png) is for large-scale spatial querying, analytics on distributed systems. SpatioTemportal indexing on top of Accumulo, Hbase, Cassandra db etc for vector data.
+<img src="images/geomesa-logo.png" width=75> is for large-scale spatial querying, analytics on distributed systems. SpatioTemportal indexing on top of Accumulo, Hbase, Cassandra db etc for vector data.
 
 I did not collect more information about this product. I left that to my expert colleagues from database teams.
 
 ### [AWS](https://aws.amazon.com)
-![](https://atmamani.github.io/img/aws-logo.png)
-
-Arguably the elephant in the room. AWS was one of the biggest sponsors of this conference and its Geo Data lead Joe Flasher did a pretty good job of being a technical evangelist and also supporting a lot of his customers (including Esri) in a number of other talks.
+![](/images/aws-logo.png) Arguably the elephant in the room. AWS was one of the biggest sponsors of this conference and its Geo Data lead Joe Flasher did a pretty good job of being a technical evangelist and also supporting a lot of his customers (including Esri) in a number of other talks.
 
 Why is AWS interested in FOSS4G? Simply because its customers are. NASA and DigitalGlobe are two of its biggest customers and AWS is pretty vested in supporting them.
 
@@ -114,17 +115,18 @@ Joe spoke about https://registry.opendata.aws/ which contains all open data incl
 
 The landing page https://aws.amazon.com/earth/ is geared toward its efforts in the geospatial sector. This page features a number of talks on this topic from customers of AWS. (Esri's Peter Becker's talk from reInvent is featured here).
 
-![](https://atmamani.github.io/img/Snowball-Edge-Image.png)
+<center>![](/images/Snowball-Edge-Image.png)</center>
+
 He spoke about AWS Snowball edge which is a portable AWS cloud that gets shipped out to disaster response centers for their local VPC. During such calamities, (for customers like element84), they start a data checkout into the snowball edge. STAC is the protocol for how data is laid out.
 
-![](https://atmamani.github.io/img/aws-ground-stations.png)
+![](/images/aws-ground-stations.png)
+
 AWS is also building a ground station network for satellite data reception. Thus straight from satellite into AWS infrastructure. This has been functional since 2018 Nov.
 
-![](https://atmamani.github.io/img/spacenet-logo.png)
-AWS and a few other companies sponsor the https://spacenet.ai/ contains ML challenges to be solved in the GeoAI community.
+<img src="/images/spacenet-logo.png" width=150"> AWS and a few other companies sponsor the https://spacenet.ai/ contains ML challenges to be solved in the GeoAI community.
 
 ### [Here technologies](https://www.here.com)
-![](https://atmamani.github.io/img/here-logo.svg) showed off their geospatial platform. It looked good, but I didn't go into the details. Their emphasis however, seemed to be around managing **mapping data from and for autonomous vehicles**.
+<img src="/images/here-logo.png" width=150> showed off their geospatial platform. It looked good, but I didn't go into the details. Their emphasis however, seemed to be around managing **mapping data from and for autonomous vehicles**.
 
 ---------------
 ## Speaker slide decks and other resources
