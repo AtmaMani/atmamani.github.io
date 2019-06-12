@@ -140,6 +140,7 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/project-a/", "Projects"),
         ("/articles/", "Articles"),
+        ("/blog/","Blog"),
         ("/talks/", "Talks"),
         (
             (
@@ -263,11 +264,11 @@ THEME_CONFIG = {
 #     )
 
 POSTS = (
-    ("posts/*.rst", "", "post.tmpl"),
-    ("posts/*.md", "", "post.tmpl"),
-    ("posts/*.txt", "", "post.tmpl"),
-    ("posts/*.html", "", "post.tmpl"),
-    ("posts/*.ipynb", "", "post.tmpl"),
+    ("posts/*.rst", "blog", "post.tmpl"),
+    ("posts/*.md", "blog", "post.tmpl"),
+    ("posts/*.txt", "blog", "post.tmpl"),
+    ("posts/*.html", "blog", "post.tmpl"),
+    ("posts/*.ipynb", "blog", "post.tmpl"),
 )
 # remove destination directory to generate pages in the root directory
 PAGES = (
@@ -934,7 +935,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -950,7 +951,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # }}                            A literal } (U+007D RIGHT CURLY BRACKET)
 
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
-INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
+INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more} ({reading_time} mins)…</a></p>'
 # 'Read more...' for the feeds, if FEED_TEASERS is True (translatable)
 FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
 

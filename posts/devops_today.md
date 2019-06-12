@@ -1,13 +1,17 @@
 Title: DevOps Today
-Date: 2018-12-03 10:20
-Category:
-Tags:
+Date: 2017-02-03 10:20
+Category: technology
+Tags: devops, chef, automation, containers, version-control
 Slug: devops-today
 
-# DevOps today
 As software development matures as an industry, there arose a need to identify and a group a set of tasks and folks, typically in back office, that are required to keep the rest of the software development shop running. These are the folks that keep the servers spinning, repositories and build process going, plumb and connect the various automation tools into a giant contraption. The industry came around to classify the various roles as `DevOps` short for Developers in Operations.
 
 This blog is a short compendium of tools used by DevOps today (early 2017).
+
+.. previewimage:: /images/docker_logo.png
+   :alt: Nikola Tesla
+
+<!-- TEASER_END -->
 
 ## Version control systems
 ![github](https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png)
@@ -23,7 +27,8 @@ The industry tried various solutions for this problem, one of which was to pre-c
 As the containerization technology matured, the DevOps engineers found ways to shed the weight of the image. They invented a leaner method where they hand pick only the necessary parts of the operating sytem and the dependencies and the actual software and put them into something called `containers`. Containers turned out to be much smaller than images and they were able to power up and run much faster than virtual machines. Further, containers would run the same no matter the flavor of the host computer's architecture, which meant, software engineers can build software for linux and have them sold to a customer which is primarily a Windows shop.
 
 ### Docker
-![docker](https://www.docker.com/sites/all/themes/docker/assets/images/brand-full.svg)
+.. image:: /images/docker_logo.png
+
 `Docker` is one of the most popular containerization technologies. A `docker repository` contains a bunch of such container images that a software sells. The `docker registry` is a place where such repositories are hosted so customers can search for, buy and use. The `docker hub` and more recently `docker store` are public websites which host registries.
 
 When the customer wants to use a software shipped as a `docker image`, he/she has to install a `docker engine` which will act as a host to power up the `docker images` into `containers`. Increasingly customers identify a powerful computer which they designate for docker engine so it can power up a number of containers which the rest of the company can use as a service. In such cases they use `docker swarm` which is a cluster of docker engines running in `swarm mode`.
