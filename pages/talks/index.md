@@ -1,7 +1,7 @@
 Title: Atma's talks
 ## Talks in public conferences
 - [2018 Portland GeoDev Meetup](2018-portland-geodev-meetup/)
-    - ![](/images/house-hunting-slide1.jpeg)
+    - <img src="/images/house-hunting-slide1.jpeg" width=250>
 - [2019 FOSS4GNA](https://2019.foss4g-na.org/program/)
     - [Let's take the machines house hunting](https://www.papercall.io/speakers/atma-mani/speaker_talks/110943-let-s-take-the-machines-house-hunting)
     - **Slides**

@@ -1,4 +1,4 @@
-Title: A short tour of Open Geospatial Tools of the scientific Python ecosystem
+Title: The state of the Open Geospatial World in 2019
 Date: 2019-05-31 10:20
 Category: geospatial
 Tags: open-source, geo, FOSS4G, opengeo
