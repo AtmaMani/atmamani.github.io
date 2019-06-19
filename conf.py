@@ -139,11 +139,12 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/project-a/", "Projects"),
-        ("/articles/", "Articles"),
         ("/blog/","Blog"),
         ("/talks/", "Talks"),
         (
             (
+                ('/cheatsheets/learning-resources/', "General learning resources"),
+                ('/', "<hr>"),
                 ('/cheatsheets/python/python_cheat_sheet_1/', "Python basics, comprehensions"),
                 ('/cheatsheets/python/python_cheat_sheet_2/', "Python OO and exception handling"),
                 ('/cheatsheets/python/python_cheat_sheet_3/', "Python map, reduce, lambdas"),
