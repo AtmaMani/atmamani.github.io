@@ -1,10 +1,10 @@
-# HTML - files that make up the web
+Title: HTML - files that make up the web
 
 **TOC**
 <!-- MarkdownTOC -->
 
-- [HTML skeleton](#html-skeleton)
-- [HTML tags](#html-tags)
+- [HTML skeleton](#HTML-skeleton)
+- [HTML tags](#HTML-tags)
 
 <!-- /MarkdownTOC -->
 
