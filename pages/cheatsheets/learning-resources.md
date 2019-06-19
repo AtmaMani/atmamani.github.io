@@ -7,7 +7,7 @@ Life is an endless journey of learning. Below is a rolling update of useful mate
 
 ## Statistics
  - Free textbook on stats - [ThinkStats2](https://greenteapress.com/wp/think-stats-2e/) and the accompanying [Github Repo](https://github.com/AllenDowney/ThinkStats2)
- 
+ - [Minitab blog on regression analysis](http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-tutorial-and-examples)
  
 ## Machine learning
 - Intro to ML with Python with Andreas Muller and Sarah Guido [Book](http://shop.oreilly.com/product/0636920030515.do), [Github Repo](https://github.com/amueller/introduction_to_ml_with_python)
