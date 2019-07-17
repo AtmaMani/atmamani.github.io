@@ -1,18 +1,24 @@
-# Building data science projects using Azure-ML stack
+Title: Building data science projects using Azure-ML stack
+Date: 2018-02-26 10:25
+Category: arcgis
+Tags: data-science, python, arcgis, python api, azure
+Slug: building-data-science-projects-using-azure-ml-stack
+
 This wiki covers the steps involved in building a data science project using Azure Machine Learning Workbench product. This also covers the steps involved in productionizing the model as a web service and accessing it over HTTP using its REST API.
+<!-- TEASER_END -->
 
 **ToC**
 <!-- MarkdownTOC -->
 
-- [Azure ML Workbench](#azure-ml-workbench)
-	- [Runtime environments](#runtime-environments)
-	- [Deployment environments](#deployment-environments)
-- [Azure ML portal](#azure-ml-portal)
-- [Walk through](#walk-through)
-	- [Initialization](#initialization)
-	- [Model development](#model-development)
-	- [Operationalization](#operationalization)
-		- [Notes](#notes)
+- [Azure ML Workbench](#Azure-ML-Workbench)
+	- [Runtime environments](#Runtime-environments)
+	- [Deployment environments](#Deployment-environments)
+- [Azure ML portal](#Azure-ML-portal)
+- [Walk through](#Walk-through)
+	- [Initialization](#Initialization)
+	- [Model development](#Model-development)
+	- [Operationalization](#Operationalization)
+		- [Notes](#Notes)
 
 <!-- /MarkdownTOC -->
 

@@ -1,4 +1,5 @@
-# Getting started with PySpark
+Title: Getting started with PySpark
+
 PySpark library gives you a Python API to read and work with your RDDs in HDFS through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.
 
 ## Installing PySpark, Scala, Java, Spark
