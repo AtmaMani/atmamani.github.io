@@ -140,18 +140,17 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         (
             (
-                ('/projects/index/', "Some selected projects"),
                 ('/projects/math/', "Learn math with Python"),
                 ('/projects/stats/', "Learn stats with Python"),
                 ('/projects/ml/', 'Machine Learning projects'),
                 ('/projects/dl/', 'Deep Learning projects'),
+                ('/projects/spatial/', 'Spatial analysis'),
                 ('/projects/thermal/', 'Thermal remote sensing'),
                 ('/projects/mw/', 'Microwave remote sensing'),
                 ('/projects/fun/', "Fun projects"),
             ),
             'Projects',
         ),
-        ("/projects/", "Projects1"),
         ("/blog/","Blog"),
         ("/talks/", "Talks"),
         (
