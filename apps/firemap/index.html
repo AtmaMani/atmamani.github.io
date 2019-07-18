@@ -1,45 +1,295 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-113202945-1");</script>  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Title</title>
-  <link href="https://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap-open.min.css" rel="stylesheet">
-  <style>
-    .footer {
-      height: 6.25rem;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>firemap | Atma's blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/apps/firemap/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="firemap">
+<meta property="og:url" content="https://atmamani.github.io/apps/firemap/">
+<meta property="og:description" content="Up-to-date forest fire information
+Data for this map is sourced from FireWhat.com's data and map on ArcGIS.com.
+This page was built in less than 10 minutes. To build something like this, get sample co">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T14:17:59-07:00">
 </head>
 <body>
-  <div class="container">
-    <div class="page-header col-md-12">
-      <h1>Active SoCal Fires</h1>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Up-to-date forest fire information</h1>
-        <p>Data for this map is sourced from <a href="https://www.firewhat.com">FireWhat.com's</a> data and map on <a href="https://www.arcgis.com">ArcGIS.com</a>.
-        </p>
-        <p>
-          This page was built in less than 10 minutes. To build something like this, get sample code from <a href="https://developers.arcgis.com/javascript/3/jssamples/portal_embed_in_website.html">Esri JS developers site</a> thats ready to use. For conceptual information, check out <a href="http://doc.arcgis.com/en/arcgis-online/share-maps/embed-maps-groups.htm"> the AGO help</a>
-        </p>
-      </div>
-      <div class="col-md-8 embed-responsive embed-responsive-16by9">
-        
-        <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="US Wildfire Activity Web Map" src="//www.arcgis.com/apps/Embed/index.html?webmap=df8bcc10430f48878b01c96e907a1fc3&amp;extent=-118.538,33.019,-115.904,34.8578&amp;zoom=true&amp;scale=true&amp;search=true&amp;searchextent=true&amp;details=true&amp;legendlayers=true&amp;active_panel=legend&amp;basemap_gallery=true&amp;disable_scroll=false&amp;theme=dark"></iframe></div>
-        
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Footer content</p>
-      </div>
-    </footer>
-  </div>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://esri.github.io/calcite-bootstrap/assets/js/bootstrap.min.js"></script>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">firemap</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h2>Up-to-date forest fire information</h2>
+<p>Data for this map is sourced from <a href="https://www.firewhat.com/">FireWhat.com's</a> data and map on <a href="https://www.arcgis.com/">ArcGIS.com.</a></p>
+<p>This page was built in less than 10 minutes. To build something like this, get sample code from <a href="https://developers.arcgis.com/javascript/3/jssamples/portal_embed_in_website.html">Esri JS developers site</a> thats ready to use. For conceptual information, check out the <a href="http://doc.arcgis.com/en/arcgis-online/share-maps/embed-maps-groups.htm">AGO help.</a></p>
+<div class="col-md-8 embed-responsive embed-responsive-16by9">
+
+<style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style>
+<div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="US Wildfire Activity Web Map" src="//www.arcgis.com/apps/Embed/index.html?webmap=df8bcc10430f48878b01c96e907a1fc3&amp;extent=-118.538,33.019,-115.904,34.8578&amp;zoom=true&amp;scale=true&amp;search=true&amp;searchextent=true&amp;details=true&amp;legendlayers=true&amp;active_panel=legend&amp;basemap_gallery=true&amp;disable_scroll=false&amp;theme=dark"></iframe></div>
+
+</div>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
 </body>
 </html>

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analyze New York City taxi data | Atma's blog</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/analyze-new-york-city-taxi-data/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Analyze New York City taxi data">
+<meta property="og:url" content="https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/analyze-new-york-city-taxi-data/">
+<meta property="og:description" content="**Note:** Refer here for instructions to download and run this sample locally on your computer
+
+
+
+
+
+
+
+
+Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterprise introduces ArcG">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T16:58:57-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../../">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Analyze New York City taxi data</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="alert alert-info">
+
+**Note:** Refer here for instructions to <a href="https://developers.arcgis.com/python/sample-notebooks/#Download-and-run-the-sample-notebooks">download and run this sample locally</a> on your computer
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Analyzing-New-York-City-taxi-data-using-big-data-tools">Analyzing New York City taxi data using big data tools<a class="anchor-link" href="#Analyzing-New-York-City-taxi-data-using-big-data-tools">¶</a>
+</h2>
+<p>At 10.5, ArcGIS Enterprise introduces <a href="http://server.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-geoanalytics-server-.htm">ArcGIS GeoAnalytics Server</a> which provides you the ability to perform big data analysis on your infrastructure. This sample demonstrates the steps involved in performing an aggregation analysis on New York city taxi point data using ArcGIS API for Python.</p>
+<p>The data used in this sample can be downloaded from <a href="http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml">NYC Taxi &amp; Limousine Commission website</a>. For this sample, data for the months January &amp; Febuary of 2015 were used, each averaging 12 million records.</p>
+<p><strong>Note</strong>: The ability to perform big data analysis is only available on ArcGIS Enterprise 10.5 licensed with a GeoAnalytics server and not yet available on ArcGIS Online.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-NYC-taxi-data">The NYC taxi data<a class="anchor-link" href="#The-NYC-taxi-data">¶</a>
+</h3>
+<p>To give you an overview, let us take a look at a subset with 2000 points published as a feature service.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">arcgis</span>
+<span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+
+<span class="n">ago_gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">()</span> <span class="c1"># Connect to ArcGIS Online as an anonymous user</span>
+<span class="n">search_subset</span> <span class="o">=</span> <span class="n">ago_gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"NYC_taxi_subset"</span><span class="p">,</span> <span class="n">item_type</span> <span class="o">=</span> <span class="s2">"Feature Layer"</span><span class="p">)</span>
+<span class="n">subset_item</span> <span class="o">=</span> <span class="n">search_subset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">subset_item</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="http://www.arcgis.com/home/item.html?id=83d94a090176478f88843e5daf75e997" target="_blank">
+                        <img src="http://www.arcgis.com/sharing/rest//content/items/83d94a090176478f88843e5daf75e997/info/thumbnail/thumbnail.png" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="http://www.arcgis.com/home/item.html?id=83d94a090176478f88843e5daf75e997" target="_blank"><b>NYC_taxi_subset</b>
+                        </a>
+                        <br>A subset of NYC taxi data<img src="http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by atma.mani
+                        <br>Last Modified: September 14, 2016
+                        <br>0 comments, 2 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us bring up a map to display the data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subset_map</span> <span class="o">=</span> <span class="n">ago_gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"New York, NY"</span><span class="p">,</span> <span class="n">zoomlevel</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">subset_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subset_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">subset_item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us access the feature layers and their attribute table to understand the structure of our data. In the cell below, we are using the <code>query()</code> method to get the attribute information. The <code>query()</code> method returns a <code>FeatureSet</code> object which can be considered as a collection of individual <code>Feature</code> objects.</p>
+<p>You can mine through the <code>FeatureSet</code>, get individual <code>Feature</code>s and read their attribute information to compose a table of all features and their attributes. However, the <code>FeatureSet</code> object provides a much easier way to get that information. Using the <code>df</code> property of a <code>FeatureSet</code>, you can read the attribute information as a <code>pandas</code> dataframe object.</p>
+<p>To run this cell, you need to have <code>pandas</code> Python package installed. If you get an error that pandas cannot be found, you can install it by typing the following in your terminal that is running the jupyter notebook.</p>
+
+<pre><code>conda install pandas</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subset_feature_layer</span> <span class="o">=</span> <span class="n">subset_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># query the attribute information. Limit to first 5 rows.</span>
+<span class="n">query_result</span> <span class="o">=</span> <span class="n">subset_feature_layer</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">where</span> <span class="o">=</span> <span class="s1">'OBJECTID &lt; 5'</span><span class="p">,</span>
+                                          <span class="n">out_fields</span> <span class="o">=</span> <span class="s2">"*"</span><span class="p">,</span> 
+                                          <span class="n">returnGeometry</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">att_data_frame</span> <span class="o">=</span> <span class="n">query_result</span><span class="o">.</span><span class="n">df</span> <span class="c1"># get as a Pandas dataframe</span>
+<span class="n">att_data_frame</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>Field1</th>
+      <th>RateCodeID</th>
+      <th>VendorID</th>
+      <th>dropoff_latitude</th>
+      <th>dropoff_longitude</th>
+      <th>extra</th>
+      <th>fare_amount</th>
+      <th>improvement_surcharge</th>
+      <th>mta_tax</th>
+      <th>passenger_count</th>
+      <th>payment_type</th>
+      <th>pickup_latitude</th>
+      <th>pickup_longitude</th>
+      <th>store_and_fwd_flag</th>
+      <th>tip_amount</th>
+      <th>tolls_amount</th>
+      <th>total_amount</th>
+      <th>tpep_dropoff_datetime</th>
+      <th>tpep_pickup_datetime</th>
+      <th>trip_distance</th>
+    </tr>
+<tr>
+<th>OBJECTID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+      <td>3479320</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.782318</td>
+      <td>-73.980492</td>
+      <td>0.0</td>
+      <td>9.5</td>
+      <td>0.3</td>
+      <td>0.5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>40.778149</td>
+      <td>-73.956291</td>
+      <td>N</td>
+      <td>2.1</td>
+      <td>0</td>
+      <td>12.4</td>
+      <td>1422268943000</td>
+      <td>1422268218000</td>
+      <td>1.76</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>8473342</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.769756</td>
+      <td>-73.950600</td>
+      <td>0.5</td>
+      <td>13.5</td>
+      <td>0.3</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.729458</td>
+      <td>-73.983864</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>14.8</td>
+      <td>1422137577000</td>
+      <td>1422136892000</td>
+      <td>3.73</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>10864374</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.753040</td>
+      <td>-73.985680</td>
+      <td>0.0</td>
+      <td>14.5</td>
+      <td>0.3</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.743740</td>
+      <td>-73.987617</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>15.3</td>
+      <td>1422719906000</td>
+      <td>1422718711000</td>
+      <td>2.84</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>7350094</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.765743</td>
+      <td>-73.954994</td>
+      <td>0.0</td>
+      <td>11.5</td>
+      <td>0.3</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40.757507</td>
+      <td>-73.981682</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>12.3</td>
+      <td>1420907558000</td>
+      <td>1420906601000</td>
+      <td>2.18</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The table above represents the attribute information available from the NYC dataset. Columns like pickup, dropoff locations, fare, tips, toll, trip distance provide a wealth of infomation allowing many interesting patterns to be observed. Our full data dataset contains over 24 million points. To discern patterns out of it, let us aggregate the points into square blocks of 1 Kilometer length.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Searching-for-big-data-file-shares">Searching for big data file shares<a class="anchor-link" href="#Searching-for-big-data-file-shares">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To process the csv data you have downloaded using GeoAnalyitcs Server, you need to register the data with your Geoanalytics Server. In this sample the data is in multiple csv files, which will be registered as a big data file share.</p>
+<p>Let us connect to an ArcGIS Enterprise.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s2">"https://yourportal.domain.com/webcontext"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ensure that the Geoanalytics is supported with our GIS.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arcgis</span><span class="o">.</span><span class="n">geoanalytics</span><span class="o">.</span><span class="n">is_supported</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Get the geoanalytics datastores and search it for the registered datasets:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datastores</span> <span class="o">=</span> <span class="n">arcgis</span><span class="o">.</span><span class="n">geoanalytics</span><span class="o">.</span><span class="n">get_datastores</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bigdata_fileshares</span> <span class="o">=</span> <span class="n">datastores</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="n">bigdata_fileshares</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Datastore title:"/bigDataFileShares/Chicago_accidents" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/hurricanes" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/hurricanes_1m_168yrs" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/hurricanes_all" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/Hurricane_tracks" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/NYCdata" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/NYC_taxi" type:"bigDataFileShare"&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>NYC_taxi data is registered as a <code>big data file share</code> with the Geoanalytics datastore, so we can reference it:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span> <span class="o">=</span> <span class="n">bigdata_fileshares</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Registering-big-data-file-shares">Registering big data file shares<a class="anchor-link" href="#Registering-big-data-file-shares">¶</a>
+</h3>
+<p>The code below shows how a big data file share can be registered with the geoanalytics datastores, in case it's not already registered.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span> <span class="o">=</span> <span class="n">datastores</span><span class="o">.</span><span class="n">add_bigdata</span><span class="p">(</span><span class="s2">"NYCdata"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"</span><span class="se">\\</span><span class="s2">teton\atma_shared\datasets\NYC_taxi"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Big Data file share exists for NYCdata
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once a big data file share is created, the GeoAnalytics server processes all the valid file types to discern the schema of the data. This process can take a few minutes depending on the size of your data. Once processed, querying the <code>manifest</code> property returns the schema. As you can see from below, the schema is similar to the subset we observed earlier in this sample.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span><span class="o">.</span><span class="n">manifest</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'datasets': [{'format': {'encoding': 'UTF-8',
+    'extension': 'csv',
+    'fieldDelimiter': ',',
+    'hasHeaderRow': True,
+    'quoteChar': '"',
+    'recordTerminator': '\n',
+    'type': 'delimited'},
+   'geometry': {'fields': [{'formats': ['x'], 'name': 'pickup_longitude'},
+     {'formats': ['y'], 'name': 'pickup_latitude'}],
+    'geometryType': 'esriGeometryPoint',
+    'spatialReference': {'wkid': 4326}},
+   'name': 'sampled',
+   'schema': {'fields': [{'name': 'VendorID',
+      'type': 'esriFieldTypeBigInteger'},
+     {'name': 'tpep_pickup_datetime', 'type': 'esriFieldTypeString'},
+     {'name': 'tpep_dropoff_datetime', 'type': 'esriFieldTypeString'},
+     {'name': 'passenger_count', 'type': 'esriFieldTypeBigInteger'},
+     {'name': 'trip_distance', 'type': 'esriFieldTypeDouble'},
+     {'name': 'pickup_longitude', 'type': 'esriFieldTypeDouble'},
+     {'name': 'pickup_latitude', 'type': 'esriFieldTypeDouble'},
+     {'name': 'RateCodeID', 'type': 'esriFieldTypeBigInteger'},
+     {'name': 'store_and_fwd_flag', 'type': 'esriFieldTypeString'},
+     {'name': 'dropoff_longitude', 'type': 'esriFieldTypeDouble'},
+     {'name': 'dropoff_latitude', 'type': 'esriFieldTypeDouble'},
+     {'name': 'payment_type', 'type': 'esriFieldTypeBigInteger'},
+     {'name': 'fare_amount', 'type': 'esriFieldTypeDouble'},
+     {'name': 'extra', 'type': 'esriFieldTypeDouble'},
+     {'name': 'mta_tax', 'type': 'esriFieldTypeDouble'},
+     {'name': 'tip_amount', 'type': 'esriFieldTypeDouble'},
+     {'name': 'tolls_amount', 'type': 'esriFieldTypeDouble'},
+     {'name': 'improvement_surcharge', 'type': 'esriFieldTypeDouble'},
+     {'name': 'total_amount', 'type': 'esriFieldTypeDouble'}]},
+   'time': {'fields': [{'formats': ['MM/dd/yyyy HH:mm'],
+      'name': 'tpep_pickup_datetime'}],
+    'timeReference': {'timeZone': 'UTC'},
+    'timeType': 'instant'}}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Performing-data-aggregation">Performing data aggregation<a class="anchor-link" href="#Performing-data-aggregation">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When you add a big data file share datastore, a corresponding item gets created on your portal. You can search for it like a regular item and query its layers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search_result</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">item_type</span> <span class="o">=</span> <span class="s2">"big data file share"</span><span class="p">)</span>
+<span class="n">search_result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Item title:"bigDataFileShares_hurricanes_1m_168yrs" type:Big Data File Share owner:admin&gt;,
+ &lt;Item title:"bigDataFileShares_NYC_taxi" type:Big Data File Share owner:admin&gt;,
+ &lt;Item title:"bigDataFileShares_hurricanes" type:Big Data File Share owner:admin&gt;,
+ &lt;Item title:"bigDataFileShares_Chicago_accidents" type:Big Data File Share owner:admin&gt;,
+ &lt;Item title:"bigDataFileShares_hurricanes_all" type:Big Data File Share owner:admin&gt;,
+ &lt;Item title:"bigDataFileShares_NYCdata" type:Big Data File Share owner:admin&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">data_item</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="https://dev003246.esri.com/portal/home/item.html?id=eb008eec870547bab733efa210a52e5d" target="_blank">
+                        <img src="https://dev003246.esri.com/portal/portalimages/desktopapp.png" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="https://dev003246.esri.com/portal/home/item.html?id=eb008eec870547bab733efa210a52e5d" target="_blank"><b>bigDataFileShares_NYCdata</b>
+                        </a>
+                        <br><img src="https://dev003246.esri.com/portal/home/js/jsapi/esri/css/images/item_type_icons/layers16.png" style="vertical-align:middle;">Big Data File Share by admin
+                        <br>Last Modified: December 01, 2016
+                        <br>0 comments, 0 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Layer url:"https://yourserver.domain.com/webcontext/rest/services/DataStoreCatalogs/bigDataFileShares_NYCdata/BigDataCatalogServer/sampled"&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year_2015</span> <span class="o">=</span> <span class="n">data_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">year_2015</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Layer url:"https://yourserver.domain.com/webcontext/rest/services/DataStoreCatalogs/bigDataFileShares_NYCdata/BigDataCatalogServer/sampled"&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Aggregate-points-tool">Aggregate points tool<a class="anchor-link" href="#Aggregate-points-tool">¶</a>
+</h4>
+<p>The <code>aggregate_points()</code> tool can be accessed through the <code>tools.bigdata</code> property of your GIS. In this example, we are using this tool to aggregate the numerous points into 1 Kilometer square blocks. The tool creates a feature layer as an output which can be accessed once the processing is complete.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">arcgis.geoanalytics.summarize_data</span> <span class="k">import</span> <span class="n">aggregate_points</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arcgis</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process_spatial_reference</span><span class="o">=</span><span class="mi">3857</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agg_result</span> <span class="o">=</span> <span class="n">aggregate_points</span><span class="p">(</span><span class="n">year_2015</span><span class="p">,</span> <span class="n">bin_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bin_size_unit</span><span class="o">=</span><span class="s1">'Kilometers'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Submitted.
+Executing...
+Executing (AggregatePoints): AggregatePoints "Feature Set" # 1 Kilometers # # # # # # # {"serviceProperties":{"name":"Aggregate_Points_Analysis_7PE5QR","serviceUrl":"http://yourserver.domain.com/webcontext/rest/services/Hosted/Aggregate_Points_Analysis_7PE5QR/FeatureServer"},"itemProperties":{"itemId":"42add58c05d54ae1a492175894410b02"}} {"processSR":{"wkid":3857}}
+Start Time: Wed Dec 14 12:38:07 2016
+Using URL based GPRecordSet param: https://yourserver.domain.com/webcontext/rest/services/DataStoreCatalogs/bigDataFileShares_NYCdata/BigDataCatalogServer/sampled?token=8wIONMIEQR-QQPpTaXJ_Tz-PRPWtYX9AQapkiMAa0GbMYQORQuzNMAWAjN641uvgg5yNJnXinc_NG3OUG0d0u2vySZ-r9BePKOMBuA_hEy0boVvNZ5_bGGeMl0v-4agYjkZKfOJxm4zZWEQoXJqx67WHktNU_s2snZ0QGE-wKLE.
+{"messageCode":"BD_101033","message":"'pointLayer' will be projected into the processing spatial reference.","params":{"paramName":"pointLayer"}}
+{"messageCode":"BD_101028","message":"Starting new distributed job with 6 tasks.","params":{"totalTasks":"6"}}
+{"messageCode":"BD_101029","message":"1/6 distributed tasks completed.","params":{"completedTasks":"1","totalTasks":"6"}}
+{"messageCode":"BD_101029","message":"6/6 distributed tasks completed.","params":{"completedTasks":"6","totalTasks":"6"}}
+  interval = None
+  count = 152
+{"messageCode":"BD_0","message":"Feature service layer created: http://yourserver.domain.com/webcontext/rest/services/Hosted/Aggregate_Points_Analysis_7PE5QR/FeatureServer/0","params":{"serviceUrl":"http://yourserver.domain.com/webcontext/rest/services/Hosted/Aggregate_Points_Analysis_7PE5QR/FeatureServer/0"}}
+Succeeded at Wed Dec 14 12:38:15 2016 (Elapsed Time: 8.00 seconds)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Inspect-the-results">Inspect the results<a class="anchor-link" href="#Inspect-the-results">¶</a>
+</h4>
+<p>Let us create a map and load the processed result which is a feature layer item.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed_map</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'New York, NY'</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">processed_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">agg_result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us inspect the analysis result using smart mapping. To learn more about this visualization capability, refer to the guide on <a href="../../../../../python/guide/smart-mapping/">Smart Mapping</a> under the 'Mapping and Visualization' section.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"New York, NY"</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">map2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">agg_result</span><span class="p">,</span> <span class="p">{</span>
+                <span class="s2">"renderer"</span><span class="p">:</span><span class="s2">"ClassedColorRenderer"</span><span class="p">,</span>
+                <span class="s2">"field_name"</span><span class="p">:</span><span class="s2">"MAX_tip_amount"</span><span class="p">,</span> 
+                <span class="s2">"normalizationField"</span><span class="p">:</span><span class="s1">'MAX_trip_distance'</span><span class="p">,</span>
+                <span class="s2">"classificationMethod"</span><span class="p">:</span><span class="s1">'natural-breaks'</span><span class="p">,</span>
+                <span class="s2">"opacity"</span><span class="p">:</span><span class="mf">0.75</span>
+              <span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now start seeing patterns, such as which pickup areas resulted in higher tips for the cab drivers.</p>
+
+</div>
+</div>
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

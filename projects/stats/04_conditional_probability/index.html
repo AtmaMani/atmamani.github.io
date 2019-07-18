@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04_conditional_probability | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/projects/stats/04_conditional_probability/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="04_conditional_probability">
+<meta property="og:url" content="https://atmamani.github.io/projects/stats/04_conditional_probability/">
+<meta property="og:description" content="Probability distributions - 1¶ToC
+
+Axioms of probability
+Conditional probability
+Bayesian conditional probability
+
+
+Random variables
+Properties of discrete random variables
+Binomial and Poisson discre">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-19T09:57:39-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">04_conditional_probability</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Probability-distributions---1">Probability distributions - 1<a class="anchor-link" href="#Probability-distributions---1">¶</a>
+</h2>
+<p><strong>ToC</strong></p>
+<ul>
+<li><a href="#Axioms-of-probability">Axioms of probability</a></li>
+<li>
+<a href="#Conditional-probability">Conditional probability</a><ul>
+<li><a href="#Bayesian-conditional-probability">Bayesian conditional probability</a></li>
+</ul>
+</li>
+<li>
+<a href="#Random-variables">Random variables</a><ul>
+<li><a href="#Properties-of-discrete-random-variables">Properties of discrete random variables</a></li>
+<li><a href="#Binomial-and-Poisson-discrete-random-variables">Binomial and Poisson discrete random variables</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Axioms-of-probability">Axioms of probability<a class="anchor-link" href="#Axioms-of-probability">¶</a>
+</h4>$$
+0 \leq P(A) \leq 1
+\\
+P(A) + P(\bar A) = 1
+\\
+P(A \verb ! or ! B) = P(A) + P(B)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probability ranges from 0 to 1. The sum of P(A) and the opposite of A occuring is 1. For mutually exclusive events A and B, the Probability of either A or B ocurring is sum of their probabilities.</p>
+<p><strong>Mutually exclusive</strong>: Two events are considered mutually exclusive, if when an event is performed once, the occurrence of one of the events excludes the possibility of another.</p>
+<p>For two independent events, probabilities of their union and intersection can be represented as</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If A and B are mutually exclusive, then $P(A \cap B) = 0$</p>
+<p>The reason we negate <code>P(A intersection B)</code> can be seen from the venn diagram below. Probabilities of A and B are (0.5 and 0.2). The probability of both A and B ocurring is 0.05. Thus to not double count the intersection, we negate it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib_venn</span> <span class="k">import</span> <span class="n">venn2</span>
+<span class="n">venn2</span><span class="p">(</span><span class="n">subsets</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">set_labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib_venn._common.VennDiagram at 0x11a436ef0&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0AQmCC">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">¶</a>
+</h3>
+<p>Generally, conditional probability is more helpful in explaining a situtation than general probabilities.</p>
+<p>Given two events <code>A</code> and <code>B</code> with non zero probabilities, then the probability of A occurring, given that B has occurs is</p>
+$$
+P(A|B) = \frac{P(A \cap B)}{P(B)}
+$$<p>and
+$$
+P(B|A) = \frac{P(A \cap B)}{P(A)}
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The $P(A/B)$ probability of A given that B occurs, is the probability of A and B occurring $P(A \cap B)$ to the probability of B occurring $P(B)$. Thus if <code>A</code> and <code>B</code> are <code>mutually exclusive</code>, then there is no conditional probability.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example</strong>
+Consider the case of insurance fraud. In table below, you are given insurance type and what rate of them are fraud claims.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'Fradulent'</span><span class="p">],[</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="s1">'Not Fradulent'</span><span class="p">]],</span> 
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Fire'</span><span class="p">,</span> <span class="s1">'Auto'</span><span class="p">,</span><span class="s1">'Other'</span><span class="p">,</span><span class="s1">'Status'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Fire</th>
+      <th>Auto</th>
+      <th>Other</th>
+      <th>Status</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>6</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Fradulent</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>14</td>
+      <td>29</td>
+      <td>47</td>
+      <td>Not Fradulent</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>total number of claims</strong>: 100, <strong>number of fraud claims</strong>: 10. Thus 10% of all claims are fraud. However, with additional information about type of claims, we can fine grain whether a given claim is fraud, <strong>if we knew the type of claim</strong> (predictor variable).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To answer the question, <strong>what is the probability that a claim is fraud, given that it is a Fire claim</strong>?:</p>
+$$
+p(Fraud \ |\ fire \ policy) = \frac{p(fire \cap fraud)}{p(fire \ policy)}
+$$$$
+p(Fraud \ | \ fire \ policy) = \frac{0.06}{0.20} = .30
+$$<p>or 30% of claims are fraud, given that they are of type fire.</p>
+<p>Here, <strong><code>30%</code></strong> is called the <code>conditional probability</code> and the general <strong><code>10%</code></strong> is called the <code>unconditional</code> or <code>marginal</code> probability. Clearly, knowing the conditional probability is of much higher value than knowing the unconditional probability.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Bayesian-conditional-probability">Bayesian conditional probability<a class="anchor-link" href="#Bayesian-conditional-probability">¶</a>
+</h4>
+<p>The Bayesian theorem builds on conditional probability, specifically on prior and posterior probabilities. It states that, if <code>A</code> and <code>B</code> are any events whose probabilities are not 0 or 1, then:</p>
+$$
+P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\bar A)P(\bar A)}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In reality, we expand the $\bar A$ case. Thus if $A_1 ,... A_k$ are mutually exclusive <code>states of nature</code> and if $B_1 .. B_m$ are <code>m</code> possible mutually exclusive observable events, then,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+P(A_i | B_j) = \frac{P(B_j | A_i)P(A_i)}{P(B_j | A_1)P(A_1) + P(B_j | A_2)P(A_2) + ... + P(B_j | A_k)P(A_k)}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consider $A_1 ,... A_k$ as $k$ predictor variables in machine learning. The Naive Bayes classifier will build the conditional probabilities of $p(B_j|A_k)$ to later predict what would $p(A_i | B_j)$ be.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

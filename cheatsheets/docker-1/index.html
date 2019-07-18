@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker tutorial | Atma's blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/docker-1/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Docker tutorial">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/docker-1/">
+<meta property="og:description" content="Need for Docker
+Pre-virtualization had a number of problems
+ - huge cost of VMs
+ - slow deployment, hard to manage
+ - VMWare and VirtualBox provided virtualization software which improved the process
+">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-08T13:57:17-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../latex-1/">Latex introduction</a>
+                    </li>
+<li class="active">
+<a href=".">Docker introduction <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Docker tutorial</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Need for Docker</h3>
+<p>Pre-virtualization had a number of problems
+ - huge cost of VMs
+ - slow deployment, hard to manage
+ - VMWare and VirtualBox provided virtualization software which improved the process
+ - things improved when Azure, AWS started providing VMs for hire. They provided pay-as-you-go model. Also deployment was extremely fast.</p>
+<p>Virtualization changed the game as they allowed to almost eliminate the virtual OS.
+ - all containers run on the same linux kernel. However, isolation is provided at runtime.
+ - containers pack up only the needed parts of the OS. Thus they are faster to deploy, scale up
+ - containers are fully portable</p>
+<h3>Docker architecture</h3>
+<p>There are 2 distinct parts
+ - <code>docker client</code> - you interact with this layer, typically via CLI apps
+ - <code>docker daemon</code> - the background process which powers the containers. We don't talk to this directly, but only via the <code>docker client</code>.</p>
+<p>Typically, the docker client and daemon run on the same machine, but it is possible from the client to connect to a remote daemon.</p>
+<h4>Images and Containers, Registries and Repositories</h4>
+<p><strong>Images</strong> are read-only templates composed by stacking up other images. They are hosted on docker registry.</p>
+<p><strong>Containers</strong> is an instance of an image.</p>
+<p><strong>Registry</strong> is where we store our images. You can host this yourself or use Docker's public registry called <code>DockerHub</code>. <strong>Repositories</strong> are repos within the registry where images of a particular type are stored.</p>
+<p><strong>Docker Hub</strong> - is a public registry. Official repos are encouraged to be used as they are vetted by Docker and ensure they get security updates frequently. Generally, user created repos have a prefixing <code>username/repo_name/image_name</code>. Usually, <code>tags</code> are used to specify docker versions.</p>
+<h3>Docker commands - quickstart</h3>
+<ul>
+<li>list all images held locally - <code>docker images</code>
+</li>
+<li>run an image - <code>docker run busybox:1.23 echo "hello world"</code> which is of syntax <code>docker run image &lt;command to run on image&gt; &lt;argument for command&gt;</code> On running this, Docker will try to find the image locally, if not found, will download from docker hub and run. Example output below:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="nv">open</span><span class="o">-</span><span class="nv">geo</span> [<span class="nv">master</span>] $ <span class="nv">docker</span> <span class="nv">run</span> <span class="nv">busybox</span>:<span class="nv">latest</span> <span class="nv">echo</span> <span class="s2">"</span><span class="s">hello atma</span><span class="s2">"</span>
+<span class="nv">Unable</span> <span class="nv">to</span> <span class="nv">find</span> <span class="nv">image</span> <span class="s1">'</span><span class="s">busybox:latest</span><span class="s1">'</span> <span class="nv">locally</span>
+<span class="nv">latest</span>: <span class="nv">Pulling</span> <span class="nv">from</span> <span class="nv">library</span><span class="o">/</span><span class="nv">busybox</span>
+<span class="mi">697743189</span><span class="nv">b6d</span>: <span class="nv">Pull</span> <span class="nv">complete</span> 
+<span class="nv">Digest</span>: <span class="nv">sha256</span>:<span class="mi">061</span><span class="nv">ca9704a714ee3e8b80523ec720c64f6209ad3f97c0ff7cb9ec7d19f15149f</span>
+<span class="nv">Status</span>: <span class="nv">Downloaded</span> <span class="nv">newer</span> <span class="nv">image</span> <span class="k">for</span> <span class="nv">busybox</span>:<span class="nv">latest</span>
+<span class="nv">hello</span> <span class="nv">atma</span>
+<span class="nv">open</span><span class="o">-</span><span class="nv">geo</span> [<span class="nv">master</span>] $ 
+</pre>
+
+
+<ul>
+<li>if you run the same command agin, it will run faster as there is no downloading.</li>
+<li>you can do other things like look at the contents of the image by calling <code>docker run busybox:latest ls /</code>
+</li>
+</ul>
+<h5>Running docker in interactive mode</h5>
+<ul>
+<li>run the image with <code>-i</code>, <code>-t</code> commands for interactive, TTY mode.</li>
+<li>
+<code>docker run -i -t busybox:latest</code>. You can exit by typing <code>exit</code>
+</li>
+</ul>
+<h5>Running in foreground vs detached modes</h5>
+<p>The default mode is to run in foreground. Docker will start the process in container, attaches the console to this process' std output. You terminate the process and the connection together. When running, the terminal cannot be used for other things.</p>
+<p>Background / detached mode on the other hand can be stared with <code>-d</code> flag. The container is killed when the root process of container terminates. You can use the terminal to do other things while the container is running.</p>
+<ul>
+<li>
+<code>docker run -d busybox:latest sleep 100</code> will run it in background mode.</li>
+<li>You can list the running <strong>containers</strong> using <code>docker ps</code> command. Add the <code>-a</code> to list all containers that are stopped as well.</li>
+<li>By default, docker remembers both your containers and images. So you can rerun a docker container. If you do not want to retain a container, use <code>docker run --rm</code> option. The container is removed after it is run.</li>
+<li>to remove a container, run <code>docker rm &lt;name of container&gt;</code>.</li>
+<li>to run a container with a custom name, run <code>docker run --name &lt;custom_name&gt; &lt;commands&gt;</code>. Then you can verify this using <code>docker ps -a</code> command.</li>
+<li>When running in <strong>background mode</strong>, you cannot see the logs. Thus, you can call <code>docker logs &lt;container_name_or_id&gt;</code> to view the logs.</li>
+</ul>
+<h5>Docker inspect</h5>
+<p>Use inspect to display low level information about a container or image.</p>
+<ul>
+<li>to get low level details, run <code>docker inspect &lt;container_id&gt;</code> or <code>docker inspect &lt;conatiner_name&gt;</code>
+</li>
+</ul>
+<h5>Port mapping</h5>
+<p>We can expose a port on the container and map that to port on host using <code>-p</code> option. For instance: <code>docker run -it -p 8888:8080 tomcat:8.0</code> will run tomcat and map its <code>8888</code> port to the default <code>80</code> port on host.</p>
+<h3>Docker images in detail</h3>
+<h4>Docker image layers</h4>
+<p>A docker image is built as a list of read-only layers. At the bottom is a <strong>base layer</strong> on which other docker images or custom apps are installed. You can see all the <strong>layers</strong> of an image using <code>docker history &lt;image name:tag&gt;</code> command.</p>
+<p>When a new container is instantiated, a new <strong>editable, writable (container) layer</strong> is added on top of this read-only image layers. Thus when container is deleted, all changes are lost and the image remains unchanged. Thus different containers instantiated from same image can have different <strong>data states</strong> emanating from their thin, editable layers.</p>
+<h4>Build docker image</h4>
+<p>There are 2 ways of building an image
+  1. commit changes made to a container (yay!)
+  2. by writing a <strong><code>Dockerfile</code></strong>.</p>
+<h5>Build docker image by committing a container</h5>
+<p>Here we make changes to the container, typically running it in interactive mode. Then after exiting the container (container can be stopped at this point), we call <code>docker commit &lt;container name or id&gt; &lt;username/image_name:tag&gt;</code>. Thus in this ex for example, I did the following
+ - <code>docker run -it debian:jessie</code> which downloads and runs debian OS in interactive mode
+ - from within the container, run <code>apt-get update &amp;&amp; apt-get install -y git</code> to install GIT
+ - exit container and to commit, I do <code>docker commit hopeful_ellis atmamani/debian:0.1</code>
+ - then running <code>docker images</code> will report the <code>atmamani/debian</code> image.
+ - finally, running <code>docker history atmamani/debian:0.1</code> lists the changes I made. Note, it only states modification as bash, meaning it was a bash command, but not what the command is.</p>
+<h5>Build docker image using <code>Dockerfile</code>
+</h5>
+<p>Dockerfile is a text based manifest. The file should not have any extension and must start with a capital <code>D</code>. Below is a sample Dockerfile</p>
+<pre class="code literal-block"><span></span><span class="k">FROM</span><span class="s"> debain:jessie</span>
+<span class="k">RUN</span> apt-get update
+<span class="k">RUN</span> apt-get install -y git
+<span class="k">RUN</span> apt-get install -y vim
+</pre>
+
+
+<p>Then build it using command <code>docker build -t &lt;username/imagename:tag&gt; &lt;buildcontext&gt;</code> The build context here needs path to the dockerfile on disk. You can also use the build context to package up additional files into the docker image. Docker daemon will create a tarball of these files, send it to the contain, unpack. So I ran <code>docker build -t atmamani/debian:frmdckfile .</code> from the folder containing the Dockerfile.</p>
+<p>Once built, you can inspect the history and now it reports it correctly:</p>
+<pre class="code literal-block"><span></span><span class="n">docker</span><span class="o">-</span><span class="n">trials</span> <span class="err">$</span> <span class="n">docker</span> <span class="n">history</span> <span class="n">atmamani</span><span class="o">/</span><span class="n">debian</span><span class="p">:</span><span class="n">frmdckfile</span>
+<span class="n">IMAGE</span>               <span class="n">CREATED</span>              <span class="n">CREATED</span> <span class="k">BY</span>                                      <span class="k">SIZE</span>                <span class="k">COMMENT</span>
+<span class="n">a9d62a3217ae</span>        <span class="mi">25</span> <span class="n">seconds</span> <span class="n">ago</span>       <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">vim</span>               <span class="mi">29</span><span class="p">.</span><span class="mi">7</span><span class="n">MB</span>              
+<span class="n">a4c2ad02f957</span>        <span class="mi">39</span> <span class="n">seconds</span> <span class="n">ago</span>       <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">git</span>               <span class="mi">85</span><span class="n">MB</span>                
+<span class="n">cdfcdde0ccab</span>        <span class="n">About</span> <span class="n">a</span> <span class="k">minute</span> <span class="n">ago</span>   <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>                       <span class="mi">10</span><span class="p">.</span><span class="mi">3</span><span class="n">MB</span>              
+<span class="n">b6ebaf83dd59</span>        <span class="mi">8</span> <span class="n">days</span> <span class="n">ago</span>           <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="o">#</span><span class="p">(</span><span class="n">nop</span><span class="p">)</span>  <span class="n">CMD</span> <span class="p">[</span><span class="ss">"bash"</span><span class="p">]</span>                 <span class="mi">0</span><span class="n">B</span>                  
+<span class="o">&lt;</span><span class="n">missing</span><span class="o">&gt;</span>           <span class="mi">8</span> <span class="n">days</span> <span class="n">ago</span>           <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="o">#</span><span class="p">(</span><span class="n">nop</span><span class="p">)</span> <span class="k">ADD</span> <span class="n">file</span><span class="p">:</span><span class="n">e044496893d9e2cbf</span><span class="err">…</span>   <span class="mi">129</span><span class="n">MB</span>               
+<span class="n">docker</span><span class="o">-</span><span class="n">trials</span> <span class="err">$</span> 
+</pre>
+
+
+<h6>Optimizing docker images</h6>
+<p>One aspect is to reduce the number of layers a docker image has. Each line in the Dockerfile corresponds to a layer. Thus chaining the lines into a single line will reduce this to 1 layer. For instance, the earlier Dockerfile can be trimmed to</p>
+<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">instal</span> <span class="o">-</span><span class="n">y</span> <span class="n">git</span> <span class="n">vim</span>
+</pre>
+
+
+<h5>Baking run commands into Docker image</h5>
+<p>We can bake commands to be run when a container starts up from an image. The preferred way is to use <code>exec</code> commands, an alternate is to specify <code>bash</code> commands. We prefix such with <code>CMD</code> keyword. If you do not specify a CMD, the default is to bring up <code>bash</code>.</p>
+<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
+    <span class="n">git</span> <span class="err">\</span>
+    <span class="n">python</span> <span class="err">\</span>
+    <span class="n">vim</span>
+<span class="n">CMD</span> <span class="p">[</span><span class="ss">"echo"</span><span class="p">,</span> <span class="ss">"helllo world"</span><span class="p">]</span>
+</pre>
+
+
+<p>When a container is created, it runs this <code>helllo world</code> with a typo. You can also modify this at runtime, by specifying <code>docker run &lt;image_name&gt; &lt;commands&gt; &lt;arguments&gt;</code> such as <code>docker run atmamani/echoer echo hello hello</code>.</p>
+<h5>Copying files into the image</h5>
+<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
+    <span class="n">git</span> <span class="err">\</span>
+    <span class="n">python</span> <span class="err">\</span>
+    <span class="n">vim</span>
+<span class="k">COPY</span> <span class="p">.</span><span class="o">/</span><span class="n">abc</span><span class="p">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">abc</span><span class="p">.</span><span class="n">txt</span>
+</pre>
+
+
+<p>The above will copy <code>abc.txt</code> from local dir into the <code>tmp</code> dir of the image. This will be available for all containers spun up from this image.</p>
+<h5>Pushing images to Docker hub</h5>
+<p>Some people say don't use <code>latest</code> tag, instead use a real SEMVER version. To tag an image before pushing to hub or production, you need to tag it appropriately. <code>docker tag &lt;image name&gt; &lt;reponame/newname:tag&gt;</code> Thus, <code>docker tag atmamani/debian:frmdckfile atmamani/debian:0.2</code></p>
+<p>Then push using <code>docker push &lt;imagename&gt;</code> as <code>docker push atmamani/debian:0.2</code></p>
+<h3>A Hello world app using Flask</h3>
+<p>Download the repo using <code>git clone -b v0.1 https://github.com/jleetutorial/dockerapp.git</code>. Then build the docker image using <code>docker build -t tut-dockerapp:v0.1 .</code></p>
+<p>Run the container as <code>docker run -d -p 5000:5000 tut-dockerapp:v0.1</code> this spins up the container and maps the port. You can use the web app at <code>localhost:5000</code>. If for some reason, this is not available or unknown, you can find the IP address of the docker using <code>docker-machine ls</code> or find which port is mapped using <code>docker ps</code>.</p>
+<p>To <strong>step into a running container</strong>, use <code>docker exec -it &lt;cont name or id&gt; &lt;command&gt;</code>, such as <code>docker exec -it keen_noyce bash</code>. The <code>-i</code> flag makes it interactive. To <strong>see the running process within the container</strong> do <code>ps axu</code> from within the <code>home</code> directory:</p>
+<pre class="code literal-block"><span></span><span class="nv">dockerapp</span> [<span class="ss">(</span><span class="nv">no</span> <span class="nv">branch</span><span class="ss">)</span>] $ <span class="nv">docker</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="nv">keen_noyce</span> <span class="nv">bash</span>
+<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">/</span><span class="nv">app</span>$ <span class="nv">cd</span> <span class="o">~</span>
+<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">~</span>$ <span class="nv">ps</span> <span class="nv">axu</span>
+<span class="nv">USER</span>       <span class="nv">PID</span> <span class="o">%</span><span class="nv">CPU</span> <span class="o">%</span><span class="nv">MEM</span>    <span class="nv">VSZ</span>   <span class="nv">RSS</span> <span class="nv">TTY</span>      <span class="nv">STAT</span> <span class="nv">START</span>   <span class="nv">TIME</span> <span class="nv">COMMAND</span>
+<span class="nv">admin</span>        <span class="mi">1</span>  <span class="mi">0</span>.<span class="mi">0</span>  <span class="mi">1</span>.<span class="mi">2</span> <span class="mi">102852</span> <span class="mi">25080</span> ?        <span class="nv">Ss</span>   <span class="mi">19</span>:<span class="mi">33</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">python</span> <span class="nv">app</span>.<span class="nv">py</span>
+<span class="nv">admin</span>       <span class="mi">17</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">19964</span>  <span class="mi">3680</span> <span class="nv">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="nv">Ss</span>   <span class="mi">19</span>:<span class="mi">47</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">bash</span>
+<span class="nv">admin</span>       <span class="mi">24</span>  <span class="mi">0</span>.<span class="mi">0</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">38380</span>  <span class="mi">3216</span> <span class="nv">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="nv">R</span><span class="o">+</span>   <span class="mi">19</span>:<span class="mi">47</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">ps</span> <span class="nv">axu</span>
+<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">~</span>$ 
+</pre>
+
+
+<p>To exit out of the container's bash, type <code>exit</code>. To stop the container running as daemon, type <code>docker stop &lt;container_name&gt;</code>.</p>
+<h3>KVP lookup app using Flask</h3>
+<h3>Linking containers using <code>redis</code>
+</h3>
+<p><code>redis</code> is a message broker, inmemory cache, db service that is containerized. We need a redis Python client.</p>
+<h3>Linking with Docker compose</h3>
+<p><code>docker-compose.yml</code> is a YAML file. Verison 3 is up to date. You start with a version number. Then specify the services that needs to be run. The <code>dockerapp</code> contains the main, user facing app, the <code>depends_on</code> contains all other microservices that need to be spun up and the order in which they need to be spun up.
+A sample looks like:</p>
+<pre class="code literal-block"><span></span><span class="nt">verison</span><span class="p">:</span> <span class="s">'3'</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">dockerapp</span><span class="p">:</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">"5000:5000"</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+  <span class="nt">redis</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis:3.2.0</span>
+</pre>
+
+
+<p>To build and run using docker compose, run <code>docker-compose up -d</code> from dir that contains the yaml file. Once done, you can run <code>docker ps</code> to see the containers created and being run.</p>
+<p>To rebuild a docker compose, you may have to force it if are changing just the python stack. To force rebuild use <code>docker-compose build</code>.</p>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

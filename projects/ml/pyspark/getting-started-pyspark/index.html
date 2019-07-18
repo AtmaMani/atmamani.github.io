@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started with PySpark | Atma's blog</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/projects/ml/pyspark/getting-started-pyspark/">
+<!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Getting started with PySpark">
+<meta property="og:url" content="https://atmamani.github.io/projects/ml/pyspark/getting-started-pyspark/">
+<meta property="og:description" content="PySpark library gives you a Python API to read and work with your RDDs in HDFS through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.
+Installing PySpa">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-07-17T16:49:24-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Getting started with PySpark</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>PySpark library gives you a Python API to read and work with your RDDs in HDFS through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.</p>
+<h3>Installing PySpark, Scala, Java, Spark</h3>
+<p><a href="https://medium.com/@josemarcialportilla/getting-spark-python-and-jupyter-notebook-running-on-amazon-ec2-dec599e1c297">Follow this tutorial</a>. The overall steps are</p>
+<ul>
+<li>get a linux VM ready. It could be an EC2 instance on AWS</li>
+<li>get SSH ability into this VM</li>
+<li>install anaconda. <strong>Note</strong>: Spark 2.0.0 cannot work with Python 3.6 and needs 3.5. So you can get a version of anaconda that installs 3.5 by default or you can get a higher version of Spark.</li>
+<li>change the default system Python to use Anaconda python</li>
+<li>install pip and <code>py4j</code> lib that allows you to run java via Python.</li>
+<li>download and extract Spark. Here if you get <code>spark-2.0.0-bin-hadoop2.7.tgz</code>, then you need Python 3.5 and not higher. I am getting <code>spark-2.2.1-bin-hadoop2.7.tgz</code> and it works well. <a href="https://issues.apache.org/jira/browse/SPARK-19019">Spark JIRA issue for reference</a>
+</li>
+</ul>
+<p>To premanently store the SPARK path store this in the <code>.bashrc</code> file on the home dir of the user account</p>
+<pre class="code literal-block"><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"your default path output"</span>
+
+<span class="c1"># anaconda bin dir - this replaces default Python to anaconda python</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"/home/USERNAME/anaconda3/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+
+<span class="c1"># linux uses : for path separators</span>
+<span class="c1"># now add Spark home to Path and PythonPath</span>
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">"/home/USERNAME/spark-2.2.1-bin-hadoop2.7"</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$SPARK_HOME</span>:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$SPARK_HOME</span>/python <span class="c1">#this adds pyspark to python path.</span>
+</pre>
+
+
+<h4>Scala vs Python</h4>
+<p><strong>Advantages of using Scala</strong>
+ - concurrency as Scala supports async.
+ - Type safety during compile time
+ - User Defined Functions (UDF) are more efficient in Scala
+ - type safety - Scala is suitable for bigger projects as its hassle free when you are refactoring a large codebase.
+ - due to absence of type safety, it does not make sense to with spark Datasets in Python. You can only work with RDD and DataFrames.</p>
+<p><strong>Advantages of using Python</strong>
+ - easy to learn and use
+ - suitable for ad-hoc and small projects
+ - SparkMLib for ML.</p>
+<p><strong>tie points</strong>
+ - Spark streaming is equally good in both
+ - DataFrames are similar in both</p>
+<h3>RDDs, DataFrames, Datasets</h3>
+<p>For an overview on RDDs, refer <a href="the-big-data-ecosystem.html#rdd">here</a>. RDDs are compile-time type-safe and evaluate lazily. RDDs can slow in non-JVM langs like Python, cannot be optimized by spark. DataFrames are built on top of RDDs and you let Spark figure out how to work with RDDs. Hence DF is optimized. The only downside is compile-time type-safety. To rectify this, Spark built Datasets.</p>
+<p>In Spark 2.0, DataFrames and Datasets are merged. Conceptually, if you work with untyped data (as in Python, R), you can use a DataFrame where as if you work in typed languages (Scala), you can work with DataSets.</p>
+<h3>Actions and transformations</h3>
+<p>Transformations create a new dataset. Actions return a value (like a summary statistic). All transformations in Spark are lazy. You can also persist RDDs on disk if you expect to read it later.</p>
+<p>When working with Spark, you use lambda functions a lot. Lambda plays well with Spark's motto of lazy evaluations.</p>
+<h4>Some Spark commands</h4>
+<ul>
+<li>
+<code>rdd.textFile()</code> to read text files, csv files etc.</li>
+<li>
+<code>rdd.collect()</code> brings entire RDD to a single machine for processing and displays the result. This is mem intensive and can overwhelm the master if you use it on a large dataset.</li>
+<li>
+<code>rdd.take(n)</code> on the other hand will only collect and return <code>n</code> lines.</li>
+<li>
+<code>rdd.toDF()</code> to convert RDD to Spark DF</li>
+<li>
+<code>df.first()</code> and <code>df.top(n)</code> also work like take.</li>
+<li>
+<code>df.printSchema()</code> to list the columns and their types. </li>
+<li>You can also use <code>df.describe().show()</code> to get summary stats.</li>
+<li>
+<code>df.select('column1','column2').show(m)</code> to select a couple of columns and show their first m rows.</li>
+<li>
+<code>df.withColumn('colname', transformation_expression)</code> is the primary way you to update values in a DataFrame column.</li>
+</ul>
+<h4>Resources</h4>
+<ul>
+<li><a href="https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html">A tale of 3 Apache Spark APIs - RDDs, DataFrames, Datasets</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-python">Datacamp - Apache Spark and Python</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning#install">Datacamp - Predict CA housing prices using SparkMLib and PySpark</a></li>
+</ul>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

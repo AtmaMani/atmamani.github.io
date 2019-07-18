@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>batch_geocoding | Atma's blog</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/batch_geocoding/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="batch_geocoding">
+<meta property="og:url" content="https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/batch_geocoding/">
+<meta property="og:description" content="Batch geocoding¶
+Premium operation, requires credits
+MaxBatchSize property of the Geocoder
+
+
+
+
+
+
+
+In [1]:
+
+    
+from arcgis.gis import GIS
+from arcgis import geocoding
+from getpass import getpass
+
+
+  ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T16:58:57-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../../">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">batch_geocoding</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Batch-geocoding">Batch geocoding<a class="anchor-link" href="#Batch-geocoding">¶</a>
+</h2>
+<ol>
+<li>Premium operation, requires credits</li>
+<li>
+<code>MaxBatchSize</code> property of the <code>Geocoder</code>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+<span class="kn">from</span> <span class="nn">arcgis</span> <span class="k">import</span> <span class="n">geocoding</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">password</span><span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
+<span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s2">"https://pycontraptions.maps.arcgis.com"</span><span class="p">,</span> <span class="s2">"atma_mani"</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="c1"># use the first of GIS's configured geocoders</span>
+<span class="n">geocoder</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">get_geocoders</span><span class="p">(</span><span class="n">gis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>········
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"MaxBatchSize : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">geocoder</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">locatorProperties</span><span class="o">.</span><span class="n">MaxBatchSize</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"SuggestedBatchSize : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">geocoder</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">locatorProperties</span><span class="o">.</span><span class="n">SuggestedBatchSize</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>MaxBatchSize : 1000
+SuggestedBatchSize : 150
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id="batch-geocode-access"></a></p>
+<h3 id="Batch-geocode-access">Batch geocode access<a class="anchor-link" href="#Batch-geocode-access">¶</a>
+</h3>
+<p> 
+
+</p>
+<div class="alert alert-info">
+
+An ArcGIS Online organizational account is required to use the batch geocoding functionality provided by the World Geocoding Service. Successfully geocoded addresses, which return a status of Matched or Tied, cause ArcGIS Online service credits to be consumed for batch geocoding operations.
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example:-batch-geocode-using-single-line-addresses">Example: batch geocode using single line addresses<a class="anchor-link" href="#Example:-batch-geocode-using-single-line-addresses">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"380 New York St, Redlands, CA"</span><span class="p">,</span> 
+             <span class="s2">"1 World Way, Los Angeles, CA"</span><span class="p">,</span>
+             <span class="s2">"1200 Getty Center Drive, Los Angeles, CA"</span><span class="p">,</span> 
+             <span class="s2">"5905 Wilshire Boulevard, Los Angeles, CA"</span><span class="p">,</span>
+             <span class="s2">"100 Universal City Plaza, Universal City, CA 91608"</span><span class="p">,</span>
+             <span class="s2">"4800 Oak Grove Dr, Pasadena, CA 91109"</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">batch_geocode</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'address': '380 New York St, Redlands, California, 92373',
+ 'attributes': {'AddBldg': '',
+  'AddNum': '380',
+  'AddNumFrom': '',
+  'AddNumTo': '',
+  'Addr_type': 'PointAddress',
+  'City': 'Redlands',
+  'Country': 'USA',
+  'DisplayX': -117.195311,
+  'DisplayY': 34.05611,
+  'Distance': 0,
+  'LangCode': 'ENG',
+  'Loc_name': 'USA.PointAddress',
+  'Match_addr': '380 New York St, Redlands, California, 92373',
+  'Nbrhd': '',
+  'Phone': '',
+  'PlaceName': '',
+  'Place_addr': '',
+  'Postal': '92373',
+  'PostalExt': '',
+  'Rank': '',
+  'Region': 'California',
+  'ResultID': 0,
+  'Score': 100,
+  'Side': 'R',
+  'StAddr': '380 New York St',
+  'StDir': '',
+  'StName': 'New York',
+  'StPreDir': '',
+  'StPreType': '',
+  'StType': 'St',
+  'Status': 'M',
+  'Subregion': 'San Bernardino',
+  'Type': '',
+  'URL': '',
+  'X': -117.195667,
+  'Xmax': -117.194667,
+  'Xmin': -117.196667,
+  'Y': 34.05649,
+  'Ymax': 34.05749,
+  'Ymin': 34.05549},
+ 'location': {'x': -117.1956663679997, 'y': 34.056490358000474},
+ 'score': 100}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"Los Angeles"</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">map1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">map1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="s1">'location'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Batch-geocoding-multifield-addresses">Batch geocoding multifield addresses<a class="anchor-link" href="#Batch-geocoding-multifield-addresses">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addresses</span><span class="o">=</span> <span class="p">[{</span>
+                <span class="s2">"Address"</span><span class="p">:</span> <span class="s2">"380 New York St."</span><span class="p">,</span>
+                <span class="s2">"City"</span><span class="p">:</span> <span class="s2">"Redlands"</span><span class="p">,</span>
+                <span class="s2">"Region"</span><span class="p">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+                <span class="s2">"Postal"</span><span class="p">:</span> <span class="s2">"92373"</span>
+            <span class="p">},{</span>
+                <span class="s2">"Address"</span><span class="p">:</span> <span class="s2">"1 World Way"</span><span class="p">,</span>
+                <span class="s2">"City"</span><span class="p">:</span> <span class="s2">"Los Angeles"</span><span class="p">,</span>
+                <span class="s2">"Region"</span><span class="p">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+                <span class="s2">"Postal"</span><span class="p">:</span> <span class="s2">"90045"</span>
+            <span class="p">}]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results_multif</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">batch_geocode</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"Los Angeles"</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">map2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">results_multif</span><span class="p">:</span>
+    <span class="n">map2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="s1">'location'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example:-Batch-geocode-airport-codes-with-category">Example: Batch geocode airport codes with category<a class="anchor-link" href="#Example:-Batch-geocode-airport-codes-with-category">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airports</span> <span class="o">=</span> <span class="n">geocoding</span><span class="o">.</span><span class="n">batch_geocode</span><span class="p">([</span><span class="s2">"LAX"</span><span class="p">,</span> <span class="s2">"SFO"</span><span class="p">,</span> <span class="s2">"ONT"</span><span class="p">,</span> <span class="s2">"FAT"</span><span class="p">,</span> <span class="s2">"LGB"</span><span class="p">])</span>
+<span class="c1">#airports = geocoding.batch_geocode(["LAX", "SFO", "ONT", "FAT", "LGB"], category="airport")</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">airports</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airports</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'address': '',
+ 'attributes': {'AddBldg': '',
+  'AddNum': '',
+  'AddNumFrom': '',
+  'AddNumTo': '',
+  'Addr_type': '',
+  'City': '',
+  'Country': '',
+  'DisplayX': 0,
+  'DisplayY': 0,
+  'Distance': 0,
+  'LangCode': '',
+  'Loc_name': '',
+  'Match_addr': '',
+  'Nbrhd': '',
+  'Phone': '',
+  'PlaceName': '',
+  'Place_addr': '',
+  'Postal': '',
+  'PostalExt': '',
+  'Rank': '',
+  'Region': '',
+  'ResultID': 4,
+  'Score': 0,
+  'Side': '',
+  'StAddr': '',
+  'StDir': '',
+  'StName': '',
+  'StPreDir': '',
+  'StPreType': '',
+  'StType': '',
+  'Status': 'U',
+  'Subregion': '',
+  'Type': '',
+  'URL': '',
+  'X': 0,
+  'Xmax': 0,
+  'Xmin': 0,
+  'Y': 0,
+  'Ymax': 0,
+  'Ymin': 0},
+ 'score': 0}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"CA"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">map3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">airport</span> <span class="ow">in</span> <span class="n">airports</span><span class="p">:</span>
+    <span class="n">popup</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="s2">"title"</span> <span class="p">:</span> <span class="n">airport</span><span class="p">[</span><span class="s1">'attributes'</span><span class="p">][</span><span class="s1">'PlaceName'</span><span class="p">],</span> 
+    <span class="s2">"content"</span> <span class="p">:</span> <span class="n">airport</span><span class="p">[</span><span class="s1">'address'</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">map3</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">airport</span><span class="p">[</span><span class="s1">'location'</span><span class="p">],</span> <span class="n">popup</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Exercise:-batch-geocode-the-NYC_addreses_batch_geocode_exercise.csv-file">Exercise: batch geocode the <code>NYC_addreses_batch_geocode_exercise.csv</code> file<a class="anchor-link" href="#Exercise:-batch-geocode-the-NYC_addreses_batch_geocode_exercise.csv-file">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Steps:</p>
+<ol>
+<li>read the csv using pandas</li>
+<li>Read the address column from the pandas dataframe</li>
+<li>Make it a list and send it to the batch geocode function</li>
+<li>get the results and plot that on the map</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

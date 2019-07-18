@@ -1,0 +1,3935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pandas_cheat_sheet_2 | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/pandas/pandas_cheat_sheet_2/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="pandas_cheat_sheet_2">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/pandas/pandas_cheat_sheet_2/">
+<meta property="og:description" content="Intermediate Pandas¶
+ToC
+
+Navigating multilevel index
+Accessing rows and columns
+Naming indices
+Accessing rows and columns using cross section
+
+
+Missing data
+dropna
+fillna
+
+
+Data aggregation
+groupby
+m">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-04T14:51:41-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li class="active">
+<a href=".">Pandas multilevel index, <br>    missing data, aggregation, merging <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">pandas_cheat_sheet_2</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Intermediate-Pandas">Intermediate Pandas<a class="anchor-link" href="#Intermediate-Pandas">¶</a>
+</h2>
+<p><img src="http://pandas.pydata.org/_static/pandas_logo.png" alt=""><strong>ToC</strong></p>
+<ul>
+<li>
+<a href="#Navigating-multilevel-index">Navigating multilevel index</a><ul>
+<li><a href="#Accessing-rows-and-columns">Accessing rows and columns</a></li>
+<li><a href="#Naming-indices">Naming indices</a></li>
+<li><a href="#Accessing-rows-and-columns-using-cross-section">Accessing rows and columns using cross section</a></li>
+</ul>
+</li>
+<li>
+<a href="#Missing-data">Missing data</a><ul>
+<li><a href="#dropna">dropna</a></li>
+<li><a href="#fillna">fillna</a></li>
+</ul>
+</li>
+<li>
+<a href="#Data-aggregation">Data aggregation</a><ul>
+<li>
+<a href="#groupby">groupby</a><ul>
+<li><a href="#mean-min-max">mean min max</a></li>
+<li><a href="#describe">describe</a></li>
+</ul>
+</li>
+<li><a href="#transpose">transpose</a></li>
+</ul>
+</li>
+<li>
+<a href="#Combining-DataFrames">Combining DataFrames</a><ul>
+<li><a href="#concat">concat</a></li>
+<li>
+<a href="#merge">merge</a><ul>
+<li><a href="#inner-merge">inner merge</a></li>
+<li><a href="#merge-on-multiple-columns">merge on multiple columns</a></li>
+<li>
+<a href="#outer-merge">outer merge</a><ul>
+<li><a href="#Sorting">Sorting</a></li>
+</ul>
+</li>
+<li><a href="#left-merge">left merge</a></li>
+<li><a href="#right-merge">right merge</a></li>
+</ul>
+</li>
+<li><a href="#join">join</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Navigating-multilevel-index">Navigating multilevel index<a class="anchor-link" href="#Navigating-multilevel-index">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Index Levels</span>
+<span class="n">outside</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'G1'</span><span class="p">,</span><span class="s1">'G1'</span><span class="p">,</span><span class="s1">'G1'</span><span class="p">,</span><span class="s1">'G2'</span><span class="p">,</span><span class="s1">'G2'</span><span class="p">,</span><span class="s1">'G2'</span><span class="p">]</span>
+<span class="n">inside</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">hier_index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">outside</span><span class="p">,</span><span class="n">inside</span><span class="p">))</span> <span class="c1">#create a list of tuples</span>
+<span class="n">hier_index</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[('G1', 1), ('G1', 2), ('G1', 3), ('G2', 1), ('G2', 2), ('G2', 3)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create a multiindex</span>
+<span class="n">hier_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">hier_index</span><span class="p">)</span>
+<span class="n">hier_index</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>MultiIndex(levels=[['G1', 'G2'], [1, 2, 3]],
+           labels=[[0, 0, 0, 1, 1, 1], [0, 1, 2, 0, 1, 2]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a dataframe (6,2) with multi level index</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="n">hier_index</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">G1</th>
+      <th>1</th>
+      <td>-0.349997</td>
+      <td>1.372488</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>0.090160</td>
+      <td>0.121530</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>0.751559</td>
+      <td>-0.335218</td>
+    </tr>
+<tr>
+<th rowspan="3" valign="top">G2</th>
+      <th>1</th>
+      <td>1.501890</td>
+      <td>0.835727</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>-1.542555</td>
+      <td>-1.878225</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>0.721939</td>
+      <td>-0.121186</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Accessing-rows-and-columns">Accessing rows and columns<a class="anchor-link" href="#Accessing-rows-and-columns">¶</a>
+</h4>
+<p>You can use <code>loc</code> and <code>iloc</code> as a chain to access the elements. Go from outer index to inner index</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access columns as usual</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>G1  1   -0.349997
+    2    0.090160
+    3    0.751559
+G2  1    1.501890
+    2   -1.542555
+    3    0.721939
+Name: A, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'G1'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>1</th>
+      <td>-0.349997</td>
+      <td>1.372488</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>0.090160</td>
+      <td>0.121530</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>0.751559</td>
+      <td>-0.335218</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#acess a single row form inner</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'G1'</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>A   -0.349997
+B    1.372488
+Name: 1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#access a single cell</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'G2'</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">'B'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.12479824997165252</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Naming-indices">Naming indices<a class="anchor-link" href="#Naming-indices">¶</a>
+</h4>
+<p>Indices can have names (appear similar to column names)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>FrozenList([None, None])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Group'</span><span class="p">,</span> <span class="s1">'Serial'</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+<tr>
+<th>Group</th>
+      <th>Serial</th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="3" valign="top">G1</th>
+      <th>1</th>
+      <td>-0.349997</td>
+      <td>1.372488</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>0.090160</td>
+      <td>0.121530</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>0.751559</td>
+      <td>-0.335218</td>
+    </tr>
+<tr>
+<th rowspan="3" valign="top">G2</th>
+      <th>1</th>
+      <td>1.501890</td>
+      <td>0.835727</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>-1.542555</td>
+      <td>-1.878225</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>0.721939</td>
+      <td>-0.121186</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Accessing-rows-and-columns-using-cross-section">Accessing rows and columns using cross section<a class="anchor-link" href="#Accessing-rows-and-columns-using-cross-section">¶</a>
+</h4>
+<p>The <code>xs</code> method allows to get a cross section. The advantage is it can penetrate a multilevel index in a single step. Now that we have named the indices, we can use cross section effectively</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get all rows with Serial 1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">'Serial'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+<tr>
+<th>Group</th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>G1</th>
+      <td>-0.349997</td>
+      <td>1.372488</td>
+    </tr>
+<tr>
+<th>G2</th>
+      <td>1.501890</td>
+      <td>0.835727</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get rows with serial 2 in group 1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">([</span><span class="s1">'G1'</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>A    0.09016
+B    0.12153
+Name: (G1, 2), dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Missing-data">Missing data<a class="anchor-link" href="#Missing-data">¶</a>
+</h3>
+<p>You can either drop rows/cols with missing values using <code>dropna()</code> or fill those cells with values using the <code>fillna()</code> methods.</p>
+<h4 id="dropna">dropna<a class="anchor-link" href="#dropna">¶</a>
+</h4>
+<p>Use <code>dropna(axis, thresh...)</code> where axis is 0 for rows, 1 for cols and thresh represents how many occurrences of nan before dropping happens</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">'b'</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">'c'</span><span class="p">:[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]}</span>
+<span class="n">dfna</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">dfna</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dropping rows with one or more na values</span>
+<span class="n">dfna</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr></thead>
+<tbody><tr>
+<th>1</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7</td>
+    </tr></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dropping cols with one or more na values</span>
+<span class="n">dfna</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>c</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>6</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>7</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>8</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping rows only if 2 or more cols have na values</span>
+<span class="n">dfna</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="fillna">fillna<a class="anchor-link" href="#fillna">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfna</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">999</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1.0</td>
+      <td>999.0</td>
+      <td>6</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>999.0</td>
+      <td>999.0</td>
+      <td>8</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filling with mean value of entire dataframe</span>
+<span class="n">dfna</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">dfna</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>1.5</td>
+      <td>5.0</td>
+      <td>8</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fill with mean value row by row</span>
+<span class="n">dfna</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">dfna</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    1.0
+1    2.0
+2    1.5
+Name: a, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-aggregation">Data aggregation<a class="anchor-link" href="#Data-aggregation">¶</a>
+</h3>
+<p>Pandas allows sql like control on the dataframes. You can treat each DF as a table and perform sql aggregation.</p>
+<h4 id="groupby">groupby<a class="anchor-link" href="#groupby">¶</a>
+</h4>
+<p>Format is: <code>df.groupby('col_name').aggregation()</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Company'</span><span class="p">:[</span><span class="s1">'GOOG'</span><span class="p">,</span><span class="s1">'GOOG'</span><span class="p">,</span><span class="s1">'MSFT'</span><span class="p">,</span><span class="s1">'MSFT'</span><span class="p">,</span><span class="s1">'FB'</span><span class="p">,</span><span class="s1">'FB'</span><span class="p">],</span>
+       <span class="s1">'Person'</span><span class="p">:[</span><span class="s1">'Sam'</span><span class="p">,</span><span class="s1">'Charlie'</span><span class="p">,</span><span class="s1">'Amy'</span><span class="p">,</span><span class="s1">'Vanessa'</span><span class="p">,</span><span class="s1">'Carl'</span><span class="p">,</span><span class="s1">'Sarah'</span><span class="p">],</span>
+       <span class="s1">'Sales'</span><span class="p">:[</span><span class="mi">200</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">340</span><span class="p">,</span><span class="mi">124</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span><span class="mi">350</span><span class="p">]}</span>
+
+<span class="n">comp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comp_data</span><span class="p">)</span>
+<span class="n">comp_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="mean-min-max">mean min max<a class="anchor-link" href="#mean-min-max">¶</a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># mean sales by company - automatically only applies mean on numerical columns</span>
+<span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Company'</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>Sales</th>
+    </tr>
+<tr>
+<th>Company</th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>FB</th>
+      <td>296.5</td>
+    </tr>
+<tr>
+<th>GOOG</th>
+      <td>160.0</td>
+    </tr>
+<tr>
+<th>MSFT</th>
+      <td>232.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># standard deviation in sales by company</span>
+<span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Company'</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>Sales</th>
+    </tr>
+<tr>
+<th>Company</th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>FB</th>
+      <td>75.660426</td>
+    </tr>
+<tr>
+<th>GOOG</th>
+      <td>56.568542</td>
+    </tr>
+<tr>
+<th>MSFT</th>
+      <td>152.735065</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can run other aggregation functions like <code>mean, min, max, std, count</code> etc. Lets look at <code>describe</code> which does all of it.</p>
+<h5 id="describe">describe<a class="anchor-link" href="#describe">¶</a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Company'</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr>
+<th></th>
+      <th colspan="8" halign="left">Sales</th>
+    </tr>
+<tr>
+<th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+<tr>
+<th>Company</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>FB</th>
+      <td>2.0</td>
+      <td>296.5</td>
+      <td>75.660426</td>
+      <td>243.0</td>
+      <td>269.75</td>
+      <td>296.5</td>
+      <td>323.25</td>
+      <td>350.0</td>
+    </tr>
+<tr>
+<th>GOOG</th>
+      <td>2.0</td>
+      <td>160.0</td>
+      <td>56.568542</td>
+      <td>120.0</td>
+      <td>140.00</td>
+      <td>160.0</td>
+      <td>180.00</td>
+      <td>200.0</td>
+    </tr>
+<tr>
+<th>MSFT</th>
+      <td>2.0</td>
+      <td>232.0</td>
+      <td>152.735065</td>
+      <td>124.0</td>
+      <td>178.00</td>
+      <td>232.0</td>
+      <td>286.00</td>
+      <td>340.0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="transpose">transpose<a class="anchor-link" href="#transpose">¶</a>
+</h4>
+<p>Long over due, you can tile a DF by calling the <code>transpose()</code> method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Company'</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Company</th>
+      <th>FB</th>
+      <th>GOOG</th>
+      <th>MSFT</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th rowspan="8" valign="top">Sales</th>
+      <th>count</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+<tr>
+<th>mean</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+<tr>
+<th>std</th>
+      <td>75.660426</td>
+      <td>56.568542</td>
+      <td>152.735065</td>
+    </tr>
+<tr>
+<th>min</th>
+      <td>243.000000</td>
+      <td>120.000000</td>
+      <td>124.000000</td>
+    </tr>
+<tr>
+<th>25%</th>
+      <td>269.750000</td>
+      <td>140.000000</td>
+      <td>178.000000</td>
+    </tr>
+<tr>
+<th>50%</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+<tr>
+<th>75%</th>
+      <td>323.250000</td>
+      <td>180.000000</td>
+      <td>286.000000</td>
+    </tr>
+<tr>
+<th>max</th>
+      <td>350.000000</td>
+      <td>200.000000</td>
+      <td>340.000000</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Company'</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['FB', 'GOOG', 'MSFT'], dtype='object', name='Company')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Combining-DataFrames">Combining DataFrames<a class="anchor-link" href="#Combining-DataFrames">¶</a>
+</h3>
+<p>You can concatenate, merge and join data frames.</p>
+<p>Lets take a look at 3 DataFrames</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A0'</span><span class="p">,</span> <span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">,</span> <span class="s1">'A3'</span><span class="p">],</span><span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B0'</span><span class="p">,</span> <span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">],</span>
+                        <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C0'</span><span class="p">,</span> <span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">],</span><span class="s1">'D'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D0'</span><span class="p">,</span> <span class="s1">'D1'</span><span class="p">,</span> <span class="s1">'D2'</span><span class="p">,</span> <span class="s1">'D3'</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A4'</span><span class="p">,</span> <span class="s1">'A5'</span><span class="p">,</span> <span class="s1">'A6'</span><span class="p">,</span> <span class="s1">'A7'</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B4'</span><span class="p">,</span> <span class="s1">'B5'</span><span class="p">,</span> <span class="s1">'B6'</span><span class="p">,</span> <span class="s1">'B7'</span><span class="p">],</span>
+                        <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C4'</span><span class="p">,</span> <span class="s1">'C5'</span><span class="p">,</span> <span class="s1">'C6'</span><span class="p">,</span> <span class="s1">'C7'</span><span class="p">],</span><span class="s1">'D'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D4'</span><span class="p">,</span> <span class="s1">'D5'</span><span class="p">,</span> <span class="s1">'D6'</span><span class="p">,</span> <span class="s1">'D7'</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>4</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="concat">concat<a class="anchor-link" href="#concat">¶</a>
+</h4>
+<p><code>pd.concat([list_of_df], axis=0)</code> will extend a dataframe either along rows or columns. All DF in the list should be of same dimension.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># extend along rows</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span> <span class="c1">#flows well because index is sequential and colmns match</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#extend along columns</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#fills NaN when index dont match</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="merge">merge<a class="anchor-link" href="#merge">¶</a>
+</h4>
+<p>merge lets you do a sql merge with <code>inner, outer, right</code> and <code>left</code> joins.
+<code>pd.merge(left, right, how='outer', on='key')</code> where, <code>left</code> and <code>right</code> are your two DataFrames (tables) and <code>on</code> refers to the <code>foreign key</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'key1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K1'</span><span class="p">,</span> <span class="s1">'K2'</span><span class="p">,</span> <span class="s1">'K3'</span><span class="p">],</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A0'</span><span class="p">,</span> <span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">,</span> <span class="s1">'A3'</span><span class="p">],</span>
+                        <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B0'</span><span class="p">,</span> <span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">]})</span>
+    
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'key1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K1'</span><span class="p">,</span> <span class="s1">'K2'</span><span class="p">,</span> <span class="s1">'K3'</span><span class="p">],</span><span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C0'</span><span class="p">,</span> <span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">],</span>
+                                  <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D0'</span><span class="p">,</span> <span class="s1">'D1'</span><span class="p">,</span> <span class="s1">'D2'</span><span class="p">,</span> <span class="s1">'D3'</span><span class="p">]})</span>
+<span class="n">left</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>key1</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">right</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>B</th>
+      <th>C</th>
+      <th>key1</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>C0</td>
+      <td>D0</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>C1</td>
+      <td>D1</td>
+      <td>K1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>C2</td>
+      <td>D2</td>
+      <td>K2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>C3</td>
+      <td>D3</td>
+      <td>K3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="inner-merge">inner merge<a class="anchor-link" href="#inner-merge">¶</a>
+</h5>
+<p>Inner join keeps only the intersection.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#merge along key1</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'key1'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When both tables have same column names that are not used for merging (<code>on</code>) then pandas appends <code>x</code> and <code>y</code> to their names to differentiate</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="merge-on-multiple-columns">merge on multiple columns<a class="anchor-link" href="#merge-on-multiple-columns">¶</a>
+</h5>
+<p>Sometimes, your foreign key is composite. Then you can merge on multiple keys by passing a list to the <code>on</code> argument.
+Now lets add a key2 column to both the tables.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left</span><span class="p">[</span><span class="s1">'key2'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K1'</span><span class="p">,</span> <span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K1'</span><span class="p">]</span>
+<span class="n">left</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>key1</th>
+      <th>key2</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+      <td>K1</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+      <td>K1</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">right</span><span class="p">[</span><span class="s1">'key2'</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K0'</span><span class="p">]</span>
+<span class="n">right</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[35]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>B</th>
+      <th>C</th>
+      <th>key1</th>
+      <th>key2</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>C0</td>
+      <td>D0</td>
+      <td>K0</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>C1</td>
+      <td>D1</td>
+      <td>K1</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>C2</td>
+      <td>D2</td>
+      <td>K2</td>
+      <td>K0</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>C3</td>
+      <td>D3</td>
+      <td>K3</td>
+      <td>K0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>inner</code> merge will only keep the intersection, thus only 2 rows.</p>
+<h5 id="outer-merge">outer merge<a class="anchor-link" href="#outer-merge">¶</a>
+</h5>
+<p>Use <code>how='outer'</code> to keep the union of both the tables. pandas fills <code>NaN</code> when a cell has no values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">om</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">])</span>
+<span class="n">om</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K1</td>
+      <td>K0</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K3</td>
+      <td>K0</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Sorting">Sorting<a class="anchor-link" href="#Sorting">¶</a>
+</h4>
+<p>Use <code>DataFrame.sort_values(by=columns, inplace=False, ascending=True)</code> to sort the table.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">om</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">])</span> <span class="c1">#now you got the merge sorted by columns.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K1</td>
+      <td>K0</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K3</td>
+      <td>K0</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="right-merge">right merge<a class="anchor-link" href="#right-merge">¶</a>
+</h5>
+<p><code>how='right'</code> will keep all the rows of right table and drop the rows of left table that dont have a matching keys.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'right'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'key1'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[39]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K1</td>
+      <td>K0</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>K3</td>
+      <td>K0</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="left-merge">left merge<a class="anchor-link" href="#left-merge">¶</a>
+</h5>
+<p><code>how='left'</code> will similarly keep all rows of left and those rows of right that has a matching foreign key.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'key1'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[40]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B_x</th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>B_y</th>
+      <th>C</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>K1</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>K3</td>
+      <td>K1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="join">join<a class="anchor-link" href="#join">¶</a>
+</h4>
+<p>Joins are like merges but work on index instead of columns. Further, they are by default either <code>left</code> or <code>right</code> with <code>inner</code> as mode of joins. See example below:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A0'</span><span class="p">,</span> <span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">],</span>
+                     <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B0'</span><span class="p">,</span> <span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">]},</span>
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K1'</span><span class="p">,</span> <span class="s1">'K2'</span><span class="p">])</span> 
+<span class="n">df_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C0'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">],</span>
+                    <span class="s1">'D'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D0'</span><span class="p">,</span> <span class="s1">'D2'</span><span class="p">,</span> <span class="s1">'D3'</span><span class="p">]},</span>
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'K0'</span><span class="p">,</span> <span class="s1">'K2'</span><span class="p">,</span> <span class="s1">'K3'</span><span class="p">])</span>
+
+<span class="n">df_a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[41]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>K0</th>
+      <td>A0</td>
+      <td>B0</td>
+    </tr>
+<tr>
+<th>K1</th>
+      <td>A1</td>
+      <td>B1</td>
+    </tr>
+<tr>
+<th>K2</th>
+      <td>A2</td>
+      <td>B2</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>K0</th>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>K2</th>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+<tr>
+<th>K3</th>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join b to a, default mode = keep all rows of a and matching rows of b (left join)</span>
+<span class="n">df_a</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[43]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>K0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+<tr>
+<th>K1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+<tr>
+<th>K2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus all rows of df_a and those in df_b. If df_b did not have that index, then NaN for values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#join b to a</span>
+<span class="n">df_b</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>C</th>
+      <th>D</th>
+      <th>A</th>
+      <th>B</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>K0</th>
+      <td>C0</td>
+      <td>D0</td>
+      <td>A0</td>
+      <td>B0</td>
+    </tr>
+<tr>
+<th>K2</th>
+      <td>C2</td>
+      <td>D2</td>
+      <td>A2</td>
+      <td>B2</td>
+    </tr>
+<tr>
+<th>K3</th>
+      <td>C3</td>
+      <td>D3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#outer join - union of outputs</span>
+<span class="n">df_b</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_a</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>C</th>
+      <th>D</th>
+      <th>A</th>
+      <th>B</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>K0</th>
+      <td>C0</td>
+      <td>D0</td>
+      <td>A0</td>
+      <td>B0</td>
+    </tr>
+<tr>
+<th>K1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A1</td>
+      <td>B1</td>
+    </tr>
+<tr>
+<th>K2</th>
+      <td>C2</td>
+      <td>D2</td>
+      <td>A2</td>
+      <td>B2</td>
+    </tr>
+<tr>
+<th>K3</th>
+      <td>C3</td>
+      <td>D3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

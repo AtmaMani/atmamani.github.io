@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javascript essentials | Atma's blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/js_essentials/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Javascript essentials">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/js_essentials/">
+<meta property="og:description" content="Use ; to terminate lines. JS supports OO and functional programming. HTML5 is HTML + CSS+ JS.
+
+
+JS can be run in browsers and outside - node.js, windows script host
+
+JS cannot access file system since">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-08T13:57:10-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li class="active">
+<a href=".">Javascript essentials <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Javascript essentials</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<ul>
+<li>
+<p>Use <code>;</code> to terminate lines. JS supports OO and functional programming. HTML5 is HTML + CSS+ JS.</p>
+</li>
+<li>
+<p>JS can be run in browsers and outside - node.js, windows script host</p>
+</li>
+<li>JS cannot access file system since the browser runs it in a sandbox. user needs to give explicit permission.</li>
+</ul>
+<p><strong>Table of contents</strong>
+<!-- MarkdownTOC --></p>
+<ul>
+<li><a href="#placement">Placement</a></li>
+<li><a href="#types-and-programming-constructs">Types and programming constructs</a></li>
+<li><a href="#switches">switches</a></li>
+<li><a href="#loops---while">loops - while</a></li>
+<li><a href="#functions">functions</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#namespaces">namespaces</a></li>
+<li><a href="#appendix---documentation">Appendix - documentation</a></li>
+</ul>
+<!-- /MarkdownTOC --><h3>Placement</h3>
+<p>Place <code>&lt;script&gt;&lt;/script&gt;</code> within the end of <code>&lt;body&gt;</code> tags. This ensures the page is fully loaded since your JS scripts may have to read elements of the page itself. You can also run a html file with JS in a browser. It loads as a file. This is not scalable for large sites. You need a web server - use <code>node.js</code>.</p>
+<p>If your JS is in a file, then link to that using the format <code>&lt;script src="./scripts/site.js"&gt;</code>
+<strong>Note</strong> Dont self close the script tag <code>(&lt;script/&gt;)</code></p>
+<ul>
+<li>
+<p>sequence of operation, is by the content of the html page. So if you have two scripts 1, 2 they are executed by their precedence in the html page. This same as a stand-alone python script.</p>
+</li>
+<li>
+<p>more nuance. all contents within the same <code>&lt;script&gt;</code> tag is loaded at the same time. If you write a funciton in one <code>&lt;script&gt;</code> tag and call it from another tag, then you need to place the scripts in sequence.</p>
+</li>
+<li>
+<p>JS does a 2 pass loading. It first passes to find all the variables, objects and functions. In the second pass it actually executes. However if you are playing with function assignment, it would not happen until execution, so you need to be careful and not call it before it is available.</p>
+</li>
+</ul>
+<h3>Types and programming constructs</h3>
+<ul>
+<li>
+<code>var</code> is dynamic object</li>
+<li>comments - use <code>//</code> for single line and <code>/*  */</code> for multiline</li>
+<li>you can also use html comments <code>&lt;!-- and --&gt;</code>
+</li>
+<li>ternary operator <code>condition ? expr1 : expr2</code>
+</li>
+<li>binary operator <code>1+2</code>, <code>false + "it failed"</code>, <code>true + true</code>, <code>"str1" + "str2"</code>
+</li>
+<li>auto increment <code>++variable</code> is prefix increment and <code>variable++</code> is postfix increment - which is use and then increment.</li>
+<li>
+<code>a += 10</code> is same as <code>a=a+10</code>
+</li>
+<li>string, bool, number are <strong>primitive</strong> types</li>
+<li>compostite types: objects, arrays, date</li>
+<li>
+<code>undefined</code> is when a variable is declared but not assigned a value.</li>
+<li>
+<code>null</code> is not same as Python <code>None</code>, it is also different from <code>undefined</code>. <code>null</code> is the lack of any type.</li>
+<li>
+<code>typeof(obj)</code> for type inspection</li>
+<li>
+<code>a===1</code> the triple equals is a script value check</li>
+<li>checking <code>"12" == 12</code> will return true! Also checking <code>"12.0"==12"</code> will return true. If you are checking for object type equality, then use triple equals.</li>
+<li>
+<code>arrayobj.pop()</code> to get remove and get the last element. Use <code>arrayobj.push(value)</code> to insert at the end.</li>
+</ul>
+<h4>switches</h4>
+<pre class="code literal-block"><span></span><span class="k">switch</span><span class="p">(</span><span class="nx">variable</span><span class="p">){</span>
+    <span class="k">case</span> <span class="s1">'a'</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">'b'</span><span class="o">:</span>
+        <span class="nx">statements</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="nx">statements</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+
+<h4>loops - while</h4>
+<pre class="code literal-block"><span></span><span class="k">while</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span>
+    <span class="nx">statements</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">();</span>
+<span class="p">}</span>
+</pre>
+
+
+<p><strong>Note</strong>: When looping through arrays, dont use <code>for (element in array)</code> loop. Always use the regular for loop</p>
+<h4>functions</h4>
+<ul>
+<li>JS does not support overloading.</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">par1</span><span class="p">,</span> <span class="nx">par2</span><span class="p">){</span>
+    <span class="c1">//statement</span>
+    <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+
+<ul>
+<li>when defining a function, dont use <code>var parameter</code>, use just the variable name</li>
+<li><strong>all parameters are optional</strong></li>
+<li>you can also pass more than the declared number of parameters to the function.</li>
+<li>disambiguate named functions - cannot. Use need to use namespaces and modular pattern.</li>
+<li>built-in variable <code>arguments[]</code> to get all the arguments passed to the function.</li>
+<li>declare variables within functions using <code>var</code>. If you use without <code>var</code>, then you are using or overwriting the global version of the same variable!</li>
+<li>type <code>"use strict"</code> in your script to print all errors and break on them. Place the strict within your functions and not at a gobal scope - this is because you will use other folks libraries and they may not be up to high standards of coding.</li>
+<li>JS does <strong>not</strong> support default arguments!!</li>
+</ul>
+<h4>Objects</h4>
+<ul>
+<li>In object literal notation, you define an object like a JSON file
+ <code>js
+ var person={
+    firstName:"atma",
+    lastName:"mani"
+ };</code>
+</li>
+<li>You can extend an object with new properties and assign them at runtime. (same as in a property map in Python or a dict during runtime)</li>
+<li>You can use <code>for in</code> loop to <strong>reflect</strong> over the kvp of an array
+ <code>js
+ for (var key in object){
+    console.log(key, object[key]);
+ }</code>
+</li>
+<li>use <code>JSON.stringify()</code> to serialize it to JSON and to hydrate it back, use <code>JSON.parse()</code>.</li>
+</ul>
+<h4>namespaces</h4>
+<ul>
+<li>while JS does not give you a great namespace construct, you can fashion one by creating an object (of object class) and add your methods, classes to it.</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">yourNamespace</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">yourNamespace</span><span class="o">=</span><span class="p">{};</span> <span class="c1">//this is checked everytime yoru scrip is loaded</span>
+<span class="p">}</span>
+
+<span class="c1">//extend it</span>
+<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">logic1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">property1</span><span class="o">:</span><span class="s1">'value'</span>
+<span class="p">}</span>
+ <span class="sb">```</span>
+
+<span class="sb">### strings</span>
+<span class="sb"> - strings are immutable</span>
+<span class="sb"> - you can call regular methods like `</span><span class="nx">strobj</span><span class="p">.</span><span class="nx">length</span><span class="sb">`, `</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">()</span><span class="sb">`, `</span><span class="nx">str</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="sb">` to get another string returned by that method.</span>
+<span class="sb"> - you can also access individual elements of the string just like in an array `</span><span class="nx">stringobj</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="sb">`</span>
+
+<span class="sb">### dates</span>
+<span class="sb"> - `</span><span class="kd">var</span> <span class="nx">rightNow</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span><span class="sb">`</span>
+
+<span class="sb">## JS and DOM</span>
+<span class="sb"> - You can write JS into `</span><span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span><span class="sb">` tags</span>
+<span class="sb"> - JS can read the elements of the html page. It uses the `</span><span class="nx">id</span><span class="sb">` property of the tags (elements)</span>
+<span class="sb"> - YOu can debug JS from chrome, set breakpoints, use watch window and variable explorer.</span>
+<span class="sb"> - the console window of chrome is a good JS sandbox. You can simply type commands in the console and use JS</span>
+<span class="sb"> - you can do the same from console after starting `</span><span class="nx">node</span><span class="sb">`.</span>
+
+<span class="sb">## Functional programming</span>
+<span class="sb">For essential purposes, functional programming is declaring functions and passing them around using their references. You can extend the functionality or modify it.</span>
+
+<span class="sb">### Closures</span>
+<span class="sb"> - closures mean, if you have nested functions, the inner function has access to the arguments and variables created in the outer and also modify them.</span>
+<span class="sb"> - with closures pattern, you can return an object that points to the nested functions as methods. with this you can instantiate an object from a method (blown mind) and </span>
+
+<span class="sb">## Inheritance</span>
+<span class="sb"> - `</span><span class="nx">prototyping</span><span class="sb">` concept allows you to not only inherit, but also extend your base class.</span>
+<span class="sb">```</span><span class="nx">js</span>
+<span class="nx">classname</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">your_extension</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">logic</span><span class="p">};</span>
+</pre>
+
+
+<ul>
+<li>when inheriting your own objects, you will use the <code>call()</code> method to call the super's constructor</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kd">function</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
+                <span class="nx">Animal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">//calling the super's constructor</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+            <span class="p">}</span>
+</pre>
+
+
+<ul>
+<li>if you extended your base class using a constructor, then you got to also inherit the prototypes like below:</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">speak</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>  <span class="s2">" is barking"</span><span class="p">);</span>
+            <span class="p">}</span>
+<span class="c1">//then you in herit the prototype as</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="c1">//when you inherit, you overwrite your own constructor, so you set it back.</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">;</span>
+</pre>
+
+
+<ul>
+<li>when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.</li>
+<li>you can, in this way, have prototype chaining.</li>
+<li>The concept <code>defineProperties</code> allows you to declare some properties as read only, making it not possible for inheriting objects to change some properties. It also gives you getters and setters.</li>
+</ul>
+<h3>ECMAScript 6 pattern</h3>
+<ul>
+<li>
+<strong>ECMAScript 6</strong> makes creating classes way more like a proper OO language. You get <code>class</code>, <code>constructor()</code> <code>super</code> keywords and looses a lot of bad verbage making things simpler</li>
+<li>You really dont play with prototypes in ecma6.</li>
+<li>you get <code>arrow</code> functions, which are lambda functions, similar to that in C#.</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="p">()=&gt;</span> <span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span>
+<span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)=&gt;</span> <span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span> <span class="c1">//for a function wiht one or more args</span>
+</pre>
+
+
+<ul>
+<li>you read <code>=&gt;</code> as <code>goes to</code>.</li>
+</ul>
+<h3>DOM</h3>
+<ul>
+<li>tree of nodes. Each tag is a node.</li>
+<li>JS can parse the DOM, modify it based on event the user is triggering.</li>
+<li>methods like <code>createElement</code>, <code>getElementById</code>, <code>getElementByName</code>, <code>getElementByTagName</code> lets you read DOM or search DOM.</li>
+<li>You can inject html by setting <code>&lt;div&gt;</code> tags <code>innerHTML</code> to the html text you need.</li>
+<li>since the browser support varies a lot, you can use <a href="http://caniuse.com">http://caniuse.com</a> to find support across browsers.</li>
+</ul>
+<h4>jQuery for DOM manipulation</h4>
+<ul>
+<li>jQuery is a library and a very popular one. You can use the Google CDN or download and put it in your server as well. <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js</a> is Google's CDN.</li>
+<li>If you are installing this locally instead of using the CDN, then use <code>npm</code> and <code>bower</code>. Bower will install it in the root of your site, so when you host your site, you will not forget to host the dependent libraries.</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">bower</span>
+<span class="n">bower</span> <span class="n">install</span> <span class="n">jquery</span>
+</pre>
+
+
+<ul>
+<li>a couple of two different package managers is <code>yarn</code> and <code>webpack</code>.</li>
+<li>jQuery tutorial <a href="https://www.w3schools.com/jquery/">https://www.w3schools.com/jquery/</a>
+</li>
+<li>a case for installing the lib locally is, you can step-in to the jQuery code when needed to understand the implementaiton.</li>
+<li>when you call jQuery, you <strong>dont</strong> get back a DOM. Instead you get back a jQuery result object.</li>
+<li>in code, <code>$</code> is a shorthand representation of lib name <code>jQuery</code>.</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"page loaded, ready for JS"</span><span class="p">)</span>
+    <span class="p">})</span>
+
+<span class="c1">//general syntax is </span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">action</span><span class="p">()</span>
+</pre>
+
+
+<ul>
+<li>it is good to check if the page has fully loaded before running JS. you can check it like above.</li>
+<li>a programming pattern is to use <code>$</code> suffix for jQuery result sets to differentiate from JS variables</li>
+</ul>
+<pre class="code literal-block"><span></span><span class="kd">var</span> <span class="nx">divs$</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.(</span><span class="s1">'div'</span><span class="p">);</span> <span class="c1">//get all the selectors of div</span>
+</pre>
+
+
+<h4>AJAX - jQuery library for IO with backend</h4>
+<ul>
+<li>operations are async. AJAX - Asynchronous Javascript And XML. AJAX is used to make calls to backend server or any remote server via HTTP, REST.</li>
+<li>AJAX call will return a value called a <code>promise</code>, while the rest of the script is executed.</li>
+<li>AJAX object is a <code>XHR</code> - XML HTTP Request object - something microsoft came up. There is no JSON in the name since it was not invented yet. However, today's tech still keeps the name XHR to send and receive JSON.</li>
+<li>AJAX methods - <code>$.get(url, data, success, dataType)</code>, <code>$.getJSON()</code>, <code>$.post()</code>, <code>.load(url, data, complete)</code> are some popular methods. </li>
+<li>When doing async work, you use the <code>$.ajax()</code> which will give you a <code>promise</code> and you will call <code>$.then(function(){})</code> which will perform the operation once the async op is complete.</li>
+<li>use <code>$.ajaxSetup({})</code> to declare some defaults like the url prefix, method, dataType etc and this will apply for all calls made.</li>
+<li>
+<code>JSONP</code> is JSON with padding.</li>
+</ul>
+<h3>Node JS</h3>
+<ul>
+<li>With node JS, you can power up a server and a client set up. See the node js example.</li>
+</ul>
+<h3>Appendix - Run web server using node.js</h3>
+<p>In terminal, after installing node.js, type:</p>
+<pre class="code literal-block"><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="k">g</span>
+</pre>
+
+
+<p>This installs a server, <a href="https://www.npmjs.com/package/http-server">help for that server</a>. Then to start a web server, navigate to the folder with website and run</p>
+<pre class="code literal-block"><span></span><span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="n">p</span> <span class="mi">3000</span>
+</pre>
+
+
+<p>You can run this command either from terminal or from the terminal window in vs code.</p>
+<h3>Appendix - documentation</h3>
+<ul>
+<li>w3 school - gives high level documentation</li>
+<li>mozilla developer network - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">mdn js</a>
+</li>
+</ul>
+<p><strong>Typescript</strong> transpiles into Javascript!!</p>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

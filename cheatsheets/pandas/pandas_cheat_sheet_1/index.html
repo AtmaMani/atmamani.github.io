@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pandas_cheat_sheet_1 | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/pandas/pandas_cheat_sheet_1/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="pandas_cheat_sheet_1">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/pandas/pandas_cheat_sheet_1/">
+<meta property="og:description" content="Pandas cheat sheet¶
+Pandas is Python Data Analysis library. Series and Dataframes are major data structures in Pandas. Pandas is built on top of NumPy arrays.
+
+
+
+
+
+
+
+ToC
+
+Series
+Create a series
+Operat">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-04T14:51:41-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li class="active">
+<a href=".">Pandas basics <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">pandas_cheat_sheet_1</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pandas-cheat-sheet">Pandas cheat sheet<a class="anchor-link" href="#Pandas-cheat-sheet">¶</a>
+</h2>
+<p><img src="http://www.madmaximshen.com/wp-content/uploads/2016/06/pandas.png" alt=""></p>
+<p>Pandas is Python Data Analysis library. Series and Dataframes are major data structures in Pandas. Pandas is built on top of NumPy arrays.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>ToC</strong></p>
+<ul>
+<li>
+<a href="#Series">Series</a><ul>
+<li><a href="#Create-a-series">Create a series</a></li>
+<li><a href="#Operations-on-series">Operations on series</a></li>
+</ul>
+</li>
+<li>
+<a href="#DataFrames">DataFrames</a><ul>
+<li><a href="#Creating-dataFrames">Creating dataFrames</a></li>
+<li>
+<a href="#Slicing-and-dicing-DataFrames">Slicing and dicing DataFrames</a><ul>
+<li><a href="#Access-columns">Access columns</a></li>
+<li><a href="#Access-rows">Access rows</a></li>
+<li><a href="#Accessing-using-index-number">Accessing using index number</a></li>
+<li><a href="#Dicing-DataFrames">Dicing DataFrames</a></li>
+</ul>
+</li>
+<li>
+<a href="#Conditional-selection">Conditional selection</a><ul>
+<li><a href="#Chaining-conditions">Chaining conditions</a></li>
+<li><a href="#Multiple-conditions">Multiple conditions</a></li>
+</ul>
+</li>
+<li>
+<a href="#Operations-on-DataFrames">Operations on DataFrames</a><ul>
+<li><a href="#Adding-new-columns">Adding new columns</a></li>
+<li><a href="#Dropping-rows-and-columns">Dropping rows and columns</a></li>
+</ul>
+</li>
+<li>
+<a href="#DataFrame-index">DataFrame index</a><ul>
+<li><a href="#Set-index">Set index</a></li>
+<li><a href="#Reset-index">Reset index</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Series">Series<a class="anchor-link" href="#Series">¶</a>
+</h3>
+<p>Series is 1 dimensional data structure. It is similar to numpy array, but each data point has a label in the place of an index.</p>
+<h4 id="Create-a-series">Create a series<a class="anchor-link" href="#Create-a-series">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#from a list</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">ser1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">l1</span><span class="p">)</span>  <span class="c1">#when you dont specify labels for index, it is autogenerated</span>
+<span class="n">ser1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#from a numpy array</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">]</span>
+<span class="n">ser2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">arr1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">l2</span><span class="p">)</span> <span class="c1">#indices can of any data type, here string</span>
+<span class="n">ser2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>a    1
+b    2
+c    3
+e    4
+d    5
+dtype: int32</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#from a dictionary</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'usa'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'india'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'germany'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'japan'</span><span class="p">:</span><span class="s1">'china'</span><span class="p">,</span> <span class="s1">'china'</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
+<span class="n">ser3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="n">ser3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>china          4
+germany        3
+india          2
+japan      china
+usa            1
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus Series can have <strong>different</strong> datatypes.</p>
+<h4 id="Operations-on-series">Operations on series<a class="anchor-link" href="#Operations-on-series">¶</a>
+</h4>
+<p>You can add, multiply and other numerical opertions on Series just like on numpy arrays.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser1a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">ser1</span> <span class="o">+</span> <span class="n">ser1a</span> <span class="c1">#each individual element with matching index/label is summed</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0     2
+1     4
+2     6
+3     8
+4    10
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When labels dont match, it puts a nan. Thus when two series are added, you <strong>may or may not get the same number of elements</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ser1</span> <span class="o">+</span> <span class="n">ser3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0          NaN
+1          NaN
+2          NaN
+3          NaN
+4          NaN
+china      NaN
+germany    NaN
+india      NaN
+japan      NaN
+usa        NaN
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="DataFrames">DataFrames<a class="anchor-link" href="#DataFrames">¶</a>
+</h3>
+<h4 id="Creating-dataFrames">Creating dataFrames<a class="anchor-link" href="#Creating-dataFrames">¶</a>
+</h4>
+<p>Pandas DataFrames are built on top of Series. It looks similar to a NumPy array, but has labels for both columns and rows.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">arr1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0.13430231,  0.62520675,  0.97098126,  0.71760504],
+       [ 0.71376565,  0.77318189,  0.05968879,  0.45089927],
+       [ 0.05898965,  0.90430093,  0.43148674,  0.08768307],
+       [ 0.50989094,  0.50103695,  0.24427914,  0.76313491]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row_lables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Car1'</span><span class="p">,</span> <span class="s1">'Car2'</span><span class="p">,</span> <span class="s1">'Car3'</span><span class="p">,</span> <span class="s1">'Car4'</span><span class="p">]</span>
+<span class="n">col_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'reliability'</span><span class="p">,</span> <span class="s1">'cost'</span><span class="p">,</span> <span class="s1">'competition'</span><span class="p">,</span> <span class="s1">'halflife'</span><span class="p">]</span>
+
+<span class="c1">#create a dataframe</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">arr1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">row_lables</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">col_labels</span><span class="p">)</span>
+<span class="n">df1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Slicing-and-dicing-DataFrames">Slicing and dicing DataFrames<a class="anchor-link" href="#Slicing-and-dicing-DataFrames">¶</a>
+</h4>
+<p>You can access DataFrames similar to Series and slice it similar to NumPy arrays</p>
+<h5 id="Access-columns">Access columns<a class="anchor-link" href="#Access-columns">¶</a>
+</h5>
+<pre><code>DataFrameObj['column_name'] ==&gt; returns a pandas.core.series.Series</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Accessing a whole column</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Car1    0.894051
+Car2    0.014127
+Car3    0.351610
+Car4    0.601929
+Name: reliability, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#can access as a property, but this is not advisable </span>
+<span class="c1">#since it can clobber builtin methods and properties</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">reliability</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Car1    0.894051
+Car2    0.014127
+Car3    0.351610
+Car4    0.601929
+Name: reliability, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Access-rows">Access rows<a class="anchor-link" href="#Access-rows">¶</a>
+</h5>
+<pre><code>DataFrameobj.loc['row_label'] also returns a Series. Notice the .loc</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'Car4'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>reliability    0.601929
+cost           0.854320
+competition    0.391956
+halflife       0.759363
+Name: Car4, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'Car3'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.series.Series</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Accessing-using-index-number">Accessing using index number<a class="anchor-link" href="#Accessing-using-index-number">¶</a>
+</h5>
+<p>If you don't know the labels, but know the index like in an array, use <code>iloc</code> and pass the index number.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get first row, first col</span>
+<span class="n">val1</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">val1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.894051123737
+&lt;class 'numpy.float64'&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get full first row</span>
+<span class="n">val2</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">val2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>reliability    0.894051
+cost           0.849727
+competition    0.538400
+halflife       0.863986
+Name: Car1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">val2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.series.Series</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Dicing-DataFrames">Dicing DataFrames<a class="anchor-link" href="#Dicing-DataFrames">¶</a>
+</h5>
+<p>Dicing using labels ==&gt; use <code>DataFrameObj.loc[[row_labels],[col_labels]]</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get cost and competition of cars 2,3</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">'Car2'</span><span class="p">,</span> <span class="s1">'Car3'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'cost'</span><span class="p">,</span> <span class="s1">'competition'</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>cost</th>
+      <th>competition</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car2</th>
+      <td>0.935368</td>
+      <td>0.719570</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.659950</td>
+      <td>0.605077</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With index number, dice using</p>
+
+<pre><code>DataFrameObj.iloc[[row_indices], [col_indices]]</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>cost</th>
+      <th>competition</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car2</th>
+      <td>0.935368</td>
+      <td>0.719570</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.659950</td>
+      <td>0.605077</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Conditional-selection">Conditional selection<a class="anchor-link" href="#Conditional-selection">¶</a>
+</h4>
+<p>When running a condition on a DataFrame, you are returned a Bool dataframe.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find cars with reliability &gt; 0.85</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Car1    False
+Car2    False
+Car3     True
+Car4    False
+Name: reliability, dtype: bool</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#to get the car select the data elements using the bool series</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody><tr>
+<th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#To get only the car name, which in this case is the index</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'Car3'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Chaining-conditions">Chaining conditions<a class="anchor-link" href="#Chaining-conditions">¶</a>
+</h5>
+<p>In a Pythonic way, you can chain conditions</p>
+
+<pre><code>df[df condition][selection][selection]</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#to get the actual value of reliablity for this car</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">][</span><span class="s1">'reliability'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Car3    0.884783
+Name: reliability, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get both reliability and cost</span>
+<span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.85</span><span class="p">][[</span><span class="s1">'reliability'</span><span class="p">,</span> <span class="s1">'cost'</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+    </tr></thead>
+<tbody><tr>
+<th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+    </tr></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Multiple-conditions">Multiple conditions<a class="anchor-link" href="#Multiple-conditions">¶</a>
+</h5>
+<p>You can select dataframe elements with multiple conditions. <strong>Note</strong> cannot use Python <code>and</code> , <code>or</code>. Instead use <code>&amp;</code>, <code>|</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#select cars that have reliability &gt; 0.7 but competition less than 0.5</span>
+<span class="n">df1</span><span class="p">[(</span><span class="n">df1</span><span class="p">[</span><span class="s1">'reliability'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">'competition'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># select cars that have half life &gt; 0.5 or competition &lt; 0.4</span>
+<span class="n">df1</span><span class="p">[(</span><span class="n">df1</span><span class="p">[</span><span class="s1">'halflife'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s1">'competition'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Operations-on-DataFrames">Operations on DataFrames<a class="anchor-link" href="#Operations-on-DataFrames">¶</a>
+</h4>
+<h5 id="Adding-new-columns">Adding new columns<a class="anchor-link" href="#Adding-new-columns">¶</a>
+</h5>
+<p>Create new columns just like adding a kvp to a dictionary.</p>
+
+<pre><code>DataFrameObj['new_col'] = Series</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#add full life column</span>
+<span class="n">df1</span><span class="p">[</span><span class="s1">'full_life'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="s1">'halflife'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1">#similar to array, series broadcast multiplication</span>
+<span class="n">df1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+      <td>0.175366</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Dropping-rows-and-columns">Dropping rows and columns<a class="anchor-link" href="#Dropping-rows-and-columns">¶</a>
+</h5>
+<pre><code>DataFrameObj.drop(label, axis, inplace=True / False)
+
+</code></pre>
+<p>Row labels are <code>axis = 0</code> and columns are <code>axis = 1</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'full_life'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.058990</td>
+      <td>0.904301</td>
+      <td>0.431487</td>
+      <td>0.087683</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'Car3'</span><span class="p">)</span> <span class="c1">#all else is the default</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.435210</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.713766</td>
+      <td>0.773182</td>
+      <td>0.059689</td>
+      <td>0.450899</td>
+      <td>0.901799</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.526270</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Drop a row based on a condition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">'cost'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>full_life</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.134302</td>
+      <td>0.625207</td>
+      <td>0.970981</td>
+      <td>0.717605</td>
+      <td>1.43521</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.509891</td>
+      <td>0.501037</td>
+      <td>0.244279</td>
+      <td>0.763135</td>
+      <td>1.52627</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="DataFrame-Index">DataFrame Index<a class="anchor-link" href="#DataFrame-Index">¶</a>
+</h4>
+<p>So far, <code>Car1</code>, <code>Car2</code>.. is the index for rows. If you would like to set a different column as an index, use <code>set_index</code>. If you want to make index as a column rather, and use numerals for index, use <code>reset_index</code></p>
+<h5 id="Set-index">Set index<a class="anchor-link" href="#Set-index">¶</a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set car names as index for the data frame</span>
+<span class="n">car_names</span> <span class="o">=</span> <span class="s1">'altima outback taurus mustang'</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">car_names</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['altima', 'outback', 'taurus', 'mustang']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="p">[</span><span class="s1">'car_names'</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_names</span>
+<span class="n">df1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>Car1</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+<tr>
+<th>Car2</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+<tr>
+<th>Car3</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+<tr>
+<th>Car4</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_new_index</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="s1">'car_names'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_new_index</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr>
+<tr>
+<th>car_names</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>altima</th>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+<tr>
+<th>outback</th>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+<tr>
+<th>taurus</th>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+<tr>
+<th>mustang</th>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note, the old index is lost.</p>
+<h5 id="Rest-index">Rest index<a class="anchor-link" href="#Rest-index">¶</a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#reset df1 index to numerals and convert existing to a column</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>index</th>
+      <th>reliability</th>
+      <th>cost</th>
+      <th>competition</th>
+      <th>halflife</th>
+      <th>car_names</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>Car1</td>
+      <td>0.776415</td>
+      <td>0.435083</td>
+      <td>0.236151</td>
+      <td>0.169087</td>
+      <td>altima</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>Car2</td>
+      <td>0.790403</td>
+      <td>0.987459</td>
+      <td>0.370570</td>
+      <td>0.734146</td>
+      <td>outback</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>Car3</td>
+      <td>0.884783</td>
+      <td>0.233803</td>
+      <td>0.691639</td>
+      <td>0.725398</td>
+      <td>taurus</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>Car4</td>
+      <td>0.693038</td>
+      <td>0.716824</td>
+      <td>0.766937</td>
+      <td>0.490821</td>
+      <td>mustang</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

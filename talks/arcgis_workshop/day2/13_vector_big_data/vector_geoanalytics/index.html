@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vector_geoanalytics | Atma's blog</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/vector_geoanalytics/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="vector_geoanalytics">
+<meta property="og:url" content="https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/vector_geoanalytics/">
+<meta property="og:description" content="Creating hurricane tracks using Geoanalytics¶The sample code below uses big data analytics (GeoAnalytics) to reconstruct hurricane tracks using data registered on a big data file share in the GIS. Not">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T16:58:57-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../../">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">vector_geoanalytics</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-hurricane-tracks-using-Geoanalytics">Creating hurricane tracks using Geoanalytics<a class="anchor-link" href="#Creating-hurricane-tracks-using-Geoanalytics">¶</a>
+</h2>
+<p>The sample code below uses big data analytics (GeoAnalytics) to reconstruct hurricane tracks using data registered on a big data file share in the GIS. Note that this functionality is currently available on ArcGIS Enterprise 10.5 and not yet with ArcGIS Online.</p>
+<h3 id="Reconstruct-tracks">Reconstruct tracks<a class="anchor-link" href="#Reconstruct-tracks">¶</a>
+</h3>
+<p>Reconstruct tracks is a type of data aggregation tool available in the <code>arcgis.geoanalytics</code> module. This tool works with a layer of point features or polygon features that are time enabled. It first determines which points belong to a track using an identification number or identification string. Using the time at each location, the tracks are ordered sequentially and transformed into a line representing the path of movement.</p>
+<h3 id="Data-used">Data used<a class="anchor-link" href="#Data-used">¶</a>
+</h3>
+<p>For this sample, hurricane data from over a period of 50 years, totalling about 150,000 points split into 5 shape files was used. The <a href="http://www.nhc.noaa.gov/gis/">National Hurricane Center</a> provides similar datasets that can be used for exploratory purposes.</p>
+<p>To illustrate the nature of the data a subset was published as a feature service and can be visualized as below:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+
+<span class="c1"># Create an anonymous connection to ArcGIS Online</span>
+<span class="n">arcgis_online</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">()</span>
+<span class="n">hurricane_pts</span> <span class="o">=</span> <span class="n">arcgis_online</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"Hurricane_tracks_points AND owner:atma.mani"</span><span class="p">,</span> <span class="s2">"Feature Layer"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">hurricane_pts</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="http://www.arcgis.com/home/item.html?id=8ebd08e3d0c04d249b29afba7a5e1b8f" target="_blank">
+                        <img src="http://www.arcgis.com/sharing/rest//content/items/8ebd08e3d0c04d249b29afba7a5e1b8f/info/thumbnail/thumbnail.png" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="http://www.arcgis.com/home/item.html?id=8ebd08e3d0c04d249b29afba7a5e1b8f" target="_blank"><b>Hurricane_tracks_points</b>
+                        </a>
+                        <br>Years 1932 - 1942<img src="http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by atma.mani
+                        <br>Last Modified: September 15, 2016
+                        <br>0 comments, 0 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subset_map</span> <span class="o">=</span> <span class="n">arcgis_online</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"USA"</span><span class="p">)</span>
+<span class="n">subset_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subset_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">hurricane_pts</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Inspect-the-data-attributes">Inspect the data attributes<a class="anchor-link" href="#Inspect-the-data-attributes">¶</a>
+</h3>
+<p>Let us query the first layer in hurricane_pts and view its attribute table as a Pandas dataframe.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hurricane_pts</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>ATC_eye</th>
+      <th>ATC_grade</th>
+      <th>ATC_poci</th>
+      <th>ATC_pres</th>
+      <th>ATC_rmw</th>
+      <th>ATC_roci</th>
+      <th>ATC_w34_r1</th>
+      <th>ATC_w34_r2</th>
+      <th>ATC_w34_r3</th>
+      <th>ATC_w34_r4</th>
+      <th>...</th>
+      <th>day</th>
+      <th>hour</th>
+      <th>min_</th>
+      <th>month</th>
+      <th>wmo_pres</th>
+      <th>wmo_pres__</th>
+      <th>wmo_wind</th>
+      <th>wmo_wind__</th>
+      <th>year</th>
+      <th>SHAPE</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>-999</td>
+      <td>-999.</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>1932</td>
+      <td>{'spatialReference': {'wkid': 4326, 'latestWki...</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>-999</td>
+      <td>-999.</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>...</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-100.0</td>
+      <td>0</td>
+      <td>-100.0</td>
+      <td>1932</td>
+      <td>{'spatialReference': {'wkid': 4326, 'latestWki...</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>-999</td>
+      <td>-999.</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>...</td>
+      <td>1</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>1932</td>
+      <td>{'spatialReference': {'wkid': 4326, 'latestWki...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>-999</td>
+      <td>-999.</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>...</td>
+      <td>1</td>
+      <td>18</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>1932</td>
+      <td>{'spatialReference': {'wkid': 4326, 'latestWki...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>-999</td>
+      <td>-999.</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>-999</td>
+      <td>-999.0</td>
+      <td>1932</td>
+      <td>{'spatialReference': {'wkid': 4326, 'latestWki...</td>
+    </tr>
+</tbody>
+</table>
+<p>5 rows × 148 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-a-data-store">Create a data store<a class="anchor-link" href="#Create-a-data-store">¶</a>
+</h3>
+<p>For the GeoAnalytics server to process your big data, it needs the data to be registered as a data store. In our case, the data is in multiple shape files and we will register the folder containing the files as a data store of type <code>bigDataFileShare</code>.</p>
+<p>Let us connect to an ArcGIS Enterprise</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
+<span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s2">"https://esriwebgis.webgistesting.net/portal"</span><span class="p">,</span> <span class="s2">"admin"</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>········
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Get the geoanalytics datastores and search it for the registered datasets:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Query the data stores available</span>
+<span class="kn">from</span> <span class="nn">arcgis</span> <span class="k">import</span> <span class="n">geoanalytics</span>
+<span class="n">datastores</span> <span class="o">=</span> <span class="n">geoanalytics</span><span class="o">.</span><span class="n">get_datastores</span><span class="p">()</span>
+<span class="n">bigdata_fileshares</span> <span class="o">=</span> <span class="n">datastores</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="n">bigdata_fileshares</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Datastore title:"/bigDataFileShares/Hurricane_tracks" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/hurricanes" type:"bigDataFileShare"&gt;,
+ &lt;Datastore title:"/bigDataFileShares/test" type:"bigDataFileShare"&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_store_item</span> <span class="o">=</span> <span class="n">bigdata_fileshares</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">data_store_item</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_store_item</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'format': {'extension': 'shp', 'type': 'shapefile'},
+ 'geometry': {'geometryType': 'esriGeometryPoint',
+  'spatialReference': {'wkid': 4326}},
+ 'name': 'full_dataset',
+ 'schema': {'fields': [{'name': 'serial_num', 'type': 'esriFieldTypeString'},
+   {'name': 'season', 'type': 'esriFieldTypeBigInteger'},
+   {'name': 'num', 'type': 'esriFieldTypeBigInteger'},
+   {'name': 'basin', 'type': 'esriFieldTypeString'},
+   {'name': 'sub_basin', 'type': 'esriFieldTypeString'},
+   {'name': 'name', 'type': 'esriFieldTypeString'},
+   {'name': 'iso_time', 'type': 'esriFieldTypeString'},
+   {'name': 'nature', 'type': 'esriFieldTypeString'},
+   {'name': 'latitude', 'type': 'esriFieldTypeDouble'},
+   {'name': 'longitude', 'type': 'esriFieldTypeDouble'},
+   {'name': 'wind_wmo_', 'type': 'esriFieldTypeDouble'},
+   {'name': 'pres_wmo_', 'type': 'esriFieldTypeBigInteger'},
+   {'name': 'center', 'type': 'esriFieldTypeString'},
+   {'name': 'wind_wmo1', 'type': 'esriFieldTypeDouble'},
+   {'name': 'pres_wmo1', 'type': 'esriFieldTypeDouble'},
+   {'name': 'track_type', 'type': 'esriFieldTypeString'},
+   {'name': 'size', 'type': 'esriFieldTypeString'},
+   {'name': 'Wind', 'type': 'esriFieldTypeBigInteger'}]},
+ 'time': {'fields': [{'formats': ['yyyy-MM-dd HH:mm:ss'], 'name': 'iso_time'}],
+  'timeReference': {'timeZone': 'UTC'},
+  'timeType': 'instant'}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If there is no big data file share for hurricane track data registered on the server, we can register one that points to the shared folder containing the shape files.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_item</span> <span class="o">=</span> <span class="n">datastores</span><span class="o">.</span><span class="n">add_bigdata</span><span class="p">(</span><span class="s2">"Hurricane_tracks"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"</span><span class="se">\\</span><span class="s2">path_to_hurricane_data"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search_result</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">item_type</span> <span class="o">=</span> <span class="s1">'Big Data File Share'</span><span class="p">)</span>
+<span class="n">search_result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Item title:"bigDataFileShares_hurricanes" type:Big Data File Share owner:atma.mani&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hurricanes_data_item</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">hurricanes_data_item</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="https://esriwebgis.webgistesting.net/portal/home/item.html?id=e1ffdd7dad8b4c71a653b5dec0ed852d" target="_blank">
+                        <img src="https://esriwebgis.webgistesting.net/portal/portalimages/desktopapp.png" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="https://esriwebgis.webgistesting.net/portal/home/item.html?id=e1ffdd7dad8b4c71a653b5dec0ed852d" target="_blank"><b>bigDataFileShares_hurricanes</b>
+                        </a>
+                        <br><img src="https://esriwebgis.webgistesting.net/portal/home/js/jsapi/esri/css/images/item_type_icons/layers16.png" style="vertical-align:middle;">Big Data File Share by atma.mani
+                        <br>Last Modified: March 06, 2017
+                        <br>0 comments, 0 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Perform-data-aggregation-using-reconstruct-tracks-tool">Perform data aggregation using reconstruct tracks tool<a class="anchor-link" href="#Perform-data-aggregation-using-reconstruct-tracks-tool">¶</a>
+</h3>
+<p>When you add a big data file share, a corresponding item gets created in your GIS. You can search for it like a regular item and query its layers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hurricanes_data_item</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;Layer url:"https://ESRIgeoanalytics.webgistesting.net/server/rest/services/DataStoreCatalogs/bigDataFileShares_hurricanes/BigDataCatalogServer/split_by_year"&gt;,
+ &lt;Layer url:"https://ESRIgeoanalytics.webgistesting.net/server/rest/services/DataStoreCatalogs/bigDataFileShares_hurricanes/BigDataCatalogServer/full_dataset"&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">years_50</span> <span class="o">=</span> <span class="n">hurricanes_data_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">years_50</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Layer url:"https://ESRIgeoanalytics.webgistesting.net/server/rest/services/DataStoreCatalogs/bigDataFileShares_hurricanes/BigDataCatalogServer/full_dataset"&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Reconstruct-tracks-tool">Reconstruct tracks tool<a class="anchor-link" href="#Reconstruct-tracks-tool">¶</a>
+</h4>
+<p>The <code>reconstruct_tracks()</code> function is available in the <code>arcgis.geoanalytics.summarize_data</code> module. In this example, we are using this tool to aggregate the numerous points into line segments showing the tracks followed by the hurricanes. The tool creates a feature layer item as an output which can be accessed once the processing is complete.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agg_result</span> <span class="o">=</span> <span class="n">geoanalytics</span><span class="o">.</span><span class="n">summarize_data</span><span class="o">.</span><span class="n">reconstruct_tracks</span><span class="p">(</span><span class="n">input_layer</span><span class="o">=</span><span class="n">years_50</span><span class="p">,</span>
+                                                            <span class="n">track_fields</span><span class="o">=</span><span class="s1">'Serial_Num'</span><span class="p">,</span>
+                                                            <span class="n">method</span><span class="o">=</span><span class="s1">'GEODESIC'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Submitted.
+Executing...
+Executing (ReconstructTracks): ReconstructTracks "Feature Set" Serial_Num Geodesic # # # # {"itemProperties":{"itemId":"b8f8b055c70c44878b578e7c29079c79"},"serviceProperties":{"serviceUrl":"http://ESRIwebgis.webgistesting.net/server/rest/services/Hosted/Reconstructed_Tracks_WXXBKC/FeatureServer","name":"Reconstructed_Tracks_WXXBKC"}} #
+Start Time: Mon Mar 06 23:33:20 2017
+Using URL based GPRecordSet param: https://ESRIgeoanalytics.webgistesting.net/server/rest/services/DataStoreCatalogs/bigDataFileShares_hurricanes/BigDataCatalogServer/full_dataset?token=ucfxgdYPHkgWdsiVXtNV2ioEr1XKPnKqVtCmxgMwj7w0NY5p69bX_ZNp_LAad5ce6aMuhfBs1BkaNazsY8I7VJ3hKXDPGwzho28PkmZWzAOgWSqcvgP9JZZxp9P9oQdmjbxboZfbZQZG5dkzrN-wYg..
+{"messageCode":"BD_101028","message":"Starting new distributed job with 8 tasks.","params":{"totalTasks":"8"}}
+{"messageCode":"BD_101029","message":"1/8 distributed tasks completed.","params":{"completedTasks":"1","totalTasks":"8"}}
+{"messageCode":"BD_101029","message":"7/8 distributed tasks completed.","params":{"completedTasks":"7","totalTasks":"8"}}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>{"messageCode":"BD_101051","message":"Possible issues were found while reading 'inputLayer'.","params":{"paramName":"inputLayer"}}
+{"messageCode":"BD_101052","message":"Some records have either missing or invalid time values."}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  extent = Some(Envelope: [-103.0, -39.8, 80.0, 63.0])
+  interval = Some(Interval(MutableInstant(1848-01-11 06:00:00.000),MutableInstant(1899-12-26 06:00:00.000)))
+  count = 568
+{"messageCode":"BD_0","message":"Feature service layer created: http://ESRIwebgis.webgistesting.net/server/rest/services/Hosted/Reconstructed_Tracks_WXXBKC/FeatureServer/0","params":{"serviceUrl":"http://ESRIwebgis.webgistesting.net/server/rest/services/Hosted/Reconstructed_Tracks_WXXBKC/FeatureServer/0"}}
+{"messageCode":"BD_101051","message":"Possible issues were found while reading 'inputLayer'.","params":{"paramName":"inputLayer"}}
+{"messageCode":"BD_101052","message":"Some records have either missing or invalid time values."}
+      &gt; GenericFeature(attributes=[1900032S20050,1900,7,SI,MM,XXXX900274,2/1/1900 6:00,NR,-19.9,50.2,0.0,0,reunion,-100.0,-100.0,split,0,0],geometry={"x":50.2,"y":-19.9},time=null)
+      &gt; GenericFeature(attributes=[1900032S20050,1900,7,SI,MM,XXXX900274,2/2/1900 6:00,NR,-20.8,51.1,0.0,0,reunion,-100.0,-100.0,split,0,0],geometry={"x":51.1,"y":-20.8},time=null)
+      &gt; GenericFeature(attributes=[1900032S20050,1900,7,SI,MM,XXXX900274,2/3/1900 6:00,NR,-23.2,53.3,0.0,0,reunion,-100.0,-100.0,split,0,0],geometry={"x":53.3,"y":-23.2},time=null)
+Succeeded at Mon Mar 06 23:33:36 2017 (Elapsed Time: 15.32 seconds)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Inspect-the-results">Inspect the results<a class="anchor-link" href="#Inspect-the-results">¶</a>
+</h3>
+<p>Let us create a map and load the processed result which is a feature service</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed_map</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s2">"USA"</span><span class="p">)</span>
+<span class="n">processed_map</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed_map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">agg_result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus we transformed a bunch of ponints into tracks that represents paths taken by the hurricanes over a period of 50 years. We can pull up another map and inspect the results a bit more closely</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our input data and the map widget is time enabled. Thus we can filter the data to represent the tracks from only the years 1860 to 1870</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed_map</span><span class="o">.</span><span class="n">set_time_extent</span><span class="p">(</span><span class="s1">'1860'</span><span class="p">,</span> <span class="s1">'1870'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-can-geoanalytics-do-for-you?">What can geoanalytics do for you?<a class="anchor-link" href="#What-can-geoanalytics-do-for-you?">¶</a>
+</h3>
+<p>With this sample we just scratched the surface of what big data analysis can do for you. ArcGIS Enterprise at 10.5 packs a powerful set of tools that let you derive a lot of value from your data. You can do so by asking the right questions, for instance, a weather dataset such as this could be used to answer a few interesting questions such as</p>
+<ul>
+<li>did the number of hurricanes per season increase over the years?</li>
+<li>give me the hurricanes that travelled longest distance</li>
+<li>give me the ones that stayed for longest time. Do we see a trend?</li>
+<li>how are wind speed and distance travelled correlated?</li>
+<li>my assets are located in a tornado corridor. How many times in the past century, was there a hurricane within 50 miles from my assets?</li>
+<li>my industry is dependent on tourism, which is heavily impacted by the vagaries of weather. From historical weather data, can I correlate my profits with major weather events? How well is my business insulated from freak weather events?</li>
+<li>over the years do we see any shifts in major weather events - do we notice a shift in when the hurricane season starts?</li>
+</ul>
+<p>The ArcGIS API for Python gives you a gateway to easily access the big data tools from your ArcGIS Enterprise. By combining it with other powerful libraries from the pandas and scipy stack and the rich visualization capabilities of the Jupyter notebook, you can extract a lot of value from your data, big or small.</p>
+
+</div>
+</div>
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

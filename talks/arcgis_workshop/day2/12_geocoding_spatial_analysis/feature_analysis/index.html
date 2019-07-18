@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>feature_analysis | Atma's blog</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/feature_analysis/">
+<!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="feature_analysis">
+<meta property="og:url" content="https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/feature_analysis/">
+<meta property="og:description" content="Proximity analysis¶Proximity analysis tools help you answer one of the most common questions posed in spatial analysis: What is near what?
+Proximity tools are available under the sub module use_proxim">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T16:58:57-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../../">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">feature_analysis</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Proximity-analysis">Proximity analysis<a class="anchor-link" href="#Proximity-analysis">¶</a>
+</h2>
+<p>Proximity analysis tools help you answer one of the most common questions posed in spatial analysis: What is near what?</p>
+<p>Proximity tools are available under the sub module <code>use_proximity</code> in the <code>features</code> module of the API. This section of the guide talks about using two tools from this module - create buffers and plan routes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-buffers">Create buffers<a class="anchor-link" href="#Create-buffers">¶</a>
+</h3>
+<p>The Create Buffers tool creates areas around input point, line, or area features to a specified distance. Running this tool creates output polygon layers of specified radius. This tool is often used with overlay analysis to answer questions such as 'What falls within 5 mile radius of this school?'. Refer <a href="http://doc.arcgis.com/en/arcgis-online/use-maps/create-buffers.htm">here</a> for more details on this tool.</p>
+<p>In the examaple below, let us create buffers of 50 mile radius around major ports in the west coast of USA</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">arcgis</span>
+<span class="kn">from</span> <span class="nn">arcgis.gis</span> <span class="k">import</span> <span class="n">GIS</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Enter password: "</span><span class="p">)</span>
+<span class="n">gis</span> <span class="o">=</span> <span class="n">GIS</span><span class="p">(</span><span class="s2">"https://www.arcgis.com"</span><span class="p">,</span> <span class="s2">"jim2stuff"</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="n">ports_item</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"930a6992c0874f32818a02dd9b8b350c"</span><span class="p">)</span>
+<span class="n">ports_item</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter password: ········
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="https://www.arcgis.com/home/item.html?id=930a6992c0874f32818a02dd9b8b350c" target="_blank">
+                        <img src="data:image/png;base64,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" width="200" height="133" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="https://www.arcgis.com/home/item.html?id=930a6992c0874f32818a02dd9b8b350c" target="_blank"><b>Emergency Response Incidents NYC </b>
+                        </a>
+                        <br><img src="https://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by jim2stuff
+                        <br>Last Modified: March 06, 2017
+                        <br>0 comments, 3 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ports_item</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"930a6992c0874f32818a02dd9b8b350c"</span><span class="p">)</span>
+<span class="n">ports_item</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="https://www.arcgis.com/home/item.html?id=930a6992c0874f32818a02dd9b8b350c" target="_blank">
+                        <img src="data:image/png;base64,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" width="200" height="133" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="https://www.arcgis.com/home/item.html?id=930a6992c0874f32818a02dd9b8b350c" target="_blank"><b>Emergency Response Incidents NYC </b>
+                        </a>
+                        <br><img src="https://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by jim2stuff
+                        <br>Last Modified: March 06, 2017
+                        <br>0 comments, 3 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us render these ports on a map</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'New York'</span><span class="p">)</span>
+<span class="n">map1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map1</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">ports_item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Buffer-a-fixed-distance">Buffer a fixed distance<a class="anchor-link" href="#Buffer-a-fixed-distance">¶</a>
+</h4>
+<p>Access <code>create_buffers</code> from <code>use_proximity</code> sub module</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">arcgis.features</span> <span class="k">import</span> <span class="n">use_proximity</span>
+
+<span class="c1">#access the first layer in ports_item</span>
+<span class="n">ports_layer1</span> <span class="o">=</span> <span class="n">ports_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ports_buffer50</span> <span class="o">=</span> <span class="n">use_proximity</span><span class="o">.</span><span class="n">create_buffers</span><span class="p">(</span><span class="n">ports_layer1</span><span class="p">,</span> <span class="n">distances</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">],</span> <span class="n">units</span> <span class="o">=</span> <span class="s1">'Miles'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A buffer of 50 miles around each of these ports has been created</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ports_buffer50</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>arcgis.features.feature.FeatureCollection</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>ports_buffer50</code> is an in memory feature collection and has not been persisted as an item on the portal because we did not specify <code>output_name</code> parameter to the tool.</p>
+<p>Let us add the result to a new map</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'USA'</span><span class="p">)</span>
+<span class="n">map2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">ports_buffer50</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Buffer-based-on-a-numerical-field">Buffer based on a numerical field<a class="anchor-link" href="#Buffer-based-on-a-numerical-field">¶</a>
+</h4>
+<p>Sometimes, it makes sense to vary the buffered distance by a field on the layer. For instance, when creating buffers around hazardous sites, you may want to vary the distance by the type or quantity of materials held in the facility.
+Such kinds of buffers can be created by specifying a numerical field to the <code>field</code> parameter. Let us query all the fields on this layer and determine which can be used</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ports_layer1</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">fields</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[ ]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{
+   "nullable": false,
+   "name": "objectid",
+   "alias": "objectid",
+   "type": "esriFieldTypeOID",
+   "domain": null,
+   "editable": false
+ }, {
+   "nullable": true,
+   "name": "port_name",
+   "alias": "port_name",
+   "type": "esriFieldTypeString",
+   "domain": null,
+   "length": 8000,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "country",
+   "alias": "country",
+   "type": "esriFieldTypeString",
+   "domain": null,
+   "length": 8000,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "longitude",
+   "alias": "longitude",
+   "type": "esriFieldTypeDouble",
+   "domain": null,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "latitude",
+   "alias": "latitude",
+   "type": "esriFieldTypeDouble",
+   "domain": null,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "harborsize",
+   "alias": "harborsize",
+   "type": "esriFieldTypeString",
+   "domain": null,
+   "length": 8000,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "label_position",
+   "alias": "label_position",
+   "type": "esriFieldTypeString",
+   "domain": null,
+   "length": 8000,
+   "editable": true
+ }, {
+   "nullable": true,
+   "name": "short_form",
+   "alias": "short_form",
+   "type": "esriFieldTypeString",
+   "domain": null,
+   "length": 8000,
+   "editable": true
+ }, {
+   "nullable": false,
+   "length": 38,
+   "alias": "globalid",
+   "type": "esriFieldTypeGlobalID",
+   "domain": null,
+   "name": "globalid",
+   "editable": false
+ }]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>latitude</code> seems to be a suitable field. This time, let us store the result on the portal</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ports_buffer_lat</span> <span class="o">=</span> <span class="n">use_proximity</span><span class="o">.</span><span class="n">create_buffers</span><span class="p">(</span><span class="n">ports_layer1</span><span class="p">,</span>
+                                                     <span class="n">field</span><span class="o">=</span><span class="s1">'latitude'</span><span class="p">,</span>
+                                                     <span class="n">units</span><span class="o">=</span><span class="s1">'kilometers'</span><span class="p">,</span>
+                                                     <span class="n">output_name</span><span class="o">=</span><span class="s1">'ports_buffers_lat1'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Submitted.
+Executing...
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ports_buffer_lat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[ ]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>arcgis.gis.Item</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ports_buffer_lat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[ ]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="item_container" style="height: auto; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 2px; background: #f6fafa; line-height: 1.21429em; padding: 10px;">
+                    <div class="item_left" style="width: 210px; float: left;">
+                       <a href="http://dev003246.esri.com/portal/home/item.html?id=2b31a47950934b0188fc45d6377bd21e" target="_blank">
+                        <img src="http://dev003246.esri.com/portal/portalimages/desktopapp.png" class="itemThumbnail"></a>
+                    </div>
+
+                    <div class="item_right" style="float: none; width: auto; overflow: hidden;">
+                        <a href="http://dev003246.esri.com/portal/home/item.html?id=2b31a47950934b0188fc45d6377bd21e" target="_blank"><b>ports_buffers_lat1</b>
+                        </a>
+                        <br><img src="http://dev003246.esri.com/portal/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by arcgis_python_api
+                        <br>Last Modified: December 08, 2016
+                        <br>0 comments, 0 views
+                    </div>
+                </div>
+                
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, an item has been created on the portal storing the result. Let us add this back to the map. Scroll above to see the result</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map2</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">ports_buffer_lat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Plan-routes">Plan routes<a class="anchor-link" href="#Plan-routes">¶</a>
+</h2>
+<p>Plan Routes determines how a fleet of vehicles can visit a set of stops in the least amount of time. The plan routes tool is versatile and can be used to plan either a simple route direction or plan the travel of a fleet of vehicles. To learn more about this tool visit the <a href="http://doc.arcgis.com/en/arcgis-online/use-maps/plan-routes.htm">tool documentation</a></p>
+<p>In the example below, we will observe how to plan a simple route for tourists when they visit major attractions in Los Angeles. Our stops would be <a href="https://en.wikipedia.org/wiki/Universal_Studios_Hollywood">Universal studios</a>, <a href="https://en.wikipedia.org/wiki/Griffith_Observatory">Griffith observatory</a>, <a href="https://en.wikipedia.org/wiki/Disneyland">Disneyland amusement park</a>, <a href="https://en.wikipedia.org/wiki/Hollywood_Walk_of_Fame">Hollywood walk of fame</a> and back to <a href="https://en.wikipedia.org/wiki/Los_Angeles_International_Airport">Los Angeles international airport</a>.</p>
+<p>At a minimum the plan routes tool accepts a stop layer, start layer, route count and the maximum number of stops per route.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># search for a feature layer containing the attractions and destination.</span>
+<span class="n">stops_item</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"LA_tourism_stops"</span><span class="p">,</span> <span class="s2">"Feature Collection"</span><span class="p">,</span> <span class="n">max_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">airport_item</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"LAX_airport"</span><span class="p">,</span> <span class="s2">"Feature Collection"</span><span class="p">,</span> <span class="n">max_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us add the attractions and destination to a map</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'Los Angeles, California'</span><span class="p">)</span>
+<span class="n">map3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://esri.github.io/arcgis-python-api/notebooks/nbimages/guide_features_proximity_routes_01.PNG" alt="LA tourism routes"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">stops_item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">airport_item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us extract the feature data from the items and store them in two <code>FeatureCollection</code> objects to be used with the routes tool</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stops_fc</span> <span class="o">=</span> <span class="n">stops_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">airport_fc</span> <span class="o">=</span> <span class="n">airport_item</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Routing-options">Routing options<a class="anchor-link" href="#Routing-options">¶</a>
+</h4>
+<p>In the tool below, <code>route_count</code> is 1, since there is just one vehicle carrying the tourists and all tourists need to visit all attractions. In other use cases, when there are multiple vehicles at disposal and not everyone needs to stop at all stops, this parameter can be increased. The <code>max_stops_per_route</code> similarly reflects the maximum work load a vehicle can take in a multiple vehicle scenario. The <code>route_start_time</code> parameter can be used to plan routes in advance and account for traffic at that time.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">route1</span> <span class="o">=</span> <span class="n">use_proximity</span><span class="o">.</span><span class="n">plan_routes</span><span class="p">(</span><span class="n">stops_fc</span><span class="p">,</span> <span class="n">route_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                   <span class="n">max_stops_per_route</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                   <span class="n">route_start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                                   <span class="n">start_layer</span> <span class="o">=</span> <span class="n">airport_fc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Input field [OID] was not mapped to a field in the network analysis class "Orders".
+Input field [OID] was not mapped to a field in the network analysis class "Depots".
+Network elements with avoid-restrictions are traversed in the output (restriction attribute names: "Through Traffic Prohibited").
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input field [OID] was not mapped to a field in the network analysis class "Orders".
+Input field [OID] was not mapped to a field in the network analysis class "Depots".
+Network elements with avoid-restrictions are traversed in the output (restriction attribute names: "Through Traffic Prohibited").
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have successfully calculated the route, let us add it back to the map</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map3</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">route1</span><span class="p">[</span><span class="s1">'routes_layer'</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

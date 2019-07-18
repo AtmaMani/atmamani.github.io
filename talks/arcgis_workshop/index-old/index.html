@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>index-old | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/talks/arcgis_workshop/index-old/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="index-old">
+<meta property="og:url" content="https://atmamani.github.io/talks/arcgis_workshop/index-old/">
+<meta property="og:description" content="ArcGIS API for Python¶Two day hands-on training. March 5-6 2017 @ Palm Springs, CA¶
+
+
+
+
+
+
+Table of contents
+Day 1¶
+#### Intro to Python
+Python data structures
+Download course data
+Extract data in arch">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-03T17:08:48-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">index-old</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="ArcGIS-API-for-Python">
+<center>ArcGIS API for Python</center>
+<a class="anchor-link" href="#ArcGIS-API-for-Python">¶</a>
+</h2>
+<h3 id="Two-day-hands-on-training.-March-5-6-2017-@-Palm-Springs,-CA">
+<center>Two day hands-on training. March 5-6 2017 @ Palm Springs, CA</center>
+<a class="anchor-link" href="#Two-day-hands-on-training.-March-5-6-2017-@-Palm-Springs,-CA">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Table of contents</strong></p>
+<h4 id="Day-1">Day 1<a class="anchor-link" href="#Day-1">¶</a>
+</h4>
+<ul>
+<li>#### Intro to Python<ul>
+<li><a href="day1/02_intro_to_python/python_cheat_sheet_1.ipynb">Python data structures</a></li>
+<li><a href="day1/02_intro_to_python/Ex_download_course_data.ipynb">Download course data</a></li>
+<li><a href="day1/02_intro_to_python/Ex_extract_archives.ipynb">Extract data in archives</a></li>
+</ul>
+</li>
+<li>#### Intermediate Python<ul>
+<li><a href="day1/03_intermediate_python/python_cheat_sheet2.ipynb">Functions, classes and exception handling</a></li>
+<li><a href="day1/03_intermediate_python/conda_cheat_sheet.ipynb">Getting used to Conda, the Python package and env manager</a></li>
+<li>
+<a href="day1/03_intermediate_python/Ex_interm_python_conda.ipynb">Exercise - conda</a><ul>
+<li><a href="day1/03_intermediate_python/Ex_interm_python_conda_finished.ipynb">Finished - conda</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>#### Introduction to GIS<ul>
+<li><a href="day1/04_intro_to_GIS/gis_crash_course.ipynb">GIS crash course</a></li>
+</ul>
+</li>
+<li>#### Introduction to the ArcGIS Platform</li>
+<li>#### Introduction to the ArcGIS Python API<ul>
+<li><a href="day1/06_intro_to_ArcGIS_Python_api/06_WorkingWithTheMapWidget.ipynb">Working with the map widget</a></li>
+<li><a href="day1/06_intro_to_ArcGIS_Python_api/L06_UsingTheGis_ArcGisOnline.ipynb">Using the GIS with ArcGIS Online</a></li>
+<li><a href="day1/06_intro_to_ArcGIS_Python_api/L06_UsingTheGis_Portal.ipynb">Using the GIS with Portal for ArcGIS</a></li>
+</ul>
+</li>
+<li>#### Portal administration<ul>
+<li><a href="day1/07_portal_administration/gather_org_info.ipynb">Gather info about org</a></li>
+<li><a href="day1/07_portal_administration/L07_OrgAdministration_CreateGroup.ipynb">Create groups</a></li>
+<li><a href="day1/07_portal_administration/L07_CreateUserAddToGroupShareContentWithGroup.ipynb">Create users add to group share content with group</a></li>
+<li><a href="day1/07_portal_administration/demo_add_participants_as_admins.ipynb">Add participants as admins</a></li>
+</ul>
+</li>
+<li>#### Server administration<ul>
+<li><a href="day1/08_server_administration/getting_started_server_module.ipynb">Getting started with server module</a></li>
+<li><a href="day1/08_server_administration/inspect_site_properties.ipynb">Inspect site properties</a></li>
+<li><a href="day1/08_server_administration/inspect_server_contents.ipynb">Inspect server contents - folders and services</a></li>
+<li><a href="day1/08_server_administration/inspect_service_properties.ipynb">Inspect service properties</a></li>
+<li><a href="day1/08_server_administration/get_usage_reports.ipynb">Get usage reports</a></li>
+</ul>
+</li>
+<li>#### Content publishing<ul>
+<li><a href="day1/09_content_publishing/Ex_publish_all_shp.ipynb">Exercise - publish all shape files</a></li>
+<li><a href="day1/09_content_publishing/Ex_compose_web_map.ipynb">Exercise - compose a web map</a></li>
+<li><a href="day1/09_content_publishing/L09_PublishingFeatureLayerFromShapeFile.ipynb">Publish feature layer from shape files</a></li>
+<li><a href="day1/09_content_publishing/L09_PublishingFeatureLayerFromCSV.ipynb">Publish feature layer from csv</a></li>
+</ul>
+</li>
+<li>#### Working with feature data<ul>
+<li><a href="day1/10_working_with_feature_data/intro_features_module.ipynb">Introduction to the <code>features</code> module</a></li>
+<li><a href="day1/10_working_with_feature_data/accessing_and_visualizing_feature_data.ipynb">Accessing and visualizing feature data</a></li>
+<li><a href="day1/10_working_with_feature_data/editing_features.ipynb">Editing features</a></li>
+<li><a href="day1/10_working_with_feature_data/updating_feature_layer_properties.ipynb">Updating feature layer properties</a></li>
+<li><a href="day1/10_working_with_feature_data/Ex_features_module.ipynb">Exercise - features module</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Day-2">Day 2<a class="anchor-link" href="#Day-2">¶</a>
+</h3>
+<ul>
+<li>#### Working with feature data continued<ul>
+<li><a href="day2/11_working_with_feature_data2/ordering_a_data_takeout.ipynb">Ordering a data takeout</a></li>
+<li><a href="day2/11_working_with_feature_data2/using_attachments_feature_layers.ipynb">Using attachments with feature layers</a></li>
+</ul>
+</li>
+<li>#### Geocoding and spatial analysis<ul>
+<li><a href="day2/12_geocoding_spatial_analysis/introduction_geocoding.ipynb">Introduction to <code>geocoding</code></a></li>
+<li><a href="day2/12_geocoding_spatial_analysis/batch_geocoding.ipynb">Batch geocoding</a></li>
+<li><a href="day2/12_geocoding_spatial_analysis/reverse_geocoding.ipynb">Reverse geocoding</a></li>
+<li><a href="day2/12_geocoding_spatial_analysis/feature_analysis.ipynb">Analyzing feature data - Proximity</a></li>
+<li><a href="day2/12_geocoding_spatial_analysis/spatial_analysis.ipynb">Analyzing feature data - Overlay</a></li>
+</ul>
+</li>
+<li>#### Working with vector big data<ul>
+<li><a href="day2/13_vector_big_data/vector_geoanalytics.ipynb">Vector big data processing</a></li>
+<li><a href="day2/13_vector_big_data/data_analysis_geoanalytics.ipynb">Analyze GeoAnalytics results</a></li>
+</ul>
+</li>
+<li>#### Working with raster big data<ul>
+<li><a href="day2/14_raster_big_data/analyze_raster_bigdata.ipynb">Analyze raster data</a></li>
+<li><a href="day2/14_raster_big_data/distributed_raster_analysis.ipynb">Distributed raster analytics</a></li>
+</ul>
+</li>
+<li>Recap</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

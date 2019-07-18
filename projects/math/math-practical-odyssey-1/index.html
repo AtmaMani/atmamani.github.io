@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>math-practical-odyssey-1 | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/projects/math/math-practical-odyssey-1/">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="math-practical-odyssey-1">
+<meta property="og:url" content="https://atmamani.github.io/projects/math/math-practical-odyssey-1/">
+<meta property="og:description" content="Mathematics - a practical odyssey¶ToC
+
+set theory
+notations
+De Morgans's laws
+Permutations and combinations
+
+
+Probability
+Combinatronics and probability
+Conditional probability
+
+
+Statistics
+Measures o">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-06-19T09:42:50-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">math-practical-odyssey-1</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mathematics---a-practical-odyssey">Mathematics - a practical odyssey<a class="anchor-link" href="#Mathematics---a-practical-odyssey">¶</a>
+</h2>
+<p><strong>ToC</strong></p>
+<ul>
+<li>
+<a href="#Set-theory">set theory</a><ul>
+<li><a href="#Notations">notations</a></li>
+<li><a href="#De-Morgan's-laws">De Morgans's laws</a></li>
+<li><a href="#Permutations-and-combinations">Permutations and combinations</a></li>
+</ul>
+</li>
+<li>
+<a href="#Probability">Probability</a><ul>
+<li><a href="#Combinatronics-and-probability">Combinatronics and probability</a></li>
+<li><a href="#Conditional-probability">Conditional probability</a></li>
+</ul>
+</li>
+<li>
+<a href="#Statistics">Statistics</a><ul>
+<li><a href="#Measures-of-central-tendency">Measures of central tendency</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Set-theory">Set theory<a class="anchor-link" href="#Set-theory">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Notations">Notations<a class="anchor-link" href="#Notations">¶</a>
+</h4>
+<p>Set builder notation for representing a set:
+$$ G = \{ x\mid x &lt; 0 ~and~ x \in R \} $$
+which is read as 'the set of all x, such that x is less than 0 and x is a real number'.</p>
+<p><strong>Cardinal number</strong> of a set is the number of elements in it. It is denoted as <code>n(A)</code>. An <strong>empty set</strong> has 0 elements. It is represented as $\phi$ or as <code>{}</code>. <strong>Universal set</strong> is always represented as <code>U</code>.</p>
+<p>A is a <strong>proper subset</strong> of B, if all elements of A are in B and B has more elements than A. It is represented as $A \subset B$. A is an improper subset of B if A and B have the same elements. A <strong>not a subset</strong> is represented a $A  \not\subset B$. Thus 
+$$ A \cup B = \{ x \mid x \in A ~or~ x\in B\}$$
+$$ A \cap B = \{ x \mid x \in A ~and~ x\in B\}$$</p>
+<p><strong>Intersection of sets</strong> represents the common elements and is written as $ A \cap B$. <strong>Union of sets</strong> represents all elements, <strong>without repetition</strong> and is written as $A \cup B$.</p>
+<p>Two sets are <strong>Mutually exclusive</strong>, if there are no common elements. Written as $ A \cap B = \phi $.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Cardinal-number-formula-for-union-of-two-sets">Cardinal number formula for union of two sets<a class="anchor-link" href="#Cardinal-number-formula-for-union-of-two-sets">¶</a>
+</h5>$$n(A \cup B) = n(A) + n(b) - n(A\cap B)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Complement</strong> of a set is the set of all elements <strong>not</strong> in that set, but in Universal set. It is represented as 
+$$ A' = \{x\mid x \in U ~and~ x \not\in A \}$$
+$$ n(A') = n(U) - n(A)$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="De-Morgan's-laws">De Morgan's laws<a class="anchor-link" href="#De-Morgan's-laws">¶</a>
+</h5>
+<p>For any two sets A and B (no need to be independent or mutually exclusive)
+$$ (A\cup B)' = A' \cap B'$$
+$$ (A\cap B)' = A' \cup B'$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Permutations-and-combinations">Permutations and combinations<a class="anchor-link" href="#Permutations-and-combinations">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Fundamental-principle-of-counting">Fundamental principle of counting<a class="anchor-link" href="#Fundamental-principle-of-counting">¶</a>
+</h5>
+<p>The number of possible ways in which you can choose a 4 digit PIN number: Here, you can <strong>repeat</strong> numbers (or, your choices are replaced once you chose them so they can be chosen another time). Here, you simply raise the choices by number of selections.</p>
+<p><strong>Number of ways to select 4 digit PIN</strong> = <code>10 x 10 x 10 x 10</code> = <code>10,000</code>.</p>
+<h5 id="Permutations">Permutations<a class="anchor-link" href="#Permutations">¶</a>
+</h5>
+<p>Selection without replacement (no repetition) and <strong>order of selection is important</strong>, meaning, if you change the order, you can count that selection as a whole new choice. The formula is</p>
+$$ _{n}P_{r} = \frac{n!}{(n-r)!}$$<p>where <code>n</code> is number of items in the pool and <code>r</code> is the number of choices to be made.</p>
+<p>The number of ways to choose the first 3 places from a pool of 10 contestants:
+$$_{10}P_{3} = \frac{10!}{7!} = 720$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use itertools to calculate permutations in Python</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">permutations</span>
+
+<span class="c1"># create list of items in pool</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">npr_choices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># since you get back a iterable</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">npr_choices</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>720
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Combinations</strong>
+Selection without replacement and <strong>order is not important</strong>. If you change the order, that choice is not counted as a new choice. Thus, there are generally fewer combinations than permutations possible in a given scenario. Exceptions are narrow choices like choose 1 or 0 items from a pool of items. In this case, number of permutations and combinaions are the same.</p>
+$$ _{n}C_{r} = \frac{n!}{r! (n-r)!}$$<p>Thus, the various combinations of choosing 3 balls from a bag of 10 balls are:
+$$ _{10}C_{3} = \frac{10!}{3! \cdot 7!} = 120$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use combinations method from itertools module</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">ncr_choices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncr_choices</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>120
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Probability">Probability<a class="anchor-link" href="#Probability">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probability is the measure of likelihood of an event happening. In general, it is the ratio of number of outcomes in the event <code>E</code> to the total number of possible outcomes. Thus</p>
+$$ p(E) = \frac{n(E)}{n(S)}$$<p>Probability is a computed value. If you are conducting an empirical study, you can measure probability of an event by measuring the relative frequency of that event. The <strong>law of large numbers</strong> states that</p>
+
+<pre><code>If an experiment is repeated a large number of times, the relative frequency of an outcome will tend to be close to the probability of the outcome.</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Probability-rules">Probability rules<a class="anchor-link" href="#Probability-rules">¶</a>
+</h5>$$ 
+p(\phi) = 0 \\
+p(S) = 1 \\
+0 \leq p \leq 1
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Combinatronics-and-probability">Combinatronics and probability<a class="anchor-link" href="#Combinatronics-and-probability">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of being dealt 4 Aces in poker</strong>
+First find the sample space. Sample space includes all possible ways of selecting 5 cards from a pack of 52.</p>
+<p>Thus, n(S) = $_{52}C_{5} = 2,598,960$.</p>
+<p>Now, n(E) = number of ways of selecting 4 aces + 1 any other card.</p>
+<p>n(E) = $_{4}C_{4} \cdot _{48}C_{1}$</p>
+<p>p(E) = n(E) / n(S) = (4*48)/2,598,960 = 0.00001847</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of being dealt 4 of a kind.</strong></p>
+<p>The, n(S) remains same. But n(E) is expanded 13 times as there are 13 different ways to select a 4 of a kind in a single pack of cards.</p>
+<p>p(E) = 13* (probability of 4 aces)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Probability of getting 5 hearts</strong>.</p>
+<p>The n(S) remains same as $_{52}C_{5}$. Now the n(E) is written as $_{13}C_{5}$ as there are 13C5 number of ways to select a set of 5 hearts.</p>
+<p>Thus, p(E) = 13C5 / 52C5 = 0.0004951</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Conditional-probability">Conditional probability<a class="anchor-link" href="#Conditional-probability">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Conditional probability of event <strong>A</strong> given event <strong>B</strong> is written as
+$$p(A|B) = \frac{n(A\cap B)}{n(B)} $$</p>
+<p>dividing both numerator and demoninator of right side by n(S), we can rewrite this as</p>
+<p></p>
+<div class="alert alert-info">
+$$p(A|B) = \frac{p(A \cap B)}{p(B)} $$
+</div>
+and, more commonly
+$$p(A \cap B) = p(A|B) \cdot p(B) $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Understanding-the-difference-between-'A-given-B'-and-'A-and-B'">Understanding the difference between 'A given B' and 'A and B'<a class="anchor-link" href="#Understanding-the-difference-between-'A-given-B'-and-'A-and-B'">¶</a>
+</h5>
+<p>Two cards are dealt from a pack of cards, find the probability that</p>
+<ul>
+<li>both cards are hearts. This is $p(A \cap B)$</li>
+<li>second card is heart, given first is a heart. This is looking for the odds of the 2nd card. It is $p(A|B)$ where <em>A</em> is second card and <em>B</em> is first card being heart.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probability of selecting 1st heart is 13/52. Hence:</p>
+$$p(B) = \frac{13}{52}$$<p>Since the 1st card is heart, you are left with 12 hearts and 51 total cards. So the probability of selecting another heart is:
+$$ p(A|B) = \frac{12}{51} = 0.2352$$</p>
+<p>Thus:</p>
+$$p(A \cap B) = \frac{12}{51} \cdot \frac{13}{52} = 0.0588$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also calculate probability of both hearts without conditional probability using <strong>combinatronics</strong> as below:</p>
+$$p(A \cap B) = \frac{_{13}C_{2}}{_{52}C_{2}} $$$$p(A \cap B) = \frac{13}{52} \cdot \frac{12}{51} $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Dependent-and-Independent-events">Dependent and Independent events<a class="anchor-link" href="#Dependent-and-Independent-events">¶</a>
+</h5>
+<p>If A and B are independent, then knowing B occurred does not affect the probability of A. Thus:</p>
+<div class="alert alert-info">
+$$p(A|B) = p(A)$$
+</div>
+<p>Conversely, if $p(A|B) \neq p(A)$ then A and B are dependent.</p>
+<div class="alert alert-info">
+Thus, for A and B **independent** events,
+$$p(A \cap B) = p(A) \cdot p(B) $$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An example of independent events is, "find the probability of getting a 6 when tossing a pair of die, given the first also yielded a 6". Here the event of getting a 6 in one or first try does not affect getting 6 another time. Hence, they are simply independent events.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using cardinal number of sets, in set theory,</p>
+<div class="alert alert-info">
+$$ p(A \cup B) = p(A) + p(B) - p(A \cap B)$$
+</div>
+<p>for mutually exclusive A and B events, the $p(A \cap B) = 0$ thus,
+$$ p(A \cup B) = p(A) + p(B)$$</p>
+<p>Using De Morgan's laws,</p>
+<div class="alert alert-info">
+$$p(A' \cap B') = p(A \cup B)' $$
+
+and 
+
+$$p(A' \cup B') = p(A \cap B)' $$
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Measures-of-central-tendency">Measures of central tendency<a class="anchor-link" href="#Measures-of-central-tendency">¶</a>
+</h4>
+<p>Population mean $\mu$ and median cannot be calculated. We generally calculate the sample mean and median.</p>
+$$Sample ~ mean: \bar x = \frac{\sum x}{n} $$$$Sample ~ median: ~ L = \frac{n+1}{2} $$<h4 id="Measures-of-dispersion">Measures of dispersion<a class="anchor-link" href="#Measures-of-dispersion">¶</a>
+</h4>
+<p>Variance is the squared deviation from the mean.</p>
+$$Sample ~ variance: s^{2} = \frac{\sum{(x - \bar x)^{2}}}{n-1}$$$$Sample ~ standard ~ deviation: s = \sqrt{\frac{\sum{(x - \bar x)^{2}}}{n-1}}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Normal-distribution">Normal distribution<a class="anchor-link" href="#Normal-distribution">¶</a>
+</h4>
+<p>If you plot the outcomes of a continuous random variable (of a process occurring in nature, like rainfall), it takes the shape of a bell curve, with values close to mean occurring more often than those farther from it. Since the curve represents the the probabilities of various outcomes, it is also a probability distribution.</p>
+<p><img src="https://s3.amazonaws.com/magoosh-company-site/wp-content/uploads/mat/files/2016/06/07130639/Bell-Curve-1.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>Area under the curve</strong> = 1. Here $\mu$ is <strong>population mean</strong> and $\sigma$ is <strong>population standard deviation</strong>. Thus, <strong>68%</strong> values vall within $\mu \pm 1 \sigma$ and <strong>95%</strong> with $\mu \pm 2 \sigma$ and <strong>99.74%</strong> within $\mu \pm 3 \sigma$. We use the <strong>Z table</strong> to find the area / probability for any other values of x.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Transformation-to-standard-normal">Transformation to standard normal<a class="anchor-link" href="#Transformation-to-standard-normal">¶</a>
+</h5>
+<p>The Z table gives probabilities for standard normal dist ($\mu = 0$ and $\sigma=1$). To transfrom a normal dist with any other mean and SD, use the formula</p>
+$$ z= \frac{x - \mu}{\sigma}$$<p>where x is the value in the given distribution and z is the value in std. normal dist.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Central-limit-theorem">Central limit theorem<a class="anchor-link" href="#Central-limit-theorem">¶</a>
+</h5>
+<p>Since it is hard to find the population mean, SD, we use the CLT. According to CLT, <strong>means of a large number of samples is normally distributed around the population mean</strong>. Same applies for the SD and other measures.</p>
+<h5 id="Level-of-confidence">Level of confidence<a class="anchor-link" href="#Level-of-confidence">¶</a>
+</h5>
+<p>"We might say we are 95% confident the maximum error of a poll is plus or minus 3%". This means, if 100 samples are analyzed, 95 of them would differ from population by under 0.03 of that measure, and 5 would be greater than 0.03.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
