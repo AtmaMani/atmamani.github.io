@@ -146,7 +146,7 @@ NAVIGATION_LINKS = {
                 ('/projects/dl/', 'Deep Learning projects'),
                 ('/projects/spatial/', 'Spatial analysis'),
                 ('/projects/thermal/', 'Thermal remote sensing'),
-                ('/projects/mw/', 'Microwave remote sensing'),
+                ('/projects/mwrs/', 'Microwave remote sensing'),
                 ('/projects/fun/', "Fun projects"),
             ),
             'Projects',

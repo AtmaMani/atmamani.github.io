@@ -1,4 +1,4 @@
-# Guide to spatial analysis
+Title: Guide to spatial analysis - Introduction
 A set of notes explaining the core of spatial analysis.
 
 ## Basics of spatial data structures
@@ -27,6 +27,6 @@ You can visualize continuous and discrete values by classes. You can create the 
  - **Equal interval**: Equal interval is easy to comprehend when you look at the legend. It splits the histogram with a set number of classes that are equally spaced from one another. On the map, the most features fall under a few number of classes
  - **Standard Deviation**: Breaks are calculated by how many standard deviations they are from the mean. On the map, each group shows how many std each is from the mean.
 
-![map classification schemes](../../img/map-classification-schemes.jpg)
+![map classification schemes](/images/map-classification-schemes.jpg)
 
 Most people can distinguish up to `7` classes on a map. `4` or `5` are great number of classes to reveal patterns.
