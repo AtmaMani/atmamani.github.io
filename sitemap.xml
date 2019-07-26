@@ -46,46 +46,6 @@
   <lastmod>2019-07-18T21:50:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/articles/</loc>
-  <lastmod>2019-06-11T19:13:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/devops-today/</loc>
-  <lastmod>2019-06-11T19:13:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/devops_today/</loc>
-  <lastmod>2019-06-08T20:59:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/imagery_in_arcgis_ecosystem/</loc>
-  <lastmod>2019-06-08T21:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/learning-resources/</loc>
-  <lastmod>2019-06-08T21:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/open-geospatial-world/</loc>
-  <lastmod>2019-06-08T21:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/practical_scrum/</loc>
-  <lastmod>2019-06-08T21:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/python-open-geospatial-world/</loc>
-  <lastmod>2019-06-08T21:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/stand_alone_cli_python/</loc>
-  <lastmod>2019-06-08T21:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/articles/the-big-data-ecosystem/</loc>
-  <lastmod>2019-06-08T21:01:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/blog/</loc>
   <lastmod>2019-07-17T23:31:00Z</lastmod>
  </url>
@@ -124,10 +84,6 @@
  <url>
   <loc>https://atmamani.github.io/blog/devops-today/</loc>
   <lastmod>2019-06-11T19:13:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/blog/first-post/</loc>
-  <lastmod>2019-06-11T19:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/harness-the-power-of-gis-python-api/</loc>
@@ -502,60 +458,16 @@
   <lastmod>2019-06-19T16:24:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/cheatsheets/web_development/</loc>
-  <lastmod>2019-06-19T16:18:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/first-post/</loc>
-  <lastmod>2019-06-11T18:57:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-a/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-a/linear_regression/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-b/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-b/latex-1/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-b/matplotlib_1/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-b/matplotlib_2/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-c/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-c/ca_house_price_prediction/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-c/curve_fitting_model-complexity-vs-accuracy/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/project-c/pySpark/spark-ml-ca-housing/</loc>
-  <lastmod>2019-06-03T21:20:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/projects/</loc>
   <lastmod>2019-07-18T21:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/</loc>
-  <lastmod>2019-07-18T21:21:00Z</lastmod>
+  <lastmod>2019-07-26T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/dl/dl-concepts/</loc>
+  <lastmod>2019-07-26T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/fastai/fastai-1/</loc>
@@ -580,10 +492,6 @@
  <url>
   <loc>https://atmamani.github.io/projects/fun/verifying_clt_in_regression/</loc>
   <lastmod>2019-06-19T16:53:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/projects/linear_regression/</loc>
-  <lastmod>2019-06-19T16:38:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/math/</loc>
@@ -654,10 +562,6 @@
   <lastmod>2019-07-17T23:44:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/projects/ml/sklearn_statmoels_linear_regression/</loc>
-  <lastmod>2019-07-17T23:42:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/projects/mwrs/</loc>
   <lastmod>2019-07-18T21:40:00Z</lastmod>
  </url>
@@ -706,10 +610,6 @@
   <lastmod>2019-06-19T16:52:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/projects/stats/simple-linear-regression/</loc>
-  <lastmod>2019-06-19T16:57:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/projects/thermal/</loc>
   <lastmod>2019-07-18T21:40:00Z</lastmod>
  </url>
@@ -743,259 +643,131 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/</loc>
-  <lastmod>2019-06-04T00:08:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/ex_download_course_data/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/ex_download_course_data/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/ex_extract_archives/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/ex_extract_archives/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/python_cheat_sheet_1/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/02_intro_to_python/python_cheat_sheet_1/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/conda_cheat_sheet/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/conda_cheat_sheet/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/ex_interm_python_conda/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/ex_interm_python_conda/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/ex_interm_python_conda_finished/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/ex_interm_python_conda_finished/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/python_cheat_sheet2/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/03_intermediate_python/python_cheat_sheet2/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/04_intro_to_GIS/gis_crash_course/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/04_intro_to_GIS/gis_crash_course/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/06_workingwiththemapwidget/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/06_workingwiththemapwidget/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/l06_usingthegis_arcgisonline/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/l06_usingthegis_arcgisonline/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/l06_usingthegis_portal/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/06_intro_to_ArcGIS_Python_api/l06_usingthegis_portal/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/demo_add_participants_as_admins/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/demo_add_participants_as_admins/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/gather_org_info/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/gather_org_info/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/l07_createuseraddtogroupsharecontentwithgroup/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/l07_createuseraddtogroupsharecontentwithgroup/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/l07_orgadministration_creategroup/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/07_portal_administration/l07_orgadministration_creategroup/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/get_usage_reports/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/get_usage_reports/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/get_usage_reports_server2/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/get_usage_reports_server2/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/getting_started_server_module/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/getting_started_server_module/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_server_contents/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_server_contents/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_service_properties/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_service_properties/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_site_properties/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/08_server_administration/inspect_site_properties/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/ex_compose_web_map/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/ex_compose_web_map/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/ex_publish_all_shp/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/ex_publish_all_shp/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/l09_publishingfeaturelayerfromcsv/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/l09_publishingfeaturelayerfromcsv/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/l09_publishingfeaturelayerfromshapefile/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/09_content_publishing/l09_publishingfeaturelayerfromshapefile/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/accessing_and_visualizing_feature_data/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/accessing_and_visualizing_feature_data/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/editing_features/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/editing_features/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/ex_features_module/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/ex_features_module/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/intro_features_module/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/intro_features_module/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/summarizing-feature-data/</loc>
   <lastmod>2019-06-04T00:00:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/updating_feature_layer_properties/</loc>
-  <lastmod>2019-06-03T21:44:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day1/10_working_with_feature_data/updating_feature_layer_properties/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/11_working_with_feature_data2/ordering_a_data_takeout/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/11_working_with_feature_data2/ordering_a_data_takeout/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/11_working_with_feature_data2/using_attachments_feature_layers/</loc>
@@ -1003,43 +775,23 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/batch_geocoding/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/batch_geocoding/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/feature_analysis/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/feature_analysis/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/introduction_geocoding/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/introduction_geocoding/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/reverse_geocoding/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/reverse_geocoding/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/spatial_analysis/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/12_geocoding_spatial_analysis/spatial_analysis/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/analyze-new-york-city-taxi-data/</loc>
@@ -1047,43 +799,19 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/data_analysis_geoanalytics/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/data_analysis_geoanalytics/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/vector_geoanalytics/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/13_vector_big_data/vector_geoanalytics/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/14_raster_big_data/analyze_raster_bigdata/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/14_raster_big_data/analyze_raster_bigdata/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/14_raster_big_data/distributed_raster_analysis/</loc>
-  <lastmod>2019-06-04T00:00:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/day2/14_raster_big_data/distributed_raster_analysis/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
+  <lastmod>2019-07-18T21:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/index-old/</loc>
   <lastmod>2019-06-04T00:08:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/talks/arcgis_workshop/index.src.html</loc>
-  <lastmod>2019-06-03T21:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/pycon_2017/</loc>
