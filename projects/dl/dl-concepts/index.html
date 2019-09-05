@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dl-concepts | Atma's blog</title>
+<title>Deep Learning concepts | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -19,19 +19,12 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="dl-concepts">
+<meta property="og:title" content="Deep Learning concepts">
 <meta property="og:url" content="https://atmamani.github.io/projects/dl/dl-concepts/">
-<meta property="og:description" content="Title: Deep Learning Concepts
-
-
-
-
-
-
-
-Gradient descent¶In ML, loss or loss function is the function used to quantify errors. $L_{2}$ loss is the squared error in prediction.  When an ML algorithm tries">
+<meta property="og:description" content="Course url: https://developers.google.com/machine-learning/crash-course/
+Terminology¶When in DL, terms such as intercept and slope of linear regression are called as bias and weight vectors. The proce">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-07-24T23:17:07-07:00">
+<meta property="article:published_time" content="2019-09-05T11:24:03-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -256,7 +249,7 @@ Gradient descent¶In ML, loss or loss function is the function used to quantify 
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">dl-concepts</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Deep Learning concepts</a></h1>
 
         
 
@@ -267,7 +260,16 @@ Gradient descent¶In ML, loss or loss function is the function used to quantify 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Title: Deep Learning Concepts</p>
+<p>Course url: <a href="https://developers.google.com/machine-learning/crash-course/">https://developers.google.com/machine-learning/crash-course/</a></p>
+<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology">¶</a>
+</h3>
+<p>When in DL, terms such as <code>intercept</code> and <code>slope</code> of linear regression are called as <code>bias</code> and <code>weight vectors</code>. The process by which the ML algorithm (linear regression in this case) reduces <code>errors</code> (also called <code>loss</code>) is called <strong>empirical risk minimization</strong>.</p>
+<p><code>$L_{2} loss$</code> is the loss function that we call <strong>squared loss</strong> or <strong>MSE</strong>. <code>L2</code> is popular in ML.</p>
+<h3 id="Reducing-loss">Reducing loss<a class="anchor-link" href="#Reducing-loss">¶</a>
+</h3>
+<p><strong>Hyperparameters</strong> are the config settings used to tune how the model is trained. The derivative of <code>(y-y')^2</code> (derivative of sq. error) with respect to the weights and biases shows how loss would change. The model reapeatedly takes <strong>small steps</strong> in the direction that minimizes loss. This process is called <strong>Gradient Descent</strong>.</p>
+<p>The way the ML engine reduces loss is similar to how a kid plays the game of "Hot or Cold". The engine starts off by setting random values for the weights and bias, then calculates the loss. It tweaks the weights and observes how the loss changes. Here the loss function (L2 or Sq. Error, MSE, RMSE are examples of loss functions). When the overall loss changes very less or does not reduce at all, we say the model has <code>converged</code>.</p>
+<p>To calculate the gradient descent, the ML algorithm has to calculate the gradient of the loss function. This is via partial differential equations, differntiating the loss function with respect to one variable (parameter) at a time. The negative of the gradient (slope) tells it in which direction to change the variable to minimize loss.</p>
 
 </div>
 </div>
@@ -303,6 +305,7 @@ Gradient descent¶In ML, loss or loss function is the function used to quantify 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Learning-rate">Learning rate<a class="anchor-link" href="#Learning-rate">¶</a>
 </h4>
+<p><strong>Learning rate</strong> controls how large the steps should be as the model moves toward lower gradient. A large learning rate will make the model overshoot the local minima of loss and would never converge. A small learning rate would require way too many iterations to converge. An optimal learning rate is required.</p>
 <p>Gradient vector has both the direction and magnitude. GD algorithms multiply the gradient vector with a scalar known as <strong>learning rate</strong> to determine the next point.</p>
 <p>A large learning rate (step size) will cause the algorithm to zig zag and easily over shoot the minima of loss. A too small LR will slow down and GD process and never allow it to converge. An optimal LR will try to arrive at the minima with fewest possible iterations.</p>
 
@@ -326,7 +329,8 @@ Gradient descent¶In ML, loss or loss function is the function used to quantify 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Stochastic-gradient-descent">Stochastic gradient descent<a class="anchor-link" href="#Stochastic-gradient-descent">¶</a>
 </h4>
-<p>To compute gradient descent, we usually use only a portion of the input data (such as training data). However, such batches might still be very large in size and computing GD might take a long time. Through central limit theorem, we know performing GD on many tiny datasets and averaging them would give us a fair estimate of true GD. Thus, SGD takes this to the extreme and computes GD on just 1 dataset, but over multiple such singleton samples.</p>
+<p><strong>Stochastic gradient descent</strong>: To calculate the gradient, you need to compute the gradient for all input datasets. However, empirically just doing this on a small subset of training data also yields comparable results. Thus the name <strong>stochastic</strong> gradient descent. Per this tutorial, stochastic is when you compute on just 1 training sample and <strong>mini-batch gradient descent</strong> is when you compute on a mini batch of training samples.</p>
+<p>Through central limit theorem, we know performing GD on many tiny datasets and averaging them would give us a fair estimate of true GD. Thus, SGD takes this to the extreme and computes GD on just 1 dataset, but over multiple such singleton samples.</p>
 <p><strong>Mini batch SGD</strong> is a compromise, where GD is computed over batches of size between <code>10 - 1000</code>. Mini batch SGD is smoother than SGD, but performs faster than running a GD.</p>
 
 </div>

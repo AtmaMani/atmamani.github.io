@@ -277,29 +277,29 @@
     PyInstaller bundles a Python application and all its dependencies into a single package. The user can run the packaged app without installing a Python interpreter or any modules. PyInstaller supports Python 2.7 and Python 3.3+, and correctly bundles the major Python packages such as numpy, PyQt, Django, wxPython, and others. PyInstaller is tested against Windows, Mac OS X, and Linux.</p>
 <h3>How to install PyInstaller</h3>
 <p>Before using PyInstaller, you need to install it in your active Python environment. If you are not already using, I would highly recommend using <code>conda</code> to isolate your various dev environments. You can install <a href="https://conda.anaconda.org">conda from here</a> and once installed, you can create a new environment using the command below:</p>
-<pre class="code literal-block"><span></span><span class="n">conda</span> <span class="k">create</span> <span class="c1">--name stand_alone_app_project python=3.5</span>
+<pre class="code literal-block"><span></span>conda create --name stand_alone_app_project python=3.5
 </pre>
 
 
 <p>Here, I am creating a new environment called <code>stand_alone_app_project</code> and installing a Python 3.5 kernel in it. To use this environment, I need to activate it - as shown below</p>
-<pre class="code literal-block"><span></span><span class="k">source</span> <span class="n">activate</span> <span class="n">stand_alone_app_project</span>
+<pre class="code literal-block"><span></span>source activate stand_alone_app_project
 </pre>
 
 
 <p>Environments are folders at the end of the day and activation pretty much adds the path to this folder to your system path. Activation is transient and is only applicable for the life of that terminal's session. Once activated, install all the packages you need for your script to work. Next, install PyInstaller using PIP (an older package manager for Python)</p>
-<pre class="code literal-block"><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PyInstaller</span>
+<pre class="code literal-block"><span></span>pip install PyInstaller
 </pre>
 
 
 <h3>Building stand-alone applications.</h3>
 <p>PyInstaller allows you to create apps in two formats - as folder with dependencies and an application or option 2 - is to create a fully packaged single executable file. I prefer the latter as it resembles closely what my end users would want and also allows to run the tool from a flash drive, without any installation. In both cases, you will package a Python runtime and all dependencies.</p>
 <p>To build an app and package it into a folder, run</p>
-<pre class="code literal-block"><span></span><span class="n">pyinstaller</span> <span class="n">your_main_script</span><span class="p">.</span><span class="n">py</span>
+<pre class="code literal-block"><span></span>pyinstaller your_main_script.py
 </pre>
 
 
 <p>To build it as a single file executable, run</p>
-<pre class="code literal-block"><span></span><span class="n">pyinstaller</span> <span class="n">your_main_script</span><span class="p">.</span><span class="n">py</span> <span class="c1">--onefile</span>
+<pre class="code literal-block"><span></span>pyinstaller your_main_script.py --onefile
 </pre>
 
 

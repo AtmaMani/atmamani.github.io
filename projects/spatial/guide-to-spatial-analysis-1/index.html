@@ -21,13 +21,11 @@
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="Guide to spatial analysis - Introduction">
 <meta property="og:url" content="https://atmamani.github.io/projects/spatial/guide-to-spatial-analysis-1/">
-<meta property="og:description" content="A set of notes explaining the core of spatial analysis.
+<meta property="og:description" content="A set of notes explaining the core of spatial analysis. Most of the content in this page are excerpts from Esri Guide to Spatial Analysis volume 1
 Basics of spatial data structures
-2 fundamental representations
-
-vector - each entity /feature is a row in a table. Each feature can be queried,">
+2 fundamental repre">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-07-18T14:38:54-07:00">
+<meta property="article:published_time" content="2019-09-05T11:24:03-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -258,7 +256,7 @@ vector - each entity /feature is a row in a table. Each feature can be queried,"
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>A set of notes explaining the core of spatial analysis.</p>
+<p>A set of notes explaining the core of spatial analysis. Most of the content in this page are excerpts from <a href="https://esripress.esri.com/display/index.cfm?fuseaction=display&amp;websiteID=22&amp;moduleID=0">Esri Guide to Spatial Analysis volume 1</a></p>
 <h3>Basics of spatial data structures</h3>
 <h4>2 fundamental representations</h4>
 <ul>
@@ -294,6 +292,19 @@ vector - each entity /feature is a row in a table. Each feature can be queried,"
 </ul>
 <p><img alt="map classification schemes" src="../../../images/map-classification-schemes.jpg"></p>
 <p>Most people can distinguish up to <code>7</code> classes on a map. <code>4</code> or <code>5</code> are great number of classes to reveal patterns.</p>
+<h3>Mapping density</h3>
+<p>Density is a ratio of number of features to a fixed areal extent. Thus, mapping number of people per sq. mile is a measure of population density. Mapping the density of features allows you to see patterns of where things are concentrated. Density surfaces are useful when mapping areas such as census tracts or counties which vary greatly in size.</p>
+<p>There are two ways to map density - a. mapping for defined areas (zip codes, census tracts, etc.) b. creating a density surface. When mapping for a defined area, a <strong>dot density renderer</strong> is a good visualization choice. You do this by summing the number of features within each polygon. Then you visualize each polygon with a set of dots, where each dot represents a chosen number of features (1 dot = 1000 features). The location of dots does not represent actual features though.</p>
+<p><img alt="dot density renderer" src="../../../images/dot-density-renderer-1.jpg"></p>
+<p><strong>Density surface</strong> is usually calculated as a <code>raster</code> layer. Each <code>cell</code> in the layer gets a value based on the number of features that fall within a given radius around the cell.</p>
+<p><img alt="dot density vs surface" src="../../../images/dot-density-vs-density-surface.jpg"></p>
+<p>Calculation of the density surface depends on 1. cell size, 2. search radius, 3. calculation method and 4. units. <strong>Cell size</strong> will determine how coarse or smooth the patterns will appear. The smaller the cell size, the smoother the surface, the longer the computation. A larger cell size will make the surface coarser, but the calculation will be quicker.</p>
+<p><img alt="effects of cell size on density surface" src="../../../images/cell-size-on-density-surface.jpg"></p>
+<p><strong>Search radius</strong> determines whether you pick up local or global patterns. A larger search radius will generalize the patterns more than a smaller radius, which will show more local variations.</p>
+<p><img alt="effects of search radius on density surface" src="../../../images/search-radius-on-density-surface.jpg"></p>
+<p>There are two types of <strong>Density calculation methods</strong> - a simple method which counts all features within a search radius vs a weighted method that uses a math function to give more importance to features closer to the cell center. The closer the features, higher their weight. The weight drops off for features at the edge and beyond the search radius.</p>
+<p>Density of defined areas (zip codes / some boundary) allows you to compare known boundaries. However, the location of actual features may be distributed unevenly within the area. This is exaggerated when areas of the boundaries vary greatly (such as counties). A good practice in such cases is to apply dot density renderer for smaller geographies (smaller than what you intend to measure), but overlay that on larger geographies that you are visualizing.</p>
+<p>The density surface can be visualized as <strong>contours</strong> or using graduated colors or using both. When using colors, avoid using more than 15 classes. A density surface will smooth out extreme high and low values since it is an interpolation algorithm. As with the dot density renderer, the density value of a cell and the actual number of features within the cell may be different. Thus, you need to overlay the actuall features on the surface to ensure the patterns are correctly interpreted.</p>
 </div>
     </div>
     

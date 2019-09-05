@@ -28,7 +28,7 @@ Pre-virtualization had a number of problems
  - VMWare and VirtualBox provided virtualization software which improved the process
 ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-06-08T13:57:17-07:00">
+<meta property="article:published_time" content="2019-09-05T11:24:02-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -285,14 +285,14 @@ Pre-virtualization had a number of problems
 </li>
 <li>run an image - <code>docker run busybox:1.23 echo "hello world"</code> which is of syntax <code>docker run image &lt;command to run on image&gt; &lt;argument for command&gt;</code> On running this, Docker will try to find the image locally, if not found, will download from docker hub and run. Example output below:</li>
 </ul>
-<pre class="code literal-block"><span></span><span class="nv">open</span><span class="o">-</span><span class="nv">geo</span> [<span class="nv">master</span>] $ <span class="nv">docker</span> <span class="nv">run</span> <span class="nv">busybox</span>:<span class="nv">latest</span> <span class="nv">echo</span> <span class="s2">"</span><span class="s">hello atma</span><span class="s2">"</span>
-<span class="nv">Unable</span> <span class="nv">to</span> <span class="nv">find</span> <span class="nv">image</span> <span class="s1">'</span><span class="s">busybox:latest</span><span class="s1">'</span> <span class="nv">locally</span>
-<span class="nv">latest</span>: <span class="nv">Pulling</span> <span class="nv">from</span> <span class="nv">library</span><span class="o">/</span><span class="nv">busybox</span>
-<span class="mi">697743189</span><span class="nv">b6d</span>: <span class="nv">Pull</span> <span class="nv">complete</span> 
-<span class="nv">Digest</span>: <span class="nv">sha256</span>:<span class="mi">061</span><span class="nv">ca9704a714ee3e8b80523ec720c64f6209ad3f97c0ff7cb9ec7d19f15149f</span>
-<span class="nv">Status</span>: <span class="nv">Downloaded</span> <span class="nv">newer</span> <span class="nv">image</span> <span class="k">for</span> <span class="nv">busybox</span>:<span class="nv">latest</span>
-<span class="nv">hello</span> <span class="nv">atma</span>
-<span class="nv">open</span><span class="o">-</span><span class="nv">geo</span> [<span class="nv">master</span>] $ 
+<pre class="code literal-block"><span></span>open-geo [master] $ docker run busybox:latest echo "hello atma"
+Unable to find image 'busybox:latest' locally
+latest: Pulling from library/busybox
+697743189b6d: Pull complete 
+Digest: sha256:061ca9704a714ee3e8b80523ec720c64f6209ad3f97c0ff7cb9ec7d19f15149f
+Status: Downloaded newer image for busybox:latest
+hello atma
+open-geo [master] $ 
 </pre>
 
 
@@ -355,43 +355,43 @@ Pre-virtualization had a number of problems
 
 <p>Then build it using command <code>docker build -t &lt;username/imagename:tag&gt; &lt;buildcontext&gt;</code> The build context here needs path to the dockerfile on disk. You can also use the build context to package up additional files into the docker image. Docker daemon will create a tarball of these files, send it to the contain, unpack. So I ran <code>docker build -t atmamani/debian:frmdckfile .</code> from the folder containing the Dockerfile.</p>
 <p>Once built, you can inspect the history and now it reports it correctly:</p>
-<pre class="code literal-block"><span></span><span class="n">docker</span><span class="o">-</span><span class="n">trials</span> <span class="err">$</span> <span class="n">docker</span> <span class="n">history</span> <span class="n">atmamani</span><span class="o">/</span><span class="n">debian</span><span class="p">:</span><span class="n">frmdckfile</span>
-<span class="n">IMAGE</span>               <span class="n">CREATED</span>              <span class="n">CREATED</span> <span class="k">BY</span>                                      <span class="k">SIZE</span>                <span class="k">COMMENT</span>
-<span class="n">a9d62a3217ae</span>        <span class="mi">25</span> <span class="n">seconds</span> <span class="n">ago</span>       <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">vim</span>               <span class="mi">29</span><span class="p">.</span><span class="mi">7</span><span class="n">MB</span>              
-<span class="n">a4c2ad02f957</span>        <span class="mi">39</span> <span class="n">seconds</span> <span class="n">ago</span>       <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">git</span>               <span class="mi">85</span><span class="n">MB</span>                
-<span class="n">cdfcdde0ccab</span>        <span class="n">About</span> <span class="n">a</span> <span class="k">minute</span> <span class="n">ago</span>   <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>                       <span class="mi">10</span><span class="p">.</span><span class="mi">3</span><span class="n">MB</span>              
-<span class="n">b6ebaf83dd59</span>        <span class="mi">8</span> <span class="n">days</span> <span class="n">ago</span>           <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="o">#</span><span class="p">(</span><span class="n">nop</span><span class="p">)</span>  <span class="n">CMD</span> <span class="p">[</span><span class="ss">"bash"</span><span class="p">]</span>                 <span class="mi">0</span><span class="n">B</span>                  
-<span class="o">&lt;</span><span class="n">missing</span><span class="o">&gt;</span>           <span class="mi">8</span> <span class="n">days</span> <span class="n">ago</span>           <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">-</span><span class="k">c</span> <span class="o">#</span><span class="p">(</span><span class="n">nop</span><span class="p">)</span> <span class="k">ADD</span> <span class="n">file</span><span class="p">:</span><span class="n">e044496893d9e2cbf</span><span class="err">…</span>   <span class="mi">129</span><span class="n">MB</span>               
-<span class="n">docker</span><span class="o">-</span><span class="n">trials</span> <span class="err">$</span> 
+<pre class="code literal-block"><span></span>docker-trials $ docker history atmamani/debian:frmdckfile
+IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
+a9d62a3217ae        25 seconds ago       /bin/sh -c apt-get install -y vim               29.7MB              
+a4c2ad02f957        39 seconds ago       /bin/sh -c apt-get install -y git               85MB                
+cdfcdde0ccab        About a minute ago   /bin/sh -c apt-get update                       10.3MB              
+b6ebaf83dd59        8 days ago           /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
+&lt;missing&gt;           8 days ago           /bin/sh -c #(nop) ADD file:e044496893d9e2cbf…   129MB               
+docker-trials $ 
 </pre>
 
 
 <h6>Optimizing docker images</h6>
 <p>One aspect is to reduce the number of layers a docker image has. Each line in the Dockerfile corresponds to a layer. Thus chaining the lines into a single line will reduce this to 1 layer. For instance, the earlier Dockerfile can be trimmed to</p>
-<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
-<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">instal</span> <span class="o">-</span><span class="n">y</span> <span class="n">git</span> <span class="n">vim</span>
+<pre class="code literal-block"><span></span>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get instal -y git vim
 </pre>
 
 
 <h5>Baking run commands into Docker image</h5>
 <p>We can bake commands to be run when a container starts up from an image. The preferred way is to use <code>exec</code> commands, an alternate is to specify <code>bash</code> commands. We prefix such with <code>CMD</code> keyword. If you do not specify a CMD, the default is to bring up <code>bash</code>.</p>
-<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
-<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
-    <span class="n">git</span> <span class="err">\</span>
-    <span class="n">python</span> <span class="err">\</span>
-    <span class="n">vim</span>
-<span class="n">CMD</span> <span class="p">[</span><span class="ss">"echo"</span><span class="p">,</span> <span class="ss">"helllo world"</span><span class="p">]</span>
+<pre class="code literal-block"><span></span>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get install -y \
+    git \
+    python \
+    vim
+CMD ["echo", "helllo world"]
 </pre>
 
 
 <p>When a container is created, it runs this <code>helllo world</code> with a typo. You can also modify this at runtime, by specifying <code>docker run &lt;image_name&gt; &lt;commands&gt; &lt;arguments&gt;</code> such as <code>docker run atmamani/echoer echo hello hello</code>.</p>
 <h5>Copying files into the image</h5>
-<pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
-<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
-    <span class="n">git</span> <span class="err">\</span>
-    <span class="n">python</span> <span class="err">\</span>
-    <span class="n">vim</span>
-<span class="k">COPY</span> <span class="p">.</span><span class="o">/</span><span class="n">abc</span><span class="p">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">abc</span><span class="p">.</span><span class="n">txt</span>
+<pre class="code literal-block"><span></span>FROM debian:jessie
+RUN apt-get update &amp;&amp; apt-get install -y \
+    git \
+    python \
+    vim
+COPY ./abc.txt /tmp/abc.txt
 </pre>
 
 
@@ -403,14 +403,14 @@ Pre-virtualization had a number of problems
 <p>Download the repo using <code>git clone -b v0.1 https://github.com/jleetutorial/dockerapp.git</code>. Then build the docker image using <code>docker build -t tut-dockerapp:v0.1 .</code></p>
 <p>Run the container as <code>docker run -d -p 5000:5000 tut-dockerapp:v0.1</code> this spins up the container and maps the port. You can use the web app at <code>localhost:5000</code>. If for some reason, this is not available or unknown, you can find the IP address of the docker using <code>docker-machine ls</code> or find which port is mapped using <code>docker ps</code>.</p>
 <p>To <strong>step into a running container</strong>, use <code>docker exec -it &lt;cont name or id&gt; &lt;command&gt;</code>, such as <code>docker exec -it keen_noyce bash</code>. The <code>-i</code> flag makes it interactive. To <strong>see the running process within the container</strong> do <code>ps axu</code> from within the <code>home</code> directory:</p>
-<pre class="code literal-block"><span></span><span class="nv">dockerapp</span> [<span class="ss">(</span><span class="nv">no</span> <span class="nv">branch</span><span class="ss">)</span>] $ <span class="nv">docker</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="nv">keen_noyce</span> <span class="nv">bash</span>
-<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">/</span><span class="nv">app</span>$ <span class="nv">cd</span> <span class="o">~</span>
-<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">~</span>$ <span class="nv">ps</span> <span class="nv">axu</span>
-<span class="nv">USER</span>       <span class="nv">PID</span> <span class="o">%</span><span class="nv">CPU</span> <span class="o">%</span><span class="nv">MEM</span>    <span class="nv">VSZ</span>   <span class="nv">RSS</span> <span class="nv">TTY</span>      <span class="nv">STAT</span> <span class="nv">START</span>   <span class="nv">TIME</span> <span class="nv">COMMAND</span>
-<span class="nv">admin</span>        <span class="mi">1</span>  <span class="mi">0</span>.<span class="mi">0</span>  <span class="mi">1</span>.<span class="mi">2</span> <span class="mi">102852</span> <span class="mi">25080</span> ?        <span class="nv">Ss</span>   <span class="mi">19</span>:<span class="mi">33</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">python</span> <span class="nv">app</span>.<span class="nv">py</span>
-<span class="nv">admin</span>       <span class="mi">17</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">19964</span>  <span class="mi">3680</span> <span class="nv">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="nv">Ss</span>   <span class="mi">19</span>:<span class="mi">47</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">bash</span>
-<span class="nv">admin</span>       <span class="mi">24</span>  <span class="mi">0</span>.<span class="mi">0</span>  <span class="mi">0</span>.<span class="mi">1</span>  <span class="mi">38380</span>  <span class="mi">3216</span> <span class="nv">pts</span><span class="o">/</span><span class="mi">0</span>    <span class="nv">R</span><span class="o">+</span>   <span class="mi">19</span>:<span class="mi">47</span>   <span class="mi">0</span>:<span class="mi">00</span> <span class="nv">ps</span> <span class="nv">axu</span>
-<span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">~</span>$ 
+<pre class="code literal-block"><span></span>dockerapp [(no branch)] $ docker exec -it keen_noyce bash
+admin@dd29aef6445a:/app$ cd ~
+admin@dd29aef6445a:~$ ps axu
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+admin        1  0.0  1.2 102852 25080 ?        Ss   19:33   0:00 python app.py
+admin       17  0.1  0.1  19964  3680 pts/0    Ss   19:47   0:00 bash
+admin       24  0.0  0.1  38380  3216 pts/0    R+   19:47   0:00 ps axu
+admin@dd29aef6445a:~$ 
 </pre>
 
 
