@@ -200,6 +200,7 @@ NAVIGATION_LINKS = {
                 ('/', "<hr>"),
                 ('/cheatsheets/web-development/', "Web Development"),
                 ('/cheatsheets/html/', "HTML basics"),
+                ('/cheatsheets/flask-1/', "Making RESTful APIs with Python"),
             ),
             'Cheatsheets',
         ),
