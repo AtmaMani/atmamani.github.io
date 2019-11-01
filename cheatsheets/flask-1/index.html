@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design principles behind RESTful APIs | Atma's blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/flask-1/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Design principles behind RESTful APIs">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/flask-1/">
+<meta property="og:description" content="What makes a web API RESTful
+
+separation between client and server
+server should not remember previous actions of the client (stateless)
+each request from client should be treated independently and as">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-11-01T00:40:15-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../html/">HTML basics</a>
+                    </li>
+<li class="active">
+<a href=".">Design principles behind RESTful APIs <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../flask-2/">Making RESTful APIs with Flask in Python</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Design principles behind RESTful APIs</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>What makes a web API RESTful</h3>
+<ul>
+<li>separation between client and server</li>
+<li>server should not remember previous actions of the client (stateless)</li>
+<li>each request from client should be treated independently and as if it is the first request</li>
+<li>use of <code>tokens</code> allows for a stateless design, but gives users a stateful experience (such as a shopping website remembering what user added to shopping cart)</li>
+<li>responses from server can be marked as cacheable or non cacheable. This way, client does not have to talk to server for the same requests</li>
+<li>Server should provide a uniform interface, no matter what the client is (mobile vs desktop vs another server)</li>
+</ul>
+<p><strong>Some advanced features of RESTful APIs</strong>
+ - if the logic is complex, you can implement a <em>layered</em> system where clients interact with Server A. Server A would interact with many other servers to fulfil the request and give results back to client. Client does not have to know how to talk to the rest of the servers to accomplish this.
+ - <em>code on demand</em>: Server might optionally send executable code (like JS) to run on client to fulfil a request.</p>
+<h4>HTTP Request structure</h4>
+<p>A request consists of 3 parts</p>
+<ol>
+<li>header - this header contains<ol>
+<li>Header consists of a request line. This line contains a HTTP verb, a URI and HTTP version number. An example syntax of request line is <code>GET /index.html HTTP 1.1</code>
+</li>
+<li>optional request headers which appear as kvp. For instance <code>Accept: image/gif, image/jpeg, */*</code>, <code>Accept-Language: en-us</code>.</li>
+</ol>
+</li>
+<li>blank line</li>
+<li>body (optional) - body can contain any additional information, such as auth info etc.<ol>
+<li>for instance <code>puppyId=12345&amp;name=Fido+Lava</code>
+</li>
+</ol>
+</li>
+</ol>
+<h4>HTTP Response structure</h4>
+<p>Similar to a request, the response consists of 3 same parts</p>
+<ol>
+<li>a header, which contains<ol>
+<li>status line which has the status code, HTTP version</li>
+<li>optional response headers</li>
+</ol>
+</li>
+<li>blank line</li>
+<li>body (optional). The body contains what the client asked for. For instance a mp3 file, image file or html page.</li>
+</ol>
+<h3>Making elegant RESTful APIs</h3>
+<p>FAQ, Quickstart, Hello World, Payground &amp; Sandbox for sample API requests.</p>
+<p><strong>URI design</strong></p>
+<ol>
+<li>URI should take name of resource, not the action to take on them. For instance, <code>/tickets/4</code> is good, while <code>getTicketInfo/4</code> is not.</li>
+<li>URI should plural form for each resource name. For instance, <code>/puppies</code>, <code>/tickets</code>
+</li>
+<li>Use HTTP verbs to indicate action. The verbs are <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, <code>CONNECT</code>.<ol>
+<li>
+<code>HEAD</code> and <code>GET</code> can be called by web crawlers and search engines, so ensure these resources can only get information and not modify.</li>
+</ol>
+</li>
+<li>Use HTTP status codes such as <code>404</code>, <code>401</code> along with error messages appropriately.</li>
+</ol>
+<p><strong>API versioning</strong></p>
+<ol>
+<li>Versioning allows to maintain backward compatibility when you build a permanent web API.</li>
+<li>You can either add version in the URI, as <code>/puppies/v2/resource</code> or in the header of the call.</li>
+</ol>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

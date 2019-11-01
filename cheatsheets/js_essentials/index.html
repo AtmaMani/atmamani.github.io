@@ -28,7 +28,7 @@ JS can be run in browsers and outside - node.js, windows script host
 
 JS cannot access file system since">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-09-05T11:24:02-07:00">
+<meta property="article:published_time" content="2019-10-11T13:24:49-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -224,6 +224,12 @@ JS cannot access file system since">
                     </li>
 <li>
 <a href="../html/">HTML basics</a>
+                    </li>
+<li>
+<a href="../flask-1/">Design principles behind RESTful APIs</a>
+                    </li>
+<li>
+<a href="../flask-2/">Making RESTful APIs with Flask in Python</a>
             </li>
 </ul>
 </li>
@@ -489,8 +495,8 @@ JS cannot access file system since">
 <li>jQuery is a library and a very popular one. You can use the Google CDN or download and put it in your server as well. <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js</a> is Google's CDN.</li>
 <li>If you are installing this locally instead of using the CDN, then use <code>npm</code> and <code>bower</code>. Bower will install it in the root of your site, so when you host your site, you will not forget to host the dependent libraries.</li>
 </ul>
-<pre class="code literal-block"><span></span>npm install -g bower
-bower install jquery
+<pre class="code literal-block"><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="k">g</span> <span class="n">bower</span>
+<span class="n">bower</span> <span class="n">install</span> <span class="n">jquery</span>
 </pre>
 
 
@@ -536,12 +542,12 @@ bower install jquery
 </ul>
 <h3>Appendix - Run web server using node.js</h3>
 <p>In terminal, after installing node.js, type:</p>
-<pre class="code literal-block"><span></span>npm install http-server -g
+<pre class="code literal-block"><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="k">g</span>
 </pre>
 
 
 <p>This installs a server, <a href="https://www.npmjs.com/package/http-server">help for that server</a>. Then to start a web server, navigate to the folder with website and run</p>
-<pre class="code literal-block"><span></span>http-server -p 3000
+<pre class="code literal-block"><span></span><span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="n">p</span> <span class="mi">3000</span>
 </pre>
 
 
