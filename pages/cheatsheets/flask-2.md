@@ -70,3 +70,96 @@ def welcome_page():
 							'os_type' = sys.platform,
 							'os_name' = os.name)
 ```
+
+## Getting user input via HTML pages
+Not only are HTML pages good to display content on a UI, they are good to collect user input for processing. The snippet below defines a resource that when called via `GET`, will show an HTML page with form controls. If accessed via `POST`, it performs the actual processing defined by the resource.
+
+```python
+@app.route('/eyeFromAbove', methods=['GET', 'POST'])
+def eye_from_above():
+    """
+    If GET request - Displays a html page with box to enter address
+    if POST request - renders output html with image from satellite
+    :return:
+    """
+    if request.method == 'POST':
+        # User could have used the web UI or called the endpoint headless
+
+        # If user used the web UI, then address comes as form data
+        if request.form is not None:
+            address = request.form.get('address', None)
+            date = request.form.get('date', None)
+        else:
+            # request data comes via args
+            address = request.args.get('address', None)
+            date = request.args.get('date', None)
+        if address:
+            geocode_dict = geocode_address_executor(address)
+            lon = geocode_dict['location']['x']
+            lat = geocode_dict['location']['y']
+
+        else: # when no address is loaded
+            flash('No address specified')
+            return redirect(request.url)
+
+        base_url = 'https://api.nasa.gov/planetary/earth/imagery'
+        # for some reason, NASA server rejects the GET request if I send data over payload
+        if date:
+            full_url = f'{base_url}/?lat={lat}&lon={lon}&date={date}&cloud_score=False&api_key={key}'
+        else:
+            full_url = f'{base_url}/?lat={lat}&lon={lon}&cloud_score=False&api_key={key}'
+
+
+        # construct the query and get download url
+        # resp = requests.get(base_url, params)
+        resp = requests.get(full_url)
+
+        if resp.status_code == 200:
+            resp_dict = json.loads(resp.text)
+        else:
+            return json.dumps({'error':resp.text})
+
+        # Download the image from Google Earth Engine API.
+        img_resp = requests.get(resp_dict['url'])
+        if img_resp.status_code == 200:
+            img_filename = address.replace(' ','_').replace('-','').replace('.','').replace('*','').replace(',','')
+            with open(f'eye_in_sky_queries/{img_filename}.png', 'wb') as img_handle:
+                img_handle.write(img_resp.content)
+        else:
+            return json.dumps({'error':img_resp.text})
+
+        # render the HTML page
+        return render_template('eye_from_above.html',
+                               media_type='image',
+                               media_url = os.path.join('/','eye_in_sky_queries',img_filename+'.png'),
+                               img_date = resp_dict['date'],
+                               img_id = resp_dict['id'],
+                               img_dataset = resp_dict['resource']['dataset'])
+
+    elif request.method == 'GET':
+        # case when page is loaded on browser
+        return '''
+            <!doctype html>
+            <title>Enter address to view</title>
+            <h1>Enter the address to get image of</h1>
+            <form method=post enctype=multipart/form-data>
+              <input type=text name=address value=address>
+              <input type=text name=date value='2013-12-17'>
+              <input type=submit value=Submit>
+            </form>
+            '''
+
+# this resource is needed to render images from disk. Needed for the template HTML pages
+@app.route('/eye_in_sky_queries/<filename>')
+def uploaded_file(filename):
+    return send_from_directory('eye_in_sky_queries',
+                               filename)
+```
+
+Now, to display the image, we need this part in the template HTML file
+```HTML
+<body>
+    {% if media_type == 'image' %}
+        <img src={{media_url}} class="img-fluid" alt="Responsive image">
+</body>
+```
