@@ -163,3 +163,57 @@ Now, to display the image, we need this part in the template HTML file
         <img src={{media_url}} class="img-fluid" alt="Responsive image">
 </body>
 ```
+
+## Database CRUD operations
+One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using `sqlalchemy` library to  create an in-memory `sqlite` database and perform CRUD - Create, Read, Update, Delete operations on it.
+
+### An intro to `sqlalchemy`
+Sqlalchemy library is an ORM (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a DB and perform CRUD ops in addition to others.
+
+Connecting to a DB. In this case a sqllite db is created. If you want the db in-memory, then specify `memory` as location.
+
+```python
+from sqlalchemy import create_engine
+engine = create_engine('sqlite:///filename.db')
+```
+
+The next step is to establish a session to this newly created db.
+```python
+from sqlalchemy.orm import sessionmaker
+DBSession = sessionmaker(bind=engine)
+my_session = DBSession()
+```
+
+The next step is a little boiler plate and can be seen in many examples using sqlalchemy.
+```python
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+```
+
+Next step is to create a Model - this represents the table, columns, rows as Python objects.
+```python
+from sqlalchemy import column, Integer, Numeric, String
+
+class Puppy(Base): #must inherit from declarative base
+	__tablename__ = 'puppy'
+
+	puppy_id = Column(Integer, primary_key=True)
+	puppy_name = Column(String[30])
+	# ... other columns
+```
+
+Finnaly, we need to create the table define above on the db.
+```python
+Base.metadata.create_all(engine)
+```
+
+#### Inserting rows
+Create an instance of the class you created that inherited the `declarative_base`.
+```python
+puppy1 = Puppy(puppy_name = 'nemo') #pass the columns info to the constructor
+
+# insert row
+session.add(puppy1)
+session.commit()
+```
+Since, we did not pass `puppy_id`, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an `add` but have the primary key specified.

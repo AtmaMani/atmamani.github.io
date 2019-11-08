@@ -1,11 +1,18 @@
-Title: Atma's apps
-Although I prefer static pages, from time to time, I like to build web apps
+Title: Web apps
 
+## Full stack Python web apps
+Python never ceases to impress me. On one end of the spectrum, you can use it to build simulations, process images and signals and perform data science. On the other end, you can quickly and easily build a full stack web app that is complete with a front-end, REST API and a backend (which is typically a DB process), all in Python.
+
+ - Before you get started, you need to know a bit about RESTful APIs. My article on the [design principles behind RESTful APIs](design-principles-behind-restful-apis/) may be helpful
+ - Getting started with [building RESTful APIs in Python with Flask](building-restful-apis-with-flask-in-python-1/)
+ - Then take a look at this [example fullstack Python web app](fullstack-python-webapp-1/) that is published on **Heroku**.
+
+## Javascript apps
 -------------------------------------
 - [SoCal active fire map](firemap/)
 -------------------------------------
 
-# Maps and Apps that I love
+## Maps and Apps that I love
 For the love of geography, below is a set of maps and apps (mostly built by someone else) that encourage spatial thinking
 
  - [Urban observatory](http://www.urbanobservatory.org/compare/index.html). A fantastic app to visually compare up to 3 different cities. The app presents 3 map windows (for 3 cities) and locks the map scale, allowing you to observe the size (and magnitude) of those cities. Load up cities in the same country are across the world to see if Los Angeles is really larger than Mumbai and New York. Settle that argument you had in the bar, forever.
