@@ -55,11 +55,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2019-11-08T05:56:00Z</lastmod>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2019-10-31T17:45:00Z</lastmod>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -111,7 +111,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2019-11-08T05:56:00Z</lastmod>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/blog/index-2.html</loc>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -138,6 +142,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/takeaways-strata-data-nyc2019/</loc>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/the-big-data-ecosystem/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -147,7 +155,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2019-10-31T17:45:00Z</lastmod>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -212,6 +220,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/cli/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/conference/</loc>
+  <lastmod>2019-11-12T00:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/containers/</loc>
