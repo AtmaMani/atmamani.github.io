@@ -61,3 +61,22 @@ Reiterating the fact that weighted centers are better for area features, see the
 <img src="/images/spatial-weighted-centrality3.png" width=500>
 
 ### 3.3 Measuring compactness of geographic distributions
+For non-spatial datasets, the dispersion around the center is measured by **variance** and [**standard deviation**](/projects/stats/02_data_description/). These values gives you the ability to compare compactness of distributions. Similarly, for spatial datasets, the **standard distance**, which is the average distance by which features vary from **mean center** gives a measure of compactness. It is also called the **standard deviation distance**.
+
+<img src="/images/spatial-std-distance.png" width=350>
+
+When calculating the standard distance, you could calculate it just by distance to features or by multiplying the distance with a weight. When calculating the compactness of polygons, we use weighted distance of their centroids.
+
+<img src="/images/spatial-std-distance-polygons.png" width=500>
+
+The formula to calculate standard distance with just distances of features to mean center is below:
+
+<img src="/images/spatial-std-distance-formula1.png" width=350>
+
+Note that it looks very similar to calculating SD, except it sums the variance along `X` and `Y` and then takes the square root of their sum.
+
+When weights come into picture, you do a weighted average of the deviation along X and Y as shown below:
+
+<img src="/images/spatial-std-distance-formula2.png" width=500>
+
+Weights are typically some numerical attribute (such as population if features are polygons, number of entities if features are lines or points). Further, the compactness measure works well if there **no directionality** in the dataset.
