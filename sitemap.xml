@@ -55,11 +55,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -98,6 +98,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/gentle-introduction-cloud-computing/</loc>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/harness-the-power-of-gis-python-api/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -115,7 +119,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -155,7 +159,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -220,6 +224,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/cli/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/cloud/</loc>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/conference/</loc>
@@ -332,6 +340,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/scrum/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/serverless/</loc>
+  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/teamwork/</loc>
@@ -591,11 +603,15 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/spatial/</loc>
-  <lastmod>2019-10-31T17:45:00Z</lastmod>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/spatial/guide-to-spatial-analysis-1/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/spatial/guide-to-spatial-analysis-2/</loc>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/stats/</loc>

@@ -55,7 +55,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_technology.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-12T06:10:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_tools.xml</loc>
@@ -70,8 +70,12 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/cloud.xml</loc>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/conference.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-12T06:10:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/containers.xml</loc>
@@ -79,7 +83,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/data-science.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-12T06:10:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/devops.xml</loc>
@@ -163,7 +167,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/python.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/real-estate.xml</loc>
@@ -182,6 +186,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/serverless.xml</loc>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/teamwork.xml</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </sitemap>
@@ -191,10 +199,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2019-11-12T00:30:00Z</lastmod>
+  <lastmod>2019-11-14T16:30:00Z</lastmod>
  </sitemap>
 </sitemapindex>
