@@ -539,7 +539,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/</loc>
-  <lastmod>2019-10-31T17:45:00Z</lastmod>
+  <lastmod>2019-11-25T16:50:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/coursera-notes/</loc>
+  <lastmod>2019-11-18T22:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/hurricane-dask-analysis/part1_prepare_hurricane_data/</loc>
@@ -552,6 +556,10 @@
  <url>
   <loc>https://atmamani.github.io/projects/ml/hurricane-dask-analysis/part3_analyze_hurricane_tracks/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/linear-algebra/</loc>
+  <lastmod>2019-11-25T16:50:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/portland-house-hunting/01_clean-housing-data/</loc>
