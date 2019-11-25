@@ -1,4 +1,4 @@
-title: Popular ML algorithms
+title: Coursera ML course notes
 has_math: true
 
 # Linear regression
