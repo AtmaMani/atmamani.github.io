@@ -3,6 +3,7 @@ date: 11/12/2019
 slug: gentle-introduction-cloud-computing
 categories: technology
 tags: cloud, python, serverless
+status: draft
 
 **Computing mindset for the 2010s**
 
