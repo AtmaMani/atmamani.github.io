@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>postgis-2 | Atma's blog</title>
+<title>PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,11 +23,11 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="postgis-2">
+<meta property="og:title" content="PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/postgis-2/">
-<meta property="og:description" content="PostGIS 2¶Using SQLAlchemy, GeoAlchemy, Pandas and GeoPandas with PostGIS¶PostGIS is an open source spatial database. I am using the Python SQLAlchemy library to connect to and execute spatial and non">
+<meta property="og:description" content="Using SQLAlchemy, GeoAlchemy, Pandas and GeoPandas with PostGIS¶PostGIS is an open source spatial database. I am using the Python SQLAlchemy library to connect to and execute spatial and non-spatial q">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:47:08-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -180,6 +180,9 @@
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -252,7 +255,7 @@
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">postgis-2</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a></h1>
 
         
 
@@ -263,19 +266,35 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="PostGIS-2">PostGIS 2<a class="anchor-link" href="#PostGIS-2">¶</a>
-</h2>
 <h4 id="Using-SQLAlchemy,-GeoAlchemy,-Pandas-and-GeoPandas-with-PostGIS">Using SQLAlchemy, GeoAlchemy, Pandas and GeoPandas with PostGIS<a class="anchor-link" href="#Using-SQLAlchemy,-GeoAlchemy,-Pandas-and-GeoPandas-with-PostGIS">¶</a>
 </h4>
 <p>PostGIS is an open source spatial database. I am using the Python SQLAlchemy library to connect to and execute spatial and non-spatial queries from this database</p>
-<p><strong>Toc</strong></p>
-<ul>
-<li><a href="#Querying">Querying</a></li>
-<li><a href="#Querying-with-pandas">Querying with pandas</a></li>
-<li><a href="#Querying-with-geopandas">Querying with geopandas</a></li>
-<li><a href="#Where-clauses">Where clauses</a></li>
-<li><a href="#Spatial-queries">Spatial queries</a></li>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
+<li><ul class="toc-item"><li><span><a href="#Using-SQLAlchemy,-GeoAlchemy,-Pandas-and-GeoPandas-with-PostGIS" data-toc-modified-id="Using-SQLAlchemy,-GeoAlchemy,-Pandas-and-GeoPandas-with-PostGIS-0.1">Using SQLAlchemy, GeoAlchemy, Pandas and GeoPandas with PostGIS</a></span></li></ul></li>
+<li>
+<span><a href="#Querying" data-toc-modified-id="Querying-1">Querying</a></span><ul class="toc-item">
+<li><span><a href="#Querying-with-pandas" data-toc-modified-id="Querying-with-pandas-1.1">Querying with pandas</a></span></li>
+<li><span><a href="#Querying-with-geopandas" data-toc-modified-id="Querying-with-geopandas-1.2">Querying with geopandas</a></span></li>
+<li><span><a href="#Where-clauses" data-toc-modified-id="Where-clauses-1.3">Where clauses</a></span></li>
+<li><span><a href="#Where-clauses-geometry-functions" data-toc-modified-id="Where-clauses-geometry-functions-1.4">Where clauses geometry functions</a></span></li>
 </ul>
+</li>
+<li>
+<span><a href="#Connect-to-Zesty-db" data-toc-modified-id="Connect-to-Zesty-db-2">Connect to Zesty db</a></span><ul class="toc-item"><li><span><a href="#Display-image" data-toc-modified-id="Display-image-2.1">Display image</a></span></li></ul>
+</li>
+</ul></div>
 </div>
 </div>
 </div>

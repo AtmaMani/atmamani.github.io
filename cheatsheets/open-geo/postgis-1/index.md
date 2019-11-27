@@ -1,4 +1,4 @@
-# This is PostGIS
+title: Introduction to PostGIS
 ## Set up
 ### Installation
 I am installing the all-in-one package - Postgres APP which inclues Postgres, PostGIS, PLV8. Once installed, it looks like below:

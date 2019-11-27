@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>geopandas-4 | Atma's blog</title>
+<title>GeoPandas - PySal, OSM data IO | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,18 +23,21 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="geopandas-4">
+<meta property="og:title" content="GeoPandas - PySal, OSM data IO">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/geopandas-4/">
-<meta property="og:description" content="Advanced Geopandas¶Use Pysal to classify data, download vector data from Open Street Maps.
-ToC
+<meta property="og:description" content="Advanced Geopandas¶
+Use Pysal to classify data, download vector data from Open Street Maps.
 
-Data reclassification
-Download from OSM
-Convert DiGraph to GeoDataFrame
-Download buildings from OSM
-Plot">
+
+
+
+
+
+
+Table of Contents
+Data reclassificationVisualize travel times on mapClassify with PysalCustom classif">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:41:03-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -187,6 +190,9 @@ Plot">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -259,7 +265,7 @@ Plot">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">geopandas-4</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - PySal, OSM data IO</a></h1>
 
         
 
@@ -272,18 +278,35 @@ Plot">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Advanced-Geopandas">Advanced Geopandas<a class="anchor-link" href="#Advanced-Geopandas">¶</a>
 </h2>
-<p>Use Pysal to classify data, download vector data from Open Street Maps.</p>
-<p><strong>ToC</strong></p>
-<ul>
-<li><a href="#Data-reclassification">Data reclassification</a></li>
+<p><img src="https://miro.medium.com/max/3720/1*HevTonUoRkTNolFPO2P8Kw.png" width="450">
+Use Pysal to classify data, download vector data from Open Street Maps.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
 <li>
-<a href="#Download-from-OSM">Download from OSM</a><ul>
-<li><a href="#Convert-DiGraph-to-GeoDataFrame">Convert DiGraph to GeoDataFrame</a></li>
-<li><a href="#Download-buildings-from-OSM">Download buildings from OSM</a></li>
-<li><a href="#Plot-on-map">Plot on map</a></li>
+<span><a href="#Data-reclassification" data-toc-modified-id="Data-reclassification-1">Data reclassification</a></span><ul class="toc-item"><li><span><a href="#Visualize-travel-times-on-map" data-toc-modified-id="Visualize-travel-times-on-map-1.1">Visualize travel times on map</a></span></li></ul>
+</li>
+<li>
+<span><a href="#Classify-with-Pysal" data-toc-modified-id="Classify-with-Pysal-2">Classify with Pysal</a></span><ul class="toc-item"><li><span><a href="#Custom-classifier" data-toc-modified-id="Custom-classifier-2.1">Custom classifier</a></span></li></ul>
+</li>
+<li>
+<span><a href="#Download-from-OSM" data-toc-modified-id="Download-from-OSM-3">Download from OSM</a></span><ul class="toc-item">
+<li><span><a href="#Convert-DiGraph-to-GeoDataFrame" data-toc-modified-id="Convert-DiGraph-to-GeoDataFrame-3.1">Convert DiGraph to GeoDataFrame</a></span></li>
+<li><span><a href="#Download-buildings-from-OSM" data-toc-modified-id="Download-buildings-from-OSM-3.2">Download buildings from OSM</a></span></li>
+<li><span><a href="#Plot-on-map" data-toc-modified-id="Plot-on-map-3.3">Plot on map</a></span></li>
 </ul>
 </li>
-</ul>
+</ul></div>
 </div>
 </div>
 </div>

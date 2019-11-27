@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>numpy_cheat_sheet_1 | Atma's blog</title>
+<title>NumPy basics | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,12 +23,11 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="numpy_cheat_sheet_1">
+<meta property="og:title" content="NumPy basics">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/numpy/numpy_cheat_sheet_1/">
-<meta property="og:description" content="NumPy cheat sheet 1¶
-NumPy is the primary matrix laboratory for Python. Many other libraries such as pandas, tensorflow, scikit-learn etc are built on top of this. Some tutorials to go with this cheat">
+<meta property="og:description" content="NumPy is the primary matrix laboratory for Python. Many other libraries such as pandas, tensorflow, scikit-learn etc are built on top of this. Some tutorials to go with this cheat sheet: Numpy quick s">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:28:49-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -181,6 +180,9 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -253,7 +255,7 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">numpy_cheat_sheet_1</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">NumPy basics</a></h1>
 
         
 
@@ -264,8 +266,6 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="NumPy-cheat-sheet-1">NumPy cheat sheet 1<a class="anchor-link" href="#NumPy-cheat-sheet-1">¶</a>
-</h2>
 <p><img src="https://bids.berkeley.edu/sites/default/files/styles/400x225/public/projects/numpy_project_page.jpg?itok=flrdydei" alt="">
 NumPy is the primary matrix laboratory for Python. Many other libraries such as pandas, tensorflow, scikit-learn etc are built on top of this. Some tutorials to go with this cheat sheet: <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Numpy quick start - scipy</a>, <a href="http://www.python-course.eu/numpy.php">numpy python course eu</a>, <a href="https://www.datacamp.com/community/tutorials/python-numpy-tutorial#gs.Kttt3cA">datacamp numpy wiki</a>, <a href="http://www.numpy.org/">numpy.org</a></p>
 
@@ -277,23 +277,47 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>ToC</strong></p>
-<ul>
-<li><a href="#Creating-numpy-arrays-from-lists">Creating numpy arrays from lists</a></li>
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
 <li>
-<a href="#Special-numpy-arrays">Special numpy arrays</a><ul>
-<li><a href="#ones-zeros-and-eye">ones zeros and eye</a></li>
-<li><a href="#arange-and-linspace">arange and linspace</a></li>
-<li><a href="#Random-numbers">Random numbers</a></li>
+<span><a href="#Creating-numpy-arrays-from-lists" data-toc-modified-id="Creating-numpy-arrays-from-lists-1">Creating numpy arrays from lists</a></span><ul class="toc-item">
+<li><span><a href="#2D-arrays" data-toc-modified-id="2D-arrays-1.1">2D arrays</a></span></li>
+<li><span><a href="#3D-arrays" data-toc-modified-id="3D-arrays-1.2">3D arrays</a></span></li>
+<li><span><a href="#Creating-using-MATLAB-style-syntax" data-toc-modified-id="Creating-using-MATLAB-style-syntax-1.3">Creating using MATLAB style syntax</a></span></li>
 </ul>
 </li>
-<li><a href="#Array-inspection">Array inspection</a></li>
 <li>
-<a href="#Array-manipulation">Array manipulation</a><ul>
-<li><a href="#Reshape-arrays">Reshape arrays</a></li>
+<span><a href="#Special-numpy-arrays" data-toc-modified-id="Special-numpy-arrays-2">Special numpy arrays</a></span><ul class="toc-item">
+<li>
+<span><a href="#ones-zeros-and-eye" data-toc-modified-id="ones-zeros-and-eye-2.1">ones zeros and eye</a></span><ul class="toc-item">
+<li><span><a href="#zeros" data-toc-modified-id="zeros-2.1.1">zeros</a></span></li>
+<li><span><a href="#eye" data-toc-modified-id="eye-2.1.2">eye</a></span></li>
+</ul>
+</li>
+<li><span><a href="#arange-and-linspace" data-toc-modified-id="arange-and-linspace-2.2">arange and linspace</a></span></li>
+<li>
+<span><a href="#Random-numbers" data-toc-modified-id="Random-numbers-2.3">Random numbers</a></span><ul class="toc-item">
+<li><span><a href="#rand" data-toc-modified-id="rand-2.3.1"><code>rand</code></a></span></li>
+<li><span><a href="#randint" data-toc-modified-id="randint-2.3.2"><code>randint</code></a></span></li>
 </ul>
 </li>
 </ul>
+</li>
+<li>
+<span><a href="#Array-inspection" data-toc-modified-id="Array-inspection-3">Array inspection</a></span><ul class="toc-item">
+<li><span><a href="#shape" data-toc-modified-id="shape-3.1">shape</a></span></li>
+<li><span><a href="#datatype-of-the-elements" data-toc-modified-id="datatype-of-the-elements-3.2">datatype of the elements</a></span></li>
+<li>
+<span><a href="#max-and-min-elements" data-toc-modified-id="max-and-min-elements-3.3">max and min elements</a></span><ul class="toc-item"><li><span><a href="#argmax-and-argmin-to-find-the-location-of-max-element" data-toc-modified-id="argmax-and-argmin-to-find-the-location-of-max-element-3.3.1"><code>argmax</code> and <code>argmin</code> to find the location of max element</a></span></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Array-manipulation" data-toc-modified-id="Array-manipulation-4">Array manipulation</a></span><ul class="toc-item"><li><span><a href="#Reshape-arrays" data-toc-modified-id="Reshape-arrays-4.1">Reshape arrays</a></span></li></ul>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
@@ -512,6 +536,120 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 
        [[1, 2],
         [3, 4]]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Creating-using-MATLAB-style-syntax">Creating using MATLAB style syntax<a class="anchor-link" href="#Creating-using-MATLAB-style-syntax">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'1,2,3;4,5,6;7,8,9'</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.matrix</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>matrix([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])</pre>
 </div>
 
 </div>
@@ -803,10 +941,10 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#specify shape in individual arguments</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#specify shape in individual arguments</span>
 </pre></div>
 
     </div>
@@ -819,15 +957,15 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 0.07557944,  0.46566172,  0.47007512],
-       [ 0.3503408 ,  0.390355  ,  0.00208273],
-       [ 0.19157684,  0.01829643,  0.69737406]])</pre>
+<pre>array([[0.13036297, 0.44737951, 0.85299833],
+       [0.94987992, 0.63348932, 0.42257387],
+       [0.54558662, 0.17654393, 0.84926165]])</pre>
 </div>
 
 </div>
@@ -838,7 +976,7 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -854,23 +992,103 @@ NumPy is the primary matrix laboratory for Python. Many other libraries such as 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[[ 0.57698317,  0.54455093,  0.58026185],
-        [ 0.28510688,  0.48460954,  0.71017098],
-        [ 0.61206809,  0.31050731,  0.79477231]],
+<pre>array([[[0.30709651, 0.26703385, 0.56179506],
+        [0.00490574, 0.79481741, 0.08887725],
+        [0.01482835, 0.41434266, 0.6668987 ]],
 
-       [[ 0.42880933,  0.25333326,  0.41311015],
-        [ 0.32846295,  0.92552637,  0.52578618],
-        [ 0.78600689,  0.26682648,  0.37252107]],
+       [[0.68209787, 0.9032678 , 0.87111643],
+        [0.83040063, 0.40690954, 0.43069501],
+        [0.44060348, 0.6184007 , 0.43669199]],
 
-       [[ 0.58764998,  0.979863  ,  0.46627955],
-        [ 0.22823628,  0.00652632,  0.1682511 ],
-        [ 0.27045728,  0.00860788,  0.62670193]]])</pre>
+       [[0.25732679, 0.90222633, 0.86477316],
+        [0.59079063, 0.23197552, 0.73234759],
+        [0.02420268, 0.58581809, 0.04223459]]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><code>randn</code></strong>
+Create random numbers that follow standard normal distribution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">vals</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(5000,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
 </div>
 
 </div>

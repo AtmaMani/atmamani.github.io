@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>geopandas-1 | Atma's blog</title>
+<title>GeoPandas - IO, projections, plotting | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="geopandas-1">
+<meta property="og:title" content="GeoPandas - IO, projections, plotting">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/geopandas-1/">
 <meta property="og:description" content="GeoPandas 1¶
 
@@ -31,16 +31,12 @@
 
 
 
-In [1]:
 
-    
-import matplotlib.pyplot as plt
-import seaborn as sns
-plt.style.use('bmh') # better for plotting geometries vs general plots.
 
-from shapely.geometry import Point, Polyg">
+Table of Contents
+Geometry typesGotchasConstructing GeoSeries from Shapely PointsPlot the geometriesConstructing GeoSeries from a Pandas DataFrameReading a SHP fileData exploration">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:34:55-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -193,6 +189,9 @@ from shapely.geometry import Point, Polyg">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -265,7 +264,7 @@ from shapely.geometry import Point, Polyg">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">geopandas-1</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - IO, projections, plotting</a></h1>
 
         
 
@@ -278,6 +277,53 @@ from shapely.geometry import Point, Polyg">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="GeoPandas-1">GeoPandas 1<a class="anchor-link" href="#GeoPandas-1">¶</a>
 </h2>
+<p><img src="http://geopandas.org/_images/sphx_glr_plotting_basemap_background_002.png" width="300"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
+<li>
+<span><a href="#Geometry-types" data-toc-modified-id="Geometry-types-1">Geometry types</a></span><ul class="toc-item">
+<li><span><a href="#Gotchas" data-toc-modified-id="Gotchas-1.1">Gotchas</a></span></li>
+<li>
+<span><a href="#Constructing-GeoSeries-from-Shapely-Points" data-toc-modified-id="Constructing-GeoSeries-from-Shapely-Points-1.2">Constructing <code>GeoSeries</code> from Shapely <code>Point</code>s</a></span><ul class="toc-item"><li><span><a href="#Plot-the-geometries" data-toc-modified-id="Plot-the-geometries-1.2.1">Plot the geometries</a></span></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Constructing-GeoSeries-from-a-Pandas-DataFrame" data-toc-modified-id="Constructing-GeoSeries-from-a-Pandas-DataFrame-2">Constructing <code>GeoSeries</code> from a Pandas <code>DataFrame</code></a></span><ul class="toc-item">
+<li><span><a href="#Reading-a-SHP-file" data-toc-modified-id="Reading-a-SHP-file-2.1">Reading a SHP file</a></span></li>
+<li><span><a href="#Data-exploration-using-pandas" data-toc-modified-id="Data-exploration-using-pandas-2.2">Data exploration using pandas</a></span></li>
+<li>
+<span><a href="#Plotting" data-toc-modified-id="Plotting-2.3">Plotting</a></span><ul class="toc-item"><li><span><a href="#Overlay-USA-map" data-toc-modified-id="Overlay-USA-map-2.3.1">Overlay USA map</a></span></li></ul>
+</li>
+<li><span><a href="#Reprojection" data-toc-modified-id="Reprojection-2.4">Reprojection</a></span></li>
+<li><span><a href="#Overlay-plot" data-toc-modified-id="Overlay-plot-2.5">Overlay plot</a></span></li>
+</ul>
+</li>
+<li>
+<span><a href="#Filtering-and-writing-data" data-toc-modified-id="Filtering-and-writing-data-3">Filtering and writing data</a></span><ul class="toc-item">
+<li><span><a href="#Read-from-Shape-file" data-toc-modified-id="Read-from-Shape-file-3.1">Read from Shape file</a></span></li>
+<li><span><a href="#Plot-a-map-by-category" data-toc-modified-id="Plot-a-map-by-category-3.2">Plot a map by category</a></span></li>
+<li><span><a href="#Groupby-a-column" data-toc-modified-id="Groupby-a-column-3.3">Groupby a column</a></span></li>
+<li><span><a href="#Split-by-column-value-and-write-to-disk" data-toc-modified-id="Split-by-column-value-and-write-to-disk-3.4">Split by column value and write to disk</a></span></li>
+</ul>
+</li>
+<li>
+<span><a href="#Dissolve-polygons" data-toc-modified-id="Dissolve-polygons-4">Dissolve polygons</a></span><ul class="toc-item"><li>
+<span><a href="#Make-a-choropleth-map" data-toc-modified-id="Make-a-choropleth-map-4.1">Make a choropleth map</a></span><ul class="toc-item"><li><span><a href="#Export-to-disk" data-toc-modified-id="Export-to-disk-4.1.1">Export to disk</a></span></li></ul>
+</li></ul>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
@@ -300,39 +346,6 @@ from shapely.geometry import Point, Polyg">
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>ToC</strong></p>
-<ul>
-<li><a href="#Geometry-types">Geometry types</a></li>
-<li><a href="#Gotchas">Gotchas</a></li>
-<li>
-<strong>Reading Data</strong><ul>
-<li><a href="Constructing-GeoSeries-from-Shapely-Points">Constructing GeoSeries from Shapely Points</a></li>
-<li><a href="#Constructing-GeoSeries-from-a-Pandas-DataFrame">Constructing GeoSeries from a Pandas DataFrame</a></li>
-<li><a href="#Reading-a-SHP-file">Reading a shp file</a></li>
-</ul>
-</li>
-<li><a href="#Plotting">Plotting</a></li>
-<li><a href="#Reprojection">Reprojecting data</a></li>
-<li><a href="#Overlay-plot">Overlay plotting</a></li>
-<li>
-<strong><a href="#Filtering-and-writing-data">Filtering and Writing Data</a></strong><ul>
-<li><a href="#Plot-a-map-by-category">Plot a map by category</a></li>
-<li><a href="#Groupby-a-column">Groupby a column</a></li>
-<li><a href="#Split-by-column-value-and-write-to-disk">Split by column value and write to disk</a></li>
-<li><a href="#Dissolve-polygons">Dissolve polygons</a></li>
-<li><a href="#Make-a-choropleth-map">Make a choropleth map</a></li>
-<li><a href="#Export-to-disk">Export to disk</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">

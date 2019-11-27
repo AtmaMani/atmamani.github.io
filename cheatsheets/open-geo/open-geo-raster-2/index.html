@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>open-geo-raster-2 | Atma's blog</title>
+<title>Rasterio - hyperspectral, SAM | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="open-geo-raster-2">
+<meta property="og:title" content="Rasterio - hyperspectral, SAM">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/open-geo-raster-2/">
 <meta property="og:description" content="Analyzing hyperspectral images using open source libraries¶My objective is to apply spectral angle mapper classifier
 
@@ -32,14 +32,11 @@
 
 
 
-In [1]:
 
-    
-import rasterio
-import numpy as np
-import matplotlib.pyplot as ">
+Table of Contents
+Analyzing hyperspectral images using open source libraries">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:45:18-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -192,6 +189,9 @@ import matplotlib.pyplot as ">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -264,7 +264,7 @@ import matplotlib.pyplot as ">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">open-geo-raster-2</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Rasterio - hyperspectral, SAM</a></h1>
 
         
 
@@ -275,10 +275,27 @@ import matplotlib.pyplot as ">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Analyzing-hyperspectral-images-using-open-source-libraries">Analyzing hyperspectral images using open source libraries<a class="anchor-link" href="#Analyzing-hyperspectral-images-using-open-source-libraries">¶</a>
-</h2>
+<h3 id="Analyzing-hyperspectral-images-using-open-source-libraries">Analyzing hyperspectral images using open source libraries<a class="anchor-link" href="#Analyzing-hyperspectral-images-using-open-source-libraries">¶</a>
+</h3>
 <p>My objective is to apply spectral angle mapper classifier</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
+<li>
+<span><a href="#Analyzing-hyperspectral-images-using-open-source-libraries" data-toc-modified-id="Analyzing-hyperspectral-images-using-open-source-libraries-1">Analyzing hyperspectral images using open source libraries</a></span><ul class="toc-item"><li><span><a href="#Get-cell-values" data-toc-modified-id="Get-cell-values-1.1">Get cell values</a></span></li></ul>
+</li>
+<li><span><a href="#Read-image-using-spectral-python-library" data-toc-modified-id="Read-image-using-spectral-python-library-2">Read image using spectral python library</a></span></li>
+</ul></div>
 </div>
 </div>
 </div>

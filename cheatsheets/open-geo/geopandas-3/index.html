@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>geopandas-3 | Atma's blog</title>
+<title>GeoPandas - spatial overlays, topology | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,10 +23,18 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="geopandas-3">
+<meta property="og:title" content="GeoPandas - spatial overlays, topology">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/geopandas-3/">
-<meta property="og:description" content="Geopandas 3¶All in on spatial overlay operation
+<meta property="og:description" content="Geopandas 3¶
 
+
+
+
+
+
+
+Table of Contents
+Spatial overlaysPoint in polygon problemTopology inspectionsSpatial joinsSpatial intersectionsSave as GeoJSONAttribute aggregation
 
 
 
@@ -35,25 +43,9 @@
 In [1]:
 
     
-import geopandas as gpd
-import matplotlib.pyplot as plt
-%matplotlib inline
-
-
-    
-
-
-
-
-
-
-
-ToC
-
-Spatial overlays
-Point in polygon prob">
+import geopa">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T10:12:14-08:00">
+<meta property="article:published_time" content="2019-11-26T16:39:22-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -206,6 +198,9 @@ Point in polygon prob">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
+<a href="../../octave-1/">MATLAB / Octave basics</a>
+                    </li>
+<li>
 <a href="../../js_essentials/">Javascript essentials</a>
                     </li>
 <li>
@@ -278,7 +273,7 @@ Point in polygon prob">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">geopandas-3</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - spatial overlays, topology</a></h1>
 
         
 
@@ -291,8 +286,32 @@ Point in polygon prob">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Geopandas-3">Geopandas 3<a class="anchor-link" href="#Geopandas-3">¶</a>
 </h2>
-<p>All in on spatial overlay operation</p>
+<p><img src="http://geopandas.org/_images/sphx_glr_cartopy_convert_002.png" width="450"></p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<h2>Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc"><ul class="toc-item">
+<li>
+<span><a href="#Spatial-overlays" data-toc-modified-id="Spatial-overlays-1">Spatial overlays</a></span><ul class="toc-item">
+<li><span><a href="#Point-in-polygon-problem" data-toc-modified-id="Point-in-polygon-problem-1.1">Point in polygon problem</a></span></li>
+<li><span><a href="#Topology-inspections" data-toc-modified-id="Topology-inspections-1.2">Topology inspections</a></span></li>
+<li><span><a href="#Spatial-joins" data-toc-modified-id="Spatial-joins-1.3">Spatial joins</a></span></li>
+</ul>
+</li>
+<li>
+<span><a href="#Spatial-intersections" data-toc-modified-id="Spatial-intersections-2">Spatial intersections</a></span><ul class="toc-item"><li><span><a href="#Save-as-GeoJSON" data-toc-modified-id="Save-as-GeoJSON-2.1">Save as GeoJSON</a></span></li></ul>
+</li>
+<li><span><a href="#Attribute-aggregation" data-toc-modified-id="Attribute-aggregation-3">Attribute aggregation</a></span></li>
+</ul></div>
 </div>
 </div>
 </div>
@@ -310,30 +329,6 @@ Point in polygon prob">
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>ToC</strong></p>
-<ul>
-<li>
-<a href="#Spatial-overlays">Spatial overlays</a><ul>
-<li><a href="#Point-in-polygon-problem">Point in polygon problem</a></li>
-<li><a href="#Topology-inspections">Topology inspections</a></li>
-<li><a href="#Spatial-joins">Spatial joins</a></li>
-<li>
-<a href="#Spatial-intersections">Spatial intersections</a><ul>
-<li><a href="#Save-as-GeoJSON">Save to disk as GeoJSON</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#Attribute-aggregation">Aggregation using attributes</a></li>
-</ul>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">

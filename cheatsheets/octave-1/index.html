@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Octave / MATLAB basics | Atma's blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/octave-1/">
+<link rel="icon" href="../../scatter-16.png" sizes="16x16">
+<link rel="icon" href="../../scatter-32.png" sizes="32x32">
+<link rel="icon" href="../../scatter-64.png" sizes="64x64">
+<link rel="icon" href="../../scatter-128.png" sizes="128x128">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Octave / MATLAB basics">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/octave-1/">
+<meta property="og:description" content="Octave is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are .m. This page is a guide to the octave programming lang">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-11-26T23:06:07-08:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma's blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li class="active">
+<a href=".">MATLAB / Octave basics <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Octave / MATLAB basics</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><a href="https://www.gnu.org/software/octave/">Octave</a> is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are <code>.m</code>. This page is a guide to the octave programming language.</p>
+<p></p>
+<center><img src="https://www.gnu.org/software/octave/img/example-mesh.svg" width="350"></center>
+<p><strong>ToC</strong></p>
+<ul>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#standard-matrix-creation-functions">Standard matrix creation functions</a></li>
+<li><a href="#automatic-map-operations">Automatic <code>map</code> operations</a></li>
+<li><a href="#automatic-broadcasting">Automatic broadcasting</a></li>
+<li><a href="#array-multiplication">Array multiplication</a></li>
+<li><a href="#transposing-a-matrix">Transposing a matrix</a></li>
+<li><a href="#reshaping-matrixes">Reshaping matrixes</a></li>
+<li><a href="#range-functions">Range functions</a></li>
+<li><a href="#conditional-processing">Conditional processing</a></li>
+<li><a href="#plotting">Plotting</a></li>
+<li><a href="#line-plots">Line plots</a></li>
+<li><a href="#overlaying-plots">Overlaying plots</a></li>
+<li><a href="#array-indexing-slicing-dicing">Array indexing, slicing, dicing</a></li>
+<li><a href="#array-concatenation">Array concatenation</a></li>
+<li><a href="#writing-functions">Writing functions</a></li>
+</ul>
+<h4>General caveats</h4>
+<ul>
+<li>You end statements with a <code>;</code>. If not, the kernel does not throw an error, instead will echo the output of each line.</li>
+<li>If you do not catch the output of an operation in a variable, a default variable called <code>ans</code> is created and that holds the value. At any time, <code>ans</code> holds value of latest operation.</li>
+<li>Matlab / octave functions can return <strong>multiple values</strong>.</li>
+</ul>
+<h3>Variables</h3>
+<p>Variables can be assigned without initializing.</p>
+<pre class="code literal-block"><span></span><span class="n">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span> <span class="c">% row vector</span>
+<span class="c">% Use % for comments</span>
+<span class="n">c</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">;</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">];</span> <span class="c">% col vector</span>
+</pre>
+
+
+<p>2D arrays can be initialized as </p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">a2d</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span> <span class="c">% ';' is used to separate rows.</span>
+<span class="n">a2d</span> <span class="p">=</span>
+   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>
+   <span class="mi">7</span>   <span class="mi">8</span>   <span class="mi">9</span>
+</pre>
+
+
+<h3>Standard matrix creation functions</h3>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c">% identity</span>
+<span class="nb">ans</span> <span class="p">=</span>
+<span class="n">Diagonal</span> <span class="n">Matrix</span>
+   <span class="mi">1</span>   <span class="mi">0</span>   <span class="mi">0</span>
+   <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">0</span>
+   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">1</span>
+
+<span class="o">&gt;&gt;</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>
+   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>
+
+<span class="o">&gt;&gt;</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c">% uniform random numbers between 1,1</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">0.86289</span>   <span class="mf">0.18309</span>   <span class="mf">0.48379</span>   <span class="mf">0.36600</span>   <span class="mf">0.63669</span>
+   <span class="mf">0.32459</span>   <span class="mf">0.89961</span>   <span class="mf">0.79682</span>   <span class="mf">0.39961</span>   <span class="mf">0.15351</span>
+
+<span class="o">&gt;&gt;</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">1.151159</span>   <span class="mf">0.022623</span>  <span class="o">-</span><span class="mf">1.030988</span>   <span class="mf">0.460505</span>
+  <span class="o">-</span><span class="mf">0.386885</span>  <span class="o">-</span><span class="mf">0.188437</span>   <span class="mf">0.339421</span>  <span class="o">-</span><span class="mf">1.131755</span>
+   <span class="mf">0.573182</span>   <span class="mf">0.451552</span>  <span class="o">-</span><span class="mf">0.307362</span>  <span class="o">-</span><span class="mf">1.717639</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<h3>Automatic <code>map</code> operations</h3>
+<p>Octave is designed to work primarily with arrays and vectors. Thus when you pass an array or vector to a standard function or operator, it <strong>automatically maps the function on each element and runs it</strong> and returns either an array/vector or scalar, depending on the operation.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">squares</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">49</span><span class="p">];</span>
+<span class="o">&gt;&gt;</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span> <span class="c">% returns a vector output</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>  <span class="mi">4</span>  <span class="c">% scalar output</span>
+</pre>
+
+
+<p>Functions in Octave can return multiple values. For instance:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">val</span><span class="p">,</span> <span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<span class="n">val</span> <span class="p">=</span>  <span class="mi">4</span>
+<span class="n">index</span> <span class="p">=</span>  <span class="mi">1</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<h4>Automatic broadcasting</h4>
+<p>When you operate a scalar against a vector, matlab will automatically scale up that scalar into a vector and perform an element wise computation as shown below:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">=</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">0.7</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">x</span> <span class="p">=</span> <span class="o">-</span><span class="mf">2.0000</span>   <span class="o">-</span><span class="mf">1.3000</span>   <span class="o">-</span><span class="mf">0.6000</span>    <span class="mf">0.1000</span>    <span class="mf">0.8000</span>    <span class="mf">1.5000</span>
+<span class="o">&gt;&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">10</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mf">8.0000</span>     <span class="mf">8.7000</span>     <span class="mf">9.4000</span>    <span class="mf">10.1000</span>    <span class="mf">10.8000</span>    <span class="mf">11.5000</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<p>Similarly when you multiply, subtract or divide a scalar from a vector, it is automatically broadcasted.</p>
+<h4>Array multiplication</h4>
+<p>There are two types of multiplication
+ - element wise - which is accomplished by prefixing the operator with <code>.</code> such as: <code>.&lt;operator&gt;</code> or <code>.*</code>
+ - matrix multiplication - which will happen when you use <code>*</code>.</p>
+<p>Thus:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span>
+<span class="n">x</span> <span class="p">=</span> <span class="o">-</span><span class="mf">2.0000</span>   <span class="o">-</span><span class="mf">1.3000</span>   <span class="o">-</span><span class="mf">0.6000</span>    <span class="mf">0.1000</span>    <span class="mf">0.8000</span>    <span class="mf">1.5000</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">x2</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">x2</span> <span class="p">=</span> <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">x</span><span class="o">.*</span><span class="n">x2</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="o">-</span><span class="mf">2.00000</span>  <span class="o">-</span><span class="mf">2.60000</span>  <span class="o">-</span><span class="mf">1.80000</span>   <span class="mf">0.40000</span>   <span class="mf">4.00000</span>   <span class="mf">9.00000</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<p>When you want to multiply two matrixes, you do:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span><span class="o">*</span><span class="n">transpose</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>  <span class="mf">7.0000</span>
+</pre>
+
+
+<h3>Transposing a matrix</h3>
+<p>You can call the built-in <code>transpose()</code> function (shown previously) or use the <code>'</code> operator.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x2</span><span class="o">'</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">1</span>
+   <span class="mi">2</span>
+   <span class="mi">3</span>
+   <span class="mi">4</span>
+   <span class="mi">5</span>
+   <span class="mi">6</span>
+</pre>
+
+
+<h3>Reshaping matrixes</h3>
+<p>You can reshape using the <code>reshape(&lt;arr&gt;, nrows, ncols)</code> function. Note, it flows elements <strong>column wise, followed by rows</strong> as shown below:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">vec</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>
+    <span class="mi">1</span>    <span class="mi">3</span>    <span class="mi">5</span>    <span class="mi">7</span>    <span class="mi">9</span>   <span class="mi">11</span>   <span class="mi">13</span>   <span class="mi">15</span>
+    <span class="mi">2</span>    <span class="mi">4</span>    <span class="mi">6</span>    <span class="mi">8</span>   <span class="mi">10</span>   <span class="mi">12</span>   <span class="mi">14</span>   <span class="mi">16</span>
+
+<span class="o">&gt;&gt;</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c">% note how elements flow along columns, not rows.</span>
+<span class="nb">ans</span> <span class="p">=</span>
+    <span class="mi">1</span>    <span class="mi">5</span>    <span class="mi">9</span>   <span class="mi">13</span>
+    <span class="mi">2</span>    <span class="mi">6</span>   <span class="mi">10</span>   <span class="mi">14</span>
+    <span class="mi">3</span>    <span class="mi">7</span>   <span class="mi">11</span>   <span class="mi">15</span>
+    <span class="mi">4</span>    <span class="mi">8</span>   <span class="mi">12</span>   <span class="mi">16</span>
+</pre>
+
+
+<h3>Range functions</h3>
+<p>You can generate uniformly spaced vectors, using 2 methods. If you want uniformly spaced vectors, use the <code>:</code> operator. If you want a specific number of elements within a range, then use the <code>linspace</code> function.</p>
+<p>The <code>:</code> operator takes syntax <code>start:spacing:end</code></p>
+<pre class="code literal-block"><span></span><span class="n">first_10_even_numbers</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">21</span>
+<span class="n">first_10_even_numbers</span> <span class="p">=</span> <span class="mi">0</span>    <span class="mi">2</span>    <span class="mi">4</span>    <span class="mi">6</span>    <span class="mi">8</span>   <span class="mi">10</span>   <span class="mi">12</span>   <span class="mi">14</span>   <span class="mi">16</span>   <span class="mi">18</span>   <span class="mi">20</span>
+</pre>
+
+
+<p>The <code>linspace</code> function takes arguments <code>linspace(start, end, numPoints)</code> where start and end are included.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mf">1.0000</span>    <span class="mf">2.5000</span>    <span class="mf">4.0000</span>    <span class="mf">5.5000</span>    <span class="mf">7.0000</span>    <span class="mf">8.5000</span>   <span class="mf">10.0000</span>
+</pre>
+
+
+<h3>Conditional processing</h3>
+<p>Conditional operators also <code>map</code> on all elements of the vector. Thus to find elements in a vector greater than a threshold, do:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">v1</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">ind</span> <span class="p">=</span> <span class="n">v1</span> <span class="o">&gt;</span> <span class="mi">5</span>  <span class="c">% returns truth vector</span>
+<span class="n">ind</span> <span class="p">=</span> <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span> 
+<span class="o">&gt;&gt;</span> <span class="n">vals</span> <span class="p">=</span> <span class="n">v1</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="c">% use truth vector as index</span>
+<span class="n">vals</span> <span class="p">=</span> <span class="mf">5.5000</span>    <span class="mf">7.0000</span>    <span class="mf">8.5000</span>   <span class="mf">10.0000</span>
+</pre>
+
+
+<p>Logical operators in octave are <code>&lt;, &gt;, &lt;=, &gt;=, ~, ==, ~=, &amp;, |</code>.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">v1</span><span class="p">(</span><span class="n">v1</span><span class="o">&lt;</span><span class="mi">8</span> <span class="o">&amp;</span> <span class="n">v1</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mf">4.0000</span>   <span class="mf">5.5000</span>   <span class="mf">7.0000</span>
+</pre>
+
+
+<h3>Plotting</h3>
+<p>Most 2D plots can be accomplished using <code>plot(&lt;arr1&gt;, &lt;arr2&gt;, 'srt:options')</code> function.</p>
+<h4>Line plots</h4>
+<pre class="code literal-block"><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c">% will plot in a new window</span>
+</pre>
+
+
+<p><img src="../../images/matlab-plot1.png" width="350" align="center"></p>
+<p>We can customize the appearance of ticks and line by passing them as a string. For instance, <code>r:*</code> will make lines in red, <code>*</code> for points and <code>:</code> for dotted lines.</p>
+<p>You can also customize the title, labels, legend as shown:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">'time[x]'</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">'y=x^2'</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">legend</span><span class="p">(</span><span class="s">'y(x)'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">title</span><span class="p">(</span><span class="s">'Function of time'</span><span class="p">)</span>
+</pre>
+
+
+<h4>Overlaying plots</h4>
+<p>To overlay multiple plots on the same frame, use <code>hold on</code> command.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">z</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s">'r:o'</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">hold</span> <span class="n">on</span>
+<span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="s">'g--*'</span><span class="p">)</span>
+</pre>
+
+
+<p><img src="../../images/matlab-plot2.png" width="350"></p>
+<h3>Array indexing, slicing, dicing</h3>
+<p>Consider this <code>4x4</code> matrix:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">readings</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">readings</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">readings</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">readings</span> <span class="p">=</span>
+
+    <span class="mf">1.0000</span>    <span class="mf">3.4000</span>    <span class="mf">5.8000</span>    <span class="mf">8.2000</span>
+    <span class="mf">1.6000</span>    <span class="mf">4.0000</span>    <span class="mf">6.4000</span>    <span class="mf">8.8000</span>
+    <span class="mf">2.2000</span>    <span class="mf">4.6000</span>    <span class="mf">7.0000</span>    <span class="mf">9.4000</span>
+    <span class="mf">2.8000</span>    <span class="mf">5.2000</span>    <span class="mf">7.6000</span>   <span class="mf">10.0000</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<p>To get the first column vector, use <code>:,n</code> where <code>:</code> means all rows here and replace <code>n</code> with column number, starting with <code>1</code> instead of <code>0</code>.:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">readings</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span>  <span class="c">% Note: matlab is 1 indexed, not 0 indexed</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">1.0000</span>
+   <span class="mf">1.6000</span>
+   <span class="mf">2.2000</span>
+   <span class="mf">2.8000</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<p>Also note, I am using <strong><code>()</code> to index arrays, not <code>[]</code></strong> as in Python and other languages.</p>
+<p>To dice the array by pulling 2nd, 3rd rows, 2nd, 3rd columns, do the following:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">readings</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">4.0000</span>   <span class="mf">6.4000</span>
+   <span class="mf">4.6000</span>   <span class="mf">7.0000</span>
+</pre>
+
+
+<h3>Array concatenation</h3>
+<p>You can concatenate along rows or columns using the <code>,</code> or <code>;</code> operators:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="p">[</span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>  <span class="c">% use , to concatenate along columns</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">1.00000</span>   <span class="mf">0.00000</span>   <span class="mf">0.00000</span>   <span class="mf">0.68098</span>  <span class="o">-</span><span class="mf">1.07370</span>  <span class="o">-</span><span class="mf">1.99950</span>
+   <span class="mf">0.00000</span>   <span class="mf">1.00000</span>   <span class="mf">0.00000</span>   <span class="mf">0.19421</span>   <span class="mf">0.06390</span>   <span class="mf">0.29864</span>
+   <span class="mf">0.00000</span>   <span class="mf">0.00000</span>   <span class="mf">1.00000</span>  <span class="o">-</span><span class="mf">0.03696</span>  <span class="o">-</span><span class="mf">0.24735</span>  <span class="o">-</span><span class="mf">0.18180</span>
+
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>  <span class="c">% use ; to concatenate along rows</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">1.00000</span>   <span class="mf">0.00000</span>   <span class="mf">0.00000</span>
+   <span class="mf">0.00000</span>   <span class="mf">1.00000</span>   <span class="mf">0.00000</span>
+   <span class="mf">0.00000</span>   <span class="mf">0.00000</span>   <span class="mf">1.00000</span>
+   <span class="mf">0.78756</span>  <span class="o">-</span><span class="mf">0.22399</span>   <span class="mf">0.59963</span>
+  <span class="o">-</span><span class="mf">0.93718</span>   <span class="mf">0.34779</span>   <span class="mf">0.27082</span>
+  <span class="o">-</span><span class="mf">2.00364</span>  <span class="o">-</span><span class="mf">0.45362</span>  <span class="o">-</span><span class="mf">1.47926</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<h3>Writing functions</h3>
+<p>You call functions as </p>
+<pre class="code literal-block"><span></span><span class="n">y</span> <span class="p">=</span> <span class="n">func_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">);</span>
+</pre>
+</div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2019         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
