@@ -7,8 +7,18 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
 <img src='http://scipy-lectures.org/_images/scikit-learn-logo.png' width=300>
 
  - [Understanding Scikit-Learn syntax](sklearn-1/)
- - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
+ - [Understanding Gradient Descent](coursera-gradient-descent/)
+ - [A primer on linear algebra](linear-algebra/)
  - [Naive Bayes classification with `sklearn` - a work in progress](sklearn_naive_bayes_classifier/)
+
+----------------------------------------------------
+## Generalized linear models
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/1280px-Linear_regression.svg.png' width=300>
+
+ - [Linear regression - stat concepts](/projects/stats/islr/03_linear_regression/)
+ - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
+ - [Solving multivariate linear regression using Gradient Descent](coursera-gd-multivariate-linear-regression/)
+
 
 -----------------------------------------------------
 ## ML at scale with PySpark

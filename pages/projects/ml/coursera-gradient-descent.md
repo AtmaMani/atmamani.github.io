@@ -1,4 +1,4 @@
-title: Coursera ML course notes
+title: Understanding Gradient Descent
 has_math: true
 
 # Linear regression
@@ -51,7 +51,7 @@ Gradient descent is an algorithm that is used to minimize the loss function. It 
 
 The following graphic shows the distribution of the loss function. The GD algorithm starts at an arbitrary point for $\theta_{0}$ and $\theta_{1}$, takes small steps, at each step determining the direction of travel and stride length, and arrives as the **local minima**. The direction is determined by getting the slope of the tangent (derivative) at each point.
 
-<img src="/images/ml-gradient-descenet1.png" width=350>
+<img src="/images/ml-gradient-descent1.png" width=350>
 
 An interesting feature of GD is, if you started at a different point, you might end up at a **different local minima**. The definition of gradient descent for any **arbitrary equation** is:
 
@@ -63,11 +63,14 @@ We repeat the above equation until convergence. The $:=$ is assignment operator,
 Thus, when you have two coefficients, you would compute 
 $$
 temp0 := \theta_{0} - \alpha\frac{\partial}{\partial\theta_{0}}J(\theta_{0}, \theta_{1})
-\\
+$$
+$$
 temp1 := \theta_{1} - \alpha\frac{\partial}{\partial\theta_{1}}J(\theta_{0}, \theta_{1})
-\\
+$$
+$$
 \theta_{0} := temp0
-\\
+$$
+$$
 \theta_{1}:= temp1
 $$
 **Note**: It is important to compute $\theta_{0}, \theta_{1}$ simultaneously (in parallel). You should not compute 1 and substitute its value when computing the next parameter. Intuitively, you are changing both $\theta_{0}, \theta_{1}$ instead of changing just $\theta_{0}$, then the other. This is the principle behind **partial differential equations** -> you are differentiating multiple parameters at the same time, as opposed to **ordinary differential equations** where you differentiate just one variable.
@@ -89,7 +92,7 @@ The $\frac{d}{d\theta_{1}} J(\theta_{1})$ term is the **derivative** and gives t
 
 The learning rate $\alpha$ is multiplied by the slope / derivative term. A larger $\alpha$ will lead to an aggressive iteration which may overshoot the minima or even lead to run away divergence. A very small or conservative $\alpha$ will slow down the convergence or might settle for minor minimums as local minima.
 
-<img src="/images/ml-gradient-descent3.png">
+<img src="/images/ml-gradient-descent3.png" width=400>
 
 Further, as we approach the local minima, the slope decreases. Thus even for a fixed $\alpha$, the rate of change will slow down in general, leading to a safe landing at minima. The slope at local minima is `0`. Thus, once reached, the second term of the equation (right of the minus sign) turns to `0` and the iteration as converged.
 
@@ -98,10 +101,12 @@ The loss function $J(\theta_{0}, \theta_{1})$ can be expanded out with actual lo
 
 $$
 repeat \; until \; convergence
-\\
-\theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_{0}(x_{i}) - y_{i})
-\\
-\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{0}(x_{i}) - y_{i})x_{i}]
+$$
+$$
+\theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{i})
+$$
+$$
+\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{theta}(x_{i}) - y_{i})x_{i}]
 $$
 
 Here, m is number of training samples, $\theta_{0}$ is intercept and $\theta_{1}$ is the coefficient 1, $x_{i}$ and $y_{i}$ are values of the training data.
