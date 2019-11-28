@@ -155,7 +155,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2019-11-13T00:14:00Z</lastmod>
+  <lastmod>2019-11-27T07:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -220,10 +220,6 @@
  <url>
   <loc>https://atmamani.github.io/categories/cli/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/categories/cloud/</loc>
-  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/conference/</loc>
@@ -336,10 +332,6 @@
  <url>
   <loc>https://atmamani.github.io/categories/scrum/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/categories/serverless/</loc>
-  <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/teamwork/</loc>
@@ -539,7 +531,15 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/</loc>
-  <lastmod>2019-11-25T16:50:00Z</lastmod>
+  <lastmod>2019-11-27T22:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/</loc>
+  <lastmod>2019-11-27T22:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/coursera-gradient-descent/</loc>
+  <lastmod>2019-11-27T19:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/coursera-notes/</loc>

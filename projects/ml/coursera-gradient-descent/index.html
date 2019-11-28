@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coursera ML course notes | Atma's blog</title>
+<title>Understanding Gradient Descent | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/projects/ml/coursera-notes/">
+<link rel="canonical" href="https://atmamani.github.io/projects/ml/coursera-gradient-descent/">
 <link rel="icon" href="../../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../../scatter-64.png" sizes="64x64">
@@ -23,13 +23,13 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="Coursera ML course notes">
-<meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-notes/">
+<meta property="og:title" content="Understanding Gradient Descent">
+<meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-gradient-descent/">
 <meta property="og:description" content="Linear regression
 Cost functions
 The linear regression estimation function (hypothesis function) can be written as $h_{\theta} (x) = \theta_{0} + \theta_{1}x$. The cost function for this equation can ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T14:18:46-08:00">
+<meta property="article:published_time" content="2019-11-27T15:19:14-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -257,7 +257,7 @@ The linear regression estimation function (hypothesis function) can be written a
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Coursera ML course notes</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Understanding Gradient Descent</a></h1>
 
         
 
@@ -296,7 +296,7 @@ $$</p>
 <h3>Gradient descent</h3>
 <p>Gradient descent is an algorithm that is used to minimize the loss function. It is also used widely in many machine learning problems. The idea is, to start with arbitrary values for $\theta_{0}$ and $\theta_{1}$, keep changing them little by little until we reach minimal values for the loss function $J(\theta_{0}, \theta_{1})$.</p>
 <p>The following graphic shows the distribution of the loss function. The GD algorithm starts at an arbitrary point for $\theta_{0}$ and $\theta_{1}$, takes small steps, at each step determining the direction of travel and stride length, and arrives as the <strong>local minima</strong>. The direction is determined by getting the slope of the tangent (derivative) at each point.</p>
-<p><img src="../../../images/ml-gradient-descenet1.png" width="350"></p>
+<p><img src="../../../images/ml-gradient-descent1.png" width="350"></p>
 <p>An interesting feature of GD is, if you started at a different point, you might end up at a <strong>different local minima</strong>. The definition of gradient descent for any <strong>arbitrary equation</strong> is:</p>
 <p>$$
 \theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial\theta_{j}}J(\theta_{0}, \theta_{1}) \ (for \; j=0 \;and\; j=1) 
@@ -305,11 +305,14 @@ We repeat the above equation until convergence. The $:=$ is assignment operator,
 <p>Thus, when you have two coefficients, you would compute 
 $$
 temp0 := \theta_{0} - \alpha\frac{\partial}{\partial\theta_{0}}J(\theta_{0}, \theta_{1})
-\
+$$
+$$
 temp1 := \theta_{1} - \alpha\frac{\partial}{\partial\theta_{1}}J(\theta_{0}, \theta_{1})
-\
+$$
+$$
 \theta_{0} := temp0
-\
+$$
+$$
 \theta_{1}:= temp1
 $$
 <strong>Note</strong>: It is important to compute $\theta_{0}, \theta_{1}$ simultaneously (in parallel). You should not compute 1 and substitute its value when computing the next parameter. Intuitively, you are changing both $\theta_{0}, \theta_{1}$ instead of changing just $\theta_{0}$, then the other. This is the principle behind <strong>partial differential equations</strong> -&gt; you are differentiating multiple parameters at the same time, as opposed to <strong>ordinary differential equations</strong> where you differentiate just one variable.</p>
@@ -324,16 +327,18 @@ $$</p>
 <p><img src="../../../images/ml-gradient-descent2.png" width="350"></p>
 <p>The $\frac{d}{d\theta_{1}} J(\theta_{1})$ term is the <strong>derivative</strong> and gives the slope of the tangent at each point. The direction of the slope changes depending on the position on the curve and will lead the iteration to local minima.</p>
 <p>The learning rate $\alpha$ is multiplied by the slope / derivative term. A larger $\alpha$ will lead to an aggressive iteration which may overshoot the minima or even lead to run away divergence. A very small or conservative $\alpha$ will slow down the convergence or might settle for minor minimums as local minima.</p>
-<p><img src="../../../images/ml-gradient-descent3.png"></p>
+<p><img src="../../../images/ml-gradient-descent3.png" width="400"></p>
 <p>Further, as we approach the local minima, the slope decreases. Thus even for a fixed $\alpha$, the rate of change will slow down in general, leading to a safe landing at minima. The slope at local minima is <code>0</code>. Thus, once reached, the second term of the equation (right of the minus sign) turns to <code>0</code> and the iteration as converged.</p>
 <h4>Gradient descent for linear regression</h4>
 <p>The loss function $J(\theta_{0}, \theta_{1})$ can be expanded out with actual loss function equation from earlier. Thus now the differential equations become:</p>
 <p>$$
 repeat \; until \; convergence
-\
-\theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_{0}(x_{i}) - y_{i})
-\
-\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{0}(x_{i}) - y_{i})x_{i}]
+$$
+$$
+\theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{i})
+$$
+$$
+\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{theta}(x_{i}) - y_{i})x_{i}]
 $$</p>
 <p>Here, m is number of training samples, $\theta_{0}$ is intercept and $\theta_{1}$ is the coefficient 1, $x_{i}$ and $y_{i}$ are values of the training data.</p>
 <p>This process of using the full training sample for calculating the GD is called <strong>batch gradient descent</strong>. In the case of linear regression, the shape of the loss function is a <strong>convex function</strong> which looks like a <strong>bowl</strong>. There is only a global minima and <strong>no local minimas</strong>.</p>

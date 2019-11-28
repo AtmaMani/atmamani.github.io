@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Linear algebra review | Atma's blog</title>
+<title>Solving multivariate linear regression using Gradient Descent | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/projects/ml/linear-algebra/">
+<link rel="canonical" href="https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/">
 <link rel="icon" href="../../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../../scatter-64.png" sizes="64x64">
@@ -23,20 +23,12 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="Linear algebra review">
-<meta property="og:url" content="https://atmamani.github.io/projects/ml/linear-algebra/">
-<meta property="og:description" content="A mxn matrix is given by 
-$$
-R^{mn} = \begin{bmatrix}
-    a&amp;b&amp;c \\
-    f&amp;n&amp;i \\
-    c&amp;b&amp;w
-\end{bmatrix}_{3\times3}
-$$
-where $m$ is number of rows and $n$ is number of columns.
-A vector is a single col">
+<meta property="og:title" content="Solving multivariate linear regression using Gradient Descent">
+<meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/">
+<meta property="og:description" content="Note: This is a continuation of Gradient Descent topic. The context and equations used here derive from that article.
+When we regress for y using multiple predictors of x, the hypothesis function beco">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-27T11:53:52-08:00">
+<meta property="article:published_time" content="2019-11-27T17:23:57-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -264,144 +256,82 @@ A vector is a single col">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Linear algebra review</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Solving multivariate linear regression using Gradient Descent</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>A mxn matrix is given by 
-$$
-R^{mn} = \begin{bmatrix}
-    a&amp;b&amp;c \\
-    f&amp;n&amp;i \\
-    c&amp;b&amp;w
-\end{bmatrix}_{3\times3}
-$$
-where $m$ is number of rows and $n$ is number of columns.</p>
-<p>A vector is a single column matrix and is given by 
-$$
-v = \begin{bmatrix}
-    a\\
-    b\\
-    d\\
-    h\\
-    j
-\end{bmatrix}
-$$
-with $5$ rows.</p>
-<h3>Notations</h3>
-<ol>
-<li>$A_{ij}$ refers to element in $i$th row, $j$th column.</li>
-<li>In general matrixes are <code>1</code> indexed - both in math and in Matlab</li>
-<li>$v_{i}$ refers to element in $i$th row of a <strong>vector</strong>
-</li>
-<li>A vector with <code>n</code> rows is considered an n-dimensional vector</li>
-<li>Matrices are denoted in uppercase and vectors and scalars in lower case.</li>
-</ol>
-<h3>Matrix operations</h3>
-<h4>Matrix addition and subtraction</h4>
-<p>You cannot add a scalar to a matrix. You can however add two matrices, they <strong>need to be of same dimensions</strong>. You add each element at corresponding positions.</p>
+<p><strong>Note</strong>: This is a continuation of <a href="coursera-gradient-descent/">Gradient Descent</a> topic. The context and equations used here derive from that article.</p>
+<p>When we regress for <code>y</code> using multiple predictors of <code>x</code>, the hypothesis function becomes:</p>
 <p>$$
-\begin{bmatrix}
-    3&amp;5\\
-    7&amp;8\\
-    -9&amp;0
-\end{bmatrix} + \begin{bmatrix}
-    8&amp;0\\
-    5&amp;-2\\
-    2&amp;1
-\end{bmatrix} = 
-\begin{bmatrix}
-    3+8&amp;5+0\\
-    7+5&amp;8-2\\
-    -9+2&amp;0+1
+h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{3} + ... + \theta_{n}x_{n}
+$$
+If we consider $x_{0} = 1$, then the above can be represented as matrix multiplication using <a href="linear-algebra/">linear algebra</a>.</p>
+<p>$$
+x = \begin{bmatrix}
+    x_{0}\\
+    x_{1}\\
+    \vdots\\
+    x_{n}
+\end{bmatrix} \ and \ \theta=\begin{bmatrix}
+    \theta_{0}\\
+    \theta_{1}\\
+    \vdots\\
+    \theta_{n}
 \end{bmatrix}
 $$</p>
-<p>The same applies for subtraction.</p>
-<h4>Matrix and scalar multiplication and division</h4>
-<p>You can multiply a scalar with a matrix, there are not restrictions with respect to dimensions. You multiply or divide each element with the same scalar.</p>
-<p>$$
-3 \times \begin{bmatrix}
-    3&amp;5\\
-    7&amp;8\\
-    9&amp;0
-\end{bmatrix} = \begin{bmatrix}
-    9&amp;15\\
-    21&amp;24\\
-    27&amp;0
-\end{bmatrix}
-$$</p>
-<p>Division is similar.</p>
-<h4>Matrix and vector multiplication</h4>
-<p>$$
-\begin{bmatrix}
-    a&amp;b&amp;c\\
-    f&amp;n&amp;i\\
-    c&amp;b&amp;w
-\end{bmatrix}^{\rightarrow}_{3\times3} \times \begin{bmatrix}
-    3\\
-    7\\
-    9
-\end{bmatrix}\downarrow = \begin{bmatrix}
-    3a + 7b + 9c\\
-    3f + 7n + 9i\\
-    3c + 7b + 9w
-\end{bmatrix}
-$$</p>
-<h4>Solving linear equations as matrix operations</h4>
-<p>For <strong>optimization</strong>, you can represent linear equations as matrix operations. For instance, consider the hypothesis function $h_{\theta}x = -40 + 0.45x_{i}$. To compute the hypothesis for $n$ different values of $x_{i}$ (34,56,21,11,10), you can represent the calculation as a matrix operation:</p>
-<p>$$
-\begin{bmatrix}
-    1&amp; 34\\
-    1&amp; 56\\
-    1&amp; 21\\
-    1&amp; 11\\
-    1&amp; 10
-\end{bmatrix} \times \begin{bmatrix}
-    -40\\
-    0.45
-\end{bmatrix} = \begin{bmatrix}
-    -24.7\\
-    -14.8\\
-    -30.55\\
-    -35.5\\
-    -35.5
-\end{bmatrix}
+<p>Thus,
 $$
-Such matrix computation is way faster than a loop. This is applicable for most language including java, c++, octave, python.</p>
-<h4>Matrix x matrix multiplication</h4>
-<p>To multiply two matrices, the number of columns of first should match number of row of second =&gt; (mxn x nxp = mxp matrix).</p>
+h_{\theta}(x) = \theta^{T}x
+$$
+Here the dimensions of $\theta$ and <code>x</code> is <code>n+1</code> as this goes from <code>0</code> to <code>n</code>.</p>
+<h3>Loss function of multivariate linear regression</h3>
+<p>The loss function is given by</p>
 <p>$$
-\begin{bmatrix}
-    a&amp;b&amp;c\\
-    f&amp;n&amp;i\\
-    c&amp;b&amp;w
-\end{bmatrix} \times \begin{bmatrix}
-    3&amp;1\\
-    7&amp;2\\
-    9&amp;3
-\end{bmatrix} = \begin{bmatrix}
-    (3a + 7b + 9c)&amp;(1a  + 2b+3c)\\
-    (3f + 7n + 9i)&amp;(1f+2n+3i)\\
-    (3c + 7b + 9w)&amp;(1c+2b+3w)
-\end{bmatrix}
+J(\theta_{0}, \theta_{1},...,\theta_{n}) = \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]^{2}
 $$</p>
-<p>Extending the former example, suppose you want to calculate the prediction for 3 different hypothesis functions, you can represent that problem as a matrix x matrix multiplication:</p>
-<p><img src="../../../images/ml-linear-algebra1.png" width="400"></p>
-<p>Representing these as matrix operations allows programming languages to compute them in parallel, allowing for great speedups.</p>
-<h4>Properties of matrix multiplications</h4>
-<ul>
-<li>Matrices are not commutative: $A\times B \ne B\times A$ </li>
-<li>Matrices are associative: $(A \times B) \times C = A \times (B \times C)$</li>
-<li>Identity matrix is a matrix made of ones for diagonals of same dimension such that $A \times I = I \times A = A$</li>
-<li>Identity matrix is always a square matrix.</li>
-</ul>
-<h4>Matrix inverse</h4>
-<p>A matrix is said to be the inverse of another matrix, if you multiply that with the matrix, you get an identity matrix. $A \times A^{-1} = I$.</p>
-<p>Only certain square matrices have inverses. We typically compute inverse using software.</p>
-<h4>Matrix transpose</h4>
-<p>Transpose of a matrix can be created by flipping the rows and columns. For a matrix $A$, matrix $B$ is said to be its transpose $A^{T} = B$ if $B_{ij} = A_{ji}$. In other words, $A_{ij} = A^T_{ji}$.</p>
+<p>which you can simplify to </p>
+<p>$$
+J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]^{2}
+$$</p>
+<p>The gradient descent of the loss function is now</p>
+<p>$$
+\theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial\theta_{j}}J(\theta)
+$$
+<strong>Note</strong>: Here <code>j</code> represents the <code>n+1</code> features (attributes) and <code>i</code> goes from <code>1 -&gt; m</code> representing the <code>m</code> records.</p>
+<p>Simplifying the partial differential equation, we get the <code>n+1</code> update rules as follows</p>
+<p>$$
+\theta_{0} := \theta_{0} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{0}^{{(i)}}
+$$
+$$
+\theta_{1} := \theta_{1} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{1}^{{(i)}}
+$$
+$$
+\vdots
+$$
+$$
+\theta_{n} := \theta_{n} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{n}^{{(i)}}
+$$</p>
+<p>The equations above are very similar to ones from simple linear equations.</p>
+<h3>Impact of scaling on Gradient Descent</h3>
+<p>When the data ranges of features varies quite a bit from each other, the surface of GD is highly skewed as shown below:</p>
+<p><img src="../../../images/coursera-gd-scaling1.png" width="450"></p>
+<p>This is because $\theta$ (which is our weights) will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven. When scaled, the surface takes a healthier shape, allowing the algorithm to converge faster. Ideally scale values so they fall within <code>-1 to 1</code>.</p>
+<h4>Scaling methods</h4>
+<p><strong>Feature Scaling</strong> is simply dividing values by <strong>range</strong>. <strong>Normalization</strong> is when you transform them to have a <code>mean = 0</code>.</p>
+<p><strong>Mean normalization</strong> 
+$$
+scaled \ x_{j} = \frac{(x_{j} - \mu_{j})}{s_{j}}
+$$
+where $\mu$ is mean and <code>s</code> is range.</p>
+<p><strong>Standard normalization</strong> is similar to above, except, <code>s</code> is standard deviation.</p>
+<p>The exact range of normalization is less important than having all features follow a particular range.</p>
+<h3>Debugging Gradient Descent</h3>
+<p>The general premise is, as number of iterations increase, the loss should reduce. You can also declare a threshold and if the loss reduces below that for <code>n</code> number of iterations, then you can declare <strong>convergence</strong>. However, Andrew Ng suggests against this and suggests visualizing the loss on a chart to pick LR.</p>
+<p><strong>When LR is too high</strong>: If you have a diverging graph - loss increases steadily or if the loss is oscillating (pic below), it is likely the the rate is too high. In case of oscillation, the weights sporadically hit the local minima but continue to overshoot.</p>
+<p><img src="../../../images/coursera-gd-lr1.png" width="400"></p>
+<p><strong>Iterating through a number of LRs</strong>: Andrew suggests picking a range of LRs <code>0.001, 0.01, 0.1, 1, ...</code> and iterating through them. He typically bumps rates by a factor of <code>10</code>. For convenience, he picks <code>..0.001, 0.003, 0.01, 0.03, 0.1, 0.3..</code> where he bumps by <code>~3</code> which is also effective.</p>
 </div>
     </div>
     

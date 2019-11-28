@@ -15,12 +15,15 @@ title: Octave / MATLAB basics
 - [Reshaping matrixes](#reshaping-matrixes)
 - [Range functions](#range-functions)
 - [Conditional processing](#conditional-processing)
+  - [`if-elseif-else` blocks](#if-elseif-else-blocks)
 - [Plotting](#plotting)
   - [Line plots](#line-plots)
   - [Overlaying plots](#overlaying-plots)
 - [Array indexing, slicing, dicing](#array-indexing-slicing-dicing)
 - [Array concatenation](#array-concatenation)
+- [Statistical operations on arrays](#statistical-operations-on-arrays)
 - [Writing functions](#writing-functions)
+  - [Reusing functions](#reusing-functions)
 
 ### General caveats
  - You end statements with a `;`. If not, the kernel does not throw an error, instead will echo the output of each line.
@@ -173,6 +176,19 @@ The `linspace` function takes arguments `linspace(start, end, numPoints)` where 
 ans = 1.0000    2.5000    4.0000    5.5000    7.0000    8.5000   10.0000
 ```
 ## Conditional processing
+Logical operators in octave are `<, >, <=, >=, ~, ==, ~=, &, |`. Matlab returns `1` for True and `0` for False. Thus
+
+```matlab
+>> heat = 74
+heat =  74
+>> heat < 100
+ans = 1
+>> heat > 100
+ans = 0
+>> heat == 74
+ans = 1
+```
+
 Conditional operators also `map` on all elements of the vector. Thus to find elements in a vector greater than a threshold, do:
 
 ```matlab
@@ -182,12 +198,28 @@ ind = 0  0  0  1  1  1  1
 >> vals = v1(ind) % use truth vector as index
 vals = 5.5000    7.0000    8.5000   10.0000
 ```
-Logical operators in octave are `<, >, <=, >=, ~, ==, ~=, &, |`.
-
+To find values that fall between a range:
 ```matlab
 >> v1(v1<8 & v1>3)
 ans = 4.0000   5.5000   7.0000
 ```
+
+### `if-elseif-else` blocks
+Jump to defining functions if you want to read that first.
+```matlab
+function charge = parkingRates(hours)
+  %Calculates parking charge based on number of hours%
+  if hours <=1
+    charge = 2;
+  elseif hours<=8 && hours>1
+    charge = hours*0.75;
+  else
+    charge = 9;
+  end
+end
+```
+The `&&` operator is a performance opt that Matlab editor suggested. Else I would use only one of it.
+
 
 ## Plotting
 Most 2D plots can be accomplished using `plot(<arr1>, <arr2>, 'srt:options')` function.
@@ -272,9 +304,73 @@ ans =
   -2.00364  -0.45362  -1.47926
 >>
 ```
+## Statistical operations on arrays
+Let us start with an array as below:
+```matlab
+>> vec45 = reshape(linspace(1,10,20), 4,5)
+vec45 =
+    1.0000    2.8947    4.7895    6.6842    8.5789
+    1.4737    3.3684    5.2632    7.1579    9.0526
+    1.9474    3.8421    5.7368    7.6316    9.5263
+    2.4211    4.3158    6.2105    8.1053   10.0000
+>>
+```
+**Find mean of each column**
+```matlab
+>> mean(vec45)
+ans =   1.7105   3.6053   5.5000   7.3947   9.2895
+```
+**Find mean of each row**
+```matlab
+>> mean(vec45,2)  % pass the dimension arg. Set it to 2 for mean along rows
+ans =
+   4.7895
+   5.2632
+   5.7368
+   6.2105
+```
+Another way of doing this is to transpose the matrix and take regular mean.
+
+**Find mean of entire matrix**
+Turn the matrix into a column vector and pass that to the mean.
+```matlab
+>> mean(vec45(:))
+ans =  5.5000
+```
 
 ## Writing functions
 You call functions as 
 ```matlab
 y = func_name(arg1, arg2);
 ```
+
+The syntax to write functions is:
+```matlab
+function [out1, out2...] = functionName(in1, in2, ...)
+    %Doc string%
+    statement1;
+    statement2;
+    out1 = statement;
+    out2 = statement;
+    ...
+end
+```
+There is no `return` statement. All variables you define in the out parameter array (or scalar) will get returned. Matlab allows you to **return more than one variable**.
+
+```matlab
+function result = hmean(vec1)
+  %calculates harmonic mean of the given vector%
+  vec1 = vec1(:)'; %convert to vectors
+  reciprocals = 1./vec1;  %convert to reciprocals
+  sum_reciprocals = sum(reciprocals); % sum of reciprocals - the denominator
+  
+  result = size(vec1)(2) / sum_reciprocals;
+endfunction
+
+>> hmean([2,3,4,5])
+ans =  3.1169
+>>
+```
+
+### Reusing functions
+A quick and easy way to reuse functions in other scripts is to put just the function (not anything else) in a separate `.m` file with the same name as the function. Matlab will automatically search for it and import it.

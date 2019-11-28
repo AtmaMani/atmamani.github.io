@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/octave-1/">
 <meta property="og:description" content="Octave is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are .m. This page is a guide to the octave programming lang">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T23:06:07-08:00">
+<meta property="article:published_time" content="2019-11-27T10:53:35-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -275,12 +275,15 @@
 <li><a href="#reshaping-matrixes">Reshaping matrixes</a></li>
 <li><a href="#range-functions">Range functions</a></li>
 <li><a href="#conditional-processing">Conditional processing</a></li>
+<li><a href="#if-elseif-else-blocks"><code>if-elseif-else</code> blocks</a></li>
 <li><a href="#plotting">Plotting</a></li>
 <li><a href="#line-plots">Line plots</a></li>
 <li><a href="#overlaying-plots">Overlaying plots</a></li>
 <li><a href="#array-indexing-slicing-dicing">Array indexing, slicing, dicing</a></li>
 <li><a href="#array-concatenation">Array concatenation</a></li>
+<li><a href="#statistical-operations-on-arrays">Statistical operations on arrays</a></li>
 <li><a href="#writing-functions">Writing functions</a></li>
+<li><a href="#reusing-functions">Reusing functions</a></li>
 </ul>
 <h4>General caveats</h4>
 <ul>
@@ -431,6 +434,18 @@
 
 
 <h3>Conditional processing</h3>
+<p>Logical operators in octave are <code>&lt;, &gt;, &lt;=, &gt;=, ~, ==, ~=, &amp;, |</code>. Matlab returns <code>1</code> for True and <code>0</code> for False. Thus</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">heat</span> <span class="p">=</span> <span class="mi">74</span>
+<span class="n">heat</span> <span class="p">=</span>  <span class="mi">74</span>
+<span class="o">&gt;&gt;</span> <span class="n">heat</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;</span> <span class="n">heat</span> <span class="o">&gt;</span> <span class="mi">100</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="o">&gt;&gt;</span> <span class="n">heat</span> <span class="o">==</span> <span class="mi">74</span>
+<span class="nb">ans</span> <span class="p">=</span> <span class="mi">1</span>
+</pre>
+
+
 <p>Conditional operators also <code>map</code> on all elements of the vector. Thus to find elements in a vector greater than a threshold, do:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">v1</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">ind</span> <span class="p">=</span> <span class="n">v1</span> <span class="o">&gt;</span> <span class="mi">5</span>  <span class="c">% returns truth vector</span>
@@ -440,12 +455,29 @@
 </pre>
 
 
-<p>Logical operators in octave are <code>&lt;, &gt;, &lt;=, &gt;=, ~, ==, ~=, &amp;, |</code>.</p>
+<p>To find values that fall between a range:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">v1</span><span class="p">(</span><span class="n">v1</span><span class="o">&lt;</span><span class="mi">8</span> <span class="o">&amp;</span> <span class="n">v1</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">ans</span> <span class="p">=</span> <span class="mf">4.0000</span>   <span class="mf">5.5000</span>   <span class="mf">7.0000</span>
 </pre>
 
 
+<h4>
+<code>if-elseif-else</code> blocks</h4>
+<p>Jump to defining functions if you want to read that first.</p>
+<pre class="code literal-block"><span></span><span class="k">function</span><span class="w"> </span>charge <span class="p">=</span><span class="w"> </span><span class="nf">parkingRates</span><span class="p">(</span>hours<span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c">%Calculates parking charge based on number of hours%</span>
+  <span class="k">if</span> <span class="n">hours</span> <span class="o">&lt;</span><span class="p">=</span><span class="mi">1</span>
+    <span class="n">charge</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">elseif</span> <span class="n">hours</span><span class="o">&lt;</span><span class="p">=</span><span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">hours</span><span class="o">&gt;</span><span class="mi">1</span>
+    <span class="n">charge</span> <span class="p">=</span> <span class="n">hours</span><span class="o">*</span><span class="mf">0.75</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="n">charge</span> <span class="p">=</span> <span class="mi">9</span><span class="p">;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+
+
+<p>The <code>&amp;&amp;</code> operator is a performance opt that Matlab editor suggested. Else I would use only one of it.</p>
 <h3>Plotting</h3>
 <p>Most 2D plots can be accomplished using <code>plot(&lt;arr1&gt;, &lt;arr2&gt;, 'srt:options')</code> function.</p>
 <h4>Line plots</h4>
@@ -528,10 +560,78 @@
 </pre>
 
 
+<h3>Statistical operations on arrays</h3>
+<p>Let us start with an array as below:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">vec45</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">vec45</span> <span class="p">=</span>
+    <span class="mf">1.0000</span>    <span class="mf">2.8947</span>    <span class="mf">4.7895</span>    <span class="mf">6.6842</span>    <span class="mf">8.5789</span>
+    <span class="mf">1.4737</span>    <span class="mf">3.3684</span>    <span class="mf">5.2632</span>    <span class="mf">7.1579</span>    <span class="mf">9.0526</span>
+    <span class="mf">1.9474</span>    <span class="mf">3.8421</span>    <span class="mf">5.7368</span>    <span class="mf">7.6316</span>    <span class="mf">9.5263</span>
+    <span class="mf">2.4211</span>    <span class="mf">4.3158</span>    <span class="mf">6.2105</span>    <span class="mf">8.1053</span>   <span class="mf">10.0000</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<p><strong>Find mean of each column</strong></p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">)</span>
+<span class="nb">ans</span> <span class="p">=</span>   <span class="mf">1.7105</span>   <span class="mf">3.6053</span>   <span class="mf">5.5000</span>   <span class="mf">7.3947</span>   <span class="mf">9.2895</span>
+</pre>
+
+
+<p><strong>Find mean of each row</strong></p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c">% pass the dimension arg. Set it to 2 for mean along rows</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mf">4.7895</span>
+   <span class="mf">5.2632</span>
+   <span class="mf">5.7368</span>
+   <span class="mf">6.2105</span>
+</pre>
+
+
+<p>Another way of doing this is to transpose the matrix and take regular mean.</p>
+<p><strong>Find mean of entire matrix</strong>
+Turn the matrix into a column vector and pass that to the mean.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">(:))</span>
+<span class="nb">ans</span> <span class="p">=</span>  <span class="mf">5.5000</span>
+</pre>
+
+
 <h3>Writing functions</h3>
 <p>You call functions as </p>
 <pre class="code literal-block"><span></span><span class="n">y</span> <span class="p">=</span> <span class="n">func_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">);</span>
 </pre>
+
+
+<p>The syntax to write functions is:</p>
+<pre class="code literal-block"><span></span><span class="k">function</span><span class="w"> </span>[out1, out2...] <span class="p">=</span><span class="w"> </span><span class="nf">functionName</span><span class="p">(</span>in1, in2, ...<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%Doc string%</span>
+    <span class="n">statement1</span><span class="p">;</span>
+    <span class="n">statement2</span><span class="p">;</span>
+    <span class="n">out1</span> <span class="p">=</span> <span class="n">statement</span><span class="p">;</span>
+    <span class="n">out2</span> <span class="p">=</span> <span class="n">statement</span><span class="p">;</span>
+    <span class="c">...</span>
+<span class="k">end</span>
+</pre>
+
+
+<p>There is no <code>return</code> statement. All variables you define in the out parameter array (or scalar) will get returned. Matlab allows you to <strong>return more than one variable</strong>.</p>
+<pre class="code literal-block"><span></span><span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">hmean</span><span class="p">(</span>vec1<span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c">%calculates harmonic mean of the given vector%</span>
+  <span class="n">vec1</span> <span class="p">=</span> <span class="n">vec1</span><span class="p">(:)</span><span class="o">'</span><span class="p">;</span> <span class="c">%convert to vectors</span>
+  <span class="n">reciprocals</span> <span class="p">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">vec1</span><span class="p">;</span>  <span class="c">%convert to reciprocals</span>
+  <span class="n">sum_reciprocals</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">reciprocals</span><span class="p">);</span> <span class="c">% sum of reciprocals - the denominator</span>
+
+  <span class="n">result</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">vec1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sum_reciprocals</span><span class="p">;</span>
+<span class="n">endfunction</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">hmean</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">ans</span> <span class="p">=</span>  <span class="mf">3.1169</span>
+<span class="o">&gt;&gt;</span>
+</pre>
+
+
+<h4>Reusing functions</h4>
+<p>A quick and easy way to reuse functions in other scripts is to put just the function (not anything else) in a separate <code>.m</code> file with the same name as the function. Matlab will automatically search for it and import it.</p>
 </div>
     </div>
     
