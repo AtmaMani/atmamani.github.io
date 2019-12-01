@@ -18,6 +18,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Linear regression - stat concepts](/projects/stats/islr/03_linear_regression/)
  - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
  - [Solving multivariate linear regression using Gradient Descent](coursera-gd-multivariate-linear-regression/)
+ - [Analytical vs Gradient Descent methods of solving linear regression](coursera-linear-regression-analytical-solution/)
 
 
 -----------------------------------------------------

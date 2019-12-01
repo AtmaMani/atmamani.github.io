@@ -1,7 +1,7 @@
 title: Solving multivariate linear regression using Gradient Descent
 has_math: true
 
-**Note**: This is a continuation of [Gradient Descent](coursera-gradient-descent/) topic. The context and equations used here derive from that article.
+**Note**: This is a continuation of [Gradient Descent](/projects/ml/coursera-gradient-descent/) topic. The context and equations used here derive from that article.
 
 When we regress for `y` using multiple predictors of `x`, the hypothesis function becomes:
 
@@ -53,16 +53,16 @@ $$
 Simplifying the partial differential equation, we get the `n+1` update rules as follows
 
 $$
-\theta_{0} := \theta_{0} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{0}^{{(i)}}
+\theta_{0} := \theta_{0} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{0}^{{(i)}}
 $$
 $$
-\theta_{1} := \theta_{1} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{1}^{{(i)}}
+\theta_{1} := \theta_{1} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{1}^{{(i)}}
 $$
 $$
 \vdots
 $$
 $$
-\theta_{n} := \theta_{n} - \alpha \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{n}^{{(i)}}
+\theta_{n} := \theta_{n} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{n}^{{(i)}}
 $$
 
 The equations above are very similar to ones from simple linear equations.
@@ -95,3 +95,15 @@ The general premise is, as number of iterations increase, the loss should reduce
 <img src="/images/coursera-gd-lr1.png" width=400>
 
 **Iterating through a number of LRs**: Andrew suggests picking a range of LRs `0.001, 0.01, 0.1, 1, ...` and iterating through them. He typically bumps rates by a factor of `10`. For convenience, he picks `..0.001, 0.003, 0.01, 0.03, 0.1, 0.3..` where he bumps by `~3` which is also effective.
+
+## Non-linear functions vs non-linear models
+A **linear function** is one which produces a straight line. It is typically of the form $y = \theta_{0} + \theta_{1}x_{1}$. A **non-linear function** is something that produces a curve. It is typically of the from $y = \theta_{0} + \theta_{1}x^{k}$. A **linear model** is when the model parameters are **additive**, even though individual parameters are non-linear. It takes form $y = \theta_{0} + \theta_{1}x_{1} + ... + \theta_{n}x_{n}$. A **non-linear** model is when the model parameters are **multiplicative** even though they are of order `1`. It typically takes form $y = \theta_{0}x_{1}theta_{1}x_{2}^{k}x_{3}$ etc.
+
+## Representing non-linearity using Polynomial Regression
+Sometimes, when you plot the response variable with one of the predictors, it may not take a linear form. You might want an order `2` or `3` curve. You can still represent them using linear models. Consider the case where square footage is one of the parameters in predicting house price and you notice a non-linear relationship. From the graphic below, you might try a **quadratic model** as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2}$. But this model will eventually taper off. Instead, you may try a **cubic** model as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2} + \theta_{3}x_{3}^{3}$.
+
+<img src="/images/coursera-polynomial-regression1.png" width=450>
+
+The way to represent non-linearity is to sequentially raise the power / order of the parameter, represent them as additional features. This is a step in **feature engineering**. This method is called polynomial regression. When you raise the power, the range of that parameter also increases exponentially. Thus you model might become highly skewed. It is **vital to scale features** in a polynomial regression.
+
+Another option here is, instead of raising power, you take **square roots** or **nth roots**, such as: $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}\sqrt{x_{2}} + \theta_{3}\sqrt[3]{x_{3}}$

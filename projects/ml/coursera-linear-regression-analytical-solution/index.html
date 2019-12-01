@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solving multivariate linear regression using Gradient Descent | Atma's blog</title>
+<title>Analytical vs Gradient Descent methods of solving linear regression | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/">
+<link rel="canonical" href="https://atmamani.github.io/projects/ml/coursera-linear-regression-analytical-solution/">
 <link rel="icon" href="../../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../../scatter-64.png" sizes="64x64">
@@ -23,12 +23,11 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="Solving multivariate linear regression using Gradient Descent">
-<meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/">
-<meta property="og:description" content="Note: This is a continuation of Gradient Descent topic. The context and equations used here derive from that article.
-When we regress for y using multiple predictors of x, the hypothesis function beco">
+<meta property="og:title" content="Analytical vs Gradient Descent methods of solving linear regression">
+<meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-linear-regression-analytical-solution/">
+<meta property="og:description" content="The Gradient Descent offers an iterative method to solve linear models. However, there is a traditional and direct way of solving it called as normal equations. In normal equations, you build a matrix">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-12-01T08:54:54-08:00">
+<meta property="article:published_time" content="2019-12-01T12:49:26-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -256,89 +255,30 @@ When we regress for y using multiple predictors of x, the hypothesis function be
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Solving multivariate linear regression using Gradient Descent</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Analytical vs Gradient Descent methods of solving linear regression</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><strong>Note</strong>: This is a continuation of <a href="../coursera-gradient-descent/">Gradient Descent</a> topic. The context and equations used here derive from that article.</p>
-<p>When we regress for <code>y</code> using multiple predictors of <code>x</code>, the hypothesis function becomes:</p>
-<p>$$
-h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{3} + ... + \theta_{n}x_{n}
-$$
-If we consider $x_{0} = 1$, then the above can be represented as matrix multiplication using <a href="linear-algebra/">linear algebra</a>.</p>
-<p>$$
-x = \begin{bmatrix}
-    x_{0}\\
-    x_{1}\\
-    \vdots\\
-    x_{n}
-\end{bmatrix} \ and \ \theta=\begin{bmatrix}
-    \theta_{0}\\
-    \theta_{1}\\
-    \vdots\\
-    \theta_{n}
-\end{bmatrix}
-$$</p>
-<p>Thus,
-$$
-h_{\theta}(x) = \theta^{T}x
-$$
-Here the dimensions of $\theta$ and <code>x</code> is <code>n+1</code> as this goes from <code>0</code> to <code>n</code>.</p>
-<h3>Loss function of multivariate linear regression</h3>
-<p>The loss function is given by</p>
-<p>$$
-J(\theta_{0}, \theta_{1},...,\theta_{n}) = \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]^{2}
-$$</p>
-<p>which you can simplify to </p>
-<p>$$
-J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]^{2}
-$$</p>
-<p>The gradient descent of the loss function is now</p>
-<p>$$
-\theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial\theta_{j}}J(\theta)
-$$
-<strong>Note</strong>: Here <code>j</code> represents the <code>n+1</code> features (attributes) and <code>i</code> goes from <code>1 -&gt; m</code> representing the <code>m</code> records.</p>
-<p>Simplifying the partial differential equation, we get the <code>n+1</code> update rules as follows</p>
-<p>$$
-\theta_{0} := \theta_{0} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{0}^{{(i)}}
-$$
-$$
-\theta_{1} := \theta_{1} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{1}^{{(i)}}
-$$
-$$
-\vdots
-$$
-$$
-\theta_{n} := \theta_{n} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{n}^{{(i)}}
-$$</p>
-<p>The equations above are very similar to ones from simple linear equations.</p>
-<h3>Impact of scaling on Gradient Descent</h3>
-<p>When the data ranges of features varies quite a bit from each other, the surface of GD is highly skewed as shown below:</p>
-<p><img src="../../../images/coursera-gd-scaling1.png" width="450"></p>
-<p>This is because $\theta$ (which is our weights) will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven. When scaled, the surface takes a healthier shape, allowing the algorithm to converge faster. Ideally scale values so they fall within <code>-1 to 1</code>.</p>
-<h4>Scaling methods</h4>
-<p><strong>Feature Scaling</strong> is simply dividing values by <strong>range</strong>. <strong>Normalization</strong> is when you transform them to have a <code>mean = 0</code>.</p>
-<p><strong>Mean normalization</strong> 
-$$
-scaled \ x_{j} = \frac{(x_{j} - \mu_{j})}{s_{j}}
-$$
-where $\mu$ is mean and <code>s</code> is range.</p>
-<p><strong>Standard normalization</strong> is similar to above, except, <code>s</code> is standard deviation.</p>
-<p>The exact range of normalization is less important than having all features follow a particular range.</p>
-<h3>Debugging Gradient Descent</h3>
-<p>The general premise is, as number of iterations increase, the loss should reduce. You can also declare a threshold and if the loss reduces below that for <code>n</code> number of iterations, then you can declare <strong>convergence</strong>. However, Andrew Ng suggests against this and suggests visualizing the loss on a chart to pick LR.</p>
-<p><strong>When LR is too high</strong>: If you have a diverging graph - loss increases steadily or if the loss is oscillating (pic below), it is likely the the rate is too high. In case of oscillation, the weights sporadically hit the local minima but continue to overshoot.</p>
-<p><img src="../../../images/coursera-gd-lr1.png" width="400"></p>
-<p><strong>Iterating through a number of LRs</strong>: Andrew suggests picking a range of LRs <code>0.001, 0.01, 0.1, 1, ...</code> and iterating through them. He typically bumps rates by a factor of <code>10</code>. For convenience, he picks <code>..0.001, 0.003, 0.01, 0.03, 0.1, 0.3..</code> where he bumps by <code>~3</code> which is also effective.</p>
-<h3>Non-linear functions vs non-linear models</h3>
-<p>A <strong>linear function</strong> is one which produces a straight line. It is typically of the form $y = \theta_{0} + \theta_{1}x_{1}$. A <strong>non-linear function</strong> is something that produces a curve. It is typically of the from $y = \theta_{0} + \theta_{1}x^{k}$. A <strong>linear model</strong> is when the model parameters are <strong>additive</strong>, even though individual parameters are non-linear. It takes form $y = \theta_{0} + \theta_{1}x_{1} + ... + \theta_{n}x_{n}$. A <strong>non-linear</strong> model is when the model parameters are <strong>multiplicative</strong> even though they are of order <code>1</code>. It typically takes form $y = \theta_{0}x_{1}theta_{1}x_{2}^{k}x_{3}$ etc.</p>
-<h3>Representing non-linearity using Polynomial Regression</h3>
-<p>Sometimes, when you plot the response variable with one of the predictors, it may not take a linear form. You might want an order <code>2</code> or <code>3</code> curve. You can still represent them using linear models. Consider the case where square footage is one of the parameters in predicting house price and you notice a non-linear relationship. From the graphic below, you might try a <strong>quadratic model</strong> as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2}$. But this model will eventually taper off. Instead, you may try a <strong>cubic</strong> model as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2} + \theta_{3}x_{3}^{3}$.</p>
-<p><img src="../../../images/coursera-polynomial-regression1.png" width="450"></p>
-<p>The way to represent non-linearity is to sequentially raise the power / order of the parameter, represent them as additional features. This is a step in <strong>feature engineering</strong>. This method is called polynomial regression. When you raise the power, the range of that parameter also increases exponentially. Thus you model might become highly skewed. It is <strong>vital to scale features</strong> in a polynomial regression.</p>
-<p>Another option here is, instead of raising power, you take <strong>square roots</strong> or <strong>nth roots</strong>, such as: $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}\sqrt{x_{2}} + \theta_{3}\sqrt[3]{x_{3}}$</p>
+<p>The <a href="../coursera-gd-multivariate-linear-regression/">Gradient Descent</a> offers an iterative method to solve linear models. However, there is a traditional and direct way of solving it called as <strong>normal equations</strong>. In normal equations, you build a matrix where each record of observation becomes a row (<code>m</code> rows) and each feature becomes a column. You prefix an additional column to represent the constant (<code>n+1</code> columns). This matrix, represented as <code>X</code> is of dimension <code>m x (n+1)</code>. You represent the response variable as a vector <code>y</code> of dimension <code>m x 1</code>.</p>
+<p><img src="../../../images/coursera-solving-coeff-normal-equation.png" width="500"></p>
+<p>The formula to calculate the optimal coefficients is given by $\theta = (X^{T}X)^{-1}X^{T}y$. Where $\theta$ is a vector of shape <code>n+1</code> containing $[\theta_{0}, \theta_{1} ... \theta_{n}]$.</p>
+<h3>Caveats when applying analytical technique</h3>
+<ul>
+<li>In the analytical, normal equation method, there is no iteration to arrive at optimal $\theta$. You simply calculate it.</li>
+<li>You do not have to scale features. It is ok to have them in their native dimensions.</li>
+</ul>
+<h3>Guidelines for choosing between GD and Normal equation</h3>
+<ul>
+<li>GD needs you to play with $\alpha$ (learning rate), while normal equation does not.</li>
+<li>GD is an iterative process, while normal eq is not.</li>
+<li>GD shines well when you have a <strong>large number of attributes / features / independent variables</strong>. The order of GD is given by $O(kn^{2})$ for <code>n</code> features.</li>
+<li>Normal equation needs to invert a matrix which is an expensive operation. Its time complexity is given by $O(n^{3})$.</li>
+<li>If you have <code>&gt;10,000</code> independent variables, or if the number of observations / rows is less than number of independent variables (<code>m &lt; (n+1)</code>), then normal equation not produce a matrix that is invertible. You are better off with Gradient Descent regression.</li>
+<li>If you have highly correlated features (multi-collinearity) or when you have more features than observations, you might end up with a non-invertible matrix for the normal equation. In these cases, you can choose GD or you can delete some features or regularization techniques if you want to continue with normal equation.</li>
+<li>GD is an approximation technique, while normal equation is a deterministic approach. GD might settle in a local minima and not global minima. Although, for linear regressions, the shape of the loss function is such that there is no local but only a global minima.</li>
+</ul>
 </div>
     </div>
     
