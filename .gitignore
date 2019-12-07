@@ -111,3 +111,6 @@ venv.bak/
 .doit.db.*
 cache/
 output
+
+# IDE files
+.vscode

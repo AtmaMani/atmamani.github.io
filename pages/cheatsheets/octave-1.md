@@ -5,31 +5,32 @@ title: Octave / MATLAB basics
 <center><img src="https://www.gnu.org/software/octave/img/example-mesh.svg" width=350></center>
 
 **ToC**
-
 - [Variables](#variables)
 - [Standard matrix creation functions](#standard-matrix-creation-functions)
 - [Automatic `map` operations](#automatic-map-operations)
-  - [Automatic broadcasting](#automatic-broadcasting)
-  - [Array multiplication](#array-multiplication)
+   - [Automatic broadcasting](#automatic-broadcasting)
+- [Looping through a matrix](#looping-through-a-matrix)
+   - [While loop](#while-loop)
+   - [Array multiplication](#array-multiplication)
 - [Transposing a matrix](#transposing-a-matrix)
 - [Reshaping matrixes](#reshaping-matrixes)
 - [Range functions](#range-functions)
 - [Conditional processing](#conditional-processing)
-  - [`if-elseif-else` blocks](#if-elseif-else-blocks)
-- [Plotting](#plotting)
-  - [Line plots](#line-plots)
-  - [Overlaying plots](#overlaying-plots)
+   - [`if-elseif-else` blocks](#if-elseif-else-blocks)
+- [Styling print outputs](#styling-print-outputs)
 - [Array indexing, slicing, dicing](#array-indexing-slicing-dicing)
 - [Array concatenation](#array-concatenation)
 - [Statistical operations on arrays](#statistical-operations-on-arrays)
 - [Writing functions](#writing-functions)
-  - [Reusing functions](#reusing-functions)
+   - [Reusing functions](#reusing-functions)
 
+<a id="markdown-general-caveats" name="general-caveats"></a>
 ### General caveats
  - You end statements with a `;`. If not, the kernel does not throw an error, instead will echo the output of each line.
  - If you do not catch the output of an operation in a variable, a default variable called `ans` is created and that holds the value. At any time, `ans` holds value of latest operation.
  - Matlab / octave functions can return **multiple values**.
 
+<a id="markdown-variables" name="variables"></a>
 ## Variables
 Variables can be assigned without initializing.
 
@@ -48,6 +49,7 @@ a2d =
    4   5   6
    7   8   9
 ```
+<a id="markdown-standard-matrix-creation-functions" name="standard-matrix-creation-functions"></a>
 ## Standard matrix creation functions
 ```matlab
 >> eye(3)  % identity
@@ -72,9 +74,15 @@ ans =
    1.151159   0.022623  -1.030988   0.460505
   -0.386885  -0.188437   0.339421  -1.131755
    0.573182   0.451552  -0.307362  -1.717639
->>
+
+>> magic(3)  % creates matrix whose each row, col, diagonal sum to same value
+ans =
+   8   1   6
+   3   5   7
+   4   9   2
 ```
 
+<a id="markdown-automatic-map-operations" name="automatic-map-operations"></a>
 ## Automatic `map` operations
 Octave is designed to work primarily with arrays and vectors. Thus when you pass an array or vector to a standard function or operator, it **automatically maps the function on each element and runs it** and returns either an array/vector or scalar, depending on the operation.
 
@@ -86,6 +94,28 @@ ans = 2   3   4   5   6   7
 >> min(squares)
 ans =  4  % scalar output
 ```
+When you run functions on a 2D matrix, they run on each column vector:
+```matlab
+>> sum(magic(3)) % default is columnwise operation
+ans =
+   15   15   15
+
+>> sum(magic(3), 2)  % does a row-wise operation
+ans =
+
+   15
+   15
+   15
+
+>> prod(magic(3))  % multiply each element in the matrix. Here multiplies each in col vector
+ans =
+   96   45   84
+
+>> max(magic(3))
+ans =
+   8   9   7
+```
+
 Functions in Octave can return multiple values. For instance:
 ```matlab
 >> [val, index] = min(squares)
@@ -93,6 +123,7 @@ val =  4
 index =  1
 >>
 ```
+<a id="markdown-automatic-broadcasting" name="automatic-broadcasting"></a>
 ### Automatic broadcasting
 When you operate a scalar against a vector, matlab will automatically scale up that scalar into a vector and perform an element wise computation as shown below:
 
@@ -105,6 +136,48 @@ ans = 8.0000     8.7000     9.4000    10.1000    10.8000    11.5000
 ```
 Similarly when you multiply, subtract or divide a scalar from a vector, it is automatically broadcasted.
 
+## Looping through a matrix
+The automatic map operations should have most things covered for you. Still, you might need to write a loop. Below is syntax of `for` loop.
+
+```matlab
+for iterator=<range>,
+   operation1;
+   operation2;
+   condition check
+      operation3;
+      break;
+   condition check2
+      operation4;
+      continue;
+end;
+```
+Note the `,` at end of the line with `for`.
+
+```matlab
+>> indices=1:10;
+>> for i=indices,
+       disp(i);
+   end;
+ 1
+ 2
+ 3
+ .
+ .
+ .
+```
+
+### While loop
+The syntax for while loop is
+
+```matlab
+while condition,
+   operation;
+end;
+```
+Once again, note the `,` at line 1.
+
+
+<a id="markdown-array-multiplication" name="array-multiplication"></a>
 ### Array multiplication
 There are two types of multiplication
  - element wise - which is accomplished by prefixing the operator with `.` such as: `.<operator>` or `.*`
@@ -128,6 +201,7 @@ When you want to multiply two matrixes, you do:
 ans =  7.0000
 ```
 
+<a id="markdown-transposing-a-matrix" name="transposing-a-matrix"></a>
 ## Transposing a matrix
 You can call the built-in `transpose()` function (shown previously) or use the `'` operator.
 
@@ -142,6 +216,7 @@ ans =
    6
 ```
 
+<a id="markdown-reshaping-matrixes" name="reshaping-matrixes"></a>
 ## Reshaping matrixes
 You can reshape using the `reshape(<arr>, nrows, ncols)` function. Note, it flows elements **column wise, followed by rows** as shown below:
 
@@ -160,6 +235,7 @@ ans =
     4    8   12   16
 ```
 
+<a id="markdown-range-functions" name="range-functions"></a>
 ## Range functions
 You can generate uniformly spaced vectors, using 2 methods. If you want uniformly spaced vectors, use the `:` operator. If you want a specific number of elements within a range, then use the `linspace` function.
 
@@ -175,6 +251,7 @@ The `linspace` function takes arguments `linspace(start, end, numPoints)` where 
 >> linspace(1,10,7)
 ans = 1.0000    2.5000    4.0000    5.5000    7.0000    8.5000   10.0000
 ```
+<a id="markdown-conditional-processing" name="conditional-processing"></a>
 ## Conditional processing
 Logical operators in octave are `<, >, <=, >=, ~, ==, ~=, &, |`. Matlab returns `1` for True and `0` for False. Thus
 
@@ -204,6 +281,7 @@ To find values that fall between a range:
 ans = 4.0000   5.5000   7.0000
 ```
 
+<a id="markdown-if-elseif-else-blocks" name="if-elseif-else-blocks"></a>
 ### `if-elseif-else` blocks
 Jump to defining functions if you want to read that first.
 ```matlab
@@ -220,37 +298,23 @@ end
 ```
 The `&&` operator is a performance opt that Matlab editor suggested. Else I would use only one of it.
 
-
-## Plotting
-Most 2D plots can be accomplished using `plot(<arr1>, <arr2>, 'srt:options')` function.
-
-### Line plots
-```matlab
-plot(x,y); % will plot in a new window
-```
-<img src="/images/matlab-plot1.png" width=350 align="center">
-
-We can customize the appearance of ticks and line by passing them as a string. For instance, `r:*` will make lines in red, `*` for points and `:` for dotted lines.
-
-You can also customize the title, labels, legend as shown:
-```matlab
->> plot(x,y);
->> xlabel('time[x]');
->> ylabel('y=x^2');
->> legend('y(x)')
->> title('Function of time')
-```
-### Overlaying plots
-To overlay multiple plots on the same frame, use `hold on` command.
+<a id="markdown-styling-print-outputs" name="styling-print-outputs"></a>
+## Styling print outputs
+Use `disp` to display. You can style print outputs with `sprintf` and sending the string composed to `disp()`.
 
 ```matlab
->> z = x.^3;
->> plot(x,y, 'r:o')
->> hold on
->> plot(x,z, 'g--*')
+>> vec1 = [2,3,4,5];
+>> disp(vec1)
+   2   3   4   5
 ```
-<img src="/images/matlab-plot2.png" width=350>
 
+```matlab
+>> disp(sprintf("Mean of the array is %0.3f", mean(vec1)))
+Mean of the array is 3.500
+```
+Use `C` style statements within `sprintf`.
+
+<a id="markdown-array-indexing-slicing-dicing" name="array-indexing-slicing-dicing"></a>
 ## Array indexing, slicing, dicing
 Consider this `4x4` matrix:
 ```matlab
@@ -284,6 +348,7 @@ ans =
    4.0000   6.4000
    4.6000   7.0000
 ```
+<a id="markdown-array-concatenation" name="array-concatenation"></a>
 ## Array concatenation
 You can concatenate along rows or columns using the `,` or `;` operators:
 
@@ -304,6 +369,7 @@ ans =
   -2.00364  -0.45362  -1.47926
 >>
 ```
+<a id="markdown-statistical-operations-on-arrays" name="statistical-operations-on-arrays"></a>
 ## Statistical operations on arrays
 Let us start with an array as below:
 ```matlab
@@ -338,6 +404,7 @@ Turn the matrix into a column vector and pass that to the mean.
 ans =  5.5000
 ```
 
+<a id="markdown-writing-functions" name="writing-functions"></a>
 ## Writing functions
 You call functions as 
 ```matlab
@@ -372,5 +439,8 @@ ans =  3.1169
 >>
 ```
 
+<a id="markdown-reusing-functions" name="reusing-functions"></a>
 ### Reusing functions
 A quick and easy way to reuse functions in other scripts is to put just the function (not anything else) in a separate `.m` file with the same name as the function. Matlab will automatically search for it and import it.
+
+To hack the search path, use `addpath('full_path')` to add a folder to Octave path. This way, you can load a function or module from a different directory.

@@ -9,6 +9,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Understanding Scikit-Learn syntax](sklearn-1/)
  - [Understanding Gradient Descent](coursera-gradient-descent/)
  - [A primer on linear algebra](linear-algebra/)
+ - [Implementing Gradient descent in Python](gradient-descent-in-python/)
  - [Naive Bayes classification with `sklearn` - a work in progress](sklearn_naive_bayes_classifier/)
 
 ----------------------------------------------------
