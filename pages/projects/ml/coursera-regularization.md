@@ -1,7 +1,7 @@
 title: Reducing overfitting using regularization
 has_math: true
 
-## Examples os overfitting
+## Examples of overfitting
 A model is set to be over fitting, when it performs exceedingly well on training data but poorly on validation/test data. Such a model typically is of higher order and having a high variance.
 
 <img src="/images/coursera-linear-overfit.png" width=550>

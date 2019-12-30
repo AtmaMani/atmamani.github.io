@@ -21,7 +21,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Solving multivariate linear regression using Gradient Descent](coursera-gd-multivariate-linear-regression/)
  - [Analytical vs Gradient Descent methods of solving linear regression](coursera-linear-regression-analytical-solution/)
  - [Logistic regression, concepts](coursera-logistic-reg/)
-
+ - [Model regularization](coursera-regularization/)
 
 -----------------------------------------------------
 ## ML at scale with PySpark

@@ -114,7 +114,7 @@ To find the values of $\theta$ at the global optima, we need to differentiate th
 
 repeat until convergence:
 $$
-\theta_{j} := \theta_{j} - \alpha\sum_{i=1}^{m}(h_{\theta}(x_{i} - y_{i})x_{i,j})
+\theta_{j} := \theta_{j} - \alpha\sum_{i=1}^{m}(h_{\theta}(x_{i}) - y_{i})x_{i,j}
 $$
 
 The above update rule, is just the same we had for **linear regression**. Thus, GD for linear and logistic regression is the same. What has changed is the hypothesis and the cost functions. A vectorized implementation of GD is
