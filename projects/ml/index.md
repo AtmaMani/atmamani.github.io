@@ -9,6 +9,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Understanding Scikit-Learn syntax](sklearn-1/)
  - [Understanding Gradient Descent](coursera-gradient-descent/)
  - [A primer on linear algebra](linear-algebra/)
+ - [Implementing linear regression using Gradient descent in Python](gradient-descent-in-python/)
  - [Naive Bayes classification with `sklearn` - a work in progress](sklearn_naive_bayes_classifier/)
 
 ----------------------------------------------------
@@ -19,7 +20,9 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
  - [Solving multivariate linear regression using Gradient Descent](coursera-gd-multivariate-linear-regression/)
  - [Analytical vs Gradient Descent methods of solving linear regression](coursera-linear-regression-analytical-solution/)
-
+ - [Logistic regression, concepts](coursera-logistic-reg/)
+ - [Implementing logistic regression using gradient descent](implementing-logistic-regression-in-python/)
+ - [Model regularization](coursera-regularization/)
 
 -----------------------------------------------------
 ## ML at scale with PySpark

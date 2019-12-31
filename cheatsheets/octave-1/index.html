@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/octave-1/">
 <meta property="og:description" content="Octave is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are .m. This page is a guide to the octave programming lang">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-27T10:53:35-08:00">
+<meta property="article:published_time" content="2019-12-02T16:29:53-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -180,7 +180,10 @@
 <a href="../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li class="active">
-<a href=".">MATLAB / Octave basics <span class="sr-only">(active)</span></a>
+<a href=".">Octave / MATLAB - basics <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../octave-2/">Octave - handling data</a>
                     </li>
 <li>
 <a href="../js_essentials/">Javascript essentials</a>
@@ -264,33 +267,33 @@
 <p><a href="https://www.gnu.org/software/octave/">Octave</a> is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are <code>.m</code>. This page is a guide to the octave programming language.</p>
 <p></p>
 <center><img src="https://www.gnu.org/software/octave/img/example-mesh.svg" width="350"></center>
-<p><strong>ToC</strong></p>
-<ul>
-<li><a href="#variables">Variables</a></li>
-<li><a href="#standard-matrix-creation-functions">Standard matrix creation functions</a></li>
-<li><a href="#automatic-map-operations">Automatic <code>map</code> operations</a></li>
-<li><a href="#automatic-broadcasting">Automatic broadcasting</a></li>
-<li><a href="#array-multiplication">Array multiplication</a></li>
-<li><a href="#transposing-a-matrix">Transposing a matrix</a></li>
-<li><a href="#reshaping-matrixes">Reshaping matrixes</a></li>
-<li><a href="#range-functions">Range functions</a></li>
-<li><a href="#conditional-processing">Conditional processing</a></li>
-<li><a href="#if-elseif-else-blocks"><code>if-elseif-else</code> blocks</a></li>
-<li><a href="#plotting">Plotting</a></li>
-<li><a href="#line-plots">Line plots</a></li>
-<li><a href="#overlaying-plots">Overlaying plots</a></li>
-<li><a href="#array-indexing-slicing-dicing">Array indexing, slicing, dicing</a></li>
-<li><a href="#array-concatenation">Array concatenation</a></li>
-<li><a href="#statistical-operations-on-arrays">Statistical operations on arrays</a></li>
-<li><a href="#writing-functions">Writing functions</a></li>
-<li><a href="#reusing-functions">Reusing functions</a></li>
-</ul>
+<p><strong>ToC</strong>
+- <a href="#variables">Variables</a>
+- <a href="#standard-matrix-creation-functions">Standard matrix creation functions</a>
+- <a href="#automatic-map-operations">Automatic <code>map</code> operations</a>
+   - <a href="#automatic-broadcasting">Automatic broadcasting</a>
+- <a href="#looping-through-a-matrix">Looping through a matrix</a>
+   - <a href="#while-loop">While loop</a>
+   - <a href="#array-multiplication">Array multiplication</a>
+- <a href="#transposing-a-matrix">Transposing a matrix</a>
+- <a href="#reshaping-matrixes">Reshaping matrixes</a>
+- <a href="#range-functions">Range functions</a>
+- <a href="#conditional-processing">Conditional processing</a>
+   - <a href="#if-elseif-else-blocks"><code>if-elseif-else</code> blocks</a>
+- <a href="#styling-print-outputs">Styling print outputs</a>
+- <a href="#array-indexing-slicing-dicing">Array indexing, slicing, dicing</a>
+- <a href="#array-concatenation">Array concatenation</a>
+- <a href="#statistical-operations-on-arrays">Statistical operations on arrays</a>
+- <a href="#writing-functions">Writing functions</a>
+   - <a href="#reusing-functions">Reusing functions</a></p>
+<p><a id="markdown-general-caveats" name="general-caveats"></a></p>
 <h4>General caveats</h4>
 <ul>
 <li>You end statements with a <code>;</code>. If not, the kernel does not throw an error, instead will echo the output of each line.</li>
 <li>If you do not catch the output of an operation in a variable, a default variable called <code>ans</code> is created and that holds the value. At any time, <code>ans</code> holds value of latest operation.</li>
 <li>Matlab / octave functions can return <strong>multiple values</strong>.</li>
 </ul>
+<p><a id="markdown-variables" name="variables"></a></p>
 <h3>Variables</h3>
 <p>Variables can be assigned without initializing.</p>
 <pre class="code literal-block"><span></span><span class="n">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -309,6 +312,7 @@
 </pre>
 
 
+<p><a id="markdown-standard-matrix-creation-functions" name="standard-matrix-creation-functions"></a></p>
 <h3>Standard matrix creation functions</h3>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c">% identity</span>
 <span class="nb">ans</span> <span class="p">=</span>
@@ -332,10 +336,16 @@
    <span class="mf">1.151159</span>   <span class="mf">0.022623</span>  <span class="o">-</span><span class="mf">1.030988</span>   <span class="mf">0.460505</span>
   <span class="o">-</span><span class="mf">0.386885</span>  <span class="o">-</span><span class="mf">0.188437</span>   <span class="mf">0.339421</span>  <span class="o">-</span><span class="mf">1.131755</span>
    <span class="mf">0.573182</span>   <span class="mf">0.451552</span>  <span class="o">-</span><span class="mf">0.307362</span>  <span class="o">-</span><span class="mf">1.717639</span>
-<span class="o">&gt;&gt;</span>
+
+<span class="o">&gt;&gt;</span> <span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c">% creates matrix whose each row, col, diagonal sum to same value</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">8</span>   <span class="mi">1</span>   <span class="mi">6</span>
+   <span class="mi">3</span>   <span class="mi">5</span>   <span class="mi">7</span>
+   <span class="mi">4</span>   <span class="mi">9</span>   <span class="mi">2</span>
 </pre>
 
 
+<p><a id="markdown-automatic-map-operations" name="automatic-map-operations"></a></p>
 <h3>Automatic <code>map</code> operations</h3>
 <p>Octave is designed to work primarily with arrays and vectors. Thus when you pass an array or vector to a standard function or operator, it <strong>automatically maps the function on each element and runs it</strong> and returns either an array/vector or scalar, depending on the operation.</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">squares</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">49</span><span class="p">];</span>
@@ -347,6 +357,28 @@
 </pre>
 
 
+<p>When you run functions on a 2D matrix, they run on each column vector:</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">sum</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="c">% default is columnwise operation</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">15</span>   <span class="mi">15</span>   <span class="mi">15</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">sum</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c">% does a row-wise operation</span>
+<span class="nb">ans</span> <span class="p">=</span>
+
+   <span class="mi">15</span>
+   <span class="mi">15</span>
+   <span class="mi">15</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">prod</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c">% multiply each element in the matrix. Here multiplies each in col vector</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">96</span>   <span class="mi">45</span>   <span class="mi">84</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">max</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">ans</span> <span class="p">=</span>
+   <span class="mi">8</span>   <span class="mi">9</span>   <span class="mi">7</span>
+</pre>
+
+
 <p>Functions in Octave can return multiple values. For instance:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">val</span><span class="p">,</span> <span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 <span class="n">val</span> <span class="p">=</span>  <span class="mi">4</span>
@@ -355,6 +387,7 @@
 </pre>
 
 
+<p><a id="markdown-automatic-broadcasting" name="automatic-broadcasting"></a></p>
 <h4>Automatic broadcasting</h4>
 <p>When you operate a scalar against a vector, matlab will automatically scale up that scalar into a vector and perform an element wise computation as shown below:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">=</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">0.7</span><span class="p">:</span><span class="mi">2</span>
@@ -366,6 +399,45 @@
 
 
 <p>Similarly when you multiply, subtract or divide a scalar from a vector, it is automatically broadcasted.</p>
+<h3>Looping through a matrix</h3>
+<p>The automatic map operations should have most things covered for you. Still, you might need to write a loop. Below is syntax of <code>for</code> loop.</p>
+<pre class="code literal-block"><span></span><span class="k">for</span> <span class="n">iterator</span><span class="p">=</span><span class="o">&lt;</span><span class="n">range</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="n">operation1</span><span class="p">;</span>
+   <span class="n">operation2</span><span class="p">;</span>
+   <span class="n">condition</span> <span class="n">check</span>
+      <span class="n">operation3</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+   <span class="n">condition</span> <span class="n">check2</span>
+      <span class="n">operation4</span><span class="p">;</span>
+      <span class="k">continue</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre>
+
+
+<p>Note the <code>,</code> at end of the line with <code>for</code>.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">indices</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span> <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="n">indices</span><span class="p">,</span>
+       <span class="nb">disp</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+   <span class="k">end</span><span class="p">;</span>
+ <span class="mi">1</span>
+ <span class="mi">2</span>
+ <span class="mi">3</span>
+ <span class="p">.</span>
+ <span class="p">.</span>
+ <span class="p">.</span>
+</pre>
+
+
+<h4>While loop</h4>
+<p>The syntax for while loop is</p>
+<pre class="code literal-block"><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">,</span>
+   <span class="n">operation</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+</pre>
+
+
+<p>Once again, note the <code>,</code> at line 1.</p>
+<p><a id="markdown-array-multiplication" name="array-multiplication"></a></p>
 <h4>Array multiplication</h4>
 <p>There are two types of multiplication
  - element wise - which is accomplished by prefixing the operator with <code>.</code> such as: <code>.&lt;operator&gt;</code> or <code>.*</code>
@@ -389,6 +461,7 @@
 </pre>
 
 
+<p><a id="markdown-transposing-a-matrix" name="transposing-a-matrix"></a></p>
 <h3>Transposing a matrix</h3>
 <p>You can call the built-in <code>transpose()</code> function (shown previously) or use the <code>'</code> operator.</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x2</span><span class="o">'</span>
@@ -402,6 +475,7 @@
 </pre>
 
 
+<p><a id="markdown-reshaping-matrixes" name="reshaping-matrixes"></a></p>
 <h3>Reshaping matrixes</h3>
 <p>You can reshape using the <code>reshape(&lt;arr&gt;, nrows, ncols)</code> function. Note, it flows elements <strong>column wise, followed by rows</strong> as shown below:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">vec</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span>
@@ -419,6 +493,7 @@
 </pre>
 
 
+<p><a id="markdown-range-functions" name="range-functions"></a></p>
 <h3>Range functions</h3>
 <p>You can generate uniformly spaced vectors, using 2 methods. If you want uniformly spaced vectors, use the <code>:</code> operator. If you want a specific number of elements within a range, then use the <code>linspace</code> function.</p>
 <p>The <code>:</code> operator takes syntax <code>start:spacing:end</code></p>
@@ -433,6 +508,7 @@
 </pre>
 
 
+<p><a id="markdown-conditional-processing" name="conditional-processing"></a></p>
 <h3>Conditional processing</h3>
 <p>Logical operators in octave are <code>&lt;, &gt;, &lt;=, &gt;=, ~, ==, ~=, &amp;, |</code>. Matlab returns <code>1</code> for True and <code>0</code> for False. Thus</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">heat</span> <span class="p">=</span> <span class="mi">74</span>
@@ -461,6 +537,7 @@
 </pre>
 
 
+<p><a id="markdown-if-elseif-else-blocks" name="if-elseif-else-blocks"></a></p>
 <h4>
 <code>if-elseif-else</code> blocks</h4>
 <p>Jump to defining functions if you want to read that first.</p>
@@ -478,34 +555,22 @@
 
 
 <p>The <code>&amp;&amp;</code> operator is a performance opt that Matlab editor suggested. Else I would use only one of it.</p>
-<h3>Plotting</h3>
-<p>Most 2D plots can be accomplished using <code>plot(&lt;arr1&gt;, &lt;arr2&gt;, 'srt:options')</code> function.</p>
-<h4>Line plots</h4>
-<pre class="code literal-block"><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c">% will plot in a new window</span>
+<p><a id="markdown-styling-print-outputs" name="styling-print-outputs"></a></p>
+<h3>Styling print outputs</h3>
+<p>Use <code>disp</code> to display. You can style print outputs with <code>sprintf</code> and sending the string composed to <code>disp()</code>.</p>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">vec1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="o">&gt;&gt;</span> <span class="nb">disp</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span>
+   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>
 </pre>
 
 
-<p><img src="../../images/matlab-plot1.png" width="350" align="center"></p>
-<p>We can customize the appearance of ticks and line by passing them as a string. For instance, <code>r:*</code> will make lines in red, <code>*</code> for points and <code>:</code> for dotted lines.</p>
-<p>You can also customize the title, labels, legend as shown:</p>
-<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">'time[x]'</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">'y=x^2'</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="n">legend</span><span class="p">(</span><span class="s">'y(x)'</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="n">title</span><span class="p">(</span><span class="s">'Function of time'</span><span class="p">)</span>
+<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span>"<span class="n">Mean</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="n">is</span> <span class="c">%0.3f", mean(vec1)))</span>
+<span class="n">Mean</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="n">is</span> <span class="mf">3.500</span>
 </pre>
 
 
-<h4>Overlaying plots</h4>
-<p>To overlay multiple plots on the same frame, use <code>hold on</code> command.</p>
-<pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">z</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
-<span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s">'r:o'</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="n">hold</span> <span class="n">on</span>
-<span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="s">'g--*'</span><span class="p">)</span>
-</pre>
-
-
-<p><img src="../../images/matlab-plot2.png" width="350"></p>
+<p>Use <code>C</code> style statements within <code>sprintf</code>.</p>
+<p><a id="markdown-array-indexing-slicing-dicing" name="array-indexing-slicing-dicing"></a></p>
 <h3>Array indexing, slicing, dicing</h3>
 <p>Consider this <code>4x4</code> matrix:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">readings</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
@@ -540,6 +605,7 @@
 </pre>
 
 
+<p><a id="markdown-array-concatenation" name="array-concatenation"></a></p>
 <h3>Array concatenation</h3>
 <p>You can concatenate along rows or columns using the <code>,</code> or <code>;</code> operators:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="p">[</span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>  <span class="c">% use , to concatenate along columns</span>
@@ -560,6 +626,7 @@
 </pre>
 
 
+<p><a id="markdown-statistical-operations-on-arrays" name="statistical-operations-on-arrays"></a></p>
 <h3>Statistical operations on arrays</h3>
 <p>Let us start with an array as below:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">vec45</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -596,6 +663,7 @@ Turn the matrix into a column vector and pass that to the mean.</p>
 </pre>
 
 
+<p><a id="markdown-writing-functions" name="writing-functions"></a></p>
 <h3>Writing functions</h3>
 <p>You call functions as </p>
 <pre class="code literal-block"><span></span><span class="n">y</span> <span class="p">=</span> <span class="n">func_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">);</span>
@@ -630,8 +698,10 @@ Turn the matrix into a column vector and pass that to the mean.</p>
 </pre>
 
 
+<p><a id="markdown-reusing-functions" name="reusing-functions"></a></p>
 <h4>Reusing functions</h4>
 <p>A quick and easy way to reuse functions in other scripts is to put just the function (not anything else) in a separate <code>.m</code> file with the same name as the function. Matlab will automatically search for it and import it.</p>
+<p>To hack the search path, use <code>addpath('full_path')</code> to add a folder to Octave path. This way, you can load a function or module from a different directory.</p>
 </div>
     </div>
     

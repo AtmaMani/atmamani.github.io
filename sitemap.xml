@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2019-11-27T00:49:00Z</lastmod>
+  <lastmod>2019-12-02T22:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -111,11 +111,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2019-11-27T00:49:00Z</lastmod>
+  <lastmod>2019-12-02T22:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2019-11-27T00:49:00Z</lastmod>
+  <lastmod>2019-12-02T22:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -343,7 +343,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/</loc>
-  <lastmod>2019-11-27T00:08:00Z</lastmod>
+  <lastmod>2019-12-02T03:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/conda_cheat_sheet/</loc>
@@ -388,6 +388,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/octave-1/</loc>
   <lastmod>2019-11-27T00:08:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/octave-2/</loc>
+  <lastmod>2019-12-02T03:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/geopandas-1/</loc>
@@ -531,7 +535,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/</loc>
-  <lastmod>2019-12-01T16:56:00Z</lastmod>
+  <lastmod>2019-12-28T23:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/</loc>
@@ -546,6 +550,18 @@
   <lastmod>2019-12-01T16:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/projects/ml/coursera-logistic-reg/</loc>
+  <lastmod>2019-12-08T03:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/coursera-regularization/</loc>
+  <lastmod>2019-12-13T00:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/gradient-descent-in-python/</loc>
+  <lastmod>2019-12-05T00:16:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/projects/ml/hurricane-dask-analysis/part1_prepare_hurricane_data/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -558,8 +574,16 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/projects/ml/implementing-logistic-regression-in-python/</loc>
+  <lastmod>2019-12-28T23:47:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/projects/ml/linear-algebra/</loc>
   <lastmod>2019-11-25T16:50:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/logistic-regression-with-gradient-descent/</loc>
+  <lastmod>2019-12-28T23:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/portland-house-hunting/01_clean-housing-data/</loc>
@@ -604,6 +628,14 @@
  <url>
   <loc>https://atmamani.github.io/projects/ml/sklearn_statmodels_linear_regression/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/temp-sigmoid/</loc>
+  <lastmod>2019-12-08T23:41:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/untitled/</loc>
+  <lastmod>2019-12-05T00:16:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/mwrs/</loc>
