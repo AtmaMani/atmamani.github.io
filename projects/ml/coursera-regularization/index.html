@@ -28,7 +28,7 @@
 <meta property="og:description" content="Examples of overfitting
 A model is set to be over fitting, when it performs exceedingly well on training data but poorly on validation/test data. Such a model typically is of higher order and having a">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-12-20T16:10:29-08:00">
+<meta property="article:published_time" content="2019-12-31T00:12:10-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -277,6 +277,36 @@ A model is set to be over fitting, when it performs exceedingly well on training
 <li>reducing number of features. However this leads to reducing useful information available.</li>
 <li>Regularization. Here, we will keep all the features, but limit or constrain the magnitude their coefficients $\theta_{j}$. This works well even when you have a lot of features.</li>
 </ol>
+<h3>Regularization for linear regression</h3>
+<p>Regularization is the process of applying penalty to coefficients of higher order variables. The higher the coefficients are for those variables, the higher the cost/loss is. Thus, the optimization process will move toward fits where such coefficients are smaller, close to <code>0</code>. Intuitively, this leads to a simpler model, that is less prone to overfitting. In practice, we may not know which variables are higher order polynomials. Thus, we add penalties to all coefficients. Thus, the new cost function looks like</p>
+<p>$$
+J(\theta) = \frac{1}{2m}[\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})^{2} + \lambda \sum_{j=1}^{n}\theta_{j}^{2}]
+$$
+where $\lambda$ is the <strong>regularization parameter</strong>. The first part of the loss function fights to get the best fit while the second fights to keep the model simple and coefficients smaller. If $\lambda$ is too high, then model results in <strong>underfitting</strong> which has a <strong>high bias</strong>. If $\lambda$ is too low, then it results in <strong>overfitting</strong> which has a <strong>high variance</strong>.</p>
+<p>Mathematically, we don't penalize $\theta_{0}$. However in practice, it makes little difference if you penalize all coefficients or if you ignore the intercept.</p>
+<p>Computing the <strong>gradient descent</strong> for this new loss function, we get:</p>
+<p>$$
+\theta_{0} := \theta_{0} - \alpha\frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})x_{0i}
+$$
+$$
+\theta_{j} := \theta_{j} - \alpha[\frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})x_{ji} - \frac{\lambda}{m}\theta_{j}]
+$$
+which is rewritten as
+$$
+\theta_{j} := \theta_{j}(1-\alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})x_{ji}
+$$
+The term $(1-\alpha\frac{\lambda}{m})$ is always <code>&lt;1</code>, which has a shrinking effect on $\theta$. Thus, for each iteration, it strives to keep it small.</p>
+<h3>Regularization for logistic regression</h3>
+<p>The cost function of a non-regularized logistic function looks like</p>
+<p>$$
+J(\theta) = \frac{-1}{m}\sum_{i=1}^{m}[y_{i}log(h_{\theta}(x_{i})) + (1-y_{i})log(1-h_{\theta}(x_{i}))]
+$$
+to this cost function, we add the regularization parameter to get:
+$$
+J(\theta) = \frac{-1}{m}\sum_{i=1}^{m}[y_{i}log(h_{\theta}(x_{i})) + (1-y_{i})log(1-h_{\theta}(x_{i}))] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
+$$
+The regularization term avoids penalty for bias term $\theta_{0}$.</p>
+<p>The <strong>gradient descent</strong> for logistic regression with regularization is identical to that of the <strong>linear regression</strong> explained earlier, except that, the hypothesis function is a sigmoid.</p>
 </div>
     </div>
     
