@@ -18,7 +18,8 @@ Google colab at this point lacks an interface to see what notebooks you have and
 However, once you open, you need to run `!curl -s https://course.fast.ai/setup/colab | bash` to prepare the colab runtime to use Fast.ai and GPU. After this, you can run fastai course materials for free on GPU. THere are some notes about GPU availability, but this is yet to be seen by me.
 
 ## Detailed notes
- - [Concepts](dl-concepts/)
+ - [Neural network - concepts](coursera-neural-nets-concepts/)
+ - [Deep learning concepts](dl-concepts/)
  - [Getting started with fast.ai](fastai/fastai-1/)
  - [Fast.ai course lesson 1 - classifying pets](fastai/lesson1-pets/)
  	- [lesson 1 mind map](/images/fastai-lesson1-mindmap.png) courtesy of Fast.ai community members.

@@ -129,3 +129,16 @@ While the most use cases of logistic reg is to predict boolean classes, we can e
 <img src="/images/coursera-logistic-multiclass.png" width=550>
 
 We essentially build multiple models, equalling the number of classes. Each model predicts the probability that given value will fall within the class it is trained to predict. Finally we find the class with **max probability** and assign it to the prediction.
+
+### OCR on MNIST digits database using multi-class logistic regression
+The MNIST database has `14` million images of handdrawn digits. We work with a subset of `5000` images. Each image is `20x20` pixels. When laid out as a column vector (which is how Neural Nets and log reg algorithms will read it), we get a `1x400` row vector. A sample of 100 images is below:
+
+<img src='/images/coursera-logreg-mnist1.png/' width=400>
+
+Here, we build a multi-class regularized logistic regression model to solve this classification problem. We train this multi-class logistic regression model by iterating a simple log reg model for each class. Each iteration will produce a set of $\theta$ values which predict the probability for that class. Finally we will assemble all theta into a 2D matrix.
+
+The weights / theta is a 2D matrix (unlike a vector for simple logistic reg), where each row is the weight vector for a particular class. Since **each pixel is considered an input feature** and since we have `10` classes to predict, we get theta as $\Theta_{10x401}$ matrix. `401` because we add `1` bias feature to `400` features which is obtained by flattening the `20x20` image into a `400x1` vector.
+
+During the training process, we need to represent the output class not as digits, but as one-hot encoded vector since that is what log reg understands. Finally during the prediction phase, we will translate the one-hot encoded prediction into the actual class label, which is the predicted digit.
+
+The full MATLAB/OCTAVE implementation can be found [here](https://github.com/AtmaMani/pyChakras/tree/master/ml/coursera-ml-matlabonline/machine-learning-ex/ex3).
