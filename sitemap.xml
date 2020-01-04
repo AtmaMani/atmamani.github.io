@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2019-12-02T22:56:00Z</lastmod>
+  <lastmod>2020-01-01T00:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -111,11 +111,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2019-12-02T22:56:00Z</lastmod>
+  <lastmod>2020-01-01T00:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2019-12-02T22:56:00Z</lastmod>
+  <lastmod>2020-01-01T00:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -495,7 +495,15 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/</loc>
-  <lastmod>2019-10-31T17:45:00Z</lastmod>
+  <lastmod>2019-12-31T21:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/dl/coursera-neural-nets-concepets/</loc>
+  <lastmod>2019-12-31T19:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/</loc>
+  <lastmod>2019-12-31T21:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/dl-concepts/</loc>
