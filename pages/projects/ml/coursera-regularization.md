@@ -26,8 +26,18 @@ J(\theta) = \frac{1}{2m}[\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})^{2} + \lambda \
 $$
 where $\lambda$ is the **regularization parameter**. The first part of the loss function fights to get the best fit while the second fights to keep the model simple and coefficients smaller. If $\lambda$ is too high, then model results in **underfitting** which has a **high bias**. If $\lambda$ is too low, then it results in **overfitting** which has a **high variance**.
 
+### L1, L2 (Lasso, Ridge) regularizations
+In the equation above, the $\theta$ was squared in the regularization function. This is **L2** regularization, aka. **Ridge regression**. Remember this as L2 squares the coefficients ($\theta$) attached to $\lambda$. 
+
+Whereas, in the case of **L1**, the absolute value of $\theta$ is used. **L1** is also called **Lasso regression** which stands for Least Absolute Shrinkage and Selection Operator. The same cost function for lasso would look like the below:
+
+$$
+J(\theta) = \frac{1}{2m}[\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})^{2} + \lambda \sum_{j=1}^{n}|\theta_{j}|]
+$$
+
 Mathematically, we don't penalize $\theta_{0}$. However in practice, it makes little difference if you penalize all coefficients or if you ignore the intercept.
 
+### Computing gradient descent with regularization
 Computing the **gradient descent** for this new loss function, we get:
 
 $$

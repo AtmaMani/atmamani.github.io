@@ -9,20 +9,26 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
  - [Understanding Scikit-Learn syntax](sklearn-1/)
  - [Understanding Gradient Descent](coursera-gradient-descent/)
  - [A primer on linear algebra](linear-algebra/)
- - [Implementing linear regression using Gradient descent in Python](gradient-descent-in-python/)
  - [Naive Bayes classification with `sklearn` - a work in progress](sklearn_naive_bayes_classifier/)
 
 ----------------------------------------------------
 ## Generalized linear models
 <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/1280px-Linear_regression.svg.png' width=300>
 
+**Theory**
+
  - [Linear regression - stat concepts](/projects/stats/islr/03_linear_regression/)
- - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
  - [Solving multivariate linear regression using Gradient Descent](coursera-gd-multivariate-linear-regression/)
  - [Analytical vs Gradient Descent methods of solving linear regression](coursera-linear-regression-analytical-solution/)
  - [Logistic regression, concepts](coursera-logistic-reg/)
- - [Implementing logistic regression using gradient descent](implementing-logistic-regression-in-python/)
  - [Model regularization](coursera-regularization/)
+
+**Applications**
+
+ - [Implementing linear regression using Gradient descent in Python](gradient-descent-in-python/)
+ - [Linear regression with `sklearn` and `statmodels`](sklearn_statmodels_linear_regression/)
+ - [Implementing logistic regression using gradient descent](implementing-logistic-regression-in-python/)
+ - [MNIST digits classification using Logistic regression in Scikit-Learn](mnist-digits-classification-using-logistic-regression-scikit-learn/)
 
 -----------------------------------------------------
 ## ML at scale with PySpark
