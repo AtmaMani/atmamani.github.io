@@ -28,7 +28,7 @@
 <meta property="og:description" content="Examples of overfitting
 A model is set to be over fitting, when it performs exceedingly well on training data but poorly on validation/test data. Such a model typically is of higher order and having a">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-12-31T00:12:10-08:00">
+<meta property="article:published_time" content="2020-01-07T14:35:37-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -283,7 +283,14 @@ A model is set to be over fitting, when it performs exceedingly well on training
 J(\theta) = \frac{1}{2m}[\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})^{2} + \lambda \sum_{j=1}^{n}\theta_{j}^{2}]
 $$
 where $\lambda$ is the <strong>regularization parameter</strong>. The first part of the loss function fights to get the best fit while the second fights to keep the model simple and coefficients smaller. If $\lambda$ is too high, then model results in <strong>underfitting</strong> which has a <strong>high bias</strong>. If $\lambda$ is too low, then it results in <strong>overfitting</strong> which has a <strong>high variance</strong>.</p>
+<h4>L1, L2 (Lasso, Ridge) regularizations</h4>
+<p>In the equation above, the $\theta$ was squared in the regularization function. This is <strong>L2</strong> regularization, aka. <strong>Ridge regression</strong>. Remember this as L2 squares the coefficients ($\theta$) attached to $\lambda$. </p>
+<p>Whereas, in the case of <strong>L1</strong>, the absolute value of $\theta$ is used. <strong>L1</strong> is also called <strong>Lasso regression</strong> which stands for Least Absolute Shrinkage and Selection Operator. The same cost function for lasso would look like the below:</p>
+<p>$$
+J(\theta) = \frac{1}{2m}[\sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})^{2} + \lambda \sum_{j=1}^{n}|\theta_{j}|]
+$$</p>
 <p>Mathematically, we don't penalize $\theta_{0}$. However in practice, it makes little difference if you penalize all coefficients or if you ignore the intercept.</p>
+<h4>Computing gradient descent with regularization</h4>
 <p>Computing the <strong>gradient descent</strong> for this new loss function, we get:</p>
 <p>$$
 \theta_{0} := \theta_{0} - \alpha\frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x_{i})-y_{i})x_{0i}

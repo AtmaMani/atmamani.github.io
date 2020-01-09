@@ -539,7 +539,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/</loc>
-  <lastmod>2019-12-28T23:47:00Z</lastmod>
+  <lastmod>2020-01-08T21:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/</loc>
@@ -584,6 +584,10 @@
  <url>
   <loc>https://atmamani.github.io/projects/ml/linear-algebra/</loc>
   <lastmod>2019-11-25T16:50:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/mnist-digits-classification-using-logistic-regression-scikit-learn/</loc>
+  <lastmod>2020-01-08T21:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/portland-house-hunting/01_clean-housing-data/</loc>
