@@ -19,6 +19,7 @@ However, once you open, you need to run `!curl -s https://course.fast.ai/setup/c
 
 ## Detailed notes
  - [Neural network - concepts](coursera-neural-nets-concepts/)
+ - [Neural network - understanding backpropagation](coursera-understanding-backpropagation/)
  - [Deep learning concepts](dl-concepts/)
  - [Getting started with fast.ai](fastai/fastai-1/)
  - [Fast.ai course lesson 1 - classifying pets](fastai/lesson1-pets/)

@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://atmamani.github.io/</loc>
-  <lastmod>2019-11-27T00:08:00Z</lastmod>
+  <lastmod>2020-01-12T00:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/2007/</loc>
@@ -495,11 +495,15 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/</loc>
-  <lastmod>2019-12-31T21:01:00Z</lastmod>
+  <lastmod>2020-01-20T22:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/</loc>
   <lastmod>2019-12-31T21:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/dl/coursera-understanding-backpropagation/</loc>
+  <lastmod>2020-01-20T22:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/dl-concepts/</loc>

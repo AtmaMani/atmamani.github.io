@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neural networks - concepts | Atma's blog</title>
+<title>Understanding backpropagation in neural networks | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/">
+<link rel="canonical" href="https://atmamani.github.io/projects/dl/coursera-understanding-backpropagation/">
 <link rel="icon" href="../../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../../scatter-64.png" sizes="64x64">
@@ -23,14 +23,12 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="Neural networks - concepts">
-<meta property="og:url" content="https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/">
-<meta property="og:description" content="Why use neural nets?
-Consider a classification problem where the decision boundary is non-linear as shown below:
-
-We can represent non-linearity in a linear model by adding higher order features. Howe">
+<meta property="og:title" content="Understanding backpropagation in neural networks">
+<meta property="og:url" content="https://atmamani.github.io/projects/dl/coursera-understanding-backpropagation/">
+<meta property="og:description" content="This page talks about the formula, intuition and the mechanics of the backpropagation optimization function. 
+A neural network is composed of several layers of neurons connected to one another. Each n">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-01-20T13:37:07-08:00">
+<meta property="article:published_time" content="2020-01-20T22:47:37-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -261,90 +259,65 @@ We can represent non-linearity in a linear model by adding higher order features
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Neural networks - concepts</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Understanding backpropagation in neural networks</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3>Why use neural nets?</h3>
-<p>Consider a classification problem where the decision boundary is non-linear as shown below:</p>
-<p><img src="../../../images/coursera-neural-nets1.png" width="450"></p>
-<p>We can represent non-linearity in a linear model by adding higher order features. However, when the original dataset already comes with a large number of features (say <code>100</code>), then feature engineered features increases by $\frac{O(n^{2})}{2}$ if we want to include <strong>quadratic features</strong>. Thus, for input data set with <code>100</code> features, the feature engineered features is in the order of <code>5000s</code>. Fitting a model on such a data set is expensive, further, the model will overfit. Furthermore, if we want to represent <strong>cubic features</strong>, then order increases to $O(n^{3})$.</p>
-<h4>Why not traditional ML?</h4>
-<p><strong>Image classification</strong> is also a non-linear problem. This is because the algorithm sees images as matrices. In the graphic below, we build a training set that classifies cars from non-cars.</p>
-<p><img src="../../../images/coursera-neural-nets2.png" width="450"></p>
-<p>Each pixel in the image is now a feature. Thus a <code>50x50</code> grayscale image has <code>2500</code> features! Since the decision boundary is usually non-linear, the number of feature required for a quadratic fit is <code>3 million</code> features. Trying to fit a logistic regression to this dataset is not feasible.</p>
-<h4>Why are neural nets powerful?</h4>
-<p>Neural nets mimic the biological neural nets found in animal brains. In brains, specific regions are responsible for specific functions. However, when scientists have conducted experiments where they would cut the signals from the ear to the sound processing region and rewrite the signals from eyes to it, the sound processing region now learns to process vision and functions just as good as the original vision processing engine. Similarly, they were able to repeat this for touch as well. Animal brain is effective as each region is not a bunch of complex algorithms, instead, most regions are general purpose systems built to infer data / signals.</p>
-<p>An example of this approach are usecases for differently abled people shown below:</p>
-<p><img src="../../../images/coursera-neural-nets3.png" width="450"></p>
-<h3>Neural net representation</h3>
-<p>The physical neuron in a brain looks like below. It has a set of dendrites which act as inputs, a processing engine and the axon which acts as output.</p>
-<p><img src="../../../images/coursera-neural-nets4.png" width="350"></p>
-<p>ANNs model these 3 parts of the neuron as shown below. A set of inputs, multiplied by their weights are fed to an activation function, which is a logit or sigmoid function.</p>
-<p><img src="../../../images/coursera-neural-nets5.png" width="400"></p>
-<p>A group of neurons working together forms a neural net. The first layer is called the <strong>input layer</strong> and the last called the <strong>output layer</strong>. Sometimes, the <strong>bias</strong> is represented as an explicit node.</p>
-<p><img src="../../../images/coursera-neural-nets6.png" width="400"></p>
-<p><strong>Weights in a neural net</strong>: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar $g(\theta^{T}X)$ form. <code>g</code> is the sigmoid function and $\theta_{i,k}^{j}$ represents the weight for <code>jth</code> layer, hidden node <code>i</code>, input node <code>k</code>. There is always a <strong>bias node</strong> which is represented with index <code>0</code>.</p>
-<p><img src="../../../images/coursera-neural-nets7.png" width="700"></p>
-<p>Thus, when you have <code>2</code> nodes in layer 1 (input) and <code>3</code> nodes in  layer 2, the dimension of the weight matrix for layer 2 is <code>3 x (2+1)</code>, we add <code>+1</code> to include the bias node in the first layer. Since weights is a matrix, we represent it with capital theta $\Theta$.</p>
-<h5>Vectorized implementation of forward propagation</h5>
-<p>The input parameters in the previous slide can be represented as a vector $x$
+<p>This page talks about the formula, intuition and the mechanics of the backpropagation optimization function. </p>
+<p>A neural network is composed of several layers of neurons connected to one another. Each neuron is activated when the sum of weights multiplied by the values of the neurons in previous layer is over a threshold when you pass it through a sigmoid / logit function. The threshold is usually <code>0.5</code>. In order for a neural network to get trained, the weights of all the different neurons need to be adjusted to yield the minimal loss. <strong>Backpropagation</strong> is the process by which the weights are adjusted during the training process. To understand how this works, we need to understand how to calculate the <strong>loss/cost function</strong> of a neural network.</p>
+<h3>Cost function of a neural network</h3>
+<p>The cost function of a NN builds on the cost function of a logistic regression. Recall from <a href="../../ml/coursera-logistic-reg/">Logistic regression page</a>, the cost function of a logistic regression is</p>
+<p>$$
+J(\theta) = -\frac{1}{m}\left[\sum_{i=1}^{m}y^{(i)}log(h_{\theta}(x^{(i)})) + (1-y^{(i)})log(1-h_{\theta}(x^{(i)}))\right] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
+$$</p>
+<p>where $m$ is number of training samples and $n$ is number of parameters.</p>
+<p>A neural network is like a multi-class logistic regression. Thus, we need to sum over $K$ classes. In reality, $K$ refers to the number of nodes in the output layer. Thus, in binary classification, although the number of classes is <code>2</code>, the number of nodes in output layer is just <code>1</code>. Thus <code>K=1</code>. The cost function is given as</p>
+<p><img src="../../../images/coursera-neural-nets-backprop1.png" width="500"></p>
+<p>where </p>
+<ul>
+<li>$m$ is number of training samples. $i=1\;to\;m$</li>
+<li>$K$ is number of nodes in output layer and $k=1 \; to \; K$</li>
+<li>$L$ is number of layers in the network and $l=1 \; to \; L-1$ as we exclude the input layer</li>
+<li>$s_{l}$ is number of nodes in a given layer $l$ and in the penalty term, $i=1 \; to \; s_{l}$ and $j=1 \; to \; s_{l+1}$ <code>j</code> and <code>i</code> represent the rows and columns of the cost matrix for each layer.</li>
+</ul>
+<p>The $\Theta$ (weight) matrix is 2D for each layer. When you stack all layers together, it becomes a 3D matrix.</p>
+<h3>Backpropagation</h3>
+<p>The objective of backpropagation is to minimize the cost function described above using partial derivatives. For each training sample, we compute an error matrix, which reflects the difference between predicted and output values. It is straightforward to compute the error for the last layer, which is the difference between expected and predicted outputs. Progressively, we compute the error for each of the previous layers.</p>
+<p>Let us start by reviewing the steps in forward propagation. The vectorized implementation of it is given in the slide below:</p>
+<p><img src="../../../images/coursera-neural-nets-backprop2.png" width="500"></p>
+<p>Next, we start by computing the error in the last layer. </p>
+<p>$$
+\delta_{j}^{(4)} = a_{j}^{(4)} - y_{j}
+$$$$
+in \; vectorized \; terms
+$$$$
+\delta^{(4)} = a^{(4)} - y
+$$</p>
+<p>The error vector is now simply the difference between the expected and predicted vectors. We can compute the delta terms for the earlier layers of the network as follows:</p>
+<p>$$
+\delta^{(3)} = (\Theta^{(3)})^{T}\delta^{(4)}.*g'(z^{(3)})
 $$
-x = \begin{bmatrix}
-    x_{0}\\
-    x_{1}\\
-    x_{2}\\
-    x_{3}
-\end{bmatrix}
+and so on..</p>
+<p>We don't calculate error for layer 1. Thus no $\delta^{(1)}$. The equations above give the formulae to calculate error for one training sample. When calculating the backprop for many training samples, we first perform forward propagation, compute the weights, then immediately, perform backprop to calculate the error terms and update the weights immediately. Next, we proceed to the next training sample.</p>
+<p><img src="../../../images/coursera-neural-nets-backprop3.png" width="500"></p>
+<p>The figure above shows the vectorized implementations of calculating the error term for all samples as a 2D matrix $\Delta_{ij}^{(l)}$.</p>
+<h4>Backpropagation Intuition</h4>
+<p>Consider the following example of a simple neural net.</p>
+<p><img src="../../../images/coursera-neural-nets-backprop4.png" width="500"></p>
+<p>The error term for last layer is calculated as $\delta_{1}^{(4)} = y^{(i)} - a_{1}^{(4)}$. Then, the error term for previous layers is given by</p>
+<p>$$
+\delta_{1}^{(3)} = \Theta_{1,1}^{(3)}\delta_{1}^{(4)}
 $$
-The activation function can be represented as $a^{(j)} = g(z^{(j)})$ where </p>
-<p>$$
-z^{(2)} = \begin{bmatrix}
-    z_{1}^{2}\\
-    z_{2}^{2}\\
-    z_{3}^{2}
-\end{bmatrix}
+$$
+\delta_{2}^{(3)} = \Theta_{1,2}^{(3)}\delta_{1}^{(4)}
 $$</p>
-<p>Thus, $z^{(2)} = \Theta^{(1)}x$ and $a^{(2)} = g(z^{(2)})$. By extension, for the next layer, $z^{(3)} = \Theta^{(2)}a^{(2)}$ and $h_{\Theta}(x) = a^{(3)} = g(z^{(3)})$</p>
-<h5>Neural nets learn their own features</h5>
-<p>If you look at the second half of the simple neural net presented earlier, it is simply a logistic regression. The inputs are however, not inputs from real world, but activations of the previous layer. Thus, neural net can create its own input features. Because of this, it is capable of representing non-linear and higher order functions, even when the real world input does not have them.</p>
-<h3>Logical operations with neurons</h3>
-<p>Neurons in neural nets build complex representations using simple condition checks. Below is an example of how logical <code>AND</code>, <code>OR</code> operators are represented:</p>
-<p><img src="../../../images/coursera-neural-nets8.png" width="500"></p>
-<p>Then, by simply changing the weights, the same neuron can be switched to an <code>OR</code> operator:</p>
-<p><img src="../../../images/coursera-neural-nets9.png" width="500"></p>
-<p>Why are these useful? Many layers of such neurons can build to represent more complex decision boundaries such as <code>XOR</code> or <code>XNOR</code> or even non-linear boundaries. Below is an example of how <code>2</code> layers of NN are used to build <code>XNOR</code> gate using <code>OR</code>, <code>AND</code>, <code>NOR</code> gates. <code>XNOR</code> gives <code>1</code> if both <code>x1</code>, <code>x2</code> are <code>0</code> or <code>1</code>.</p>
-<p><img src="../../../images/coursera-neural-nets11.png" width="500"></p>
-<h3>Multiclass classification with NN</h3>
-<p>Multiclass classification in NN is essentially a <strong>on-vs-all</strong> classification. The output layer has as many nodes as the number of classes. Further, the value of the output layer looks like <strong>one-hot</strong> encoding</p>
-<p><img src="../../../images/coursera-neural-nets12.png" width="550"></p>
-<h4>OCR on MNIST digits database using NN</h4>
-<p>The MNIST database has <code>14</code> million images of handdrawn digits. We work with a subset of <code>5000</code> images. Each image is <code>20x20</code> pixels. When laid out as a column vector (which is how Neural Nets and log reg algorithms will read it), we get a <code>1x400</code> row vector. A sample of 100 images is below:</p>
-<p><img src="../../../images/coursera-logreg-mnist1.png/" width="400"></p>
-<p>When classifying these digits, we work with <code>1</code> image at a time. This is unlike linear or logistic regression where we would represent the whole training set as matrix <code>X</code>. Here, we treat each pixel as a feature. Thus our input layer has <code>400+1</code> nodes (1 added to represent bias). The hidden layer from pre-trained network has <code>25</code> nodes. The output layer should have <code>10</code> nodes to represent the <code>10</code> classes we predict.</p>
-<p>Thus, input layer is x = $a^{(1)}_{401x1}$. The weight matrix</p>
-<p>$$
-a^{(1)} = x_{401x1}
+<p>Similarly, for the previous layer,
+$$
+\delta_{1}^{(2)} = \Theta_{1,1}^{(2)}\delta_{1}^{(3)} + \Theta_{2,1}^{(2)}\delta_{2}^{(3)}
 $$</p>
-<p>$$
-z^{(2)} = \Theta^{(1)}_{25x401} . a^{(1)}
-$$</p>
-<p>$$
-a^{(2)}_{25x1} = sigmoid(z^{(2)})
-$$</p>
-<p>We will add a bias to $a^{(2)}$ when computing the next layer, making it $a^{(2)}_{26x1}$</p>
-<p>$$
-z^{(3)} = \Theta^{(2)}_{10x26} . a^{(2)}
-$$</p>
-<p>$$
-a^{(3)}_{10x1} = sigmoid(z^{(3)})
-$$</p>
-<p>$$
-h_{\Theta}(x) = max(sigmoid(a^{(3)}))
-$$</p>
-<p>The implementation code can be see <a href="https://github.com/AtmaMani/pyChakras/tree/master/ml/coursera-ml-matlabonline/machine-learning-ex/ex3">here</a>.</p>
+<p>Thus, to calculate the errors in each of the nodes, we need to errors in the terms to the right. In other words, we calculate the error terms from the right to the left, in reverse of the network direction, thus the name backpropagation (of errors).</p>
 </div>
     </div>
     
