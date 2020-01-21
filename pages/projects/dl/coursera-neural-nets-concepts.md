@@ -35,7 +35,7 @@ A group of neurons working together forms a neural net. The first layer is calle
 
 <img src='/images/coursera-neural-nets6.png' width=400>
 
-**Weights in a neural net**: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar $g(\theta^{T}X)$ form. `g` is the sigmoid function and $\theta_{i,k}^{j}$ represents the weight for `jth` layer, input node `i`, hidden node `k`. There is always a **bias node** which is represented with index `0`.
+**Weights in a neural net**: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar $g(\theta^{T}X)$ form. `g` is the sigmoid function and $\theta_{i,k}^{j}$ represents the weight for `jth` layer, hidden node `i`, input node `k`. There is always a **bias node** which is represented with index `0`.
 
 <img src='/images/coursera-neural-nets7.png' width=700>
 
