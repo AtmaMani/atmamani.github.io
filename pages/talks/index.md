@@ -2,18 +2,24 @@ Title: Atma's talks
 ## Talks in public conferences
 - [2019 - Explore How to Use ArcGIS and Jupyter for Geospatial Data Science ](https://www.directionsmag.com/webinar/9311)
     - <img src='/images/geospatial-datascience-banner-small.jpg' width=250>
-- [2018 Portland GeoDev Meetup](2018-portland-geodev-meetup/)
-    - <img src="/images/house-hunting-slide1.jpeg" width=250>
+
 - [2019 FOSS4GNA](https://2019.foss4g-na.org/program/)
     - [Let's take the machines house hunting](https://www.papercall.io/speakers/atma-mani/speaker_talks/110943-let-s-take-the-machines-house-hunting)
 
+- [2018 Portland GeoDev Meetup](2018-portland-geodev-meetup/)
+    - <img src="/images/house-hunting-slide1.jpeg" width=250>
+
 -------------------------------------
 ## Books
-- 2019 Reviewed the upcoming 2nd edition of [Python Scripting for ArcGIS](https://esripress.esri.com/display/index.cfm?fuseaction=display&websiteID=276&moduleID=1) book.
+- 2019 Reviewed the upcoming 2nd edition of [Python Scripting for ArcGIS Pro](https://esripress.esri.com/display/index.cfm?fuseaction=display&websiteID=384&moduleID=0) book.
 - 2018 Reviewed [Essential Python](https://www.amazon.com/Essential-Python-Sridevi-Pudipeddi-ebook/dp/B07KDLPW17/).
 -------------------------------------
 ## Talks at Esri sponsored events
-- ### [2020 Spatial Data Science MOOC](www.esri.com/training/catalog/5d76dcf7e9ccda09bef61294/)
+
+- ### [Spring 2020 Spatial Data Science MOOC](https://www.esri.com/training/catalog/5d76dcf7e9ccda09bef61294/)
+
+- ### [Feb 2020 Python libraries for Spatial Data Science](https://www.esri.com/training/catalog/5e2750afea39935a53625340/python-libraries-for-spatial-data-science/)
+
 - ### [2019 Esri Developer Summit](2019-esri-devsummit/)
     - Python across the ArcGIS platform
     - Imagery in ArcGIS
