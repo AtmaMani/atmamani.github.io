@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/apps/</loc>
-  <lastmod>2019-11-08T05:56:00Z</lastmod>
+  <lastmod>2020-01-27T22:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/apps/building-restful-apis-with-flask-in-python-1/</loc>
@@ -50,16 +50,20 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/apps/flask-notes/</loc>
+  <lastmod>2020-01-27T22:13:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/apps/fullstack-python-webapp-1/</loc>
   <lastmod>2019-11-08T05:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2020-01-01T00:02:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2019-11-27T00:08:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -82,6 +86,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/building-restful-apis-with-flask-in-python/</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/building-stand-alone-cli-using-python/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -92,6 +100,10 @@
  <url>
   <loc>https://atmamani.github.io/blog/demystifying-python-jargon-datascience/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/blog/design-principles-behind-restful-apis/</loc>
+  <lastmod>2020-01-27T22:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/devops-today/</loc>
@@ -115,7 +127,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2020-01-01T00:02:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -155,7 +167,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2019-11-27T07:13:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -182,12 +194,20 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/categories/cat_backend/</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/categories/cat_blog/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/cat_data-science/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/cat_design/</loc>
+  <lastmod>2020-01-27T22:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/cat_geospatial/</loc>
@@ -244,6 +264,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/esri/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/flask/</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/foss4g/</loc>
@@ -328,6 +352,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/research/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/rest/</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/scrum/</loc>

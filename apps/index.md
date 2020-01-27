@@ -1,17 +1,20 @@
 Title: Web apps
 
+-------------------------------------
 ## Full stack Python web apps
 Python never ceases to impress me. On one end of the spectrum, you can use it to build simulations, process images and signals and perform data science. On the other end, you can quickly and easily build a full stack web app that is complete with a front-end, REST API and a backend (which is typically a DB process), all in Python.
 
- - Before you get started, you need to know a bit about RESTful APIs. My article on the [design principles behind RESTful APIs](design-principles-behind-restful-apis/) may be helpful
- - Getting started with [building RESTful APIs in Python with Flask](building-restful-apis-with-flask-in-python-1/)
+ - Before you get started, you need to know a bit about RESTful APIs. My article on the [design principles behind RESTful APIs](/blog/design-principles-behind-restful-apis/) may be helpful
+ - Getting started with [building RESTful APIs in Python with Flask](/blog/building-restful-apis-with-flask-in-python/)
  - Then take a look at this [example fullstack Python web app](fullstack-python-webapp-1/) that is published on **Heroku**.
+ - <img src='/images/flask-heroku-webapp.png' width=500>
 
+-------------------------------------
 ## Javascript apps
--------------------------------------
-- [SoCal active fire map](firemap/)
--------------------------------------
 
+- [SoCal active fire map](firemap/)
+
+-------------------------------------
 ## Maps and Apps that I love
 For the love of geography, below is a set of maps and apps (mostly built by someone else) that encourage spatial thinking
 

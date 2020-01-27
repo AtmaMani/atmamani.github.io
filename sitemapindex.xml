@@ -30,12 +30,20 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/cat_backend.xml</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/cat_blog.xml</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_data-science.xml</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/cat_design.xml</loc>
+  <lastmod>2020-01-27T22:42:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_geospatial.xml</loc>
@@ -92,6 +100,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/esri.xml</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/flask.xml</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/foss4g.xml</loc>
@@ -163,7 +175,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/python.xml</loc>
-  <lastmod>2019-11-27T00:08:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/real-estate.xml</loc>
@@ -176,6 +188,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/research.xml</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/rest.xml</loc>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/scrum.xml</loc>
@@ -191,10 +207,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2019-11-27T00:08:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2020-01-20T22:00:00Z</lastmod>
+  <lastmod>2020-01-27T23:14:00Z</lastmod>
  </sitemap>
 </sitemapindex>

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design principles behind RESTful APIs | Atma's blog</title>
+<title>Posts about flask | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/apps/design-principles-behind-restful-apis/">
+<link rel="canonical" href="https://atmamani.github.io/categories/flask/">
 <link rel="icon" href="../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../scatter-64.png" sizes="64x64">
@@ -21,17 +21,7 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-113202945-1');
-</script><meta name="author" content="Atma Mani">
-<meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="Design principles behind RESTful APIs">
-<meta property="og:url" content="https://atmamani.github.io/apps/design-principles-behind-restful-apis/">
-<meta property="og:description" content="What makes a web API RESTful
-
-separation between client and server
-server should not remember previous actions of the client (stateless)
-each request from client should be treated independently and as">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T14:18:46-08:00">
+</script><link rel="alternate" type="application/rss+xml" title="RSS for tag flask" hreflang="en" href="../flask.xml">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -237,7 +227,7 @@ each request from client should be treated independently and as">
 </ul>
 </li>
 <li>
-<a href="../">Apps</a>
+<a href="../../apps/">Apps</a>
                 </li>
 <li>
 <a href="../../rss.xml">RSS feed</a>
@@ -262,75 +252,23 @@ each request from client should be treated independently and as">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Design principles behind RESTful APIs</a></h1>
+<article class="tagpage"><header><h1>Posts about flask</h1>
+        <div class="metadata">
+            
+                <p class="feedlink">
+                        
+            <a href="../flask.xml" hreflang="en" type="application/rss+xml">RSS feed</a>
 
+                </p>
+
+        </div>
         
 
-    </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<h3>What makes a web API RESTful</h3>
-<ul>
-<li>separation between client and server</li>
-<li>server should not remember previous actions of the client (stateless)</li>
-<li>each request from client should be treated independently and as if it is the first request</li>
-<li>use of <code>tokens</code> allows for a stateless design, but gives users a stateful experience (such as a shopping website remembering what user added to shopping cart)</li>
-<li>responses from server can be marked as cacheable or non cacheable. This way, client does not have to talk to server for the same requests</li>
-<li>Server should provide a uniform interface, no matter what the client is (mobile vs desktop vs another server)</li>
-</ul>
-<p><strong>Some advanced features of RESTful APIs</strong>
- - if the logic is complex, you can implement a <em>layered</em> system where clients interact with Server A. Server A would interact with many other servers to fulfil the request and give results back to client. Client does not have to know how to talk to the rest of the servers to accomplish this.
- - <em>code on demand</em>: Server might optionally send executable code (like JS) to run on client to fulfil a request.</p>
-<h4>HTTP Request structure</h4>
-<p>A request consists of 3 parts</p>
-<ol>
-<li>header - this header contains<ol>
-<li>Header consists of a request line. This line contains a HTTP verb, a URI and HTTP version number. An example syntax of request line is <code>GET /index.html HTTP 1.1</code>
-</li>
-<li>optional request headers which appear as kvp. For instance <code>Accept: image/gif, image/jpeg, */*</code>, <code>Accept-Language: en-us</code>.</li>
-</ol>
-</li>
-<li>blank line</li>
-<li>body (optional) - body can contain any additional information, such as auth info etc.<ol>
-<li>for instance <code>puppyId=12345&amp;name=Fido+Lava</code>
-</li>
-</ol>
-</li>
-</ol>
-<h4>HTTP Response structure</h4>
-<p>Similar to a request, the response consists of 3 same parts</p>
-<ol>
-<li>a header, which contains<ol>
-<li>status line which has the status code, HTTP version</li>
-<li>optional response headers</li>
-</ol>
-</li>
-<li>blank line</li>
-<li>body (optional). The body contains what the client asked for. For instance a mp3 file, image file or html page.</li>
-</ol>
-<h3>Making elegant RESTful APIs</h3>
-<p>FAQ, Quickstart, Hello World, Payground &amp; Sandbox for sample API requests.</p>
-<p><strong>URI design</strong></p>
-<ol>
-<li>URI should take name of resource, not the action to take on them. For instance, <code>/tickets/4</code> is good, while <code>getTicketInfo/4</code> is not.</li>
-<li>URI should plural form for each resource name. For instance, <code>/puppies</code>, <code>/tickets</code>
-</li>
-<li>Use HTTP verbs to indicate action. The verbs are <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, <code>CONNECT</code>.<ol>
+    </header><ul class="postlist">
 <li>
-<code>HEAD</code> and <code>GET</code> can be called by web crawlers and search engines, so ensure these resources can only get information and not modify.</li>
-</ol>
+<time class="listdate" datetime="2019-10-20T10:25:00-07:00" title="2019-10-20 10:25">2019-10-20 10:25</time><a href="../../blog/building-restful-apis-with-flask-in-python/" class="listtitle">Building RESTful APIs with Flask in Python</a><a></a>
 </li>
-<li>Use HTTP status codes such as <code>404</code>, <code>401</code> along with error messages appropriately.</li>
-</ol>
-<p><strong>API versioning</strong></p>
-<ol>
-<li>Versioning allows to maintain backward compatibility when you build a permanent web API.</li>
-<li>You can either add version in the URI, as <code>/puppies/v2/resource</code> or in the header of the call.</li>
-</ol>
-</div>
-    </div>
-    
-
-</article>
+        </ul></article>
 </div>
         <!--End of body content-->
 

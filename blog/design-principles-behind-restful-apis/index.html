@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Posts about python | Atma's blog</title>
+<title>Design principles behind RESTful APIs | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/categories/python/">
+<link rel="canonical" href="https://atmamani.github.io/blog/design-principles-behind-restful-apis/">
 <link rel="icon" href="../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../scatter-64.png" sizes="64x64">
@@ -21,7 +21,16 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-113202945-1');
-</script><link rel="alternate" type="application/rss+xml" title="RSS for tag python" hreflang="en" href="../python.xml">
+</script><meta name="author" content="Atma Mani">
+<link rel="prev" href="../takeaways-strata-data-nyc2019/" title="Takeaways from Strata Data Conference - NewYork City Sep 2019" type="text/html">
+<link rel="next" href="../building-restful-apis-with-flask-in-python/" title="Building RESTful APIs with Flask in Python" type="text/html">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Design principles behind RESTful APIs">
+<meta property="og:url" content="https://atmamani.github.io/blog/design-principles-behind-restful-apis/">
+<meta property="og:description" content='RESTful stands for "Representational State Transfer". Consider this as a concept and a pattern of building client-server APIs. I have been building Python APIs that consume some popular RESTful APIs f'>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-10-15T10:25:00-07:00">
+<meta property="article:tag" content="python">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -75,7 +84,7 @@
 </ul>
 </li>
 <li>
-<a href="../../blog/">Blog</a>
+<a href="../">Blog</a>
                 </li>
 <li>
 <a href="../../talks/">Talks</a>
@@ -252,56 +261,110 @@
         <div class="row">
             
             
-<article class="tagpage"><header><h1>Posts about python</h1>
-        <div class="metadata">
-            
-                <p class="feedlink">
-                        
-            <a href="../python.xml" hreflang="en" type="application/rss+xml">RSS feed</a>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Design principles behind RESTful APIs</a></h1>
 
-                </p>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Atma Mani
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2019-10-15T10:25:00-07:00" itemprop="datePublished" title="2019-10-15 10:25">2019-10-15 10:25</time></a>
+            </p>
+            
 
         </div>
         
 
-    </header><ul class="postlist">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>RESTful stands for "Representational State Transfer". Consider this as a concept and a pattern of building client-server APIs. I have been building Python APIs that consume some popular RESTful APIs for the past 5+ years. This article outlines the aspects of a thoughtful and well-designed REST API. Some of the aspects here are from the perspective of a consumer, not the maker of RESTful APIs.</p>
+<!-- TEASER_END -->
+
+<h3>What makes a web API RESTful?</h3>
+<ul>
+<li>Presence of a strong separation between client and server</li>
+<li>Server should not remember previous actions of the client, ergo, be what people call "stateless".</li>
+<li>Each request from client should be treated independently and as if it is the first request. This goes with the previous point about server being stateless. Thus, the onus of sending context is upon the client, not the server to remember.</li>
+<li>However, when designing anything for a user, you need to make it as simple as possible. Thus, servers can exchange authentication and context for <code>tokens</code> with the client. This allows for a stateless design, but gives users a stateful experience (such as a shopping website remembering what user added to shopping cart) to the client / user.</li>
+<li>Responses from server can be marked as cacheable or non-cacheable. This way, client does not have to talk to server for the same requests.</li>
+<li>Server should provide a uniform interface, no matter what the client is(mobile vs desktop vs another server).</li>
+</ul>
+<p><strong>Some advanced features of RESTful APIs</strong></p>
+<ul>
+<li>If the logic is complex, you can implement a <em>layered</em> system where clients interact with say, 'Server A'. Then, Server A would interact with many other servers to fulfill the request and give results back to client. Client does not have to know how to talk to the rest of the servers to accomplish this.</li>
 <li>
-<time class="listdate" datetime="2019-10-20T10:25:00-07:00" title="2019-10-20 10:25">2019-10-20 10:25</time><a href="../../blog/building-restful-apis-with-flask-in-python/" class="listtitle">Building RESTful APIs with Flask in Python</a><a></a>
+<em>code on demand</em>: Server might optionally send executable code (like JS) to run on client to fulfil a request.</li>
+</ul>
+<h4>HTTP Request structure</h4>
+<p>Next, let us talk about what gets exchanged between the client and the server. A request from client to server consists of 3 parts:</p>
+<ol>
+<li>header - which contains:<ol>
+<li>A request line. This line contains a HTTP verb, a URI and HTTP version number. An example syntax of request line is <code>GET /index.html HTTP 1.1</code>
 </li>
-            <li>
-<time class="listdate" datetime="2019-10-15T10:25:00-07:00" title="2019-10-15 10:25">2019-10-15 10:25</time><a href="../../blog/design-principles-behind-restful-apis/" class="listtitle">Design principles behind RESTful APIs</a><a></a>
+<li>optional request headers which appear as kvp. For instance <code>Accept: image/gif, image/jpeg, */*</code>, <code>Accept-Language: en-us</code>.</li>
+</ol>
 </li>
-            <li>
-<time class="listdate" datetime="2019-09-20T10:20:00-07:00" title="2019-09-20 10:20">2019-09-20 10:20</time><a href="../../blog/takeaways-strata-data-nyc2019/" class="listtitle">Takeaways from Strata Data Conference - NewYork City Sep 2019</a><a></a>
+<li>blank line</li>
+<li>body (optional) - body can contain any additional information, such as auth info etc.<ol>
+<li>for instance <code>puppyId=12345&amp;name=Fido+Lava</code>
 </li>
-            <li>
-<time class="listdate" datetime="2018-10-26T10:25:00-07:00" title="2018-10-26 10:25">2018-10-26 10:25</time><a href="../../blog/house-hunting-the-datascientist-way/" class="listtitle">House hunting — the data scientist way</a><a></a>
+</ol>
 </li>
-            <li>
-<time class="listdate" datetime="2018-02-26T10:25:00-08:00" title="2018-02-26 10:25">2018-02-26 10:25</time><a href="../../blog/building-data-science-projects-using-azure-ml-stack/" class="listtitle">Building data science projects using Azure-ML stack</a><a></a>
+</ol>
+<h4>HTTP Response structure</h4>
+<p>Similar to a request, the response from server to client consists of 3 same parts</p>
+<ol>
+<li>a header, which contains<ol>
+<li>status line which has the status code, HTTP version</li>
+<li>optional response headers</li>
+</ol>
 </li>
-            <li>
-<time class="listdate" datetime="2018-01-26T10:25:00-08:00" title="2018-01-26 10:25">2018-01-26 10:25</time><a href="../../blog/tutorials-for-arcgis/" class="listtitle">A few tutorials I authored for ArcGIS</a><a></a>
+<li>blank line</li>
+<li>body (optional). The body contains what the client asked for. For instance a mp3 file, image file or an html page.</li>
+</ol>
+<h3>Making RESTful APIs elegant</h3>
+<p>The rules listed above are just the skeleton. Although not strictly needed, when APIs use the the following design patterns, they become easy for the end user to predict and understand the architecture of the backend system they are working with.</p>
+<p><strong>URI design</strong></p>
+<ol>
+<li>URI should take name of resource, <strong>not the action to take on them</strong>. For instance, <code>/tickets/4</code> is good, while <code>getTicketInfo/4</code> is not. Remember, URIs should be <strong>nouns</strong>, not verbs.</li>
+<li>URI should be a plural form for each resource name. For instance, <code>/puppies</code>, <code>/tickets</code>. Depending on the resource needed for the backend, calling the plural form of a resource (<code>/items/</code>) can list all the items, or give a summary info.</li>
+<li>Use HTTP verbs to indicate action. The verbs are <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>HEAD</code>, <code>OPTIONS</code>, <code>TRACE</code>, <code>CONNECT</code>.<ol>
+<li>
+<code>HEAD</code> and <code>GET</code> can be called by web crawlers and search engines, so ensure these resources can only get information and not modify.</li>
+<li>
+<code>GET</code>, <code>POST</code> resources typically give information to client</li>
+<li>
+<code>PUT</code>, <code>DELETE</code> resources can add, update, delete resources on the server. Thus we cover the <code>CRUD</code> operations using HTTP verbs.</li>
+</ol>
 </li>
-            <li>
-<time class="listdate" datetime="2017-12-22T10:25:00-08:00" title="2017-12-22 10:25">2017-12-22 10:25</time><a href="../../blog/arcgis-api-for-python-v1-3/" class="listtitle">Turbocharge your Python scripts with ArcGIS API for Python v1.3</a><a></a>
-</li>
-            <li>
-<time class="listdate" datetime="2017-10-27T10:25:00-07:00" title="2017-10-27 10:25">2017-10-27 10:25</time><a href="../../blog/harness-the-power-of-gis-python-api/" class="listtitle">Harness the Power of GIS with the ArcGIS API for Python</a><a></a>
-</li>
-            <li>
-<time class="listdate" datetime="2017-10-26T10:25:00-07:00" title="2017-10-26 10:25">2017-10-26 10:25</time><a href="../../blog/a-whole-new-way-experience-gis/" class="listtitle">A whole new way to experience GIS</a><a></a>
-</li>
-            <li>
-<time class="listdate" datetime="2017-07-09T10:25:00-07:00" title="2017-07-09 10:25">2017-07-09 10:25</time><a href="../../blog/arcgis-api-for-python-v1-2/" class="listtitle">ArcGIS API for Python v1.2 is Here!</a><a></a>
-</li>
-            <li>
-<time class="listdate" datetime="2017-06-20T10:20:00-07:00" title="2017-06-20 10:20">2017-06-20 10:20</time><a href="../../blog/building-stand-alone-cli-using-python/" class="listtitle">Building stand-alone command line tools using Python</a><a></a>
-</li>
-            <li>
-<time class="listdate" datetime="2015-03-15T10:25:00-07:00" title="2015-03-15 10:25">2015-03-15 10:25</time><a href="../../blog/demystifying-python-jargon-datascience/" class="listtitle">Demystifying Python jargon found in Data Science</a><a></a>
-</li>
-        </ul></article>
+<li>Use HTTP status codes such as <code>404</code>, <code>401</code> along with error messages appropriately.</li>
+<li>Expose child resources progressively. For instance, if <code>/items/</code> does not expose all the items and only provides a summary or count, then expose a <code>/items/search</code> for client to search the backend database. Finally, ensure <code>/search/</code> accepts well known SQL syntax queries, don't make a custom one.</li>
+<li>Give the benefit of doubt to the client. Build the REST handler to be fault tolerant, error tolerant by building the validation logic on backend, and not on the client side.</li>
+</ol>
+<p><strong>API versioning</strong></p>
+<ol>
+<li>Versioning allows to maintain backward compatibility when you build a permanent web API.</li>
+<li>You can either add version in the URI, as <code>/puppies/v2/resource</code> or in the header of the call.</li>
+</ol>
+<h3>Conclusion</h3>
+<p>To learn more about RESTful APIs, go 
+ - <a href="https://restfulapi.net/">restfulapi.net</a>
+ - <a href="https://classroom.udacity.com/courses/ud388">Udacity course on Flask</a></p>
+<p>To look at an example of building RESTful APIs, go to my blog article <a href="../building-restful-apis-with-flask-in-python/">Building RESTful APIs with Flask in Python</a>.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../takeaways-strata-data-nyc2019/" rel="prev" title="Takeaways from Strata Data Conference - NewYork City Sep 2019">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../building-restful-apis-with-flask-in-python/" rel="next" title="Building RESTful APIs with Flask in Python">Next post</a>
+            </li>
+        </ul></nav></aside></article>
 </div>
         <!--End of body content-->
 

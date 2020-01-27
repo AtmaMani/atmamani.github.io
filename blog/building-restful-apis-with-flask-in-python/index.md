@@ -1,6 +1,16 @@
 title: Building RESTful APIs with Flask in Python
+Date: 2019-10-20 10:25
+Category: backend
+Tags: python, flask, REST
+Slug: building-restful-apis-with-flask-in-python
 
-# Boiler plate
+<img src="https://www.fullstackpython.com/img/logos/flask.jpg" width=500>
+
+This article demonstrates how to quickly build a RESTful API in Python using the [Flask](https://www.fullstackpython.com) library. To know about RESTful APIs, read the article on [Design principles behind RESTful APIs](/blog/design-principles-behind-restful-apis/).
+
+<!-- TEASER_END -->
+
+## Boiler plate
 There is very little boiler plate necessary when defining a flask app. Something as limited as:
 
 ```python
@@ -23,10 +33,10 @@ def get_time():
 if __name__ == '__main__':
 	app.run()
 ```
-In the code above, you have defined 2 endpoints - a root / landing page and a `/time` endpoint. You can run this app from terminal as `python -m <filename>` which will start the webserver and give you an IP address to go or call.
+In the code above, you have defined 2 endpoints - a root `/` landing page and a `/time` endpoint. You can run this app from terminal as `python -m <filename>` which will start the webserver and give you an IP address to go or call.
 
 ## Passing arguments
-When calling an endpoint, users can send the server some information. This info can be sent via GET or POST calls. By following HTTP verbs, if user wants to collect info back, they should send it via GET, else if the call is to perform some operation on the server side, then POST.
+When calling an endpoint, users can send the server some information. This info can be sent via `GET` or `POST` calls. By following HTTP verbs, if user wants to collect info back, they should send it via `GET`, else if the call is to perform some operation on the server side, then use `POST`, `PUT`, `DELETE`.
 
 ```python
 from flask import request # used to parse payload
@@ -35,7 +45,8 @@ def welcome_message():
 	"""
 	Called as /hello?name='value'
 	"""
-	name = request.get('name', '') # if user sends payload to variable name, get it. Else empty string
+    # if user sends payload to variable name, get it. Else empty string
+	name = request.get('name', '') 
 	return f'Welcome {name}'
 ```
 **Note**, sometimes your web app needs to make calls to other resources on the web. For this you can use the `requests` library. The `request` module of Flask used in the snippet is not to be confused with the `requests` library.
@@ -167,7 +178,7 @@ Now, to display the image, we need this part in the template HTML file
 ## Database CRUD operations
 One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using `sqlalchemy` library to  create an in-memory `sqlite` database and perform CRUD - Create, Read, Update, Delete operations on it.
 
-### An intro to `sqlalchemy`
+### `sqlalchemy` in 2 minutes
 Sqlalchemy library is an ORM (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a DB and perform CRUD ops in addition to others.
 
 Connecting to a DB. In this case a sqllite db is created. If you want the db in-memory, then specify `memory` as location.
@@ -207,7 +218,7 @@ Finnaly, we need to create the table define above on the db.
 Base.metadata.create_all(engine)
 ```
 
-#### Inserting rows
+### Inserting rows
 Create an instance of the class you created that inherited the `declarative_base`.
 ```python
 puppy1 = Puppy(puppy_name = 'nemo') #pass the columns info to the constructor
@@ -217,3 +228,34 @@ session.add(puppy1)
 session.commit()
 ```
 Since, we did not pass `puppy_id`, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an `add` but have the primary key specified.
+
+### User facing CRUD API:
+Below is an example endpoint that can perform all 4 CRUD operations:
+
+```python
+@app.route('/addresses/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def address_id_handler(id):
+    """
+    GET - called as /addresses/25
+    PUT - called to update as /addresses/25?address='abc'&lat=25&lon=89
+    DELETE - called as /addresses/25
+    :param id:
+    :return:
+    """
+    if request.method == 'GET':
+        return jsonify(read_address(session, address_id=id))
+
+    elif request.method == 'PUT':
+        address = request.form.get('address','dummy')
+        lat = request.form.get('lat',0.1)
+        lon = request.form.get('lon',0.1)
+        update_address(session, address_id=id, search_string=address, lat=lat, lon=lon)
+        return jsonify({'success': True})
+
+    elif request.method == 'DELETE':
+        delete_address(session, id)
+```
+If you called `/addresses/<id>` with an existing `id` via `GET`, you perform a Read operation. Calling with a new `id` via `PUT` will do a Create operation. However, calling with an existing `id` via `PUT` will do an Update operation. Finally, `DELETE` will Delete that record from the DB.
+
+## Conclusion
+To view the full app in action, checkout [the apps section](/apps/) section. To see its source code, see this [GitHub repo](https://github.com/AtmaMani/thermos).
