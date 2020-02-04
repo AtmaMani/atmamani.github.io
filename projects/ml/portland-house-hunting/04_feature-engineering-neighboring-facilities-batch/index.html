@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04_feature-engineering-neighboring-facilities-batch | Atma's blog</title>
+<title>04_feature-engineering-neighboring-facilities-batch | Atma’s blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
             </button>
             <a class="navbar-brand" href="https://atmamani.github.io/">
 
-                <span id="blog-title">Atma's blog</span>
+                <span id="blog-title">Atma’s blog</span>
             </a>
         </div>
 <!-- /.navbar-header -->
@@ -56,28 +56,28 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../../math/">Learn math with Python</a>
+<a href="../../../math/">Learn math with Python</a>
                     </li>
 <li>
-<a href="../../../stats/">Learn stats with Python</a>
+<a href="../../../stats/">Learn stats with Python</a>
                     </li>
 <li>
-<a href="../../">Machine Learning projects</a>
+<a href="../../">Machine Learning projects</a>
                     </li>
 <li>
-<a href="../../../dl/">Deep Learning projects</a>
+<a href="../../../dl/">Deep Learning projects</a>
                     </li>
 <li>
-<a href="../../../spatial/">Spatial analysis</a>
+<a href="../../../spatial/">Spatial analysis</a>
                     </li>
 <li>
-<a href="../../../thermal/">Thermal remote sensing</a>
+<a href="../../../thermal/">Thermal remote sensing</a>
                     </li>
 <li>
-<a href="../../../mwrs/">Microwave remote sensing</a>
+<a href="../../../mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
-<a href="../../../fun/">Fun projects</a>
+<a href="../../../fun/">Fun projects</a>
             </li>
 </ul>
 </li>
@@ -91,145 +91,145 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../../../cheatsheets/learning-resources/">General learning resources</a>
+<a href="../../../../cheatsheets/learning-resources/">General learning resources</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
                     </li>
 <li>
-<a href="../../../../images/regex-mindmap.jpg">Python regex</a>
-                    </li>
-<li>
-<a href="../../../../"><hr></a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+<a href="../../../../images/regex-mindmap.jpg">Python regex</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+<a href="../../../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+<a href="../../../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
                     </li>
 <li>
-<a href="../../../../"><hr></a>
+<a href="../../../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
+<a href="../../../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+<a href="../../../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+<a href="../../../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/js_essentials/">Javascript essentials</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/latex-1/">Latex introduction</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/docker-1/">Docker introduction</a>
+<a href="../../../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
-                    </li>
-<li>
-<a href="../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+<a href="../../../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
                     </li>
 <li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/web-development/">Web Development</a>
+<a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../../../cheatsheets/html/">HTML basics</a>
             </li>
 </ul>
 </li>
@@ -237,7 +237,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml">RSS feed</a>
 
                 
             </li>
@@ -271,16 +271,16 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p></p>
-<h2>**Table of Contents**<span class="tocSkip"></span>
-</h2>
+<h2 id="table-of-contents">**Table of Contents**<span class="tocSkip"></span>
+<a href="#table-of-contents" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <div class="toc"><ul class="toc-item"><li>
 <span><a href="#Feature-engineering---quantifying-access-to-facilities---batch-mode" data-toc-modified-id="Feature-engineering---quantifying-access-to-facilities---batch-mode-1">Feature engineering - quantifying access to facilities - batch mode</a></span><ul class="toc-item">
-<li><span><a href="#Read-the-shortlisted-properties" data-toc-modified-id="Read-the-shortlisted-properties-1.1">Read the shortlisted properties</a></span></li>
-<li><span><a href="#Loop-through-each-property-and-build-the-neighborhood-facility-table" data-toc-modified-id="Loop-through-each-property-and-build-the-neighborhood-facility-table-1.2">Loop through each property and build the neighborhood facility table</a></span></li>
+<li><span><a href="#Read-the-shortlisted-properties" data-toc-modified-id="Read-the-shortlisted-properties-1.1">Read the shortlisted properties</a></span></li>
+<li><span><a href="#Loop-through-each-property-and-build-the-neighborhood-facility-table" data-toc-modified-id="Loop-through-each-property-and-build-the-neighborhood-facility-table-1.2">Loop through each property and build the neighborhood facility table</a></span></li>
 <li>
 <span><a href="#Feature-engineer-with-access-to-amenities" data-toc-modified-id="Feature-engineer-with-access-to-amenities-1.3">Feature engineer with access to amenities</a></span><ul class="toc-item">
-<li><span><a href="#Plot-the-distribution-of-facility-access" data-toc-modified-id="Plot-the-distribution-of-facility-access-1.3.1">Plot the distribution of facility access</a></span></li>
-<li><span><a href="#Store-to-disk" data-toc-modified-id="Store-to-disk-1.3.2">Store to disk</a></span></li>
+<li><span><a href="#Plot-the-distribution-of-facility-access" data-toc-modified-id="Plot-the-distribution-of-facility-access-1.3.1">Plot the distribution of facility access</a></span></li>
+<li><span><a href="#Store-to-disk" data-toc-modified-id="Store-to-disk-1.3.2">Store to disk</a></span></li>
 </ul>
 </li>
 </ul>
@@ -294,8 +294,8 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Feature-engineering---quantifying-access-to-facilities---batch-mode">Feature engineering - quantifying access to facilities - batch mode<a class="anchor-link" href="#Feature-engineering---quantifying-access-to-facilities---batch-mode">¶</a>
-</h2>
-<p>This notebook is similar to previous (04_feature-engineering-neighboring-facilities), except, this one runs for all shortlisted facilities and adds these as features.</p>
+<a href="#Feature-engineering---quantifying-access-to-facilities---batch-mode" class="headerlink" title="Permalink to this heading">¶</a></h2>
+<p>This notebook is similar to previous (04_feature-engineering-neighboring-facilities), except, this one runs for all shortlisted facilities and adds these as features.</p>
 
 </div>
 </div>
@@ -329,7 +329,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Connect to GIS</p>
+<p>Connect to GIS</p>
 
 </div>
 </div>
@@ -355,7 +355,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Read-the-shortlisted-properties">Read the shortlisted properties<a class="anchor-link" href="#Read-the-shortlisted-properties">¶</a>
-</h3>
+<a href="#Read-the-shortlisted-properties" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
 </div>
@@ -433,7 +433,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Loop-through-each-property-and-build-the-neighborhood-facility-table">Loop through each property and build the neighborhood facility table<a class="anchor-link" href="#Loop-through-each-property-and-build-the-neighborhood-facility-table">¶</a>
-</h3>
+<a href="#Loop-through-each-property-and-build-the-neighborhood-facility-table" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
 </div>
@@ -526,7 +526,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
     <span class="n">shops_service_count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shops_service</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Shops'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" : "</span><span class="p">)</span>
     
-    <span class="c1"># travel &amp; transport</span>
+    <span class="c1"># travel <span class="amp">&amp;</span> transport</span>
     <span class="n">transport</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">'travel and transport'</span><span class="p">,</span> 
                         <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">travel_transport_count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transport</span><span class="p">))</span>
@@ -922,7 +922,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Feature-engineer-with-access-to-amenities">Feature engineer with access to amenities<a class="anchor-link" href="#Feature-engineer-with-access-to-amenities">¶</a>
-</h3>
+<a href="#Feature-engineer-with-access-to-amenities" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
 </div>
@@ -988,7 +988,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <th>PRICE</th>
       <th>BEDS</th>
       <th>BATHS</th>
-      <th>...</th>
+      <th>…</th>
       <th>hospitals_count</th>
       <th>coffee_count</th>
       <th>bars_count</th>
@@ -1013,7 +1013,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <td>334900.0</td>
       <td>4.0</td>
       <td>2.5</td>
-      <td>...</td>
+      <td>…</td>
       <td>0</td>
       <td>19</td>
       <td>0</td>
@@ -1037,7 +1037,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <td>349950.0</td>
       <td>3.0</td>
       <td>2.5</td>
-      <td>...</td>
+      <td>…</td>
       <td>2</td>
       <td>23</td>
       <td>0</td>
@@ -1061,7 +1061,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <td>358999.0</td>
       <td>4.0</td>
       <td>2.5</td>
-      <td>...</td>
+      <td>…</td>
       <td>0</td>
       <td>16</td>
       <td>0</td>
@@ -1085,7 +1085,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <td>369800.0</td>
       <td>4.0</td>
       <td>2.5</td>
-      <td>...</td>
+      <td>…</td>
       <td>2</td>
       <td>18</td>
       <td>0</td>
@@ -1109,7 +1109,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
       <td>379900.0</td>
       <td>3.0</td>
       <td>2.0</td>
-      <td>...</td>
+      <td>…</td>
       <td>0</td>
       <td>13</td>
       <td>0</td>
@@ -1123,7 +1123,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
     </tr>
 </tbody>
 </table>
-<p>5 rows × 36 columns</p>
+<p>5 rows × 36 columns</p>
 </div>
 </div>
 
@@ -1139,7 +1139,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Plot-the-distribution-of-facility-access">Plot the distribution of facility access<a class="anchor-link" href="#Plot-the-distribution-of-facility-access">¶</a>
-</h4>
+<a href="#Plot-the-distribution-of-facility-access" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
 </div>
@@ -1225,7 +1225,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the histograms above, most houses don't have very many bars in 5 miles around them. The commute length and duration appears to be tightly clustered around the lower end of the spectrum. Most houses have at least 1 hospital or medical center near them and a large number of parks, restaurants, educational institutions.</p>
+<p>From the histograms above, most houses don’t have very many bars in 5 miles around them. The commute length and duration appears to be tightly clustered around the lower end of the spectrum. Most houses have at least 1 hospital or medical center near them and a large number of parks, restaurants, educational institutions.</p>
 
 </div>
 </div>
@@ -1236,7 +1236,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Store-to-disk">Store to disk<a class="anchor-link" href="#Store-to-disk">¶</a>
-</h4>
+<a href="#Store-to-disk" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
 </div>
@@ -1265,7 +1265,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>'resources/shp/houses_facility_counts.shp'</pre>
+<pre><span class="quo">'</span>resources/shp/houses_facility_counts.shp'</pre>
 </div>
 
 </div>
