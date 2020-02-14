@@ -30,7 +30,7 @@ The $\Theta$ (weight) matrix is 2D for each layer. When you stack all layers tog
 ## Backpropagation
 The objective of backpropagation is to minimize the cost function described above using partial derivatives. For each training sample, we compute an error matrix, which reflects the difference between predicted and output values. It is straightforward to compute the error for the last layer, which is the difference between expected and predicted outputs. Progressively, we compute the error for each of the previous layers.
 
-Let us start by reviewing the steps in forward propagation. The vectorized implementation of it is given in the slide below:
+Let us start by reviewing the steps in **forward propagation**. The vectorized implementation of it is given in the slide below:
 
 <img src='/images/coursera-neural-nets-backprop2.png' width=500>
 
@@ -39,7 +39,7 @@ Next, we start by computing the error in the last layer.
 $$
 \delta_{j}^{(4)} = a_{j}^{(4)} - y_{j}
 $$$$
-in \; vectorized \; terms
+Where \; j \; stands \; for \; each \; node \; in \; the \; layer.\; In \; vectorized \; terms
 $$$$
 \delta^{(4)} = a^{(4)} - y
 $$
@@ -50,13 +50,24 @@ The error vector is now simply the difference between the expected and predicted
 $$
 \delta^{(3)} = (\Theta^{(3)})^{T}\delta^{(4)}.*g'(z^{(3)})
 $$
+
+Where $g'$ for `l=3` is
+
+$$
+g' = a^{(2)}.*(1-a^{(2)})
+$$
+
 and so on..
 
 We don't calculate error for layer 1. Thus no $\delta^{(1)}$. The equations above give the formulae to calculate error for one training sample. When calculating the backprop for many training samples, we first perform forward propagation, compute the weights, then immediately, perform backprop to calculate the error terms and update the weights immediately. Next, we proceed to the next training sample.
 
 <img src='/images/coursera-neural-nets-backprop3.png' width=500>
 
-The figure above shows the vectorized implementations of calculating the error term for all samples as a 2D matrix $\Delta_{ij}^{(l)}$.
+The figure above shows the vectorized implementations of calculating the error term for all samples as a 2D matrix $\Delta_{ij}^{(l)}$, where $i=1 to m$ represents individual training samples and $j$ and $l$ stand for number of nodes in each layer and layer number respectively. The vectorized implementation is given by
+
+$$
+\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^{T}
+$$
 
 ### Backpropagation Intuition
 Consider the following example of a simple neural net.
