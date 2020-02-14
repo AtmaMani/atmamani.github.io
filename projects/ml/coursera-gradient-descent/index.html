@@ -29,7 +29,7 @@
 Cost functions
 The linear regression estimation function (hypothesis function) can be written as $h_{\theta} (x) = \theta_{0} + \theta_{1}x$. The cost function for this equation can ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-27T15:19:14-08:00">
+<meta property="article:published_time" content="2020-02-13T15:11:41-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -337,7 +337,7 @@ $$
 \theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{i})
 $$
 $$
-\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{theta}(x_{i}) - y_{i})x_{i}] $$</p>
+\theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{\theta}(x_{i}) - y_{i})x_{i}] $$</p>
 <p>Here, m is number of training samples, $\theta_{0}$ is intercept and $\theta_{1}$ is the coefficient 1, $x_{i}$ and $y_{i}$ are values of the training data.</p>
 <p>This process of using the full training sample for calculating the GD is called <strong>batch gradient descent</strong>. In the case of linear regression, the shape of the loss function is a <strong>convex function</strong> which looks like a <strong>bowl</strong>. There is only a global minima and <strong>no local minimas</strong>.</p>
 </div>
