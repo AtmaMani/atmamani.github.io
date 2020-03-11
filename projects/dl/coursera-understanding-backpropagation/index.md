@@ -16,19 +16,50 @@ where $m$ is number of training samples and $n$ is number of parameters.
 
 A neural network is like a multi-class logistic regression. Thus, we need to sum over $K$ classes. In reality, $K$ refers to the number of nodes in the output layer. Thus, in binary classification, although the number of classes is `2`, the number of nodes in output layer is just `1`. Thus `K=1`. The cost function is given as
 
-<img src="/images/coursera-neural-nets-backprop1.png" width=500>
+$$
+J(\Theta) = \frac{-1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} \left[ y_{k}^{(i)}log(h_{\theta}(x_{k}^{(i)})) + (1-y_{k}^{(i)})log(1-h_{\theta}(x_{k}^{(i)}))\right]
+$$
+
+where
+ - $m$ is number of training samples. $i=1\;to\;m$
+ - $K$ is number of nodes in output layer and $k=1 \; to \; K$
+
+The above formula is **cost without penalty or regularization**. It is similar to the cost of a **multiclass logistic regression**. In practice, for logistic regression, we compute cost for training data as a whole. In NN, we compute cost for each training sample per by summing the loss over each class, each sample and finally dividing by number of samples.
+
+### Cost function of neural network with regularization
+We penalize a network for the number of hidden layers and the number of nodes in each layer, simple. The penalty is simply the square of weights for each node, summed up and divided by twice the number of training samples. We finally multiply this result by a factor denoted by $\lambda$. Thus
+
+$$
+J(\Theta) = \frac{-1}{m} \sum_{i=1}^{m} \sum_{k=1}^{K} 
+            \left[ 
+                y_{k}^{(i)}log(h_{\theta}(x_{k}^{(i)})) + 
+            (1-y_{k}^{(i)})log(1-h_{\theta}(x_{k}^{(i)}))
+            \right] + 
+            \frac{\lambda}{2m} \left[  
+                                    \sum_{l=1}^{L-1}\sum_{r=1}^{s_{l}}\sum_{c=1}^{s_{l+1}} (\Theta_{r,c}^{l})^{2}
+                                \right]
+$$
 
 where 
 
  - $m$ is number of training samples. $i=1\;to\;m$
  - $K$ is number of nodes in output layer and $k=1 \; to \; K$
  - $L$ is number of layers in the network and $l=1 \; to \; L-1$ as we exclude the input layer
- - $s_{l}$ is number of nodes in a given layer $l$ and in the penalty term, $i=1 \; to \; s_{l}$ and $j=1 \; to \; s_{l+1}$ `j` and `i` represent the rows and columns of the cost matrix for each layer.
+ - $s_{l}$ is number of nodes in a given layer $l$. 
+ - In the penalty term we sum from for each row and column of the weight matrix. That is, from $r=1 \; to \; s_{l}$ and $c=1 \; to \; s_{l+1}$ `r` and `c` represent the rows and columns of the weight matrix for each layer. 
+ 
+Intuitively, the number rows in a weight matrix depends on number of nodes in that layer. The number of columns however, depends on number of nodes in the next layer (hence summing up to $s_{l+1}$).
+
+From the course, the cost function is given as below. Notice a slight change in the suffix used for penalty. I changed it for clarity in my formula above.
+
+<img src="/images/coursera-neural-nets-backprop1.png" width=500>
 
 The $\Theta$ (weight) matrix is 2D for each layer. When you stack all layers together, it becomes a 3D matrix.
 
 ## Backpropagation
-The objective of backpropagation is to minimize the cost function described above using partial derivatives. For each training sample, we compute an error matrix, which reflects the difference between predicted and output values. It is straightforward to compute the error for the last layer, which is the difference between expected and predicted outputs. Progressively, we compute the error for each of the previous layers.
+The cost function gives us a single unit of measure on how well the network performs. The value of the cost function itself is not to be interpreted as such (unlike RMSE or $R^{2}$ which give you an interpretable result). However, you can compare the performance of different hyperparameters or weights by comparing the resulting loss reported by the cost function. 
+
+Thus, the objective of backpropagation is to minimize the cost function described above using partial derivatives. For each training sample, we compute an error matrix, which reflects the difference between predicted and output values. It is straightforward to compute the error for the last layer, which is the difference between expected and predicted outputs. Progressively, we compute the error for each of the previous layers.
 
 Let us start by reviewing the steps in **forward propagation**. The vectorized implementation of it is given in the slide below:
 
@@ -69,6 +100,8 @@ $$
 \Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}(a^{(l)})^{T}
 $$
 
+The matrixes $D^(l)_{ij}$ represent the **gradient matrices**.
+
 ### Backpropagation Intuition
 Consider the following example of a simple neural net.
 
@@ -89,3 +122,34 @@ $$
 $$
 
 Thus, to calculate the errors in each of the nodes, we need to errors in the terms to the right. In other words, we calculate the error terms from the right to the left, in reverse of the network direction, thus the name backpropagation (of errors).
+
+## Backpropagation implementation
+**Unrolling**: The input layer of a neural network is usually a 1-D array. Thus, when training on image data (which is at a minimum 2D), the images are flattened to a long 1D array (vector), where each row is spliced one after another. This process is called **unrolling**. The inverse transformation is called **rolling** which returns the matrix back to its n-D form.
+
+### Gradient checking
+Gradient checking is an alternate method of getting gradients through numerical approximation techniques. The idea is, consider the cost function is a curve and is a function of your weights $\theta$. The objective is to compute the gradient of the curve at different locations. This numerical approximation method computes the gradient by treating infinitesimally small segments as a straight line and compute the slope of such segments as an approximation for the gradient.
+
+Thus:
+
+$$
+gradApprox \; = \; \frac{J(\theta + \epsilon) - J(\theta - \epsilon)}{2\epsilon}
+$$
+
+### Random initialization
+In logistic regression and linear regression, we initialized the weights to 0 and were able to compute the cost and gradients and finally arrive at the best result. However, this is not possible with neural networks. When weights are all `0` (or a constant), then each neuron is essentially identical to the rest. Thus, we need to break this symmetry by initializing the weights randomly.
+
+In practice, a lower and upper bound (denoted as $[-\epsilon_{init}, \epsilon_{init}]$) is chosen and weights are assigned randomly between these values. A rule of thumb for calculating the limits is to base it on the number of units in the network as:
+
+$$
+\epsilon_{init} = \frac{\sqrt{6}}{\sqrt{L_{in} + L_{out}}}
+$$
+
+where
+ - $L_{in} = s_{l}$ and $L_{out} = s_{l+1}$ which are the number of units in the current and next layer.
+
+## Network architecture choices
+Architecture choices refer to number of hidden layers and number of nodes / neurons in each layer etc. In general, the number of nodes in input layer depend on number of parameters (or pixels in an image) and the number nodes in output layer depend on number of classes. 
+
+As to the hidden layers, having `1` hidden layer is pretty common, the next common is if you are having multiple hidden layers, then the number of nodes in each hidden layer is maintained the same. By and large, the more hidden units / nodes in each layer, the better it is.
+
+The number of nodes in hidden layers is comparable or (slightly more than) to number of units in input layer.
