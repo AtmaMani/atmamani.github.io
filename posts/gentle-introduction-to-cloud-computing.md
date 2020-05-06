@@ -2,8 +2,7 @@ title: A Gentle Introduction to Cloud Computing
 date: 11/12/2019
 slug: gentle-introduction-cloud-computing
 categories: technology
-tags: cloud, python, serverless
-status: draft
+tags: cloud, serverless
 
 **Computing mindset for the 2010s**
 
@@ -25,7 +24,7 @@ We can group compute patterns on the cloud to 3 categories:
 Unlike VMs and containers, when using serverless, you only pay for **function execution time**. In VMs and containers, you pay for **run time** of container and VM, even if they are idle.
 
 ### Characteristics of cloud compute
-Cloud computing is **cost effective** as there is no up-front infrastructure cost, no fixed rent, no spearate electricity or utility bills for your servers.
+Cloud computing is **cost effective** as there is no up-front infrastructure cost, no fixed rent, no separate electricity or utility bills for your servers.
 
 It is **scalable** on demand. You can **vertically scale** by switching to a host machine with more RAM and CPUs or **horizontally scale** by distributing load to many servers and scaling out.
 
@@ -63,24 +62,8 @@ As you thought, each type sits on top of the pervious level, thereby abstracting
 
 <img src="/images/iaas-paas-saas.png">
 
-## The Azure platform
-In this section, let us take a closer look at the Azure platform and the services it provides. Azure provides over a 100 services which it groups into `8` categories:
-
- 1. compute services: VMs, containers, serverless, kubernetes, Azure batch, Azure functions
- 2. cloud storage: disk attached to VMs, file shares, DBs, blob storage, queue storage, SQL and noSQL DBs
- 3. networking: private networks to on-prem
- 4. app hosting: run webapps on Windows or Linux, and a marketplace of other services
- 5. AI: cognitive services - Azure ML service, ML studio
- 6. IoT: integrate sensors into your cloud, build dashboards etc
- 7. integration: logic apps, service bus, workflow orchestration
- 8. security: identity services, intelligence monitoring
-
-Look at the platform help doc under the picture for a table.
-<img src="/images/services-in-azure-platform.png">
-<center><a href="https://docs.microsoft.com/en-us/learn/modules/welcome-to-azure/3-tour-of-azure-services">Image credit: Azure platform help</a></center>
-
-### Account types
-The first `12` months of account creation gives us free access. After this, it is a pay-as-you-go model. However there are `25` [services that will always be free](https://azure.microsoft.com/en-us/free/#new-products).
+## Popular cloud providers
+As of this blog, there are a number of cloud providers out there - Azure, AWS, Rackspace, Linode, Heroku, GCC etc. However, AWS from Amazon and Azure from Microsoft are industry leaders and many other cloud providers actually build on top of these providers. To know more about these, checkout my other blogs on this topic.
 
 ## References
 1. [Azure - principles of cloud computing](https://docs.microsoft.com/en-us/learn/modules/principles-cloud-computing)
