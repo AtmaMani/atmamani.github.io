@@ -78,6 +78,10 @@
   <lastmod>2020-01-29T22:56:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/cloud.xml</loc>
+  <lastmod>2020-05-06T05:30:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/conference.xml</loc>
   <lastmod>2020-01-29T22:55:00Z</lastmod>
  </sitemap>
@@ -198,6 +202,10 @@
   <lastmod>2020-01-29T22:55:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/serverless.xml</loc>
+  <lastmod>2020-05-06T05:30:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/teamwork.xml</loc>
   <lastmod>2020-01-29T22:56:00Z</lastmod>
  </sitemap>
@@ -207,10 +215,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2020-01-29T22:56:00Z</lastmod>
+  <lastmod>2020-05-06T05:30:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2020-02-13T22:46:00Z</lastmod>
+  <lastmod>2020-05-06T05:30:00Z</lastmod>
  </sitemap>
 </sitemapindex>
