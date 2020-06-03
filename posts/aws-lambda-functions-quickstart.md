@@ -36,3 +36,43 @@ From the AWS training site:
 4. A subsequent request starts the lifecycle over, requiring the environment to be launched and bootstrapped. This is a cold start.
 
 <img src="/images/aws-lambda-lifecycle.gif">
+
+## Authoring lambda functions
+This is a simple lambda function that returns the current date:
+
+```python
+import json
+from datetime import datetime
+
+now_date = datetime.now().strftime('%y-%m-%d')
+
+def lambda_handler(event, context):
+    # TODO implement
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda! Now the time is: ' + now_date)
+    }
+```
+The filename is `lambda_function.py` and the invocation is to `lambda_function.lambda_handler`.
+
+At the core of a lambda function is the **`handler(event, context)`** method. The `event` object can either be AWS generated obj (when AWS services invoke) or custom user-defined obj. The `context` obj provides information about the current execution, such as remaining time etc.
+
+You author lambda functions in 3 ways:
+ 1. use the Lambda Management Console web app, which is based off the **Cloud9** web IDE service.
+ 2. Upload code package after you author it using your IDE of choice
+ 3. Upload code package to a S3 bucket and give Lambda the url to the code.
+
+Uploading to S3 bucket might be suitable if your package is >10 MB in size, or if the code is part of a CICD pipeline.
+
+### Principles of a good lambda function
+[AWS Lambda developer guide](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) has more information on best practices. Below is the gist:
+
+ - Functions in your code should be modular, testable and stateless. Separate out business logic from the handler function. If you can identify two separate tasks in your function, break them down and create two separate functions if that's possible. This makes it modular, just like a microservice.
+ - To benefit from warm start, store data locally in `/tmp` directory. But don't assume it is always available.
+ - To write data permanently, use **DynamoDB** service which is serverless and has millisecond latency.
+ - To take advantage of **CloudWatch**, use Python's `logging` module. 
+ - To pass sensitive information, use **environment variables**
+ - While recursion might be elegant in regular programming, it can lead to uncontrolled behavior in lambda functions. So, avoid them.
+
+### Lambda configurations
+Lambda functions are billed for memory and duration of execution. The default memory is `128 MB` and you can request up to `2 GB`. When you request for a larger size, you get proportionally higher compute power and also a higher cost rate. Services are billed for execution duration, or until timeout. Default timeout is `3 sec` and the current max is `15 min`. Thus, you need to optimize for cost of higher memory and cost of exec duration. Sometimes, a higher memory might end up costing less, because it finishes in shorter duration. This comes down to profiling your function and understanding how you can speed it up.
