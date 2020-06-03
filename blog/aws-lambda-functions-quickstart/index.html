@@ -308,6 +308,42 @@
 </li>
 </ol>
 <p><img src="../../images/aws-lambda-lifecycle.gif"></p>
+<h3 id="authoring-lambda-functions">Authoring lambda functions<a href="#authoring-lambda-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>This is a simple lambda function that returns the current date:</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="c1"># TODO implement</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">'statusCode'</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s1">'body'</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="s1">'Hello from Lambda! Now the time is: '</span> <span class="o">+</span> <span class="n">now_date</span><span class="p">)</span>
+    <span class="p">}</span>
+</pre>
+
+
+<p>The filename is <code>lambda_function.py</code> and the invocation is to <code>lambda_function.lambda_handler</code>.</p>
+<p>At the core of a lambda function is the <strong><code>handler(event, context)</code></strong> method. The <code>event</code> object can either be AWS generated obj (when AWS services invoke) or custom user-defined obj. The <code>context</code> obj provides information about the current execution, such as remaining time etc.</p>
+<p>You author lambda functions in 3 ways:
+ 1. use the Lambda Management Console web app, which is based off the <strong>Cloud9</strong> web IDE service.
+ 2. Upload code package after you author it using your IDE of choice
+ 3. Upload code package to a S3 bucket and give Lambda the url to the code.</p>
+<p>Uploading to S3 bucket might be suitable if your package is &gt;10 MB in size, or if the code is part of a CICD pipeline.</p>
+<h4 id="principles-of-a-good-lambda-function">Principles of a good lambda function<a href="#principles-of-a-good-lambda-function" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda developer guide</a> has more information on best practices. Below is the gist:</p>
+<ul>
+<li>Functions in your code should be modular, testable and stateless. Separate out business logic from the handler function. If you can identify two separate tasks in your function, break them down and create two separate functions if that’s possible. This makes it modular, just like a microservice.</li>
+<li>To benefit from warm start, store data locally in <code>/tmp</code> directory. But don’t assume it is always available.</li>
+<li>To write data permanently, use <strong>DynamoDB</strong> service which is serverless and has millisecond latency.</li>
+<li>To take advantage of <strong>CloudWatch</strong>, use Python’s <code>logging</code> module. </li>
+<li>To pass sensitive information, use <strong>environment variables</strong>
+</li>
+<li>While recursion might be elegant in regular programming, it can lead to uncontrolled behavior in lambda functions. So, avoid them.</li>
+</ul>
+<h4 id="lambda-configurations">Lambda configurations<a href="#lambda-configurations" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Lambda functions are billed for memory and duration of execution. The default memory is <code>128 MB</code> and you can request up to <code>2 GB</code>. When you request for a larger size, you get proportionally higher compute power and also a higher cost rate. Services are billed for execution duration, or until timeout. Default timeout is <code>3 sec</code> and the current max is <code>15 min</code>. Thus, you need to optimize for cost of higher memory and cost of exec duration. Sometimes, a higher memory might end up costing less, because it finishes in shorter duration. This comes down to profiling your function and understanding how you can speed it up.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
