@@ -13,4 +13,4 @@ Get the notebooks from [here](https://github.com/Esri/arcgis-python-api/tree/mas
 ### Spatial Data Science with ArcGIS
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UKsCa7liDOI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Get the notebooks from [here](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2019)      
+Get the notebooks from [here](https://github.com/Esri/arcgis-python-api/tree/master/talks/DevSummit2019)

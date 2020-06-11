@@ -19,6 +19,10 @@ Title: Atma's talks
     - <a href='https://www.amazon.com/Essential-Python-Sridevi-Pudipeddi-ebook/dp/B07KDLPW17/' target="_blank"><img src='/images/essential-python-book.jpg' width=150></a>
 -------------------------------------
 ## Talks at Esri sponsored events
+- ### [2020 Esri Developer Summit](2020-esri-devsummit/)
+    - Imagery and raster analysis on your Web GIS
+    - Spatial data science in ArcGIS - a Tour
+    - ArcGIS API for Python for analysts and data scientists
 
 - ### [Spring 2020 Spatial Data Science MOOC](https://www.esri.com/training/catalog/5d76dcf7e9ccda09bef61294/)
 
