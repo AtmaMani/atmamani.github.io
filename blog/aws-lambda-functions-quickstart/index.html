@@ -22,7 +22,7 @@
 
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
-<meta name="robots" content="noindex">
+<link rel="prev" href="../gentle-introduction-cloud-computing/" title="A Gentle Introduction to Cloud Computing" type="text/html">
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="AWS Lambda Functions - a Quick Start guide">
 <meta property="og:url" content="https://atmamani.github.io/blog/aws-lambda-functions-quickstart/">
@@ -282,6 +282,8 @@
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Lambda functions from AWS sit at the heart of its serverless compute services. It lets you run code without you as a developer having to procure, host, maintain and secure servers on the cloud. All you need to worry about is just the code and the business logic. This guide will help you get started creating simple lambda functions.</p>
+<!--TEASER_END-->
+
 <p>AWS promotes several services under its serverless platform as shown below:
 <img src="../../images/aws-serverless-services.jpg"></p>
 <p>To create a lambda function, you need not learn a new language. You can code in one of many supported languages, including Python, Java, Node.JS etc. Your code can perform traditional compute as well as use AWS libraries to talk to the rest of AWS platform services. Scaling (compute scaling, network scaling, IO throughput scaling) happens automatically based on demand. System logs are written to AWS Cloudwatch service. As with any serverless compute service on AWS, you don’t pay for idle time. Before we create a new function, we need to clear some concepts:</p>
@@ -308,7 +310,7 @@
 </li>
 </ol>
 <p><img src="../../images/aws-lambda-lifecycle.gif"></p>
-<h3 id="authoring-lambda-functions">Authoring lambda functions<a href="#authoring-lambda-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="architecture-of-a-lambda-function">Architecture of a lambda function<a href="#architecture-of-a-lambda-function" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>This is a simple lambda function that returns the current date:</p>
 <pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -326,10 +328,12 @@
 
 <p>The filename is <code>lambda_function.py</code> and the invocation is to <code>lambda_function.lambda_handler</code>.</p>
 <p>At the core of a lambda function is the <strong><code>handler(event, context)</code></strong> method. The <code>event</code> object can either be AWS generated obj (when AWS services invoke) or custom user-defined obj. The <code>context</code> obj provides information about the current execution, such as remaining time etc.</p>
-<p>You author lambda functions in 3 ways:
- 1. use the Lambda Management Console web app, which is based off the <strong>Cloud9</strong> web IDE service.
- 2. Upload code package after you author it using your IDE of choice
- 3. Upload code package to a S3 bucket and give Lambda the url to the code.</p>
+<p>You author lambda functions in 3 ways:</p>
+<ol>
+<li>use the Lambda Management Console web app, which is based off the <strong>Cloud9</strong> web IDE service.</li>
+<li>Upload code package after you author it using your IDE of choice</li>
+<li>Upload code package to a S3 bucket and give Lambda the url to the code.</li>
+</ol>
 <p>Uploading to S3 bucket might be suitable if your package is &gt;10 MB in size, or if the code is part of a CICD pipeline.</p>
 <h4 id="principles-of-a-good-lambda-function">Principles of a good lambda function<a href="#principles-of-a-good-lambda-function" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda developer guide</a> has more information on best practices. Below is the gist:</p>
@@ -337,13 +341,54 @@
 <li>Functions in your code should be modular, testable and stateless. Separate out business logic from the handler function. If you can identify two separate tasks in your function, break them down and create two separate functions if that’s possible. This makes it modular, just like a microservice.</li>
 <li>To benefit from warm start, store data locally in <code>/tmp</code> directory. But don’t assume it is always available.</li>
 <li>To write data permanently, use <strong>DynamoDB</strong> service which is serverless and has millisecond latency.</li>
-<li>To take advantage of <strong>CloudWatch</strong>, use Python’s <code>logging</code> module. </li>
-<li>To pass sensitive information, use <strong>environment variables</strong>
-</li>
+<li>To take advantage of <strong>CloudWatch</strong>, use Python’s <code>logging</code> module. Simple print statements also would do and they are captured in CloudWatch.</li>
+<li>To pass sensitive information, use <strong>environment variables</strong>.</li>
 <li>While recursion might be elegant in regular programming, it can lead to uncontrolled behavior in lambda functions. So, avoid them.</li>
 </ul>
 <h4 id="lambda-configurations">Lambda configurations<a href="#lambda-configurations" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Lambda functions are billed for memory and duration of execution. The default memory is <code>128 MB</code> and you can request up to <code>2 GB</code>. When you request for a larger size, you get proportionally higher compute power and also a higher cost rate. Services are billed for memory + execution duration (the max of duration is set as timeout limit). Default timeout is <code>3 sec</code> and the current max is <code>15 min</code>. Thus, you need to optimize for cost of higher memory and cost of exec duration. Sometimes, a higher memory might end up costing less, because it finishes in shorter duration. This comes down to profiling your function and understanding how you can speed it up.</p>
+<h3 id="authoring-lambda-functions">Authoring lambda functions<a href="#authoring-lambda-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>To create a lambda function, create an AWS account (which needs to be different from your Amazon shopping account). If you are a new user, you get <code>12</code> months of free service in addition to certain services that have an always free tier. Checkout <a href="https://aws.amazon.com/lambda/pricing/">https://aws.amazon.com/lambda/pricing/</a> to understand pricing. In my experience, they first <code>50,000</code> executions are practically free, so it is safe to experiment with.</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>
+<p>From AWS console, search for and click on ‘Lambda’. This opens the Lambda console. From the menu on the left, click on ‘Function’ which brings you to the layout shown below:
+<img src="../../images/aws-creating-lambda1.jpg"></p>
+</li>
+<li>
+<p>Click on ‘Create Function’. You can choose from one of 3 options, for now, choose ‘Author from scratch’. Give a name to the function <code>myFirstFn</code> or such. Choose runtime as <code>python3.7</code> or similar. Choose a permission, the default setting will do for now.</p>
+</li>
+<li>
+<p>In the Lambda console, you have different sections. The ‘Designer’ lets you choose <strong>layers</strong> which are Python library layers, more of this later. For now you can choose a <strong>Trigger</strong> as <code>API gateway</code>. Triggers define what will invoke your function. I don’t have a destination in this example, but examples are calling another ‘lambda’ or some other AWS service. There aren’t as many destinations as there are for triggers.
+<img src="../../images/aws-creating-lambda2.jpg">
+If you click on the ‘API Gateway’, you get a URL that is public facing. AWS has set up a web server, a server framework, exposed it to the internet, generated a route that is specific for this function and given you in that URL.</p>
+</li>
+<li>
+<p>The <strong>Function code</strong> section gives you the <strong>Cloud9</strong> based IDE. It feels similar to JupyterLab interface and lets you develop Python code. By convention, the lambda service looks for a file by name <code>lambda_function.py</code> and a function called <code>lambda_handler(event, context)</code> within it for invocation. You can follow the convention, which the console stubs out for you, or change this in the <strong>Basic settings</strong> section. The <code>return</code> statement should return an object that is web friendly - such as JSON or HTML. Any <code>print</code> or <code>logging</code> module statements are captured in <strong>CloudWatch</strong> logs and linked for you for debugging.
+<img src="../../images/aws-creating-lambda3.jpg"></p>
+</li>
+<li>
+<p>Hit <strong>Save</strong> and <strong>Test</strong> to ensure it runs as you expect. This is it. You have created the ‘hello-world’ of lambda functions and its running.</p>
+</li>
+</ol>
+<h2 id="lambda-advanced-concepts">Lambda - advanced concepts<a href="#lambda-advanced-concepts" class="headerlink" title="Permalink to this heading">¶</a></h2>
+<h3 id="runtime-handler-memory-timeouts">Runtime, Handler, Memory, Timeouts<a href="#runtime-handler-memory-timeouts" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Hit the ‘Edit’ button on ‘Basic settings’ to customize as shown below:
+<img src="../../images/aws-creating-lambda4.jpg"></p>
+<p>The ‘Handler’ part allows you to specify your <code>main.py</code> file and the function within to invoke. This is helpful if you deviate from the lambda convention of what you call the handler function.</p>
+<h3 id="lambda-layers">Lambda layers<a href="#lambda-layers" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The Amazon Machine Image for <code>python3.7</code> Lambda comes with bare Python and <code>boto</code> library. Nothing else. Any library that your app needs (such as <code>requests</code> or <code>flask</code>) has to be bundled in your code. If you have more than a few functions that have similar dependency stack, you are essentially repeating the same packages in each function. Besides, the dependency package for my apps can easily exceed the <code>10MB</code> upload limit and the lambda console would not let me live edit my files using the <strong>Cloud9</strong> console. A solution to all of this is to create a <strong>lambda layer</strong> which contains all your dependencies. </p>
+<p>Once you publish a layer, you can link to it from your function and just like that, <code>import</code> your dependencies. Lambda service will take care of laying it and wiring up your <code>Python</code> path. To create a layer, from the lambda menu on the left, choose ‘Layers’ to enter the layers console.
+<img src="../../images/aws-creating-lambda5.jpg"></p>
+<p>Click on ‘Create Layer’, to give it a name, upload your files as a .zip file or from a S3 bucket. Choose runtimes. You can choose more than one.</p>
+<h4 id="building-a-deployment-package-for-a-layer">Building a deployment package for a layer<a href="#building-a-deployment-package-for-a-layer" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The most important thing to remember here is to build your deployment package in an environment that is identical to the lambda service itself. This implies, building the package in a Linux OS (better if you get the same Docker image lambda uses). After several attempts, using <code>pipenv</code> instead of <code>conda</code> and <code>pip3</code> to install packages worked best for me.</p>
+<p><code>pipenv</code> allows you to create a folder as your deployment environment. Then, <code>pip3 install &lt;pkg name&gt; --target .</code> allows you to install the packages in the current directory. Go ahead and install all dependencies. Then  bundle them up as a .zip file and you got yourself a deployment package.</p>
+<h4 id="sharing-layers">Sharing layers<a href="#sharing-layers" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Per the AWS doc, you can share a layer you create with other users. All they need is the <code>arn</code> number. However only those functions deployed in your <strong>AWS Region</strong> can use the layer. If you want it universally available, you may have to publish it in all regions.</p>
+<p>Just like a typical software library, you can <strong>version</strong> a layer. This makes it great to keep layers updated as newer versions are released.</p>
+<h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>This was a quickstart guide teaching what lambda functions are and how to get started with them. Next up, Azure functions.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
@@ -352,6 +397,11 @@
             <li><a class="tag p-category" href="../../categories/cloud-compute/" rel="tag">cloud-compute</a></li>
             <li><a class="tag p-category" href="../../categories/lambda/" rel="tag">lambda</a></li>
             <li><a class="tag p-category" href="../../categories/serverless/" rel="tag">serverless</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../gentle-introduction-cloud-computing/" rel="prev" title="A Gentle Introduction to Cloud Computing">Previous post</a>
+            </li>
         </ul></nav></aside></article>
 </div>
         <!--End of body content-->

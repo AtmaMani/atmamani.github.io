@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://atmamani.github.io/</loc>
-  <lastmod>2020-02-04T08:03:00Z</lastmod>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/2007/</loc>
@@ -34,6 +34,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/2020/</loc>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/apps/</loc>
   <lastmod>2020-01-27T22:13:00Z</lastmod>
  </url>
@@ -51,11 +55,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2020-06-02T22:46:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -72,6 +76,10 @@
  <url>
   <loc>https://atmamani.github.io/blog/articles-on-remote-sensing/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/blog/aws-lambda-functions-quickstart/</loc>
+  <lastmod>2020-06-02T22:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/building-data-science-projects-using-azure-ml-stack/</loc>
@@ -123,7 +131,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -163,7 +171,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -176,6 +184,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/automation/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/aws/</loc>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/azure/</loc>
@@ -236,6 +248,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/cli/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/cloud-compute/</loc>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/cloud/</loc>
@@ -300,6 +316,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/jupyter/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/lambda/</loc>
+  <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/leadership/</loc>

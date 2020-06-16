@@ -18,6 +18,10 @@
   <lastmod>2020-01-29T22:55:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/aws.xml</loc>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/azure.xml</loc>
   <lastmod>2020-01-29T22:55:00Z</lastmod>
  </sitemap>
@@ -63,7 +67,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_technology.xml</loc>
-  <lastmod>2020-01-29T22:55:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_tools.xml</loc>
@@ -78,8 +82,12 @@
   <lastmod>2020-01-29T22:56:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/cloud-compute.xml</loc>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/cloud.xml</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/conference.xml</loc>
@@ -140,6 +148,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/jupyter.xml</loc>
   <lastmod>2020-01-29T22:56:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/lambda.xml</loc>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/leadership.xml</loc>
@@ -203,7 +215,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/serverless.xml</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/teamwork.xml</loc>
@@ -215,10 +227,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2020-05-06T05:30:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2020-06-11T23:24:00Z</lastmod>
+  <lastmod>2020-06-16T21:51:00Z</lastmod>
  </sitemap>
 </sitemapindex>
