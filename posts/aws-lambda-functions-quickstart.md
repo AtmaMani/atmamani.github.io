@@ -6,6 +6,8 @@ Slug: aws-lambda-functions-quickstart
 
 Lambda functions from AWS sit at the heart of its serverless compute services. It lets you run code without you as a developer having to procure, host, maintain and secure servers on the cloud. All you need to worry about is just the code and the business logic. This guide will help you get started creating simple lambda functions.
 
+<!--TEASER_END-->
+
 AWS promotes several services under its serverless platform as shown below:
 <img src="/images/aws-serverless-services.jpg">
 
