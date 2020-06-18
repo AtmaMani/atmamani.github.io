@@ -287,6 +287,33 @@
 <p>AWS promotes several services under its serverless platform as shown below:
 <img src="../../images/aws-serverless-services.jpg"></p>
 <p>To create a lambda function, you need not learn a new language. You can code in one of many supported languages, including Python, Java, Node.JS etc. Your code can perform traditional compute as well as use AWS libraries to talk to the rest of AWS platform services. Scaling (compute scaling, network scaling, IO throughput scaling) happens automatically based on demand. System logs are written to AWS Cloudwatch service. As with any serverless compute service on AWS, you don’t pay for idle time. Before we create a new function, we need to clear some concepts:</p>
+<div class="toc">
+<ul>
+<li>
+<a href="#concepts">Concepts</a><ul>
+<li><a href="#lambda-function-permissions">Lambda function permissions</a></li>
+<li><a href="#lambda-event-sources">Lambda event sources</a></li>
+<li><a href="#lifecycle-of-a-lambda-function">Lifecycle of a lambda function</a></li>
+<li><a href="#architecture-of-a-lambda-function">Architecture of a lambda function</a></li>
+<li><a href="#principles-of-a-good-lambda-function">Principles of a good lambda function</a></li>
+<li><a href="#lambda-configurations">Lambda configurations</a></li>
+</ul>
+</li>
+<li><a href="#authoring-lambda-functions">Authoring lambda functions</a></li>
+<li>
+<a href="#lambda-advanced-concepts">Lambda - advanced concepts</a><ul>
+<li><a href="#runtime-handler-memory-timeouts">Runtime, Handler, Memory, Timeouts</a></li>
+<li>
+<a href="#lambda-layers">Lambda layers</a><ul>
+<li><a href="#building-a-deployment-package-for-a-layer">Building a deployment package for a layer</a></li>
+<li><a href="#sharing-layers">Sharing layers</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="concepts">Concepts<a href="#concepts" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="lambda-function-permissions">Lambda function permissions<a href="#lambda-function-permissions" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>There are two types of permissions - a. what is allowed to invoke the function, and b. what the function is allowed to do (or talk to).</p>
