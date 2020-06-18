@@ -13,6 +13,8 @@ AWS promotes several services under its serverless platform as shown below:
 
 To create a lambda function, you need not learn a new language. You can code in one of many supported languages, including Python, Java, Node.JS etc. Your code can perform traditional compute as well as use AWS libraries to talk to the rest of AWS platform services. Scaling (compute scaling, network scaling, IO throughput scaling) happens automatically based on demand. System logs are written to AWS Cloudwatch service. As with any serverless compute service on AWS, you don't pay for idle time. Before we create a new function, we need to clear some concepts:
 
+[TOC]
+
 ## Concepts
 ### Lambda function permissions
 There are two types of permissions - a. what is allowed to invoke the function, and b. what the function is allowed to do (or talk to).
