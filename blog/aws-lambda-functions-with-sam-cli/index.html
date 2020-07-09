@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building AWS Lambda Functions with SAM CLI | Atma’s blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/blog/aws-lambda-functions-with-sam-cli/">
+<link rel="icon" href="../../scatter-16.png" sizes="16x16">
+<link rel="icon" href="../../scatter-32.png" sizes="32x32">
+<link rel="icon" href="../../scatter-64.png" sizes="64x64">
+<link rel="icon" href="../../scatter-128.png" sizes="128x128">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta name="robots" content="noindex">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Building AWS Lambda Functions with SAM CLI">
+<meta property="og:url" content="https://atmamani.github.io/blog/aws-lambda-functions-with-sam-cli/">
+<meta property="og:description" content="The SAM (Serverless Application Model) allows you to build complex and production ready lambda functions that are performant yet light-weight. If you are new to serverless computing or lambda function">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-06-18T14:05:00-07:00">
+<meta property="article:tag" content="aws">
+<meta property="article:tag" content="cloud">
+<meta property="article:tag" content="cloud-compute">
+<meta property="article:tag" content="lambda">
+<meta property="article:tag" content="serverless">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma’s blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../../talks/">Talks</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../cheatsheets/learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+                    </li>
+<li>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/html/">HTML basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building AWS Lambda Functions with SAM CLI</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Atma Mani
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2020-06-18T14:05:00-07:00" itemprop="datePublished" title="2020-06-18 14:05">2020-06-18 14:05</time></a>
+            </p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">SAM (Serverless Application Model)</a> allows you to build complex and production ready lambda functions that are performant yet light-weight. If you are new to serverless computing or lambda functions, checkout my <a href="../aws-lambda-functions-quickstart/">quick start guide</a>. This article helps you with getting started with SAM CLI.</p>
+<!--TEASER_END-->
+
+<div class="toc">
+<ul>
+<li><a href="#installing-sam-cli">Installing SAM CLI</a></li>
+<li><a href="#sam-specification-the-model">SAM specification (the model)</a></li>
+</ul>
+</div>
+<p>The SAM CLI provides you a development environment that is identical to lambda execution environment. This is possible via a Docker image. Thus before installing SAM, you need a few prerequisites met:</p>
+<h3 id="installing-sam-cli">Installing SAM CLI<a href="#installing-sam-cli" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The prerequisites are</p>
+<ul>
+<li>Docker desktop</li>
+<li>Shared drive space between host and Docker</li>
+<li>Homebrew</li>
+</ul>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html">SAM installation guide</a> walks you through the steps involved for various platforms. After installation, you need to configure it with your AWS account info as <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-set-up-credentials.html">explained here</a></p>
+<h3 id="sam-specification-the-model">SAM specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The model is specified in a template while in YAML format as shown below:</p>
+<pre class="code literal-block"><span></span><span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
+
+<span class="nt">Globals</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of globals</span>
+
+<span class="nt">Description</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">String</span>
+
+<span class="nt">Metadata</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">template metadata</span>
+
+<span class="nt">Parameters</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of parameters</span> <span class="c1"># values to pass to the template at runtime</span>
+
+<span class="nt">Mappings</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of mappings</span> <span class="c1"># kvp to pass based on conditions</span>
+
+<span class="nt">Conditions</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of conditions</span> <span class="c1"># conditions, logic statements</span>
+
+<span class="nt">Resources</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of resources</span> <span class="c1"># stack resources such as EC2 instance or S3 bucket info or details of the lambda runtime</span>
+
+<span class="nt">Outputs</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">set of outputs</span> <span class="c1"># describe the values returned when you view the stack's properties</span>
+</pre>
+
+
+<p>Only the <code>Transform</code> and <code>Resources</code> is required. Since this template is derived from AWS CloudFormation template, there are some overlaps. For example, below is the template created by the hello world application</p>
+<pre class="code literal-block"><span></span><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span> <span class="s">'2010-09-09'</span>
+<span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
+<span class="nt">Description</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
+  <span class="no">try-sam-app</span>
+
+  <span class="no">Sample SAM Template for try-sam-app</span>
+
+<span class="nt">Globals</span><span class="p">:</span>
+  <span class="nt">Function</span><span class="p">:</span>
+    <span class="nt">Timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="nt">Resources</span><span class="p">:</span>
+  <span class="nt">HelloWorldFunction</span><span class="p">:</span>
+    <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+    <span class="nt">Properties</span><span class="p">:</span>
+      <span class="nt">CodeUri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello_world/</span>
+      <span class="nt">Handler</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app.lambda_handler</span>
+      <span class="nt">Runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.7</span>
+      <span class="nt">Events</span><span class="p">:</span>
+        <span class="nt">HelloWorld</span><span class="p">:</span>
+          <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Api</span>
+          <span class="nt">Properties</span><span class="p">:</span>
+            <span class="nt">Path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/hello</span>
+            <span class="nt">Method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
+
+<span class="nt">Outputs</span><span class="p">:</span>
+  <span class="nt">HelloWorldApi</span><span class="p">:</span>
+    <span class="nt">Description</span><span class="p">:</span> <span class="s">"API</span><span class="nv"> </span><span class="s">Gateway</span><span class="nv"> </span><span class="s">endpoint</span><span class="nv"> </span><span class="s">URL</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Prod</span><span class="nv"> </span><span class="s">stage</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">function"</span>
+    <span class="nt">Value</span><span class="p">:</span> <span class="kt">!Sub</span> <span class="s">"https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"</span>
+  <span class="nt">HelloWorldFunction</span><span class="p">:</span>
+    <span class="nt">Description</span><span class="p">:</span> <span class="s">"Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">Lambda</span><span class="nv"> </span><span class="s">Function</span><span class="nv"> </span><span class="s">ARN"</span>
+    <span class="nt">Value</span><span class="p">:</span> <span class="kt">!GetAtt</span> <span class="l l-Scalar l-Scalar-Plain">HelloWorldFunction.Arn</span>
+  <span class="nt">HelloWorldFunctionIamRole</span><span class="p">:</span>
+    <span class="nt">Description</span><span class="p">:</span> <span class="s">"Implicit</span><span class="nv"> </span><span class="s">IAM</span><span class="nv"> </span><span class="s">Role</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">function"</span>
+    <span class="nt">Value</span><span class="p">:</span> <span class="kt">!GetAtt</span> <span class="l l-Scalar l-Scalar-Plain">HelloWorldFunctionRole.Arn</span>
+</pre>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/aws/" rel="tag">aws</a></li>
+            <li><a class="tag p-category" href="../../categories/cloud/" rel="tag">cloud</a></li>
+            <li><a class="tag p-category" href="../../categories/cloud-compute/" rel="tag">cloud-compute</a></li>
+            <li><a class="tag p-category" href="../../categories/lambda/" rel="tag">lambda</a></li>
+            <li><a class="tag p-category" href="../../categories/serverless/" rel="tag">serverless</a></li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2020         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
