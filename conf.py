@@ -197,6 +197,7 @@ NAVIGATION_LINKS = {
                 ('/cheatsheets/open-geo/geopandas-4/', "GeoPandas - PySal, OSM data IO"),
                 ('/cheatsheets/open-geo/open-geo-raster-1/', "Rasterio - IO, plotting, histograms"),
                 ('/cheatsheets/open-geo/open-geo-raster-2/', "Rasterio - hyperspectral, SAM"),
+                ('/cheatsheets/open-geo/reading-multidim-data-using-opengeotools/', "Reading multi-dimensional data using open geo tools"),
                 ('/cheatsheets/open-geo/postgis-1/', "PostGIS - introduction"),
                 ('/cheatsheets/open-geo/postgis-2/', "PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas"),
                 ('/', "<hr>"),
