@@ -174,6 +174,7 @@ NAVIGATION_LINKS = {
                 ('/', "<hr>"),
                 ('/cheatsheets/matplotlib/matplotlib_1/', "Matplotlib basics"),
                 ('/cheatsheets/matplotlib/matplotlib_2/', "Matplotlib log scales, ticks, scientific"),
+                ('/cheatsheets/matplotlib/matplotlib_geo/', "Geographical plotting with Basemap - matplotlib toolkit"),
                 ('/', "<hr>"),
                 ('/cheatsheets/seaborn/seaborn_cheat_sheet_1/', "Seaborn dist, joint, pair, rug plots"),
                 ('/cheatsheets/seaborn/seaborn_cheat_sheet_2/', "Seaborn categorical - bar, count, <br>violin, strip, swarm plots"),
