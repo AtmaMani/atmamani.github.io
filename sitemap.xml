@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2020-07-30T14:46:00Z</lastmod>
+  <lastmod>2020-08-17T06:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -127,11 +127,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2020-07-30T14:46:00Z</lastmod>
+  <lastmod>2020-08-17T06:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2020-07-30T14:46:00Z</lastmod>
+  <lastmod>2020-08-17T06:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -428,6 +428,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/matplotlib/matplotlib_2/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/matplotlib/matplotlib_geo/</loc>
+  <lastmod>2020-08-17T06:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/numpy/numpy_cheat_sheet_1/</loc>
