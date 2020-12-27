@@ -6,8 +6,24 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 
  1. How are the features distributed? (Spatial distribution)
  2. What is the pattern created by these features - are the locations spatially clustered?
- 3. If clustered, where is the cluster?
+ 3. If clustered, where are the clusters?
  4. What are the relationships between sets of features or values? Once you establish the strength of relationship between two layers, then you can use one to predict the other.
+
+### 1.1 Geographic analysis with statistics
+**Framing the question**: In **descriptive statistics**, the question usually takes the form: Where is the center of crimes? What is the overall direction of storm tracks?.
+
+In **inferential statistics**, the analysis is stated as a **hypothesis** and that takes the form: Burglaries are more clustered than auto thefts. To ensure impartiality, statisticians often frame the inverse of what they intend to prove as the hypothesis. Thus the same analysis would be framed as *Burglaries are not more clustered than auto thefts* (called `null hypothesis`) and they determine whether or not to reject this null hypothesis.
+
+### 1.2 Understanding geographic data
+**Spatial data types**: Geographic features are spread in space. Their location can be analyzed based on their location or using location influenced by an attribute value. Thus, geographic features are either discrete or spatially continuous. **Discrete features** can be locations of stores, weather stations etc. and are represented as `Points`. `Lines` can be **disjunct** (animal migration routes) or connected, as in a network (streets). Spatially continuous features such as temperature, precipitation are measured anywhere and everywhere. Such `continuous field` data are represented as a `Polygon` or as a surface.
+
+Now let's talk about **types of attribute values**: Attribute values can be
+
+ - `nominal` (categorical) - ex: land cover types, 
+ - `ordinal` (ordered) - ex: soil suitability, landslide risk zone. In ordinal scale, you only know under which class a feature falls, but don't know by how much is it better or worse than features in other classes.
+ - `interval` (quantities) - ex: house prices, population. Here, each class gets an upper and lower limit allowing you to understand how wide a class range is and compare different classes.
+- `ratio` types (proportions) - ex: population density, infection rate. 
+
 
 ## 2. Data distributions
 Below are some of the common distributions seen in geography:

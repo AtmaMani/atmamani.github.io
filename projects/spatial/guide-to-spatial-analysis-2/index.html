@@ -28,7 +28,7 @@
 <meta property="og:description" content='1. Why study spatial statistics?
 Studying spatial statistics (or statistical geography) helps answer questions such as: "How sure am I that the pattern I am seeing is not simply due to random occurren'>
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T14:18:46-08:00">
+<meta property="article:published_time" content="2020-12-25T08:57:01-08:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -276,9 +276,25 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <ol>
 <li>How are the features distributed? (Spatial distribution)</li>
 <li>What is the pattern created by these features - are the locations spatially clustered?</li>
-<li>If clustered, where is the cluster?</li>
+<li>If clustered, where are the clusters?</li>
 <li>What are the relationships between sets of features or values? Once you establish the strength of relationship between two layers, then you can use one to predict the other.</li>
 </ol>
+<h4 id="11-geographic-analysis-with-statistics">1.1 Geographic analysis with statistics<a href="#11-geographic-analysis-with-statistics" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p><strong>Framing the question</strong>: In <strong>descriptive statistics</strong>, the question usually takes the form: Where is the center of crimes? What is the overall direction of storm tracks?.</p>
+<p>In <strong>inferential statistics</strong>, the analysis is stated as a <strong>hypothesis</strong> and that takes the form: Burglaries are more clustered than auto thefts. To ensure impartiality, statisticians often frame the inverse of what they intend to prove as the hypothesis. Thus the same analysis would be framed as <em>Burglaries are not more clustered than auto thefts</em> (called <code>null hypothesis</code>) and they determine whether or not to reject this null hypothesis.</p>
+<h4 id="12-understanding-geographic-data">1.2 Understanding geographic data<a href="#12-understanding-geographic-data" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p><strong>Spatial data types</strong>: Geographic features are spread in space. Their location can be analyzed based on their location or using location influenced by an attribute value. Thus, geographic features are either discrete or spatially continuous. <strong>Discrete features</strong> can be locations of stores, weather stations etc. and are represented as <code>Points</code>. <code>Lines</code> can be <strong>disjunct</strong> (animal migration routes) or connected, as in a network (streets). Spatially continuous features such as temperature, precipitation are measured anywhere and everywhere. Such <code>continuous field</code> data are represented as a <code>Polygon</code> or as a surface.</p>
+<p>Now let’s talk about <strong>types of attribute values</strong>: Attribute values can be</p>
+<ul>
+<li>
+<code>nominal</code> (categorical) - ex: land cover types, </li>
+<li>
+<code>ordinal</code> (ordered) - ex: soil suitability, landslide risk zone. In ordinal scale, you only know under which class a feature falls, but don’t know by how much is it better or worse than features in other classes.</li>
+<li>
+<code>interval</code> (quantities) - ex: house prices, population. Here, each class gets an upper and lower limit allowing you to understand how wide a class range is and compare different classes.</li>
+<li>
+<code>ratio</code> types (proportions) - ex: population density, infection rate. </li>
+</ul>
 <h3 id="2-data-distributions">2. Data distributions<a href="#2-data-distributions" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Below are some of the common distributions seen in geography:</p>
 <h5 id="21-normal-distribution">2.1 Normal distribution<a href="#21-normal-distribution" class="headerlink" title="Permalink to this heading">¶</a></h5>
