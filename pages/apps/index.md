@@ -13,6 +13,7 @@ Python never ceases to impress me. On one end of the spectrum, you can use it to
 ## Javascript apps
 
 - [SoCal active fire map](firemap/)
+- [SoCal active earthquakes](quakemap/)
 
 -------------------------------------
 ## Maps and Apps that I love
