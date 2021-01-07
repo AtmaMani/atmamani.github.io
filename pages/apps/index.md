@@ -14,6 +14,7 @@ Python never ceases to impress me. On one end of the spectrum, you can use it to
 
 - [SoCal active fire map](firemap/)
 - [SoCal active earthquakes](quakemap/)
+- [USA wild fire hazard potential](wildfire-hazard/)
 
 -------------------------------------
 ## Maps and Apps that I love
