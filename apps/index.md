@@ -10,7 +10,7 @@ Python never ceases to impress me. On one end of the spectrum, you can use it to
  - <img src='/images/flask-heroku-webapp.png' width=500>
 
 -------------------------------------
-## Javascript apps
+## Hazard monitoring apps
 
 - [SoCal active fire map](firemap/)
 - [SoCal active earthquakes](quakemap/)

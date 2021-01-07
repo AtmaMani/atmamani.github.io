@@ -1,3 +1,5 @@
 Title: Live earthquake map from USGS
 
-<style>.embed-container {position: relative; padding-bottom: 50%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="400" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Recent Global Earthquakes - Web Map-Copy" src="//amani-pychakras.maps.arcgis.com/apps/Embed/index.html?webmap=f0eb673436a24fd6ae6298c2cb9b1321&extent=-118.2177,32.8183,-115.8474,34.7426&zoom=true&previewImage=false&scale=true&search=true&searchextent=true&legendlayers=true&disable_scroll=false&theme=light"></iframe></div>
+If you cannot view the map on this page, [click here](https://amani-pychakras.maps.arcgis.com/apps/instant/minimalist/index.html?appid=a273660682464928a169033e6730a407) to open it in full screen.
+
+<html><iframe src="https://amani-pychakras.maps.arcgis.com/apps/instant/minimalist/index.html?appid=a273660682464928a169033e6730a407" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></html>
