@@ -1,5 +1,5 @@
-Title: Where was this photo taken? Tool to extract location information and embed maps in photos
-Date: 2021-02-05 11:25
+Title: Where was this photo taken? A Python based web-app to extract location information and embed maps in photos
+Date: 2021-02-04 11:25
 Category: technology
 Tags: maps, flask, gps, exif, geo-taggs, cloud-compute
 Slug: embedding-maps-in-photos
