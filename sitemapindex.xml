@@ -67,7 +67,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_technology.xml</loc>
-  <lastmod>2020-06-16T22:41:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cat_tools.xml</loc>
@@ -83,7 +83,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cloud-compute.xml</loc>
-  <lastmod>2020-06-16T22:41:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/cloud.xml</loc>
@@ -114,8 +114,12 @@
   <lastmod>2020-06-16T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/exif.xml</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/flask.xml</loc>
-  <lastmod>2020-06-16T22:39:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/foss4g.xml</loc>
@@ -124,6 +128,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/geeky-stuff.xml</loc>
   <lastmod>2020-06-16T22:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/geo-taggs.xml</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/geo.xml</loc>
@@ -140,6 +148,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/gis.xml</loc>
   <lastmod>2020-06-16T22:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/gps.xml</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/house-hunting.xml</loc>
@@ -164,6 +176,10 @@
  <sitemap>
   <loc>https://atmamani.github.io/categories/management.xml</loc>
   <lastmod>2020-06-16T22:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/maps.xml</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/matlab.xml</loc>
@@ -227,10 +243,10 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2020-06-16T22:41:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2021-01-07T00:35:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </sitemap>
 </sitemapindex>

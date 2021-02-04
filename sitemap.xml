@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://atmamani.github.io/</loc>
-  <lastmod>2020-06-15T22:14:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/2007/</loc>
@@ -38,6 +38,10 @@
   <lastmod>2020-06-15T22:14:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/2021/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/apps/</loc>
   <lastmod>2021-01-07T00:35:00Z</lastmod>
  </url>
@@ -63,11 +67,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2021-01-06T17:34:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2020-07-09T16:01:00Z</lastmod>
+  <lastmod>2021-02-04T19:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -118,6 +122,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/embedding-maps-in-photos/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/gentle-introduction-cloud-computing/</loc>
   <lastmod>2019-11-13T00:14:00Z</lastmod>
  </url>
@@ -139,7 +147,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2021-01-06T17:34:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -179,7 +187,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2020-06-15T22:14:00Z</lastmod>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -290,6 +298,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/categories/exif/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/categories/flask/</loc>
   <lastmod>2020-01-27T23:14:00Z</lastmod>
  </url>
@@ -300,6 +312,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/geeky-stuff/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/geo-taggs/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/geo/</loc>
@@ -316,6 +332,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/gis/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/gps/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/house-hunting/</loc>
@@ -340,6 +360,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/management/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/maps/</loc>
+  <lastmod>2021-02-04T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/matlab/</loc>
