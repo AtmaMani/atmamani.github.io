@@ -153,6 +153,7 @@ NAVIGATION_LINKS = {
         ),
         ("/blog/","Blog"),
         ("/talks/", "Talks"),
+        ("/books/", "Books"),
         (
             (
                 ('/cheatsheets/learning-resources/', "General learning resources"),
