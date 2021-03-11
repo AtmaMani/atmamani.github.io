@@ -67,11 +67,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2021-02-17T22:19:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2021-02-04T19:30:00Z</lastmod>
+  <lastmod>2021-03-11T17:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -138,6 +138,14 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/how-many-snakes-python-concurrency-1/</loc>
+  <lastmod>2021-03-11T17:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/blog/how-many-snakes-python-concurrency/</loc>
+  <lastmod>2021-03-09T16:22:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/imagery-in-arcgis-ecosystem/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -147,7 +155,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2021-02-17T22:19:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -191,7 +199,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2021-02-04T19:41:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -382,8 +390,16 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/categories/parallel-processing/</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/categories/physics/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/processes/</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/project-management/</loc>
@@ -424,6 +440,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/teamwork/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/threads/</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/version-control/</loc>

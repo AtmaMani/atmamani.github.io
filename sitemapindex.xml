@@ -194,8 +194,16 @@
   <lastmod>2020-06-16T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/parallel-processing.xml</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/physics.xml</loc>
   <lastmod>2020-06-16T22:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://atmamani.github.io/categories/processes.xml</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/project-management.xml</loc>
@@ -207,7 +215,7 @@
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/python.xml</loc>
-  <lastmod>2020-06-16T22:39:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/categories/real-estate.xml</loc>
@@ -238,15 +246,19 @@
   <lastmod>2020-06-16T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://atmamani.github.io/categories/threads.xml</loc>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://atmamani.github.io/categories/version-control.xml</loc>
   <lastmod>2020-06-16T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/rss.xml</loc>
-  <lastmod>2021-02-04T19:41:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://atmamani.github.io/sitemap.xml</loc>
-  <lastmod>2021-02-17T22:20:00Z</lastmod>
+  <lastmod>2021-03-11T18:00:00Z</lastmod>
  </sitemap>
 </sitemapindex>
