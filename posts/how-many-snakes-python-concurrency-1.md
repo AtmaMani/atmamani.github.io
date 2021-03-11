@@ -3,7 +3,6 @@ date: 03/03/2021
 slug: how-many-snakes-python-concurrency-1
 categories: technology
 tags: parallel processing, python, threads, processes
-status: draft
 
 <img src="/images/concurrency-cover-threads.jpg">
 
@@ -286,7 +285,8 @@ In worker:  2
 Blocking result: 4
 ```
 
-
+## Conclusion
+This concludes the introduction to concurrency in Python. While this article explains the concepts of threads and processes with examples, it is no way close to explaining how to build a program to use these concepts. That is for another part of this article. In the subsequent parts of the article, we will see the need for locks, barriers, synchronization. We will also look into concurrency patterns such as `futures` and libraries such as `asyncio` and review their applications.
 
 ## References
 
