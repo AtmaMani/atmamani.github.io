@@ -1,9 +1,11 @@
 title: How many snakes do you need? An introduction to concurrency and parallelism in Python
 date: 03/03/2021
-slug: how-many-snakes-python-concurrency
+slug: how-many-snakes-python-concurrency-1
 categories: technology
 tags: parallel processing, python, threads, processes
 status: draft
+
+<img src="/images/concurrency-cover-threads.jpg">
 
 ## Performance matters
 At some point, every Python developer wonders if it's their program that is slow, or Python that is slow. In most cases, it is their program itself. Although Python gets a bad rap for being slower than compiled languages like C, C++, developers can utilize concurrency and parallelism to see significant gains.
@@ -16,7 +18,7 @@ So, what's the difference between **concurrency** and **parallelism**?
 
 Both concurrency and parallelism share implementation aspects. In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.
 
-It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be **asynchronous**, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a `jobid` for each task which the caller can *poll* at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. **Thus even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.**
+It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be **asynchronous**, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a `jobid` for each task which the caller can *poll* at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. **Thus, even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.**
 
 Another way to differentiate concurrency from parallelism is to simply say, parallelism involves threads in different processors, which allows them to execute at the same time, whereas concurrency is multiple threads on the same process, which although are non-blocking, they do not strictly execute all at the same time. However, these threads still individually make progress since the process will cycle through them.
 
@@ -155,8 +157,137 @@ In this case, `a`,`d`,`e` are the prefixes each thread chose. As you see in the 
 
 
 ## Multiprocessing
+Multiprocessing is running jobs concurrently on multiple processors or cores. This allows developers to truly use modern compute hardware, allowing tasks to run truly in parallel. This mode of computing is useful in data analytics, image processing, animation and gaming.
+
+Similar to threading, Python provides a `multiprocessing` module and a `Process` class. This can be used to run a callable object such as a function in a separate process. Dependency between processes can be expressed using `join()` methods. Processes created this way are directly managed by the **operating system**. Processes are much more heavier and take resources to spin up compared to threads. The advantage though is the ability to exploit multiple cores. 
+
+### Instantiating a `Process`
+Constructing a process looks like below:
+
+```python
+class multiprocess.Process(group=None, target=None, name=None,
+                            args=(), kwargs={}, daemon=None)
+```
+
+`group` is reserved as in threading and is to be used along with the threading API. `target` accepts a callable object, which will be invoked by the `run()` instance method. `name` is the process name, `args` accepts a tuple to pass to the called function and `kwargs` does the same with named args. `daemon` represents whether the process needs to be run as a background daemon.
+
+The `Process` class provides useful methods and properties
+
+ - `start()` which arranges for the `run()` to be started in a separate process
+ - `join([timeout in sec])` to join the current process with another. Current is blocked until timeout or the blocking process ends.
+ - `is_alive()`
+ - `name` - the process's name. Has no semantics, can be useful for debugging
+ - `daemon` - bool flag
+ - `pid` - process ID
+ - `exitcode` - `None` if process has not terminated or value
+ - `terminate()` - to terminate a process
+ - `kill()` - same as terminate, slight differences based on OS.
+ - `close()` - releases all resources used by the process. Raises `ValueError` if the process is still running.
+
+### Using a Pool
+Since creating processes are expensive, one option is to reuse processes within a given application. The `Pool` class represents a pool of worker processes and has methods that allow tasks to be offloaded to these worker processes. A Pool can be created as below:
+
+```python
+class multiprocessing.pool.Pool(processes=None, initializer=None,
+                                initargs=(), maxtasksperchild=None,
+                                context=None)
+```
+
+where `processes` is the number of workers to use. Default is `os.cpu_count()`. `initializer(*initargs)` is used to represent the method to call and its arguments. `maxtasksperchild` is the number of tasks a worker can complete. If None, the worker will live as long as the pool.
+
+
+### `Pool.map()` pattern
+
+An example of using the Pool is shown below:
+
+```python
+from multiprocessing import Pool
+
+def worker(x):
+    print('In worker with: ',x)
+    sleep(2)
+    return x*x
+
+def main():
+    with Pool(processes=4) as pool:
+        print(pool.map(worker, [0,1,2,3,4,5]))
+ 
+
+if __name__=='__main__':
+    main()
+
+# output
+In worker with:  1
+In worker with:  2
+In worker with:  0
+In worker with:  3
+In worker with:  4
+In worker with:  5
+[0, 1, 4, 9, 16, 25]
+```
+Best practice is to close the `Pool` object after use, so the **`with as`** statement is used in the example above. In the example above, only `4` processes were created, but `6` tasks were given. In this case, excess tasks should wait until running processes finish. The `map()` function returns an iterable, List in this case. **Notice: the output order matches the input order** despite things running in parallel.
+
+### `Pool.imap_unordered()` pattern
+
+If output order does not matter, then you can use `imap_unordered()` function instead, which gives you a performance improvement. The above program can be modified as shown below:
+
+```python
+def main():
+    with Pool(processes=4) as pool:
+        for res in pool.imap_unordered(worker, [0,1,2,3,4,5]):
+            print(res)
+
+# output:
+In worker with:  0
+In worker with:  1
+In worker with:  2
+In worker with:  3
+In worker with:  4
+In worker with:  5
+0
+9
+1
+4
+16
+25
+```
+Notice the mismatch between input numbers and their squares.
+
+### `Pool.apply_asyc()` pattern
+
+The `apply_async()` method allows for tasks to be executed asynchronously. This way, the main process can spawn off processes in a pool and continue to progress. The pool will munch the data. Results can be collected through a **callback** function or by using a blocking **`get()`** method.
+
+Example using blocking `get()` method:
+
+```python
+from multiprocessing import Pool
+
+def collect_results(result):
+    print('In collect results: ', result)
+
+
+def worker(x):
+    print('In worker: ',x)
+    sleep(2)
+    return x*x
+
+
+def main():
+    with Pool(processes=2) as pool:
+        # blocking workflow:
+        res = pool.apply_async(worker, [2])
+        print('Blocking result: ' + res.get(timeout=5))
+
+if __name__ == '__main__':
+    main()
+
+# output:
+In worker:  2
+Blocking result: 4
+```
+
 
 
 ## References
 
-* Hunt J. (2019) Introduction to Concurrency and Parallelism. In: Advanced Guide to Python 3 Programming. Undergraduate Topics in Computer Science. Springer, Cham. https://doi.org/10.1007/978-3-030-25943-3_29 
+* Hunt J. (2019) Introduction to Concurrency and Parallelism. In: Advanced Guide to Python 3 Programming. Undergraduate Topics in Computer Science. Springer, Cham. [https://doi.org/10.1007/978-3-030-25943-3_29](https://doi.org/10.1007/978-3-030-25943-3_29)
