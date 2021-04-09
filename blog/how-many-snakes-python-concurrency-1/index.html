@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How many snakes do you need? An introduction to concurrency and parallelism in Python | Atma’s blog</title>
+<title>How many snakes do you need? - An introduction to concurrency and parallelism in Python | Atma’s blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -24,7 +24,7 @@
 </script><meta name="author" content="Atma Mani">
 <link rel="prev" href="../embedding-maps-in-photos/" title="Where was this photo taken? A Python based web-app to extract location information and embed maps in photos" type="text/html">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="How many snakes do you need? An introduction to concurrency and parall">
+<meta property="og:title" content="How many snakes do you need? - An introduction to concurrency and para">
 <meta property="og:url" content="https://atmamani.github.io/blog/how-many-snakes-python-concurrency-1/">
 <meta property="og:description" content="Performance matters
 At some point, every Python developer wonders if it's their program that is slow, or Python that is slow. In most cases, it is their program itself. Although Python gets a bad rap ">
@@ -273,7 +273,7 @@ At some point, every Python developer wonders if it's their program that is slow
         <div class="row">
             
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">How many snakes do you need? An introduction to concurrency and parallelism in Python</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">How many snakes do you need? - An introduction to concurrency and parallelism in Python</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
@@ -301,7 +301,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <li>
 <strong>Parallelism</strong> is the practice of breaking a large task into smaller subtasks that can run in parallel, at the same time.</li>
 </ul>
-<p>Both concurrency and parallelism share implementation aspects. In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.</p>
+<p>Both concurrency and parallelism share implementation aspects. Concurrency is more about how a program is structured vs parallelism is doing things in parallel. Thus, concurrency is not inherently parallel, but doing things at the same time (by switching context from one thread to another). In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.</p>
 <p>It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be <strong>asynchronous</strong>, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a <code>jobid</code> for each task which the caller can <em>poll</em> at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. <strong>Thus, even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.</strong></p>
 <p>Another way to differentiate concurrency from parallelism is to simply say, parallelism involves threads in different processors, which allows them to execute at the same time, whereas concurrency is multiple threads on the same process, which although are non-blocking, they do not strictly execute all at the same time. However, these threads still individually make progress since the process will cycle through them.</p>
 <h4 id="threads-vs-processes">Threads vs Processes<a href="#threads-vs-processes" class="headerlink" title="Permalink to this heading">¶</a></h4>
@@ -425,6 +425,90 @@ At some point, every Python developer wonders if it's their program that is slow
 
 
 <p>In this case, <code>a</code>,<code>d</code>,<code>e</code> are the prefixes each thread chose. As you see in the print, the threads don’t go off in sequence as the prefix arrive mixed in the prints. The same thread never prints in succession, which would mean as soon as the sleep is encountered, the main thread switches to the other threads and so on until each thread has to eventually finish the sleep time.</p>
+<h4 id="establishing-dependency">Establishing dependency<a href="#establishing-dependency" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The operating system reserves the right to schedule your threads. Thus as a programmer, you do not have the ability to deterministically know when your threads will start and finish. However, in real life, you need certain workers to finish before you can proceed to the next step. You establish this using <code>join()</code> methods off <code>Thread</code> objects. See example below:</p>
+<pre class="code literal-block"><span></span><span class="sd">""" Two threads cooking soup """</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">ChefOlivia</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia started <span class="amp">&amp;</span> waiting for sausage to thaw...'</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia is done cutting sausage.'</span><span class="p">)</span>
+
+<span class="c1"># main thread</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Barron started <span class="amp">&amp;</span> requesting Olivia's help."</span><span class="p">)</span>
+    <span class="n">olivia</span> <span class="o">=</span> <span class="n">ChefOlivia</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron tells Olivia to start.'</span><span class="p">)</span>
+    <span class="n">olivia</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron continues cooking soup.'</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron patiently waits for Olivia to finish and join...'</span><span class="p">)</span>
+    <span class="n">olivia</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron and Olivia are both done!'</span><span class="p">)</span>
+</pre>
+
+
+<p>which prints</p>
+<pre class="code literal-block"><span></span><span class="nv">Barron</span> <span class="nv">started</span> <span class="o">&amp;</span> <span class="nv">requesting</span> <span class="nv">Olivia</span><span class="s1">'</span><span class="s">s help.</span>
+  <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">False</span>
+<span class="nv">Barron</span> <span class="nv">tells</span> <span class="nv">Olivia</span> <span class="nv">to</span> <span class="nv">start</span>.
+<span class="nv">Olivia</span> <span class="nv">started</span> <span class="o">&amp;</span> <span class="nv">waiting</span> <span class="k">for</span> <span class="nv">sausage</span> <span class="nv">to</span> <span class="nv">thaw</span>...
+  <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">True</span>
+<span class="nv">Barron</span> <span class="nv">continues</span> <span class="nv">cooking</span> <span class="nv">soup</span>.
+  <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">True</span>
+<span class="nv">Barron</span> <span class="nv">patiently</span> <span class="nv">waits</span> <span class="k">for</span> <span class="nv">Olivia</span> <span class="nv">to</span> <span class="nv">finish</span> <span class="nv">and</span> <span class="nv">join</span>...
+<span class="nv">Olivia</span> <span class="nv">is</span> <span class="nv">done</span> <span class="nv">cutting</span> <span class="nv">sausage</span>.
+  <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">False</span>
+</pre>
+
+
+<p>In the example above, <code>Olivia</code> is the worker thread, on which the main thread waits before proceeding to a certain step. The example also shows how to inherit a <code>Thread</code> class. When doing this, you only override two methods - the constructor and <code>run()</code> which the scheduler will call once the thread is in <strong>Runnable</strong> state.</p>
+<h4 id="daemon-threads">Daemon threads<a href="#daemon-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Normally, when a program spawns child threads, the program needs to wait until the child completes (that is, if you don’t already have a dependency established using a <code>join()</code>). This may not always be ideal and you might want to kill off the child when the main program exits. You can establish this behavior using <code>daemon</code> threads. Daemon threads are created by passing that parameter to the constructor or by setting the <code>daemon</code> property to <code>True</code>. Once started, you cannot change a normal thread to a daemon thread.</p>
+<p>In the example below, if you did not set <code>daemon=True</code>, the child thread would run forever causing the program to never terminate.</p>
+<pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">kitchen_cleaner</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia cleaned the kitchen.'</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">olivia</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">kitchen_cleaner</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">olivia</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron is cooking...'</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron is cooking...'</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Barron is done!'</span><span class="p">)</span>
+</pre>
+
+
+<p>which prints</p>
+<pre class="code literal-block"><span></span><span class="n">Olivia</span> <span class="n">cleaned</span> <span class="n">the</span> <span class="n">kitchen</span><span class="p">.</span>
+<span class="n">Barron</span> <span class="k">is</span> <span class="n">cooking</span><span class="p">...</span>
+<span class="n">Barron</span> <span class="k">is</span> <span class="n">cooking</span><span class="p">...</span>
+<span class="n">Olivia</span> <span class="n">cleaned</span> <span class="n">the</span> <span class="n">kitchen</span><span class="p">.</span>
+<span class="n">Barron</span> <span class="k">is</span> <span class="n">done</span><span class="o">!</span>
+</pre>
+
+
+<p>The daemon thread is quit abruptly when the main thread terminates. Thus you should be careful what kinds of ops are relegated to a daemon thread. Good options are using daemon for heartbeat, garbage collection, license checks etc.</p>
 <h3 id="multiprocessing">Multiprocessing<a href="#multiprocessing" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Multiprocessing is running jobs concurrently on multiple processors or cores. This allows developers to truly use modern compute hardware, allowing tasks to run truly in parallel. This mode of computing is useful in data analytics, image processing, animation and gaming.</p>
 <p>Similar to threading, Python provides a <code>multiprocessing</code> module and a <code>Process</code> class. This can be used to run a callable object such as a function in a separate process. Dependency between processes can be expressed using <code>join()</code> methods. Processes created this way are directly managed by the <strong>operating system</strong>. Processes are much more heavier and take resources to spin up compared to threads. The advantage though is the ability to exploit multiple cores. </p>

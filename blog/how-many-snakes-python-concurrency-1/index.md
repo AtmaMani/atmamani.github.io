@@ -1,4 +1,4 @@
-title: How many snakes do you need? An introduction to concurrency and parallelism in Python
+title: How many snakes do you need? - An introduction to concurrency and parallelism in Python
 date: 03/03/2021
 slug: how-many-snakes-python-concurrency-1
 categories: technology
@@ -15,7 +15,7 @@ So, what's the difference between **concurrency** and **parallelism**?
 - **Concurrency** is the virtue of tasks not holding up one another and letting the program to progress. Think of blocking vs non-blocking.
 - **Parallelism** is the practice of breaking a large task into smaller subtasks that can run in parallel, at the same time.
 
-Both concurrency and parallelism share implementation aspects. In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.
+Both concurrency and parallelism share implementation aspects. Concurrency is more about how a program is structured vs parallelism is doing things in parallel. Thus, concurrency is not inherently parallel, but doing things at the same time (by switching context from one thread to another). In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.
 
 It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be **asynchronous**, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a `jobid` for each task which the caller can *poll* at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. **Thus, even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.**
 
@@ -154,6 +154,93 @@ a1d1e1   a2d2e2   e3d3a3   e4d4a4   e5 d5a5  e6a6d6   a7e7d7   e8d8a8   e9d9a9
 ```
 In this case, `a`,`d`,`e` are the prefixes each thread chose. As you see in the print, the threads don't go off in sequence as the prefix arrive mixed in the prints. The same thread never prints in succession, which would mean as soon as the sleep is encountered, the main thread switches to the other threads and so on until each thread has to eventually finish the sleep time.
 
+### Establishing dependency
+The operating system reserves the right to schedule your threads. Thus as a programmer, you do not have the ability to deterministically know when your threads will start and finish. However, in real life, you need certain workers to finish before you can proceed to the next step. You establish this using `join()` methods off `Thread` objects. See example below:
+
+```python
+""" Two threads cooking soup """
+import threading
+import time
+
+class ChefOlivia(threading.Thread):
+    def __init__(self):
+        super().__init__()
+    def run(self):
+        print('Olivia started & waiting for sausage to thaw...')
+        time.sleep(3)
+        print('Olivia is done cutting sausage.')
+
+# main thread
+if __name__ == '__main__':
+    print("Barron started & requesting Olivia's help.")
+    olivia = ChefOlivia()
+    print('  Olivia alive?:', olivia.is_alive())
+
+    print('Barron tells Olivia to start.')
+    olivia.start()
+    print('  Olivia alive?:', olivia.is_alive())
+
+    print('Barron continues cooking soup.')
+    time.sleep(0.5)
+    print('  Olivia alive?:', olivia.is_alive())
+
+    print('Barron patiently waits for Olivia to finish and join...')
+    olivia.join()
+    print('  Olivia alive?:', olivia.is_alive())
+
+    print('Barron and Olivia are both done!')
+```
+which prints
+
+```
+Barron started & requesting Olivia's help.
+  Olivia alive?: False
+Barron tells Olivia to start.
+Olivia started & waiting for sausage to thaw...
+  Olivia alive?: True
+Barron continues cooking soup.
+  Olivia alive?: True
+Barron patiently waits for Olivia to finish and join...
+Olivia is done cutting sausage.
+  Olivia alive?: False
+```
+
+In the example above, `Olivia` is the worker thread, on which the main thread waits before proceeding to a certain step. The example also shows how to inherit a `Thread` class. When doing this, you only override two methods - the constructor and `run()` which the scheduler will call once the thread is in **Runnable** state.
+
+### Daemon threads
+Normally, when a program spawns child threads, the program needs to wait until the child completes (that is, if you don't already have a dependency established using a `join()`). This may not always be ideal and you might want to kill off the child when the main program exits. You can establish this behavior using `daemon` threads. Daemon threads are created by passing that parameter to the constructor or by setting the `daemon` property to `True`. Once started, you cannot change a normal thread to a daemon thread.
+
+In the example below, if you did not set `daemon=True`, the child thread would run forever causing the program to never terminate.
+
+```python
+import threading
+import time
+
+def kitchen_cleaner():
+    while True:
+        print('Olivia cleaned the kitchen.')
+        time.sleep(1)
+
+if __name__ == '__main__':
+    olivia = threading.Thread(target=kitchen_cleaner, daemon=True)
+    olivia.start()
+
+    print('Barron is cooking...')
+    time.sleep(0.6)
+    print('Barron is cooking...')
+    time.sleep(0.6)
+    print('Barron is done!')
+```
+
+which prints
+```
+Olivia cleaned the kitchen.
+Barron is cooking...
+Barron is cooking...
+Olivia cleaned the kitchen.
+Barron is done!
+```
+The daemon thread is quit abruptly when the main thread terminates. Thus you should be careful what kinds of ops are relegated to a daemon thread. Good options are using daemon for heartbeat, garbage collection, license checks etc.
 
 ## Multiprocessing
 Multiprocessing is running jobs concurrently on multiple processors or cores. This allows developers to truly use modern compute hardware, allowing tasks to run truly in parallel. This mode of computing is useful in data analytics, image processing, animation and gaming.

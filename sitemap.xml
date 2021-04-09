@@ -71,7 +71,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2021-03-11T17:40:00Z</lastmod>
+  <lastmod>2021-03-31T06:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -140,10 +140,6 @@
  <url>
   <loc>https://atmamani.github.io/blog/how-many-snakes-python-concurrency-1/</loc>
   <lastmod>2021-03-11T17:40:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/blog/how-many-snakes-python-concurrency/</loc>
-  <lastmod>2021-03-09T16:22:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/imagery-in-arcgis-ecosystem/</loc>
@@ -811,7 +807,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/</loc>
-  <lastmod>2020-06-11T23:24:00Z</lastmod>
+  <lastmod>2021-04-09T04:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/2017-esri-devsummit/</loc>
@@ -840,6 +836,10 @@
  <url>
   <loc>https://atmamani.github.io/talks/2020-esri-devsummit/</loc>
   <lastmod>2020-06-11T23:24:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/talks/2021-esri-devsummit/</loc>
+  <lastmod>2021-04-09T04:58:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/talks/arcgis_workshop/</loc>
