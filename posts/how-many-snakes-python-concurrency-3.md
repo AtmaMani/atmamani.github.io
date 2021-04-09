@@ -39,3 +39,10 @@ Current garlic count:  83186
 We should buy 13724492 garlic.
 ```
 which is a classic case of a data race.
+
+## Mutex (Mutual Exclusion) and locks
+A **Critical Section** is the part of your code where multiple threads share the same data in memory. To prevent data corruption, the task of updating a critical section needs to be done uninterrupted - meaning as an **atomic transaction**. This ensures all other threads would read the updated value of the critical section and not stale values.
+
+In programming, this is accomplished using **Mutex** or **Mutual Exclusion**. A mutex is a lock and only the thread possessing it will have access to update a shared resource / critical section. Only after the thread in possession releases a mutex, another thread can gain possession.
+
+Acquiring of a mutex (the lock) is atomic, meaning it appears as an indivisible action to other threads even thought it may internally involve multiple steps. Thus no other thread can interrupt the thread acquiring the lock.

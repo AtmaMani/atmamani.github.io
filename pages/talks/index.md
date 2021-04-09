@@ -11,6 +11,9 @@ Title: Atma's talks
 
 -------------------------------------
 ## Talks at Esri sponsored events
+- ### [2021 Esri Developer Summit](2021-esri-devsummit/)
+    - ArcGIS Pro: Your spatial data science workstation
+    - Deploying apps and services with ArcGIS API for Python
 - ### [2020 Esri Developer Summit](2020-esri-devsummit/)
     - Imagery and raster analysis on your Web GIS
     - Spatial data science in ArcGIS - a Tour
