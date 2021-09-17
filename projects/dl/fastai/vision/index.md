@@ -93,7 +93,7 @@ To resolve the lower accuracy issue, we need to introduce **learning rate** and 
 
 ![](/images/fastai-lr1.jpg)
 
-Using this suggestion, you can run
+In general, we are not looking for learning at lowest loss, but for rate at the steepest segment of the loss curve. Using this suggestion, you can run
 
 ```python
 %%time
@@ -112,4 +112,21 @@ With an additional 4.5 minutes, we improved the accuracy to `93%`. You can then 
 ### Predict on real world data
 To predict on any given image, use the `fastai.vision.image.open_image()` function to load an image. You get back an `fastai.vision.image.Image` object that can be passed to `learn.predict()` function.
 
-The prediction is a `tuple` of `Category, category index and probabilities for each class`.
+The prediction is a `tuple` of (`Category`, `category index`, `probabilities for each class`).
+
+## Hyper-parameter tuning
+
+### Learning rate too high
+When the rate it too high, the validation loss gets obscenely high - like an impossible number. The default `max_lr` is `0.003`.
+
+### Learning rate too low
+When the rate is too small, the model's validation drops, but very very slowly. The command `learn.recorder.plot_losses()` will plot the validation and training loss for visual interpretation. You can bump the rate by a factor of `10` or `100` and try again.
+
+### Training loss > Validation loss
+When a model is properly trained, the training loss is typically lower than validation loss. If the training loss is greater, it means the model is not trained enough - try increasing number of epochs or increase the learning rate.
+
+### Too few epochs
+Too few epochs and too low LR look alike. For instance when you train for just 1 epoch, the training loss might be greater than validation loss. Or, the difference between training and validation might be too high. Try increasing epochs or the LR.
+
+### Too many epochs
+Too many epochs is too much training and can lead to **`overfitting`**. However, it is quite difficult to overfit in deep learning in practice. A sign of overfitting is when the model error starts increasing after a few epochs.

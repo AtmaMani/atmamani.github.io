@@ -31,7 +31,7 @@ Getting sample data
 fastai.datasets contains a set of curated datasets that sits on S3. You can get the list from fastai.datasets.URLs
 URLs.PETS for example wil">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-09-07T23:00:39-07:00">
+<meta property="article:published_time" content="2021-09-16T15:43:16-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -401,7 +401,7 @@ URLs.PETS for example wil">
 <li>Run <code>learn.recorder.plot(suggestion=True, show_grid=True)</code> to view the learning rate plot. It looks like below:</li>
 </ul>
 <p><img alt="" src="../../../../images/fastai-lr1.jpg"></p>
-<p>Using this suggestion, you can run</p>
+<p>In general, we are not looking for learning at lowest loss, but for rate at the steepest segment of the loss curve. Using this suggestion, you can run</p>
 <pre class="code literal-block"><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_lr</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">))</span>  <span class="c1"># LR chosen from the suggestion in the image</span>
@@ -418,7 +418,18 @@ URLs.PETS for example wil">
 <p>With an additional 4.5 minutes, we improved the accuracy to <code>93%</code>. You can then save that model as <code>learn.save('pets-lesson01-stage-2', return_path=True)</code> for later.</p>
 <h4 id="predict-on-real-world-data">Predict on real world data<a href="#predict-on-real-world-data" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>To predict on any given image, use the <code>fastai.vision.image.open_image()</code> function to load an image. You get back an <code>fastai.vision.image.Image</code> object that can be passed to <code>learn.predict()</code> function.</p>
-<p>The prediction is a <code>tuple</code> of <code>Category, category index and probabilities for each class</code>.</p>
+<p>The prediction is a <code>tuple</code> of (<code>Category</code>, <code>category index</code>, <code>probabilities for each class</code>).</p>
+<h3 id="hyper-parameter-tuning">Hyper-parameter tuning<a href="#hyper-parameter-tuning" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="learning-rate-too-high">Learning rate too high<a href="#learning-rate-too-high" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>When the rate it too high, the validation loss gets obscenely high - like an impossible number. The default <code>max_lr</code> is <code>0.003</code>.</p>
+<h4 id="learning-rate-too-low">Learning rate too low<a href="#learning-rate-too-low" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>When the rate is too small, the model’s validation drops, but very very slowly. The command <code>learn.recorder.plot_losses()</code> will plot the validation and training loss for visual interpretation. You can bump the rate by a factor of <code>10</code> or <code>100</code> and try again.</p>
+<h4 id="training-loss-validation-loss">Training loss &gt; Validation loss<a href="#training-loss-validation-loss" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>When a model is properly trained, the training loss is typically lower than validation loss. If the training loss is greater, it means the model is not trained enough - try increasing number of epochs or increase the learning rate.</p>
+<h4 id="too-few-epochs">Too few epochs<a href="#too-few-epochs" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Too few epochs and too low LR look alike. For instance when you train for just 1 epoch, the training loss might be greater than validation loss. Or, the difference between training and validation might be too high. Try increasing epochs or the LR.</p>
+<h4 id="too-many-epochs">Too many epochs<a href="#too-many-epochs" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Too many epochs is too much training and can lead to <strong><code>overfitting</code></strong>. However, it is quite difficult to overfit in deep learning in practice. A sign of overfitting is when the model error starts increasing after a few epochs.</p>
 </div>
     </div>
     
