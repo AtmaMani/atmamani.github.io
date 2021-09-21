@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>part3_analyze_hurricane_tracks | Atma’s blog</title>
+<title>part3_analyze_hurricane_tracks | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -105,7 +105,7 @@ downloading h">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -189,7 +189,7 @@ downloading h">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -207,22 +207,22 @@ downloading h">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -240,7 +240,7 @@ downloading h">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -248,7 +248,7 @@ downloading h">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -287,7 +287,7 @@ downloading h">
 <p><strong>Part 1</strong></p>
 <ol>
 <li>downloading historic hurricane datasets using Python</li>
-<li>cleaning and merging hurricane observations using DASK</li>
+<li>cleaning and merging hurricane observations using <span class="caps">DASK</span></li>
 <li>aggregating point observations into hurricane tracks using ArcGIS GeoAnalytics server</li>
 </ol>
 <p><strong>Part 2</strong></p>
@@ -316,8 +316,8 @@ downloading h">
 <span><a href="#Analyzing-hurricane-tracks---Part-3/3" data-toc-modified-id="Analyzing-hurricane-tracks---Part-3/3-1">Analyzing hurricane tracks - Part 3/3</a></span><ul class="toc-item">
 <li>
 <span><a href="#Access-aggregated-hurricane-data" data-toc-modified-id="Access-aggregated-hurricane-data-1.1">Access aggregated hurricane data</a></span><ul class="toc-item">
-<li><span><a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" data-toc-modified-id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame-1.1.1">Query hurricane tracks into a Spatially enabled <code>DataFrame</code></a></span></li>
-<li><span><a href="#Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame" data-toc-modified-id="Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame-1.1.2">Query landfall tracks layer into a Spatially Enabled <code>DataFrame</code></a></span></li>
+<li><span><a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" data-toc-modified-id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame-1.1.1">Query hurricane tracks into a Spatially enabled <code>DataFrame</code></a></span></li>
+<li><span><a href="#Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame" data-toc-modified-id="Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame-1.1.2">Query landfall tracks layer into a Spatially Enabled <code>DataFrame</code></a></span></li>
 </ul>
 </li>
 <li>
@@ -545,7 +545,7 @@ downloading h">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">Query hurricane tracks into a Spatially enabled <code>DataFrame</code><a class="anchor-link" href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">¶</a>
+<h4 id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">Query hurricane tracks into a Spatially enabled <code>DataFrame</code><a class="anchor-link" href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">¶</a>
 <a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -621,7 +621,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are <strong><code>12,362</code></strong> hurricanes identified by GeoAnalytics aggregate tracks tool. To get an idea about this aggregated dataset, call the <code>head()</code> method.</p>
+<p>There are <strong><code>12,362</code></strong> hurricanes identified by GeoAnalytics aggregate tracks tool. To get an idea about this aggregated dataset, call the <code>head()</code> method.</p>
 
 </div>
 </div>
@@ -666,7 +666,7 @@ Wall time: 4.5 s
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>any_basin</th>
       <th>any_name</th>
       <th>any_sub_basin</th>
@@ -688,9 +688,9 @@ Wall time: 4.5 s
 <tr>
 <th>0</th>
       <td>{“paths”: [[[59.60000000000002, -17.6000000000…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">MM</span></td>
       <td>7.0</td>
       <td>1854-02-10 18:00:00</td>
       <td>NaN</td>
@@ -708,9 +708,9 @@ Wall time: 4.5 s
 <tr>
 <th>1</th>
       <td>{“paths”: [[[-23.5, 12.5], [-24.19999999999999…</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>9.0</td>
       <td>1859-08-26 12:00:00</td>
       <td>NaN</td>
@@ -728,9 +728,9 @@ Wall time: 4.5 s
 <tr>
 <th>2</th>
       <td>{“paths”: [[[-23.19999999999999, 12.1000000000…</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>50.0</td>
       <td>1853-09-12 18:00:00</td>
       <td>NaN</td>
@@ -748,9 +748,9 @@ Wall time: 4.5 s
 <tr>
 <th>3</th>
       <td>{“paths”: [[[59.80000000000001, -15.5], [59.49…</td>
-      <td>SI</td>
-      <td>XXXX856017</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">XXXX856017</span></td>
+      <td><span class="caps">MM</span></td>
       <td>13.0</td>
       <td>1856-04-05 18:00:00</td>
       <td>NaN</td>
@@ -768,9 +768,9 @@ Wall time: 4.5 s
 <tr>
 <th>4</th>
       <td>{“paths”: [[[99.60000000000002, -11.5], [98.30…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>WA</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">WA</span></td>
       <td>13.0</td>
       <td>1861-03-15 18:00:00</td>
       <td>NaN</td>
@@ -801,7 +801,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To better analyze this data set, the date columns need to be changed to a format that Pandas understands better. This is accomplished by calling <code>to_datetime()</code> method and passing the appropriate time columns.</p>
+<p>To better analyze this data set, the date columns need to be changed to a format that Pandas understands better. This is accomplished by calling <code>to_datetime()</code> method and passing the appropriate time columns.</p>
 
 </div>
 </div>
@@ -850,7 +850,7 @@ Wall time: 4.5 s
 <thead>
 <tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>any_basin</th>
       <th>any_name</th>
       <th>any_sub_basin</th>
@@ -893,9 +893,9 @@ Wall time: 4.5 s
 <tr>
 <th>1854-02-08 06:00:00</th>
       <td>{“paths”: [[[59.60000000000002, -17.6000000000…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">MM</span></td>
       <td>7.0</td>
       <td>1854-02-10 18:00:00</td>
       <td>NaN</td>
@@ -913,9 +913,9 @@ Wall time: 4.5 s
 <tr>
 <th>1859-08-24 12:00:00</th>
       <td>{“paths”: [[[-23.5, 12.5], [-24.19999999999999…</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>9.0</td>
       <td>1859-08-26 12:00:00</td>
       <td>NaN</td>
@@ -933,9 +933,9 @@ Wall time: 4.5 s
 <tr>
 <th>1853-08-30 00:00:00</th>
       <td>{“paths”: [[[-23.19999999999999, 12.1000000000…</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>50.0</td>
       <td>1853-09-12 18:00:00</td>
       <td>NaN</td>
@@ -953,9 +953,9 @@ Wall time: 4.5 s
 <tr>
 <th>1856-04-02 18:00:00</th>
       <td>{“paths”: [[[59.80000000000001, -15.5], [59.49…</td>
-      <td>SI</td>
-      <td>XXXX856017</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">XXXX856017</span></td>
+      <td><span class="caps">MM</span></td>
       <td>13.0</td>
       <td>1856-04-05 18:00:00</td>
       <td>NaN</td>
@@ -973,9 +973,9 @@ Wall time: 4.5 s
 <tr>
 <th>1861-03-12 18:00:00</th>
       <td>{“paths”: [[[99.60000000000002, -11.5], [98.30…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>WA</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">WA</span></td>
       <td>13.0</td>
       <td>1861-03-15 18:00:00</td>
       <td>NaN</td>
@@ -1030,7 +1030,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame">Query landfall tracks layer into a Spatially Enabled <code>DataFrame</code><a class="anchor-link" href="#Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame">¶</a>
+<h4 id="Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame">Query landfall tracks layer into a Spatially Enabled <code>DataFrame</code><a class="anchor-link" href="#Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame">¶</a>
 <a href="#Query-landfall-tracks-layer-into-a-Spatially-Enabled-DataFrame" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>We query the landfall tracks layer created in the pervious notebook into a DataFrame.</p>
 
@@ -1107,14 +1107,14 @@ Wall time: 4.5 s
       <th>objectid</th>
       <th>start_datetime</th>
       <th>track_duration</th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
     </tr></thead>
 <tbody>
 <tr>
 <th>0</th>
       <td>4.376642</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
       <td>-3663424800000</td>
       <td>95.0</td>
       <td>965.0</td>
@@ -1127,8 +1127,8 @@ Wall time: 4.5 s
 <tr>
 <th>1</th>
       <td>117.097286</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
       <td>-3645172800000</td>
       <td>70.0</td>
       <td>NaN</td>
@@ -1141,8 +1141,8 @@ Wall time: 4.5 s
 <tr>
 <th>2</th>
       <td>256.909588</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
       <td>-3645172800000</td>
       <td>70.0</td>
       <td>NaN</td>
@@ -1170,7 +1170,7 @@ Wall time: 4.5 s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Manage-missing-sesnsor-data">Manage missing sesnsor data<a class="anchor-link" href="#Manage-missing-sesnsor-data">¶</a>
 <a href="#Manage-missing-sesnsor-data" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Before we can analyze if hurricanes intensify over time, we need to identify and account for missing values in our data. Sensor measurements such as <strong>wind speed</strong>, <strong>atmospheric pressure</strong>, <strong>eye diameter</strong>, generally suffer from missing values and outliers. The reconstruct tracks tool has identified <code>12,362</code> individual hurricanes that occurred during the past <code>169</code> years.</p>
+<p>Before we can analyze if hurricanes intensify over time, we need to identify and account for missing values in our data. Sensor measurements such as <strong>wind speed</strong>, <strong>atmospheric pressure</strong>, <strong>eye diameter</strong>, generally suffer from missing values and outliers. The reconstruct tracks tool has identified <code>12,362</code> individual hurricanes that occurred during the past <code>169</code> years.</p>
 
 </div>
 </div>
@@ -1215,7 +1215,7 @@ Wall time: 4.5 s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Visualize-missing-records">Visualize missing records<a class="anchor-link" href="#Visualize-missing-records">¶</a>
 <a href="#Visualize-missing-records" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>An easy way to visualize missing records is to hack the <code>heatmap</code> of <code>seaborn</code> library to display missing records. The snippet below shows missing records in <strong>yellow</strong> color.</p>
+<p>An easy way to visualize missing records is to hack the <code>heatmap</code> of <code>seaborn</code> library to display missing records. The snippet below shows missing records in <strong>yellow</strong> color.</p>
 
 </div>
 </div>
@@ -1651,7 +1651,7 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Does-hurricane-wind-speed-increase-over-time?">Does hurricane wind speed increase over time?<a class="anchor-link" href="#Does-hurricane-wind-speed-increase-over-time?">¶</a>
 <a href="#Does-hurricane-wind-speed-increase-over-time?" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>To understand if wind speed increases over time, we create a scatter plot of <code>min_season</code> against the <code>max_wind_merged</code> column. The <code>seaborn</code> plotting library can enhance this plot with <strong>correlation coefficient</strong> and its level of signifance (<strong>p value</strong>).</p>
+<p>To understand if wind speed increases over time, we create a scatter plot of <code>min_season</code> against the <code>max_wind_merged</code> column. The <code>seaborn</code> plotting library can enhance this plot with <strong>correlation coefficient</strong> and its level of signifance (<strong>p value</strong>).</p>
 
 </div>
 </div>
@@ -1697,7 +1697,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the plot above, we notice a small positive correlation. Wind speeds are observed to increase with time. The small <code>p-value</code> suggests this correlation (albeit small) is <strong>statistically significant</strong>. The plot above considers hurricanes across all the basins and regresses that against time. To get a finer picture, we need to <strong>split the data by basins</strong> and observe the correlation.</p>
+<p>From the plot above, we notice a small positive correlation. Wind speeds are observed to increase with time. The small <code>p-value</code> suggests this correlation (albeit small) is <strong>statistically significant</strong>. The plot above considers hurricanes across all the basins and regresses that against time. To get a finer picture, we need to <strong>split the data by basins</strong> and observe the correlation.</p>
 
 </div>
 </div>
@@ -1723,7 +1723,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Define a function that can compute <code>pearson-r</code> correlation coefficient for any two columns across all basins.</p>
+<p>Define a function that can compute <code>pearson-r</code> correlation coefficient for any two columns across all basins.</p>
 
 </div>
 </div>
@@ -1765,7 +1765,7 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Analyzing-hurricane-wind-speed-over-time-by-basin">Analyzing hurricane wind speed over time by basin<a class="anchor-link" href="#Analyzing-hurricane-wind-speed-over-time-by-basin">¶</a>
 <a href="#Analyzing-hurricane-wind-speed-over-time-by-basin" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Below we plot a grid of scatter plots with linear regression plots overlaid over them. The <code>seaborn</code> library’s <code>lmplot()</code> function makes it trivial accomplish this in a single command.</p>
+<p>Below we plot a grid of scatter plots with linear regression plots overlaid over them. The <code>seaborn</code> library’s <code>lmplot()</code> function makes it trivial accomplish this in a single command.</p>
 
 </div>
 </div>
@@ -1873,32 +1873,32 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>0.0686</td>
       <td>0.0003</td>
     </tr>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>-0.1073</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>0.0528</td>
       <td>0.0357</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>0.0891</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>0.3415</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>0.1177</td>
       <td>0.0001</td>
     </tr>
@@ -1918,7 +1918,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The table above displays the correlation coefficient of hurricane wind speed over time. Hurricanes over <strong>Southern Pacific</strong> basin exhibit a positive trend of increasing wind speeds. The <code>r</code> value over <strong>North Atlantic</strong> shows a weak negative trend. Since all the <code>p-value</code>s are less than <code>0.05</code>, these correlations are statistically significant.</p>
+<p>The table above displays the correlation coefficient of hurricane wind speed over time. Hurricanes over <strong>Southern Pacific</strong> basin exhibit a positive trend of increasing wind speeds. The <code>r</code> value over <strong>North Atlantic</strong> shows a weak negative trend. Since all the <code>p-value</code>s are less than <code>0.05</code>, these correlations are statistically significant.</p>
 
 </div>
 </div>
@@ -1930,7 +1930,7 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Analyzing-hurricane-category-over-time-by-basin">Analyzing hurricane category over time by basin<a class="anchor-link" href="#Analyzing-hurricane-category-over-time-by-basin">¶</a>
 <a href="#Analyzing-hurricane-category-over-time-by-basin" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Hurricanes are classified on a <a href="https://www.nhc.noaa.gov/aboutsshws.php">Saffir-Simpson</a> scale of <code>1-5</code> based on their wind speed. Let us compute this column on the dataset and observe if there are teomporal aspects to it.</p>
+<p>Hurricanes are classified on a <a href="https://www.nhc.noaa.gov/aboutsshws.php">Saffir-Simpson</a> scale of <code>1-5</code> based on their wind speed. Let us compute this column on the dataset and observe if there are teomporal aspects to it.</p>
 
 </div>
 </div>
@@ -2005,7 +2005,7 @@ A common technique is to fill using median value (or a different measure of cent
 <thead>
 <tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>any_basin</th>
       <th>any_name</th>
       <th>any_sub_basin</th>
@@ -2056,9 +2056,9 @@ A common technique is to fill using median value (or a different measure of cent
 <tr>
 <th>1854-02-08 06:00:00</th>
       <td>{‘paths’: [[[59.60000000000002, -17.6000000000…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">MM</span></td>
       <td>7.0</td>
       <td>1854-02-10 18:00:00</td>
       <td>NaN</td>
@@ -2080,9 +2080,9 @@ A common technique is to fill using median value (or a different measure of cent
 <tr>
 <th>1859-08-24 12:00:00</th>
       <td>{‘paths’: [[[-23.5, 12.5], [-24.19999999999999…</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>9.0</td>
       <td>1859-08-26 12:00:00</td>
       <td>NaN</td>
@@ -2338,32 +2338,32 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>0.3314</td>
       <td>0.0</td>
     </tr>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>0.2161</td>
       <td>0.0</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>0.4612</td>
       <td>0.0</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>0.1849</td>
       <td>0.0</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>0.2908</td>
       <td>0.0</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>0.2919</td>
       <td>0.0</td>
     </tr>
@@ -2383,7 +2383,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, at both global and basin scales, we notice a <strong>positive trend in the number of hurricanes of category <code>4</code> and higher</strong>, while there is a general reduction in the quantity of hurricanes per season. This is along the lines of several studies <a href="https://doi.org/10.1007/s00382-013-1713-0">[1]</a> <a href="https://bankunderground.co.uk/2018/05/22/us-hurricane-clustering-a-new-reality/">[2]</a> <a href="https://www.nature.com/articles/nature03906">[3]</a> <a href="https://www.nytimes.com/2018/10/10/climate/hurricane-michael-climate-change.html">[4]</a>. Thus while the total number of hurricanes per season may reduce, we notice an increase in the intensity of them.</p>
+<p>Thus, at both global and basin scales, we notice a <strong>positive trend in the number of hurricanes of category <code>4</code> and higher</strong>, while there is a general reduction in the quantity of hurricanes per season. This is along the lines of several studies <a href="https://doi.org/10.1007/s00382-013-1713-0">[1]</a> <a href="https://bankunderground.co.uk/2018/05/22/us-hurricane-clustering-a-new-reality/">[2]</a> <a href="https://www.nature.com/articles/nature03906">[3]</a> <a href="https://www.nytimes.com/2018/10/10/climate/hurricane-michael-climate-change.html">[4]</a>. Thus while the total number of hurricanes per season may reduce, we notice an increase in the intensity of them.</p>
 
 </div>
 </div>
@@ -2395,7 +2395,7 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Does-eye-pressure-decrease-over-time?">Does eye pressure decrease over time?<a class="anchor-link" href="#Does-eye-pressure-decrease-over-time?">¶</a>
 <a href="#Does-eye-pressure-decrease-over-time?" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Just like a high wind speed, lower atmospheric pressure increases the intensity of hurricanes. To analyze this, we produce a scatter grid of <code>min_pressure_merged</code> column and regress it against <code>min_season</code> column. We split this by basins.</p>
+<p>Just like a high wind speed, lower atmospheric pressure increases the intensity of hurricanes. To analyze this, we produce a scatter grid of <code>min_pressure_merged</code> column and regress it against <code>min_season</code> column. We split this by basins.</p>
 
 </div>
 </div>
@@ -2493,32 +2493,32 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>-0.0160</td>
       <td>0.4027</td>
     </tr>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>0.1911</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>0.2551</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>-0.0230</td>
       <td>0.1606</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>-0.2456</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>-0.0270</td>
       <td>0.3612</td>
     </tr>
@@ -2538,7 +2538,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lower the atmospheric pressure, more intense is the hurricane. Hence we are looking for strong negative correlation between the pressure and season columns. From the charts and table above, we notice <strong>South Pacific</strong> basin once again tops the list with a mild negative correlation over time. The <code>p-value</code>s of <strong>Western Pacific</strong> and <strong>Eastern Pacific</strong> is larger than <code>0.05</code>, so we disregard their correlation coefficients. Over <strong>North American</strong> and <strong>Indian</strong> basins, we notice a weak positive correlation.</p>
+<p>Lower the atmospheric pressure, more intense is the hurricane. Hence we are looking for strong negative correlation between the pressure and season columns. From the charts and table above, we notice <strong>South Pacific</strong> basin once again tops the list with a mild negative correlation over time. The <code>p-value</code>s of <strong>Western Pacific</strong> and <strong>Eastern Pacific</strong> is larger than <code>0.05</code>, so we disregard their correlation coefficients. Over <strong>North American</strong> and <strong>Indian</strong> basins, we notice a weak positive correlation.</p>
 
 </div>
 </div>
@@ -2698,32 +2698,32 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>0.3577</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>-0.0295</td>
       <td>0.1738</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>0.0736</td>
       <td>0.0034</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>0.3627</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>0.2716</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>0.2560</td>
       <td>0.0000</td>
     </tr>
@@ -2743,7 +2743,7 @@ A common technique is to fill using median value (or a different measure of cent
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>At most basins, we notice a positive trend in hurricane track duration. An exception to this is the <strong>North Atlantic</strong> basin where the <code>p-value</code> is not significant enough to let us draw any conclusion.</p>
+<p>At most basins, we notice a positive trend in hurricane track duration. An exception to this is the <strong>North Atlantic</strong> basin where the <code>p-value</code> is not significant enough to let us draw any conclusion.</p>
 <p>The trend we notice here could be partly due to technological advancements that allow us to identify and track hurricanes at a very early stage. Hence, to complement this, we will analyze if hurricanes travel longer than usual once the make a landfall.</p>
 
 </div>
@@ -2891,37 +2891,37 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>0.0035</td>
       <td>0.8611</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>-0.2320</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>-0.0013</td>
       <td>0.9684</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>0.0555</td>
       <td>0.0004</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>-0.1722</td>
       <td>0.0000</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>-0.0296</td>
       <td>0.6344</td>
     </tr>
 <tr>
-<th>SA</th>
+<th><span class="caps">SA</span></th>
       <td>1.0000</td>
       <td>0.0000</td>
     </tr>
@@ -2953,7 +2953,7 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Correlate-observations-over-time">Correlate observations over time<a class="anchor-link" href="#Correlate-observations-over-time">¶</a>
 <a href="#Correlate-observations-over-time" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Let us collect all trend analysis we performed so far into a single <code>DataFrame</code>.</p>
+<p>Let us collect all trend analysis we performed so far into a single <code>DataFrame</code>.</p>
 
 </div>
 </div>
@@ -3028,42 +3028,42 @@ A common technique is to fill using median value (or a different measure of cent
     </tr></thead>
 <tbody>
 <tr>
-<th>NA</th>
+<th><span class="caps">NA</span></th>
       <td>0.2171</td>
       <td>-0.0904</td>
       <td>0.1633</td>
       <td>0.2161</td>
     </tr>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>0.3156</td>
       <td>-0.3608</td>
       <td>0.5433</td>
       <td>0.3314</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>0.4456</td>
       <td>-0.2234</td>
       <td>0.3414</td>
       <td>0.4612</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>0.1755</td>
       <td>-0.3666</td>
       <td>0.5860</td>
       <td>0.1849</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>0.3028</td>
       <td>-0.3508</td>
       <td>0.3819</td>
       <td>0.2908</td>
     </tr>
 <tr>
-<th>EP</th>
+<th><span class="caps">EP</span></th>
       <td>0.2820</td>
       <td>-0.3510</td>
       <td>0.3077</td>
@@ -3144,10 +3144,10 @@ A common technique is to fill using median value (or a different measure of cent
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 <a href="#Conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>In this notebook used the aggregated hurricane tracks produced in part 1 and the landfall tracks layer produced in part 2. We checked for missing sensor observations and imputed those records via interpolation. We then comprehensively analyzed how hurricane severity indicators such as <strong>wind speed</strong>, <strong>atmospheric pressure</strong>, <strong>track duration</strong>, <strong>track length inland</strong> and <strong>category</strong> correlate over time (seasons). We noticed the total number of hurricanes have decreased since <code>1970</code>s globally and across all basins. While the number of hurricanes is less, we noticed their wind speed, track duration and category <strong>correlate positively</strong> and atmospheric pressure <strong>correlates negatively</strong> against seasons. This aligns with findings from major studies. Thus, we notice a reduction in the number of category 1 and 2 and an increase in the number of more severe, category 4, 5 hurricanes. We noticed the <strong>North Indian</strong> basin to be highly correlated in this regard.</p>
-<p>In this study, through these 3 part notebooks, we saw how to download hurricane data for the past <code>169</code> years from NOAA NEIC site over FTP and how to it initially using Pandas. Since this data is larger than memory for average computers, we learnt how to aggregate the columns using the DASK distributed, delayed processing library. We input the result of DASK to the ArcGIS GeoAnalytics server to aggregate these point observations into hurricane tracks. The “reconstruct tracks” tool which performed this aggregation identified <code>12,362</code> individual hurricanes across the globe.</p>
-<p>In the second notebook, we performed comprehensive visualization and exploratory analysis to understand the geography of hurricanes and the various basins they are categorized into. We observed a strong sinusoidal nature where hurricanes in the northern and southern hemisphere are offset by <code>6</code> months. We noticed certain names (<code>Irma</code>, <code>Florence</code>) are more popular than the rest. We overlaid the tracks over land boundary dataset to compute tracks traveled inland and identify places where landfall occur. Through density analysis of the landfall locations, we were able to identify the places there were most affected from a repeat landfall basis. By geo-enriching these places, we learnt that <strong>China</strong>, <strong>Hongkong</strong> and <strong>India</strong> are home to population that is most affected.</p>
-<p>Many studies and articles <a href="https://www.theguardian.com/environment/2018/oct/08/global-warming-must-not-exceed-15c-warns-landmark-un-report">[5]</a> <a href="https://www.vox.com/2018/10/9/17951924/climate-change-global-warming-un-ipcc-report-takeaways">[6]</a> <a href="https://www.vox.com/energy-and-environment/2018/10/3/17925470/hurricane-florence-2018-devastation-climate-change-flood-sea-level-rise">[7]</a> <a href="https://fivethirtyeight.com/features/how-climate-change-made-our-hurricane-predictions-way-more-accurate/">[8]</a> shine light on anthropogenic influences on global Sea Surface Temperature (SST). Higher sea surface temperatures are observed to produce more intense storms; they are attributed to polar ice cap melting and rising sea levels. These combined with increased hurricane intensity can lead to severe strom surges causing increased flooding and damage of the coastal communities. Based on our density and geoenrichment analysis, we noticed these are places along the coast that are densely populated.</p>
+<p>In this notebook used the aggregated hurricane tracks produced in part 1 and the landfall tracks layer produced in part 2. We checked for missing sensor observations and imputed those records via interpolation. We then comprehensively analyzed how hurricane severity indicators such as <strong>wind speed</strong>, <strong>atmospheric pressure</strong>, <strong>track duration</strong>, <strong>track length inland</strong> and <strong>category</strong> correlate over time (seasons). We noticed the total number of hurricanes have decreased since <code>1970</code>s globally and across all basins. While the number of hurricanes is less, we noticed their wind speed, track duration and category <strong>correlate positively</strong> and atmospheric pressure <strong>correlates negatively</strong> against seasons. This aligns with findings from major studies. Thus, we notice a reduction in the number of category 1 and 2 and an increase in the number of more severe, category 4, 5 hurricanes. We noticed the <strong>North Indian</strong> basin to be highly correlated in this regard.</p>
+<p>In this study, through these 3 part notebooks, we saw how to download hurricane data for the past <code>169</code> years from <span class="caps">NOAA</span> <span class="caps">NEIC</span> site over <span class="caps">FTP</span> and how to it initially using Pandas. Since this data is larger than memory for average computers, we learnt how to aggregate the columns using the <span class="caps">DASK</span> distributed, delayed processing library. We input the result of <span class="caps">DASK</span> to the ArcGIS GeoAnalytics server to aggregate these point observations into hurricane tracks. The “reconstruct tracks” tool which performed this aggregation identified <code>12,362</code> individual hurricanes across the globe.</p>
+<p>In the second notebook, we performed comprehensive visualization and exploratory analysis to understand the geography of hurricanes and the various basins they are categorized into. We observed a strong sinusoidal nature where hurricanes in the northern and southern hemisphere are offset by <code>6</code> months. We noticed certain names (<code>Irma</code>, <code>Florence</code>) are more popular than the rest. We overlaid the tracks over land boundary dataset to compute tracks traveled inland and identify places where landfall occur. Through density analysis of the landfall locations, we were able to identify the places there were most affected from a repeat landfall basis. By geo-enriching these places, we learnt that <strong>China</strong>, <strong>Hongkong</strong> and <strong>India</strong> are home to population that is most affected.</p>
+<p>Many studies and articles <a href="https://www.theguardian.com/environment/2018/oct/08/global-warming-must-not-exceed-15c-warns-landmark-un-report">[5]</a> <a href="https://www.vox.com/2018/10/9/17951924/climate-change-global-warming-un-ipcc-report-takeaways">[6]</a> <a href="https://www.vox.com/energy-and-environment/2018/10/3/17925470/hurricane-florence-2018-devastation-climate-change-flood-sea-level-rise">[7]</a> <a href="https://fivethirtyeight.com/features/how-climate-change-made-our-hurricane-predictions-way-more-accurate/">[8]</a> shine light on anthropogenic influences on global Sea Surface Temperature (<span class="caps">SST</span>). Higher sea surface temperatures are observed to produce more intense storms; they are attributed to polar ice cap melting and rising sea levels. These combined with increased hurricane intensity can lead to severe strom surges causing increased flooding and damage of the coastal communities. Based on our density and geoenrichment analysis, we noticed these are places along the coast that are densely populated.</p>
 <p>This study showcases how a comprehensive spatial data science project can be performed using ArcGIS and open source Python libraries on the ArcGIS Notebook server. The notebook medium makes it convenient to document code, narrative and graphics in one place. This helps in making research reproducible and approachable. Thus in this study we were able to empirically validate the conclusions derived by other studies. In future, when more hurricane datasets become available, this study can be repeated just by rerunning these notebooks.</p>
 
 </div>
@@ -3161,12 +3161,12 @@ A common technique is to fill using median value (or a different measure of cent
 <h5 id="References">References<a class="anchor-link" href="#References">¶</a>
 <a href="#References" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <ul>
-<li><a href="https://doi.org/10.1007/s00382-013-1713-0">1. Recent intense hurricane response to global climate change. Holland, G. <span class="amp">&amp;</span> Bruyère, C.L. Clim Dyn (2014) 42: 617.</a></li>
-<li><a href="https://bankunderground.co.uk/2018/05/22/us-hurricane-clustering-a-new-reality/">2. US Hurricane Clustering: A New Reality?</a></li>
+<li><a href="https://doi.org/10.1007/s00382-013-1713-0">1. Recent intense hurricane response to global climate change. Holland, G. <span class="amp">&amp;</span> Bruyère, <span class="caps">C.L.</span> Clim Dyn (2014) 42: 617.</a></li>
+<li><a href="https://bankunderground.co.uk/2018/05/22/us-hurricane-clustering-a-new-reality/">2. <span class="caps">US</span> Hurricane Clustering: A New Reality?</a></li>
 <li><a href="https://www.nature.com/articles/nature03906">3. Increasing destructiveness of tropical cyclones over the past 30 years</a></li>
 <li><a href="https://www.nytimes.com/2018/10/10/climate/hurricane-michael-climate-change.html">4. The Hurricanes, and Climate-Change Questions, Keep Coming. Yes, They’re Linked. </a></li>
-<li><a href="https://www.theguardian.com/environment/2018/oct/08/global-warming-must-not-exceed-15c-warns-landmark-un-report">5. We have 12 years to limit climate change catastrophe, warns UN </a></li>
-<li><a href="https://www.vox.com/2018/10/9/17951924/climate-change-global-warming-un-ipcc-report-takeaways">6. Four big takeaways from the UN’s alarming climate change report</a></li>
+<li><a href="https://www.theguardian.com/environment/2018/oct/08/global-warming-must-not-exceed-15c-warns-landmark-un-report">5. We have 12 years to limit climate change catastrophe, warns <span class="caps">UN</span> </a></li>
+<li><a href="https://www.vox.com/2018/10/9/17951924/climate-change-global-warming-un-ipcc-report-takeaways">6. Four big takeaways from the <span class="caps">UN</span>’s alarming climate change report</a></li>
 <li><a href="https://www.vox.com/energy-and-environment/2018/10/3/17925470/hurricane-florence-2018-devastation-climate-change-flood-sea-level-rise">7. Hurricane Florence caused up to 22 billion in damages. Climate change made the storm worse.</a></li>
 <li><a href="https://fivethirtyeight.com/features/how-climate-change-made-our-hurricane-predictions-way-more-accurate/">8. What Climate Change Taught Us About Hurricanes </a></li>
 </ul>
@@ -3177,7 +3177,7 @@ A common technique is to fill using median value (or a different measure of cent
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

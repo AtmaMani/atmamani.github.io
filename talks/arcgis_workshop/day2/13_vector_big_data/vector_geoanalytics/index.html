@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>vector_geoanalytics | Atma’s blog</title>
+<title>vector_geoanalytics | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -280,10 +280,10 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Creating-hurricane-tracks-using-Geoanalytics">Creating hurricane tracks using Geoanalytics<a class="anchor-link" href="#Creating-hurricane-tracks-using-Geoanalytics">¶</a>
 <a href="#Creating-hurricane-tracks-using-Geoanalytics" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>The sample code below uses big data analytics (GeoAnalytics) to reconstruct hurricane tracks using data registered on a big data file share in the GIS. Note that this functionality is currently available on ArcGIS Enterprise 10.5 and not yet with ArcGIS Online.</p>
+<p>The sample code below uses big data analytics (GeoAnalytics) to reconstruct hurricane tracks using data registered on a big data file share in the <span class="caps">GIS</span>. Note that this functionality is currently available on ArcGIS Enterprise 10.5 and not yet with ArcGIS Online.</p>
 <h3 id="Reconstruct-tracks">Reconstruct tracks<a class="anchor-link" href="#Reconstruct-tracks">¶</a>
 <a href="#Reconstruct-tracks" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Reconstruct tracks is a type of data aggregation tool available in the <code>arcgis.geoanalytics</code> module. This tool works with a layer of point features or polygon features that are time enabled. It first determines which points belong to a track using an identification number or identification string. Using the time at each location, the tracks are ordered sequentially and transformed into a line representing the path of movement.</p>
+<p>Reconstruct tracks is a type of data aggregation tool available in the <code>arcgis.geoanalytics</code> module. This tool works with a layer of point features or polygon features that are time enabled. It first determines which points belong to a track using an identification number or identification string. Using the time at each location, the tracks are ordered sequentially and transformed into a line representing the path of movement.</p>
 <h3 id="Data-used">Data used<a class="anchor-link" href="#Data-used">¶</a>
 <a href="#Data-used" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>For this sample, hurricane data from over a period of 50 years, totalling about 150,000 points split into 5 shape files was used. The <a href="http://www.nhc.noaa.gov/gis/">National Hurricane Center</a> provides similar datasets that can be used for exploratory purposes.</p>
@@ -429,7 +429,7 @@
       <th>wmo_wind</th>
       <th>wmo_wind__</th>
       <th>year</th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
     </tr></thead>
 <tbody>
 <tr>
@@ -571,7 +571,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Create-a-data-store">Create a data store<a class="anchor-link" href="#Create-a-data-store">¶</a>
 <a href="#Create-a-data-store" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>For the GeoAnalytics server to process your big data, it needs the data to be registered as a data store. In our case, the data is in multiple shape files and we will register the folder containing the files as a data store of type <code>bigDataFileShare</code>.</p>
+<p>For the GeoAnalytics server to process your big data, it needs the data to be registered as a data store. In our case, the data is in multiple shape files and we will register the folder containing the files as a data store of type <code>bigDataFileShare</code>.</p>
 <p>Let us connect to an ArcGIS Enterprise</p>
 
 </div>
@@ -873,7 +873,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Perform-data-aggregation-using-reconstruct-tracks-tool">Perform data aggregation using reconstruct tracks tool<a class="anchor-link" href="#Perform-data-aggregation-using-reconstruct-tracks-tool">¶</a>
 <a href="#Perform-data-aggregation-using-reconstruct-tracks-tool" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>When you add a big data file share, a corresponding item gets created in your GIS. You can search for it like a regular item and query its layers.</p>
+<p>When you add a big data file share, a corresponding item gets created in your <span class="caps">GIS</span>. You can search for it like a regular item and query its layers.</p>
 
 </div>
 </div>
@@ -953,7 +953,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Reconstruct-tracks-tool">Reconstruct tracks tool<a class="anchor-link" href="#Reconstruct-tracks-tool">¶</a>
 <a href="#Reconstruct-tracks-tool" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The <code>reconstruct_tracks()</code> function is available in the <code>arcgis.geoanalytics.summarize_data</code> module. In this example, we are using this tool to aggregate the numerous points into line segments showing the tracks followed by the hurricanes. The tool creates a feature layer item as an output which can be accessed once the processing is complete.</p>
+<p>The <code>reconstruct_tracks()</code> function is available in the <code>arcgis.geoanalytics.summarize_data</code> module. In this example, we are using this tool to aggregate the numerous points into line segments showing the tracks followed by the hurricanes. The tool creates a feature layer item as an output which can be accessed once the processing is complete.</p>
 
 </div>
 </div>
@@ -1119,7 +1119,7 @@ Succeeded at Mon Mar 06 23:33:36 2017 (Elapsed Time: 15.32 seconds)
 <li>my industry is dependent on tourism, which is heavily impacted by the vagaries of weather. From historical weather data, can I correlate my profits with major weather events? How well is my business insulated from freak weather events?</li>
 <li>over the years do we see any shifts in major weather events - do we notice a shift in when the hurricane season starts?</li>
 </ul>
-<p>The ArcGIS API for Python gives you a gateway to easily access the big data tools from your ArcGIS Enterprise. By combining it with other powerful libraries from the pandas and scipy stack and the rich visualization capabilities of the Jupyter notebook, you can extract a lot of value from your data, big or small.</p>
+<p>The ArcGIS <span class="caps">API</span> for Python gives you a gateway to easily access the big data tools from your ArcGIS Enterprise. By combining it with other powerful libraries from the pandas and scipy stack and the rich visualization capabilities of the Jupyter notebook, you can extract a lot of value from your data, big or small.</p>
 
 </div>
 </div>
@@ -1128,7 +1128,7 @@ Succeeded at Mon Mar 06 23:33:36 2017 (Elapsed Time: 15.32 seconds)
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

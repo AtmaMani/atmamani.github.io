@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reading multidimensional data using open geo tools | Atma’s blog</title>
+<title>Reading multidimensional data using open geo tools | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -110,7 +110,7 @@ T">
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -194,7 +194,7 @@ T">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -212,22 +212,22 @@ T">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li class="active">
 <a href=".">Reading multi-dimensional data using open geo tools <span class="sr-only">(active)</span></a>
@@ -245,7 +245,7 @@ T">
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -253,7 +253,7 @@ T">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -288,7 +288,7 @@ T">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reading-multidimensional-science-data-in-NetCDF-using-open-geo-toos">Reading multidimensional science data in NetCDF using open geo toos<a class="anchor-link" href="#Reading-multidimensional-science-data-in-NetCDF-using-open-geo-toos">¶</a>
 <a href="#Reading-multidimensional-science-data-in-NetCDF-using-open-geo-toos" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>This notebook reads aerosol index and Tropospheric $NO_{2}$ Concentration from Sentinel-5P TROPOMI data using Opengeo Tools</p>
+<p>This notebook reads aerosol index and Tropospheric $NO_{2}$ Concentration from Sentinel-5P <span class="caps">TROPOMI</span> data using Opengeo Tools</p>
 
 </div>
 </div>
@@ -298,7 +298,7 @@ T">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tutorial data and code are from NASA ARSET program: <a href="https://appliedsciences.nasa.gov/join-mission/training/english/high-resolution-no2-monitoring-space-tropomi">https://appliedsciences.nasa.gov/join-mission/training/english/high-resolution-no2-monitoring-space-tropomi</a></p>
+<p>Tutorial data and code are from <span class="caps">NASA</span> <span class="caps">ARSET</span> program: <a href="https://appliedsciences.nasa.gov/join-mission/training/english/high-resolution-no2-monitoring-space-tropomi">https://appliedsciences.nasa.gov/join-mission/training/english/high-resolution-no2-monitoring-space-tropomi</a></p>
 
 </div>
 </div>
@@ -367,7 +367,7 @@ T">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Explore-NetCDF-file-for-its-contents">Explore NetCDF file for its contents<a class="anchor-link" href="#Explore-NetCDF-file-for-its-contents">¶</a>
 <a href="#Explore-NetCDF-file-for-its-contents" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>The NetCDF file is like a folder with multiple sub-folders and files within it. Folders are called as <code>groups</code> and files within it are called as <code>variables</code>. NASA supplies a cross-platform app called <a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a> which gives you a UI to query and visualize NetCDF files. Below is a screenshot of Panoply reading the Aerosol Index file.</p>
+<p>The NetCDF file is like a folder with multiple sub-folders and files within it. Folders are called as <code>groups</code> and files within it are called as <code>variables</code>. <span class="caps">NASA</span> supplies a cross-platform app called <a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a> which gives you a <span class="caps">UI</span> to query and visualize NetCDF files. Below is a screenshot of Panoply reading the Aerosol Index file.</p>
 
 </div>
 </div>
@@ -387,7 +387,7 @@ T">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step is to read this file as a <code>netCDF4.Dataset</code> class.</p>
+<p>The first step is to read this file as a <code>netCDF4.Dataset</code> class.</p>
 
 </div>
 </div>
@@ -570,7 +570,7 @@ T">
 <tr>
 <th>7</th>
       <td>time_utc</td>
-      <td>Time of observation as ISO 8601 date-time string</td>
+      <td>Time of observation as <span class="caps">ISO</span> 8601 date-time string</td>
       <td>None</td>
     </tr>
 <tr>
@@ -776,7 +776,7 @@ filling on</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Reading-using-xarray">Reading using <code>xarray</code><a class="anchor-link" href="#Reading-using-xarray">¶</a>
+<h3 id="Reading-using-xarray">Reading using <code>xarray</code><a class="anchor-link" href="#Reading-using-xarray">¶</a>
 <a href="#Reading-using-xarray" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>See <a href="https://github.com/acgeospatial/Sentinel-5P/blob/master/sentinel5p_xarray_blog.ipynb">https://github.com/acgeospatial/Sentinel-5P/blob/master/sentinel5p_xarray_blog.ipynb</a></p>
 
@@ -855,7 +855,7 @@ filling on</pre>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -875,7 +875,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -889,7 +889,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -1310,7 +1310,7 @@ Data variables:
 <dt><span>valid_max :</span></dt>
 <dd>90.0</dd>
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 </dl></div>
 <div class="xr-var-data"><pre>[1460250 values with dtype=float32]</pre></div>
 </li>
@@ -1331,7 +1331,7 @@ Data variables:
 <dt><span>valid_max :</span></dt>
 <dd>180.0</dd>
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 </dl></div>
 <div class="xr-var-data"><pre>[1460250 values with dtype=float32]</pre></div>
 </li>
@@ -1359,7 +1359,7 @@ Data variables:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-bf518bd1-c904-42b9-baf1-2dc9d03f198e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-bf518bd1-c904-42b9-baf1-2dc9d03f198e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-7486d88a-79df-477b-9665-01f5e13405df" class="xr-var-data-in" type="checkbox"><label for="data-7486d88a-79df-477b-9665-01f5e13405df" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>long_name :</span></dt>
-<dd>Time of observation as ISO 8601 date-time string</dd>
+<dd>Time of observation as <span class="caps">ISO</span> 8601 date-time string</dd>
 </dl></div>
 <div class="xr-var-data"><pre>array([['2018-08-16T18:51:51.027000Z', '2018-08-16T18:51:52.107000Z',
         '2018-08-16T18:51:53.187000Z', ..., '2018-08-16T19:50:12.301999Z',
@@ -1646,7 +1646,7 @@ Data variables:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Plotting-using-cartopy">Plotting using <code>cartopy</code><a class="anchor-link" href="#Plotting-using-cartopy">¶</a>
+<h5 id="Plotting-using-cartopy">Plotting using <code>cartopy</code><a class="anchor-link" href="#Plotting-using-cartopy">¶</a>
 <a href="#Plotting-using-cartopy" class="headerlink" title="Permalink to this heading">¶</a></h5>
 </div>
 </div>
@@ -1787,7 +1787,7 @@ Data variables:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Reading-using-rioxarray">Reading using <code>rioxarray</code><a class="anchor-link" href="#Reading-using-rioxarray">¶</a>
+<h3 id="Reading-using-rioxarray">Reading using <code>rioxarray</code><a class="anchor-link" href="#Reading-using-rioxarray">¶</a>
 <a href="#Reading-using-rioxarray" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
@@ -1865,7 +1865,7 @@ Data variables:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -1885,7 +1885,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -1899,7 +1899,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -2613,7 +2613,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-3a62fa61-ae93-4701-8dac-35a76a83688f" class="xr-var-attrs-in" type="checkbox"><label for="attrs-3a62fa61-ae93-4701-8dac-35a76a83688f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ee479803-6c12-4515-b6e2-4990a3509850" class="xr-var-data-in" type="checkbox"><label for="data-ee479803-6c12-4515-b6e2-4990a3509850" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -2644,7 +2644,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar zenith angle at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2677,7 +2677,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2710,7 +2710,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Zenith angle of the satellite at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2743,7 +2743,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Satellite azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2774,7 +2774,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-b4abeb39-857a-4748-b35d-d7e7fdd90723" class="xr-var-attrs-in" type="checkbox"><label for="attrs-b4abeb39-857a-4748-b35d-d7e7fdd90723" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-6124d894-f4cd-4eab-87ae-e111535296ee" class="xr-var-data-in" type="checkbox"><label for="data-6124d894-f4cd-4eab-87ae-e111535296ee" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center longitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -2803,7 +2803,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-8e40796e-8797-40a9-9a53-f69605692044" class="xr-var-attrs-in" type="checkbox"><label for="attrs-8e40796e-8797-40a9-9a53-f69605692044" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-e7b3a33c-92c8-4781-8d84-f723e3534eed" class="xr-var-data-in" type="checkbox"><label for="data-e7b3a33c-92c8-4781-8d84-f723e3534eed" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  0.   1.   2.   4.   8.  16. 128.]</dd>
 <dt><span>flag_meanings :</span></dt>
@@ -2840,7 +2840,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flags indicating conditions that affect quality of the retrieval.</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
  2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
@@ -2911,7 +2911,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-df2ab295-e8ff-4a8b-b69c-ef791211eff6" class="xr-var-attrs-in" type="checkbox"><label for="attrs-df2ab295-e8ff-4a8b-b69c-ef791211eff6" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-2f98016f-8450-4780-8340-ac7c053cf3c5" class="xr-var-data-in" type="checkbox"><label for="data-2f98016f-8450-4780-8340-ac7c053cf3c5" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Number of spectral points used in the retrieval</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2936,7 +2936,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 388 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2963,7 +2963,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-5540080d-0f87-4e06-820b-78a3eb5d5d4e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-5540080d-0f87-4e06-820b-78a3eb5d5d4e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ae532f45-8846-4155-84a6-b0b922b2880c" class="xr-var-data-in" type="checkbox"><label for="data-ae532f45-8846-4155-84a6-b0b922b2880c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 388 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -2992,7 +2992,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3021,7 +3021,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-4447960a-32b4-4784-a462-88f10bd61fcb" class="xr-var-attrs-in" type="checkbox"><label for="attrs-4447960a-32b4-4784-a462-88f10bd61fcb" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-6fa89c62-52de-4898-a979-6924ad54e8ee" class="xr-var-data-in" type="checkbox"><label for="data-6fa89c62-52de-4898-a979-6924ad54e8ee" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3052,7 +3052,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3081,7 +3081,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-a1329e51-11e3-4860-aacf-8f1b7f870185" class="xr-var-attrs-in" type="checkbox"><label for="attrs-a1329e51-11e3-4860-aacf-8f1b7f870185" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-0116c3b5-5cc4-438c-97fd-71bd8ce94c19" class="xr-var-data-in" type="checkbox"><label for="data-0116c3b5-5cc4-438c-97fd-71bd8ce94c19" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3112,7 +3112,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3141,7 +3141,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-b9eaa19f-e91f-44fd-a513-50f586fdc68f" class="xr-var-attrs-in" type="checkbox"><label for="attrs-b9eaa19f-e91f-44fd-a513-50f586fdc68f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-aa080071-e099-4580-9a1f-6e5c1df02ddd" class="xr-var-data-in" type="checkbox"><label for="data-aa080071-e099-4580-9a1f-6e5c1df02ddd" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3172,7 +3172,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 380 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3199,7 +3199,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-f48f8e89-c1b4-4750-8269-5ea038d8e7a4" class="xr-var-attrs-in" type="checkbox"><label for="attrs-f48f8e89-c1b4-4750-8269-5ea038d8e7a4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-8a2644b6-18df-420d-b55a-1bade81a7914" class="xr-var-data-in" type="checkbox"><label for="data-8a2644b6-18df-420d-b55a-1bade81a7914" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 380 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3228,7 +3228,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3257,7 +3257,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-a914cb2b-ccca-4cc5-b00e-5009ec65d06c" class="xr-var-attrs-in" type="checkbox"><label for="attrs-a914cb2b-ccca-4cc5-b00e-5009ec65d06c" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-12047062-f780-43b6-94af-77a9760620d6" class="xr-var-data-in" type="checkbox"><label for="data-12047062-f780-43b6-94af-77a9760620d6" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3288,7 +3288,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3317,7 +3317,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-c6cd61bf-b321-4137-810a-2988f2cefcfc" class="xr-var-attrs-in" type="checkbox"><label for="attrs-c6cd61bf-b321-4137-810a-2988f2cefcfc" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-147f2960-7cc1-43f0-b885-4eb5add1f209" class="xr-var-data-in" type="checkbox"><label for="data-147f2960-7cc1-43f0-b885-4eb5add1f209" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3348,7 +3348,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3377,7 +3377,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-8a253f23-c305-4d5b-a88a-732b88181943" class="xr-var-attrs-in" type="checkbox"><label for="attrs-8a253f23-c305-4d5b-a88a-732b88181943" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-7743291a-1c8f-4d55-8738-77410142e3e5" class="xr-var-data-in" type="checkbox"><label for="data-7743291a-1c8f-4d55-8738-77410142e3e5" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3410,7 +3410,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3439,7 +3439,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-4e041270-b03f-4fb5-86d2-30df533eda18" class="xr-var-attrs-in" type="checkbox"><label for="attrs-4e041270-b03f-4fb5-86d2-30df533eda18" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-8881394d-d4dc-43cd-a5c6-30f7e070642b" class="xr-var-data-in" type="checkbox"><label for="data-8881394d-d4dc-43cd-a5c6-30f7e070642b" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3468,7 +3468,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3493,7 +3493,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-9018ee3d-1f46-411f-b1f0-67783598ba87" class="xr-var-attrs-in" type="checkbox"><label for="attrs-9018ee3d-1f46-411f-b1f0-67783598ba87" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-28ae33a8-2a12-4279-9b78-b7acbe56adc0" class="xr-var-data-in" type="checkbox"><label for="data-28ae33a8-2a12-4279-9b78-b7acbe56adc0" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3518,7 +3518,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-830b6e1f-ff30-4723-b9f2-d076fc4434d0" class="xr-var-attrs-in" type="checkbox"><label for="attrs-830b6e1f-ff30-4723-b9f2-d076fc4434d0" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ee77f1b2-2d14-4353-8e6a-59f2e07f1701" class="xr-var-data-in" type="checkbox"><label for="data-ee77f1b2-2d14-4353-8e6a-59f2e07f1701" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength calibration chi square</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3543,9 +3543,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-6258a7bb-3997-4b7f-aa9c-e7a92fff17e7" class="xr-var-attrs-in" type="checkbox"><label for="attrs-6258a7bb-3997-4b7f-aa9c-e7a92fff17e7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-fd0b5be6-524f-4795-b14f-e5fa115e676c" class="xr-var-data-in" type="checkbox"><label for="data-fd0b5be6-524f-4795-b14f-e5fa115e676c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the GMTED2010 surface elevation database</dd>
+<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Surface altitude</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3574,9 +3574,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-13efaa15-6340-49bd-98c2-fcb239bd7b48" class="xr-var-attrs-in" type="checkbox"><label for="attrs-13efaa15-6340-49bd-98c2-fcb239bd7b48" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-0444a535-3ec6-4898-b576-07f8f0096919" class="xr-var-data-in" type="checkbox"><label for="data-0444a535-3ec6-4898-b576-07f8f0096919" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the GMTED2010 surface elevation database</dd>
+<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface altitude precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3609,7 +3609,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flag indicating land/water and further surface classifications for the ground pixel</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  3.   3.   3.   3.   4. 249. 249. 249. 249. 249. 249. 249. 249. 249.
  249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249.
@@ -3625,7 +3625,7 @@ Attributes:
 <dt><span>NETCDF_DIM_time :</span></dt>
 <dd>1</dd>
 <dt><span>source :</span></dt>
-<dd>USGS (https://lta.cr.usgs.gov/GLCC) and NASA SDP toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
+<dd><span class="caps">USGS</span> (https://lta.cr.usgs.gov/<span class="caps">GLCC</span>) and <span class="caps">NASA</span> <span class="caps">SDP</span> toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
 <dt><span>_FillValue :</span></dt>
 <dd>255.0</dd>
 <dt><span>scale_factor :</span></dt>
@@ -3675,7 +3675,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>The scaled variance of the reflectances of the small pixels</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>scaled small pixel variance</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -3702,9 +3702,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-156123e8-a25c-456f-b5a7-fda0cf204607" class="xr-var-attrs-in" type="checkbox"><label for="attrs-156123e8-a25c-456f-b5a7-fda0cf204607" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-b34b20ec-edbd-46e9-b1c8-dbb9c4624353" class="xr-var-data-in" type="checkbox"><label for="data-b34b20ec-edbd-46e9-b1c8-dbb9c4624353" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
-<dd>total column amount of ozone from ECMWF model data</dd>
+<dd>total column amount of ozone from <span class="caps">ECMWF</span> model data</dd>
 <dt><span>multiplication_factor_to_convert_to_DU :</span></dt>
 <dd>2241.1499</dd>
 <dt><span>multiplication_factor_to_convert_to_molecules_percm2 :</span></dt>
@@ -3735,7 +3735,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">…</div>
 <input id="attrs-c125976f-e2a3-448c-a4e4-67e28aebfa42" class="xr-var-attrs-in" type="checkbox"><label for="attrs-c125976f-e2a3-448c-a4e4-67e28aebfa42" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-137f5f50-67be-4ff0-95f6-818df145a17c" class="xr-var-data-in" type="checkbox"><label for="data-137f5f50-67be-4ff0-95f6-818df145a17c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface_air_pressure</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -4052,18 +4052,18 @@ Attributes:
 <dd>0.07</dd>
 <dt><span>wavelength_calibration.window :</span></dt>
 <dd>338.0, 390.0</dd>
-<dt><span>/METADATA/EOP_METADATA/eop :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/eop :</span></dt>
 <dd>metaDataProperty/NC_GLOBAL#objectType=eop:EarthObservationMetaData</dd>
 <dt><span>gml :</span></dt>
-<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.ID</dd>
+<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.<span class="caps">ID</span></dd>
 <dt><span>objectType :</span></dt>
 <dd>gmi:MI_Metadata</dd>
-<dt><span>/METADATA/EOP_METADATA/om :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/om :</span></dt>
 <dd>procedure/NC_GLOBAL#objectType=eop:EarthObservationEquipment</dd>
 <dt><span>File_Class :</span></dt>
-<dd>OFFL</dd>
+<dd><span class="caps">OFFL</span></dd>
 <dt><span>File_Description :</span></dt>
-<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by TROPOMI</dd>
+<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by <span class="caps">TROPOMI</span></dd>
 <dt><span>File_Name :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>File_Type :</span></dt>
@@ -4071,37 +4071,37 @@ Attributes:
 <dt><span>File_Version :</span></dt>
 <dd>1</dd>
 <dt><span>Mission :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>Notes :</span></dt>
 <dd></dd>
 <dt><span>Creation_Date :</span></dt>
-<dd>UTC=2018-08-22T19:32:01</dd>
+<dd><span class="caps">UTC</span>=2018-08-22T19:32:01</dd>
 <dt><span>Creator :</span></dt>
-<dd>TROPNLL2DP</dd>
+<dd><span class="caps">TROPNLL2DP</span></dd>
 <dt><span>Creator_Version :</span></dt>
 <dd>1.1.0</dd>
 <dt><span>System :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>Validity_Start :</span></dt>
-<dd>UTC=2018-08-16T18:51:51</dd>
+<dd><span class="caps">UTC</span>=2018-08-16T18:51:51</dd>
 <dt><span>Validity_Stop :</span></dt>
-<dd>UTC=2018-08-16T19:50:14</dd>
-<dt><span>/METADATA/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
+<dd><span class="caps">UTC</span>=2018-08-16T19:50:14</dd>
+<dt><span>/<span class="caps">METADATA</span>/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
 <dd>lineage/NC_GLOBAL#objectType=gmd:LI_Lineage</dd>
 <dt><span>GranuleEnd :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>GranuleStart :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>InstrumentName :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>LongitudeOfDaysideNadirEquatorCrossing :</span></dt>
 <dd>-86.442253</dd>
 <dt><span>MissionName :</span></dt>
 <dd>Sentinel-5 precursor</dd>
 <dt><span>MissionShortName :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>ProcessingCenter :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>ProcessingMode :</span></dt>
 <dd>Offline</dd>
 <dt><span>ProcessingNode :</span></dt>
@@ -4114,14 +4114,14 @@ Attributes:
 <dd>10000</dd>
 <dt><span>ProductShortName :</span></dt>
 <dd>L2__AER_AI</dd>
-<dt><span>/METADATA/ISO_METADATA/gmd :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmd :</span></dt>
 <dd>language/NC_GLOBAL#objectType=gmd:LanguageCode</dd>
-<dt><span>/METADATA/ISO_METADATA/gmi :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmi :</span></dt>
 <dd>acquisitionInformation/NC_GLOBAL#objectType=gmi:MI_AcquisitionInformation</dd>
 <dt><span>gmd :</span></dt>
-<dd>metadataStandardVersion=ISO 19115-2:2009(E), S5P profile</dd>
+<dd>metadataStandardVersion=<span class="caps">ISO</span> 19115-2:2009(E), <span class="caps">S5P</span> profile</dd>
 <dt><span>global_processing_warnings :</span></dt>
-<dd>—- TEST FLAG SET IN JOB ORDER —-
+<dd>—- <span class="caps">TEST</span> <span class="caps">FLAG</span> <span class="caps">SET</span> <span class="caps">IN</span> <span class="caps">JOB</span> <span class="caps">ORDER</span> —-
 </dd>
 <dt><span>number_of_aai_filter_occurrences :</span></dt>
 <dd>0</dd>
@@ -4364,23 +4364,23 @@ Attributes:
 <dt><span>cdm_data_type :</span></dt>
 <dd>Swath</dd>
 <dt><span>Conventions :</span></dt>
-<dd>CF-1.7</dd>
+<dd><span class="caps">CF</span>-1.7</dd>
 <dt><span>cpp_compiler_flags :</span></dt>
-<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -DTROPNLL2DP</dd>
+<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -<span class="caps">DTROPNLL2DP</span></dd>
 <dt><span>cpp_compiler_version :</span></dt>
-<dd>g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd>g++ (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>creator_email :</span></dt>
 <dd>EOSupport@Copernicus.esa.int</dd>
 <dt><span>creator_name :</span></dt>
-<dd>The Sentinel 5 Precursor TROPOMI Level 2 products are developed with funding from the European Space Agency (ESA), the Netherlands Space Office (NSO), the Belgian Science Policy Office, the German Aerospace Center (DLR) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
+<dd>The Sentinel 5 Precursor <span class="caps">TROPOMI</span> Level 2 products are developed with funding from the European Space Agency (<span class="caps">ESA</span>), the Netherlands Space Office (<span class="caps">NSO</span>), the Belgian Science Policy Office, the German Aerospace Center (<span class="caps">DLR</span>) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
 <dt><span>creator_url :</span></dt>
 <dd>http://www.tropomi.eu</dd>
 <dt><span>date_created :</span></dt>
 <dd>2018-08-22T19:32:01Z</dd>
 <dt><span>f90_compiler_flags :</span></dt>
-<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -DTROPNLL2DP -Wuninitialized -Wtabs</dd>
+<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -<span class="caps">DTROPNLL2DP</span> -Wuninitialized -Wtabs</dd>
 <dt><span>f90_compiler_version :</span></dt>
-<dd>GNU Fortran (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd><span class="caps">GNU</span> Fortran (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>geolocation_grid_from_band :</span></dt>
 <dd>3</dd>
 <dt><span>geospatial_lat_max :</span></dt>
@@ -4392,19 +4392,19 @@ Attributes:
 <dt><span>geospatial_lon_min :</span></dt>
 <dd>179.99924</dd>
 <dt><span>history :</span></dt>
-<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/WORKING-564386761/JobOrder.564386738.xml</dd>
+<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/<span class="caps">WORKING</span>-564386761/JobOrder.564386738.xml</dd>
 <dt><span>id :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>identifier_product_doi :</span></dt>
-<dd>10.5270/S5P-0wafvaf</dd>
+<dd>10.5270/<span class="caps">S5P</span>-0wafvaf</dd>
 <dt><span>identifier_product_doi_authority :</span></dt>
 <dd>http://dx.doi.org/</dd>
 <dt><span>institution :</span></dt>
-<dd>KNMI</dd>
+<dd><span class="caps">KNMI</span></dd>
 <dt><span>keywords :</span></dt>
 <dd>0300 Atmospheric Composition and Structure; 0305 Aerosols and Particles; 0360 Radiation, Transmission and Scattering; 3311 Clouds and Aerosols; 3360 Remote Sensing</dd>
 <dt><span>keywords_vocabulary :</span></dt>
-<dd>AGU index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
+<dd><span class="caps">AGU</span> index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
 <dt><span>license :</span></dt>
 <dd>No conditions apply</dd>
 <dt><span>naming_authority :</span></dt>
@@ -4412,7 +4412,7 @@ Attributes:
 <dt><span>orbit :</span></dt>
 <dd>4361</dd>
 <dt><span>platform :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>processing_status :</span></dt>
 <dd>Nominal</dd>
 <dt><span>processor_version :</span></dt>
@@ -4420,15 +4420,15 @@ Attributes:
 <dt><span>product_version :</span></dt>
 <dd>1.0.0</dd>
 <dt><span>project :</span></dt>
-<dd>Sentinel 5 precursor/TROPOMI</dd>
+<dd>Sentinel 5 precursor/<span class="caps">TROPOMI</span></dd>
 <dt><span>references :</span></dt>
 <dd>http://www.tropomi.eu/data-products/aerosol-index</dd>
 <dt><span>revision_control_identifier :</span></dt>
 <dd>df649da886db</dd>
 <dt><span>sensor :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>source :</span></dt>
-<dd>Sentinel 5 precursor, TROPOMI, space-borne remote sensing, L2</dd>
+<dd>Sentinel 5 precursor, <span class="caps">TROPOMI</span>, space-borne remote sensing, L2</dd>
 <dt><span>spatial_resolution :</span></dt>
 <dd>7x3.5km2</dd>
 <dt><span>standard_name_vocabulary :</span></dt>
@@ -4436,13 +4436,13 @@ Attributes:
 <dt><span>Status_MET_2D :</span></dt>
 <dd>Nominal</dd>
 <dt><span>summary :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>time_coverage_duration :</span></dt>
-<dd>PT3503.000S</dd>
+<dd><span class="caps">PT3503</span>.000S</dd>
 <dt><span>time_coverage_end :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>time_coverage_resolution :</span></dt>
-<dd>PT1.080S</dd>
+<dd><span class="caps">PT1</span>.080S</dd>
 <dt><span>time_coverage_start :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>time_reference :</span></dt>
@@ -4454,7 +4454,7 @@ Attributes:
 <dt><span>time_reference_seconds_since_1970 :</span></dt>
 <dd>1534377600</dd>
 <dt><span>title :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>tracking_id :</span></dt>
 <dd>0b05f3ea-704b-4ab5-8df3-cf6e31764960</dd>
 </dl></div>
@@ -4528,7 +4528,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -4548,7 +4548,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -4562,7 +4562,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -4955,7 +4955,7 @@ Attributes:
 <input id="section-074adbb2-0a73-42d2-92fc-bea03a734469" class="xr-section-summary-in" type="checkbox"><label for="section-074adbb2-0a73-42d2-92fc-bea03a734469" class="xr-section-summary">Attributes: <span>(13)</span></label><div class="xr-section-inline-details"></div>
 <div class="xr-section-details"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  0.   1.   2.   4.   8.  16. 128.]</dd>
 <dt><span>flag_meanings :</span></dt>
@@ -5017,7 +5017,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -5037,7 +5037,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -5051,7 +5051,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -5425,7 +5425,7 @@ Attributes:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>7x3.5km2'</pre>
+<pre>'7x3.5km2'</pre>
 </div>
 
 </div>
@@ -5539,7 +5539,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -5559,7 +5559,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -5573,7 +5573,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -5949,7 +5949,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -5969,7 +5969,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -5983,7 +5983,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -6697,7 +6697,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">53.289627 53.328514 … -68.705986</div>
 <input id="attrs-e37298a6-f4ba-45db-8fe7-8dae8ebcf56a" class="xr-var-attrs-in" type="checkbox"><label for="attrs-e37298a6-f4ba-45db-8fe7-8dae8ebcf56a" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-99e277fe-6112-438e-8d44-5c65156df3ee" class="xr-var-data-in" type="checkbox"><label for="data-99e277fe-6112-438e-8d44-5c65156df3ee" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -6732,7 +6732,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar zenith angle at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -6769,7 +6769,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -6806,7 +6806,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Zenith angle of the satellite at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -6843,7 +6843,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Satellite azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -6879,7 +6879,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">119.45596 119.32921 … 1.9235005</div>
 <input id="attrs-a32d1cd6-9c79-4341-b894-492a7e0362fc" class="xr-var-attrs-in" type="checkbox"><label for="attrs-a32d1cd6-9c79-4341-b894-492a7e0362fc" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-974db057-737d-48c5-abe6-c672a94b4034" class="xr-var-data-in" type="checkbox"><label for="data-974db057-737d-48c5-abe6-c672a94b4034" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center longitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -6913,7 +6913,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">12 12 12 12 12 12 … 8 8 8 8 8 8</div>
 <input id="attrs-40afcb1d-16ea-4053-9100-ae5f33026e46" class="xr-var-attrs-in" type="checkbox"><label for="attrs-40afcb1d-16ea-4053-9100-ae5f33026e46" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-323a5a00-23f9-46f9-a02e-18f4bec9e129" class="xr-var-data-in" type="checkbox"><label for="data-323a5a00-23f9-46f9-a02e-18f4bec9e129" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  0.   1.   2.   4.   8.  16. 128.]</dd>
 <dt><span>flag_meanings :</span></dt>
@@ -6954,7 +6954,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flags indicating conditions that affect quality of the retrieval.</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
  2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
@@ -7029,7 +7029,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">65535 65535 65535 … 65535 65535</div>
 <input id="attrs-29a8abb4-043b-40d9-8c2f-f5eb0c597681" class="xr-var-attrs-in" type="checkbox"><label for="attrs-29a8abb4-043b-40d9-8c2f-f5eb0c597681" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-4b9f811e-a8f7-4312-8fe7-f545092d4c8c" class="xr-var-data-in" type="checkbox"><label for="data-4b9f811e-a8f7-4312-8fe7-f545092d4c8c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Number of spectral points used in the retrieval</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7058,7 +7058,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 388 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7090,7 +7090,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-cb75aec2-f5e5-47b1-a1ef-f21409f399f9" class="xr-var-attrs-in" type="checkbox"><label for="attrs-cb75aec2-f5e5-47b1-a1ef-f21409f399f9" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-1bb2c7e3-5a65-498a-a25e-8695595de916" class="xr-var-data-in" type="checkbox"><label for="data-1bb2c7e3-5a65-498a-a25e-8695595de916" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 388 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7124,7 +7124,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7158,7 +7158,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-755f88f5-c8af-4d45-bdf1-08141a4182ea" class="xr-var-attrs-in" type="checkbox"><label for="attrs-755f88f5-c8af-4d45-bdf1-08141a4182ea" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-235ccf3b-e684-42db-89c9-c273a2e89195" class="xr-var-data-in" type="checkbox"><label for="data-235ccf3b-e684-42db-89c9-c273a2e89195" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7194,7 +7194,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7228,7 +7228,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-0c9b9c5e-0e8a-4f2c-949a-e580d6ad9136" class="xr-var-attrs-in" type="checkbox"><label for="attrs-0c9b9c5e-0e8a-4f2c-949a-e580d6ad9136" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-c485b5c7-9f88-48c6-9a9a-d51cd8126f12" class="xr-var-data-in" type="checkbox"><label for="data-c485b5c7-9f88-48c6-9a9a-d51cd8126f12" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7264,7 +7264,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7298,7 +7298,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-5793b8ab-e9e0-4f9c-ba46-f700eac1d80e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-5793b8ab-e9e0-4f9c-ba46-f700eac1d80e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-0e3357ab-57da-478e-b0d9-cd8d8085fea5" class="xr-var-data-in" type="checkbox"><label for="data-0e3357ab-57da-478e-b0d9-cd8d8085fea5" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7334,7 +7334,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 380 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7366,7 +7366,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-e20d894f-0b10-4518-8855-775920bab1be" class="xr-var-attrs-in" type="checkbox"><label for="attrs-e20d894f-0b10-4518-8855-775920bab1be" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-87fbc006-dbbd-4c2e-959f-5254a579d552" class="xr-var-data-in" type="checkbox"><label for="data-87fbc006-dbbd-4c2e-959f-5254a579d552" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 380 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7400,7 +7400,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7434,7 +7434,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-74a5517d-7a03-442e-8266-107123bcf21f" class="xr-var-attrs-in" type="checkbox"><label for="attrs-74a5517d-7a03-442e-8266-107123bcf21f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-f4863ecd-36dd-4dd5-8c90-35bead47c03a" class="xr-var-data-in" type="checkbox"><label for="data-f4863ecd-36dd-4dd5-8c90-35bead47c03a" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7470,7 +7470,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7504,7 +7504,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-2349b3ea-0781-4935-9421-7aa55f0b7e57" class="xr-var-attrs-in" type="checkbox"><label for="attrs-2349b3ea-0781-4935-9421-7aa55f0b7e57" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-d36b0949-f250-41d2-9abf-cf52acf671fb" class="xr-var-data-in" type="checkbox"><label for="data-d36b0949-f250-41d2-9abf-cf52acf671fb" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7540,7 +7540,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7574,7 +7574,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-fd3dc4db-4811-4bc7-a078-e32b9b2e5e4e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-fd3dc4db-4811-4bc7-a078-e32b9b2e5e4e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-dce39217-f887-423a-9854-76cf486546ea" class="xr-var-data-in" type="checkbox"><label for="data-dce39217-f887-423a-9854-76cf486546ea" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7612,7 +7612,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7646,7 +7646,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-099fa4ba-eb52-4e05-bce6-e9161596cdbd" class="xr-var-attrs-in" type="checkbox"><label for="attrs-099fa4ba-eb52-4e05-bce6-e9161596cdbd" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-1e29b3d0-d389-4c27-9cb3-3f930edabc17" class="xr-var-data-in" type="checkbox"><label for="data-1e29b3d0-d389-4c27-9cb3-3f930edabc17" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7680,7 +7680,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7710,7 +7710,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-d479890a-ca53-4f1d-85c5-41be8100b5af" class="xr-var-attrs-in" type="checkbox"><label for="attrs-d479890a-ca53-4f1d-85c5-41be8100b5af" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-72139592-5f50-4327-9906-01b463c6ca00" class="xr-var-data-in" type="checkbox"><label for="data-72139592-5f50-4327-9906-01b463c6ca00" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7740,7 +7740,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-41d8830b-ad8a-42ac-90aa-7d6183296754" class="xr-var-attrs-in" type="checkbox"><label for="attrs-41d8830b-ad8a-42ac-90aa-7d6183296754" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-e2b1a201-4283-42d5-bd21-d7a4a2b44c75" class="xr-var-data-in" type="checkbox"><label for="data-e2b1a201-4283-42d5-bd21-d7a4a2b44c75" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength calibration chi square</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7770,9 +7770,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-5c444551-7285-450b-b7d1-2e3d41eeeb12" class="xr-var-attrs-in" type="checkbox"><label for="attrs-5c444551-7285-450b-b7d1-2e3d41eeeb12" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-027f5bdc-3a23-4b57-86c3-ae80b23c1eed" class="xr-var-data-in" type="checkbox"><label for="data-027f5bdc-3a23-4b57-86c3-ae80b23c1eed" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the GMTED2010 surface elevation database</dd>
+<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Surface altitude</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7806,9 +7806,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-2fd9e1a7-dca7-45a7-b4eb-1a9b541a41e8" class="xr-var-attrs-in" type="checkbox"><label for="attrs-2fd9e1a7-dca7-45a7-b4eb-1a9b541a41e8" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-191cd7ad-68eb-40bd-9b52-0611b9e0bc50" class="xr-var-data-in" type="checkbox"><label for="data-191cd7ad-68eb-40bd-9b52-0611b9e0bc50" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the GMTED2010 surface elevation database</dd>
+<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface altitude precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7846,7 +7846,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flag indicating land/water and further surface classifications for the ground pixel</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  3.   3.   3.   3.   4. 249. 249. 249. 249. 249. 249. 249. 249. 249.
  249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249.
@@ -7862,7 +7862,7 @@ Attributes:
 <dt><span>NETCDF_DIM_time :</span></dt>
 <dd>1</dd>
 <dt><span>source :</span></dt>
-<dd>USGS (https://lta.cr.usgs.gov/GLCC) and NASA SDP toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
+<dd><span class="caps">USGS</span> (https://lta.cr.usgs.gov/<span class="caps">GLCC</span>) and <span class="caps">NASA</span> <span class="caps">SDP</span> toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
 <dt><span>_FillValue :</span></dt>
 <dd>255.0</dd>
 <dt><span>scale_factor :</span></dt>
@@ -7920,7 +7920,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>The scaled variance of the reflectances of the small pixels</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>scaled small pixel variance</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -7952,9 +7952,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-3a8f6cff-e524-4b1f-9744-296f7b378439" class="xr-var-attrs-in" type="checkbox"><label for="attrs-3a8f6cff-e524-4b1f-9744-296f7b378439" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-7ff4eba7-5f64-422d-9a24-1b8f078847ab" class="xr-var-data-in" type="checkbox"><label for="data-7ff4eba7-5f64-422d-9a24-1b8f078847ab" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
-<dd>total column amount of ozone from ECMWF model data</dd>
+<dd>total column amount of ozone from <span class="caps">ECMWF</span> model data</dd>
 <dt><span>multiplication_factor_to_convert_to_DU :</span></dt>
 <dd>2241.1499</dd>
 <dt><span>multiplication_factor_to_convert_to_molecules_percm2 :</span></dt>
@@ -7990,7 +7990,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-04c07ef3-a985-42f9-9b82-0b1608897cc7" class="xr-var-attrs-in" type="checkbox"><label for="attrs-04c07ef3-a985-42f9-9b82-0b1608897cc7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-463f31c7-911e-4b14-bbfa-7254ab78c201" class="xr-var-data-in" type="checkbox"><label for="data-463f31c7-911e-4b14-bbfa-7254ab78c201" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface_air_pressure</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -8332,18 +8332,18 @@ Attributes:
 <dd>0.07</dd>
 <dt><span>wavelength_calibration.window :</span></dt>
 <dd>338.0, 390.0</dd>
-<dt><span>/METADATA/EOP_METADATA/eop :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/eop :</span></dt>
 <dd>metaDataProperty/NC_GLOBAL#objectType=eop:EarthObservationMetaData</dd>
 <dt><span>gml :</span></dt>
-<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.ID</dd>
+<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.<span class="caps">ID</span></dd>
 <dt><span>objectType :</span></dt>
 <dd>gmi:MI_Metadata</dd>
-<dt><span>/METADATA/EOP_METADATA/om :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/om :</span></dt>
 <dd>procedure/NC_GLOBAL#objectType=eop:EarthObservationEquipment</dd>
 <dt><span>File_Class :</span></dt>
-<dd>OFFL</dd>
+<dd><span class="caps">OFFL</span></dd>
 <dt><span>File_Description :</span></dt>
-<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by TROPOMI</dd>
+<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by <span class="caps">TROPOMI</span></dd>
 <dt><span>File_Name :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>File_Type :</span></dt>
@@ -8351,37 +8351,37 @@ Attributes:
 <dt><span>File_Version :</span></dt>
 <dd>1</dd>
 <dt><span>Mission :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>Notes :</span></dt>
 <dd></dd>
 <dt><span>Creation_Date :</span></dt>
-<dd>UTC=2018-08-22T19:32:01</dd>
+<dd><span class="caps">UTC</span>=2018-08-22T19:32:01</dd>
 <dt><span>Creator :</span></dt>
-<dd>TROPNLL2DP</dd>
+<dd><span class="caps">TROPNLL2DP</span></dd>
 <dt><span>Creator_Version :</span></dt>
 <dd>1.1.0</dd>
 <dt><span>System :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>Validity_Start :</span></dt>
-<dd>UTC=2018-08-16T18:51:51</dd>
+<dd><span class="caps">UTC</span>=2018-08-16T18:51:51</dd>
 <dt><span>Validity_Stop :</span></dt>
-<dd>UTC=2018-08-16T19:50:14</dd>
-<dt><span>/METADATA/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
+<dd><span class="caps">UTC</span>=2018-08-16T19:50:14</dd>
+<dt><span>/<span class="caps">METADATA</span>/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
 <dd>lineage/NC_GLOBAL#objectType=gmd:LI_Lineage</dd>
 <dt><span>GranuleEnd :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>GranuleStart :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>InstrumentName :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>LongitudeOfDaysideNadirEquatorCrossing :</span></dt>
 <dd>-86.442253</dd>
 <dt><span>MissionName :</span></dt>
 <dd>Sentinel-5 precursor</dd>
 <dt><span>MissionShortName :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>ProcessingCenter :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>ProcessingMode :</span></dt>
 <dd>Offline</dd>
 <dt><span>ProcessingNode :</span></dt>
@@ -8394,14 +8394,14 @@ Attributes:
 <dd>10000</dd>
 <dt><span>ProductShortName :</span></dt>
 <dd>L2__AER_AI</dd>
-<dt><span>/METADATA/ISO_METADATA/gmd :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmd :</span></dt>
 <dd>language/NC_GLOBAL#objectType=gmd:LanguageCode</dd>
-<dt><span>/METADATA/ISO_METADATA/gmi :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmi :</span></dt>
 <dd>acquisitionInformation/NC_GLOBAL#objectType=gmi:MI_AcquisitionInformation</dd>
 <dt><span>gmd :</span></dt>
-<dd>metadataStandardVersion=ISO 19115-2:2009(E), S5P profile</dd>
+<dd>metadataStandardVersion=<span class="caps">ISO</span> 19115-2:2009(E), <span class="caps">S5P</span> profile</dd>
 <dt><span>global_processing_warnings :</span></dt>
-<dd>—- TEST FLAG SET IN JOB ORDER —-
+<dd>—- <span class="caps">TEST</span> <span class="caps">FLAG</span> <span class="caps">SET</span> <span class="caps">IN</span> <span class="caps">JOB</span> <span class="caps">ORDER</span> —-
 </dd>
 <dt><span>number_of_aai_filter_occurrences :</span></dt>
 <dd>0</dd>
@@ -8644,23 +8644,23 @@ Attributes:
 <dt><span>cdm_data_type :</span></dt>
 <dd>Swath</dd>
 <dt><span>Conventions :</span></dt>
-<dd>CF-1.7</dd>
+<dd><span class="caps">CF</span>-1.7</dd>
 <dt><span>cpp_compiler_flags :</span></dt>
-<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -DTROPNLL2DP</dd>
+<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -<span class="caps">DTROPNLL2DP</span></dd>
 <dt><span>cpp_compiler_version :</span></dt>
-<dd>g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd>g++ (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>creator_email :</span></dt>
 <dd>EOSupport@Copernicus.esa.int</dd>
 <dt><span>creator_name :</span></dt>
-<dd>The Sentinel 5 Precursor TROPOMI Level 2 products are developed with funding from the European Space Agency (ESA), the Netherlands Space Office (NSO), the Belgian Science Policy Office, the German Aerospace Center (DLR) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
+<dd>The Sentinel 5 Precursor <span class="caps">TROPOMI</span> Level 2 products are developed with funding from the European Space Agency (<span class="caps">ESA</span>), the Netherlands Space Office (<span class="caps">NSO</span>), the Belgian Science Policy Office, the German Aerospace Center (<span class="caps">DLR</span>) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
 <dt><span>creator_url :</span></dt>
 <dd>http://www.tropomi.eu</dd>
 <dt><span>date_created :</span></dt>
 <dd>2018-08-22T19:32:01Z</dd>
 <dt><span>f90_compiler_flags :</span></dt>
-<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -DTROPNLL2DP -Wuninitialized -Wtabs</dd>
+<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -<span class="caps">DTROPNLL2DP</span> -Wuninitialized -Wtabs</dd>
 <dt><span>f90_compiler_version :</span></dt>
-<dd>GNU Fortran (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd><span class="caps">GNU</span> Fortran (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>geolocation_grid_from_band :</span></dt>
 <dd>3</dd>
 <dt><span>geospatial_lat_max :</span></dt>
@@ -8672,19 +8672,19 @@ Attributes:
 <dt><span>geospatial_lon_min :</span></dt>
 <dd>179.99924</dd>
 <dt><span>history :</span></dt>
-<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/WORKING-564386761/JobOrder.564386738.xml</dd>
+<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/<span class="caps">WORKING</span>-564386761/JobOrder.564386738.xml</dd>
 <dt><span>id :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>identifier_product_doi :</span></dt>
-<dd>10.5270/S5P-0wafvaf</dd>
+<dd>10.5270/<span class="caps">S5P</span>-0wafvaf</dd>
 <dt><span>identifier_product_doi_authority :</span></dt>
 <dd>http://dx.doi.org/</dd>
 <dt><span>institution :</span></dt>
-<dd>KNMI</dd>
+<dd><span class="caps">KNMI</span></dd>
 <dt><span>keywords :</span></dt>
 <dd>0300 Atmospheric Composition and Structure; 0305 Aerosols and Particles; 0360 Radiation, Transmission and Scattering; 3311 Clouds and Aerosols; 3360 Remote Sensing</dd>
 <dt><span>keywords_vocabulary :</span></dt>
-<dd>AGU index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
+<dd><span class="caps">AGU</span> index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
 <dt><span>license :</span></dt>
 <dd>No conditions apply</dd>
 <dt><span>naming_authority :</span></dt>
@@ -8692,7 +8692,7 @@ Attributes:
 <dt><span>orbit :</span></dt>
 <dd>4361</dd>
 <dt><span>platform :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>processing_status :</span></dt>
 <dd>Nominal</dd>
 <dt><span>processor_version :</span></dt>
@@ -8700,15 +8700,15 @@ Attributes:
 <dt><span>product_version :</span></dt>
 <dd>1.0.0</dd>
 <dt><span>project :</span></dt>
-<dd>Sentinel 5 precursor/TROPOMI</dd>
+<dd>Sentinel 5 precursor/<span class="caps">TROPOMI</span></dd>
 <dt><span>references :</span></dt>
 <dd>http://www.tropomi.eu/data-products/aerosol-index</dd>
 <dt><span>revision_control_identifier :</span></dt>
 <dd>df649da886db</dd>
 <dt><span>sensor :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>source :</span></dt>
-<dd>Sentinel 5 precursor, TROPOMI, space-borne remote sensing, L2</dd>
+<dd>Sentinel 5 precursor, <span class="caps">TROPOMI</span>, space-borne remote sensing, L2</dd>
 <dt><span>spatial_resolution :</span></dt>
 <dd>7x3.5km2</dd>
 <dt><span>standard_name_vocabulary :</span></dt>
@@ -8716,13 +8716,13 @@ Attributes:
 <dt><span>Status_MET_2D :</span></dt>
 <dd>Nominal</dd>
 <dt><span>summary :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>time_coverage_duration :</span></dt>
-<dd>PT3503.000S</dd>
+<dd><span class="caps">PT3503</span>.000S</dd>
 <dt><span>time_coverage_end :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>time_coverage_resolution :</span></dt>
-<dd>PT1.080S</dd>
+<dd><span class="caps">PT1</span>.080S</dd>
 <dt><span>time_coverage_start :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>time_reference :</span></dt>
@@ -8734,7 +8734,7 @@ Attributes:
 <dt><span>time_reference_seconds_since_1970 :</span></dt>
 <dd>1534377600</dd>
 <dt><span>title :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>tracking_id :</span></dt>
 <dd>0b05f3ea-704b-4ab5-8df3-cf6e31764960</dd>
 </dl></div>
@@ -8775,7 +8775,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -8795,7 +8795,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -8809,7 +8809,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -9528,7 +9528,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">53.289627 53.328514 … -68.705986</div>
 <input id="attrs-52286ce4-56b9-4dd0-b400-bf90393afae7" class="xr-var-attrs-in" type="checkbox"><label for="attrs-52286ce4-56b9-4dd0-b400-bf90393afae7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ac319039-3035-4946-b20d-45a4fc74ef0f" class="xr-var-data-in" type="checkbox"><label for="data-ac319039-3035-4946-b20d-45a4fc74ef0f" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -9577,7 +9577,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">119.45596 119.32921 … 1.9235005</div>
 <input id="attrs-69ea62a7-27b3-4d21-83ca-901b59cd127d" class="xr-var-attrs-in" type="checkbox"><label for="attrs-69ea62a7-27b3-4d21-83ca-901b59cd127d" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-d2e4d786-4b6d-4e4d-8218-b4b5573d8259" class="xr-var-data-in" type="checkbox"><label for="data-d2e4d786-4b6d-4e4d-8218-b4b5573d8259" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center longitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -9625,7 +9625,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar zenith angle at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9670,7 +9670,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Solar azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>solar azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9715,7 +9715,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Zenith angle of the satellite at the ground pixel location on the reference ellipsoid. Angle is measured away from the vertical</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing zenith angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9760,7 +9760,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Satellite azimuth angle at the ground pixel location on the reference ellipsoid. Angle is measured clockwise from the North (East = 90, South = 180, West = 270)</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>viewing azimuth angle</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9803,7 +9803,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">12 12 12 12 12 12 … 8 8 8 8 8 8</div>
 <input id="attrs-5a296ab9-6a6c-4d09-84a7-140751d63911" class="xr-var-attrs-in" type="checkbox"><label for="attrs-5a296ab9-6a6c-4d09-84a7-140751d63911" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ec4277b6-97f7-4dbf-9c99-5441c444eadc" class="xr-var-data-in" type="checkbox"><label for="data-ec4277b6-97f7-4dbf-9c99-5441c444eadc" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  0.   1.   2.   4.   8.  16. 128.]</dd>
 <dt><span>flag_meanings :</span></dt>
@@ -9846,7 +9846,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flags indicating conditions that affect quality of the retrieval.</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
  2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02 2.5500000e+02
@@ -9923,7 +9923,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">65535 65535 65535 … 65535 65535</div>
 <input id="attrs-3da69fe1-e813-4d5a-811e-eee159fef99b" class="xr-var-attrs-in" type="checkbox"><label for="attrs-3da69fe1-e813-4d5a-811e-eee159fef99b" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-dc672871-33d4-43a8-902d-db757dd6fbd4" class="xr-var-data-in" type="checkbox"><label for="data-dc672871-33d4-43a8-902d-db757dd6fbd4" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Number of spectral points used in the retrieval</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9954,7 +9954,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 388 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -9993,7 +9993,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-b5020eb3-abc2-454a-9081-48643c108ba0" class="xr-var-attrs-in" type="checkbox"><label for="attrs-b5020eb3-abc2-454a-9081-48643c108ba0" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-00207d29-8d5e-46b8-9e99-699c3e9a0afd" class="xr-var-data-in" type="checkbox"><label for="data-00207d29-8d5e-46b8-9e99-699c3e9a0afd" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 388 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10034,7 +10034,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10075,7 +10075,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-6e2032f8-b478-4839-bac7-7de56ff33f74" class="xr-var-attrs-in" type="checkbox"><label for="attrs-6e2032f8-b478-4839-bac7-7de56ff33f74" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-cb650ec9-b11d-4370-b24c-6033a078b030" class="xr-var-data-in" type="checkbox"><label for="data-cb650ec9-b11d-4370-b24c-6033a078b030" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10118,7 +10118,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_388_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10159,7 +10159,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-93df3a64-0263-4c48-94ce-a98ba2d8ea4e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-93df3a64-0263-4c48-94ce-a98ba2d8ea4e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-41e867b5-0b5f-4d26-8720-0a017ec52641" class="xr-var-data-in" type="checkbox"><label for="data-41e867b5-0b5f-4d26-8720-0a017ec52641" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 388 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10202,7 +10202,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_354_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10243,7 +10243,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-656a488f-bd3c-41b4-9a1d-058cda21ccd6" class="xr-var-attrs-in" type="checkbox"><label for="attrs-656a488f-bd3c-41b4-9a1d-058cda21ccd6" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-dbc32969-369e-4d9e-9f63-62033403935d" class="xr-var-data-in" type="checkbox"><label for="data-dbc32969-369e-4d9e-9f63-62033403935d" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 354 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10286,7 +10286,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>scene_albedo_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Scene albedo at 380 nm calculated from the top of atmosphere reflectance. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10325,7 +10325,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-a8ac356b-16c9-4b02-829c-f403355fce4b" class="xr-var-attrs-in" type="checkbox"><label for="attrs-a8ac356b-16c9-4b02-829c-f403355fce4b" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-d97a063b-8c03-4e80-97be-fd15d92f2ed2" class="xr-var-data-in" type="checkbox"><label for="data-d97a063b-8c03-4e80-97be-fd15d92f2ed2" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the scene albedo at 380 nm calculated from the top of atmosphere reflectance and its precision. For a cloud- and aerosol-free scene this is equivalent to the surface albedo</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10366,7 +10366,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10407,7 +10407,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-3cda5b2e-0d82-466d-aae9-5351105986ad" class="xr-var-attrs-in" type="checkbox"><label for="attrs-3cda5b2e-0d82-466d-aae9-5351105986ad" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-b55f9428-6fc2-4b11-ab8e-0fe77b0df81a" class="xr-var-data-in" type="checkbox"><label for="data-b55f9428-6fc2-4b11-ab8e-0fe77b0df81a" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10450,7 +10450,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_measured_380_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10491,7 +10491,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-4d003ddc-397f-44e0-9280-b83b4046ac3f" class="xr-var-attrs-in" type="checkbox"><label for="attrs-4d003ddc-397f-44e0-9280-b83b4046ac3f" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-6a4b6c2c-0a15-4b98-984c-e2a9c7b7a748" class="xr-var-data-in" type="checkbox"><label for="data-6a4b6c2c-0a15-4b98-984c-e2a9c7b7a748" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the top of atmosphere reflectance at 380 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10534,7 +10534,7 @@ Attributes:
 <dt><span>ancillary_variables :</span></dt>
 <dd>reflectance_calculated_340_precision</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10575,7 +10575,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-06db0ff3-e17e-4daf-9d28-60dc4205427a" class="xr-var-attrs-in" type="checkbox"><label for="attrs-06db0ff3-e17e-4daf-9d28-60dc4205427a" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-a093dc3f-9437-4ae3-ae94-25f97f1edfcc" class="xr-var-data-in" type="checkbox"><label for="data-a093dc3f-9437-4ae3-ae94-25f97f1edfcc" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Precision of the calculated top of atmosphere reflectance at 340 nm</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10620,7 +10620,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10661,7 +10661,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-cd378730-45ea-4b4c-8f08-1a79434fd6e3" class="xr-var-attrs-in" type="checkbox"><label for="attrs-cd378730-45ea-4b4c-8f08-1a79434fd6e3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-f185aa71-5a35-48b0-8beb-a79da7853d1c" class="xr-var-data-in" type="checkbox"><label for="data-f185aa71-5a35-48b0-8beb-a79da7853d1c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength offset precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10702,7 +10702,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>True wavelength = nominal wavelength + wavelength offset + wavelength stretch * scaled wavelength</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10739,7 +10739,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-87bd0738-f267-4770-95e4-cd334f4d1cd3" class="xr-var-attrs-in" type="checkbox"><label for="attrs-87bd0738-f267-4770-95e4-cd334f4d1cd3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-5bbd32ee-77ca-4505-9c25-4118954dfa20" class="xr-var-data-in" type="checkbox"><label for="data-5bbd32ee-77ca-4505-9c25-4118954dfa20" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength stretch precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10776,7 +10776,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-ff2610a6-3dfd-4a6e-bb75-a06980309fff" class="xr-var-attrs-in" type="checkbox"><label for="attrs-ff2610a6-3dfd-4a6e-bb75-a06980309fff" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-fff16ac3-2ef8-4071-bbc7-db88d6ceb749" class="xr-var-data-in" type="checkbox"><label for="data-fff16ac3-2ef8-4071-bbc7-db88d6ceb749" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>wavelength calibration chi square</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10813,9 +10813,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-17ea6ade-92aa-4ee9-9164-4b840bf941f7" class="xr-var-attrs-in" type="checkbox"><label for="attrs-17ea6ade-92aa-4ee9-9164-4b840bf941f7" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-a627b7a3-d97b-4388-89d4-d6aed1724a8b" class="xr-var-data-in" type="checkbox"><label for="data-a627b7a3-d97b-4388-89d4-d6aed1724a8b" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the GMTED2010 surface elevation database</dd>
+<dd>The mean of the sub-pixels of the surface altitudewithin the approximate field of view, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>Surface altitude</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10856,9 +10856,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-172b6bbf-9338-462b-8cdb-f40217e76ba4" class="xr-var-attrs-in" type="checkbox"><label for="attrs-172b6bbf-9338-462b-8cdb-f40217e76ba4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-ea8bea93-8caf-49c8-92c6-43137b7dec11" class="xr-var-data-in" type="checkbox"><label for="data-ea8bea93-8caf-49c8-92c6-43137b7dec11" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>comment :</span></dt>
-<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the GMTED2010 surface elevation database</dd>
+<dd>The standard deviation of sub-pixels used in calculating the mean surface altitude, based on the <span class="caps">GMTED2010</span> surface elevation database</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface altitude precision</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -10903,7 +10903,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>Flag indicating land/water and further surface classifications for the ground pixel</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>flag_masks :</span></dt>
 <dd>[  3.   3.   3.   3.   4. 249. 249. 249. 249. 249. 249. 249. 249. 249.
  249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249. 249.
@@ -10919,7 +10919,7 @@ Attributes:
 <dt><span>NETCDF_DIM_time :</span></dt>
 <dd>1</dd>
 <dt><span>source :</span></dt>
-<dd>USGS (https://lta.cr.usgs.gov/GLCC) and NASA SDP toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
+<dd><span class="caps">USGS</span> (https://lta.cr.usgs.gov/<span class="caps">GLCC</span>) and <span class="caps">NASA</span> <span class="caps">SDP</span> toolkit (http://newsroom.gsfc.nasa.gov/sdptoolkit/toolkit.html)</dd>
 <dt><span>_FillValue :</span></dt>
 <dd>255.0</dd>
 <dt><span>scale_factor :</span></dt>
@@ -10981,7 +10981,7 @@ Attributes:
 <dt><span>comment :</span></dt>
 <dd>The scaled variance of the reflectances of the small pixels</dd>
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>scaled small pixel variance</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -11020,9 +11020,9 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-b55c7286-d7d8-4a39-bc6a-e7a169bf4a33" class="xr-var-attrs-in" type="checkbox"><label for="attrs-b55c7286-d7d8-4a39-bc6a-e7a169bf4a33" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-a023b74b-84b6-4fd9-99f8-3a9990d2b052" class="xr-var-data-in" type="checkbox"><label for="data-a023b74b-84b6-4fd9-99f8-3a9990d2b052" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
-<dd>total column amount of ozone from ECMWF model data</dd>
+<dd>total column amount of ozone from <span class="caps">ECMWF</span> model data</dd>
 <dt><span>multiplication_factor_to_convert_to_DU :</span></dt>
 <dd>2241.1499</dd>
 <dt><span>multiplication_factor_to_convert_to_molecules_percm2 :</span></dt>
@@ -11065,7 +11065,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">9.96921e+36 … 9.96921e+36</div>
 <input id="attrs-83dbd8f7-b0f6-4f00-aa4f-171c7aaa8a76" class="xr-var-attrs-in" type="checkbox"><label for="attrs-83dbd8f7-b0f6-4f00-aa4f-171c7aaa8a76" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-43e521df-94a3-48ed-bfbc-335a7227b995" class="xr-var-data-in" type="checkbox"><label for="data-43e521df-94a3-48ed-bfbc-335a7227b995" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>coordinates :</span></dt>
-<dd>/PRODUCT/longitude /PRODUCT/latitude</dd>
+<dd>/<span class="caps">PRODUCT</span>/longitude /<span class="caps">PRODUCT</span>/latitude</dd>
 <dt><span>long_name :</span></dt>
 <dd>surface_air_pressure</dd>
 <dt><span>NETCDF_DIM_time :</span></dt>
@@ -11442,18 +11442,18 @@ Attributes:
 <dd>0.07</dd>
 <dt><span>wavelength_calibration.window :</span></dt>
 <dd>338.0, 390.0</dd>
-<dt><span>/METADATA/EOP_METADATA/eop :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/eop :</span></dt>
 <dd>metaDataProperty/NC_GLOBAL#objectType=eop:EarthObservationMetaData</dd>
 <dt><span>gml :</span></dt>
-<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.ID</dd>
+<dd>id=S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822.<span class="caps">ID</span></dd>
 <dt><span>objectType :</span></dt>
 <dd>gmi:MI_Metadata</dd>
-<dt><span>/METADATA/EOP_METADATA/om :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/EOP_METADATA/om :</span></dt>
 <dd>procedure/NC_GLOBAL#objectType=eop:EarthObservationEquipment</dd>
 <dt><span>File_Class :</span></dt>
-<dd>OFFL</dd>
+<dd><span class="caps">OFFL</span></dd>
 <dt><span>File_Description :</span></dt>
-<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by TROPOMI</dd>
+<dd>Aerosol index with a spatial resolution of 7x3.5km2 observed at about 13:30 local solar time from spectra measured by <span class="caps">TROPOMI</span></dd>
 <dt><span>File_Name :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>File_Type :</span></dt>
@@ -11461,37 +11461,37 @@ Attributes:
 <dt><span>File_Version :</span></dt>
 <dd>1</dd>
 <dt><span>Mission :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>Notes :</span></dt>
 <dd></dd>
 <dt><span>Creation_Date :</span></dt>
-<dd>UTC=2018-08-22T19:32:01</dd>
+<dd><span class="caps">UTC</span>=2018-08-22T19:32:01</dd>
 <dt><span>Creator :</span></dt>
-<dd>TROPNLL2DP</dd>
+<dd><span class="caps">TROPNLL2DP</span></dd>
 <dt><span>Creator_Version :</span></dt>
 <dd>1.1.0</dd>
 <dt><span>System :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>Validity_Start :</span></dt>
-<dd>UTC=2018-08-16T18:51:51</dd>
+<dd><span class="caps">UTC</span>=2018-08-16T18:51:51</dd>
 <dt><span>Validity_Stop :</span></dt>
-<dd>UTC=2018-08-16T19:50:14</dd>
-<dt><span>/METADATA/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
+<dd><span class="caps">UTC</span>=2018-08-16T19:50:14</dd>
+<dt><span>/<span class="caps">METADATA</span>/ESA_METADATA/earth_explorer_header/variable_header/gmd :</span></dt>
 <dd>lineage/NC_GLOBAL#objectType=gmd:LI_Lineage</dd>
 <dt><span>GranuleEnd :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>GranuleStart :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>InstrumentName :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>LongitudeOfDaysideNadirEquatorCrossing :</span></dt>
 <dd>-86.442253</dd>
 <dt><span>MissionName :</span></dt>
 <dd>Sentinel-5 precursor</dd>
 <dt><span>MissionShortName :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>ProcessingCenter :</span></dt>
-<dd>PDGS-OP</dd>
+<dd><span class="caps">PDGS</span>-<span class="caps">OP</span></dd>
 <dt><span>ProcessingMode :</span></dt>
 <dd>Offline</dd>
 <dt><span>ProcessingNode :</span></dt>
@@ -11504,14 +11504,14 @@ Attributes:
 <dd>10000</dd>
 <dt><span>ProductShortName :</span></dt>
 <dd>L2__AER_AI</dd>
-<dt><span>/METADATA/ISO_METADATA/gmd :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmd :</span></dt>
 <dd>language/NC_GLOBAL#objectType=gmd:LanguageCode</dd>
-<dt><span>/METADATA/ISO_METADATA/gmi :</span></dt>
+<dt><span>/<span class="caps">METADATA</span>/ISO_METADATA/gmi :</span></dt>
 <dd>acquisitionInformation/NC_GLOBAL#objectType=gmi:MI_AcquisitionInformation</dd>
 <dt><span>gmd :</span></dt>
-<dd>metadataStandardVersion=ISO 19115-2:2009(E), S5P profile</dd>
+<dd>metadataStandardVersion=<span class="caps">ISO</span> 19115-2:2009(E), <span class="caps">S5P</span> profile</dd>
 <dt><span>global_processing_warnings :</span></dt>
-<dd>—- TEST FLAG SET IN JOB ORDER —-
+<dd>—- <span class="caps">TEST</span> <span class="caps">FLAG</span> <span class="caps">SET</span> <span class="caps">IN</span> <span class="caps">JOB</span> <span class="caps">ORDER</span> —-
 </dd>
 <dt><span>number_of_aai_filter_occurrences :</span></dt>
 <dd>0</dd>
@@ -11754,23 +11754,23 @@ Attributes:
 <dt><span>cdm_data_type :</span></dt>
 <dd>Swath</dd>
 <dt><span>Conventions :</span></dt>
-<dd>CF-1.7</dd>
+<dd><span class="caps">CF</span>-1.7</dd>
 <dt><span>cpp_compiler_flags :</span></dt>
-<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -DTROPNLL2DP</dd>
+<dd>-g -O2 -fPIC -std=c++11 -W -Wall -Wno-ignored-qualifiers -Wno-write-strings -Wno-unused-variable -<span class="caps">DTROPNLL2DP</span></dd>
 <dt><span>cpp_compiler_version :</span></dt>
-<dd>g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd>g++ (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>creator_email :</span></dt>
 <dd>EOSupport@Copernicus.esa.int</dd>
 <dt><span>creator_name :</span></dt>
-<dd>The Sentinel 5 Precursor TROPOMI Level 2 products are developed with funding from the European Space Agency (ESA), the Netherlands Space Office (NSO), the Belgian Science Policy Office, the German Aerospace Center (DLR) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
+<dd>The Sentinel 5 Precursor <span class="caps">TROPOMI</span> Level 2 products are developed with funding from the European Space Agency (<span class="caps">ESA</span>), the Netherlands Space Office (<span class="caps">NSO</span>), the Belgian Science Policy Office, the German Aerospace Center (<span class="caps">DLR</span>) and the Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie (StMWi).</dd>
 <dt><span>creator_url :</span></dt>
 <dd>http://www.tropomi.eu</dd>
 <dt><span>date_created :</span></dt>
 <dd>2018-08-22T19:32:01Z</dd>
 <dt><span>f90_compiler_flags :</span></dt>
-<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -DTROPNLL2DP -Wuninitialized -Wtabs</dd>
+<dd>-gdwarf-3 -O2 -fPIC -cpp -ffpe-trap=invalid -fno-range-check -frecursive -fimplicit-none -ffree-line-length-none -<span class="caps">DTROPNLL2DP</span> -Wuninitialized -Wtabs</dd>
 <dt><span>f90_compiler_version :</span></dt>
-<dd>GNU Fortran (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
+<dd><span class="caps">GNU</span> Fortran (<span class="caps">GCC</span>) 4.8.5 20150623 (Red Hat 4.8.5-11)</dd>
 <dt><span>geolocation_grid_from_band :</span></dt>
 <dd>3</dd>
 <dt><span>geospatial_lat_max :</span></dt>
@@ -11782,19 +11782,19 @@ Attributes:
 <dt><span>geospatial_lon_min :</span></dt>
 <dd>179.99924</dd>
 <dt><span>history :</span></dt>
-<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/WORKING-564386761/JobOrder.564386738.xml</dd>
+<dd>2018-08-22 19:35:59 f_s5pops tropnll2dp /mnt/data1/storage_offl_l2/cache_offl_l2/<span class="caps">WORKING</span>-564386761/JobOrder.564386738.xml</dd>
 <dt><span>id :</span></dt>
 <dd>S5P_OFFL_L2__AER_AI_20180816T183016_20180816T201146_04361_01_010100_20180822T174822</dd>
 <dt><span>identifier_product_doi :</span></dt>
-<dd>10.5270/S5P-0wafvaf</dd>
+<dd>10.5270/<span class="caps">S5P</span>-0wafvaf</dd>
 <dt><span>identifier_product_doi_authority :</span></dt>
 <dd>http://dx.doi.org/</dd>
 <dt><span>institution :</span></dt>
-<dd>KNMI</dd>
+<dd><span class="caps">KNMI</span></dd>
 <dt><span>keywords :</span></dt>
 <dd>0300 Atmospheric Composition and Structure; 0305 Aerosols and Particles; 0360 Radiation, Transmission and Scattering; 3311 Clouds and Aerosols; 3360 Remote Sensing</dd>
 <dt><span>keywords_vocabulary :</span></dt>
-<dd>AGU index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
+<dd><span class="caps">AGU</span> index terms, http://publications.agu.org/author-resource-center/index-terms/</dd>
 <dt><span>license :</span></dt>
 <dd>No conditions apply</dd>
 <dt><span>naming_authority :</span></dt>
@@ -11802,7 +11802,7 @@ Attributes:
 <dt><span>orbit :</span></dt>
 <dd>4361</dd>
 <dt><span>platform :</span></dt>
-<dd>S5P</dd>
+<dd><span class="caps">S5P</span></dd>
 <dt><span>processing_status :</span></dt>
 <dd>Nominal</dd>
 <dt><span>processor_version :</span></dt>
@@ -11810,15 +11810,15 @@ Attributes:
 <dt><span>product_version :</span></dt>
 <dd>1.0.0</dd>
 <dt><span>project :</span></dt>
-<dd>Sentinel 5 precursor/TROPOMI</dd>
+<dd>Sentinel 5 precursor/<span class="caps">TROPOMI</span></dd>
 <dt><span>references :</span></dt>
 <dd>http://www.tropomi.eu/data-products/aerosol-index</dd>
 <dt><span>revision_control_identifier :</span></dt>
 <dd>df649da886db</dd>
 <dt><span>sensor :</span></dt>
-<dd>TROPOMI</dd>
+<dd><span class="caps">TROPOMI</span></dd>
 <dt><span>source :</span></dt>
-<dd>Sentinel 5 precursor, TROPOMI, space-borne remote sensing, L2</dd>
+<dd>Sentinel 5 precursor, <span class="caps">TROPOMI</span>, space-borne remote sensing, L2</dd>
 <dt><span>spatial_resolution :</span></dt>
 <dd>7x3.5km2</dd>
 <dt><span>standard_name_vocabulary :</span></dt>
@@ -11826,13 +11826,13 @@ Attributes:
 <dt><span>Status_MET_2D :</span></dt>
 <dd>Nominal</dd>
 <dt><span>summary :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>time_coverage_duration :</span></dt>
-<dd>PT3503.000S</dd>
+<dd><span class="caps">PT3503</span>.000S</dd>
 <dt><span>time_coverage_end :</span></dt>
 <dd>2018-08-16T19:50:14Z</dd>
 <dt><span>time_coverage_resolution :</span></dt>
-<dd>PT1.080S</dd>
+<dd><span class="caps">PT1</span>.080S</dd>
 <dt><span>time_coverage_start :</span></dt>
 <dd>2018-08-16T18:51:51Z</dd>
 <dt><span>time_reference :</span></dt>
@@ -11844,7 +11844,7 @@ Attributes:
 <dt><span>time_reference_seconds_since_1970 :</span></dt>
 <dd>1534377600</dd>
 <dt><span>title :</span></dt>
-<dd>TROPOMI/S5P Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
+<dd><span class="caps">TROPOMI</span>/<span class="caps">S5P</span> Aerosol Index 1-Orbit L2 Swath 7x3.5km</dd>
 <dt><span>tracking_id :</span></dt>
 <dd>0b05f3ea-704b-4ab5-8df3-cf6e31764960</dd>
 </dl></div>
@@ -11932,7 +11932,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -11952,7 +11952,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -11966,7 +11966,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -12394,7 +12394,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">53.289627 53.328514 … -68.705986</div>
 <input id="attrs-a791bc92-45ec-4cf8-ab2a-173732711b2e" class="xr-var-attrs-in" type="checkbox"><label for="attrs-a791bc92-45ec-4cf8-ab2a-173732711b2e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-709745ac-790a-4712-a070-1a3635dfd207" class="xr-var-data-in" type="checkbox"><label for="data-709745ac-790a-4712-a070-1a3635dfd207" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -12435,7 +12435,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">119.45596 119.32921 … 1.9235005</div>
 <input id="attrs-f24c8112-4e3c-4d42-a224-0f90c57d8ee1" class="xr-var-attrs-in" type="checkbox"><label for="attrs-f24c8112-4e3c-4d42-a224-0f90c57d8ee1" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-80d55d7a-4298-4109-b97b-c336399197e8" class="xr-var-data-in" type="checkbox"><label for="data-80d55d7a-4298-4109-b97b-c336399197e8" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center longitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -12601,7 +12601,7 @@ Attributes:
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden"><defs><symbol id="icon-database" viewbox="0 0 32 32"><path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path><path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path><path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path></symbol><symbol id="icon-file-text2" viewbox="0 0 32 32"><path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path><path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path><path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path></symbol></defs></svg><style>/* <span class="caps">CSS</span> stylesheet for displaying xarray objects in jupyterlab.
  *
  */
 
@@ -12621,7 +12621,7 @@ body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #<span class="caps">1F1F1F</span>;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -12635,7 +12635,7 @@ body.vscode-dark {
 }
 
 .xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  /* fallback to plain text repr when <span class="caps">CSS</span> is not injected (untrusted notebook) */
   display: none;
 }
 
@@ -13112,7 +13112,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">53.289627 53.328514 … 60.871014</div>
 <input id="attrs-06fe8d9c-7c67-4d86-b651-dd36c0cad1c0" class="xr-var-attrs-in" type="checkbox"><label for="attrs-06fe8d9c-7c67-4d86-b651-dd36c0cad1c0" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-1a484b38-d9fb-4fe4-8195-4aed38bf27e9" class="xr-var-data-in" type="checkbox"><label for="data-1a484b38-d9fb-4fe4-8195-4aed38bf27e9" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -13181,7 +13181,7 @@ Attributes:
 <div class="xr-var-preview xr-preview">119.45596 119.32921 … 75.9475</div>
 <input id="attrs-23373f90-3cac-45d1-8d6c-736ff7fe7080" class="xr-var-attrs-in" type="checkbox"><label for="attrs-23373f90-3cac-45d1-8d6c-736ff7fe7080" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input id="data-8204afa2-0dc0-43b1-bb00-6c94a74c32f9" class="xr-var-data-in" type="checkbox"><label for="data-8204afa2-0dc0-43b1-bb00-6c94a74c32f9" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/longitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/longitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center longitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -13249,7 +13249,7 @@ Attributes:
 <input id="section-c223ac8b-de7e-478c-b4ce-dbaac0ceed1e" class="xr-section-summary-in" type="checkbox"><label for="section-c223ac8b-de7e-478c-b4ce-dbaac0ceed1e" class="xr-section-summary">Attributes: <span>(10)</span></label><div class="xr-section-inline-details"></div>
 <div class="xr-section-details"><dl class="xr-attrs">
 <dt><span>bounds :</span></dt>
-<dd>/PRODUCT/SUPPORT_DATA/GEOLOCATIONS/latitude_bounds</dd>
+<dd>/<span class="caps">PRODUCT</span>/SUPPORT_DATA/<span class="caps">GEOLOCATIONS</span>/latitude_bounds</dd>
 <dt><span>long_name :</span></dt>
 <dd>pixel center latitude</dd>
 <dt><span>standard_name :</span></dt>
@@ -13507,7 +13507,7 @@ Attributes:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Convert-to-GeoTIFF-using-GDAL">Convert to GeoTIFF using GDAL<a class="anchor-link" href="#Convert-to-GeoTIFF-using-GDAL">¶</a>
+<h3 id="Convert-to-GeoTIFF-using-GDAL">Convert to GeoTIFF using <span class="caps">GDAL</span><a class="anchor-link" href="#Convert-to-GeoTIFF-using-GDAL">¶</a>
 <a href="#Convert-to-GeoTIFF-using-GDAL" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
@@ -13562,7 +13562,7 @@ Warning 1: Metadata exceeding 32000 bytes cannot be written into GeoTIFF. Transf
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

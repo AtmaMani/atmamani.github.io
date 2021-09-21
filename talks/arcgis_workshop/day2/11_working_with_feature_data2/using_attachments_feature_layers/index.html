@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>using_attachments_feature_layers | Atma’s blog</title>
+<title>using_attachments_feature_layers | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ In [ ]:
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ In [ ]:
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ In [ ]:
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ In [ ]:
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ In [ ]:
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -289,7 +289,7 @@ In [ ]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Layer-Attachments">Layer Attachments<a class="anchor-link" href="#Layer-Attachments">¶</a>
 <a href="#Layer-Attachments" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>Accessing <code>FeatureLayer.attachments</code> property, will return an <code>AttachmentManager</code> object. This object can be used to list, download, add, delete and update attachments.</p>
+<p>Accessing <code>FeatureLayer.attachments</code> property, will return an <code>AttachmentManager</code> object. This object can be used to list, download, add, delete and update attachments.</p>
 
 </div>
 </div>
@@ -332,7 +332,7 @@ In [ ]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="List-attachments">List attachments<a class="anchor-link" href="#List-attachments">¶</a>
 <a href="#List-attachments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Use the <code>get_list()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to get a list of dictionaries containing information about attachments. The <code>get_list()</code> accepts object id as parameter. You can loop through all the features and call this method if you would like to view all attachments on the layer</p>
+<p>Use the <code>get_list()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to get a list of dictionaries containing information about attachments. The <code>get_list()</code> accepts object id as parameter. You can loop through all the features and call this method if you would like to view all attachments on the layer</p>
 
 </div>
 </div>
@@ -391,7 +391,7 @@ In [ ]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Download-attachments">Download attachments<a class="anchor-link" href="#Download-attachments">¶</a>
 <a href="#Download-attachments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Use the <code>download()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to download individual attachments. It accepts the object id of the feature and the attachment id of the attachment as parameters. If the <code>save_path</code> parameter is not specified, the API saves it to user temporary directory</p>
+<p>Use the <code>download()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to download individual attachments. It accepts the object id of the feature and the attachment id of the attachment as parameters. If the <code>save_path</code> parameter is not specified, the <span class="caps">API</span> saves it to user temporary directory</p>
 
 </div>
 </div>
@@ -420,7 +420,7 @@ In [ ]:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>C:\\Users\\rohit\\AppData\\Local\\Temp\\AppTemplate.png'</pre>
+<pre>'C:\\Users\\rohit\\AppData\\Local\\Temp\\AppTemplate.png'</pre>
 </div>
 
 </div>
@@ -436,7 +436,7 @@ In [ ]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Add-new-attachments">Add new attachments<a class="anchor-link" href="#Add-new-attachments">¶</a>
 <a href="#Add-new-attachments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Use the <code>add()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to add new attachments to a feature. It accepts the object id of the feature and path to attachment as parameters</p>
+<p>Use the <code>add()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object to add new attachments to a feature. It accepts the object id of the feature and path to attachment as parameters</p>
 
 </div>
 </div>
@@ -479,7 +479,7 @@ In [ ]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can list the attachments to verify the <code>add</code> operation</p>
+<p>You can list the attachments to verify the <code>add</code> operation</p>
 
 </div>
 </div>
@@ -543,7 +543,7 @@ In [ ]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Delete-attachments">Delete attachments<a class="anchor-link" href="#Delete-attachments">¶</a>
 <a href="#Delete-attachments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Unwanted attachments can be removed by calling the <code>delete()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object. It accepts the feature’s object id and attachment’s id as parameters</p>
+<p>Unwanted attachments can be removed by calling the <code>delete()</code> method on <code>attachments</code> property of a <code>FeatureLayer</code> object. It accepts the feature’s object id and attachment’s id as parameters</p>
 
 </div>
 </div>
@@ -644,7 +644,7 @@ In [ ]:
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

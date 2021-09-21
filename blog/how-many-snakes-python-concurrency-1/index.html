@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How many snakes do you need? - An introduction to concurrency and parallelism in Python | Atma’s blog</title>
+<title>How many snakes do you need? - An introduction to concurrency and parallelism in Python | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,7 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <link rel="prev" href="../embedding-maps-in-photos/" title="Where was this photo taken? A Python based web-app to extract location information and embed maps in photos" type="text/html">
+<link rel="next" href="../aws-lambda-functions-with-docker-images/" title="AWS Lambda Functions - authoring with Docker images" type="text/html">
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="How many snakes do you need? - An introduction to concurrency and para">
 <meta property="og:url" content="https://atmamani.github.io/blog/how-many-snakes-python-concurrency-1/">
@@ -108,7 +109,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -192,7 +193,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -210,22 +211,22 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -243,7 +244,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -251,7 +252,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -276,7 +277,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">How many snakes do you need? - An introduction to concurrency and parallelism in Python</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -301,31 +302,31 @@ At some point, every Python developer wonders if it's their program that is slow
 <li>
 <strong>Parallelism</strong> is the practice of breaking a large task into smaller subtasks that can run in parallel, at the same time.</li>
 </ul>
-<p>Both concurrency and parallelism share implementation aspects. Concurrency is more about how a program is structured vs parallelism is doing things in parallel. Thus, concurrency is not inherently parallel, but doing things at the same time (by switching context from one thread to another). In general, UI design cares more about concurrency where as big data and scientific data processing cares more about parallelism.</p>
-<p>It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be <strong>asynchronous</strong>, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a <code>jobid</code> for each task which the caller can <em>poll</em> at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. <strong>Thus, even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.</strong></p>
+<p>Both concurrency and parallelism share implementation aspects. Concurrency is more about how a program is structured vs parallelism is doing things in parallel. Thus, concurrency is not inherently parallel, but doing things at the same time (by switching context from one thread to another). In general, <span class="caps">UI</span> design cares more about concurrency where as big data and scientific data processing cares more about parallelism.</p>
+<p>It is also relevant to discuss another paradigm in computing called asynchronous (vs synchronous) processing. A program is set to be <strong>asynchronous</strong>, if does not expect the caller to wait until it finishes execution. Programs accomplish this by providing a <code>jobid</code> for each task which the caller can <em>poll</em> at intervals to know if the task finished or not. Thus, the caller can submit a job to the async program, proceed to do other stuff and then use the result when it really needs it. <strong>Thus, even though a calling program may not implement parallelism, it can now run tasks concurrently by using async programming model.</strong></p>
 <p>Another way to differentiate concurrency from parallelism is to simply say, parallelism involves threads in different processors, which allows them to execute at the same time, whereas concurrency is multiple threads on the same process, which although are non-blocking, they do not strictly execute all at the same time. However, these threads still individually make progress since the process will cycle through them.</p>
 <h4 id="threads-vs-processes">Threads vs Processes<a href="#threads-vs-processes" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>A <strong>process</strong> is an instance of your program that is being executed. It has <code>3</code> elements - the code, the data (variables) used by the code and the state of the process (execution context). Each process has its own address space and don’t typically talk to each other.</p>
-<p>Each process can have one or more <strong>threads</strong>. Threads are lightweight as they share the address space with other threads within the same process and is not treated as a separate entity by the host OS.</p>
+<p>A <strong>process</strong> is an instance of your program that is being executed. It has <code>3</code> elements - the code, the data (variables) used by the code and the state of the process (execution context). Each process has its own address space and don’t typically talk to each other.</p>
+<p>Each process can have one or more <strong>threads</strong>. Threads are lightweight as they share the address space with other threads within the same process and is not treated as a separate entity by the host <span class="caps">OS</span>.</p>
 <p>Typically, operating systems cycle through threads in a <strong>round-robin</strong> fashion. The thread that gets to execute is called the <em>main</em> thread. But how long will it be the main thread? In Python, a thread will execute until</p>
 <ul>
 <li>it is finished</li>
-<li>until it is waiting for some IO</li>
+<li>until it is waiting for some <span class="caps">IO</span></li>
 <li>starts a sleep</li>
-<li>has been running for <code>15ms</code>
+<li>has been running for <code>15ms</code>
 </li>
 </ul>
-<p>after which, the OS will switch to another in its queue before returning back to it.</p>
+<p>after which, the <span class="caps">OS</span> will switch to another in its queue before returning back to it.</p>
 <h3 id="threading">Threading<a href="#threading" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>A thread in Python can be created using the <code>Thread</code> class from the <code>threading</code> module. A thread can be in one of 3 states.</p>
+<p>A thread in Python can be created using the <code>Thread</code> class from the <code>threading</code> module. A thread can be in one of 3 states.</p>
 <h4 id="thread-states">Thread states<a href="#thread-states" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>When a thread is created, it just exists, remains in an un-started state. Once you call the <code>start()</code> method, it goes to one of 3 states</p>
+<p>When a thread is created, it just exists, remains in an un-started state. Once you call the <code>start()</code> method, it goes to one of 3 states</p>
 <ul>
 <li>Runnable - a state where the processor can execute it</li>
-<li>Running - currently being the <code>active</code> thread</li>
-<li>Waiting - where it is blocked by another process or thread. The <code>join()</code> method allows you to represent this dependency.</li>
+<li>Running - currently being the <code>active</code> thread</li>
+<li>Waiting - where it is blocked by another process or thread. The <code>join()</code> method allows you to represent this dependency.</li>
 </ul>
-<p>The scheduler moves the thread through these states. The thread remains <strong>alive</strong> until its <code>run()</code> method terminates, upon which, it becomes <strong>dead</strong>. The graphic below (from <em>Hunt J. (2019)</em>) explains these states quite well.</p>
+<p>The scheduler moves the thread through these states. The thread remains <strong>alive</strong> until its <code>run()</code> method terminates, upon which, it becomes <strong>dead</strong>. The graphic below (from <em>Hunt J. (2019)</em>) explains these states quite well.</p>
 <p><img src="../../images/concurrency-thread-states.png"></p>
 <h4 id="instantiating-the-thread-class">Instantiating the Thread class<a href="#instantiating-the-thread-class" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The constructor for Thread looks like below</p>
@@ -335,7 +336,7 @@ At some point, every Python developer wonders if it's their program that is slow
 </pre>
 
 
-<p><code>group</code> is reserved, primarily to be used when <code>ThreadGroup</code> class is implemented. <code>target</code> accepts a callable object (like a method). The <code>run()</code> method of the Thread object will call that that object. <code>name</code> is the name of the thread and by convention takes the form <code>Thread-N</code> where N is a number. <code>args</code> collects the arguments to pass to the callable object and <code>kwargs</code> does the same but with named arguments.</p>
+<p><code>group</code> is reserved, primarily to be used when <code>ThreadGroup</code> class is implemented. <code>target</code> accepts a callable object (like a method). The <code>run()</code> method of the Thread object will call that that object. <code>name</code> is the name of the thread and by convention takes the form <code>Thread-N</code> where N is a number. <code>args</code> collects the arguments to pass to the callable object and <code>kwargs</code> does the same but with named arguments.</p>
 <p>So, a simple example could be:</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 
@@ -374,7 +375,7 @@ At some point, every Python developer wonders if it's their program that is slow
 
 
 <p>See <code>Done</code> got printed before all the dots got printed, which means the execution proceeded right along with the next steps. The worker did not block the main thread.</p>
-<p>You can make one thread wait for another using the <code>join()</code> method. If you add a <code>t2.join()</code> after <code>t2.start()</code>, it would wait for the worker to finish and then print <code>Done</code>.</p>
+<p>You can make one thread wait for another using the <code>join()</code> method. If you add a <code>t2.join()</code> after <code>t2.start()</code>, it would wait for the worker to finish and then print <code>Done</code>.</p>
 <h4 id="inspecting-threads">Inspecting threads<a href="#inspecting-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><code>threading.enumerate()</code> will print all the threads that are running:</p>
 <pre class="code literal-block"><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">_MainThread</span><span class="p">(</span><span class="n">MainThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">4515802560</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
@@ -424,9 +425,9 @@ At some point, every Python developer wonders if it's their program that is slow
 </pre>
 
 
-<p>In this case, <code>a</code>,<code>d</code>,<code>e</code> are the prefixes each thread chose. As you see in the print, the threads don’t go off in sequence as the prefix arrive mixed in the prints. The same thread never prints in succession, which would mean as soon as the sleep is encountered, the main thread switches to the other threads and so on until each thread has to eventually finish the sleep time.</p>
+<p>In this case, <code>a</code>,<code>d</code>,<code>e</code> are the prefixes each thread chose. As you see in the print, the threads don’t go off in sequence as the prefix arrive mixed in the prints. The same thread never prints in succession, which would mean as soon as the sleep is encountered, the main thread switches to the other threads and so on until each thread has to eventually finish the sleep time.</p>
 <h4 id="establishing-dependency">Establishing dependency<a href="#establishing-dependency" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The operating system reserves the right to schedule your threads. Thus as a programmer, you do not have the ability to deterministically know when your threads will start and finish. However, in real life, you need certain workers to finish before you can proceed to the next step. You establish this using <code>join()</code> methods off <code>Thread</code> objects. See example below:</p>
+<p>The operating system reserves the right to schedule your threads. Thus as a programmer, you do not have the ability to deterministically know when your threads will start and finish. However, in real life, you need certain workers to finish before you can proceed to the next step. You establish this using <code>join()</code> methods off <code>Thread</code> objects. See example below:</p>
 <pre class="code literal-block"><span></span><span class="sd">""" Two threads cooking soup """</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -435,13 +436,13 @@ At some point, every Python developer wonders if it's their program that is slow
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia started <span class="amp">&amp;</span> waiting for sausage to thaw...'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia started &amp; waiting for sausage to thaw...'</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">'Olivia is done cutting sausage.'</span><span class="p">)</span>
 
 <span class="c1"># main thread</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Barron started <span class="amp">&amp;</span> requesting Olivia's help."</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Barron started &amp; requesting Olivia's help."</span><span class="p">)</span>
     <span class="n">olivia</span> <span class="o">=</span> <span class="n">ChefOlivia</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
 
@@ -475,10 +476,10 @@ At some point, every Python developer wonders if it's their program that is slow
 </pre>
 
 
-<p>In the example above, <code>Olivia</code> is the worker thread, on which the main thread waits before proceeding to a certain step. The example also shows how to inherit a <code>Thread</code> class. When doing this, you only override two methods - the constructor and <code>run()</code> which the scheduler will call once the thread is in <strong>Runnable</strong> state.</p>
+<p>In the example above, <code>Olivia</code> is the worker thread, on which the main thread waits before proceeding to a certain step. The example also shows how to inherit a <code>Thread</code> class. When doing this, you only override two methods - the constructor and <code>run()</code> which the scheduler will call once the thread is in <strong>Runnable</strong> state.</p>
 <h4 id="daemon-threads">Daemon threads<a href="#daemon-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Normally, when a program spawns child threads, the program needs to wait until the child completes (that is, if you don’t already have a dependency established using a <code>join()</code>). This may not always be ideal and you might want to kill off the child when the main program exits. You can establish this behavior using <code>daemon</code> threads. Daemon threads are created by passing that parameter to the constructor or by setting the <code>daemon</code> property to <code>True</code>. Once started, you cannot change a normal thread to a daemon thread.</p>
-<p>In the example below, if you did not set <code>daemon=True</code>, the child thread would run forever causing the program to never terminate.</p>
+<p>Normally, when a program spawns child threads, the program needs to wait until the child completes (that is, if you don’t already have a dependency established using a <code>join()</code>). This may not always be ideal and you might want to kill off the child when the main program exits. You can establish this behavior using <code>daemon</code> threads. Daemon threads are created by passing that parameter to the constructor or by setting the <code>daemon</code> property to <code>True</code>. Once started, you cannot change a normal thread to a daemon thread.</p>
+<p>In the example below, if you did not set <code>daemon=True</code>, the child thread would run forever causing the program to never terminate.</p>
 <pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -511,8 +512,8 @@ At some point, every Python developer wonders if it's their program that is slow
 <p>The daemon thread is quit abruptly when the main thread terminates. Thus you should be careful what kinds of ops are relegated to a daemon thread. Good options are using daemon for heartbeat, garbage collection, license checks etc.</p>
 <h3 id="multiprocessing">Multiprocessing<a href="#multiprocessing" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Multiprocessing is running jobs concurrently on multiple processors or cores. This allows developers to truly use modern compute hardware, allowing tasks to run truly in parallel. This mode of computing is useful in data analytics, image processing, animation and gaming.</p>
-<p>Similar to threading, Python provides a <code>multiprocessing</code> module and a <code>Process</code> class. This can be used to run a callable object such as a function in a separate process. Dependency between processes can be expressed using <code>join()</code> methods. Processes created this way are directly managed by the <strong>operating system</strong>. Processes are much more heavier and take resources to spin up compared to threads. The advantage though is the ability to exploit multiple cores. </p>
-<h4 id="instantiating-a-process">Instantiating a <code>Process</code>
+<p>Similar to threading, Python provides a <code>multiprocessing</code> module and a <code>Process</code> class. This can be used to run a callable object such as a function in a separate process. Dependency between processes can be expressed using <code>join()</code> methods. Processes created this way are directly managed by the <strong>operating system</strong>. Processes are much more heavier and take resources to spin up compared to threads. The advantage though is the ability to exploit multiple cores. </p>
+<h4 id="instantiating-a-process">Instantiating a <code>Process</code>
 <a href="#instantiating-a-process" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Constructing a process looks like below:</p>
 <pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">multiprocess</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
@@ -520,11 +521,11 @@ At some point, every Python developer wonders if it's their program that is slow
 </pre>
 
 
-<p><code>group</code> is reserved as in threading and is to be used along with the threading API. <code>target</code> accepts a callable object, which will be invoked by the <code>run()</code> instance method. <code>name</code> is the process name, <code>args</code> accepts a tuple to pass to the called function and <code>kwargs</code> does the same with named args. <code>daemon</code> represents whether the process needs to be run as a background daemon.</p>
+<p><code>group</code> is reserved as in threading and is to be used along with the threading <span class="caps">API</span>. <code>target</code> accepts a callable object, which will be invoked by the <code>run()</code> instance method. <code>name</code> is the process name, <code>args</code> accepts a tuple to pass to the called function and <code>kwargs</code> does the same with named args. <code>daemon</code> represents whether the process needs to be run as a background daemon.</p>
 <p>The <code>Process</code> class provides useful methods and properties</p>
 <ul>
 <li>
-<code>start()</code> which arranges for the <code>run()</code> to be started in a separate process</li>
+<code>start()</code> which arranges for the <code>run()</code> to be started in a separate process</li>
 <li>
 <code>join([timeout in sec])</code> to join the current process with another. Current is blocked until timeout or the blocking process ends.</li>
 <li><code>is_alive()</code></li>
@@ -533,25 +534,25 @@ At some point, every Python developer wonders if it's their program that is slow
 <li>
 <code>daemon</code> - bool flag</li>
 <li>
-<code>pid</code> - process ID</li>
+<code>pid</code> - process <span class="caps">ID</span></li>
 <li>
 <code>exitcode</code> - <code>None</code> if process has not terminated or value</li>
 <li>
 <code>terminate()</code> - to terminate a process</li>
 <li>
-<code>kill()</code> - same as terminate, slight differences based on OS.</li>
+<code>kill()</code> - same as terminate, slight differences based on <span class="caps">OS</span>.</li>
 <li>
-<code>close()</code> - releases all resources used by the process. Raises <code>ValueError</code> if the process is still running.</li>
+<code>close()</code> - releases all resources used by the process. Raises <code>ValueError</code> if the process is still running.</li>
 </ul>
 <h4 id="using-a-pool">Using a Pool<a href="#using-a-pool" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Since creating processes are expensive, one option is to reuse processes within a given application. The <code>Pool</code> class represents a pool of worker processes and has methods that allow tasks to be offloaded to these worker processes. A Pool can be created as below:</p>
+<p>Since creating processes are expensive, one option is to reuse processes within a given application. The <code>Pool</code> class represents a pool of worker processes and has methods that allow tasks to be offloaded to these worker processes. A Pool can be created as below:</p>
 <pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">multiprocessing</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                                 <span class="n">initargs</span><span class="o">=</span><span class="p">(),</span> <span class="n">maxtasksperchild</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                                 <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre>
 
 
-<p>where <code>processes</code> is the number of workers to use. Default is <code>os.cpu_count()</code>. <code>initializer(*initargs)</code> is used to represent the method to call and its arguments. <code>maxtasksperchild</code> is the number of tasks a worker can complete. If None, the worker will live as long as the pool.</p>
+<p>where <code>processes</code> is the number of workers to use. Default is <code>os.cpu_count()</code>. <code>initializer(*initargs)</code> is used to represent the method to call and its arguments. <code>maxtasksperchild</code> is the number of tasks a worker can complete. If None, the worker will live as long as the pool.</p>
 <h4 id="poolmap-pattern">
 <code>Pool.map()</code> pattern<a href="#poolmap-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>An example of using the Pool is shown below:</p>
@@ -581,10 +582,10 @@ At some point, every Python developer wonders if it's their program that is slow
 </pre>
 
 
-<p>Best practice is to close the <code>Pool</code> object after use, so the <strong><code>with as</code></strong> statement is used in the example above. In the example above, only <code>4</code> processes were created, but <code>6</code> tasks were given. In this case, excess tasks should wait until running processes finish. The <code>map()</code> function returns an iterable, List in this case. <strong>Notice: the output order matches the input order</strong> despite things running in parallel.</p>
+<p>Best practice is to close the <code>Pool</code> object after use, so the <strong><code>with as</code></strong> statement is used in the example above. In the example above, only <code>4</code> processes were created, but <code>6</code> tasks were given. In this case, excess tasks should wait until running processes finish. The <code>map()</code> function returns an iterable, List in this case. <strong>Notice: the output order matches the input order</strong> despite things running in parallel.</p>
 <h4 id="poolimap_unordered-pattern">
 <code>Pool.imap_unordered()</code> pattern<a href="#poolimap_unordered-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>If output order does not matter, then you can use <code>imap_unordered()</code> function instead, which gives you a performance improvement. The above program can be modified as shown below:</p>
+<p>If output order does not matter, then you can use <code>imap_unordered()</code> function instead, which gives you a performance improvement. The above program can be modified as shown below:</p>
 <pre class="code literal-block"><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">pool</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]):</span>
@@ -610,7 +611,7 @@ At some point, every Python developer wonders if it's their program that is slow
 <h4 id="poolapply_asyc-pattern">
 <code>Pool.apply_asyc()</code> pattern<a href="#poolapply_asyc-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The <code>apply_async()</code> method allows for tasks to be executed asynchronously. This way, the main process can spawn off processes in a pool and continue to progress. The pool will munch the data. Results can be collected through a <strong>callback</strong> function or by using a blocking <strong><code>get()</code></strong> method.</p>
-<p>Example using blocking <code>get()</code> method:</p>
+<p>Example using blocking <code>get()</code> method:</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
 <span class="k">def</span> <span class="nf">collect_results</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
@@ -639,7 +640,7 @@ At some point, every Python developer wonders if it's their program that is slow
 
 
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>This concludes the introduction to concurrency in Python. While this article explains the concepts of threads and processes with examples, it is no way close to explaining how to build a program to use these concepts. That is for another part of this article. In the subsequent parts of the article, we will see the need for locks, barriers, synchronization. We will also look into concurrency patterns such as <code>futures</code> and libraries such as <code>asyncio</code> and review their applications.</p>
+<p>This concludes the introduction to concurrency in Python. While this article explains the concepts of threads and processes with examples, it is no way close to explaining how to build a program to use these concepts. That is for another part of this article. In the subsequent parts of the article, we will see the need for locks, barriers, synchronization. We will also look into concurrency patterns such as <code>futures</code> and libraries such as <code>asyncio</code> and review their applications.</p>
 <h3 id="references">References<a href="#references" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li>Hunt J. (2019) Introduction to Concurrency and Parallelism. In: Advanced Guide to Python 3 Programming. Undergraduate Topics in Computer Science. Springer, Cham. <a href="https://doi.org/10.1007/978-3-030-25943-3_29">https://doi.org/10.1007/978-3-030-25943-3_29</a>
@@ -656,6 +657,9 @@ At some point, every Python developer wonders if it's their program that is slow
 <ul class="pager hidden-print">
 <li class="previous">
                 <a href="../embedding-maps-in-photos/" rel="prev" title="Where was this photo taken? A Python based web-app to extract location information and embed maps in photos">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../aws-lambda-functions-with-docker-images/" rel="next" title="AWS Lambda Functions - authoring with Docker images">Next post</a>
             </li>
         </ul></nav></aside></article>
 </div>

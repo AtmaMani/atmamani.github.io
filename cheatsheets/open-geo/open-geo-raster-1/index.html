@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rasterio - IO, plotting, histograms | Atma’s blog</title>
+<title>Rasterio - IO, plotting, histograms | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li class="active">
-<a href=".">Rasterio - IO, plotting, histograms <span class="sr-only">(active)</span></a>
+<a href=".">Rasterio - <span class="caps">IO</span>, plotting, histograms <span class="sr-only">(active)</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -268,7 +268,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Rasterio - IO, plotting, histograms</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Rasterio - <span class="caps">IO</span>, plotting, histograms</a></h1>
 
         
 
@@ -282,7 +282,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <h2 id="Python-libs-for-Raster-Processing">Python libs for Raster Processing<a class="anchor-link" href="#Python-libs-for-Raster-Processing">¶</a>
 <a href="#Python-libs-for-Raster-Processing" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <p><img src="https://rasterio.readthedocs.io/en/stable/_images/example.png" width="350">
-The open geospatial Python ecosystem has powerful libraries for processing vector data. We have seen the likes of <code>geopandas</code>, <code>pyshp</code>, <code>shapely</code>, <code>folium</code>, <code>fiona</code>, <code>pysal</code> etc. How about for raster data processing? This notebook explores a few of them, starting with <code>rasterio</code>. My understanding so far is, in general digital image and signal processing via Python is a well established field. Thus if a library allows you to read geospatial image formats into <code>numpy</code> arrays and write the results back, you can easily accomplish your processing using standard Pythonic data analysis process of reading into <code>numpy</code> arrays, doing filtering, enhancements, analysis and presisting into the native file format of choice.</p>
+The open geospatial Python ecosystem has powerful libraries for processing vector data. We have seen the likes of <code>geopandas</code>, <code>pyshp</code>, <code>shapely</code>, <code>folium</code>, <code>fiona</code>, <code>pysal</code> etc. How about for raster data processing? This notebook explores a few of them, starting with <code>rasterio</code>. My understanding so far is, in general digital image and signal processing via Python is a well established field. Thus if a library allows you to read geospatial image formats into <code>numpy</code> arrays and write the results back, you can easily accomplish your processing using standard Pythonic data analysis process of reading into <code>numpy</code> arrays, doing filtering, enhancements, analysis and presisting into the native file format of choice.</p>
 <p>Let us see how far this theory holds up.</p>
 
 </div>
@@ -850,7 +850,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Making a FCC or TCC</p>
+<p>Making a <span class="caps">FCC</span> or <span class="caps">TCC</span></p>
 
 </div>
 </div>
@@ -1033,8 +1033,8 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Retrieving-pixel-values">Retrieving pixel values<a class="anchor-link" href="#Retrieving-pixel-values">¶</a>
 <a href="#Retrieving-pixel-values" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>This landast has 8 bands. Calling the <code>index()</code> method of <code>rasterio._io.RasterReader</code> with spatial coordinates, returns the translation in array indices. You can then use the regular numpy array indexing on the <code>numpy.ndarray</code> object you get as a result of reading the raster image as shown above.</p>
-<p>Get pixel values in band 1 at X,Y: <code>(717389, 6675310)</code></p>
+<p>This landast has 8 bands. Calling the <code>index()</code> method of <code>rasterio._io.RasterReader</code> with spatial coordinates, returns the translation in array indices. You can then use the regular numpy array indexing on the <code>numpy.ndarray</code> object you get as a result of reading the raster image as shown above.</p>
+<p>Get pixel values in band 1 at X,Y: <code>(717389, 6675310)</code></p>
 
 </div>
 </div>
@@ -1293,7 +1293,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Comparing this with QGIS, the values and charts are consistent.</p>
+<p>Comparing this with <span class="caps">QGIS</span>, the values and charts are consistent.</p>
 
 </div>
 </div>
@@ -1302,7 +1302,7 @@ The open geospatial Python ecosystem has powerful libraries for processing vecto
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

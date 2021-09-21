@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>part2_explore_hurricane_tracks | Atma’s blog</title>
+<title>part2_explore_hurricane_tracks | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -104,7 +104,7 @@ downloading historic">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -188,7 +188,7 @@ downloading historic">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -206,22 +206,22 @@ downloading historic">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -239,7 +239,7 @@ downloading historic">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -247,7 +247,7 @@ downloading historic">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -285,7 +285,7 @@ downloading historic">
 <p>This is the second part to a three part set of notebooks that process and analyze historic hurricane tracks. In the previous notebook we saw</p>
 <ol>
 <li>downloading historic hurricane datasets using Python</li>
-<li>cleaning and merging hurricane observations using DASK</li>
+<li>cleaning and merging hurricane observations using <span class="caps">DASK</span></li>
 <li>aggregating point observations into hurricane tracks using ArcGIS GeoAnalytics server</li>
 </ol>
 <p>In this notebook you will analyze the aggregated tracks to answer important questions about prevalance of hurricanes, their seasonality, their density, places where they make landfall and investigate the communities that are most affected.</p>
@@ -304,7 +304,7 @@ downloading historic">
 <div class="toc"><ul class="toc-item"><li>
 <span><a href="#Analyzing-hurricane-tracks---Part-2/3" data-toc-modified-id="Analyzing-hurricane-tracks---Part-2/3-1">Analyzing hurricane tracks - Part 2/3</a></span><ul class="toc-item">
 <li>
-<span><a href="#Access-aggregated-hurricane-data" data-toc-modified-id="Access-aggregated-hurricane-data-1.1">Access aggregated hurricane data</a></span><ul class="toc-item"><li><span><a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" data-toc-modified-id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame-1.1.1">Query hurricane tracks into a Spatially enabled <code>DataFrame</code></a></span></li></ul>
+<span><a href="#Access-aggregated-hurricane-data" data-toc-modified-id="Access-aggregated-hurricane-data-1.1">Access aggregated hurricane data</a></span><ul class="toc-item"><li><span><a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" data-toc-modified-id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame-1.1.1">Query hurricane tracks into a Spatially enabled <code>DataFrame</code></a></span></li></ul>
 </li>
 <li>
 <span><a href="#Exploratory-data-analysis" data-toc-modified-id="Exploratory-data-analysis-1.2">Exploratory data analysis</a></span><ul class="toc-item">
@@ -521,7 +521,7 @@ downloading historic">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">Query hurricane tracks into a Spatially enabled <code>DataFrame</code><a class="anchor-link" href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">¶</a>
+<h4 id="Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">Query hurricane tracks into a Spatially enabled <code>DataFrame</code><a class="anchor-link" href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame">¶</a>
 <a href="#Query-hurricane-tracks-into-a-Spatially-enabled-DataFrame" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -597,7 +597,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are <strong><code>12,362</code></strong> hurricanes identified by GeoAnalytics aggregate tracks tool. To get an idea about this aggregated dataset, call the <code>head()</code> method.</p>
+<p>There are <strong><code>12,362</code></strong> hurricanes identified by GeoAnalytics aggregate tracks tool. To get an idea about this aggregated dataset, call the <code>head()</code> method.</p>
 
 </div>
 </div>
@@ -642,7 +642,7 @@ Wall time: 4.5 s
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>any_basin</th>
       <th>any_name</th>
       <th>any_sub_basin</th>
@@ -664,9 +664,9 @@ Wall time: 4.5 s
 <tr>
 <th>0</th>
       <td>{“paths”: [[[59.60000000000002, -17.6000000000…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">MM</span></td>
       <td>7.0</td>
       <td>1854-02-10 18:00:00</td>
       <td>NaN</td>
@@ -684,9 +684,9 @@ Wall time: 4.5 s
 <tr>
 <th>1</th>
       <td>{“paths”: [[[-23.5, 12.5], [-24.19999999999999…</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>9.0</td>
       <td>1859-08-26 12:00:00</td>
       <td>NaN</td>
@@ -704,9 +704,9 @@ Wall time: 4.5 s
 <tr>
 <th>2</th>
       <td>{“paths”: [[[-23.19999999999999, 12.1000000000…</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>50.0</td>
       <td>1853-09-12 18:00:00</td>
       <td>NaN</td>
@@ -724,9 +724,9 @@ Wall time: 4.5 s
 <tr>
 <th>3</th>
       <td>{“paths”: [[[59.80000000000001, -15.5], [59.49…</td>
-      <td>SI</td>
-      <td>XXXX856017</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">XXXX856017</span></td>
+      <td><span class="caps">MM</span></td>
       <td>13.0</td>
       <td>1856-04-05 18:00:00</td>
       <td>NaN</td>
@@ -744,9 +744,9 @@ Wall time: 4.5 s
 <tr>
 <th>4</th>
       <td>{“paths”: [[[99.60000000000002, -11.5], [98.30…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>WA</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">WA</span></td>
       <td>13.0</td>
       <td>1861-03-15 18:00:00</td>
       <td>NaN</td>
@@ -777,7 +777,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To better analyze this data set, the date columns need to be changed to a format that Pandas understands better. This is accomplished by calling <code>to_datetime()</code> method and passing the appropriate time columns.</p>
+<p>To better analyze this data set, the date columns need to be changed to a format that Pandas understands better. This is accomplished by calling <code>to_datetime()</code> method and passing the appropriate time columns.</p>
 
 </div>
 </div>
@@ -826,7 +826,7 @@ Wall time: 4.5 s
 <thead>
 <tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>any_basin</th>
       <th>any_name</th>
       <th>any_sub_basin</th>
@@ -869,9 +869,9 @@ Wall time: 4.5 s
 <tr>
 <th>1854-02-08 06:00:00</th>
       <td>{“paths”: [[[59.60000000000002, -17.6000000000…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">MM</span></td>
       <td>7.0</td>
       <td>1854-02-10 18:00:00</td>
       <td>NaN</td>
@@ -889,9 +889,9 @@ Wall time: 4.5 s
 <tr>
 <th>1859-08-24 12:00:00</th>
       <td>{“paths”: [[[-23.5, 12.5], [-24.19999999999999…</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>9.0</td>
       <td>1859-08-26 12:00:00</td>
       <td>NaN</td>
@@ -909,9 +909,9 @@ Wall time: 4.5 s
 <tr>
 <th>1853-08-30 00:00:00</th>
       <td>{“paths”: [[[-23.19999999999999, 12.1000000000…</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
+      <td><span class="caps">NA</span></td>
       <td>50.0</td>
       <td>1853-09-12 18:00:00</td>
       <td>NaN</td>
@@ -929,9 +929,9 @@ Wall time: 4.5 s
 <tr>
 <th>1856-04-02 18:00:00</th>
       <td>{“paths”: [[[59.80000000000001, -15.5], [59.49…</td>
-      <td>SI</td>
-      <td>XXXX856017</td>
-      <td>MM</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">XXXX856017</span></td>
+      <td><span class="caps">MM</span></td>
       <td>13.0</td>
       <td>1856-04-05 18:00:00</td>
       <td>NaN</td>
@@ -949,9 +949,9 @@ Wall time: 4.5 s
 <tr>
 <th>1861-03-12 18:00:00</th>
       <td>{“paths”: [[[99.60000000000002, -11.5], [98.30…</td>
-      <td>SI</td>
-      <td>NOT NAMED</td>
-      <td>WA</td>
+      <td><span class="caps">SI</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
+      <td><span class="caps">WA</span></td>
       <td>13.0</td>
       <td>1861-03-15 18:00:00</td>
       <td>NaN</td>
@@ -1087,7 +1087,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The map above draws a set of <code>500</code> hurricanes chosen at random. You can visualize the Spatially Enabled DataFrame object with different types of renderers. In the example above a unique value renderer is applied on the <strong>basin</strong> column. You can switch the map to 3D mode and view the same on a globe.</p>
+<p>The map above draws a set of <code>500</code> hurricanes chosen at random. You can visualize the Spatially Enabled DataFrame object with different types of renderers. In the example above a unique value renderer is applied on the <strong>basin</strong> column. You can switch the map to 3D mode and view the same on a globe.</p>
 
 </div>
 </div>
@@ -1149,7 +1149,7 @@ Wall time: 4.5 s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Does-the-number-of-hurricanes-increase-with-time?">Does the number of hurricanes increase with time?<a class="anchor-link" href="#Does-the-number-of-hurricanes-increase-with-time?">¶</a>
 <a href="#Does-the-number-of-hurricanes-increase-with-time?" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To understand if number of hurricanes have increased over time, we will plot a histogram of the <code>MIN_Season</code> column.</p>
+<p>To understand if number of hurricanes have increased over time, we will plot a histogram of the <code>MIN_Season</code> column.</p>
 
 </div>
 </div>
@@ -1206,7 +1206,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The number of hurricanes recorded increases steadily until <code>1970</code>. This could be due to advances in geospatial technologies allowing scientists to better monitor hurricanes. However, after <code>1970</code> we notice a reduction in the number of hurricanes. This is in line with what <a href="https://www.nytimes.com/2018/10/10/climate/hurricane-michael-climate-change.html">scientists observe and predict</a>.</p>
+<p>The number of hurricanes recorded increases steadily until <code>1970</code>. This could be due to advances in geospatial technologies allowing scientists to better monitor hurricanes. However, after <code>1970</code> we notice a reduction in the number of hurricanes. This is in line with what <a href="https://www.nytimes.com/2018/10/10/climate/hurricane-michael-climate-change.html">scientists observe and predict</a>.</p>
 
 </div>
 </div>
@@ -1218,7 +1218,7 @@ Wall time: 4.5 s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="How-many-hurricanes-occuer-per-basin-and-sub-basin?">How many hurricanes occuer per basin and sub basin?<a class="anchor-link" href="#How-many-hurricanes-occuer-per-basin-and-sub-basin?">¶</a>
 <a href="#How-many-hurricanes-occuer-per-basin-and-sub-basin?" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Climate scientists have organized global hurricanes into <code>7</code> basins and a number of sub basins. The snippet below plots groups the data by basin and sub basin, counts the occurrences and plots the frequency in bar charts.</p>
+<p>Climate scientists have organized global hurricanes into <code>7</code> basins and a number of sub basins. The snippet below plots groups the data by basin and sub basin, counts the occurrences and plots the frequency in bar charts.</p>
 
 </div>
 </div>
@@ -1294,7 +1294,7 @@ Wall time: 4.5 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pandas provides a handy API called <code>value_counts()</code> to count unique occurrences. We use that below to count the number of times each hurricane name has been used. We then print the top <code>25</code> most frequently used names.</p>
+<p>Pandas provides a handy <span class="caps">API</span> called <code>value_counts()</code> to count unique occurrences. We use that below to count the number of times each hurricane name has been used. We then print the top <code>25</code> most frequently used names.</p>
 
 </div>
 </div>
@@ -1363,7 +1363,7 @@ Name: any_name, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Names like <code>FLORENCE</code>, <code>IRMA</code>, <code>OLGA</code>.. appear to be more popular. Interestingly all are of female gender. We can take this further to explore at what time periods have the name <code>FLORENCE</code> been used?</p>
+<p>Names like <code>FLORENCE</code>, <code>IRMA</code>, <code>OLGA</code>.. appear to be more popular. Interestingly all are of female gender. We can take this further to explore at what time periods have the name <code>FLORENCE</code> been used?</p>
 
 </div>
 </div>
@@ -1414,7 +1414,7 @@ Name: any_name, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The name <code>FLORENCE</code> had been used consistently in since the 1950s, reaching a peak in popularity during the 60s.</p>
+<p>The name <code>FLORENCE</code> had been used consistently in since the 1950s, reaching a peak in popularity during the 60s.</p>
 
 </div>
 </div>
@@ -1434,7 +1434,7 @@ Name: any_name, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hurricanes happen when water temperatures (<code>Sea Surface Temperature</code> SST) are warm. Solar incidence is one of the key factors affecting SST and this typically happens during summer months. However, summer happens during different months in northern and southern hemispheres. To visualize this seasonality, we need to group our data by month as well as basin. Thus the snippet below creates a multilevel index grouper in Pandas</p>
+<p>Hurricanes happen when water temperatures (<code>Sea Surface Temperature</code> <span class="caps">SST</span>) are warm. Solar incidence is one of the key factors affecting <span class="caps">SST</span> and this typically happens during summer months. However, summer happens during different months in northern and southern hemispheres. To visualize this seasonality, we need to group our data by month as well as basin. Thus the snippet below creates a multilevel index grouper in Pandas</p>
 
 </div>
 </div>
@@ -1500,27 +1500,27 @@ Name: any_name, dtype: int64</pre>
 <tbody>
 <tr>
 <th rowspan="5" valign="top">April</th>
-      <th>NA</th>
+      <th><span class="caps">NA</span></th>
       <td>5</td>
       <td>2</td>
     </tr>
 <tr>
-<th>NI</th>
+<th><span class="caps">NI</span></th>
       <td>41</td>
       <td>5</td>
     </tr>
 <tr>
-<th>SI</th>
+<th><span class="caps">SI</span></th>
       <td>242</td>
       <td>85</td>
     </tr>
 <tr>
-<th>SP</th>
+<th><span class="caps">SP</span></th>
       <td>97</td>
       <td>74</td>
     </tr>
 <tr>
-<th>WP</th>
+<th><span class="caps">WP</span></th>
       <td>83</td>
       <td>56</td>
     </tr>
@@ -1597,31 +1597,31 @@ Name: any_name, dtype: int64</pre>
 <tr>
 <th>0</th>
       <td>April</td>
-      <td>NA</td>
+      <td><span class="caps">NA</span></td>
       <td>5</td>
     </tr>
 <tr>
 <th>1</th>
       <td>April</td>
-      <td>NI</td>
+      <td><span class="caps">NI</span></td>
       <td>41</td>
     </tr>
 <tr>
 <th>2</th>
       <td>April</td>
-      <td>SI</td>
+      <td><span class="caps">SI</span></td>
       <td>242</td>
     </tr>
 <tr>
 <th>3</th>
       <td>April</td>
-      <td>SP</td>
+      <td><span class="caps">SP</span></td>
       <td>97</td>
     </tr>
 <tr>
 <th>4</th>
       <td>April</td>
-      <td>WP</td>
+      <td><span class="caps">WP</span></td>
       <td>83</td>
     </tr>
 </tbody>
@@ -1784,7 +1784,7 @@ Name: any_name, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We will import the <code>overlay_layers</code> tool from <code>manage_data</code> toolset to perform the overlay analysis.</p>
+<p>We will import the <code>overlay_layers</code> tool from <code>manage_data</code> toolset to perform the overlay analysis.</p>
 
 </div>
 </div>
@@ -1843,7 +1843,7 @@ Wall time: 22min 13s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As part of the intersect operation, the output type is specified as <code>Input</code>. Since the input layer is hurricane tracks (a line layer), the result will continue to be a line layer. We can draw this layer on a map to view those hurricanes that have made a landfall and traveled inland.</p>
+<p>As part of the intersect operation, the output type is specified as <code>Input</code>. Since the input layer is hurricane tracks (a line layer), the result will continue to be a line layer. We can draw this layer on a map to view those hurricanes that have made a landfall and traveled inland.</p>
 
 </div>
 </div>
@@ -1972,14 +1972,14 @@ Wall time: 22min 13s
       <th>objectid</th>
       <th>start_datetime</th>
       <th>track_duration</th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
     </tr></thead>
 <tbody>
 <tr>
 <th>0</th>
       <td>4.376642</td>
-      <td>NA</td>
-      <td>NOT NAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">NOT</span> <span class="caps">NAMED</span></td>
       <td>-3663424800000</td>
       <td>95.0</td>
       <td>965.0</td>
@@ -1992,8 +1992,8 @@ Wall time: 22min 13s
 <tr>
 <th>1</th>
       <td>117.097286</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
       <td>-3645172800000</td>
       <td>70.0</td>
       <td>NaN</td>
@@ -2006,8 +2006,8 @@ Wall time: 22min 13s
 <tr>
 <th>2</th>
       <td>256.909588</td>
-      <td>NA</td>
-      <td>UNNAMED</td>
+      <td><span class="caps">NA</span></td>
+      <td><span class="caps">UNNAMED</span></td>
       <td>-3645172800000</td>
       <td>70.0</td>
       <td>NaN</td>
@@ -2090,7 +2090,7 @@ Wall time: 22min 13s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="How-far-do-hurricanes-travel-inland-after-landfall?">How far do hurricanes travel inland after landfall?<a class="anchor-link" href="#How-far-do-hurricanes-travel-inland-after-landfall?">¶</a>
 <a href="#How-far-do-hurricanes-travel-inland-after-landfall?" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Hurricanes in general lose velocity and intensity after they make a landfall. Thus they can only travel a short distance inland. As a result of the overlay analysis, an <code>analysislength</code> column is created. We can plot the histogram of that column to understand how far hurricanes have traveled inland after landfall.</p>
+<p>Hurricanes in general lose velocity and intensity after they make a landfall. Thus they can only travel a short distance inland. As a result of the overlay analysis, an <code>analysislength</code> column is created. We can plot the histogram of that column to understand how far hurricanes have traveled inland after landfall.</p>
 
 </div>
 </div>
@@ -2149,7 +2149,7 @@ Wall time: 22min 13s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, majority of hurricanes travel less than <code>500</code> miles after making a landfall. We can query which are the top <code>50</code> hurricanes that have traveled longest inland.</p>
+<p>Thus, majority of hurricanes travel less than <code>500</code> miles after making a landfall. We can query which are the top <code>50</code> hurricanes that have traveled longest inland.</p>
 
 </div>
 </div>
@@ -2296,7 +2296,7 @@ Wall time: 22min 13s
 <h4 id="Where-do-hurricanes-make-landfall?">Where do hurricanes make landfall?<a class="anchor-link" href="#Where-do-hurricanes-make-landfall?">¶</a>
 <a href="#Where-do-hurricanes-make-landfall?" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Of equal interest is finding where hurricanes make landfall. From experience we know certain regions are prone to hurricane damage more than the rest. Using spatial data science, we can empirically derive those regions that have statistically more hurricane landfalls compared to the rest.</p>
-<p>For this, we will repeat the <strong>overlay analysis</strong>, however this time, we will change the <code>output_type</code> to <code>POINT</code>. The tool will return the points along the coast lines where hurricanes make landfall.</p>
+<p>For this, we will repeat the <strong>overlay analysis</strong>, however this time, we will change the <code>output_type</code> to <code>POINT</code>. The tool will return the points along the coast lines where hurricanes make landfall.</p>
 
 </div>
 </div>
@@ -2402,7 +2402,7 @@ Wall time: 24min 41s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="Perform-density-anlaysis-on-hurricane-landfall-locations">Perform density anlaysis on hurricane landfall locations<a class="anchor-link" href="#Perform-density-anlaysis-on-hurricane-landfall-locations">¶</a>
 <a href="#Perform-density-anlaysis-on-hurricane-landfall-locations" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>The map above shows hundreds of thousands of points spread around the world. Do all these places have equal probability of being hit by a hurricane? To answer this, we will perform <strong>density analysis</strong>. The <code>calculate_density</code> tool available under the <code>analyze_patterns</code> toolset is used for this.</p>
+<p>The map above shows hundreds of thousands of points spread around the world. Do all these places have equal probability of being hit by a hurricane? To answer this, we will perform <strong>density analysis</strong>. The <code>calculate_density</code> tool available under the <code>analyze_patterns</code> toolset is used for this.</p>
 
 </div>
 </div>
@@ -2495,7 +2495,7 @@ Wall time: 42.7 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The map here computes the kernel density of landfall locations. It does this by summing the number of landfalls within a radius of <code>30</code> miles and dividing it by the area of this radius. Thus it spreads the number of landfalls over a smooth surface, then classifies this surface into <code>7</code> classes. By performing density anlaysis, we are able to wade through large clouds of landfall points and identify locations that have more landfalls compared to the rest of the world.</p>
+<p>The map here computes the kernel density of landfall locations. It does this by summing the number of landfalls within a radius of <code>30</code> miles and dividing it by the area of this radius. Thus it spreads the number of landfalls over a smooth surface, then classifies this surface into <code>7</code> classes. By performing density anlaysis, we are able to wade through large clouds of landfall points and identify locations that have more landfalls compared to the rest of the world.</p>
 <p>Let us visualize the density analysis results on a table and as a chart.</p>
 
 </div>
@@ -2542,7 +2542,7 @@ Wall time: 42.7 s
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>SHAPE</th>
+      <th><span class="caps">SHAPE</span></th>
       <th>analysisarea</th>
       <th>class</th>
       <th>objectid</th>
@@ -2704,7 +2704,7 @@ Wall time: 42.7 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We have identified <code>40</code> sites worldwide that have a high density of hurricane landfalls based on the anlaysis of data spanning the last <code>169</code> years. Below, we plot them on a map.</p>
+<p>We have identified <code>40</code> sites worldwide that have a high density of hurricane landfalls based on the anlaysis of data spanning the last <code>169</code> years. Below, we plot them on a map.</p>
 
 </div>
 </div>
@@ -2799,7 +2799,7 @@ Wall time: 42.7 s
 <blockquote>
     Note: Geoenrichment costs ArcGIS Online credits and requires this functionality to be configured in your Portal for ArcGIS.
 </blockquote>
-<p>Below we use the <code>enrich()</code> function to add socio-economic columns to the landfall density <code>DataFrame</code>. For a data collection, we pick <code>keyGlobalFacts</code> which is available for most part of the world.</p>
+<p>Below we use the <code>enrich()</code> function to add socio-economic columns to the landfall density <code>DataFrame</code>. For a data collection, we pick <code>keyGlobalFacts</code> which is available for most part of the world.</p>
 
 </div>
 </div>
@@ -2845,15 +2845,15 @@ Wall time: 42.7 s
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>AVGHHSZ</th>
+      <th><span class="caps">AVGHHSZ</span></th>
       <th>HasData</th>
-      <th>ID</th>
+      <th><span class="caps">ID</span></th>
       <th>OBJECTID_0</th>
-      <th>SHAPE</th>
-      <th>TOTFEMALES</th>
-      <th>TOTHH</th>
-      <th>TOTMALES</th>
-      <th>TOTPOP</th>
+      <th><span class="caps">SHAPE</span></th>
+      <th><span class="caps">TOTFEMALES</span></th>
+      <th><span class="caps">TOTHH</span></th>
+      <th><span class="caps">TOTMALES</span></th>
+      <th><span class="caps">TOTPOP</span></th>
       <th>aggregationMethod</th>
       <th>analysisarea</th>
       <th>apportionmentConfidence</th>
@@ -2876,13 +2876,13 @@ Wall time: 42.7 s
       <td>2815</td>
       <td>3500</td>
       <td>7014</td>
-      <td>BlockApportionment:US.BlockGroups</td>
+      <td>BlockApportionment:<span class="caps">US</span>.BlockGroups</td>
       <td>118.233701</td>
       <td>2.576</td>
       <td>7</td>
       <td>170</td>
       <td>2.191</td>
-      <td>US</td>
+      <td><span class="caps">US</span></td>
       <td>0.226918</td>
       <td>0.122803</td>
     </tr>
@@ -2897,13 +2897,13 @@ Wall time: 42.7 s
       <td>19172</td>
       <td>23631</td>
       <td>47179</td>
-      <td>BlockApportionment:US.BlockGroups</td>
+      <td>BlockApportionment:<span class="caps">US</span>.BlockGroups</td>
       <td>1165.144645</td>
       <td>2.576</td>
       <td>6</td>
       <td>174</td>
       <td>2.191</td>
-      <td>US</td>
+      <td><span class="caps">US</span></td>
       <td>0.122803</td>
       <td>0.067631</td>
     </tr>
@@ -2918,13 +2918,13 @@ Wall time: 42.7 s
       <td>5485</td>
       <td>6521</td>
       <td>12731</td>
-      <td>BlockApportionment:US.BlockGroups</td>
+      <td>BlockApportionment:<span class="caps">US</span>.BlockGroups</td>
       <td>731.245665</td>
       <td>2.576</td>
       <td>6</td>
       <td>194</td>
       <td>2.191</td>
-      <td>US</td>
+      <td><span class="caps">US</span></td>
       <td>0.122803</td>
       <td>0.067631</td>
     </tr>
@@ -2939,13 +2939,13 @@ Wall time: 42.7 s
       <td>7816</td>
       <td>9969</td>
       <td>21087</td>
-      <td>BlockApportionment:JP.Blocks</td>
+      <td>BlockApportionment:<span class="caps">JP</span>.Blocks</td>
       <td>106.236904</td>
       <td>2.090</td>
       <td>6</td>
       <td>275</td>
       <td>1.695</td>
-      <td>JP</td>
+      <td><span class="caps">JP</span></td>
       <td>0.122803</td>
       <td>0.067631</td>
     </tr>
@@ -2960,13 +2960,13 @@ Wall time: 42.7 s
       <td>21425</td>
       <td>28081</td>
       <td>55924</td>
-      <td>BlockApportionment:US.BlockGroups</td>
+      <td>BlockApportionment:<span class="caps">US</span>.BlockGroups</td>
       <td>255.801403</td>
       <td>2.576</td>
       <td>6</td>
       <td>280</td>
       <td>2.191</td>
-      <td>US</td>
+      <td><span class="caps">US</span></td>
       <td>0.122803</td>
       <td>0.067631</td>
     </tr>
@@ -2986,8 +2986,8 @@ Wall time: 42.7 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>enrich()</code> operation accepts the Spatially Enabled <code>DataFrame</code>, performs spatial aggregation and returns another <code>DataFrame</code> with socio-economic and demographic columns added to it. The <code>data_collections</code> parameter decides which additional columns get added.</p>
-<p>Let us visualize the population that is affected by country. For this, we group by the <code>sourceCountry</code> column and sum up the results. The cell below plots the total number of men, women and households that live within the high density polygons.</p>
+<p>The <code>enrich()</code> operation accepts the Spatially Enabled <code>DataFrame</code>, performs spatial aggregation and returns another <code>DataFrame</code> with socio-economic and demographic columns added to it. The <code>data_collections</code> parameter decides which additional columns get added.</p>
+<p>Let us visualize the population that is affected by country. For this, we group by the <code>sourceCountry</code> column and sum up the results. The cell below plots the total number of men, women and households that live within the high density polygons.</p>
 
 </div>
 </div>
@@ -3054,10 +3054,10 @@ Wall time: 42.7 s
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 <a href="#Conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>In this notebook we accessed the aggregated hurricane track data from Part 1 as Spatially Enabled <code>DataFrame</code> objects. We visualized these DataFrames both spatially and as charts to reveal interesting information about the global hurricane dataset.</p>
-<p>We learnt that global hurricanes are classified into <code>7</code> basins, with the most hurricanes occurring over <strong>Western Pacific</strong>. The <strong>North Atlantic</strong> basin which affects the continental United States ranks as third busiest basin. The number of hurricanes recorded worldwide has been steadily climbing as technology improves. However, after <code>1970</code>s, we notice a year-over-year reduction in the number of hurricanes. We analyze more of this phenomena in the next part of this study.</p>
-<p>As for hurricane names, the top spot is a tie between <strong>Irma</strong> and <strong>Florence</strong>, with <code>15</code> occurrences for each so far. By turning this DataFrame into a timeseries, we were able to observe a sinusoidal seasonality. The peaks between hurricanes in northern and cyclones in southern hemisphere were offest by about <code>6</code> months, matching the time when summer occurs in these hemispheres. We also noticed that hurricanes over the <strong>North Indian</strong> basin occur throughout the year as they are influenced by a monsoon phenomena.</p>
-<p>We then performed <strong>overlay analysis</strong> to understand where hurricanes make landfall, the path they take once they make landfall. We noticed that the majority of hurricanes make landfall. Once they make a landfall, the majority travel under <code>100</code> miles inland.</p>
+<p>In this notebook we accessed the aggregated hurricane track data from Part 1 as Spatially Enabled <code>DataFrame</code> objects. We visualized these DataFrames both spatially and as charts to reveal interesting information about the global hurricane dataset.</p>
+<p>We learnt that global hurricanes are classified into <code>7</code> basins, with the most hurricanes occurring over <strong>Western Pacific</strong>. The <strong>North Atlantic</strong> basin which affects the continental United States ranks as third busiest basin. The number of hurricanes recorded worldwide has been steadily climbing as technology improves. However, after <code>1970</code>s, we notice a year-over-year reduction in the number of hurricanes. We analyze more of this phenomena in the next part of this study.</p>
+<p>As for hurricane names, the top spot is a tie between <strong>Irma</strong> and <strong>Florence</strong>, with <code>15</code> occurrences for each so far. By turning this DataFrame into a timeseries, we were able to observe a sinusoidal seasonality. The peaks between hurricanes in northern and cyclones in southern hemisphere were offest by about <code>6</code> months, matching the time when summer occurs in these hemispheres. We also noticed that hurricanes over the <strong>North Indian</strong> basin occur throughout the year as they are influenced by a monsoon phenomena.</p>
+<p>We then performed <strong>overlay analysis</strong> to understand where hurricanes make landfall, the path they take once they make landfall. We noticed that the majority of hurricanes make landfall. Once they make a landfall, the majority travel under <code>100</code> miles inland.</p>
 <p>We extended the overlay analysis to calculate the exact points where landfall occurs. After performing a density analysis on the landfall locations we found places along the coasts of <strong>Carolinas</strong> in the United States, <strong>Orissa, West Bengal</strong> in India, several places along the east coast of <strong>China</strong>, southern tip of <strong>Japan</strong> and most of <strong>Phillippines</strong> are affected from a repeat landfall / historical perspective.</p>
 <p>By geo-enriching the high density places, we were able to understand the number of people that live in these places. <strong>China</strong> tops the list with most people affected.</p>
 <p>In the next notebook, we extend this analysis to answer the important question: Does the intensity of hurricanes increase over time?</p>
@@ -3069,7 +3069,7 @@ Wall time: 42.7 s
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

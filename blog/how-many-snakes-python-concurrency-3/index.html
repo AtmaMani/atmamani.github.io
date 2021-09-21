@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How many snakes do you need? - Challenges in parallel computing | Atma’s blog</title>
+<title>How many snakes do you need? - Challenges in parallel computing | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -275,7 +275,7 @@
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">How many snakes do you need? - Challenges in parallel computing</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -313,7 +313,7 @@
 </pre>
 
 
-<p>The script above spawns <code>2</code> worker threads that increment the garlic count by <code>10</code> million. Ideally, they each are supposed to increment <code>10</code> million, resulting in a final count of <code>20</code> million. However, when you run it, you end up with this:</p>
+<p>The script above spawns <code>2</code> worker threads that increment the garlic count by <code>10</code> million. Ideally, they each are supposed to increment <code>10</code> million, resulting in a final count of <code>20</code> million. However, when you run it, you end up with this:</p>
 <pre class="code literal-block"><span></span><span class="k">Current</span> <span class="n">garlic</span> <span class="k">count</span><span class="p">:</span>  <span class="mi">0</span>
 <span class="k">Current</span> <span class="n">garlic</span> <span class="k">count</span><span class="p">:</span>  <span class="mi">83186</span>
 <span class="n">We</span> <span class="n">should</span> <span class="n">buy</span> <span class="mi">13724492</span> <span class="n">garlic</span><span class="p">.</span>
@@ -325,7 +325,7 @@
 <p>A <strong>Critical Section</strong> is the part of your code where multiple threads share the same data in memory. To prevent data corruption, the task of updating a critical section needs to be done uninterrupted - meaning as an <strong>atomic transaction</strong>. This ensures all other threads would read the updated value of the critical section and not stale values.</p>
 <p>In programming, this is accomplished using <strong>Mutex</strong> or <strong>Mutual Exclusion</strong>. A mutex is a lock and only the thread possessing it will have access to update a shared resource / critical section. Only after the thread in possession releases a mutex, another thread can gain possession.</p>
 <p>Acquiring of a mutex (the lock) is atomic, meaning it appears as an indivisible action to other threads even thought it may internally involve multiple steps. Thus no other thread can interrupt the thread acquiring the lock.</p>
-<p>To rectify the previous code, we add create a mutex object using <code>threading.Lock()</code>. Then we call the <code>acquire()</code> and <code>release()</code> methods on the Mutex object appropriately when editing a shared resource. The snippet below rectifies the shopping cart code we had earlier.</p>
+<p>To rectify the previous code, we add create a mutex object using <code>threading.Lock()</code>. Then we call the <code>acquire()</code> and <code>release()</code> methods on the Mutex object appropriately when editing a shared resource. The snippet below rectifies the shopping cart code we had earlier.</p>
 <pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="n">garlic_count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -349,7 +349,7 @@
 </pre>
 
 
-<p>This has spawn two threads as earlier, but the results prints <code>20,000,000</code> correctly:</p>
+<p>This has spawn two threads as earlier, but the results prints <code>20,000,000</code> correctly:</p>
 <pre class="code literal-block"><span></span><span class="n">We</span> <span class="n">should</span> <span class="n">buy</span> <span class="mi">20000000</span> <span class="n">garlic</span><span class="o">.</span>
 </pre>
 
@@ -357,7 +357,7 @@
 <h4 id="locks-and-reentrant-mutex">Locks and Reentrant Mutex<a href="#locks-and-reentrant-mutex" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>What happens when a thread locks a resource, does not unlock and tries to lock again? Well, a thread cannot lock a resource if it is already locked, so it just ends up waiting for its turn to lock, which will never come. This situation is called a <strong>deadlock</strong>.</p>
 <p>Deadlocks pose a major limitation when writing recursive code. A <strong>reentrant mutex</strong> solves this problem by allowing a thread to lock a resource multiple times. However, the same thread should <strong>unlock</strong> the resource the corresponding number of times to properly release it.</p>
-<p>In Python, you create a reentrant lock using <code>threading.RLock()</code> API.  One difference between <code>Lock()</code> and <code>RLock()</code>, when a resource is locked using <code>Lock()</code>, any thread can release it. However, only the thread that locked the reentrant lock can unlock it and it needs to do as many number of times it locked originally.</p>
+<p>In Python, you create a reentrant lock using <code>threading.RLock()</code> <span class="caps">API</span>.  One difference between <code>Lock()</code> and <code>RLock()</code>, when a resource is locked using <code>Lock()</code>, any thread can release it. However, only the thread that locked the reentrant lock can unlock it and it needs to do as many number of times it locked originally.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

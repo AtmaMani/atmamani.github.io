@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>conda_cheat_sheet | Atma’s blog</title>
+<title>conda_cheat_sheet | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -116,7 +116,7 @@ Conda is a power">
 <a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -200,7 +200,7 @@ Conda is a power">
 <a href="../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../octave-1/">Octave / MATLAB - basics</a>
+<a href="../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../octave-2/">Octave - handling data</a>
@@ -218,22 +218,22 @@ Conda is a power">
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -251,7 +251,7 @@ Conda is a power">
 <a href="../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../html/">HTML basics</a>
+<a href="../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -259,7 +259,7 @@ Conda is a power">
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -363,7 +363,7 @@ conda create --name devsummit_precon python=3.6
 conda create --name data_sci_proj scipy pandas
 
 </code></pre>
-<p>Check if new folder was created in <code>C:\anaconda3\envs</code></p>
+<p>Check if new folder was created in <code>C:\anaconda3\envs</code></p>
 
 </div>
 </div>
@@ -474,7 +474,7 @@ conda env remove --name devsummit_precon</code></pre>
 <a href="#Advanced-steps" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Clone-an-existing-environment">Clone an existing environment<a class="anchor-link" href="#Clone-an-existing-environment">¶</a>
 <a href="#Clone-an-existing-environment" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>For instance, to clone the <code>root</code> environment:</p>
+<p>For instance, to clone the <code>root</code> environment:</p>
 
 <pre><code>conda create --name clone_of_root --clone root</code></pre>
 
@@ -509,7 +509,7 @@ conda env remove --name devsummit_precon</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Starting-Jupyter-notebook-in-a-different-directory">Starting Jupyter notebook in a different directory<a class="anchor-link" href="#Starting-Jupyter-notebook-in-a-different-directory">¶</a>
 <a href="#Starting-Jupyter-notebook-in-a-different-directory" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>For the most part you can <code>cd</code> to desired directory after activating your environment and start the notebook. But if you cannot do it:</p>
+<p>For the most part you can <code>cd</code> to desired directory after activating your environment and start the notebook. But if you cannot do it:</p>
 
 <pre><code>jupyter-notebook --notebook-dir=D:\code\my_notebooks</code></pre>
 
@@ -523,10 +523,10 @@ conda env remove --name devsummit_precon</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Exporting-an-environment-to-a-file">Exporting an environment to a file<a class="anchor-link" href="#Exporting-an-environment-to-a-file">¶</a>
 <a href="#Exporting-an-environment-to-a-file" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>It is useful to export your environment to a <code>environment.yml</code> file and include it in your repository. This allows replicating the project in a different computer by you or someone else.</p>
+<p>It is useful to export your environment to a <code>environment.yml</code> file and include it in your repository. This allows replicating the project in a different computer by you or someone else.</p>
 
 <pre><code>conda env export --name your_env_name --file your_env_name.yml</code></pre>
-<p>This creates the <code>.yml</code> file with version number and source repo for all your packages. Thus, this file is specific for a particular OS and Python build version.</p>
+<p>This creates the <code>.yml</code> file with version number and source repo for all your packages. Thus, this file is specific for a particular <span class="caps">OS</span> and Python build version.</p>
 <p>To create an agnostic file, use</p>
 
 <pre><code>conda env export --name your-env-name | cut -f 1 -d '=' &gt; your-env-name.yml</code></pre>
@@ -544,7 +544,7 @@ conda env remove --name devsummit_precon</code></pre>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

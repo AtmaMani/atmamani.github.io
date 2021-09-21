@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Set up Windows OS for Fastai v2 | Atma’s blog</title>
+<title>Set up Windows OS for Fastai v2 | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -106,7 +106,7 @@ What did not work:
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -190,7 +190,7 @@ What did not work:
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -208,22 +208,22 @@ What did not work:
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -241,7 +241,7 @@ What did not work:
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -249,7 +249,7 @@ What did not work:
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -271,33 +271,33 @@ What did not work:
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Set up Windows OS for Fastai v2</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Set up Windows <span class="caps">OS</span> for Fastai v2</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<h3 id="preparation-set-up-gpu-drivers">Preparation - Set up GPU drivers<a href="#preparation-set-up-gpu-drivers" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Follow the instructions in <a href="../configure-gpu-windows">Configure GPU on windows</a> page first.</p>
+<h3 id="preparation-set-up-gpu-drivers">Preparation - Set up <span class="caps">GPU</span> drivers<a href="#preparation-set-up-gpu-drivers" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Follow the instructions in <a href="../configure-gpu-windows">Configure <span class="caps">GPU</span> on windows</a> page first.</p>
 <h3 id="install-fastai-v2">Install Fastai v2.<a href="#install-fastai-v2" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><strong>What did not work:</strong>
  - The <strong>Fastbook</strong> install instructions don’t work as the automatic Pip install steps fail. Manually running Pip install also results in conflicts.
- - Running <code>conda install -c fastchan fastai</code> will not resolve as conda satsolver takes forever without results.</p>
+ - Running <code>conda install -c fastchan fastai</code> will not resolve as conda satsolver takes forever without results.</p>
 <p><strong>What worked</strong>:
  - Install Anaconda individual edition
- - Create a new env: <code>conda create -n fastaiv2</code> without any packages. This provides conda a fresh start and makes it easy for the solver
- - Then run <code>conda install -c fastai -c pytorch fastai</code> to install all fastaiv2 and all of its dependencies.
- - If you want to run the notebooks, then run <code>conda install jupyter</code> to install Jupyter
+ - Create a new env: <code>conda create -n fastaiv2</code> without any packages. This provides conda a fresh start and makes it easy for the solver
+ - Then run <code>conda install -c fastai -c pytorch fastai</code> to install all fastaiv2 and all of its dependencies.
+ - If you want to run the notebooks, then run <code>conda install jupyter</code> to install Jupyter
  - <strong>Optional</strong>: Clone the v2 book repo: https://github.com/fastai/fastbook
- - Run <code>pip install -U fastbook</code> to install the book’s deps and files on disk.</p>
-<h3 id="verify-gpu-is-picked-up">Verify GPU is picked up<a href="#verify-gpu-is-picked-up" class="headerlink" title="Permalink to this heading">¶</a></h3>
+ - Run <code>pip install -U fastbook</code> to install the book’s deps and files on disk.</p>
+<h3 id="verify-gpu-is-picked-up">Verify <span class="caps">GPU</span> is picked up<a href="#verify-gpu-is-picked-up" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>From terminal or Notebook, run the following</p>
 <pre class="code literal-block"><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
 </pre>
 
 
-<p>If you get a <code>True</code>, you are good to go. Else revisit the config doc page listed above.</p>
+<p>If you get a <code>True</code>, you are good to go. Else revisit the config doc page listed above.</p>
 <h3 id="verify-fastai-v2-can-be-imported">Verify FastAI v2 can be imported<a href="#verify-fastai-v2-can-be-imported" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Run the quickstart example from the book (or copy below):</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
@@ -313,8 +313,8 @@ What did not work:
 </pre>
 
 
-<p>As you run the above, open the Task Manager and monitor the GPU usage. You should see a spike while the CPU rate seems constant. The training should go much faster. Instead if you notice CPU peaking to 95-100%, then verify if <code>torch.cuda.is_available()</code> returns <code>True</code>. If it does not, then recheck the driver and OS version steps from above.</p>
-<p>Congrats! You are all set to use fastaiv2 on Windows OS without needing a dual boot for Linux or installing the Windows subsystem for linux options.</p>
+<p>As you run the above, open the Task Manager and monitor the <span class="caps">GPU</span> usage. You should see a spike while the <span class="caps">CPU</span> rate seems constant. The training should go much faster. Instead if you notice <span class="caps">CPU</span> peaking to 95-100%, then verify if <code>torch.cuda.is_available()</code> returns <code>True</code>. If it does not, then recheck the driver and <span class="caps">OS</span> version steps from above.</p>
+<p>Congrats! You are all set to use fastaiv2 on Windows <span class="caps">OS</span> without needing a dual boot for Linux or installing the Windows subsystem for linux options.</p>
 </div>
     </div>
     

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guide to spatial analysis - spatial statistics | Atma’s blog</title>
+<title>Guide to spatial analysis - spatial statistics | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -284,9 +284,9 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 </ol>
 <h4 id="11-geographic-analysis-with-statistics">1.1 Geographic analysis with statistics<a href="#11-geographic-analysis-with-statistics" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><strong>Framing the question</strong>: In <strong>descriptive statistics</strong>, the question usually takes the form: Where is the center of crimes? What is the overall direction of storm tracks?.</p>
-<p>In <strong>inferential statistics</strong>, the analysis is stated as a <strong>hypothesis</strong> and that takes the form: Burglaries are more clustered than auto thefts. To ensure impartiality, statisticians often frame the inverse of what they intend to prove as the hypothesis. Thus the same analysis would be framed as <em>Burglaries are not more clustered than auto thefts</em> (called <code>null hypothesis</code>) and they determine whether or not to reject this null hypothesis.</p>
+<p>In <strong>inferential statistics</strong>, the analysis is stated as a <strong>hypothesis</strong> and that takes the form: Burglaries are more clustered than auto thefts. To ensure impartiality, statisticians often frame the inverse of what they intend to prove as the hypothesis. Thus the same analysis would be framed as <em>Burglaries are not more clustered than auto thefts</em> (called <code>null hypothesis</code>) and they determine whether or not to reject this null hypothesis.</p>
 <h4 id="12-understanding-geographic-data">1.2 Understanding geographic data<a href="#12-understanding-geographic-data" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><strong>Spatial data types</strong>: Geographic features are spread in space. Their location can be analyzed based on their location or using location influenced by an attribute value. Thus, geographic features are either discrete or spatially continuous. <strong>Discrete features</strong> can be locations of stores, weather stations etc. and are represented as <code>Points</code>. <code>Lines</code> can be <strong>disjunct</strong> (animal migration routes) or connected, as in a network (streets). Spatially continuous features such as temperature, precipitation are measured anywhere and everywhere. Such <code>continuous field</code> data are represented as a <code>Polygon</code> or as a surface.</p>
+<p><strong>Spatial data types</strong>: Geographic features are spread in space. Their location can be analyzed based on their location or using location influenced by an attribute value. Thus, geographic features are either discrete or spatially continuous. <strong>Discrete features</strong> can be locations of stores, weather stations etc. and are represented as <code>Points</code>. <code>Lines</code> can be <strong>disjunct</strong> (animal migration routes) or connected, as in a network (streets). Spatially continuous features such as temperature, precipitation are measured anywhere and everywhere. Such <code>continuous field</code> data are represented as a <code>Polygon</code> or as a surface.</p>
 <p>Now let’s talk about <strong>types of attribute values</strong>: Attribute values can be</p>
 <ul>
 <li>
@@ -306,7 +306,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <p>This distribution occurs when extreme events like large magnitude earthquakes occur in time and space. When events are random, there will be a few periods when many events occur, followed by several periods where no or very few events occur. For this distribution, mean number of events is often $\mu &lt; 1$ and probability of no events occurring is higher.</p>
 <p><img src="../../../images/spatial-poisson.png" width="400"></p>
 <h3 id="3-spatial-distributions">3. Spatial distributions<a href="#3-spatial-distributions" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>The notes above describe distributions of attribute values. But, how do we measure spatial distributions? Most often, your objective is to determine if features are <strong>evenly</strong> distributed (<em>uniform distribution</em>) or not, meaning there is a spatial phenomenon taking place. There are <code>3</code> ways of finding if features are <strong>non-randomly</strong> distributed across space:</p>
+<p>The notes above describe distributions of attribute values. But, how do we measure spatial distributions? Most often, your objective is to determine if features are <strong>evenly</strong> distributed (<em>uniform distribution</em>) or not, meaning there is a spatial phenomenon taking place. There are <code>3</code> ways of finding if features are <strong>non-randomly</strong> distributed across space:</p>
 <h5 id="311-method-1-overlay-grid-and-count">3.1.1 Method 1 - overlay grid and count<a href="#311-method-1-overlay-grid-and-count" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p><img src="../../../images/spatial-overlay-grid.png" width="350"></p>
 <p>You can overlay an imaginary grid over your features, count the number of points / features in each cell. Then you compare this metric against a hypothetical even distribution of same features and test for significance.</p>
@@ -324,7 +324,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <p><img src="../../../images/spatial-weighted-centrality2.png" width="500"></p>
 <p><strong>Weighted mean center</strong> is calculated as a weighted average: $\bar X = \frac{\sum_{i} (w_{i} X_{i})}{\sum_{i} w_{i}}$ and $\bar Y = \frac{\sum_{i} (w_i Y_{i})}{\sum_{i}w_{i}}$</p>
 <p>In case of lines and polygon features, the centers and centroids are used and the mean center is calculated against those point values.</p>
-<p><strong>Median center</strong> does not have an exact formula. Instead, the GIS calculates the mean center first, then adjusts it iteratively with slight changes until it finds the median center. It performs <strong>gradient descent</strong> to find the appropriate median center. To find the <strong>weighted median center</strong>, it uses the same technique, except, it multiplies the distances with the <strong>weight</strong> of the corresponding features.</p>
+<p><strong>Median center</strong> does not have an exact formula. Instead, the <span class="caps">GIS</span> calculates the mean center first, then adjusts it iteratively with slight changes until it finds the median center. It performs <strong>gradient descent</strong> to find the appropriate median center. To find the <strong>weighted median center</strong>, it uses the same technique, except, it multiplies the distances with the <strong>weight</strong> of the corresponding features.</p>
 <p><strong>Central feature</strong> is calculated by iterating over each feature, calculating the distance to each other feature and summing it up. The feature with <strong>least total sum</strong> is the central feature. Weighted central feature is calculated similarly, by multiplying the distance with weight.</p>
 <p>Reiterating the fact that weighted centers are better for area features, see the case below: When polygons are of varying sizes, the central measure is automatically pulled toward the direction with multiple smaller polygons. This is because, polygons are converted to centroids when calculating distances. To offset this, calculated weighted center</p>
 <p><img src="../../../images/spatial-weighted-centrality3.png" width="500"></p>
@@ -335,7 +335,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
 <p><img src="../../../images/spatial-std-distance-polygons.png" width="500"></p>
 <p>The formula to calculate standard distance with just distances of features to mean center is below:</p>
 <p><img src="../../../images/spatial-std-distance-formula1.png" width="350"></p>
-<p>Note that it looks very similar to calculating SD, except it sums the variance along <code>X</code> and <code>Y</code> and then takes the square root of their sum.</p>
+<p>Note that it looks very similar to calculating <span class="caps">SD</span>, except it sums the variance along <code>X</code> and <code>Y</code> and then takes the square root of their sum.</p>
 <p>When weights come into picture, you do a weighted average of the deviation along X and Y as shown below:</p>
 <p><img src="../../../images/spatial-std-distance-formula2.png" width="500"></p>
 <p>Weights are typically some numerical attribute (such as population if features are polygons, number of entities if features are lines or points). Further, the compactness measure works well if there <strong>no directionality</strong> in the dataset.</p>
@@ -343,7 +343,7 @@ Studying spatial statistics (or statistical geography) helps answer questions su
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

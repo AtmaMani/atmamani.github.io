@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas | Atma’s blog</title>
+<title>PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -769,7 +769,7 @@
 <tr>
 <th>0</th>
       <td>1</td>
-      <td>(POLYGON ((577856.5470479821 4499583.234929237…</td>
+      <td>(<span class="caps">POLYGON</span> ((577856.5470479821 4499583.234929237…</td>
       <td>360850009001000</td>
       <td>97</td>
       <td>51</td>
@@ -782,7 +782,7 @@
 <tr>
 <th>1</th>
       <td>2</td>
-      <td>(POLYGON ((578620.7173632095 4495974.817866362…</td>
+      <td>(<span class="caps">POLYGON</span> ((578620.7173632095 4495974.817866362…</td>
       <td>360850020011000</td>
       <td>66</td>
       <td>52</td>
@@ -795,7 +795,7 @@
 <tr>
 <th>2</th>
       <td>3</td>
-      <td>(POLYGON ((577227.2244709881 4495995.066845497…</td>
+      <td>(<span class="caps">POLYGON</span> ((577227.2244709881 4495995.066845497…</td>
       <td>360850040001000</td>
       <td>62</td>
       <td>14</td>
@@ -808,7 +808,7 @@
 <tr>
 <th>3</th>
       <td>4</td>
-      <td>(POLYGON ((579037.0332016965 4494421.769816227…</td>
+      <td>(<span class="caps">POLYGON</span> ((579037.0332016965 4494421.769816227…</td>
       <td>360850074001000</td>
       <td>137</td>
       <td>92</td>
@@ -821,7 +821,7 @@
 <tr>
 <th>4</th>
       <td>5</td>
-      <td>(POLYGON ((577652.4825280879 4494975.052285533…</td>
+      <td>(<span class="caps">POLYGON</span> ((577652.4825280879 4494975.052285533…</td>
       <td>360850096011000</td>
       <td>289</td>
       <td>230</td>
@@ -941,7 +941,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Where-clauses">Where clauses<a class="anchor-link" href="#Where-clauses">¶</a>
 <a href="#Where-clauses" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Note, both pandas and geopandas read the full data by design. But we can design a sql query to meet our requirements and pass them to the pandas and geopandas <code>read_sql</code>, <code>read_postgis</code> methods.</p>
+<p>Note, both pandas and geopandas read the full data by design. But we can design a sql query to meet our requirements and pass them to the pandas and geopandas <code>read_sql</code>, <code>read_postgis</code> methods.</p>
 
 </div>
 </div>
@@ -1042,8 +1042,8 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Where-clauses-geometry-functions">Where clauses geometry functions<a class="anchor-link" href="#Where-clauses-geometry-functions">¶</a>
 <a href="#Where-clauses-geometry-functions" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Note, here, I am not rewriting SQL into SQLAlchemy. I apparently need to use <a href="https://geoalchemy-2.readthedocs.io/en/latest/spatial_functions.html"><code>geoalchemy</code></a> to make use of geometry functions as SQLAlchemy knows only of standard db functions.</p>
-<p>I also learnt I can simply pass raw SQL query into sqlalchemy and it works. Thus, below, I am able to pass raw sql which contains the geometry functions <code>ST_Area()</code> and compute the result.</p>
+<p>Note, here, I am not rewriting <span class="caps">SQL</span> into SQLAlchemy. I apparently need to use <a href="https://geoalchemy-2.readthedocs.io/en/latest/spatial_functions.html"><code>geoalchemy</code></a> to make use of geometry functions as SQLAlchemy knows only of standard db functions.</p>
+<p>I also learnt I can simply pass raw <span class="caps">SQL</span> query into sqlalchemy and it works. Thus, below, I am able to pass raw sql which contains the geometry functions <code>ST_Area()</code> and compute the result.</p>
 <p>Note: Using Geopandas to connect requires geometry column. Since aggregations don’t yeild geometries, I am reading the result using pandas.</p>
 
 </div>
@@ -1239,7 +1239,7 @@
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>https://storage.googleapis.com/engineering-test/images/f1650f2a99824f349643ad234abff6a2.tif'</pre>
+<pre>'https://storage.googleapis.com/engineering-test/images/f1650f2a99824f349643ad234abff6a2.tif'</pre>
 </div>
 
 </div>
@@ -1295,7 +1295,7 @@
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

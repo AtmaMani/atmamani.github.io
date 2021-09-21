@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analyze New York City taxi data | Atma’s blog</title>
+<title>Analyze New York City taxi data | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -302,8 +302,8 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Analyzing-New-York-City-taxi-data-using-big-data-tools">Analyzing New York City taxi data using big data tools<a class="anchor-link" href="#Analyzing-New-York-City-taxi-data-using-big-data-tools">¶</a>
 <a href="#Analyzing-New-York-City-taxi-data-using-big-data-tools" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>At 10.5, ArcGIS Enterprise introduces <a href="http://server.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-geoanalytics-server-.htm">ArcGIS GeoAnalytics Server</a> which provides you the ability to perform big data analysis on your infrastructure. This sample demonstrates the steps involved in performing an aggregation analysis on New York city taxi point data using ArcGIS API for Python.</p>
-<p>The data used in this sample can be downloaded from <a href="http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml">NYC Taxi <span class="amp">&amp;</span> Limousine Commission website</a>. For this sample, data for the months January <span class="amp">&amp;</span> Febuary of 2015 were used, each averaging 12 million records.</p>
+<p>At 10.5, ArcGIS Enterprise introduces <a href="http://server.arcgis.com/en/server/latest/get-started/windows/what-is-arcgis-geoanalytics-server-.htm">ArcGIS GeoAnalytics Server</a> which provides you the ability to perform big data analysis on your infrastructure. This sample demonstrates the steps involved in performing an aggregation analysis on New York city taxi point data using ArcGIS <span class="caps">API</span> for Python.</p>
+<p>The data used in this sample can be downloaded from <a href="http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml"><span class="caps">NYC</span> Taxi <span class="amp">&amp;</span> Limousine Commission website</a>. For this sample, data for the months January <span class="amp">&amp;</span> Febuary of 2015 were used, each averaging 12 million records.</p>
 <p><strong>Note</strong>: The ability to perform big data analysis is only available on ArcGIS Enterprise 10.5 licensed with a GeoAnalytics server and not yet available on ArcGIS Online.</p>
 
 </div>
@@ -314,7 +314,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-NYC-taxi-data">The NYC taxi data<a class="anchor-link" href="#The-NYC-taxi-data">¶</a>
+<h3 id="The-NYC-taxi-data">The <span class="caps">NYC</span> taxi data<a class="anchor-link" href="#The-NYC-taxi-data">¶</a>
 <a href="#The-NYC-taxi-data" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>To give you an overview, let us take a look at a subset with 2000 points published as a feature service.</p>
 
@@ -359,7 +359,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
                     <div class="item_right" style="float: none; width: auto; overflow: hidden;">
                         <a href="http://www.arcgis.com/home/item.html?id=83d94a090176478f88843e5daf75e997" target="_blank"><b>NYC_taxi_subset</b>
                         </a>
-                        <br>A subset of NYC taxi data<img src="http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by atma.mani
+                        <br>A subset of <span class="caps">NYC</span> taxi data<img src="http://www.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by atma.mani
                         <br>Last Modified: September 14, 2016
                         <br>0 comments, 2 views
                     </div>
@@ -415,9 +415,9 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us access the feature layers and their attribute table to understand the structure of our data. In the cell below, we are using the <code>query()</code> method to get the attribute information. The <code>query()</code> method returns a <code>FeatureSet</code> object which can be considered as a collection of individual <code>Feature</code> objects.</p>
-<p>You can mine through the <code>FeatureSet</code>, get individual <code>Feature</code>s and read their attribute information to compose a table of all features and their attributes. However, the <code>FeatureSet</code> object provides a much easier way to get that information. Using the <code>df</code> property of a <code>FeatureSet</code>, you can read the attribute information as a <code>pandas</code> dataframe object.</p>
-<p>To run this cell, you need to have <code>pandas</code> Python package installed. If you get an error that pandas cannot be found, you can install it by typing the following in your terminal that is running the jupyter notebook.</p>
+<p>Let us access the feature layers and their attribute table to understand the structure of our data. In the cell below, we are using the <code>query()</code> method to get the attribute information. The <code>query()</code> method returns a <code>FeatureSet</code> object which can be considered as a collection of individual <code>Feature</code> objects.</p>
+<p>You can mine through the <code>FeatureSet</code>, get individual <code>Feature</code>s and read their attribute information to compose a table of all features and their attributes. However, the <code>FeatureSet</code> object provides a much easier way to get that information. Using the <code>df</code> property of a <code>FeatureSet</code>, you can read the attribute information as a <code>pandas</code> dataframe object.</p>
+<p>To run this cell, you need to have <code>pandas</code> Python package installed. If you get an error that pandas cannot be found, you can install it by typing the following in your terminal that is running the jupyter notebook.</p>
 
 <pre><code>conda install pandas</code></pre>
 
@@ -482,7 +482,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
       <th>trip_distance</th>
     </tr>
 <tr>
-<th>OBJECTID</th>
+<th><span class="caps">OBJECTID</span></th>
       <th></th>
       <th></th>
       <th></th>
@@ -614,7 +614,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The table above represents the attribute information available from the NYC dataset. Columns like pickup, dropoff locations, fare, tips, toll, trip distance provide a wealth of infomation allowing many interesting patterns to be observed. Our full data dataset contains over 24 million points. To discern patterns out of it, let us aggregate the points into square blocks of 1 Kilometer length.</p>
+<p>The table above represents the attribute information available from the <span class="caps">NYC</span> dataset. Columns like pickup, dropoff locations, fare, tips, toll, trip distance provide a wealth of infomation allowing many interesting patterns to be observed. Our full data dataset contains over 24 million points. To discern patterns out of it, let us aggregate the points into square blocks of 1 Kilometer length.</p>
 
 </div>
 </div>
@@ -658,7 +658,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ensure that the Geoanalytics is supported with our GIS.</p>
+<p>Ensure that the Geoanalytics is supported with our <span class="caps">GIS</span>.</p>
 
 </div>
 </div>
@@ -764,7 +764,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>NYC_taxi data is registered as a <code>big data file share</code> with the Geoanalytics datastore, so we can reference it:</p>
+<p>NYC_taxi data is registered as a <code>big data file share</code> with the Geoanalytics datastore, so we can reference it:</p>
 
 </div>
 </div>
@@ -830,7 +830,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Once a big data file share is created, the GeoAnalytics server processes all the valid file types to discern the schema of the data. This process can take a few minutes depending on the size of your data. Once processed, querying the <code>manifest</code> property returns the schema. As you can see from below, the schema is similar to the subset we observed earlier in this sample.</p>
+<p>Once a big data file share is created, the GeoAnalytics server processes all the valid file types to discern the schema of the data. This process can take a few minutes depending on the size of your data. Once processed, querying the <code>manifest</code> property returns the schema. As you can see from below, the schema is similar to the subset we observed earlier in this sample.</p>
 
 </div>
 </div>
@@ -1083,7 +1083,7 @@ Analyzing New York City taxi data using big data tools¶At 10.5, ArcGIS Enterpri
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Aggregate-points-tool">Aggregate points tool<a class="anchor-link" href="#Aggregate-points-tool">¶</a>
 <a href="#Aggregate-points-tool" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The <code>aggregate_points()</code> tool can be accessed through the <code>tools.bigdata</code> property of your GIS. In this example, we are using this tool to aggregate the numerous points into 1 Kilometer square blocks. The tool creates a feature layer as an output which can be accessed once the processing is complete.</p>
+<p>The <code>aggregate_points()</code> tool can be accessed through the <code>tools.bigdata</code> property of your <span class="caps">GIS</span>. In this example, we are using this tool to aggregate the numerous points into 1 Kilometer square blocks. The tool creates a feature layer as an output which can be accessed once the processing is complete.</p>
 
 </div>
 </div>
@@ -1253,7 +1253,7 @@ Succeeded at Wed Dec 14 12:38:15 2016 (Elapsed Time: 8.00 seconds)
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

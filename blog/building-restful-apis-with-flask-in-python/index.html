@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building RESTful APIs with Flask in Python | Atma’s blog</title>
+<title>Building RESTful APIs with Flask in Python | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ Th">
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ Th">
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ Th">
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ Th">
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Th">
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -279,7 +279,7 @@ Th">
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building RESTful APIs with Flask in Python</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -294,7 +294,7 @@ Th">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p><img src="https://www.fullstackpython.com/img/logos/flask.jpg" width="500"></p>
-<p>This article demonstrates how to quickly build a RESTful API in Python using the <a href="https://www.fullstackpython.com">Flask</a> library. To know about RESTful APIs, read the article on <a href="../design-principles-behind-restful-apis/">Design principles behind RESTful APIs</a>.</p>
+<p>This article demonstrates how to quickly build a RESTful <span class="caps">API</span> in Python using the <a href="https://www.fullstackpython.com">Flask</a> library. To know about RESTful APIs, read the article on <a href="../design-principles-behind-restful-apis/">Design principles behind RESTful APIs</a>.</p>
 <!-- TEASER_END -->
 
 <h3 id="boiler-plate">Boiler plate<a href="#boiler-plate" class="headerlink" title="Permalink to this heading">¶</a></h3>
@@ -320,9 +320,9 @@ Th">
 </pre>
 
 
-<p>In the code above, you have defined 2 endpoints - a root <code>/</code> landing page and a <code>/time</code> endpoint. You can run this app from terminal as <code>python -m &lt;filename&gt;</code> which will start the webserver and give you an IP address to go or call.</p>
+<p>In the code above, you have defined 2 endpoints - a root <code>/</code> landing page and a <code>/time</code> endpoint. You can run this app from terminal as <code>python -m &lt;filename&gt;</code> which will start the webserver and give you an <span class="caps">IP</span> address to go or call.</p>
 <h3 id="passing-arguments">Passing arguments<a href="#passing-arguments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>When calling an endpoint, users can send the server some information. This info can be sent via <code>GET</code> or <code>POST</code> calls. By following HTTP verbs, if user wants to collect info back, they should send it via <code>GET</code>, else if the call is to perform some operation on the server side, then use <code>POST</code>, <code>PUT</code>, <code>DELETE</code>.</p>
+<p>When calling an endpoint, users can send the server some information. This info can be sent via <code>GET</code> or <code>POST</code> calls. By following <span class="caps">HTTP</span> verbs, if user wants to collect info back, they should send it via <code>GET</code>, else if the call is to perform some operation on the server side, then use <code>POST</code>, <code>PUT</code>, <code>DELETE</code>.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span> <span class="c1"># used to parse payload</span>
 <span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/hello'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">welcome_message</span><span class="p">():</span>
@@ -335,9 +335,9 @@ Th">
 </pre>
 
 
-<p><strong>Note</strong>, sometimes your web app needs to make calls to other resources on the web. For this you can use the <code>requests</code> library. The <code>request</code> module of Flask used in the snippet is not to be confused with the <code>requests</code> library.</p>
-<h3 id="rendering-html-pages">Rendering HTML pages<a href="#rendering-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Flask allows you to define a <code>templates</code> directory and put HTML pages into it. In these HTML pages, you can define variables and pass values to be displayed when rendering the HTML pages. This totally expands your possibilities without having to write a line of JS code.</p>
+<p><strong>Note</strong>, sometimes your web app needs to make calls to other resources on the web. For this you can use the <code>requests</code> library. The <code>request</code> module of Flask used in the snippet is not to be confused with the <code>requests</code> library.</p>
+<h3 id="rendering-html-pages">Rendering <span class="caps">HTML</span> pages<a href="#rendering-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Flask allows you to define a <code>templates</code> directory and put <span class="caps">HTML</span> pages into it. In these <span class="caps">HTML</span> pages, you can define variables and pass values to be displayed when rendering the <span class="caps">HTML</span> pages. This totally expands your possibilities without having to write a line of <span class="caps">JS</span> code.</p>
 <pre class="code literal-block"><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -355,7 +355,7 @@ Th">
 </pre>
 
 
-<p>Put the above HTML page (saved as <code>index.html</code>) into a <code>templates</code> directory. Then you can render this page as</p>
+<p>Put the above <span class="caps">HTML</span> page (saved as <code>index.html</code>) into a <code>templates</code> directory. Then you can render this page as</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
 <span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/welcomePage'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">welcome_page</span><span class="p">():</span>
@@ -366,8 +366,8 @@ Th">
 </pre>
 
 
-<h3 id="getting-user-input-via-html-pages">Getting user input via HTML pages<a href="#getting-user-input-via-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Not only are HTML pages good to display content on a UI, they are good to collect user input for processing. The snippet below defines a resource that when called via <code>GET</code>, will show an HTML page with form controls. If accessed via <code>POST</code>, it performs the actual processing defined by the resource.</p>
+<h3 id="getting-user-input-via-html-pages">Getting user input via <span class="caps">HTML</span> pages<a href="#getting-user-input-via-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Not only are <span class="caps">HTML</span> pages good to display content on a <span class="caps">UI</span>, they are good to collect user input for processing. The snippet below defines a resource that when called via <code>GET</code>, will show an <span class="caps">HTML</span> page with form controls. If accessed via <code>POST</code>, it performs the actual processing defined by the resource.</p>
 <pre class="code literal-block"><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/eyeFromAbove'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">eye_from_above</span><span class="p">():</span>
     <span class="sd">"""</span>
@@ -450,7 +450,7 @@ Th">
 </pre>
 
 
-<p>Now, to display the image, we need this part in the template HTML file</p>
+<p>Now, to display the image, we need this part in the template <span class="caps">HTML</span> file</p>
 <pre class="code literal-block"><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     {% if media_type == 'image' %}
         <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">{{media_url}}</span> <span class="na">class</span><span class="o">=</span><span class="s">"img-fluid"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Responsive image"</span><span class="p">&gt;</span>
@@ -458,12 +458,12 @@ Th">
 </pre>
 
 
-<h3 id="database-crud-operations">Database CRUD operations<a href="#database-crud-operations" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using <code>sqlalchemy</code> library to  create an in-memory <code>sqlite</code> database and perform CRUD - Create, Read, Update, Delete operations on it.</p>
+<h3 id="database-crud-operations">Database <span class="caps">CRUD</span> operations<a href="#database-crud-operations" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using <code>sqlalchemy</code> library to  create an in-memory <code>sqlite</code> database and perform <span class="caps">CRUD</span> - Create, Read, Update, Delete operations on it.</p>
 <h4 id="sqlalchemy-in-2-minutes">
 <code>sqlalchemy</code> in 2 minutes<a href="#sqlalchemy-in-2-minutes" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Sqlalchemy library is an ORM (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a DB and perform CRUD ops in addition to others.</p>
-<p>Connecting to a DB. In this case a sqllite db is created. If you want the db in-memory, then specify <code>memory</code> as location.</p>
+<p>Sqlalchemy library is an <span class="caps">ORM</span> (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a <span class="caps">DB</span> and perform <span class="caps">CRUD</span> ops in addition to others.</p>
+<p>Connecting to a <span class="caps">DB</span>. In this case a sqllite db is created. If you want the db in-memory, then specify <code>memory</code> as location.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">'sqlite:///filename.db'</span><span class="p">)</span>
 </pre>
@@ -500,7 +500,7 @@ Th">
 
 
 <h4 id="inserting-rows">Inserting rows<a href="#inserting-rows" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Create an instance of the class you created that inherited the <code>declarative_base</code>.</p>
+<p>Create an instance of the class you created that inherited the <code>declarative_base</code>.</p>
 <pre class="code literal-block"><span></span><span class="n">puppy1</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="n">puppy_name</span> <span class="o">=</span> <span class="s1">'nemo'</span><span class="p">)</span> <span class="c1">#pass the columns info to the constructor</span>
 
 <span class="c1"># insert row</span>
@@ -509,9 +509,9 @@ Th">
 </pre>
 
 
-<p>Since, we did not pass <code>puppy_id</code>, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an <code>add</code> but have the primary key specified.</p>
-<h4 id="user-facing-crud-api">User facing CRUD API:<a href="#user-facing-crud-api" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Below is an example endpoint that can perform all 4 CRUD operations:</p>
+<p>Since, we did not pass <code>puppy_id</code>, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an <code>add</code> but have the primary key specified.</p>
+<h4 id="user-facing-crud-api">User facing <span class="caps">CRUD</span> <span class="caps">API</span>:<a href="#user-facing-crud-api" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Below is an example endpoint that can perform all 4 <span class="caps">CRUD</span> operations:</p>
 <pre class="code literal-block"><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/addresses/&lt;int:id&gt;'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'PUT'</span><span class="p">,</span> <span class="s1">'DELETE'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">address_id_handler</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="sd">"""</span>
@@ -536,7 +536,7 @@ Th">
 </pre>
 
 
-<p>If you called <code>/addresses/&lt;id&gt;</code> with an existing <code>id</code> via <code>GET</code>, you perform a Read operation. Calling with a new <code>id</code> via <code>PUT</code> will do a Create operation. However, calling with an existing <code>id</code> via <code>PUT</code> will do an Update operation. Finally, <code>DELETE</code> will Delete that record from the DB.</p>
+<p>If you called <code>/addresses/&lt;id&gt;</code> with an existing <code>id</code> via <code>GET</code>, you perform a Read operation. Calling with a new <code>id</code> via <code>PUT</code> will do a Create operation. However, calling with an existing <code>id</code> via <code>PUT</code> will do an Update operation. Finally, <code>DELETE</code> will Delete that record from the <span class="caps">DB</span>.</p>
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>To view the full app in action, checkout <a href="../../apps/">the apps section</a> section. To see its source code, see this <a href="https://github.com/AtmaMani/thermos">GitHub repo</a>.</p>
 </div>
@@ -544,7 +544,7 @@ Th">
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/flask/" rel="tag">flask</a></li>
             <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
-            <li><a class="tag p-category" href="../../categories/rest/" rel="tag">REST</a></li>
+            <li><a class="tag p-category" href="../../categories/rest/" rel="tag"><span class="caps">REST</span></a></li>
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">

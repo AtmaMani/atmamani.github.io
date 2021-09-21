@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>flask-notes | Atma’s blog</title>
+<title>flask-notes | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@ app se">
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@ app se">
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@ app se">
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@ app se">
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@ app se">
 <a href="../">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -278,21 +278,21 @@ app se">
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>post to AWS using zappa.</p>
+<p>post to <span class="caps">AWS</span> using zappa.</p>
 <h3 id="server-stack">Server stack<a href="#server-stack" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li>
-<strong>Web server</strong> - load balancing, SLL endpoint, eg: nginx, apache</li>
+<strong>Web server</strong> - load balancing, <span class="caps">SLL</span> endpoint, eg: nginx, apache</li>
 <li>
 <strong>http server</strong> - forwards dynamic content requests, servers dynamic content, eg: uWSGI, Gunicorn</li>
 <li>
 <strong>app server</strong> - communicates with back-end res like db, process dynamic queries. eg: Flask, Django, CherryPy</li>
 </ul>
-<p>Ending a REST route with a trailing slash will support whether or not the request comes with a trailing slash.</p>
+<p>Ending a <span class="caps">REST</span> route with a trailing slash will support whether or not the request comes with a trailing slash.</p>
 <p>When accepting a request with parameters from a user, ensure you scrub the inputs before passing it into a db or such. This is because people can inject sql and can damage or hack the backend.</p>
 <p>Like <code>templates</code>, <code>static</code> is a reserved and known folder into which you can store pics and files. Flask will just serve it out.</p>
-<p>Use <code>from flask import url_for</code> and use it when you need to dynamically compose an internal URL dynamically.</p>
-<p>When accepting a POST endoing, use <code>request.form['password']</code> instead of <code>request.args.get('param')</code>.</p>
+<p>Use <code>from flask import url_for</code> and use it when you need to dynamically compose an internal <span class="caps">URL</span> dynamically.</p>
+<p>When accepting a <span class="caps">POST</span> endoing, use <code>request.form['password']</code> instead of <code>request.args.get('param')</code>.</p>
 <p>Use <code>redirect(&lt;new_url_here&gt;, 302)</code> to redirect.</p>
 <h3 id="login">Login<a href="#login" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><code>pip install Flask-Login</code> library is a simple one. This library is aware of sessions and can manage that. When storing passwords, use password hashes.</p>
@@ -305,7 +305,7 @@ app se">
 <h4 id="users">Users<a href="#users" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><code>flask_login.UserMixin</code> find what a Mixin is. Find if subclass is the right term.</p>
 <h3 id="zappa">Zappa<a href="#zappa" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Zappa makes is very easy to push to AWS. It will zip up the app, push to S3 bucket, deploy via AWS Lambda, create AWS API Gateway endpoint, adds an AWS Cloudwatch rule that keeps Lambda ‘warm’. The cloudwatch will keep the lambda running by pinging it every 4 mins or so.</p>
+<p>Zappa makes is very easy to push to <span class="caps">AWS</span>. It will zip up the app, push to S3 bucket, deploy via <span class="caps">AWS</span> Lambda, create <span class="caps">AWS</span> <span class="caps">API</span> Gateway endpoint, adds an <span class="caps">AWS</span> Cloudwatch rule that keeps Lambda ‘warm’. The cloudwatch will keep the lambda running by pinging it every 4 mins or so.</p>
 <h2 id="resources">Resources<a href="#resources" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <p>Corey Schafer’s 15 part Flask on YouTube.</p>
 </div>

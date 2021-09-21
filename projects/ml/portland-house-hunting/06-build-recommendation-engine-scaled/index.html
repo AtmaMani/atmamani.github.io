@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>06-build-recommendation-engine-scaled | Atma’s blog</title>
+<title>06-build-recommendation-engine-scaled | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -458,7 +458,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Generate a prefernce list that is <code>331</code> records long. This list has <code>1</code> for first <code>50</code> records followed by <code>0</code>.</p>
+<p>Generate a prefernce list that is <code>331</code> records long. This list has <code>1</code> for first <code>50</code> records followed by <code>0</code>.</p>
 
 </div>
 </div>
@@ -562,16 +562,16 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>SALE TYPE</th>
-      <th>PROPERTY TYPE</th>
-      <th>ADDRESS</th>
-      <th>CITY</th>
-      <th>STATE</th>
-      <th>ZIP</th>
-      <th>PRICE</th>
-      <th>BEDS</th>
-      <th>BATHS</th>
-      <th>LOCATION</th>
+      <th><span class="caps">SALE</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">PROPERTY</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">ADDRESS</span></th>
+      <th><span class="caps">CITY</span></th>
+      <th><span class="caps">STATE</span></th>
+      <th><span class="caps">ZIP</span></th>
+      <th><span class="caps">PRICE</span></th>
+      <th><span class="caps">BEDS</span></th>
+      <th><span class="caps">BATHS</span></th>
+      <th><span class="caps">LOCATION</span></th>
       <th>…</th>
       <th>coffee_count</th>
       <th>bars_count</th>
@@ -587,11 +587,11 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <tbody>
 <tr>
 <th>0</th>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>15986 SE Spokane Ct. Ave</td>
+      <td>15986 <span class="caps">SE</span> Spokane Ct. Ave</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97236.0</td>
       <td>543900.0</td>
       <td>4.0</td>
@@ -611,16 +611,16 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
     </tr>
 <tr>
 <th>1</th>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Multi-Family (2-4 Unit)</td>
-      <td>SE Henderson St</td>
+      <td><span class="caps">SE</span> Henderson St</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97206.0</td>
       <td>625000.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td>LENTS</td>
+      <td><span class="caps">LENTS</span></td>
       <td>…</td>
       <td>50</td>
       <td>1</td>
@@ -635,11 +635,11 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
     </tr>
 <tr>
 <th>2</th>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>8268 SE Yamhill St</td>
+      <td>8268 <span class="caps">SE</span> Yamhill St</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97216.0</td>
       <td>550000.0</td>
       <td>7.0</td>
@@ -659,11 +659,11 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
     </tr>
 <tr>
 <th>3</th>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>6311 SE Tenino St</td>
+      <td>6311 <span class="caps">SE</span> Tenino St</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97206.0</td>
       <td>479900.0</td>
       <td>4.0</td>
@@ -683,16 +683,16 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
     </tr>
 <tr>
 <th>4</th>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Multi-Family (2-4 Unit)</td>
-      <td>2028 SE Harold St</td>
+      <td>2028 <span class="caps">SE</span> Harold St</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97202.0</td>
       <td>699900.0</td>
       <td>5.0</td>
       <td>4.0</td>
-      <td>SELLWOOD - WEST MORELAND</td>
+      <td><span class="caps">SELLWOOD</span> - <span class="caps">WEST</span> <span class="caps">MORELAND</span></td>
       <td>…</td>
       <td>50</td>
       <td>2</td>
@@ -812,13 +812,13 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>PRICE</th>
-      <th>BEDS</th>
-      <th>BATHS</th>
-      <th>SQUARE FEET</th>
-      <th>LOT SIZE</th>
-      <th>YEAR BUILT</th>
-      <th>HOA PER MONTH</th>
+      <th><span class="caps">PRICE</span></th>
+      <th><span class="caps">BEDS</span></th>
+      <th><span class="caps">BATHS</span></th>
+      <th><span class="caps">SQUARE</span> <span class="caps">FEET</span></th>
+      <th><span class="caps">LOT</span> <span class="caps">SIZE</span></th>
+      <th><span class="caps">YEAR</span> <span class="caps">BUILT</span></th>
+      <th><span class="caps">HOA</span> <span class="caps">PER</span> <span class="caps">MONTH</span></th>
       <th>grocery_count</th>
       <th>restaurant_count</th>
       <th>hospitals_count</th>
@@ -967,7 +967,7 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Scale-numeric-columns">Scale numeric columns<a class="anchor-link" href="#Scale-numeric-columns">¶</a>
 <a href="#Scale-numeric-columns" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>We use the same <code>MinMaxScaler</code> we used earlier to scale the data.</p>
+<p>We use the same <code>MinMaxScaler</code> we used earlier to scale the data.</p>
 
 </div>
 </div>
@@ -1044,13 +1044,13 @@ Building a housing recommendation engineRead ranked datasetGenerate preference c
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>PRICE</th>
-      <th>BEDS</th>
-      <th>BATHS</th>
-      <th>SQUARE FEET</th>
-      <th>LOT SIZE</th>
-      <th>YEAR BUILT</th>
-      <th>HOA PER MONTH</th>
+      <th><span class="caps">PRICE</span></th>
+      <th><span class="caps">BEDS</span></th>
+      <th><span class="caps">BATHS</span></th>
+      <th><span class="caps">SQUARE</span> <span class="caps">FEET</span></th>
+      <th><span class="caps">LOT</span> <span class="caps">SIZE</span></th>
+      <th><span class="caps">YEAR</span> <span class="caps">BUILT</span></th>
+      <th><span class="caps">HOA</span> <span class="caps">PER</span> <span class="caps">MONTH</span></th>
       <th>grocery_count</th>
       <th>restaurant_count</th>
       <th>hospitals_count</th>
@@ -1656,11 +1656,11 @@ memory usage: 49.2 KB
 <a href="#Conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Recommendation-engines">Recommendation engines<a class="anchor-link" href="#Recommendation-engines">¶</a>
 <a href="#Recommendation-engines" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>From the example above, we could build a recommendation engine that runs on periodically on a newer set of properties and determines which ones are worth your time (one’s it predicts you would ‘like’). The ML model’s weights appear similar to what we defined manually. In some cases, it goes way off.</p>
+<p>From the example above, we could build a recommendation engine that runs on periodically on a newer set of properties and determines which ones are worth your time (one’s it predicts you would ‘like’). The <span class="caps">ML</span> model’s weights appear similar to what we defined manually. In some cases, it goes way off.</p>
 <p>This type of recommendation is called ‘content based filtering’ and for this to work, we need a really large training set. In reality nobody can sit and generate such a large set. In practice, another type of recommendations called ‘community based filtering’ is used. Based on the features identified for the properties, it tries to find similarity between buyers and pools the training set for all similar buyers together to create a really large training set and learns from that.</p>
 <h4 id="Overall">Overall<a class="anchor-link" href="#Overall">¶</a>
 <a href="#Overall" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>In these sets of notebooks, we observed how data science and machine learning approaches can be employed in the real estate industry. Buying houses is a very personal process, however a lot of decisions are heavily influenced by the location of the houses. We showed how Python libraries such as Pandas can be used to statistically analyze the properties. We also showed how the ArcGIS API for Python adds spatial capabilities to Pandas allowing to perform spatial data analysis. We enriched the data with information on access to different facilities and used that to compare, score and rank the properties. The shortlist we arrived at can be used for field visits.</p>
+<p>In these sets of notebooks, we observed how data science and machine learning approaches can be employed in the real estate industry. Buying houses is a very personal process, however a lot of decisions are heavily influenced by the location of the houses. We showed how Python libraries such as Pandas can be used to statistically analyze the properties. We also showed how the ArcGIS <span class="caps">API</span> for Python adds spatial capabilities to Pandas allowing to perform spatial data analysis. We enriched the data with information on access to different facilities and used that to compare, score and rank the properties. The shortlist we arrived at can be used for field visits.</p>
 <p>We conclude with a forward thinking approach to turn this into a recommendation engine and suggest scope for future work in this area.</p>
 
 </div>
@@ -1670,7 +1670,7 @@ memory usage: 49.2 KB
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GeoPandas - GP, IO, interactive plotting, geocoding | Atma’s blog</title>
+<title>GeoPandas - GP, IO, interactive plotting, geocoding | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -118,7 +118,7 @@ In [">
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -202,7 +202,7 @@ In [">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -220,22 +220,22 @@ In [">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li class="active">
-<a href=".">GeoPandas - GP, IO, interactive plotting, geocoding <span class="sr-only">(active)</span></a>
+<a href=".">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding <span class="sr-only">(active)</span></a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -253,7 +253,7 @@ In [">
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -261,7 +261,7 @@ In [">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -283,7 +283,7 @@ In [">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - GP, IO, interactive plotting, geocoding</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a></h1>
 
         
 
@@ -296,7 +296,7 @@ In [">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Geopandas-2">Geopandas 2<a class="anchor-link" href="#Geopandas-2">¶</a>
 <a href="#Geopandas-2" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>More IO, interactive visualization using folium and geocoding
+<p>More <span class="caps">IO</span>, interactive visualization using folium and geocoding
 <img src="http://geopandas.org/_images/world_randomcolors.png" width="550"></p>
 
 </div>
@@ -312,7 +312,7 @@ In [">
 <a href="#table-of-contents" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <div class="toc"><ul class="toc-item">
 <li>
-<span><a href="#Read-CSV-data" data-toc-modified-id="Read-CSV-data-1">Read CSV data</a></span><ul class="toc-item"><li><span><a href="#Create-a-geopandas-data-frame-from-pandas-dataframe" data-toc-modified-id="Create-a-geopandas-data-frame-from-pandas-dataframe-1.1">Create a geopandas data frame from pandas dataframe</a></span></li></ul>
+<span><a href="#Read-CSV-data" data-toc-modified-id="Read-CSV-data-1">Read <span class="caps">CSV</span> data</a></span><ul class="toc-item"><li><span><a href="#Create-a-geopandas-data-frame-from-pandas-dataframe" data-toc-modified-id="Create-a-geopandas-data-frame-from-pandas-dataframe-1.1">Create a geopandas data frame from pandas dataframe</a></span></li></ul>
 </li>
 <li><span><a href="#Viz-on-Folium-map" data-toc-modified-id="Viz-on-Folium-map-2">Viz on Folium map</a></span></li>
 <li><span><a href="#Geocoding" data-toc-modified-id="Geocoding-3">Geocoding</a></span></li>
@@ -345,7 +345,7 @@ In [">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Read-CSV-data">Read CSV data<a class="anchor-link" href="#Read-CSV-data">¶</a>
+<h3 id="Read-CSV-data">Read <span class="caps">CSV</span> data<a class="anchor-link" href="#Read-CSV-data">¶</a>
 <a href="#Read-CSV-data" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
@@ -1146,7 +1146,7 @@ In [">
       <td>-117.242432</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>POINT (-117.242431640625 34.05499649047852)</td>
+      <td><span class="caps">POINT</span> (-117.242431640625 34.05499649047852)</td>
     </tr>
 <tr>
 <th>1</th>
@@ -1157,7 +1157,7 @@ In [">
       <td>-117.242401</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>POINT (-117.2424011230469 34.05500030517578)</td>
+      <td><span class="caps">POINT</span> (-117.2424011230469 34.05500030517578)</td>
     </tr>
 <tr>
 <th>2</th>
@@ -1168,7 +1168,7 @@ In [">
       <td>-117.242416</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>POINT (-117.2424163818359 34.0550651550293)</td>
+      <td><span class="caps">POINT</span> (-117.2424163818359 34.0550651550293)</td>
     </tr>
 <tr>
 <th>3</th>
@@ -1179,7 +1179,7 @@ In [">
       <td>-117.242447</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>POINT (-117.2424468994141 34.05505752563477)</td>
+      <td><span class="caps">POINT</span> (-117.2424468994141 34.05505752563477)</td>
     </tr>
 </tbody>
 </table>
@@ -1415,7 +1415,7 @@ In [">
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>0.5.0'</pre>
+<pre>'0.5.0'</pre>
 </div>
 
 </div>
@@ -1480,7 +1480,7 @@ In [">
 <h3 id="Geocoding">Geocoding<a class="anchor-link" href="#Geocoding">¶</a>
 <a href="#Geocoding" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Geocoding is the process of turning addresses into coordinates by plotting them on a map. It is a combination of search and computation (when you interpolate street addresses for unknown extents) that is typically performed on server side due to the amount of data required on a global scale.</p>
-<p>Geopandas uses <a href="http://geopy.readthedocs.io/en/1.11.0/"><code>geopy</code></a> to perform geocoding and returns the result of hits as a <code>geodataframe</code>.</p>
+<p>Geopandas uses <a href="http://geopy.readthedocs.io/en/1.11.0/"><code>geopy</code></a> to perform geocoding and returns the result of hits as a <code>geodataframe</code>.</p>
 
 </div>
 </div>
@@ -1536,7 +1536,7 @@ In [">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Get list of providers from <code>geopy</code></p>
+<p>Get list of providers from <code>geopy</code></p>
 
 </div>
 </div>
@@ -1652,8 +1652,8 @@ In [">
     </tr></thead>
 <tbody><tr>
 <th>0</th>
-      <td>Los Angeles, CA 90068, USA</td>
-      <td>POINT (-118.3215482 34.1341151)</td>
+      <td>Los Angeles, <span class="caps">CA</span> 90068, <span class="caps">USA</span></td>
+      <td><span class="caps">POINT</span> (-118.3215482 34.1341151)</td>
     </tr></tbody>
 </table>
 </div>
@@ -1711,7 +1711,7 @@ In [">
 <tbody><tr>
 <th>0</th>
       <td>Hollywood Sign</td>
-      <td>POINT (-118.3219799999999 34.13438000000008)</td>
+      <td><span class="caps">POINT</span> (-118.3219799999999 34.13438000000008)</td>
     </tr></tbody>
 </table>
 </div>
@@ -1774,18 +1774,18 @@ In [">
 <tbody>
 <tr>
 <th>0</th>
-      <td>Redlands Community Hospital-ER</td>
-      <td>POINT (-117.2044100362101 34.03633005943772)</td>
+      <td>Redlands Community Hospital-<span class="caps">ER</span></td>
+      <td><span class="caps">POINT</span> (-117.2044100362101 34.03633005943772)</td>
     </tr>
 <tr>
 <th>1</th>
       <td>Target</td>
-      <td>POINT (-117.2072099744647 34.07031003505633)</td>
+      <td><span class="caps">POINT</span> (-117.2072099744647 34.07031003505633)</td>
     </tr>
 <tr>
 <th>2</th>
       <td>Redlands East Valley High School</td>
-      <td>POINT (-117.12776 34.06201000000004)</td>
+      <td><span class="caps">POINT</span> (-117.12776 34.06201000000004)</td>
     </tr>
 </tbody>
 </table>
@@ -1856,7 +1856,7 @@ In [">
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>EPSG3857'</pre>
+<pre>'EPSG3857'</pre>
 </div>
 
 </div>
@@ -1889,7 +1889,7 @@ In [">
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>{"name": "Map", "id": "94aa73e804f245ec8f4e34436a4a2412", "children": {"openstreetmap": {"name": "TileLayer", "id": "6e327110ed23459f86840082b427835d", "children": {}}, "geo_json_bd54f09d34e648ffbd9a583dc626582f": {"name": "GeoJson", "id": "bd54f09d34e648ffbd9a583dc626582f", "children": {}}}}'</pre>
+<pre>'{"name": "Map", "id": "94aa73e804f245ec8f4e34436a4a2412", "children": {"openstreetmap": {"name": "TileLayer", "id": "6e327110ed23459f86840082b427835d", "children": {}}, "geo_json_bd54f09d34e648ffbd9a583dc626582f": {"name": "GeoJson", "id": "bd54f09d34e648ffbd9a583dc626582f", "children": {}}}}'</pre>
 </div>
 
 </div>
@@ -1902,7 +1902,7 @@ In [">
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

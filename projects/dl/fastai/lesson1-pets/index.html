@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>lesson1-pets | Atma’s blog</title>
+<title>lesson1-pets | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -143,7 +143,7 @@ Welcome">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -227,7 +227,7 @@ Welcome">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -245,22 +245,22 @@ Welcome">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -278,7 +278,7 @@ Welcome">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -286,7 +286,7 @@ Welcome">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -362,7 +362,7 @@ Done.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Welcome to lesson 1! For those of you who are using a Jupyter Notebook for the first time, you can learn about this useful tool in a tutorial we prepared specially for you; click <code>File</code>-&gt;<code>Open</code> now and click <code>00_notebook_tutorial.ipynb</code>.</p>
+<p>Welcome to lesson 1! For those of you who are using a Jupyter Notebook for the first time, you can learn about this useful tool in a tutorial we prepared specially for you; click <code>File</code>-&gt;<code>Open</code> now and click <code>00_notebook_tutorial.ipynb</code>.</p>
 <p>In this lesson we will build our first image classifier from scratch, and see if we can achieve world-class results. Let’s dive in!</p>
 <p>Every notebook starts with the following three lines; they ensure that any edits to libraries you make are reloaded here automatically, and also that any charts or images displayed are shown in this notebook.</p>
 
@@ -415,7 +415,7 @@ Done.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you’re using a computer with an unusually small GPU, you may get an out of memory error when running this notebook. If this happens, click Kernel-&gt;Restart, uncomment the 2nd line below to use a smaller <em>batch size</em> (you’ll learn all about what this means during the course), and try again.</p>
+<p>If you’re using a computer with an unusually small <span class="caps">GPU</span>, you may get an out of memory error when running this notebook. If this happens, click Kernel-&gt;Restart, uncomment the 2nd line below to use a smaller <em>batch size</em> (you’ll learn all about what this means during the course), and try again.</p>
 
 </div>
 </div>
@@ -449,8 +449,8 @@ Done.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We are going to use the <a href="http://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-IIIT Pet Dataset</a> by <a href="http://www.robots.ox.ac.uk/~vgg/publications/2012/parkhi12a/parkhi12a.pdf">O. M. Parkhi et al., 2012</a> which features 12 cat breeds and 25 dogs breeds. Our model will need to learn to differentiate between these 37 distinct categories. According to their paper, the best accuracy they could get in 2012 was 59.21%, using a complex model that was specific to pet detection, with separate “Image”, “Head”, and “Body” models for the pet photos. Let’s see how accurate we can be using deep learning!</p>
-<p>We are going to use the <code>untar_data</code> function to which we must pass a URL as an argument and which will download and extract the data.</p>
+<p>We are going to use the <a href="http://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-<span class="caps">IIIT</span> Pet Dataset</a> by <a href="http://www.robots.ox.ac.uk/~vgg/publications/2012/parkhi12a/parkhi12a.pdf"><span class="caps">O. M.</span> Parkhi et al., 2012</a> which features 12 cat breeds and 25 dogs breeds. Our model will need to learn to differentiate between these 37 distinct categories. According to their paper, the best accuracy they could get in 2012 was 59.21%, using a complex model that was specific to pet detection, with separate “Image”, “Head”, and “Body” models for the pet photos. Let’s see how accurate we can be using deep learning!</p>
+<p>We are going to use the <code>untar_data</code> function to which we must pass a <span class="caps">URL</span> as an argument and which will download and extract the data.</p>
 
 </div>
 </div>
@@ -514,7 +514,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet'</pre>
+<pre>'https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet'</pre>
 </div>
 
 </div>
@@ -644,7 +644,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first thing we do when we approach a problem is to take a look at the data. We <em>always</em> need to understand very well what the problem is and what the data looks like before we can figure out how to solve it. Taking a look at the data means understanding how the data directories are structured, what the labels are and what some sample images look like.</p>
-<p>The main difference between the handling of image classification datasets is the way labels are stored. In this particular dataset, labels are stored in the filenames themselves. We will need to extract them to be able to classify the images into the correct categories. Fortunately, the fastai library has a handy function made exactly for this, <code>ImageDataBunch.from_name_re</code> gets the labels from the filenames using a <a href="https://docs.python.org/3.6/library/re.html">regular expression</a>.</p>
+<p>The main difference between the handling of image classification datasets is the way labels are stored. In this particular dataset, labels are stored in the filenames themselves. We will need to extract them to be able to classify the images into the correct categories. Fortunately, the fastai library has a handy function made exactly for this, <code>ImageDataBunch.from_name_re</code> gets the labels from the filenames using a <a href="https://docs.python.org/3.6/library/re.html">regular expression</a>.</p>
 
 </div>
 </div>
@@ -2472,7 +2472,7 @@ Total time: 04:17 <p></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we will train in the same way as before but with one caveat: instead of using resnet34 as our backbone we will use resnet50 (resnet34 is a 34 layer residual network while resnet50 has 50 layers. It will be explained later in the course and you can learn the details in the <a href="https://arxiv.org/pdf/1512.03385.pdf">resnet paper</a>).</p>
-<p>Basically, resnet50 usually performs better because it is a deeper network with more parameters. Let’s see if we can achieve a higher performance here. To help it along, let’s us use larger images too, since that way the network can see more detail. We reduce the batch size a bit since otherwise this larger network will require more GPU memory.</p>
+<p>Basically, resnet50 usually performs better because it is a deeper network with more parameters. Let’s see if we can achieve a higher performance here. To help it along, let’s us use larger images too, since that way the network can see more detail. We reduce the batch size a bit since otherwise this larger network will require more <span class="caps">GPU</span> memory.</p>
 
 </div>
 </div>
@@ -3305,7 +3305,7 @@ epoch  train_loss  valid_loss  accuracy
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Imagery in ArcGIS ecosystem | Atma’s blog</title>
+<title>Imagery in ArcGIS ecosystem | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -108,7 +108,7 @@
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -192,7 +192,7 @@
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -210,22 +210,22 @@
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -243,7 +243,7 @@
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -251,7 +251,7 @@
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -276,7 +276,7 @@
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Imagery in ArcGIS ecosystem</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -298,26 +298,26 @@
   - <a href="#mosaic-dataset">Mosaic dataset</a>
   - <a href="#raster-products">Raster Products</a></p>
 <h3 id="file-formats">File formats<a href="#file-formats" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>ArcGIS with the help of GDAL system, supports over 400 file formats. ArcGIS Pro extends this support by giving you templates for common imagery providers and satellite/aerial platforms. Thus you can access imagery from
+<p>ArcGIS with the help of <span class="caps">GDAL</span> system, supports over 400 file formats. ArcGIS Pro extends this support by giving you templates for common imagery providers and satellite/aerial platforms. Thus you can access imagery from
  - local file on disk (.tiff, .img, .fgdb raster etc)
  - local file from mosaic dataset (a collection of images)
- - from an Image service (consider this as a mosaic dataset served over HTTP).</p>
+ - from an Image service (consider this as a mosaic dataset served over <span class="caps">HTTP</span>).</p>
 <h3 id="arcgis-imagery-products-and-terms">ArcGIS Imagery products and terms<a href="#arcgis-imagery-products-and-terms" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="mosaic-dataset">Mosaic dataset<a href="#mosaic-dataset" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can create a MD inside your fgdb, then add rasters to it. During this process, you can choose templates to adapt it for different types of satellite images. During this step, you will build <code>pyramids</code> which build tiles for different scales for display purposes and you will build <code>overviews</code> which or low resolution snapshots of the images for viewing them at full extent.</p>
-<p>A MD consists of 
+<p>You can create a <span class="caps">MD</span> inside your fgdb, then add rasters to it. During this process, you can choose templates to adapt it for different types of satellite images. During this step, you will build <code>pyramids</code> which build tiles for different scales for display purposes and you will build <code>overviews</code> which or low resolution snapshots of the images for viewing them at full extent.</p>
+<p>A <span class="caps">MD</span> consists of 
  - boundary - extent of all images (union)
  - footprint - extent of individual images
  - image - images with data</p>
-<p>A MD is like a catalog of all relevant images. MD is highly scalable, you can dynamically change the mosaic order. </p>
+<p>A <span class="caps">MD</span> is like a catalog of all relevant images. <span class="caps">MD</span> is highly scalable, you can dynamically change the mosaic order. </p>
 <h4 id="raster-products">Raster Products<a href="#raster-products" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>This is a virtual product. For well known satellite images, Pro will dynamically create a new file in the <code>catalog</code>`project` pane that appears to be a composite of all the bands. This is virtual, but can be used like a regular file on disk within Pro. If you expand, you will notice some commonly used band combinations and specific names for those (like cloud, water, vegetation, soil cover etc.)</p>
+<p>This is a virtual product. For well known satellite images, Pro will dynamically create a new file in the <code>catalog</code>`project` pane that appears to be a composite of all the bands. This is virtual, but can be used like a regular file on disk within Pro. If you expand, you will notice some commonly used band combinations and specific names for those (like cloud, water, vegetation, soil cover etc.)</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/arcgis/" rel="tag">arcgis</a></li>
             <li><a class="tag p-category" href="../../categories/esri/" rel="tag">esri</a></li>
-            <li><a class="tag p-category" href="../../categories/gis/" rel="tag">GIS</a></li>
+            <li><a class="tag p-category" href="../../categories/gis/" rel="tag"><span class="caps">GIS</span></a></li>
             <li><a class="tag p-category" href="../../categories/remote-sensing/" rel="tag">remote-sensing</a></li>
         </ul>
 <ul class="pager hidden-print">

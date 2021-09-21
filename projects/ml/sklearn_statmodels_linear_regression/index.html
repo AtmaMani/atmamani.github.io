@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>sklearn_statmodels_linear_regression | Atma’s blog</title>
+<title>sklearn_statmodels_linear_regression | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -281,7 +281,7 @@
 <h2 id="Regression-with-scikit-learn-and-statmodels">Regression with scikit-learn and statmodels<a class="anchor-link" href="#Regression-with-scikit-learn-and-statmodels">¶</a>
 <a href="#Regression-with-scikit-learn-and-statmodels" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <p>This notebook demonstrates how to conduct a valid regression analysis using a combination of Sklearn and statmodels libraries. While <strong>sklearn</strong> is popular and powerful from an operational point of view, it does not provide the detailed metrics required to statistically analyze your model, evaluate the importance of predictors, build or simplify your model.</p>
-<p>We use other libraries like <code>statmodels</code> or <code>scipy.stats</code> to bridge this gap.</p>
+<p>We use other libraries like <code>statmodels</code> or <code>scipy.stats</code> to bridge this gap.</p>
 <p><strong>ToC</strong></p>
 <ul>
 <li><a href="#Scikit-learn">Scikit-learn</a></li>
@@ -296,11 +296,11 @@
 </ul>
 </li>
 <li>
-<a href="#Predicting-housing-prices-with-data-normalization-and-statmodels">Predicting housing prices with data normalization and <code>statsmodels</code></a><ul>
+<a href="#Predicting-housing-prices-with-data-normalization-and-statmodels">Predicting housing prices with data normalization and <code>statsmodels</code></a><ul>
 <li><a href="#Scale-the-housing-data-to-Std.-Normal-distribution">Scale the housing data to Std. normal distribution</a></li>
-<li><a href="Evaluate-model-parameters-using-statsmodels">Evaluate model parameters using <code>statsmodels</code></a></li>
+<li><a href="Evaluate-model-parameters-using-statsmodels">Evaluate model parameters using <code>statsmodels</code></a></li>
 <li><a href="#Evaluate-model-using-charts">Evaluate model using charts</a></li>
-<li><a href="#Inverse-Transform-the-scaled-data-and-calculate-RMSE">Inverse transform the scaled data and calculate RMSE</a></li>
+<li><a href="#Inverse-Transform-the-scaled-data-and-calculate-RMSE">Inverse transform the scaled data and calculate <span class="caps">RMSE</span></a></li>
 </ul>
 </li>
 <li><a href="#Conclusion">Conclusion</a></li>
@@ -323,7 +323,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>Scikit-learn</code> is one of the science kits for <code>SciPy</code> stack. Scikit has a collection of prediction and learning algorithms, grouped into</p>
+<p><code>Scikit-learn</code> is one of the science kits for <code>SciPy</code> stack. Scikit has a collection of prediction and learning algorithms, grouped into</p>
 <ul>
 <li>classification</li>
 <li>clustering</li>
@@ -338,7 +338,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Each algorithm follows a typical pattern with a <code>fit</code>, <code>predict</code> method. In addition you get a set of utility methods that help with splitting datasets into train-test sets and for validating the outputs.</p>
+<p>Each algorithm follows a typical pattern with a <code>fit</code>, <code>predict</code> method. In addition you get a set of utility methods that help with splitting datasets into train-test sets and for validating the outputs.</p>
 
 </div>
 </div>
@@ -366,7 +366,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Predicting-housing-prices-without-data-normalization">Predicting housing prices without data normalization<a class="anchor-link" href="#Predicting-housing-prices-without-data-normalization">¶</a>
 <a href="#Predicting-housing-prices-without-data-normalization" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<h4 id="Exploratory-data-anslysis-(EDA)">Exploratory data anslysis (EDA)<a class="anchor-link" href="#Exploratory-data-anslysis-(EDA)">¶</a>
+<h4 id="Exploratory-data-anslysis-(EDA)">Exploratory data anslysis (<span class="caps">EDA</span>)<a class="anchor-link" href="#Exploratory-data-anslysis-(EDA)">¶</a>
 <a href="#Exploratory-data-anslysis-(EDA)" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -429,7 +429,7 @@
       <td>4.09</td>
       <td>23086.80050</td>
       <td>1.059034e+06</td>
-      <td>208 Michael Ferry Apt. 674\nLaurabury, NE 3701…</td>
+      <td>208 Michael Ferry Apt. 674\nLaurabury, <span class="caps">NE</span> 3701…</td>
     </tr>
 <tr>
 <th>1</th>
@@ -439,7 +439,7 @@
       <td>3.09</td>
       <td>40173.07217</td>
       <td>1.505891e+06</td>
-      <td>188 Johnson Views Suite 079\nLake Kathleen, CA…</td>
+      <td>188 Johnson Views Suite 079\nLake Kathleen, <span class="caps">CA</span>…</td>
     </tr>
 <tr>
 <th>2</th>
@@ -449,7 +449,7 @@
       <td>5.13</td>
       <td>36882.15940</td>
       <td>1.058988e+06</td>
-      <td>9127 Elizabeth Stravenue\nDanieltown, WI 06482…</td>
+      <td>9127 Elizabeth Stravenue\nDanieltown, <span class="caps">WI</span> 06482…</td>
     </tr>
 <tr>
 <th>3</th>
@@ -459,7 +459,7 @@
       <td>3.26</td>
       <td>34310.24283</td>
       <td>1.260617e+06</td>
-      <td>USS Barnett\nFPO AP 44820</td>
+      <td><span class="caps">USS</span> Barnett\nFPO <span class="caps">AP</span> 44820</td>
     </tr>
 <tr>
 <th>4</th>
@@ -469,7 +469,7 @@
       <td>4.23</td>
       <td>26354.10947</td>
       <td>6.309435e+05</td>
-      <td>USNS Raymond\nFPO AE 09386</td>
+      <td><span class="caps">USNS</span> Raymond\nFPO <span class="caps">AE</span> 09386</td>
     </tr>
 </tbody>
 </table>
@@ -1404,7 +1404,7 @@ memory usage: 273.5+ KB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>RMSE</p>
+<p><span class="caps">RMSE</span></p>
 
 </div>
 </div>
@@ -1612,7 +1612,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Scale-the-housing-data-to-Std.-Normal-distribution">Scale the housing data to Std. Normal distribution<a class="anchor-link" href="#Scale-the-housing-data-to-Std.-Normal-distribution">¶</a>
 <a href="#Scale-the-housing-data-to-Std.-Normal-distribution" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>We use <code>StandardScaler</code> from <code>sklearn.preprocessing</code> to normalize each predictor to mean <code>0</code> and unit variance. What we end up with is <code>z-score</code> for each record.</p>
+<p>We use <code>StandardScaler</code> from <code>sklearn.preprocessing</code> to normalize each predictor to mean <code>0</code> and unit variance. What we end up with is <code>z-score</code> for each record.</p>
 $$
 z-score = \frac{x_{i} - \mu}{\sigma}  
 $$
@@ -2104,7 +2104,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the table above, we notice <code>Avg Income</code> has more influence on the <code>Price</code> than other variables. This was not apparent before scaling the data. Further this corroborates the <code>correlation</code> matrix produced during exploratory data analysis.</p>
+<p>From the table above, we notice <code>Avg Income</code> has more influence on the <code>Price</code> than other variables. This was not apparent before scaling the data. Further this corroborates the <code>correlation</code> matrix produced during exploratory data analysis.</p>
 
 </div>
 </div>
@@ -2116,7 +2116,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Evaluate-model-parameters-using-statsmodels">Evaluate model parameters using statsmodels<a class="anchor-link" href="#Evaluate-model-parameters-using-statsmodels">¶</a>
 <a href="#Evaluate-model-parameters-using-statsmodels" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><code>statmodels</code> is a different Python library built for and by statisticians. Thus it provides a lot more information on your model than <code>sklearn</code>. We use it here to refit against the data and evaluate the strength of fit.</p>
+<p><code>statmodels</code> is a different Python library built for and by statisticians. Thus it provides a lot more information on your model than <code>sklearn</code>. We use it here to refit against the data and evaluate the strength of fit.</p>
 
 </div>
 </div>
@@ -2220,12 +2220,12 @@ $$
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <table class="simpletable">
-<caption>OLS Regression Results</caption>
+<caption><span class="caps">OLS</span> Regression Results</caption>
 <tr>
 <th>Dep. Variable:</th>          <td>Price</td>      <th>  R-squared:         </th> <td>   0.918</td>
 </tr>
 <tr>
-<th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.917</td>
+<th>Model:</th>                   <td><span class="caps">OLS</span></td>       <th>  Adj. R-squared:    </th> <td>   0.917</td>
 </tr>
 <tr>
 <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   7446.</td>
@@ -2237,10 +2237,10 @@ $$
 <th>Time:</th>                 <td>16:25:05</td>     <th>  Log-Likelihood:    </th> <td> -552.85</td>
 </tr>
 <tr>
-<th>No. Observations:</th>      <td>  3350</td>      <th>  AIC:               </th> <td>   1118.</td>
+<th>No. Observations:</th>      <td>  3350</td>      <th>  <span class="caps">AIC</span>:               </th> <td>   1118.</td>
 </tr>
 <tr>
-<th>Df Residuals:</th>          <td>  3344</td>      <th>  BIC:               </th> <td>   1154.</td>
+<th>Df Residuals:</th>          <td>  3344</td>      <th>  <span class="caps">BIC</span>:               </th> <td>   1154.</td>
 </tr>
 <tr>
 <th>Df Model:</th>              <td>     5</td>      <th>                     </th>     <td> </td>   
@@ -2277,10 +2277,10 @@ $$
 <th>Omnibus:</th>       <td>11.426</td> <th>  Durbin-Watson:     </th> <td>   1.995</td>
 </tr>
 <tr>
-<th>Prob(Omnibus):</th> <td> 0.003</td> <th>  Jarque-Bera (JB):  </th> <td>   9.047</td>
+<th>Prob(Omnibus):</th> <td> 0.003</td> <th>  Jarque-Bera (<span class="caps">JB</span>):  </th> <td>   9.047</td>
 </tr>
 <tr>
-<th>Skew:</th>          <td> 0.023</td> <th>  Prob(JB):          </th> <td>  0.0109</td>
+<th>Skew:</th>          <td> 0.023</td> <th>  Prob(<span class="caps">JB</span>):          </th> <td>  0.0109</td>
 </tr>
 <tr>
 <th>Kurtosis:</th>      <td> 2.750</td> <th>  Cond. No.          </th> <td>    1.66</td>
@@ -2299,8 +2299,8 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The regression coefficients are identical between <code>sklearn</code> and <code>statsmodels</code> libraries. The $R^{2}$ of <code>0.919</code> is as high as it gets. This indicates the predicted (train) <code>Price</code> varies similar to actual. Another measure of health is the <code>S</code> (std. error) and <code>p-value</code> of coefficients. The <code>S</code> of <code>Avg. Number of Bedrooms</code> is as low as other predictors, however it has a high <code>p-value</code> indicating a low confidence in predicting its coefficient.</p>
-<p>Similar is the <code>p-value</code> of the intercept.</p>
+<p>The regression coefficients are identical between <code>sklearn</code> and <code>statsmodels</code> libraries. The $R^{2}$ of <code>0.919</code> is as high as it gets. This indicates the predicted (train) <code>Price</code> varies similar to actual. Another measure of health is the <code>S</code> (std. error) and <code>p-value</code> of coefficients. The <code>S</code> of <code>Avg. Number of Bedrooms</code> is as low as other predictors, however it has a high <code>p-value</code> indicating a low confidence in predicting its coefficient.</p>
+<p>Similar is the <code>p-value</code> of the intercept.</p>
 
 </div>
 </div>
@@ -2417,7 +2417,7 @@ $$
 <p>From the charts above,</p>
 <ul>
 <li>Fitted vs predicted chart shows a strong correlation between the predictions and actual values</li>
-<li>Fitted vs Residuals chart shows an even distribution around the <code>0</code> mean line. There are not patterns evident, which means our model does not leak any systematic phenomena into the residuals (errors)</li>
+<li>Fitted vs Residuals chart shows an even distribution around the <code>0</code> mean line. There are not patterns evident, which means our model does not leak any systematic phenomena into the residuals (errors)</li>
 <li>Quantile-Quantile plot of residuals vs std. normal and the histogram of residual plots show a sufficiently normal distribution of residuals.</li>
 </ul>
 <p>Thus all assumptions hold good.</p>
@@ -2430,7 +2430,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Inverse-Transform-the-scaled-data-and-calculate-RMSE">Inverse Transform the scaled data and calculate RMSE<a class="anchor-link" href="#Inverse-Transform-the-scaled-data-and-calculate-RMSE">¶</a>
+<h4 id="Inverse-Transform-the-scaled-data-and-calculate-RMSE">Inverse Transform the scaled data and calculate <span class="caps">RMSE</span><a class="anchor-link" href="#Inverse-Transform-the-scaled-data-and-calculate-RMSE">¶</a>
 <a href="#Inverse-Transform-the-scaled-data-and-calculate-RMSE" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -2845,9 +2845,9 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Calculate-RMSE">Calculate RMSE<a class="anchor-link" href="#Calculate-RMSE">¶</a>
+<h4 id="Calculate-RMSE">Calculate <span class="caps">RMSE</span><a class="anchor-link" href="#Calculate-RMSE">¶</a>
 <a href="#Calculate-RMSE" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>RMSE root mean squared error. This is useful as it tell you in terms of the dependent variable, what the mean error in prediction is.</p>
+<p><span class="caps">RMSE</span> root mean squared error. This is useful as it tell you in terms of the dependent variable, what the mean error in prediction is.</p>
 
 </div>
 </div>
@@ -2929,7 +2929,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 <a href="#Conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>In this sample we observed two methods of predicting housing prices. The first involved applying linear regression on the dataset directly. The second involved scaling the features to standard normal distribution and applying a linear model using both <code>sklearn</code> and <code>statsmodels</code> packages. We thoroughly inspected the model parameters, vetted that assumptions hold good.</p>
+<p>In this sample we observed two methods of predicting housing prices. The first involved applying linear regression on the dataset directly. The second involved scaling the features to standard normal distribution and applying a linear model using both <code>sklearn</code> and <code>statsmodels</code> packages. We thoroughly inspected the model parameters, vetted that assumptions hold good.</p>
 <p>In the end, the accuracy of the models did not increase much after scaling. However, we were able to better determine which predictor variables were influential in a truest sense, not being biased by the scale of the units.</p>
 <p>The allure of linear models is the explainability. They may not be the best when it comes to accurate predictions, however they help us answer basic questions better, such as “which characteristics influence the cost of my home, is it # of bedrooms or average income of the residents”?. The answer is the latter in this example.</p>
 
@@ -2940,7 +2940,7 @@ $$
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

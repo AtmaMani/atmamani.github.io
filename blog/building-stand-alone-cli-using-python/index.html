@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building stand-alone command line tools using Python | Atma’s blog</title>
+<title>Building stand-alone command line tools using Python | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -106,7 +106,7 @@
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -190,7 +190,7 @@
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -208,22 +208,22 @@
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -241,7 +241,7 @@
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -249,7 +249,7 @@
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -274,7 +274,7 @@
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building stand-alone command line tools using Python</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -288,24 +288,24 @@
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>You have built a neat little tool using Python. Following modern software building paradigms, you built your tool to be user friendly, used a number of FOSS libraries instead of reinventing the wheel, etc. Now you are ready to ship and you face the dilemma of whether to package it as a conda package or PyPI package or whether to send it as a GitHub repository. What if your user does not want to even install Python on their computer?
+<p>You have built a neat little tool using Python. Following modern software building paradigms, you built your tool to be user friendly, used a number of <span class="caps">FOSS</span> libraries instead of reinventing the wheel, etc. Now you are ready to ship and you face the dilemma of whether to package it as a conda package or PyPI package or whether to send it as a GitHub repository. What if your user does not want to even install Python on their computer?
 <!-- TEASER_END --></p>
 <p>Fear not, you can build truly self-contained stand-alone applications using <a href="https://pyinstaller.readthedocs.io">PyInstaller</a>. The rest of this blog walks you through an example.</p>
 <h3 id="what-is-pyinstaller">What is PyInstaller<a href="#what-is-pyinstaller" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>From PyInstaller’s page: 
-    PyInstaller bundles a Python application and all its dependencies into a single package. The user can run the packaged app without installing a Python interpreter or any modules. PyInstaller supports Python 2.7 and Python 3.3+, and correctly bundles the major Python packages such as numpy, PyQt, Django, wxPython, and others. PyInstaller is tested against Windows, Mac OS X, and Linux.</p>
+    PyInstaller bundles a Python application and all its dependencies into a single package. The user can run the packaged app without installing a Python interpreter or any modules. PyInstaller supports Python 2.7 and Python 3.3+, and correctly bundles the major Python packages such as numpy, PyQt, Django, wxPython, and others. PyInstaller is tested against Windows, Mac <span class="caps">OS</span> X, and Linux.</p>
 <h3 id="how-to-install-pyinstaller">How to install PyInstaller<a href="#how-to-install-pyinstaller" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Before using PyInstaller, you need to install it in your active Python environment. If you are not already using, I would highly recommend using <code>conda</code> to isolate your various dev environments. You can install <a href="https://conda.anaconda.org">conda from here</a> and once installed, you can create a new environment using the command below:</p>
+<p>Before using PyInstaller, you need to install it in your active Python environment. If you are not already using, I would highly recommend using <code>conda</code> to isolate your various dev environments. You can install <a href="https://conda.anaconda.org">conda from here</a> and once installed, you can create a new environment using the command below:</p>
 <pre class="code literal-block"><span></span><span class="n">conda</span> <span class="k">create</span> <span class="c1">--name stand_alone_app_project python=3.5</span>
 </pre>
 
 
-<p>Here, I am creating a new environment called <code>stand_alone_app_project</code> and installing a Python 3.5 kernel in it. To use this environment, I need to activate it - as shown below</p>
+<p>Here, I am creating a new environment called <code>stand_alone_app_project</code> and installing a Python 3.5 kernel in it. To use this environment, I need to activate it - as shown below</p>
 <pre class="code literal-block"><span></span><span class="k">source</span> <span class="n">activate</span> <span class="n">stand_alone_app_project</span>
 </pre>
 
 
-<p>Environments are folders at the end of the day and activation pretty much adds the path to this folder to your system path. Activation is transient and is only applicable for the life of that terminal’s session. Once activated, install all the packages you need for your script to work. Next, install PyInstaller using PIP (an older package manager for Python)</p>
+<p>Environments are folders at the end of the day and activation pretty much adds the path to this folder to your system path. Activation is transient and is only applicable for the life of that terminal’s session. Once activated, install all the packages you need for your script to work. Next, install PyInstaller using <span class="caps">PIP</span> (an older package manager for Python)</p>
 <pre class="code literal-block"><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PyInstaller</span>
 </pre>
 
@@ -322,14 +322,14 @@
 </pre>
 
 
-<p>Upon running this, if there are no errors, PyInstaller creates a <code>dist</code> and a <code>build</code> folder. You ship the contents of the <code>dist</code> to your end users.</p>
-<h4 id="building-for-different-os">Building for different OS<a href="#building-for-different-os" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To build the executable for different OS, you need to run the steps on each OS of choice. I was able to build the same script tool into a Windows <code>exe</code> and a Unix <code>app</code> for Mac. Since Python is platform independent, doing this was a breeze and the app behaved identical on both platforms.</p>
+<p>Upon running this, if there are no errors, PyInstaller creates a <code>dist</code> and a <code>build</code> folder. You ship the contents of the <code>dist</code> to your end users.</p>
+<h4 id="building-for-different-os">Building for different <span class="caps">OS</span><a href="#building-for-different-os" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>To build the executable for different <span class="caps">OS</span>, you need to run the steps on each <span class="caps">OS</span> of choice. I was able to build the same script tool into a Windows <code>exe</code> and a Unix <code>app</code> for Mac. Since Python is platform independent, doing this was a breeze and the app behaved identical on both platforms.</p>
 <h4 id="errors-and-what-to-do">Errors and what to do<a href="#errors-and-what-to-do" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Your first few times with PyInstaller will be rough. You will run into errors unless you are packaging a <code>hello world.py</code> kind of script. In my case, I was packaging a tool that relied on <code>requests</code> package and PyInstaller could not understand this package. After a brief search on Stack Exchange, I was able to figure out that I needed to install <code>urllib3</code> on Mac to get it working. Similarly, on Windows, I needed to install <code>pypiwin32</code>. The latter is true no matter what package you use.</p>
-<p>Although PyInstaller aims to recursively parse the <code>import</code> statements in your script and all its dependencies to figure out the libraries to package, it might fall short if you are using irregular imports. In such cases, read their appropriately named <a href="https://pyinstaller.readthedocs.io/en/stable/when-things-go-wrong.html">When things go wrong</a> article.</p>
+<p>Your first few times with PyInstaller will be rough. You will run into errors unless you are packaging a <code>hello world.py</code> kind of script. In my case, I was packaging a tool that relied on <code>requests</code> package and PyInstaller could not understand this package. After a brief search on Stack Exchange, I was able to figure out that I needed to install <code>urllib3</code> on Mac to get it working. Similarly, on Windows, I needed to install <code>pypiwin32</code>. The latter is true no matter what package you use.</p>
+<p>Although PyInstaller aims to recursively parse the <code>import</code> statements in your script and all its dependencies to figure out the libraries to package, it might fall short if you are using irregular imports. In such cases, read their appropriately named <a href="https://pyinstaller.readthedocs.io/en/stable/when-things-go-wrong.html">When things go wrong</a> article.</p>
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Conda and Pip are excellent mechanisms to ship your Python code. Yet, they are suitable if you are building libraries and your audience is fellow developers. However, if you are creating an application for end users, then you need to ship it as an executable. Python still falls short in this area compared to other languages like C++, Java, .NET. We are yet to find an IDE that will build your script into an executable (similar to what visual studio does out of the box since ages). Tools like <a href="http://www.py2exe.org/">py2exe</a> and <a href="https://pyinstaller.readthedocs.io/">PyInstaller</a> are great as they attempt to solve this gap. Yet, this is only the beginning and I am sure the Python community would greatly benefit if we can expand this area.</p>
+<p>Conda and Pip are excellent mechanisms to ship your Python code. Yet, they are suitable if you are building libraries and your audience is fellow developers. However, if you are creating an application for end users, then you need to ship it as an executable. Python still falls short in this area compared to other languages like C++, Java, .<span class="caps">NET</span>. We are yet to find an <span class="caps">IDE</span> that will build your script into an executable (similar to what visual studio does out of the box since ages). Tools like <a href="http://www.py2exe.org/">py2exe</a> and <a href="https://pyinstaller.readthedocs.io/">PyInstaller</a> are great as they attempt to solve this gap. Yet, this is only the beginning and I am sure the Python community would greatly benefit if we can expand this area.</p>
 <p>If you are looking for an example project, checkout my command line app at <a href="https://github.com/AtmaMani/vector_style_manager">https://github.com/AtmaMani/vector_style_manager</a></p>
 </div>
     </div>

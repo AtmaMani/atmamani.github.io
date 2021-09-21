@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>accessing_and_visualizing_feature_data | Atma’s blog</title>
+<title>accessing_and_visualizing_feature_data | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -116,7 +116,7 @@ from arcgis.gis impo">
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -200,7 +200,7 @@ from arcgis.gis impo">
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -218,22 +218,22 @@ from arcgis.gis impo">
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -251,7 +251,7 @@ from arcgis.gis impo">
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -259,7 +259,7 @@ from arcgis.gis impo">
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -498,7 +498,7 @@ from arcgis.gis impo">
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer'</pre>
+<pre>'https://services7.arcgis.com/xo9aDUkMXBivHk37/arcgis/rest/services/fortune_500_styled/FeatureServer'</pre>
 </div>
 
 </div>
@@ -512,7 +512,7 @@ from arcgis.gis impo">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice the url ends with a <code>FeatureServer</code>. We can use this URL to instantiate a <code>FeatureLayerCollection</code> object.</p>
+<p>Notice the url ends with a <code>FeatureServer</code>. We can use this <span class="caps">URL</span> to instantiate a <code>FeatureLayerCollection</code> object.</p>
 
 </div>
 </div>
@@ -843,7 +843,7 @@ Counties
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can visualize <code>FeatureLayer</code> objects on the map widget</p>
+<p>You can visualize <code>FeatureLayer</code> objects on the map widget</p>
 
 </div>
 </div>
@@ -855,7 +855,7 @@ Counties
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Accessing-FeatureSet-objects">Accessing FeatureSet objects<a class="anchor-link" href="#Accessing-FeatureSet-objects">¶</a>
 <a href="#Accessing-FeatureSet-objects" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Let us query the FeatureLayer objected created above to get a <code>FeatureSet</code> in return</p>
+<p>Let us query the FeatureLayer objected created above to get a <code>FeatureSet</code> in return</p>
 
 </div>
 </div>
@@ -999,7 +999,7 @@ Counties
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>esriGeometryPoint'</pre>
+<pre>'esriGeometryPoint'</pre>
 </div>
 
 </div>
@@ -1069,14 +1069,14 @@ Counties
 <thead>
 <tr style="text-align: right;">
 <th></th>
-      <th>FEATURE</th>
-      <th>NAME</th>
-      <th>POP</th>
+      <th><span class="caps">FEATURE</span></th>
+      <th><span class="caps">NAME</span></th>
+      <th><span class="caps">POP</span></th>
       <th>geometry.x</th>
       <th>geometry.y</th>
     </tr>
 <tr>
-<th>OBJECTID</th>
+<th><span class="caps">OBJECTID</span></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1167,7 +1167,7 @@ Counties
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Accessing-Feature-objects">Accessing Feature objects<a class="anchor-link" href="#Accessing-Feature-objects">¶</a>
 <a href="#Accessing-Feature-objects" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Now get the <code>Features</code> from cities over 1 million population <code>FeatureSet</code></p>
+<p>Now get the <code>Features</code> from cities over 1 million population <code>FeatureSet</code></p>
 
 </div>
 </div>
@@ -1395,7 +1395,7 @@ Counties
                     <div class="item_right" style="float: none; width: auto; overflow: hidden;">
                         <a href="https://pycontraptions.maps.arcgis.com/home/item.html?id=6a4fcf15433644a99b1b31b39a69ab89" target="_blank"><b>cities_over1mil_fc</b>
                         </a>
-                        <br>Large cities of the US<img src="https://pycontraptions.maps.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/features16.png" style="vertical-align:middle;">Feature Collection by atma_mani
+                        <br>Large cities of the <span class="caps">US</span><img src="https://pycontraptions.maps.arcgis.com/home/js/jsapi/esri/css/images/item_type_icons/features16.png" style="vertical-align:middle;">Feature Collection by atma_mani
                         <br>Last Modified: March 04, 2017
                         <br>0 comments, 7 views
                     </div>
@@ -1433,7 +1433,7 @@ Counties
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>D:\\temp\\cities_over1mil_fc'</pre>
+<pre>'D:\\temp\\cities_over1mil_fc'</pre>
 </div>
 
 </div>
@@ -1575,15 +1575,15 @@ Counties
 <thead>
 <tr style="text-align: right;">
 <th></th>
-      <th>FEATURE</th>
-      <th>NAME</th>
-      <th>POP</th>
+      <th><span class="caps">FEATURE</span></th>
+      <th><span class="caps">NAME</span></th>
+      <th><span class="caps">POP</span></th>
       <th>geometry.spatialReference.wkid</th>
       <th>geometry.x</th>
       <th>geometry.y</th>
     </tr>
 <tr>
-<th>OBJECTID</th>
+<th><span class="caps">OBJECTID</span></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1596,7 +1596,7 @@ Counties
 <tr>
 <th>0</th>
       <td>1</td>
-      <td>LA</td>
+      <td><span class="caps">LA</span></td>
       <td>150000000</td>
       <td>102100</td>
       <td>1203411</td>
@@ -1614,7 +1614,7 @@ Counties
 <tr>
 <th>2</th>
       <td>3</td>
-      <td>NYC</td>
+      <td><span class="caps">NYC</span></td>
       <td>193000000</td>
       <td>102100</td>
       <td>6124732</td>
@@ -1657,7 +1657,7 @@ Counties
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

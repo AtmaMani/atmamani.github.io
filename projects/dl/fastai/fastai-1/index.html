@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>fastai-1 | Atma’s blog</title>
+<title>fastai-1 | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -109,7 +109,7 @@ Fast.ai uses type hinting introduced i">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -193,7 +193,7 @@ Fast.ai uses type hinting introduced i">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -211,22 +211,22 @@ Fast.ai uses type hinting introduced i">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -244,7 +244,7 @@ Fast.ai uses type hinting introduced i">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -252,7 +252,7 @@ Fast.ai uses type hinting introduced i">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -287,50 +287,50 @@ Fast.ai uses type hinting introduced i">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Getting-started-with-Fast.ai">Getting started with Fast.ai<a class="anchor-link" href="#Getting-started-with-Fast.ai">¶</a>
 <a href="#Getting-started-with-Fast.ai" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>As of 2019, fast.ai supports 4 types of DL applications</p>
+<p>As of 2019, fast.ai supports 4 types of <span class="caps">DL</span> applications</p>
 <ul>
 <li>computer vision</li>
 <li>natural language text</li>
 <li>tabular data</li>
 <li>collaborative filtering</li>
 </ul>
-<p>Fast.ai uses type hinting introduced in Python 3.5 quite heavily. Thus if you type <code>help(fastai.untar_data)</code>, you notice type hints.</p>
+<p>Fast.ai uses type hinting introduced in Python 3.5 quite heavily. Thus if you type <code>help(fastai.untar_data)</code>, you notice type hints.</p>
 <h3 id="Genearl-notes">Genearl notes<a class="anchor-link" href="#Genearl-notes">¶</a>
 <a href="#Genearl-notes" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ol>
 <li>The image dimensions used here is 224. This is a convention.</li>
-<li>normalizing images means turning them to (mean 0, 1 SD). This is done prior to training</li>
+<li>normalizing images means turning them to (mean 0, 1 <span class="caps">SD</span>). This is done prior to training</li>
 <li>
-<code>data.c</code> -&gt; gives number of classes. <code>data.classes</code> -&gt; gives the names of the classes.</li>
+<code>data.c</code> -&gt; gives number of classes. <code>data.classes</code> -&gt; gives the names of the classes.</li>
 <li>we use transfer learning. We pick a model that already knows something about images and tune it to our case study.</li>
 </ol>
 <h3 id="Workflow">Workflow<a class="anchor-link" href="#Workflow">¶</a>
 <a href="#Workflow" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ol>
 <li>download data into local directory</li>
-<li>import data files into a <code>data_bunch</code>. This process automatically creates a validation set.</li>
+<li>import data files into a <code>data_bunch</code>. This process automatically creates a validation set.</li>
 <li>normalize</li>
 <li>run <code>show_batch</code> to see the classes and labels</li>
 <li>print the number of classes</li>
-<li>create a <code>ConvLearner</code> object by passing the data bunch, specifying the model architecture and metrics to use to evaluate training stats</li>
-<li>Fit the model. You can use <code>fit</code> or <code>fit_one_cycle</code> methods, but recommended is to use latter. Pass the epoch number (also called <code>cycles</code>)</li>
-<li>look at the results and if good, save by calling <code>learn.save('filename')</code>
+<li>create a <code>ConvLearner</code> object by passing the data bunch, specifying the model architecture and metrics to use to evaluate training stats</li>
+<li>Fit the model. You can use <code>fit</code> or <code>fit_one_cycle</code> methods, but recommended is to use latter. Pass the epoch number (also called <code>cycles</code>)</li>
+<li>look at the results and if good, save by calling <code>learn.save('filename')</code>
 </li>
-<li>Validation - create an <code>interpreter</code> object using <code>ClassificationInterpretation.from_learner(learn)</code>. The learn object so far knows the data and the model used to train. Now its time to validate</li>
-<li>Find the biggest losses using <code>interp.plot_top_losses(9, figsize=(15,11))</code>. You can also plot <code>interp.plot_confusion_matrix()</code> to view the CF matrix. Fastai also has <code>interp.most_confused(min_val=2)</code> which will return the top losses.</li>
+<li>Validation - create an <code>interpreter</code> object using <code>ClassificationInterpretation.from_learner(learn)</code>. The learn object so far knows the data and the model used to train. Now its time to validate</li>
+<li>Find the biggest losses using <code>interp.plot_top_losses(9, figsize=(15,11))</code>. You can also plot <code>interp.plot_confusion_matrix()</code> to view the <span class="caps">CF</span> matrix. Fastai also has <code>interp.most_confused(min_val=2)</code> which will return the top losses.</li>
 </ol>
 <h4 id="Making-model-better">Making model better<a class="anchor-link" href="#Making-model-better">¶</a>
 <a href="#Making-model-better" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <ol>
-<li>Generally, when you call <code>fit_one_cycle</code> it only trains the last or last few layers. To improve this better, you need to call <code>learn.unfreeze()</code> to unfreeze the model.</li>
+<li>Generally, when you call <code>fit_one_cycle</code> it only trains the last or last few layers. To improve this better, you need to call <code>learn.unfreeze()</code> to unfreeze the model.</li>
 </ol>
-<p>Next, you repeat the <code>learn.fit_one_cycle(numepochs)</code>. Sometimes, the error goes up when doing this. This happens because you have a reckless learning rate which makes the model lose it original learning. We need to be more nuanced here.</p>
+<p>Next, you repeat the <code>learn.fit_one_cycle(numepochs)</code>. Sometimes, the error goes up when doing this. This happens because you have a reckless learning rate which makes the model lose it original learning. We need to be more nuanced here.</p>
 <ol>
 <li>
-<p>Find the optimal learning rate: Now load the original model using <code>learn.load('stage-1')</code>, then run <code>learn.lr_find()</code> and find the highest learning rate that has the lowest loss.</p>
+<p>Find the optimal learning rate: Now load the original model using <code>learn.load('stage-1')</code>, then run <code>learn.lr_find()</code> and find the highest learning rate that has the lowest loss.</p>
 </li>
 <li>
-<p>With this new information retrain the model. <code>learn.unfreeze(); learn.fit_one_cycle(epochs=2, max_lr=slice(1e-6, 1e-4))</code>. What the slice suggests is, train the initial layers at start value specified and last layer at the end value specified and interpolate for the rest of the layers. It is tradecraft to make the end learning rate about 10 times smaller than rate at which errors start to increase.</p>
+<p>With this new information retrain the model. <code>learn.unfreeze(); learn.fit_one_cycle(epochs=2, max_lr=slice(1e-6, 1e-4))</code>. What the slice suggests is, train the initial layers at start value specified and last layer at the end value specified and interpolate for the rest of the layers. It is tradecraft to make the end learning rate about 10 times smaller than rate at which errors start to increase.</p>
 </li>
 </ol>
 <h3 id="Import-fast.ai">Import fast.ai<a class="anchor-link" href="#Import-fast.ai">¶</a>
@@ -370,7 +370,7 @@ Fast.ai uses type hinting introduced i">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Inside colab, importing fastai, automatically imports the <code>datasets</code> module</p>
+<p>Inside colab, importing fastai, automatically imports the <code>datasets</code> module</p>
 
 </div>
 </div>
@@ -399,7 +399,7 @@ Fast.ai uses type hinting introduced i">
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet'</pre>
+<pre>'https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet'</pre>
 </div>
 
 </div>
@@ -450,7 +450,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Image-data-bunches">Image data bunches<a class="anchor-link" href="#Image-data-bunches">¶</a>
 <a href="#Image-data-bunches" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Fast.ai has a useful called <code>ImageDataBunch</code> under the <code>fastai.vision.data</code> module. THis class helps in creating a structure of training, test data, data images, annotations etc, all into 1 class.</p>
+<p>Fast.ai has a useful called <code>ImageDataBunch</code> under the <code>fastai.vision.data</code> module. THis class helps in creating a structure of training, test data, data images, annotations etc, all into 1 class.</p>
 <p>To load data into an image data bunch, do</p>
 
 </div>
@@ -567,7 +567,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 <p>There are 2 concepts at a high level:</p>
 <ul>
 <li>
-<strong>DataBunch:</strong> A general fastai concept for your data, and from there, there are subclasses for particular applications like <code>ImageDataBunch</code>
+<strong>DataBunch:</strong> A general fastai concept for your data, and from there, there are subclasses for particular applications like <code>ImageDataBunch</code>
 </li>
 <li>
 <strong>Learner:</strong> A general concept for things that can learn to fit a model. From that, there are various subclasses to make things easier in particular, there is a convnet learner (something that will create a convolutional neural network for you).</li>
@@ -610,7 +610,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>learner</code> object created already is validated against a validation set. The <code>ImageDataBunch</code> object already knows which is training and which is validation. Thus the <code>error_rate</code> parameter seeks to minimize test error and thereby <strong>avoid overfitting</strong>.</p>
+<p>The <code>learner</code> object created already is validated against a validation set. The <code>ImageDataBunch</code> object already knows which is training and which is validation. Thus the <code>error_rate</code> parameter seeks to minimize test error and thereby <strong>avoid overfitting</strong>.</p>
 
 </div>
 </div>
@@ -620,12 +620,12 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To start with, use <code>resnet34</code> which is pretty capable for most problems.</p>
+<p>To start with, use <code>resnet34</code> which is pretty capable for most problems.</p>
 <h4 id="Transfer-learning">Transfer learning<a class="anchor-link" href="#Transfer-learning">¶</a>
 <a href="#Transfer-learning" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Resnet34 is a CNN that is trained on over a million images of various categories. This already knows to differentiatie between a large number of classes seen in everyday life. Thus, resnet34 is a generalist.</p>
-<p>Transfer learning is the process of taking a generalist neural net and training it to become a specialist. We train the restnet34 in lesson 1 to classify between <code>37</code> classes of cats and dogs.</p>
-<p><strong>Transfer learning allows you to train nets with <code>1/100</code>th less time using <code>1/100</code> less data</strong>.</p>
+<p>Resnet34 is a <span class="caps">CNN</span> that is trained on over a million images of various categories. This already knows to differentiatie between a large number of classes seen in everyday life. Thus, resnet34 is a generalist.</p>
+<p>Transfer learning is the process of taking a generalist neural net and training it to become a specialist. We train the restnet34 in lesson 1 to classify between <code>37</code> classes of cats and dogs.</p>
+<p><strong>Transfer learning allows you to train nets with <code>1/100</code>th less time using <code>1/100</code> less data</strong>.</p>
 
 </div>
 </div>
@@ -635,7 +635,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When it comes to training, it is always recommended to use <code>fit_one_cycle()</code> rather than <code>fit()</code> method. This is to avoid overfitting. Fit one cycle is based on a 2018 paper which changed the approach to image DL. The images are shown only once and the learner is expected to figure out the pattern. Thus:</p>
+<p>When it comes to training, it is always recommended to use <code>fit_one_cycle()</code> rather than <code>fit()</code> method. This is to avoid overfitting. Fit one cycle is based on a 2018 paper which changed the approach to image <span class="caps">DL</span>. The images are shown only once and the learner is expected to figure out the pattern. Thus:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 <p>which will run 4 times on the images. Each time it runs, it gets a bit better</p>
@@ -650,7 +650,7 @@ untar_data(url:str, fname:Union[pathlib.Path, str]=None, dest:Union[pathlib.Path
 
 CPU times: user 1min 25s, sys: 41.1 s, total: 2min 6s
 Wall time: 7min 24s</code></pre>
-<p>Thus at <code>4</code>th time, we get an error rate of <code>6%</code> or <code>94%</code> accuracy. This is phenomenal accuracy in DL speak compared to the most sophisticated approch of 2012 which got around <code>80%</code> accuracy.</p>
+<p>Thus at <code>4</code>th time, we get an error rate of <code>6%</code> or <code>94%</code> accuracy. This is phenomenal accuracy in <span class="caps">DL</span> speak compared to the most sophisticated approch of 2012 which got around <code>80%</code> accuracy.</p>
 
 </div>
 </div>
@@ -663,7 +663,7 @@ Wall time: 7min 24s</code></pre>
 <p>Then we save the model using</p>
 
 <pre><code>learn.save('stage01', return_path=True)</code></pre>
-<p>This stores the model along with the training data used to create it. <strong>Note</strong>: This fast.ai model is based on the <code>restnet34</code> model which is about <code>84</code>mb in size. The fast.ai model is <code>87</code>mb in size, the thin layer of specialization is about <code>3</code>mb in size now.</p>
+<p>This stores the model along with the training data used to create it. <strong>Note</strong>: This fast.ai model is based on the <code>restnet34</code> model which is about <code>84</code>mb in size. The fast.ai model is <code>87</code>mb in size, the thin layer of specialization is about <code>3</code>mb in size now.</p>
 
 </div>
 </div>
@@ -675,12 +675,12 @@ Wall time: 7min 24s</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Validation">Validation<a class="anchor-link" href="#Validation">¶</a>
 <a href="#Validation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Since this is a classification problem, we use confusion matrix for accuracy assessment. We create a <code>ClassificationInterpretation</code> object using the <code>Learner</code> object created earlier</p>
+<p>Since this is a classification problem, we use confusion matrix for accuracy assessment. We create a <code>ClassificationInterpretation</code> object using the <code>Learner</code> object created earlier</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">interp</span> <span class="o">=</span> <span class="n">ClassificationInterpretation</span><span class="o">.</span><span class="n">from_learner</span><span class="p">(</span><span class="n">learn</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">interp</span><span class="p">)</span>
 <span class="n">fastai</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">ClassificationInterpretation</span>
 </pre></div>
-<p>We can plot the top losses using the <code>plot_top_losses()</code> method off the <code>Learner</code> object. This plots the top ‘n’ classes where the classifier has <strong>least <code>precision</code></strong>.</p>
+<p>We can plot the top losses using the <code>plot_top_losses()</code> method off the <code>Learner</code> object. This plots the top ‘n’ classes where the classifier has <strong>least <code>precision</code></strong>.</p>
 
 <pre><code>interp.plot_top_losses(9, figsize=(15,11), heatmap=False)</code></pre>
 
@@ -715,7 +715,7 @@ Wall time: 7min 24s</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you notice above, a lot of classes have values <code>1</code>. To view the list of classes most misclassified as a list, use:</p>
+<p>If you notice above, a lot of classes have values <code>1</code>. To view the list of classes most misclassified as a list, use:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">learn</span><span class="o">.</span><span class="n">most_confused</span><span class="p">(</span><span class="n">min_val</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># display descending order all values other than diagonal. Ignore 1s though.</span>
 
 <span class="p">[(</span><span class="s1">'american_pit_bull_terrier'</span><span class="p">,</span> <span class="s1">'staffordshire_bull_terrier'</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
@@ -750,7 +750,7 @@ Wall time: 7min 24s</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Model-fine-tuning">Model fine-tuning<a class="anchor-link" href="#Model-fine-tuning">¶</a>
 <a href="#Model-fine-tuning" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>So far, we took a <code>resnet34</code> model, added a few layers to the end and trained. This was very fast. However, to improve this furture, we need to retrain the whole model, meaning, all its layers.</p>
+<p>So far, we took a <code>resnet34</code> model, added a few layers to the end and trained. This was very fast. However, to improve this furture, we need to retrain the whole model, meaning, all its layers.</p>
 <p><code>resnet34</code> has <code>34</code> layers, <code>resnet50</code> has <code>50</code> layers. For instance, these are how the layers in resnet look like</p>
 <ol>
 <li>layer 1 - looks for edges</li>
@@ -798,7 +798,7 @@ Wall time: 7min 24s</code></pre>
 epoch   train_loss  valid_loss  error_rate  time
 0   0.233426    0.213525    0.067659    02:08
 1   0.214522    0.208705    0.064953    02:09</code></pre>
-<p>This gives me a model with error rate of <code>6.4%</code>, while I already had a <code>6%</code> error rate.</p>
+<p>This gives me a model with error rate of <code>6.4%</code>, while I already had a <code>6%</code> error rate.</p>
 
 </div>
 </div>
@@ -810,7 +810,7 @@ epoch   train_loss  valid_loss  error_rate  time
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Deeper-layers">Deeper layers<a class="anchor-link" href="#Deeper-layers">¶</a>
 <a href="#Deeper-layers" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Another option is to use <code>resnet50</code>. However a typical GPU with <code>16</code>GB RAM is insufficient to handle this deep of layers.</p>
+<p>Another option is to use <code>resnet50</code>. However a typical <span class="caps">GPU</span> with <code>16</code><span class="caps">GB</span> <span class="caps">RAM</span> is insufficient to handle this deep of layers.</p>
 
 </div>
 </div>
@@ -819,7 +819,7 @@ epoch   train_loss  valid_loss  error_rate  time
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

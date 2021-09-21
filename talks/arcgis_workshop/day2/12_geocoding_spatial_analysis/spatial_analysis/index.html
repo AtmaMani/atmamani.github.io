@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>spatial_analysis | Atma’s blog</title>
+<title>spatial_analysis | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -280,7 +280,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Fighting-California-forest-fires-using-spatial-analysis">Fighting California forest fires using spatial analysis<a class="anchor-link" href="#Fighting-California-forest-fires-using-spatial-analysis">¶</a>
 <a href="#Fighting-California-forest-fires-using-spatial-analysis" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>The state of California has had a dangerous fire season in 2015 and 2016. A standard procedure while fighting these fires is identifying facilities that are at risk and evacuating them. Tasks such as this can be accomplished easily using <strong>spatial analysis</strong> tools available on your GIS. Spatial analysis tools allow overlaying the extent of fire and the locations of the facilities on a map and identifying the ones that fall within the fire’s extent.</p>
+<p>The state of California has had a dangerous fire season in 2015 and 2016. A standard procedure while fighting these fires is identifying facilities that are at risk and evacuating them. Tasks such as this can be accomplished easily using <strong>spatial analysis</strong> tools available on your <span class="caps">GIS</span>. Spatial analysis tools allow overlaying the extent of fire and the locations of the facilities on a map and identifying the ones that fall within the fire’s extent.</p>
 <p>Thus, this sample demonstrates the application of spatial analysis tools such as <strong>buffer and overlay</strong>.</p>
 <p>This notebook describes a scenario wherein an analyst automates the process of identifying facilities at risk from forest fires and sharing this information with other departments such as the fire department, etc.</p>
 
@@ -336,7 +336,7 @@
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find fire items</span>
-<span class="n">search_results</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">'title:*Fires* <span class="amp">&amp;</span> owner:atma.mani'</span><span class="p">)</span>
+<span class="n">search_results</span> <span class="o">=</span> <span class="n">gis</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">'title:*Fires* &amp; owner:atma.mani'</span><span class="p">)</span>
 <span class="n">search_results</span>
 </pre></div>
 
@@ -426,7 +426,7 @@
 <a href="#Create-a-buffer-of-4-miles-around-fire-boundaries" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Use the <strong><code>create_buffers</code></strong> function available in the <strong><code>arcgis.features.use_proximity</code></strong> module.
 As an input to the tool, we provide the fires layer as the layer to be buffered.</p>
-<p>Feature analysis tools can return (in memory) feature collections as output for immediate consumption, or create a new feature service if the <code>output_name</code> parameter is specified.</p>
+<p>Feature analysis tools can return (in memory) feature collections as output for immediate consumption, or create a new feature service if the <code>output_name</code> parameter is specified.</p>
 <p>We specify an output name (with a timestamp) for the service as we may want the buffered fire perimeters to be persisted for bookkeeping purposes, or be shared with others as feature layers or in web maps:</p>
 
 </div>
@@ -509,7 +509,7 @@ As an input to the tool, we provide the fires layer as the layer to be buffered
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Perform-overlay-analysis-to-extract-facilities-that-fall-within-the-fire-buffers">Perform overlay analysis to extract facilities that fall within the fire buffers<a class="anchor-link" href="#Perform-overlay-analysis-to-extract-facilities-that-fall-within-the-fire-buffers">¶</a>
 <a href="#Perform-overlay-analysis-to-extract-facilities-that-fall-within-the-fire-buffers" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Use <strong><code>overlay_layers</code></strong> tool under <code>FeatureAnalysisTools</code> class just like we did for <code>create_buffers</code> tool earlier. The overlay layers tool supports a few overlay types, here we use <strong><code>Intersect</code></strong> as we need to perform a spatial intersection to identify the facilities that are located within the fire boundaries. To learn more about this operation, refer to the <a href="https://developers.arcgis.com/rest/analysis/api-reference/overlay-layers.htm">documentation</a>.</p>
+<p>Use <strong><code>overlay_layers</code></strong> tool under <code>FeatureAnalysisTools</code> class just like we did for <code>create_buffers</code> tool earlier. The overlay layers tool supports a few overlay types, here we use <strong><code>Intersect</code></strong> as we need to perform a spatial intersection to identify the facilities that are located within the fire boundaries. To learn more about this operation, refer to the <a href="https://developers.arcgis.com/rest/analysis/api-reference/overlay-layers.htm">documentation</a>.</p>
 <p>We specify an output name (with a timestamp) for the service as we want to keep a record of the critical infrastructure within the risk boundaries and share it with others as feature layers or in web maps:</p>
 
 </div>
@@ -603,7 +603,7 @@ As an input to the tool, we provide the fires layer as the layer to be buffered
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Read-analysis-results-as-a-pandas-dataframe-for-analysis">Read analysis results as a pandas dataframe for analysis<a class="anchor-link" href="#Read-analysis-results-as-a-pandas-dataframe-for-analysis">¶</a>
 <a href="#Read-analysis-results-as-a-pandas-dataframe-for-analysis" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Let us read this results of the overlay analysis by querying it’s layer for attribute data, and display the attribute table to get a sense of the results. Layers can be queried for attributes and geometry using the <code>query()</code> method.</p>
+<p>Let us read this results of the overlay analysis by querying it’s layer for attribute data, and display the attribute table to get a sense of the results. Layers can be queried for attributes and geometry using the <code>query()</code> method.</p>
 <p>The query we ran in the previous step returned a list of dictionaries representing the features. For further analysis or for visualizing the output data as a table, let us convert it into a <a href="http://pandas.pydata.org/">pandas</a> <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">dataframe</a>.</p>
 
 </div>
@@ -631,7 +631,7 @@ As an input to the tool, we provide the fires layer as the layer to be buffered
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the data frame, we can see there are 7 features which fell within the fire buffers. To make this result usable, let us export a CSV with only the facility name and other critical details. This CSV can be considered as a valuable information product as a result of this analysis and can be shared with the teams assisting in organizing the firefighting efforts, evacuations, etc.</p>
+<p>From the data frame, we can see there are 7 features which fell within the fire buffers. To make this result usable, let us export a <span class="caps">CSV</span> with only the facility name and other critical details. This <span class="caps">CSV</span> can be considered as a valuable information product as a result of this analysis and can be shared with the teams assisting in organizing the firefighting efforts, evacuations, etc.</p>
 
 </div>
 </div>
@@ -670,7 +670,7 @@ As an input to the tool, we provide the fires layer as the layer to be buffered
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

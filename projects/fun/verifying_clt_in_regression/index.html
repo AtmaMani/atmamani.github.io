@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>verifying_clt_in_regression | Atma’s blog</title>
+<title>verifying_clt_in_regression | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -117,7 +117,7 @@ warnin">
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -201,7 +201,7 @@ warnin">
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -219,22 +219,22 @@ warnin">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -252,7 +252,7 @@ warnin">
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -260,7 +260,7 @@ warnin">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -324,7 +324,7 @@ warnin">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Synthesize-the-dataset">Synthesize the dataset<a class="anchor-link" href="#Synthesize-the-dataset">¶</a>
 <a href="#Synthesize-the-dataset" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Create <code>1000</code> random integers between <code>0</code>, <code>100</code> for <code>X</code> and create <code>y</code> such that
+<p>Create <code>1000</code> random integers between <code>0</code>, <code>100</code> for <code>X</code> and create <code>y</code> such that
 $$
 y = \beta_{0} + \beta_{1}X + \epsilon
 $$
@@ -418,7 +418,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Make a scatter plot of <code>X</code> and <code>y</code> variables.</p>
+<p>Make a scatter plot of <code>X</code> and <code>y</code> variables.</p>
 
 </div>
 </div>
@@ -474,7 +474,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>X</code> and <code>y</code> follow <code>uniform</code> distribution, but the error $\epsilon$ is generated from <code>standard normal distribution</code> with a boosting factor. Let us plot its histogram to verify the distribution</p>
+<p><code>X</code> and <code>y</code> follow <code>uniform</code> distribution, but the error $\epsilon$ is generated from <code>standard normal distribution</code> with a boosting factor. Let us plot its histogram to verify the distribution</p>
 
 </div>
 </div>
@@ -532,7 +532,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Predict-using-population">Predict using population<a class="anchor-link" href="#Predict-using-population">¶</a>
 <a href="#Predict-using-population" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Let us predict the coefficients and intercept when using the whole dataset. We will compare this approach with CLT approach of breaking into multiple subsets and averaging the coefficients and intercepts</p>
+<p>Let us predict the coefficients and intercept when using the whole dataset. We will compare this approach with <span class="caps">CLT</span> approach of breaking into multiple subsets and averaging the coefficients and intercepts</p>
 
 </div>
 </div>
@@ -1229,7 +1229,7 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a>
 <a href="#Conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Here we compare the coefficients and intercepts obtained by different methods to see how CLT adds up.</p>
+<p>Here we compare the coefficients and intercepts obtained by different methods to see how <span class="caps">CLT</span> adds up.</p>
 
 </div>
 </div>
@@ -1298,7 +1298,7 @@ Error in slope: 0.002971759530004725
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, error in quite small in all 3 cases, especially for <code>slope</code>. Prediction by averaging a number of smaller samples gives us much closer slope to population.</p>
+<p>As we can see, error in quite small in all 3 cases, especially for <code>slope</code>. Prediction by averaging a number of smaller samples gives us much closer slope to population.</p>
 <p>For intercept, the least error was with prediction using subset, which is still interesting as prediction using the whole population yielded poorer intercept!</p>
 <p>In general, for really large datasets, that <strong>cannot be held in system memory</strong>, we can apply Central Limit Theorem for estimating slope and intercept by averaging over a number of smaller samples.</p>
 
@@ -1309,7 +1309,7 @@ Error in slope: 0.002971759530004725
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

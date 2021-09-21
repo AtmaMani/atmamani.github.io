@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>02_data_description | Atma’s blog</title>
+<title>02_data_description | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -116,7 +116,7 @@ sales_data.columns = ['Year', 'Mon">
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -200,7 +200,7 @@ sales_data.columns = ['Year', 'Mon">
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -218,22 +218,22 @@ sales_data.columns = ['Year', 'Mon">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -251,7 +251,7 @@ sales_data.columns = ['Year', 'Mon">
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -259,7 +259,7 @@ sales_data.columns = ['Year', 'Mon">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -633,7 +633,7 @@ Name: Sales, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Measures-of-dispersion---Standard-Deviation">Measures of dispersion - Standard Deviation<a class="anchor-link" href="#Measures-of-dispersion---Standard-Deviation">¶</a>
 <a href="#Measures-of-dispersion---Standard-Deviation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Range (max val - min val), IQR - inter quartile range are a few measures to find the spread of data and outliers. Another quantitative way is variance and standard deviation.</p>
+<p>Range (max val - min val), <span class="caps">IQR</span> - inter quartile range are a few measures to find the spread of data and outliers. Another quantitative way is variance and standard deviation.</p>
 $$
 \mu = \verb !population mean (cannot be calculated in most cases)!
 \
@@ -649,7 +649,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>Variance</code> is the mean squared deviation from mean. Thus $\sigma^2$ is <code>variance of population</code> and $s^2$ is <code>variance of sample</code></p>
+<p><code>Variance</code> is the mean squared deviation from mean. Thus $\sigma^2$ is <code>variance of population</code> and $s^2$ is <code>variance of sample</code></p>
 
 </div>
 </div>
@@ -682,8 +682,8 @@ s = \sqrt{\frac{\sum_{i}^{n}(y_i - \bar y)^2}{(n-1)}} $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We divide the sum of squared deviation by <code>(n-1)</code> because we don’t want the sample SD to be underestimated. This is because, we can estimate the SD of population by averaging the SDs of multiple samples. During this process, if we divided by <code>n</code> instead of <code>n-1</code>, then the SD of population is underestimated.</p>
-<p>For a <code>normal</code>ly distributed population, empirically,
+<p>We divide the sum of squared deviation by <code>(n-1)</code> because we don’t want the sample <span class="caps">SD</span> to be underestimated. This is because, we can estimate the <span class="caps">SD</span> of population by averaging the SDs of multiple samples. During this process, if we divided by <code>n</code> instead of <code>n-1</code>, then the <span class="caps">SD</span> of population is underestimated.</p>
+<p>For a <code>normal</code>ly distributed population, empirically,
 $$
 \bar y \pm 1s = 68\% \verb ! of data!
 \
@@ -711,9 +711,9 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="Coefficient-of-variability">Coefficient of variability<a class="anchor-link" href="#Coefficient-of-variability">¶</a>
 <a href="#Coefficient-of-variability" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>To compare the dispersion of two different variables (of different ranges and units), we can normalize them to a common unitless measure called <code>CV</code>.</p>
+<p>To compare the dispersion of two different variables (of different ranges and units), we can normalize them to a common unitless measure called <code>CV</code>.</p>
 $$
-CV = \frac{s}{|\bar y|}
+<span class="caps">CV</span> = \frac{s}{|\bar y|}
 $$
 </div>
 </div>
@@ -725,10 +725,10 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Dispersion-based-on-percentiles">Dispersion based on percentiles<a class="anchor-link" href="#Dispersion-based-on-percentiles">¶</a>
 <a href="#Dispersion-based-on-percentiles" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>A <code>percentile</code> : <code>p</code>th percentile is the value such that <code>p</code>% of values are less than this and <code>100-p</code>% are higher than that value. Thus <code>80</code>th percentile means, <code>79.9%</code> of data points are less than this and <code>19.9%</code> values are higher than this.</p>
-<p><strong>Quantile</strong> is the same as <strong>percentile</strong> but expressed in <strong>decimals</strong>. Thus <code>80</code>th percentile = <code>0.8</code> quantile.</p>
-<p><strong>Quartile</strong> is quantile at every quarter. Thus <code>0.25</code>, <code>0.5</code>, <code>0.75</code> quantiles are quartiles. <strong>Note</strong>: <code>0.5</code> quantile is same as <strong>Median</strong>.</p>
-<p><code>IQR</code> <strong>InterQuartile Range</strong> is the difference between <code>75</code>th and <code>25</code>th percentiles. (0.75 and 0.25 quartiles).</p>
+<p>A <code>percentile</code> : <code>p</code>th percentile is the value such that <code>p</code>% of values are less than this and <code>100-p</code>% are higher than that value. Thus <code>80</code>th percentile means, <code>79.9%</code> of data points are less than this and <code>19.9%</code> values are higher than this.</p>
+<p><strong>Quantile</strong> is the same as <strong>percentile</strong> but expressed in <strong>decimals</strong>. Thus <code>80</code>th percentile = <code>0.8</code> quantile.</p>
+<p><strong>Quartile</strong> is quantile at every quarter. Thus <code>0.25</code>, <code>0.5</code>, <code>0.75</code> quantiles are quartiles. <strong>Note</strong>: <code>0.5</code> quantile is same as <strong>Median</strong>.</p>
+<p><code>IQR</code> <strong>InterQuartile Range</strong> is the difference between <code>75</code>th and <code>25</code>th percentiles. (0.75 and 0.25 quartiles).</p>
 
 </div>
 </div>
@@ -753,8 +753,8 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>where $s_x$ is standard deviation of $x$ and so on. <strong>$r$</strong> is called <strong>Pearson’s r</strong></p>
-<p><code>r</code> ranges from <code>-1 to 1</code>. A value of <code>-1</code> indicates strong negative relationship and vice versa. A value close to <code>0</code> might represent no relationship or presence of a non-linear relationship.</p>
-<p>The numerator, is called the <code>covariance</code> of <code>x</code> and <code>y</code>, which is the combined deviation from their corresponding means.</p>
+<p><code>r</code> ranges from <code>-1 to 1</code>. A value of <code>-1</code> indicates strong negative relationship and vice versa. A value close to <code>0</code> might represent no relationship or presence of a non-linear relationship.</p>
+<p>The numerator, is called the <code>covariance</code> of <code>x</code> and <code>y</code>, which is the combined deviation from their corresponding means.</p>
 
 </div>
 </div>
@@ -789,7 +789,7 @@ $$
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

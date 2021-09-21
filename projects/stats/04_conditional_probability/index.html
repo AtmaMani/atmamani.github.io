@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04_conditional_probability | Atma’s blog</title>
+<title>04_conditional_probability | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ Binomial and Poisson discre">
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ Binomial and Poisson discre">
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ Binomial and Poisson discre">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ Binomial and Poisson discre">
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Binomial and Poisson discre">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -344,7 +344,7 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If A and B are mutually exclusive, then $P(A \cap B) = 0$</p>
-<p>The reason we negate <code>P(A intersection B)</code> can be seen from the venn diagram below. Probabilities of A and B are (0.5 and 0.2). The probability of both A and B ocurring is 0.05. Thus to not double count the intersection, we negate it.</p>
+<p>The reason we negate <code>P(A intersection B)</code> can be seen from the venn diagram below. Probabilities of A and B are (0.5 and 0.2). The probability of both A and B ocurring is 0.05. Thus to not double count the intersection, we negate it.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ $$
 <h3 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">¶</a>
 <a href="#Conditional-Probability" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Generally, conditional probability is more helpful in explaining a situtation than general probabilities.</p>
-<p>Given two events <code>A</code> and <code>B</code> with non zero probabilities, then the probability of A occurring, given that B has occurs is</p>
+<p>Given two events <code>A</code> and <code>B</code> with non zero probabilities, then the probability of A occurring, given that B has occurs is</p>
 $$
 P(A|B) = \frac{P(A \cap B)}{P(B)}
 $$<p>and
@@ -421,7 +421,7 @@ P(B|A) = \frac{P(A \cap B)}{P(A)} $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The $P(A/B)$ probability of A given that B occurs, is the probability of A and B occurring $P(A \cap B)$ to the probability of B occurring $P(B)$. Thus if <code>A</code> and <code>B</code> are <code>mutually exclusive</code>, then there is no conditional probability.</p>
+<p>The $P(A/B)$ probability of A given that B occurs, is the probability of A and B occurring $P(A \cap B)$ to the probability of B occurring $P(B)$. Thus if <code>A</code> and <code>B</code> are <code>mutually exclusive</code>, then there is no conditional probability.</p>
 
 </div>
 </div>
@@ -544,7 +544,7 @@ p(Fraud \ |\ fire \ policy) = \frac{p(fire \cap fraud)}{p(fire \ policy)}
 $$$$
 p(Fraud \ | \ fire \ policy) = \frac{0.06}{0.20} = .30
 $$<p>or 30% of claims are fraud, given that they are of type fire.</p>
-<p>Here, <strong><code>30%</code></strong> is called the <code>conditional probability</code> and the general <strong><code>10%</code></strong> is called the <code>unconditional</code> or <code>marginal</code> probability. Clearly, knowing the conditional probability is of much higher value than knowing the unconditional probability.</p>
+<p>Here, <strong><code>30%</code></strong> is called the <code>conditional probability</code> and the general <strong><code>10%</code></strong> is called the <code>unconditional</code> or <code>marginal</code> probability. Clearly, knowing the conditional probability is of much higher value than knowing the unconditional probability.</p>
 
 </div>
 </div>
@@ -556,7 +556,7 @@ $$<p>or 30% of claims are fraud, given that they are of type fire.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Bayesian-conditional-probability">Bayesian conditional probability<a class="anchor-link" href="#Bayesian-conditional-probability">¶</a>
 <a href="#Bayesian-conditional-probability" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The Bayesian theorem builds on conditional probability, specifically on prior and posterior probabilities. It states that, if <code>A</code> and <code>B</code> are any events whose probabilities are not 0 or 1, then:</p>
+<p>The Bayesian theorem builds on conditional probability, specifically on prior and posterior probabilities. It states that, if <code>A</code> and <code>B</code> are any events whose probabilities are not 0 or 1, then:</p>
 $$
 P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\bar A)P(\bar A)}
 $$
@@ -568,7 +568,7 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In reality, we expand the $\bar A$ case. Thus if $A_1 ,… A_k$ are mutually exclusive <code>states of nature</code> and if $B_1 .. B_m$ are <code>m</code> possible mutually exclusive observable events, then,</p>
+<p>In reality, we expand the $\bar A$ case. Thus if $A_1 ,… A_k$ are mutually exclusive <code>states of nature</code> and if $B_1 .. B_m$ are <code>m</code> possible mutually exclusive observable events, then,</p>
 
 </div>
 </div>
@@ -611,7 +611,7 @@ $$
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

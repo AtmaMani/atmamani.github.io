@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matplotlib - log scales, ticks, scientific plots | Atma’s blog</title>
+<title>Matplotlib - log scales, ticks, scientific plots | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -361,7 +361,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is also possible to set a logarithmic scale for one or both axes. This functionality is in fact only one application of a more general transformation system in Matplotlib. Each of the axes’ scales are set seperately using <code>set_xscale</code> and <code>set_yscale</code> methods which accept one parameter (with the value “log” in this case):</p>
+<p>It is also possible to set a logarithmic scale for one or both axes. This functionality is in fact only one application of a more general transformation system in Matplotlib. Each of the axes’ scales are set seperately using <code>set_xscale</code> and <code>set_yscale</code> methods which accept one parameter (with the value “log” in this case):</p>
 
 </div>
 </div>
@@ -450,7 +450,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can explicitly determine where we want the axis ticks with <code>set_xticks</code> and <code>set_yticks</code>, which both take a list of values for where on the axis the ticks are to be placed. We can also use the <code>set_xticklabels</code> and <code>set_yticklabels</code> methods to provide a list of custom text labels for each tick location:</p>
+<p>We can explicitly determine where we want the axis ticks with <code>set_xticks</code> and <code>set_yticks</code>, which both take a list of values for where on the axis the ticks are to be placed. We can also use the <code>set_xticklabels</code> and <code>set_yticklabels</code> methods to provide a list of custom text labels for each tick location:</p>
 
 </div>
 </div>
@@ -661,7 +661,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Unfortunately, when saving figures the labels are sometimes clipped, and it can be necessary to adjust the positions of axes a little bit. This can be done using <code>subplots_adjust</code>:</p>
+<p>Unfortunately, when saving figures the labels are sometimes clipped, and it can be necessary to adjust the positions of axes a little bit. This can be done using <code>subplots_adjust</code>:</p>
 
 </div>
 </div>
@@ -723,7 +723,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>With the <code>grid</code> method in the axis object, we can turn on and off grid lines. We can also customize the appearance of the grid lines using the same keyword arguments as the <code>plot</code> function:</p>
+<p>With the <code>grid</code> method in the axis object, we can turn on and off grid lines. We can also customize the appearance of the grid lines using the same keyword arguments as the <code>plot</code> function:</p>
 
 </div>
 </div>
@@ -847,7 +847,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sometimes it is useful to have dual x or y axes in a figure; for example, when plotting curves with different units together. Matplotlib supports this with the <code>twinx</code> and <code>twiny</code> functions:</p>
+<p>Sometimes it is useful to have dual x or y axes in a figure; for example, when plotting curves with different units together. Matplotlib supports this with the <code>twinx</code> and <code>twiny</code> functions:</p>
 
 </div>
 </div>
@@ -966,7 +966,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In addition to the regular <code>plot</code> method, there are a number of other functions for generating different kind of plots. See the matplotlib plot gallery for a complete list of available plot types: <a href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a>. Some of the more useful ones are show below:</p>
+<p>In addition to the regular <code>plot</code> method, there are a number of other functions for generating different kind of plots. See the matplotlib plot gallery for a complete list of available plot types: <a href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a>. Some of the more useful ones are show below:</p>
 
 </div>
 </div>
@@ -1044,7 +1044,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Annotating text in matplotlib figures can be done using the <code>text</code> function. It supports LaTeX formatting just like axis label texts and titles:</p>
+<p>Annotating text in matplotlib figures can be done using the <code>text</code> function. It supports LaTeX formatting just like axis label texts and titles:</p>
 
 </div>
 </div>
@@ -1102,7 +1102,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Axes can be added to a matplotlib Figure canvas manually using <code>fig.add_axes</code> or using a sub-figure layout manager such as <code>subplots</code>, <code>subplot2grid</code>, or <code>gridspec</code>:</p>
+<p>Axes can be added to a matplotlib Figure canvas manually using <code>fig.add_axes</code> or using a sub-figure layout manager such as <code>subplots</code>, <code>subplot2grid</code>, or <code>gridspec</code>:</p>
 
 </div>
 </div>
@@ -1277,7 +1277,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Manually adding axes with <code>add_axes</code> is useful for adding insets to figures:</p>
+<p>Manually adding axes with <code>add_axes</code> is useful for adding insets to figures:</p>
 
 </div>
 </div>
@@ -1539,7 +1539,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To use 3D graphics in matplotlib, we first need to create an instance of the <code>Axes3D</code> class. 3D axes can be added to a matplotlib figure canvas in exactly the same way as 2D axes; or, more conveniently, by passing a <code>projection='3d'</code> keyword argument to the <code>add_axes</code> or <code>add_subplot</code> methods.</p>
+<p>To use 3D graphics in matplotlib, we first need to create an instance of the <code>Axes3D</code> class. 3D axes can be added to a matplotlib figure canvas in exactly the same way as 2D axes; or, more conveniently, by passing a <code>projection='3d'</code> keyword argument to the <code>add_axes</code> or <code>add_subplot</code> methods.</p>
 
 </div>
 </div>
@@ -1745,7 +1745,7 @@ Advanced Matplotlib Concepts LectureLogarithmic scalePlacement of ticks and cust
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

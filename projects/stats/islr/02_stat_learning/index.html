@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>02_stat_learning | Atma’s blog</title>
+<title>02_stat_learning | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -114,7 +114,7 @@ Gene">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -198,7 +198,7 @@ Gene">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -216,22 +216,22 @@ Gene">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -249,7 +249,7 @@ Gene">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -257,7 +257,7 @@ Gene">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -324,12 +324,12 @@ Gene">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">¶</a>
 <a href="#Prediction" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>In a prediction / regression problem, the inputs (denoted by <code>X</code>) are called as <code>predictors</code>, <code>independent variables</code>, <code>features</code> and the predicted variable is called as <code>response</code>, <code>dependent variable</code> and is denoted by <code>Y</code>.</p>
+<p>In a prediction / regression problem, the inputs (denoted by <code>X</code>) are called as <code>predictors</code>, <code>independent variables</code>, <code>features</code> and the predicted variable is called as <code>response</code>, <code>dependent variable</code> and is denoted by <code>Y</code>.</p>
 <p>The relationship betwen input and predicted is represented as</p>
 $$
 Y = f(X) + \epsilon
-$$<p>where $f$ is some fixed, unknown function that is to be determined. $\epsilon$ is <strong>random error</strong> term that is independent of <code>X</code> and has <strong>zero mean</strong>.</p>
-<p>In reality, $f$ may depend on more than 1 input variable $X$, for instance 2. In this case, $f$ is a <code>2D</code> surface that is fit. In general, the process of <strong>estimating</strong> $f$ is <strong>statistical learning</strong>.</p>
+$$<p>where $f$ is some fixed, unknown function that is to be determined. $\epsilon$ is <strong>random error</strong> term that is independent of <code>X</code> and has <strong>zero mean</strong>.</p>
+<p>In reality, $f$ may depend on more than 1 input variable $X$, for instance 2. In this case, $f$ is a <code>2D</code> surface that is fit. In general, the process of <strong>estimating</strong> $f$ is <strong>statistical learning</strong>.</p>
 
 </div>
 </div>
@@ -433,8 +433,8 @@ $$<p>we only need to find $p+1$ coefficients. Through training or fitting (using
 <h3 id="General-concepts">General concepts<a class="anchor-link" href="#General-concepts">¶</a>
 <a href="#General-concepts" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><strong>Model interpretability and complexity</strong>: The more complex a model is (higher order more flexible models, decision trees..), the less interpretable it is.</p>
-<p><strong>Supervised vs Unsupervised algorithms</strong>: Supervised methods are used when both the <code>predictor</code> and <code>response</code> variables can be measured and data is available. Unsupervised methods are used when little is known about the data and only <code>predictor</code> variables are available. Unsupervised are best when put to classification / clustering problems.</p>
-<p><strong>Regression vs Classification</strong>: When the <code>response</code> variable is <code>quantitative</code> and continuous, the problem is considered a regression. When the <code>response</code> is <code>qualitative</code> and falls within categories, then the problem is a classification problem. Howerver, this distinction is not really solid as many algorithms can be used for both.</p>
+<p><strong>Supervised vs Unsupervised algorithms</strong>: Supervised methods are used when both the <code>predictor</code> and <code>response</code> variables can be measured and data is available. Unsupervised methods are used when little is known about the data and only <code>predictor</code> variables are available. Unsupervised are best when put to classification / clustering problems.</p>
+<p><strong>Regression vs Classification</strong>: When the <code>response</code> variable is <code>quantitative</code> and continuous, the problem is considered a regression. When the <code>response</code> is <code>qualitative</code> and falls within categories, then the problem is a classification problem. Howerver, this distinction is not really solid as many algorithms can be used for both.</p>
 
 </div>
 </div>
@@ -448,20 +448,20 @@ $$<p>we only need to find $p+1$ coefficients. Through training or fitting (using
 <a href="#Model-accuracy---Regression-problems" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Measuring-quality-of-fit">Measuring quality of fit<a class="anchor-link" href="#Measuring-quality-of-fit">¶</a>
 <a href="#Measuring-quality-of-fit" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Here the deviation between <code>predicted</code> and actual values is measured. In regression, <code>Mean Squared Error (MSE)</code> is commonly used.</p>
+<p>Here the deviation between <code>predicted</code> and actual values is measured. In regression, <code>Mean Squared Error (MSE)</code> is commonly used.</p>
 $$
-MSE = \frac{1}{n} \sum_{i=1}^{n}(y_{i} - \hat f(x_{i}))^2
-$$<p>The MSE obtained is called <strong>training MSE</strong>. When used against unseen test data, we get <strong>test MSE</strong>. Our objective is to choose the method with lowest <em>test MSE</em>. There is no guarantee that a low training MSE will yield a low test MSE.</p>
-<p>A fundamental property in statistical learning is <strong>as model flexibility increases, training MSE might decrease, but test MSE might not</strong>. When a given learning method yields a <strong>small training MSE</strong> but a <strong>large test MSE</strong>, we are <strong>overfitting</strong> the data. This is because, our data might have noise from <strong>irreducible error</strong> and the model is trying to fit it.</p>
+<span class="caps">MSE</span> = \frac{1}{n} \sum_{i=1}^{n}(y_{i} - \hat f(x_{i}))^2
+$$<p>The <span class="caps">MSE</span> obtained is called <strong>training <span class="caps">MSE</span></strong>. When used against unseen test data, we get <strong>test <span class="caps">MSE</span></strong>. Our objective is to choose the method with lowest <em>test <span class="caps">MSE</span></em>. There is no guarantee that a low training <span class="caps">MSE</span> will yield a low test <span class="caps">MSE</span>.</p>
+<p>A fundamental property in statistical learning is <strong>as model flexibility increases, training <span class="caps">MSE</span> might decrease, but test <span class="caps">MSE</span> might not</strong>. When a given learning method yields a <strong>small training <span class="caps">MSE</span></strong> but a <strong>large test <span class="caps">MSE</span></strong>, we are <strong>overfitting</strong> the data. This is because, our data might have noise from <strong>irreducible error</strong> and the model is trying to fit it.</p>
 <h4 id="Bias-variance-trade-off">Bias variance trade-off<a class="anchor-link" href="#Bias-variance-trade-off">¶</a>
 <a href="#Bias-variance-trade-off" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>If you plot the <strong>test MSE</strong> against <strong>model flexibility</strong>, it follows a <em>U shaped curve</em>. Thus it first reduces then increases. The expected test MSE for observation $x_{0}$ $E(y_{0} - \hat f(x_{0}))$ can be decomposed to <code>3</code> fundamental quantities: (a) the <strong>variance of</strong> $\hat f(x_{0})$, (b) <strong>the squared bias</strong> of $\hat f(x_{0})$ and (c) <strong>variance of irreducible error</strong> $\epsilon$. Thus:</p>
+<p>If you plot the <strong>test <span class="caps">MSE</span></strong> against <strong>model flexibility</strong>, it follows a <em>U shaped curve</em>. Thus it first reduces then increases. The expected test <span class="caps">MSE</span> for observation $x_{0}$ $E(y_{0} - \hat f(x_{0}))$ can be decomposed to <code>3</code> fundamental quantities: (a) the <strong>variance of</strong> $\hat f(x_{0})$, (b) <strong>the squared bias</strong> of $\hat f(x_{0})$ and (c) <strong>variance of irreducible error</strong> $\epsilon$. Thus:</p>
 $$
 E(y_{0} - \hat f(x_{0}))^{2} = Var(\hat f(x_{0})) + [Bias(\hat f(x_{0}))]^{2} + Var(\epsilon)
-$$<p>Thus, to reduce the expected test MSE, we need to reduce both the <strong>variance of $\hat f$</strong> and <strong>bias of $\hat f$</strong>.</p>
+$$<p>Thus, to reduce the expected test <span class="caps">MSE</span>, we need to reduce both the <strong>variance of $\hat f$</strong> and <strong>bias of $\hat f$</strong>.</p>
 <p><strong>Variance</strong> refers to the amount by which $\hat f$ would change if we estimated it using a different training dataset. Ideally, $\hat f$ should not change much if a slightly different data set is used. A statistical learning method with high variance would yield a very different $\hat f$ for different training data sets. <strong>Higher the model flexibility, the higher is its variance</strong> as the model closely fits the training data.</p>
 <p><strong>Bias</strong> refers to the error introduced by approximating a real-life problem. Generally, <strong>higher model flexibility, the lower is the bias</strong>. Thus as we use more flexible methods, the variance will increase and bias would decrease.</p>
-<p>As model <strong>flexibility increases</strong>, the <strong>bias reduces faster</strong> than the rate at which <strong>variance increases</strong>. Thus, the <strong>test MSE</strong> drops initially before increasing (<code>U shape</code>). This relationship is called the <strong>bias variance trade-off</strong> and the objective is to pick the model flexibility that has the least of both.</p>
+<p>As model <strong>flexibility increases</strong>, the <strong>bias reduces faster</strong> than the rate at which <strong>variance increases</strong>. Thus, the <strong>test <span class="caps">MSE</span></strong> drops initially before increasing (<code>U shape</code>). This relationship is called the <strong>bias variance trade-off</strong> and the objective is to pick the model flexibility that has the least of both.</p>
 
 </div>
 </div>
@@ -475,7 +475,7 @@ $$<p>Thus, to reduce the expected test MSE, we need to reduce both the <strong>v
 <a href="#Model-accuracy---Classification-problems" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Measuring-quality-of-classification">Measuring quality of classification<a class="anchor-link" href="#Measuring-quality-of-classification">¶</a>
 <a href="#Measuring-quality-of-classification" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><code>error rate</code> is used to quantify the errors in classification. It is the ratio of <code>sum of misclassifications</code> to <code>number of observations</code>.</p>
+<p><code>error rate</code> is used to quantify the errors in classification. It is the ratio of <code>sum of misclassifications</code> to <code>number of observations</code>.</p>
 $$
 error rate = \frac{1}{n}\sum_{i=1}^{n}I(y_{i} \ne \hat y_{i})
 $$<p>where $\hat y_{i}$ is predicted class label for ith observation using $\hat f$. When computed against training data, this yields <strong>training error rate</strong>. When computed for test data, this yields <strong>test error rate</strong>.</p>
@@ -494,10 +494,10 @@ $$<p>where $\hat y_{i}$ is predicted class label for ith observation using $\hat
 $$
 P(Y=j \ | \ X=x_{0})
 $$<p>Thus, the error rate with <strong>Bayes classifier</strong> becomes the average of (1 - max probability for different classes). The Bayes error rate is analogous to *<em>irreducible error</em>.</p>
-<h4 id="KNN-classifier">KNN classifier<a class="anchor-link" href="#KNN-classifier">¶</a>
+<h4 id="KNN-classifier"><span class="caps">KNN</span> classifier<a class="anchor-link" href="#KNN-classifier">¶</a>
 <a href="#KNN-classifier" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>In reality, Bayes classifier is not possible as the conditional probability is unknown. Instead, algorithms attempt to derive the conditional probability. One such is KNN.</p>
-<p>The KNN classifier identifies <strong>K</strong> points in training data that are closest to test observation $x_{0}$, represented at $N_{0}$. It then <strong>estimates</strong> conditional proabability for class $j$ as the fraction of points in $N_{0}$ whose classes equal $j$. This can be written as:</p>
+<p>In reality, Bayes classifier is not possible as the conditional probability is unknown. Instead, algorithms attempt to derive the conditional probability. One such is <span class="caps">KNN</span>.</p>
+<p>The <span class="caps">KNN</span> classifier identifies <strong>K</strong> points in training data that are closest to test observation $x_{0}$, represented at $N_{0}$. It then <strong>estimates</strong> conditional proabability for class $j$ as the fraction of points in $N_{0}$ whose classes equal $j$. This can be written as:</p>
 $$
 P(Y = j \ | \ X = x_{0}) = \frac{1}{K} \sum_{i \in N_{0}} I(y_{i} = j)
 $$
@@ -518,7 +518,7 @@ $$
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

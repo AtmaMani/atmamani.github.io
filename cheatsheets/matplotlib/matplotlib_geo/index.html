@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Geographical plotting with matplotlib | Atma’s blog</title>
+<title>Geographical plotting with matplotlib | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@ I ">
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@ I ">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@ I ">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@ I ">
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@ I ">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -283,16 +283,16 @@ I ">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Geographical-plotting-with-matplotlib">Geographical plotting with <code>matplotlib</code><a class="anchor-link" href="#Geographical-plotting-with-matplotlib">¶</a>
+<h2 id="Geographical-plotting-with-matplotlib">Geographical plotting with <code>matplotlib</code><a class="anchor-link" href="#Geographical-plotting-with-matplotlib">¶</a>
 <a href="#Geographical-plotting-with-matplotlib" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>To get the features, install the <code>basemap</code> package using</p>
+<p>To get the features, install the <code>basemap</code> package using</p>
 <ul>
 <li>
 <code>conda install basemap</code> and the high res dataset with </li>
 <li>
 <code>conda install -c conda-forge basemap-data-hires</code>. </li>
 </ul>
-<p>I ran into multiple conflicts trying to install <code>basemap</code> in an environment with <code>geopandas</code>. I was successful in creating a new Python env and installing basemap first.</p>
+<p>I ran into multiple conflicts trying to install <code>basemap</code> in an environment with <code>geopandas</code>. I was successful in creating a new Python env and installing basemap first.</p>
 <p>Thanks to <a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html">https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html</a> for this tutorial.</p>
 
 </div>
@@ -319,14 +319,14 @@ I ">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Common-steps-in-plotting-with-basemap-package">Common steps in plotting with <code>basemap</code> package<a class="anchor-link" href="#Common-steps-in-plotting-with-basemap-package">¶</a>
+<h3 id="Common-steps-in-plotting-with-basemap-package">Common steps in plotting with <code>basemap</code> package<a class="anchor-link" href="#Common-steps-in-plotting-with-basemap-package">¶</a>
 <a href="#Common-steps-in-plotting-with-basemap-package" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ol>
 <li>First you set the figure size and other properties of the matplotlib figure</li>
-<li>Next you set the projection using the <code>Basemap</code> constructor. You pass the name of the projection from the choice list, a resolution of the built-in dataset to use. Higher res is slower to draw. You pass either the coordinates of lower left <span class="amp">&amp;</span> upper right, or coordinates of center. This gives you a <code>Basemap</code> object which is like an axis. If you are doing a subplot, you can bind it to an existing axes.</li>
-<li>On the <code>Basemap</code> object, you call the appropriate basemap type - such as <code>etopo()</code>, <code>bluemarble()</code>, <code>shadedrelief</code> etc. and pass appropriate parameters like scale, alpha etc. Scale is <strong>not map scale or tiling level</strong>, instead it is the factor to scale up or down the rendered image. The default resolution is <code>5400x2700</code> which is computational intensive. You can pass any additional <code>imshow</code> parameters to this call.</li>
-<li>If you want to overlay any vectors, you call the <code>basemap</code> object like a function and pass the coordinates in lat, lon. The function will return in the appropriate projection system you used to create the object.</li>
-<li>Then you use the regular <code>plt.plot(x,y, symbol_spec)</code> syntax to plot those points on the map and <code>plt.text(x,y, text_spec)</code> for labels.</li>
+<li>Next you set the projection using the <code>Basemap</code> constructor. You pass the name of the projection from the choice list, a resolution of the built-in dataset to use. Higher res is slower to draw. You pass either the coordinates of lower left <span class="amp">&amp;</span> upper right, or coordinates of center. This gives you a <code>Basemap</code> object which is like an axis. If you are doing a subplot, you can bind it to an existing axes.</li>
+<li>On the <code>Basemap</code> object, you call the appropriate basemap type - such as <code>etopo()</code>, <code>bluemarble()</code>, <code>shadedrelief</code> etc. and pass appropriate parameters like scale, alpha etc. Scale is <strong>not map scale or tiling level</strong>, instead it is the factor to scale up or down the rendered image. The default resolution is <code>5400x2700</code> which is computational intensive. You can pass any additional <code>imshow</code> parameters to this call.</li>
+<li>If you want to overlay any vectors, you call the <code>basemap</code> object like a function and pass the coordinates in lat, lon. The function will return in the appropriate projection system you used to create the object.</li>
+<li>Then you use the regular <code>plt.plot(x,y, symbol_spec)</code> syntax to plot those points on the map and <code>plt.text(x,y, text_spec)</code> for labels.</li>
 </ol>
 </div>
 </div>
@@ -927,7 +927,7 @@ Wall time: 19.5 s
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

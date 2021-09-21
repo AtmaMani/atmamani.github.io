@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Takeaways from Strata Data Conference - NewYork City Sep 2019 | Atma’s blog</title>
+<title>Takeaways from Strata Data Conference - NewYork City Sep 2019 | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -275,7 +275,7 @@
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Takeaways from Strata Data Conference - NewYork City Sep 2019</a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -289,83 +289,83 @@
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>I had the opportunity to attend 2 days of Strata Data Conference last month (9/25-26) at the Javits Convention center in Manhattan, NYC. This is my report of the conference and my opinion on a few things I noticed. If you want the gist, please read just the summary.</p>
+<p>I had the opportunity to attend 2 days of Strata Data Conference last month (9/25-26) at the Javits Convention center in Manhattan, <span class="caps">NYC</span>. This is my report of the conference and my opinion on a few things I noticed. If you want the gist, please read just the summary.</p>
 <h3 id="executive-summary">Executive summary<a href="#executive-summary" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>I noticed 3 important things
 <!-- TEASER_END --></p>
 <ol>
 <li>
-<p>The number of hosted notebook solutions is only increasing. <strong>LinkedIn</strong> is building <strong>Darwin</strong> and <strong>Uber</strong> is building a <strong>Data Science Workbench</strong>. Both these firms admitted the difficulty in defining the skill set of a typical ‘data scientist’ and which tools, features and frameworks to provide. Uber decided to build two products – <strong>Michelangelo</strong> – a highly scalable ML engine, but with very limited features meant for a narrow user base and another product called Data Science Workbench for the broader set of users. LinkedIn acknowledged the challenges in building a hosted notebook solution. What was clear from these talks is, although the number of notebook products is proliferating, it is not necessarily simplifying. Both these products have a complicated setup requiring experts and are for internal users at this point.</p>
+<p>The number of hosted notebook solutions is only increasing. <strong>LinkedIn</strong> is building <strong>Darwin</strong> and <strong>Uber</strong> is building a <strong>Data Science Workbench</strong>. Both these firms admitted the difficulty in defining the skill set of a typical ‘data scientist’ and which tools, features and frameworks to provide. Uber decided to build two products – <strong>Michelangelo</strong> – a highly scalable <span class="caps">ML</span> engine, but with very limited features meant for a narrow user base and another product called Data Science Workbench for the broader set of users. LinkedIn acknowledged the challenges in building a hosted notebook solution. What was clear from these talks is, although the number of notebook products is proliferating, it is not necessarily simplifying. Both these products have a complicated setup requiring experts and are for internal users at this point.</p>
 </li>
 <li>
-<p>The next big thing in deep learning might be <strong>distributed DL on Spark based CPU clusters</strong>. <strong>Intel</strong> is building a <strong>BigDL library</strong> for distributed DL on Spark. Most organizations of today are likely to have server farms with CPU than with GPU dedicated for DL and might be interested in utilizing this existing infrastructure for DL.</p>
+<p>The next big thing in deep learning might be <strong>distributed <span class="caps">DL</span> on Spark based <span class="caps">CPU</span> clusters</strong>. <strong>Intel</strong> is building a <strong>BigDL library</strong> for distributed <span class="caps">DL</span> on Spark. Most organizations of today are likely to have server farms with <span class="caps">CPU</span> than with <span class="caps">GPU</span> dedicated for <span class="caps">DL</span> and might be interested in utilizing this existing infrastructure for <span class="caps">DL</span>.</p>
 </li>
 <li>
-<p>Several companies are building <strong>data catalogs or data management software</strong> for big data warehouses. Features include – building data manifests, data usage graphs, flagging <span class="amp">&amp;</span> removal of PII. The overall theme is, following the big data hype, a number of companies have started collecting large amounts of business process data. They do not have a way to make sense of this massive collection or sometimes, even know what data they have. These vendors are building products to help manage these data warehouses.</p>
+<p>Several companies are building <strong>data catalogs or data management software</strong> for big data warehouses. Features include – building data manifests, data usage graphs, flagging <span class="amp">&amp;</span> removal of <span class="caps">PII</span>. The overall theme is, following the big data hype, a number of companies have started collecting large amounts of business process data. They do not have a way to make sense of this massive collection or sometimes, even know what data they have. These vendors are building products to help manage these data warehouses.</p>
 </li>
 </ol>
 <h3 id="interesting-talks-i-attended">Interesting talks I attended<a href="#interesting-talks-i-attended" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="linkedin-darwin-a-hosted-notebook-product">LinkedIn – Darwin – a hosted notebook product<a href="#linkedin-darwin-a-hosted-notebook-product" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Darwin is a hosted notebook product for internal use. They plan to release this as open source project later. The challenges they are trying to solve is similar to our AGS notebook project.</p>
+<p>Darwin is a hosted notebook product for internal use. They plan to release this as open source project later. The challenges they are trying to solve is similar to our <span class="caps">AGS</span> notebook project.</p>
 <p><img src="../../images/strata001.png" width="600"></p>
 <p>Darwin tries to provide a self-service environment. User’s have access to private data, either local datasets or hosted on server. Analysts can write in Python or R and can share their notebooks across the team. They can version their notebooks, but they don’t yet support reviewing of notebooks, just a git integration. Finally, users can schedule the notebooks or ‘productionize by other means’ (which wasn’t clear from their description).</p>
 <p>Below is the architecture of Darwin:</p>
 <p><img src="../../images/strata002.png" width="600"></p>
 <p>At the core, Darwin is based off JupyterHub. The notebook container image has the notebook, Python / R libraries and sparkmagic. A persistent storage is made available (not sure if mounted) via a storage service. The notebook instance connects to a Spark farm via an <a href="https://livy.apache.org/">Apache Livy</a> service and <a href="https://github.com/jupyter-incubator/sparkmagic">Jupyter sparkmagic</a>. Data Science users of Darwin are encouraged to execute jobs on this Spark infrastructure (via Livy) thereby overcoming memory limits of their containers.</p>
 <p>Users can also pick their Docker Image from an internal registry (<a href="https://jfrog.com/artifactory/">artifactory</a> was mentioned). The Docker containers of the Jupyter Hub are run on a Kubernetes cluster. The architecture of Jupyter Hub looked familiar to the default setup in Hub docs. The farm they execute processing against contains Spark (as seen earlier), Tensorflow, and some internal tools like <a href="https://engineering.linkedin.com/teams/data/projects/pinot">Pinot</a> analytic engine.</p>
-<h4 id="democratizing-ml-at-uber">Democratizing ML at Uber<a href="#democratizing-ml-at-uber" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Uber spoke about <a href="https://eng.uber.com/michelangelo/">Michelangelo</a> a machine learning task engine. Their motivation: Internally, most teams found it difficult to get started with using ML to solve problems. They found it hard to access data and to collaborate. While the teams can build a ML solution using tools of their preference (scikit-learn, R, other tools), they found it hard to take it to production and scale it up. Only a very few teams had the know-how of building ML algorithms and the skill of deploying them in HPCs in a distributed and horizontally scalable manner. Further, teams that were capable were building custom solution and the DevOps and SREs found it hard to provide a simpler scaling solution to all data science teams. There wasn’t a standard to collaborate or replicate.</p>
+<h4 id="democratizing-ml-at-uber">Democratizing <span class="caps">ML</span> at Uber<a href="#democratizing-ml-at-uber" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Uber spoke about <a href="https://eng.uber.com/michelangelo/">Michelangelo</a> a machine learning task engine. Their motivation: Internally, most teams found it difficult to get started with using <span class="caps">ML</span> to solve problems. They found it hard to access data and to collaborate. While the teams can build a <span class="caps">ML</span> solution using tools of their preference (scikit-learn, R, other tools), they found it hard to take it to production and scale it up. Only a very few teams had the know-how of building <span class="caps">ML</span> algorithms and the skill of deploying them in HPCs in a distributed and horizontally scalable manner. Further, teams that were capable were building custom solution and the DevOps and SREs found it hard to provide a simpler scaling solution to all data science teams. There wasn’t a standard to collaborate or replicate.</p>
 <p><img src="../../images/strata003.png" width="600"></p>
-<p>The speaker acknowledged the difference between data analysts and scientists if fuzzy and that building a comprehensive platform that can support varied use cases is not quite possible. Thus, Uber chose to build a ML platform that is specialized, narrow and only serves a narrow audience. Motto: build for a few, build for production.</p>
+<p>The speaker acknowledged the difference between data analysts and scientists if fuzzy and that building a comprehensive platform that can support varied use cases is not quite possible. Thus, Uber chose to build a <span class="caps">ML</span> platform that is specialized, narrow and only serves a narrow audience. Motto: build for a few, build for production.</p>
 <p><img src="../../images/strata004.png" width="600"></p>
 <p><strong>Key features of Michelangelo</strong></p>
 <p><img src="../../images/strata005.png" width="600"></p>
-<p>For all other users and use cases that Michelangelo did not serve, the built another product called ‘<a href="https://eng.uber.com/dsw/">Data Science Workbench</a>.’ DSW is a web-based GUI for self-service data science. It provides a notebook interface but has support for r-studio and shiny.</p>
-<p>Uber then spoke about <a href="https://eng.uber.com/michelangelo-pyml/">PyML</a>, a Python library that sits at the intersection of Michelangelo and DSW. It allows users to deploy their custom ML solutions to production on Michelangelo. For models that require big-data, users build and train directly on Michelangelo’s Spark infrastructure. They are limited to a finite number of algorithms. For smaller datasets, users build using the library of their preference (scikit-learn for instance), package using PyML and deploy it as a Docker image on Michelangelo’s farm.</p>
-<p>Today’s Uber is a large company (about 19,000 as of 2019) with several data science teams. The speaker shared some learnings in adopting ML:</p>
-<p><strong>How they ‘democratized ML’ at Uber:</strong></p>
+<p>For all other users and use cases that Michelangelo did not serve, the built another product called ‘<a href="https://eng.uber.com/dsw/">Data Science Workbench</a>.’ <span class="caps">DSW</span> is a web-based <span class="caps">GUI</span> for self-service data science. It provides a notebook interface but has support for r-studio and shiny.</p>
+<p>Uber then spoke about <a href="https://eng.uber.com/michelangelo-pyml/">PyML</a>, a Python library that sits at the intersection of Michelangelo and <span class="caps">DSW</span>. It allows users to deploy their custom <span class="caps">ML</span> solutions to production on Michelangelo. For models that require big-data, users build and train directly on Michelangelo’s Spark infrastructure. They are limited to a finite number of algorithms. For smaller datasets, users build using the library of their preference (scikit-learn for instance), package using PyML and deploy it as a Docker image on Michelangelo’s farm.</p>
+<p>Today’s Uber is a large company (about 19,000 as of 2019) with several data science teams. The speaker shared some learnings in adopting <span class="caps">ML</span>:</p>
+<p><strong>How they ‘democratized <span class="caps">ML</span>’ at Uber:</strong></p>
 <ul>
-<li>They started an internal conference for ML: Uber ML conf, and continued the conversation via brown bag events</li>
-<li>They held regular and repeat ML education events and bootcamps</li>
-<li>They marketed heavily championed the new way of doing ML – DSW for interactive dev and Michelangelo for deployment to production</li>
+<li>They started an internal conference for <span class="caps">ML</span>: Uber <span class="caps">ML</span> conf, and continued the conversation via brown bag events</li>
+<li>They held regular and repeat <span class="caps">ML</span> education events and bootcamps</li>
+<li>They marketed heavily championed the new way of doing <span class="caps">ML</span> – <span class="caps">DSW</span> for interactive dev and Michelangelo for deployment to production</li>
 <li>Coordinated planning with teams as new features were being planned</li>
 </ul>
 <p><strong>Design philosophy behind these two tools:</strong></p>
 <ul>
-<li>Build for experts, but design for less technical users (which I interpreted as: allow customization, but start with intuitive UI and have good defaults)</li>
+<li>Build for experts, but design for less technical users (which I interpreted as: allow customization, but start with intuitive <span class="caps">UI</span> and have good defaults)</li>
 <li>Build for unknown</li>
 <li>Don’t force workflows</li>
 <li>Develop iteratively, but constantly align with long term vision</li>
 <li>Build a community of scientists <span class="amp">&amp;</span> non-scientists / technical <span class="amp">&amp;</span> less technical users. Do not build separate products for these user groups.</li>
 </ul>
 <h4 id="my-takeaways-from-these-talks">My Takeaways from these talks:<a href="#my-takeaways-from-these-talks" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>It was clear that big Silicon Valley firms like to build their own data science platforms. This desire for custom tools is so deep that, when I asked LinkedIn why they did not make use of Azure notebooks (since MS bought LinkedIn), they simply said, we started with this effort before the acquisition. What was also clear is, building a custom data science platform is a very challenging business.  There are several open source components and a variety of ways these can be architected.</p>
-<p>Smaller firms and companies whose core product are not software development, are better off buying a hosted notebook solution (such as AGS Notebooks), than attempting to build one.</p>
-<p>It is very hard to identify which features to include in a data science platform. Skillset and tools of preference amongst people with title ‘data scientist’ is so varied even within these two firms, let alone the broad data science industry. Uber and LinkedIn admitted the proliferation of Python libraries, ML and DL frameworks, their cascading dependencies is a challenge.</p>
+<p>It was clear that big Silicon Valley firms like to build their own data science platforms. This desire for custom tools is so deep that, when I asked LinkedIn why they did not make use of Azure notebooks (since <span class="caps">MS</span> bought LinkedIn), they simply said, we started with this effort before the acquisition. What was also clear is, building a custom data science platform is a very challenging business.  There are several open source components and a variety of ways these can be architected.</p>
+<p>Smaller firms and companies whose core product are not software development, are better off buying a hosted notebook solution (such as <span class="caps">AGS</span> Notebooks), than attempting to build one.</p>
+<p>It is very hard to identify which features to include in a data science platform. Skillset and tools of preference amongst people with title ‘data scientist’ is so varied even within these two firms, let alone the broad data science industry. Uber and LinkedIn admitted the proliferation of Python libraries, <span class="caps">ML</span> and <span class="caps">DL</span> frameworks, their cascading dependencies is a challenge.</p>
 <h4 id="companies-and-products-seen-at-the-expo">Companies and products seen at the Expo<a href="#companies-and-products-seen-at-the-expo" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<h5 id="intel-and-bigdl-distributed-dl-on-spark">Intel and BigDL – distributed DL on Spark:<a href="#intel-and-bigdl-distributed-dl-on-spark" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Intel is a leading chip maker for general purpose computing but was late to the game when it came to making GPUs for deep learning. Most DL frameworks of today support Nvidia GPUs. Most organizations realize the power of DL, but to implement large scale DL solutions, they need to invest in new GPU powered hardware (either on prem or hired on the cloud). However, most of these orgs are likely to have generic server infrastructure (CPU powered) in place for existing business processes. Thus, Intel is building <a href="https://software.intel.com/en-us/articles/bigdl-distributed-deep-learning-on-apache-spark">BigDL – a distributed deep learning library on Apache Spark</a>. At the booth, Intel staff demonstrated performance benchmarks for running DL training on GPU vs distributed CPU.</p>
+<h5 id="intel-and-bigdl-distributed-dl-on-spark">Intel and BigDL – distributed <span class="caps">DL</span> on Spark:<a href="#intel-and-bigdl-distributed-dl-on-spark" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>Intel is a leading chip maker for general purpose computing but was late to the game when it came to making GPUs for deep learning. Most <span class="caps">DL</span> frameworks of today support Nvidia GPUs. Most organizations realize the power of <span class="caps">DL</span>, but to implement large scale <span class="caps">DL</span> solutions, they need to invest in new <span class="caps">GPU</span> powered hardware (either on prem or hired on the cloud). However, most of these orgs are likely to have generic server infrastructure (<span class="caps">CPU</span> powered) in place for existing business processes. Thus, Intel is building <a href="https://software.intel.com/en-us/articles/bigdl-distributed-deep-learning-on-apache-spark">BigDL – a distributed deep learning library on Apache Spark</a>. At the booth, Intel staff demonstrated performance benchmarks for running <span class="caps">DL</span> training on <span class="caps">GPU</span> vs distributed <span class="caps">CPU</span>.</p>
 <p><img src="../../images/strata006.png" width="600"></p>
 <p>Intel’s booth had a unique layout. Under a large Intel banner, I found 6 separate stations where business partners of Intel set up their booths. I spoke to</p>
 <ul>
 <li>
-<a href="https://www.h2o.ai/">H20.ai</a> – automatic feature engineering, training and model development. It is an intelligent assistant for data scientists. The sales person was a former GIS analyst and was happy to meet someone from Esri.</li>
+<a href="https://www.h2o.ai/">H20.ai</a> – automatic feature engineering, training and model development. It is an intelligent assistant for data scientists. The sales person was a former <span class="caps">GIS</span> analyst and was happy to meet someone from Esri.</li>
 <li>
-<a href="https://www.oneconvergence.com/">OneConvergence</a> – another cloud native DL platform</li>
+<a href="https://www.oneconvergence.com/">OneConvergence</a> – another cloud native <span class="caps">DL</span> platform</li>
 <li>
 <a href="https://www.dominodatalab.com/platform/">Domino datalab</a> -  another data science platform</li>
 </ul>
-<h5 id="semoss-open-source-browser-based-ui-driven-analysis">SEMOSS: open source, browser based, UI driven analysis<a href="#semoss-open-source-browser-based-ui-driven-analysis" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<h5 id="semoss-open-source-browser-based-ui-driven-analysis"><span class="caps">SEMOSS</span>: open source, browser based, <span class="caps">UI</span> driven analysis<a href="#semoss-open-source-browser-based-ui-driven-analysis" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p><img src="../../images/strata007.png" width="600"></p>
-<p>It provides Python and R shells that allow users to write custom scripts, execute on a server back-end and get the results updated back on the browser. This is a challenging feature to achieve (maintaining data context) and their demo was of this feature was impressive. SEMOSS provides limited geospatial capabilities – viz and geocoding at best. For geocoding, they make use of Esri World Geocoding service.</p>
-<h5 id="alteryx-gui-based-self-service-data-analysis-platform">Alteryx: GUI based, self-service data analysis platform<a href="#alteryx-gui-based-self-service-data-analysis-platform" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>It provides Python and R shells that allow users to write custom scripts, execute on a server back-end and get the results updated back on the browser. This is a challenging feature to achieve (maintaining data context) and their demo was of this feature was impressive. <span class="caps">SEMOSS</span> provides limited geospatial capabilities – viz and geocoding at best. For geocoding, they make use of Esri World Geocoding service.</p>
+<h5 id="alteryx-gui-based-self-service-data-analysis-platform">Alteryx: <span class="caps">GUI</span> based, self-service data analysis platform<a href="#alteryx-gui-based-self-service-data-analysis-platform" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p><img src="../../images/strata008.png" width="600"></p>
 <p><a href="https://www.alteryx.com/why-alteryx/data-scientists">Alteryx</a> has many features including geospatial analysis, but the staff at the booth were not equipped to talk to those aspects. Their emphasis was on the self-service nature.</p>
 <h5 id="data-catalog-companies">Data catalog companies<a href="#data-catalog-companies" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Several companies are building data catalogs or data management software for your big data warehouse. Features include – building data manifests, data usage graphs, flagging <span class="amp">&amp;</span> removal of PII. The overall theme is, following the big data hype, a number of companies have started collecting large amounts of business process data. They do not have a way to make sense of this massive collection and these vendors are building products to help manage these data warehouses.</p>
-<p><a href="https://www.okera.com/">Okera</a> (data cataloger), <a href="https://cryptonumerics.com/">Cryptonumerics</a> (PII identification), <a href="https://www.alation.com/">Alation</a> (data catalog), <a href="https://www.waterlinedata.com/">Waterline Data</a> (data catalog), <a href="https://www.matillion.com/">Matillion</a> (data management), <a href="https://www.dremio.com/">Dremio</a> (fast data queries), <a href="https://www.immuta.com/">Immuta</a> (data governance), <a href="https://www.ataccama.com/">Ataccama</a> (data cleanser/curator), <a href="https://www.collibra.com/">Collibra</a> (data lineage), <a href="https://www.alluxio.io/">Alluxio</a> (data orchestration).</p>
+<p>Several companies are building data catalogs or data management software for your big data warehouse. Features include – building data manifests, data usage graphs, flagging <span class="amp">&amp;</span> removal of <span class="caps">PII</span>. The overall theme is, following the big data hype, a number of companies have started collecting large amounts of business process data. They do not have a way to make sense of this massive collection and these vendors are building products to help manage these data warehouses.</p>
+<p><a href="https://www.okera.com/">Okera</a> (data cataloger), <a href="https://cryptonumerics.com/">Cryptonumerics</a> (<span class="caps">PII</span> identification), <a href="https://www.alation.com/">Alation</a> (data catalog), <a href="https://www.waterlinedata.com/">Waterline Data</a> (data catalog), <a href="https://www.matillion.com/">Matillion</a> (data management), <a href="https://www.dremio.com/">Dremio</a> (fast data queries), <a href="https://www.immuta.com/">Immuta</a> (data governance), <a href="https://www.ataccama.com/">Ataccama</a> (data cleanser/curator), <a href="https://www.collibra.com/">Collibra</a> (data lineage), <a href="https://www.alluxio.io/">Alluxio</a> (data orchestration).</p>
 <h3 id="summary">Summary<a href="#summary" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>I found my time at Strata productive and informative. I wish I could have spent a bit more time at the Esri Booth, but the people I spoke to were thrilled to hear the analytical applications possible with spatial data. It was interesting to meet and talk to people that crossed over from being a GIS analyst to the Financial industry. The challenges that Uber and LinkedIn’s shared while building notebook and ML solutions were insightful.</p>
+<p>I found my time at Strata productive and informative. I wish I could have spent a bit more time at the Esri Booth, but the people I spoke to were thrilled to hear the analytical applications possible with spatial data. It was interesting to meet and talk to people that crossed over from being a <span class="caps">GIS</span> analyst to the Financial industry. The challenges that Uber and LinkedIn’s shared while building notebook and <span class="caps">ML</span> solutions were insightful.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

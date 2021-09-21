@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GeoPandas - PySal, OSM data IO | Atma’s blog</title>
+<title>GeoPandas - PySal, OSM data IO | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -112,7 +112,7 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -196,7 +196,7 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -214,22 +214,22 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li class="active">
-<a href=".">GeoPandas - PySal, OSM data IO <span class="sr-only">(active)</span></a>
+<a href=".">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span> <span class="sr-only">(active)</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -247,7 +247,7 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -255,7 +255,7 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -277,7 +277,7 @@ Data reclassificationVisualize travel times on mapClassify with PysalCustom clas
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - PySal, OSM data IO</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a></h1>
 
         
 
@@ -312,9 +312,9 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
 <span><a href="#Classify-with-Pysal" data-toc-modified-id="Classify-with-Pysal-2">Classify with Pysal</a></span><ul class="toc-item"><li><span><a href="#Custom-classifier" data-toc-modified-id="Custom-classifier-2.1">Custom classifier</a></span></li></ul>
 </li>
 <li>
-<span><a href="#Download-from-OSM" data-toc-modified-id="Download-from-OSM-3">Download from OSM</a></span><ul class="toc-item">
+<span><a href="#Download-from-OSM" data-toc-modified-id="Download-from-OSM-3">Download from <span class="caps">OSM</span></a></span><ul class="toc-item">
 <li><span><a href="#Convert-DiGraph-to-GeoDataFrame" data-toc-modified-id="Convert-DiGraph-to-GeoDataFrame-3.1">Convert DiGraph to GeoDataFrame</a></span></li>
-<li><span><a href="#Download-buildings-from-OSM" data-toc-modified-id="Download-buildings-from-OSM-3.2">Download buildings from OSM</a></span></li>
+<li><span><a href="#Download-buildings-from-OSM" data-toc-modified-id="Download-buildings-from-OSM-3.2">Download buildings from <span class="caps">OSM</span></a></span></li>
 <li><span><a href="#Plot-on-map" data-toc-modified-id="Plot-on-map-3.3">Plot on map</a></span></li>
 </ul>
 </li>
@@ -405,9 +405,9 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <th>walk_d</th>
       <th>walk_t</th>
       <th>GML_ID</th>
-      <th>NAMEFIN</th>
-      <th>NAMESWE</th>
-      <th>NATCODE</th>
+      <th><span class="caps">NAMEFIN</span></th>
+      <th><span class="caps">NAMESWE</span></th>
+      <th><span class="caps">NATCODE</span></th>
       <th>geometry</th>
     </tr></thead>
 <tbody>
@@ -431,7 +431,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349226 6667750.00004299, …</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349226 6667750.00004299, …</td>
     </tr>
 <tr>
 <th>1</th>
@@ -453,7 +453,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((390750.0001349644 6668000.000042951,…</td>
+      <td><span class="caps">POLYGON</span> ((390750.0001349644 6668000.000042951,…</td>
     </tr>
 <tr>
 <th>2</th>
@@ -475,7 +475,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349143 6668000.000042943,…</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349143 6668000.000042943,…</td>
     </tr>
 </tbody>
 </table>
@@ -493,7 +493,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>pt_r_tt</code> column contains time taken to reach city center. The <code>walk_d</code> column is the network distance to city center.</p>
+<p>The <code>pt_r_tt</code> column contains time taken to reach city center. The <code>walk_d</code> column is the network distance to city center.</p>
 
 </div>
 </div>
@@ -643,8 +643,8 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Create a classifier object that can be used with <code>apply()</code> method of the <code>DataFrame</code> object. There are two ways to classify this. One is to send data to Pysal and classify, the other is to get a classifier function and use that to iterate over the rows of the data frame. As you expect, we will do the latter.</p>
-<p>The <code>make()</code> method of the <code>Natural_Breaks</code> class is like a partial constructor. It accepts all parameters of the constructor other than the full data</p>
+<p>Create a classifier object that can be used with <code>apply()</code> method of the <code>DataFrame</code> object. There are two ways to classify this. One is to send data to Pysal and classify, the other is to get a classifier function and use that to iterate over the rows of the data frame. As you expect, we will do the latter.</p>
+<p>The <code>make()</code> method of the <code>Natural_Breaks</code> class is like a partial constructor. It accepts all parameters of the constructor other than the full data</p>
 
 </div>
 </div>
@@ -775,7 +775,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus we have classified the time to city center into <code>9</code> classes. The <code>Natural Breaks</code> classifier iterates over the whole data making <code>n_classes</code> groups such that the <strong>variability within groups is minimum</strong> and <strong>variability between groups</strong> is higher.</p>
+<p>Thus we have classified the time to city center into <code>9</code> classes. The <code>Natural Breaks</code> classifier iterates over the whole data making <code>n_classes</code> groups such that the <strong>variability within groups is minimum</strong> and <strong>variability between groups</strong> is higher.</p>
 
 </div>
 </div>
@@ -934,9 +934,9 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <th>walk_d</th>
       <th>walk_t</th>
       <th>GML_ID</th>
-      <th>NAMEFIN</th>
-      <th>NAMESWE</th>
-      <th>NATCODE</th>
+      <th><span class="caps">NAMEFIN</span></th>
+      <th><span class="caps">NAMESWE</span></th>
+      <th><span class="caps">NATCODE</span></th>
       <th>geometry</th>
     </tr></thead>
 <tbody>
@@ -960,7 +960,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349226 6667750.00004299, …</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349226 6667750.00004299, …</td>
     </tr>
 <tr>
 <th>1</th>
@@ -982,7 +982,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((390750.0001349644 6668000.000042951,…</td>
+      <td><span class="caps">POLYGON</span> ((390750.0001349644 6668000.000042951,…</td>
     </tr>
 <tr>
 <th>2</th>
@@ -1004,7 +1004,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349143 6668000.000042943,…</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349143 6668000.000042943,…</td>
     </tr>
 <tr>
 <th>3</th>
@@ -1026,7 +1026,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((390750.0001349644 6668000.000042951,…</td>
+      <td><span class="caps">POLYGON</span> ((390750.0001349644 6668000.000042951,…</td>
     </tr>
 <tr>
 <th>4</th>
@@ -1048,7 +1048,7 @@ Use Pysal to classify data, download vector data from Open Street Maps.</p>
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((392500.0001346234 6668000.000042901,…</td>
+      <td><span class="caps">POLYGON</span> ((392500.0001346234 6668000.000042901,…</td>
     </tr>
 </tbody>
 </table>
@@ -1202,9 +1202,9 @@ Wall time: 8.82 µs
       <th>walk_d</th>
       <th>walk_t</th>
       <th>GML_ID</th>
-      <th>NAMEFIN</th>
-      <th>NAMESWE</th>
-      <th>NATCODE</th>
+      <th><span class="caps">NAMEFIN</span></th>
+      <th><span class="caps">NAMESWE</span></th>
+      <th><span class="caps">NATCODE</span></th>
       <th>geometry</th>
       <th>suitable_grid</th>
     </tr></thead>
@@ -1229,7 +1229,7 @@ Wall time: 8.82 µs
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349226 6667750.00004299, …</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349226 6667750.00004299, …</td>
       <td>0</td>
     </tr>
 <tr>
@@ -1252,7 +1252,7 @@ Wall time: 8.82 µs
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((390750.0001349644 6668000.000042951,…</td>
+      <td><span class="caps">POLYGON</span> ((390750.0001349644 6668000.000042951,…</td>
       <td>0</td>
     </tr>
 <tr>
@@ -1275,7 +1275,7 @@ Wall time: 8.82 µs
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((391000.0001349143 6668000.000042943,…</td>
+      <td><span class="caps">POLYGON</span> ((391000.0001349143 6668000.000042943,…</td>
       <td>0</td>
     </tr>
 <tr>
@@ -1298,7 +1298,7 @@ Wall time: 8.82 µs
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((390750.0001349644 6668000.000042951,…</td>
+      <td><span class="caps">POLYGON</span> ((390750.0001349644 6668000.000042951,…</td>
       <td>0</td>
     </tr>
 <tr>
@@ -1321,7 +1321,7 @@ Wall time: 8.82 µs
       <td>Helsinki</td>
       <td>Helsingfors</td>
       <td>091</td>
-      <td>POLYGON ((392500.0001346234 6668000.000042901,…</td>
+      <td><span class="caps">POLYGON</span> ((392500.0001346234 6668000.000042901,…</td>
       <td>0</td>
     </tr>
 </tbody>
@@ -1454,7 +1454,7 @@ Name: suitable_grid, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Download-from-OSM">Download from OSM<a class="anchor-link" href="#Download-from-OSM">¶</a>
+<h3 id="Download-from-OSM">Download from <span class="caps">OSM</span><a class="anchor-link" href="#Download-from-OSM">¶</a>
 <a href="#Download-from-OSM" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Use <a href="https://github.com/gboeing/osmnx">OSMnx</a> library to download vector, network data from open streets maps server.</p>
 
@@ -1664,7 +1664,7 @@ Name: suitable_grid, dtype: int64</pre>
       <td>NaN</td>
       <td>-117.2</td>
       <td>34.0646</td>
-      <td>POINT (-117.2002004 34.0646087)</td>
+      <td><span class="caps">POINT</span> (-117.2002004 34.0646087)</td>
     </tr>
 <tr>
 <th>54307215</th>
@@ -1673,7 +1673,7 @@ Name: suitable_grid, dtype: int64</pre>
       <td>NaN</td>
       <td>-117.201</td>
       <td>34.0652</td>
-      <td>POINT (-117.2014769 34.0652388)</td>
+      <td><span class="caps">POINT</span> (-117.2014769 34.0652388)</td>
     </tr>
 <tr>
 <th>54310829</th>
@@ -1682,7 +1682,7 @@ Name: suitable_grid, dtype: int64</pre>
       <td>NaN</td>
       <td>-117.198</td>
       <td>34.052</td>
-      <td>POINT (-117.1978832 34.0519842)</td>
+      <td><span class="caps">POINT</span> (-117.1978832 34.0519842)</td>
     </tr>
 <tr>
 <th>54310830</th>
@@ -1691,7 +1691,7 @@ Name: suitable_grid, dtype: int64</pre>
       <td>NaN</td>
       <td>-117.198</td>
       <td>34.0511</td>
-      <td>POINT (-117.1979513 34.0511416)</td>
+      <td><span class="caps">POINT</span> (-117.1979513 34.0511416)</td>
     </tr>
 <tr>
 <th>54313777</th>
@@ -1700,7 +1700,7 @@ Name: suitable_grid, dtype: int64</pre>
       <td>79</td>
       <td>-117.191</td>
       <td>34.0617</td>
-      <td>POINT (-117.1909685 34.0616596)</td>
+      <td><span class="caps">POINT</span> (-117.1909685 34.0616596)</td>
     </tr>
 </tbody>
 </table>
@@ -1718,7 +1718,7 @@ Name: suitable_grid, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you notice, the nodes are of <code>Point</code> geometry. I think these represent the intersections</p>
+<p>If you notice, the nodes are of <code>Point</code> geometry. I think these represent the intersections</p>
 
 </div>
 </div>
@@ -1784,7 +1784,7 @@ Name: suitable_grid, dtype: int64</pre>
 <th>0</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>LINESTRING (-117.200091 34.0592561, -117.19667…</td>
+      <td><span class="caps">LINESTRING</span> (-117.200091 34.0592561, -117.19667…</td>
       <td>residential</td>
       <td>0</td>
       <td>NaN</td>
@@ -1802,7 +1802,7 @@ Name: suitable_grid, dtype: int64</pre>
 <th>1</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>LINESTRING (-117.200091 34.0592561, -117.20073…</td>
+      <td><span class="caps">LINESTRING</span> (-117.200091 34.0592561, -117.20073…</td>
       <td>residential</td>
       <td>0</td>
       <td>NaN</td>
@@ -1820,7 +1820,7 @@ Name: suitable_grid, dtype: int64</pre>
 <th>2</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>LINESTRING (-117.200091 34.0592561, -117.20009…</td>
+      <td><span class="caps">LINESTRING</span> (-117.200091 34.0592561, -117.20009…</td>
       <td>tertiary</td>
       <td>0</td>
       <td>[4, 5]</td>
@@ -1838,7 +1838,7 @@ Name: suitable_grid, dtype: int64</pre>
 <th>3</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>LINESTRING (-117.200091 34.0592561, -117.20008…</td>
+      <td><span class="caps">LINESTRING</span> (-117.200091 34.0592561, -117.20008…</td>
       <td>tertiary</td>
       <td>0</td>
       <td>[4, 5]</td>
@@ -1856,7 +1856,7 @@ Name: suitable_grid, dtype: int64</pre>
 <th>4</th>
       <td>NaN</td>
       <td>NaN</td>
-      <td>LINESTRING (-117.1967853 34.0568395, -117.1967…</td>
+      <td><span class="caps">LINESTRING</span> (-117.1967853 34.0568395, -117.1967…</td>
       <td>footway</td>
       <td>0</td>
       <td>NaN</td>
@@ -1886,8 +1886,8 @@ Name: suitable_grid, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>edges</code> are of <code>linestring</code> geometry and a host of information.</p>
-<h4 id="Download-buildings-from-OSM">Download buildings from OSM<a class="anchor-link" href="#Download-buildings-from-OSM">¶</a>
+<p>The <code>edges</code> are of <code>linestring</code> geometry and a host of information.</p>
+<h4 id="Download-buildings-from-OSM">Download buildings from <span class="caps">OSM</span><a class="anchor-link" href="#Download-buildings-from-OSM">¶</a>
 <a href="#Download-buildings-from-OSM" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -2102,8 +2102,8 @@ Name: suitable_grid, dtype: int64</pre>
 <th>32194340</th>
       <td>NaN</td>
       <td>Redlands</td>
-      <td>US</td>
-      <td>ESRI HQ</td>
+      <td><span class="caps">US</span></td>
+      <td><span class="caps">ESRI</span> <span class="caps">HQ</span></td>
       <td>350</td>
       <td>92373</td>
       <td>NaN</td>
@@ -2200,7 +2200,7 @@ Name: suitable_grid, dtype: int64</pre>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

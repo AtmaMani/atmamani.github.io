@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>spark-ml-ca-housing | Atma’s blog</title>
+<title>spark-ml-ca-housing | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
 
 
 Table of Contents
-Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp; ContextAbout CA housing datasetPreprocess dataConvert RDD to Spark DataFrameExploratory d”&gt;
+Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp; ContextAbout <span class="caps">CA</span> housing datasetPreprocess dataConvert <span class="caps">RDD</span> to Spark DataFrameExploratory d”&gt;
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2019-11-26T14:18:46-08:00">
 
@@ -110,7 +110,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -194,7 +194,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -212,22 +212,22 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -245,7 +245,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -253,7 +253,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -286,7 +286,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Predicting-CA-housing-prices-using-SparkMLib">Predicting CA housing prices using SparkMLib<a class="anchor-link" href="#Predicting-CA-housing-prices-using-SparkMLib">¶</a>
+<h2 id="Predicting-CA-housing-prices-using-SparkMLib">Predicting <span class="caps">CA</span> housing prices using SparkMLib<a class="anchor-link" href="#Predicting-CA-housing-prices-using-SparkMLib">¶</a>
 <a href="#Predicting-CA-housing-prices-using-SparkMLib" class="headerlink" title="Permalink to this heading">¶</a></h2>
 </div>
 </div>
@@ -302,15 +302,15 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <div class="toc"><ul class="toc-item">
 <li><ul class="toc-item">
 <li><span><a href="#Boiler-plate---initialize-SparkSession-&amp;-Context" data-toc-modified-id="Boiler-plate---initialize-SparkSession-&amp;-Context-0.1">Boiler plate - initialize SparkSession <span class="amp">&amp;</span> Context</a></span></li>
-<li><span><a href="#About-CA-housing-dataset" data-toc-modified-id="About-CA-housing-dataset-0.2">About CA housing dataset</a></span></li>
+<li><span><a href="#About-CA-housing-dataset" data-toc-modified-id="About-CA-housing-dataset-0.2">About <span class="caps">CA</span> housing dataset</a></span></li>
 <li><span><a href="#Preprocess-data" data-toc-modified-id="Preprocess-data-0.3">Preprocess data</a></span></li>
-<li><span><a href="#Convert-RDD-to-Spark-DataFrame" data-toc-modified-id="Convert-RDD-to-Spark-DataFrame-0.4">Convert RDD to Spark DataFrame</a></span></li>
+<li><span><a href="#Convert-RDD-to-Spark-DataFrame" data-toc-modified-id="Convert-RDD-to-Spark-DataFrame-0.4">Convert <span class="caps">RDD</span> to Spark DataFrame</a></span></li>
 <li><span><a href="#Exploratory-data-analysis" data-toc-modified-id="Exploratory-data-analysis-0.5">Exploratory data analysis</a></span></li>
 </ul></li>
 <li>
 <span><a href="#Feature-engineering" data-toc-modified-id="Feature-engineering-1">Feature engineering</a></span><ul class="toc-item"><li><ul class="toc-item">
 <li><span><a href="#Re-order-columns-and-split-table-into-label-and-features" data-toc-modified-id="Re-order-columns-and-split-table-into-label-and-features-1.0.1">Re-order columns and split table into label and features</a></span></li>
-<li><span><a href="#Scale-data-by-shifting-mean-to-0-and-making-SD-=-1" data-toc-modified-id="Scale-data-by-shifting-mean-to-0-and-making-SD-=-1-1.0.2">Scale data by shifting mean to 0 and making SD = 1</a></span></li>
+<li><span><a href="#Scale-data-by-shifting-mean-to-0-and-making-SD-=-1" data-toc-modified-id="Scale-data-by-shifting-mean-to-0-and-making-SD-=-1-1.0.2">Scale data by shifting mean to 0 and making <span class="caps">SD</span> = 1</a></span></li>
 </ul></li></ul>
 </li>
 <li><span><a href="#Split-data-into-training-and-test-sets" data-toc-modified-id="Split-data-into-training-and-test-sets-2">Split data into training and test sets</a></span></li>
@@ -320,7 +320,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 <li>
 <span><a href="#Perform-predictions" data-toc-modified-id="Perform-predictions-3.2">Perform predictions</a></span><ul class="toc-item">
 <li><span><a href="#Regression-evaluator" data-toc-modified-id="Regression-evaluator-3.2.1">Regression evaluator</a></span></li>
-<li><span><a href="#Errors---MAE,-RMSE" data-toc-modified-id="Errors---MAE,-RMSE-3.2.2">Errors - MAE, RMSE</a></span></li>
+<li><span><a href="#Errors---MAE,-RMSE" data-toc-modified-id="Errors---MAE,-RMSE-3.2.2">Errors - <span class="caps">MAE</span>, <span class="caps">RMSE</span></a></span></li>
 </ul>
 </li>
 <li><span><a href="#Compare-training-vs-prediction-errors" data-toc-modified-id="Compare-training-vs-prediction-errors-3.3">Compare training vs prediction errors</a></span></li>
@@ -328,8 +328,8 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 </li>
 <li>
 <span><a href="#Export-data-as-a-Pandas-DataFrame" data-toc-modified-id="Export-data-as-a-Pandas-DataFrame-4">Export data as a Pandas DataFrame</a></span><ul class="toc-item">
-<li><span><a href="#Write-to-disk-as-CSV" data-toc-modified-id="Write-to-disk-as-CSV-4.1">Write to disk as CSV</a></span></li>
-<li><span><a href="#Publish-to-GIS" data-toc-modified-id="Publish-to-GIS-4.2">Publish to GIS</a></span></li>
+<li><span><a href="#Write-to-disk-as-CSV" data-toc-modified-id="Write-to-disk-as-CSV-4.1">Write to disk as <span class="caps">CSV</span></a></span></li>
+<li><span><a href="#Publish-to-GIS" data-toc-modified-id="Publish-to-GIS-4.2">Publish to <span class="caps">GIS</span></a></span></li>
 <li><span><a href="#Spark-jobs" data-toc-modified-id="Spark-jobs-4.3">Spark jobs</a></span></li>
 </ul>
 </li>
@@ -375,7 +375,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="About-CA-housing-dataset">About CA housing dataset<a class="anchor-link" href="#About-CA-housing-dataset">¶</a>
+<h4 id="About-CA-housing-dataset">About <span class="caps">CA</span> housing dataset<a class="anchor-link" href="#About-CA-housing-dataset">¶</a>
 <a href="#About-CA-housing-dataset" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -602,7 +602,7 @@ Boiler plate - initialize SparkSession &lt;span class=" amp></head><body><p>&amp
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Convert-RDD-to-Spark-DataFrame">Convert RDD to Spark DataFrame<a class="anchor-link" href="#Convert-RDD-to-Spark-DataFrame">¶</a>
+<h4 id="Convert-RDD-to-Spark-DataFrame">Convert <span class="caps">RDD</span> to Spark DataFrame<a class="anchor-link" href="#Convert-RDD-to-Spark-DataFrame">¶</a>
 <a href="#Convert-RDD-to-Spark-DataFrame" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -1052,7 +1052,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Create a new DataFrame that explicitly labels the columns as labels and features. <code>DenseVector</code> is used to temporarily convert the data into numpy array and regroup into a named column DataFrame</p>
+<p>Create a new DataFrame that explicitly labels the columns as labels and features. <code>DenseVector</code> is used to temporarily convert the data into numpy array and regroup into a named column DataFrame</p>
 
 </div>
 </div>
@@ -1115,7 +1115,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Scale-data-by-shifting-mean-to-0-and-making-SD-=-1">Scale data by shifting mean to 0 and making SD = 1<a class="anchor-link" href="#Scale-data-by-shifting-mean-to-0-and-making-SD-=-1">¶</a>
+<h5 id="Scale-data-by-shifting-mean-to-0-and-making-SD-=-1">Scale data by shifting mean to 0 and making <span class="caps">SD</span> = 1<a class="anchor-link" href="#Scale-data-by-shifting-mean-to-0-and-making-SD-=-1">¶</a>
 <a href="#Scale-data-by-shifting-mean-to-0-and-making-SD-=-1" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p>This ensures all columns have similar levels of variability</p>
 
@@ -1448,7 +1448,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>MAE from training data</p>
+<p><span class="caps">MAE</span> from training data</p>
 
 </div>
 </div>
@@ -1491,7 +1491,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, MAE on training data is off by $50,000</p>
+<p>Thus, <span class="caps">MAE</span> on training data is off by $50,000</p>
 
 </div>
 </div>
@@ -1567,7 +1567,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus, RMSE shows fitting on training data is off by $68,392</p>
+<p>Thus, <span class="caps">RMSE</span> shows fitting on training data is off by $68,392</p>
 
 </div>
 </div>
@@ -1796,7 +1796,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Errors---MAE,-RMSE">Errors - MAE, RMSE<a class="anchor-link" href="#Errors---MAE,-RMSE">¶</a>
+<h5 id="Errors---MAE,-RMSE">Errors - <span class="caps">MAE</span>, <span class="caps">RMSE</span><a class="anchor-link" href="#Errors---MAE,-RMSE">¶</a>
 <a href="#Errors---MAE,-RMSE" class="headerlink" title="Permalink to this heading">¶</a></h5>
 </div>
 </div>
@@ -2199,7 +2199,7 @@ only showing top 2 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Write-to-disk-as-CSV">Write to disk as CSV<a class="anchor-link" href="#Write-to-disk-as-CSV">¶</a>
+<h4 id="Write-to-disk-as-CSV">Write to disk as <span class="caps">CSV</span><a class="anchor-link" href="#Write-to-disk-as-CSV">¶</a>
 <a href="#Write-to-disk-as-CSV" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -2289,7 +2289,7 @@ spark-ml-CA-housing.ipynb      using-spark-dataframes.ipynb
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Publish-to-GIS">Publish to GIS<a class="anchor-link" href="#Publish-to-GIS">¶</a>
+<h4 id="Publish-to-GIS">Publish to <span class="caps">GIS</span><a class="anchor-link" href="#Publish-to-GIS">¶</a>
 <a href="#Publish-to-GIS" class="headerlink" title="Permalink to this heading">¶</a></h4>
 </div>
 </div>
@@ -2646,7 +2646,7 @@ var element = $('#c17320d7-53b6-4170-92ca-05d17e385a03');
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

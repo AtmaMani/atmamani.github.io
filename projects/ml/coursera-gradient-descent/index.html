@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Understanding Gradient Descent | Atma’s blog</title>
+<title>Understanding Gradient Descent | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -104,7 +104,7 @@ The linear regression estimation function (hypothesis function) can be written a
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -188,7 +188,7 @@ The linear regression estimation function (hypothesis function) can be written a
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -206,22 +206,22 @@ The linear regression estimation function (hypothesis function) can be written a
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -239,7 +239,7 @@ The linear regression estimation function (hypothesis function) can be written a
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -247,7 +247,7 @@ The linear regression estimation function (hypothesis function) can be written a
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -283,9 +283,9 @@ J(\theta_{0}, \theta_{1}) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x_{i}) - y_{
 <p>The core of the cost function is the squared difference between prediction and truth in $y$. In other words, this can be written as</p>
 <p>$$
 J(\theta_{0}, \theta_{1}) = \frac{1}{2m} \sum_{i=1}^{m} (\hat y_{i} - y_{i})^2 $$</p>
-<p>We square the error as that is a common way of measuring loss. We sum the loss for each value of $y$, get the average and then half the average. The <strong>squared error cost function</strong> is pretty common and works well for linear regressions. We halve the error function for convenience later when we take the derivative of the function and the <code>2</code> gets cancelled out. However, the objective of the estimation function is choosing values of $\theta_{0} and \theta_{1}$ such that they minimize the cost function.</p>
+<p>We square the error as that is a common way of measuring loss. We sum the loss for each value of $y$, get the average and then half the average. The <strong>squared error cost function</strong> is pretty common and works well for linear regressions. We halve the error function for convenience later when we take the derivative of the function and the <code>2</code> gets cancelled out. However, the objective of the estimation function is choosing values of $\theta_{0} and \theta_{1}$ such that they minimize the cost function.</p>
 <h3 id="minimizing-cost-functions">Minimizing cost functions<a href="#minimizing-cost-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>To understand how to minimize the cost functions, let us simplify the above regression to a state where intercept is <code>0</code>. Thus the estimation / hypothesis function changes to</p>
+<p>To understand how to minimize the cost functions, let us simplify the above regression to a state where intercept is <code>0</code>. Thus the estimation / hypothesis function changes to</p>
 <p>$$
 J(\theta_{1}) = \frac{1}{2m} \sum_{i=1}^{m}(h_{\theta}(x_{i}) - y_{i})^2
 $$
@@ -304,9 +304,9 @@ J(\theta_{1}) = \frac{1}{2m} \sum_{i=1}^{m}(\theta_{1}x_{i} - y_{i})^2 $$</p>
 <p>In a multiple regression problem, there are several predictor variables. Thus the loss function is hard to visualize as there now multiple dimensions, one for coefficient of predictor variable + intercept term. An algorithmic way of minimizing the cost function is called <strong>gradient descent</strong>.</p>
 <h3 id="gradient-descent">Gradient descent<a href="#gradient-descent" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Gradient descent is an algorithm that is used to minimize the loss function. It is also used widely in many machine learning problems. The idea is, to start with arbitrary values for $\theta_{0}$ and $\theta_{1}$, keep changing them little by little until we reach minimal values for the loss function $J(\theta_{0}, \theta_{1})$.</p>
-<p>The following graphic shows the distribution of the loss function. The GD algorithm starts at an arbitrary point for $\theta_{0}$ and $\theta_{1}$, takes small steps, at each step determining the direction of travel and stride length, and arrives as the <strong>local minima</strong>. The direction is determined by getting the slope of the tangent (derivative) at each point.</p>
+<p>The following graphic shows the distribution of the loss function. The <span class="caps">GD</span> algorithm starts at an arbitrary point for $\theta_{0}$ and $\theta_{1}$, takes small steps, at each step determining the direction of travel and stride length, and arrives as the <strong>local minima</strong>. The direction is determined by getting the slope of the tangent (derivative) at each point.</p>
 <p><img src="../../../images/ml-gradient-descent1.png" width="350"></p>
-<p>An interesting feature of GD is, if you started at a different point, you might end up at a <strong>different local minima</strong>. The definition of gradient descent for any <strong>arbitrary equation</strong> is:</p>
+<p>An interesting feature of <span class="caps">GD</span> is, if you started at a different point, you might end up at a <strong>different local minima</strong>. The definition of gradient descent for any <strong>arbitrary equation</strong> is:</p>
 <p>$$
 \theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial\theta_{j}}J(\theta_{0}, \theta_{1}) \ (for \; j=0 \;and\; j=1) 
 $$
@@ -336,7 +336,7 @@ repeat \; until \; convergence
 <p>The $\frac{d}{d\theta_{1}} J(\theta_{1})$ term is the <strong>derivative</strong> and gives the slope of the tangent at each point. The direction of the slope changes depending on the position on the curve and will lead the iteration to local minima.</p>
 <p>The learning rate $\alpha$ is multiplied by the slope / derivative term. A larger $\alpha$ will lead to an aggressive iteration which may overshoot the minima or even lead to run away divergence. A very small or conservative $\alpha$ will slow down the convergence or might settle for minor minimums as local minima.</p>
 <p><img src="../../../images/ml-gradient-descent3.png" width="400"></p>
-<p>Further, as we approach the local minima, the slope decreases. Thus even for a fixed $\alpha$, the rate of change will slow down in general, leading to a safe landing at minima. The slope at local minima is <code>0</code>. Thus, once reached, the second term of the equation (right of the minus sign) turns to <code>0</code> and the iteration as converged.</p>
+<p>Further, as we approach the local minima, the slope decreases. Thus even for a fixed $\alpha$, the rate of change will slow down in general, leading to a safe landing at minima. The slope at local minima is <code>0</code>. Thus, once reached, the second term of the equation (right of the minus sign) turns to <code>0</code> and the iteration as converged.</p>
 <h4 id="gradient-descent-for-linear-regression">Gradient descent for linear regression<a href="#gradient-descent-for-linear-regression" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The loss function $J(\theta_{0}, \theta_{1})$ can be expanded out with actual loss function equation from earlier. Thus now the differential equations become:</p>
 <p>$$
@@ -348,12 +348,12 @@ $$
 $$
 \theta_{1} := \theta_{1} - \alpha \frac{1}{m} \sum_{i=1}^{m} [(h_{\theta}(x_{i}) - y_{i})x_{i}] $$</p>
 <p>Here, m is number of training samples, $\theta_{0}$ is intercept and $\theta_{1}$ is the coefficient 1, $x_{i}$ and $y_{i}$ are values of the training data.</p>
-<p>This process of using the full training sample for calculating the GD is called <strong>batch gradient descent</strong>. In the case of linear regression, the shape of the loss function is a <strong>convex function</strong> which looks like a <strong>bowl</strong>. There is only a global minima and <strong>no local minimas</strong>.</p>
+<p>This process of using the full training sample for calculating the <span class="caps">GD</span> is called <strong>batch gradient descent</strong>. In the case of linear regression, the shape of the loss function is a <strong>convex function</strong> which looks like a <strong>bowl</strong>. There is only a global minima and <strong>no local minimas</strong>.</p>
 </div>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

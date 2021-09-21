@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neural networks - concepts | Atma’s blog</title>
+<title>Neural networks - concepts | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -105,7 +105,7 @@ We can represent non-linearity in a linear model by adding higher order features
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -189,7 +189,7 @@ We can represent non-linearity in a linear model by adding higher order features
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -207,22 +207,22 @@ We can represent non-linearity in a linear model by adding higher order features
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -240,7 +240,7 @@ We can represent non-linearity in a linear model by adding higher order features
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -248,7 +248,7 @@ We can represent non-linearity in a linear model by adding higher order features
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -279,11 +279,11 @@ We can represent non-linearity in a linear model by adding higher order features
 <h3 id="why-use-neural-nets">Why use neural nets?<a href="#why-use-neural-nets" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Consider a classification problem where the decision boundary is non-linear as shown below:</p>
 <p><img src="../../../images/coursera-neural-nets1.png" width="450"></p>
-<p>We can represent non-linearity in a linear model by adding higher order features. However, when the original dataset already comes with a large number of features (say <code>100</code>), then feature engineered features increases by $\frac{O(n^{2})}{2}$ if we want to include <strong>quadratic features</strong>. Thus, for input data set with <code>100</code> features, the feature engineered features is in the order of <code>5000s</code>. Fitting a model on such a data set is expensive, further, the model will overfit. Furthermore, if we want to represent <strong>cubic features</strong>, then order increases to $O(n^{3})$.</p>
-<h4 id="why-not-traditional-ml">Why not traditional ML?<a href="#why-not-traditional-ml" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>We can represent non-linearity in a linear model by adding higher order features. However, when the original dataset already comes with a large number of features (say <code>100</code>), then feature engineered features increases by $\frac{O(n^{2})}{2}$ if we want to include <strong>quadratic features</strong>. Thus, for input data set with <code>100</code> features, the feature engineered features is in the order of <code>5000s</code>. Fitting a model on such a data set is expensive, further, the model will overfit. Furthermore, if we want to represent <strong>cubic features</strong>, then order increases to $O(n^{3})$.</p>
+<h4 id="why-not-traditional-ml">Why not traditional <span class="caps">ML</span>?<a href="#why-not-traditional-ml" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><strong>Image classification</strong> is also a non-linear problem. This is because the algorithm sees images as matrices. In the graphic below, we build a training set that classifies cars from non-cars.</p>
 <p><img src="../../../images/coursera-neural-nets2.png" width="450"></p>
-<p>Each pixel in the image is now a feature. Thus a <code>50x50</code> grayscale image has <code>2500</code> features! Since the decision boundary is usually non-linear, the number of feature required for a quadratic fit is <code>3 million</code> features. Trying to fit a logistic regression to this dataset is not feasible.</p>
+<p>Each pixel in the image is now a feature. Thus a <code>50x50</code> grayscale image has <code>2500</code> features! Since the decision boundary is usually non-linear, the number of feature required for a quadratic fit is <code>3 million</code> features. Trying to fit a logistic regression to this dataset is not feasible.</p>
 <h4 id="why-are-neural-nets-powerful">Why are neural nets powerful?<a href="#why-are-neural-nets-powerful" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Neural nets mimic the biological neural nets found in animal brains. In brains, specific regions are responsible for specific functions. However, when scientists have conducted experiments where they would cut the signals from the ear to the sound processing region and rewrite the signals from eyes to it, the sound processing region now learns to process vision and functions just as good as the original vision processing engine. Similarly, they were able to repeat this for touch as well. Animal brain is effective as each region is not a bunch of complex algorithms, instead, most regions are general purpose systems built to infer data / signals.</p>
 <p>An example of this approach are usecases for differently abled people shown below:</p>
@@ -295,9 +295,9 @@ We can represent non-linearity in a linear model by adding higher order features
 <p><img src="../../../images/coursera-neural-nets5.png" width="400"></p>
 <p>A group of neurons working together forms a neural net. The first layer is called the <strong>input layer</strong> and the last called the <strong>output layer</strong>. Sometimes, the <strong>bias</strong> is represented as an explicit node.</p>
 <p><img src="../../../images/coursera-neural-nets6.png" width="400"></p>
-<p><strong>Weights in a neural net</strong>: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar $g(\theta^{T}X)$ form. <code>g</code> is the sigmoid function and $\theta_{i,k}^{j}$ represents the weight for <code>jth</code> layer, hidden node <code>i</code>, input node <code>k</code>. There is always a <strong>bias node</strong> which is represented with index <code>0</code>.</p>
+<p><strong>Weights in a neural net</strong>: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar $g(\theta^{T}X)$ form. <code>g</code> is the sigmoid function and $\theta_{i,k}^{j}$ represents the weight for <code>jth</code> layer, hidden node <code>i</code>, input node <code>k</code>. There is always a <strong>bias node</strong> which is represented with index <code>0</code>.</p>
 <p><img src="../../../images/coursera-neural-nets7.png" width="700"></p>
-<p>Thus, when you have <code>2</code> nodes in layer 1 (input) and <code>3</code> nodes in  layer 2, the dimension of the weight matrix for layer 2 is <code>3 x (2+1)</code>, we add <code>+1</code> to include the bias node in the first layer. Since weights is a matrix, we represent it with capital theta $\Theta$.</p>
+<p>Thus, when you have <code>2</code> nodes in layer 1 (input) and <code>3</code> nodes in  layer 2, the dimension of the weight matrix for layer 2 is <code>3 x (2+1)</code>, we add <code>+1</code> to include the bias node in the first layer. Since weights is a matrix, we represent it with capital theta $\Theta$.</p>
 <h5 id="vectorized-implementation-of-forward-propagation">Vectorized implementation of forward propagation<a href="#vectorized-implementation-of-forward-propagation" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p>The input parameters in the previous slide can be represented as a vector $x$
 $$
@@ -319,19 +319,19 @@ z^{(2)} = \begin{bmatrix}
 <h5 id="neural-nets-learn-their-own-features">Neural nets learn their own features<a href="#neural-nets-learn-their-own-features" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p>If you look at the second half of the simple neural net presented earlier, it is simply a logistic regression. The inputs are however, not inputs from real world, but activations of the previous layer. Thus, neural net can create its own input features. Because of this, it is capable of representing non-linear and higher order functions, even when the real world input does not have them.</p>
 <h3 id="logical-operations-with-neurons">Logical operations with neurons<a href="#logical-operations-with-neurons" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Neurons in neural nets build complex representations using simple condition checks. Below is an example of how logical <code>AND</code>, <code>OR</code> operators are represented:</p>
+<p>Neurons in neural nets build complex representations using simple condition checks. Below is an example of how logical <code>AND</code>, <code>OR</code> operators are represented:</p>
 <p><img src="../../../images/coursera-neural-nets8.png" width="500"></p>
-<p>Then, by simply changing the weights, the same neuron can be switched to an <code>OR</code> operator:</p>
+<p>Then, by simply changing the weights, the same neuron can be switched to an <code>OR</code> operator:</p>
 <p><img src="../../../images/coursera-neural-nets9.png" width="500"></p>
-<p>Why are these useful? Many layers of such neurons can build to represent more complex decision boundaries such as <code>XOR</code> or <code>XNOR</code> or even non-linear boundaries. Below is an example of how <code>2</code> layers of NN are used to build <code>XNOR</code> gate using <code>OR</code>, <code>AND</code>, <code>NOR</code> gates. <code>XNOR</code> gives <code>1</code> if both <code>x1</code>, <code>x2</code> are <code>0</code> or <code>1</code>.</p>
+<p>Why are these useful? Many layers of such neurons can build to represent more complex decision boundaries such as <code>XOR</code> or <code>XNOR</code> or even non-linear boundaries. Below is an example of how <code>2</code> layers of <span class="caps">NN</span> are used to build <code>XNOR</code> gate using <code>OR</code>, <code>AND</code>, <code>NOR</code> gates. <code>XNOR</code> gives <code>1</code> if both <code>x1</code>, <code>x2</code> are <code>0</code> or <code>1</code>.</p>
 <p><img src="../../../images/coursera-neural-nets11.png" width="500"></p>
-<h3 id="multiclass-classification-with-nn">Multiclass classification with NN<a href="#multiclass-classification-with-nn" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Multiclass classification in NN is essentially a <strong>on-vs-all</strong> classification. The output layer has as many nodes as the number of classes. Further, the value of the output layer looks like <strong>one-hot</strong> encoding</p>
+<h3 id="multiclass-classification-with-nn">Multiclass classification with <span class="caps">NN</span><a href="#multiclass-classification-with-nn" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Multiclass classification in <span class="caps">NN</span> is essentially a <strong>on-vs-all</strong> classification. The output layer has as many nodes as the number of classes. Further, the value of the output layer looks like <strong>one-hot</strong> encoding</p>
 <p><img src="../../../images/coursera-neural-nets12.png" width="550"></p>
-<h4 id="ocr-on-mnist-digits-database-using-nn">OCR on MNIST digits database using NN<a href="#ocr-on-mnist-digits-database-using-nn" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The MNIST database has <code>14</code> million images of handdrawn digits. We work with a subset of <code>5000</code> images. Each image is <code>20x20</code> pixels. When laid out as a column vector (which is how Neural Nets and log reg algorithms will read it), we get a <code>1x400</code> row vector. A sample of 100 images is below:</p>
+<h4 id="ocr-on-mnist-digits-database-using-nn"><span class="caps">OCR</span> on <span class="caps">MNIST</span> digits database using <span class="caps">NN</span><a href="#ocr-on-mnist-digits-database-using-nn" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The <span class="caps">MNIST</span> database has <code>14</code> million images of handdrawn digits. We work with a subset of <code>5000</code> images. Each image is <code>20x20</code> pixels. When laid out as a column vector (which is how Neural Nets and log reg algorithms will read it), we get a <code>1x400</code> row vector. A sample of 100 images is below:</p>
 <p><img src="../../../images/coursera-logreg-mnist1.png/" width="400"></p>
-<p>When classifying these digits, we work with <code>1</code> image at a time. This is unlike linear or logistic regression where we would represent the whole training set as matrix <code>X</code>. Here, we treat each pixel as a feature. Thus our input layer has <code>400+1</code> nodes (1 added to represent bias). The hidden layer from pre-trained network has <code>25</code> nodes. The output layer should have <code>10</code> nodes to represent the <code>10</code> classes we predict.</p>
+<p>When classifying these digits, we work with <code>1</code> image at a time. This is unlike linear or logistic regression where we would represent the whole training set as matrix <code>X</code>. Here, we treat each pixel as a feature. Thus our input layer has <code>400+1</code> nodes (1 added to represent bias). The hidden layer from pre-trained network has <code>25</code> nodes. The output layer should have <code>10</code> nodes to represent the <code>10</code> classes we predict.</p>
 <p>Thus, input layer is x = $a^{(1)}_{401x1}$. The weight matrix</p>
 <p>$$
 a^{(1)} = x_{401x1} $$</p>
@@ -351,7 +351,7 @@ h_{\Theta}(x) = max(sigmoid(a^{(3)})) $$</p>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

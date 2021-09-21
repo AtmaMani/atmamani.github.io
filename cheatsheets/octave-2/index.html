@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Handling and Plotting data in Octave / MATLAB | Atma’s blog</title>
+<title>Handling and Plotting data in Octave / MATLAB | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -106,7 +106,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 <a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -190,7 +190,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 <a href="../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../octave-1/">Octave / MATLAB - basics</a>
+<a href="../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li class="active">
 <a href=".">Octave - handling data <span class="sr-only">(active)</span></a>
@@ -208,22 +208,22 @@ ans       ar1       heat      readings  vec       vec1 ">
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -241,7 +241,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 <a href="../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../html/">HTML basics</a>
+<a href="../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -249,7 +249,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -271,14 +271,14 @@ ans       ar1       heat      readings  vec       vec1 ">
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Handling and Plotting data in Octave / MATLAB</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Handling and Plotting data in Octave / <span class="caps">MATLAB</span></a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <h3 id="whats-in-memory">What’s in memory<a href="#whats-in-memory" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>To quickly view the variables in memory, use the <code>who</code> command. Use <code>whos</code> for detailed view</p>
+<p>To quickly view the variables in memory, use the <code>who</code> command. Use <code>whos</code> for detailed view</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">who</span>
 <span class="n">Variables</span> <span class="n">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">scope</span><span class="p">:</span>
 <span class="nb">ans</span>       <span class="n">ar1</span>       <span class="n">heat</span>      <span class="n">readings</span>  <span class="n">vec</span>       <span class="n">vec1</span>      <span class="n">vec44</span>     <span class="n">vec45</span>     <span class="n">x</span>         <span class="n">y</span>         <span class="n">z</span>
@@ -303,9 +303,9 @@ ans       ar1       heat      readings  vec       vec1 ">
 </pre>
 
 
-<p>To delete a variable from memory, use the <code>clear &lt;variable name&gt;</code> command. Just using the <code>clear</code> command will remove all variables.</p>
+<p>To delete a variable from memory, use the <code>clear &lt;variable name&gt;</code> command. Just using the <code>clear</code> command will remove all variables.</p>
 <h3 id="reading-data-files">Reading data files<a href="#reading-data-files" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Read datasets with <code>load</code> command. <code>&gt;&gt; load('ex1data1.txt')</code> A variable with the name of the file is created in memory. You can use array slicing, dicing to move a part of this data into a new variable.</p>
+<p>Read datasets with <code>load</code> command. <code>&gt;&gt; load('ex1data1.txt')</code> A variable with the name of the file is created in memory. You can use array slicing, dicing to move a part of this data into a new variable.</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="s">'ex1data1.txt'</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">subset</span> <span class="p">=</span> <span class="n">ex1data1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,:)</span>
 <span class="n">subset</span> <span class="p">=</span>
@@ -328,10 +328,10 @@ ans       ar1       heat      readings  vec       vec1 ">
 </pre>
 
 
-<p>You can load this back into memory using the <code>load</code> command: <code>load('subset.mat')</code>. This time, since it is a <code>mat</code> file, Octave will load it with the original variable name.</p>
-<p>To save data in a human readable form, use <code>save &lt;filename.txt&gt; &lt;variable&gt; -ascii</code>.</p>
+<p>You can load this back into memory using the <code>load</code> command: <code>load('subset.mat')</code>. This time, since it is a <code>mat</code> file, Octave will load it with the original variable name.</p>
+<p>To save data in a human readable form, use <code>save &lt;filename.txt&gt; &lt;variable&gt; -ascii</code>.</p>
 <h3 id="plotting">Plotting<a href="#plotting" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Most 2D plots can be accomplished using <code>plot(&lt;arr1&gt;, &lt;arr2&gt;, 'srt:options')</code> function.</p>
+<p>Most 2D plots can be accomplished using <code>plot(&lt;arr1&gt;, &lt;arr2&gt;, 'srt:options')</code> function.</p>
 <p><a id="markdown-line-plots" name="line-plots"></a></p>
 <h4 id="line-plots">Line plots<a href="#line-plots" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <pre class="code literal-block"><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c">% will plot in a new window</span>
@@ -339,7 +339,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 
 
 <p><img src="../../images/matlab-plot1.png" width="350" align="center"></p>
-<p>We can customize the appearance of ticks and line by passing them as a string. For instance, <code>r:*</code> will make lines in red, <code>*</code> for points and <code>:</code> for dotted lines.</p>
+<p>We can customize the appearance of ticks and line by passing them as a string. For instance, <code>r:*</code> will make lines in red, <code>*</code> for points and <code>:</code> for dotted lines.</p>
 <p>You can also customize the title, labels, legend as shown:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">'time[x]'</span><span class="p">);</span>
@@ -351,7 +351,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 
 <p><a id="markdown-overlaying-plots" name="overlaying-plots"></a></p>
 <h4 id="overlaying-plots">Overlaying plots<a href="#overlaying-plots" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To overlay multiple plots on the same frame, use <code>hold on</code> command.</p>
+<p>To overlay multiple plots on the same frame, use <code>hold on</code> command.</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">z</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
 <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s">'r:o'</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="n">hold</span> <span class="n">on</span>
@@ -360,12 +360,12 @@ ans       ar1       heat      readings  vec       vec1 ">
 
 
 <p><img src="../../images/matlab-plot2.png" width="350"></p>
-<p>You can also plot multiple plots in the same command as <code>plot(x,y, x,z)</code> which will overlay both <code>y</code> and <code>z</code> on the same plot window.</p>
-<p>To close the current figure, call the <code>close</code> command.</p>
+<p>You can also plot multiple plots in the same command as <code>plot(x,y, x,z)</code> which will overlay both <code>y</code> and <code>z</code> on the same plot window.</p>
+<p>To close the current figure, call the <code>close</code> command.</p>
 <h4 id="printing-plots-to-disk">Printing plots to disk<a href="#printing-plots-to-disk" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To print to disk, use the <code>print</code> command as <code>print -dpng 'myplot.png'</code>. This will print the current plot to disk.</p>
+<p>To print to disk, use the <code>print</code> command as <code>print -dpng 'myplot.png'</code>. This will print the current plot to disk.</p>
 <h4 id="multiple-plot-windows">Multiple plot windows<a href="#multiple-plot-windows" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Use the <code>figure(n)</code> command to create new plot windows:</p>
+<p>Use the <code>figure(n)</code> command to create new plot windows:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">);</span>
 </pre>
@@ -373,7 +373,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 
 <p>will open 2 plot windows, one for each plot command.</p>
 <h4 id="subplots">Subplots<a href="#subplots" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Use the <code>subplot(nrows, ncols, current_cell)</code> command to create and activate a plot window:</p>
+<p>Use the <code>subplot(nrows, ncols, current_cell)</code> command to create and activate a plot window:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>  <span class="c">% Sets axis limits. Syntax is axis([xmin, xmax, ymin, ymax])</span>
@@ -386,7 +386,7 @@ ans       ar1       heat      readings  vec       vec1 ">
 <p>which produces:</p>
 <p><img src="../../images/octave-subplots1.png" width="400"></p>
 <h4 id="visualizing-matrices-as-images">Visualizing matrices as images<a href="#visualizing-matrices-as-images" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To quickly ‘see’ a matrix as a color coded image, use <code>imagesc</code>:</p>
+<p>To quickly ‘see’ a matrix as a color coded image, use <code>imagesc</code>:</p>
 <pre class="code literal-block"><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">=</span><span class="nb">randn</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  <span class="c">% produces a standard normal dist, mean=0</span>
 <span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">ans</span> <span class="p">=</span>

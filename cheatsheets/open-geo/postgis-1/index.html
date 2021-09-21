@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Introduction to PostGIS | Atma’s blog</title>
+<title>Introduction to PostGIS | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@ Note: There">
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@ Note: There">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@ Note: There">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@ Note: There">
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@ Note: There">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -280,21 +280,21 @@ Note: There">
     <div>
 <h3 id="set-up">Set up<a href="#set-up" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>I am installing the all-in-one package - Postgres APP which inclues Postgres, PostGIS, PLV8. Once installed, it looks like below:</p>
+<p>I am installing the all-in-one package - Postgres <span class="caps">APP</span> which inclues Postgres, PostGIS, <span class="caps">PLV8</span>. Once installed, it looks like below:</p>
 <p><img alt="" src="../../../images/postgresql-1.jpg"></p>
 <p>I am following the <a href="https://postgis.net/workshops/postgis-intro/">tutorial from here</a></p>
-<p>Note: There is an alternate download called ‘OpenGeo Suite’, but this is no longer in active development. It may have been acquired by boundless and now it does not resemble its original suite of products. Instead, I am installing <a href="https://www.pgadmin.org/download/">pgadmin</a> to admin the DB. The new pgAdmin4 is a complete rewrite. It is web based, written in Python, Qt, JS and core components in C++.</p>
-<p>Once you install both the Postgres database and PgAdmin4 app, start both, connect to the database server using <code>localhost:5432</code> port (which you can look up from properties of db server). PgAdmin will now list the databases. Below is an image of the pgAdmin window running SQL queries on a custom DB I created.</p>
+<p>Note: There is an alternate download called ‘OpenGeo Suite’, but this is no longer in active development. It may have been acquired by boundless and now it does not resemble its original suite of products. Instead, I am installing <a href="https://www.pgadmin.org/download/">pgadmin</a> to admin the <span class="caps">DB</span>. The new pgAdmin4 is a complete rewrite. It is web based, written in Python, Qt, <span class="caps">JS</span> and core components in C++.</p>
+<p>Once you install both the Postgres database and PgAdmin4 app, start both, connect to the database server using <code>localhost:5432</code> port (which you can look up from properties of db server). PgAdmin will now list the databases. Below is an image of the pgAdmin window running <span class="caps">SQL</span> queries on a custom <span class="caps">DB</span> I created.</p>
 <p><img alt="" src="../../../images/pgAdmin-1.jpg"></p>
 <h5 id="sqlalchemy-set-up">SQLAlchemy set up<a href="#sqlalchemy-set-up" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>I am tripping when setting up sqlalchemy with postgres server in the geopandas env. It turns out, sqlalchemy requires a package called <code>psycopg2</code> which is not installed by default. In a clean env, installing these two works well. I am trying out in the geopandas env now.</p>
-<p>Note: all I had to do was remove and reinstall <code>sqlalchemy</code> and <code>psycopg2</code>. Net, I had to recreate the whole package</p>
+<p>I am tripping when setting up sqlalchemy with postgres server in the geopandas env. It turns out, sqlalchemy requires a package called <code>psycopg2</code> which is not installed by default. In a clean env, installing these two works well. I am trying out in the geopandas env now.</p>
+<p>Note: all I had to do was remove and reinstall <code>sqlalchemy</code> and <code>psycopg2</code>. Net, I had to recreate the whole package</p>
 <h3 id="introduction">Introduction<a href="#introduction" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>PostGIS is a spatial database. It turns PostgreSQL database into a spatial database. PostGIS inherits all enterprise functionality of PostgreSQL. There are 3 aspects that make a database spatial
  - <strong>spatial data types</strong> - store shapes as points ,lines, polygons. They abstract and encapsulate spatial structures such as boundary, dimension.
  - <strong>spatial indexing</strong> - for efficient spatial operations
- - <strong>spatial functions</strong> - exposed in SQL for querying spatial properties and relationships. Eg: answers which objects are within this particular envelope.</p>
-<p>True spatial databases treat spatial features as first class database objs. Spatial DBs are used not just in geospatial env, but to store data related to anatomy of human body, large-scale integrated circuits, molecular structures, EMF etc.</p>
+ - <strong>spatial functions</strong> - exposed in <span class="caps">SQL</span> for querying spatial properties and relationships. Eg: answers which objects are within this particular envelope.</p>
+<p>True spatial databases treat spatial features as first class database objs. Spatial DBs are used not just in geospatial env, but to store data related to anatomy of human body, large-scale integrated circuits, molecular structures, <span class="caps">EMF</span> etc.</p>
 <p>More about <strong>Spatial index</strong>: Bounding boxes are used for spatial containment queries. Computing containment for polygons is very computationally intensive, hence it is performed over their respective bounding boxes. Computing this for rectangles is very simple and fast.</p>
 <p>More about <strong>spatial functions</strong>: 5 main categories of spatial functions
 - <strong>conversion</strong> of geometries
@@ -302,22 +302,22 @@ Note: There">
 - <strong>retrieval</strong> of properties and measurements of geometries
 - <strong>comparison</strong> of geometries, wrt spatial relationship
 - <strong>generation</strong> of new geometries.</p>
-<p><strong>Notes</strong>: The PostGIS team outlines their reason behind choosing PostgreSQL as the foundation and not some other popular open source ORDBMS like mySQL.</p>
+<p><strong>Notes</strong>: The PostGIS team outlines their reason behind choosing PostgreSQL as the foundation and not some other popular open source <span class="caps">ORDBMS</span> like mySQL.</p>
 <h4 id="history-of-postgis">History of PostGIS<a href="#history-of-postgis" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Started in May of 2001. For many years, the functionality, power and ease of use was limited. <strong>MapServer</strong> became the first app to provide visualization of PostGIS. Later, another open source initiative <strong>GOES</strong> (Geometry Engine, Open Source) was integrated with PostGIS to make it complete</p>
+<p>Started in May of 2001. For many years, the functionality, power and ease of use was limited. <strong>MapServer</strong> became the first app to provide visualization of PostGIS. Later, another open source initiative <strong><span class="caps">GOES</span></strong> (Geometry Engine, Open Source) was integrated with PostGIS to make it complete</p>
 <h3 id="tutorial">Tutorial<a href="#tutorial" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Follow tutorial from <a href="https://postgis.net/workshops/postgis-intro">postgis-intro</a></p>
 <ol>
-<li>To enable postGIS, run <code>CREATE EXTENSION postgis;</code>. Run by hitting <code>F5</code>. Then confirm it is installed by running <code>SELECT postgis_full_version();</code>
+<li>To enable postGIS, run <code>CREATE EXTENSION postgis;</code>. Run by hitting <code>F5</code>. Then confirm it is installed by running <code>SELECT postgis_full_version();</code>
 </li>
-<li>To import data into postGIS, the tool <code>shp2pgis</code> extension does not seem available. Hence I did the import using QGIS. You can connect to the postGIS from qGIS using the same database server, port, db name. Then install the <strong>DB Admin</strong> QGIS extension to manage postGIS. The db manager looks like below:
+<li>To import data into postGIS, the tool <code>shp2pgis</code> extension does not seem available. Hence I did the import using <span class="caps">QGIS</span>. You can connect to the postGIS from qGIS using the same database server, port, db name. Then install the <strong><span class="caps">DB</span> Admin</strong> <span class="caps">QGIS</span> extension to manage postGIS. The db manager looks like below:
    <img alt="" src="../../../images/qgis-to-postgis.jpg">
 </li>
 </ol>
 <p>Once imported, you can query for the features from pgAdmin and also visualize the results like below:
 <img alt="" src="../../../images/postgis-query.jpg"></p>
 <h3 id="working-with-geometries-in-postgis">Working with Geometries in PostGIS<a href="#working-with-geometries-in-postgis" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>A special table called <code>geometry_columns</code> exists which lists all tables within postGIS that are spatial. It lists details such as what their <code>SRID</code> is, their geometry type etc.</p>
+<p>A special table called <code>geometry_columns</code> exists which lists all tables within postGIS that are spatial. It lists details such as what their <code>SRID</code> is, their geometry type etc.</p>
 <pre class="code literal-block"><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">geometry_columns</span>
 </pre>
 
@@ -339,7 +339,7 @@ Note: There">
 </pre>
 
 
-<p><strong>Note</strong>: Spatial functions in postGIS are generally prefixed with <code>ST..</code></p>
+<p><strong>Note</strong>: Spatial functions in postGIS are generally prefixed with <code>ST..</code></p>
 <h4 id="spatial-functions-for-point-geometries">Spatial functions for Point geometries<a href="#spatial-functions-for-point-geometries" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Thus, to get the X, Y coordinates of a point, </p>
 <pre class="code literal-block"><span></span><span class="k">SELECT</span> <span class="n">ST_X</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span> <span class="n">ST_Y</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">sample_geometries</span> <span class="k">where</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Point'</span>
@@ -382,7 +382,7 @@ Note: There">
 <li>
 <code>ST_Length(geometry)</code> returns the total length of all linear parts</li>
 </ul>
-<h3 id="some-sql-queries">Some SQL queries<a href="#some-sql-queries" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h3 id="some-sql-queries">Some <span class="caps">SQL</span> queries<a href="#some-sql-queries" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <pre class="code literal-block"><span></span><span class="k">SELECT</span> <span class="n">boroname</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">popn_white</span><span class="p">)</span><span class="o">/</span><span class="k">SUM</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span> <span class="k">AS</span> <span class="n">white_pct</span>
   <span class="k">FROM</span> <span class="n">nyc_census_blocks</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">boroname</span><span class="p">;</span>
 </pre>

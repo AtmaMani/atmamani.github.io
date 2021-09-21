@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ordering_a_data_takeout | Atma’s blog</title>
+<title>ordering_a_data_takeout | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -282,8 +282,8 @@
 <a href="#Ordering-a-data-takeout" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <h3 id="Sync-overview">Sync overview<a class="anchor-link" href="#Sync-overview">¶</a>
 <a href="#Sync-overview" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Feature layers includes a <code>Sync</code> capability, which when enabled, allows client applications to take feature layers offline, perform edits and sync it back to the layer.</p>
-<p>When you checkout some features and store it offline in the client, you call that a <code>replica</code>. The <code>FeatureLayerCollection</code> class under the <code>features</code> module allows users to create and work with replicas.</p>
+<p>Feature layers includes a <code>Sync</code> capability, which when enabled, allows client applications to take feature layers offline, perform edits and sync it back to the layer.</p>
+<p>When you checkout some features and store it offline in the client, you call that a <code>replica</code>. The <code>FeatureLayerCollection</code> class under the <code>features</code> module allows users to create and work with replicas.</p>
 <p>The workflow of using sync involves these three operations:</p>
 <ul>
 <li>Create replica</li>
@@ -302,7 +302,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Checking-out-data-from-feature-layers-using-replicas">Checking out data from feature layers using replicas<a class="anchor-link" href="#Checking-out-data-from-feature-layers-using-replicas">¶</a>
 <a href="#Checking-out-data-from-feature-layers-using-replicas" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>To create a replica, we need a feature layer that is sync enabled. <code>FeatureLayer.syncEnabled</code> to verify that. Further the <code>syncCapabilities</code> property returns a dictionary with fine grained sync capabilities.</p>
+<p>To create a replica, we need a feature layer that is sync enabled. <code>FeatureLayer.syncEnabled</code> to verify that. Further the <code>syncCapabilities</code> property returns a dictionary with fine grained sync capabilities.</p>
 
 </div>
 </div>
@@ -329,7 +329,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Create a <code>FeatureLayerCollection</code> object from a feature service</p>
+<p>Create a <code>FeatureLayerCollection</code> object from a feature service</p>
 
 </div>
 </div>
@@ -388,7 +388,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Verify-if-sync-is-enabled">Verify if sync is enabled<a class="anchor-link" href="#Verify-if-sync-is-enabled">¶</a>
 <a href="#Verify-if-sync-is-enabled" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Accessing the <code>layers</code> property on a <code>FeatureLayerCollection</code> returns a list of <code>FeatureLayer</code> objects. We can create a replica of one of these or all of these layers</p>
+<p>Accessing the <code>layers</code> property on a <code>FeatureLayerCollection</code> returns a list of <code>FeatureLayer</code> objects. We can create a replica of one of these or all of these layers</p>
 
 </div>
 </div>
@@ -512,7 +512,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="List-existing-replicas">List existing replicas<a class="anchor-link" href="#List-existing-replicas">¶</a>
 <a href="#List-existing-replicas" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><code>FeatureLayerCollection.replicas</code> returns you a <code>SyncManager</code> object. You would work with this manager object for all your sync workflows.</p>
+<p><code>FeatureLayerCollection.replicas</code> returns you a <code>SyncManager</code> object. You would work with this manager object for all your sync workflows.</p>
 <p>Call <code>SyncManager.get_list()</code> method to get list of existing replicas.</p>
 
 </div>
@@ -605,8 +605,8 @@
 <a href="#Create-a-replica" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Call <code>SyncManager.create()</code> method to creat a new replica.</p>
 <ul>
-<li>For 2 way sync between client and server, the feature layer needs <code>Sync</code> capability.</li>
-<li>For checking out (downloading) data from server, you need <code>Extract</code> capability.</li>
+<li>For 2 way sync between client and server, the feature layer needs <code>Sync</code> capability.</li>
+<li>For checking out (downloading) data from server, you need <code>Extract</code> capability.</li>
 </ul>
 </div>
 </div>
@@ -636,7 +636,7 @@
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>Create,Delete,Query,Sync,Update,Uploads,Editing'</pre>
+<pre>'Create,Delete,Query,Sync,Update,Uploads,Editing'</pre>
 </div>
 
 </div>
@@ -719,7 +719,7 @@
                     </div>
 
                     <div class="item_right" style="float: none; width: auto; overflow: hidden;">
-                        <a href="http://esriwebgis.webgistesting.net/portal/home/item.html?id=b07e48ff4e1e4004b61487907bee8568" target="_blank"><b>USA states rivers cities</b>
+                        <a href="http://esriwebgis.webgistesting.net/portal/home/item.html?id=b07e48ff4e1e4004b61487907bee8568" target="_blank"><b><span class="caps">USA</span> states rivers cities</b>
                         </a>
                         <br>d005_GroupLayer<img src="http://esriwebgis.webgistesting.net/portal/home/js/jsapi/esri/css/images/item_type_icons/featureshosted16.png" style="vertical-align:middle;">Feature Layer Collection by atma.mani
                         <br>Last Modified: March 04, 2017
@@ -740,7 +740,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us create a <code>FeatureLayerCollection</code> object from this item</p>
+<p>Let us create a <code>FeatureLayerCollection</code> object from this item</p>
 
 </div>
 </div>
@@ -813,7 +813,7 @@
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>Create,Delete,Query,Sync,Update,Uploads,Editing'</pre>
+<pre>'Create,Delete,Query,Sync,Update,Uploads,Editing'</pre>
 </div>
 
 </div>
@@ -891,7 +891,7 @@
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>Create,Delete,Query,Sync,Update,Uploads,Editing,Extract'</pre>
+<pre>'Create,Delete,Query,Sync,Update,Uploads,Editing,Extract'</pre>
 </div>
 
 </div>
@@ -967,8 +967,8 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Removing-replicas">Removing replicas<a class="anchor-link" href="#Removing-replicas">¶</a>
 <a href="#Removing-replicas" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>The sync operation is expensive on the resources of your web GIS. Hence, it is a good maintenance practice to remove unnecessary replicas. An ArcGIS admin could use the ArcGIS Python API to script and automate the process of scanning all feature layers and removing stale replicas on each of them.</p>
-<p>A replica can be removed by calling the <code>unregister()</code> method and passing the id of a replica that needs to be removed.</p>
+<p>The sync operation is expensive on the resources of your web <span class="caps">GIS</span>. Hence, it is a good maintenance practice to remove unnecessary replicas. An ArcGIS admin could use the ArcGIS Python <span class="caps">API</span> to script and automate the process of scanning all feature layers and removing stale replicas on each of them.</p>
+<p>A replica can be removed by calling the <code>unregister()</code> method and passing the id of a replica that needs to be removed.</p>
 
 </div>
 </div>
@@ -1029,7 +1029,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are more than a few. I only want to remove the replicas that were registered 10 minutes ago. But, your search criteria could be any other.</p>
-<p>We will loop through each of the replicas returned and use the <code>get()</code> method to get detailed information about these replicas and look a <code>creationDate</code> property.</p>
+<p>We will loop through each of the replicas returned and use the <code>get()</code> method to get detailed information about these replicas and look a <code>creationDate</code> property.</p>
 
 </div>
 </div>
@@ -1039,7 +1039,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Before looping, let us take a deeper look at one of these replicas by calling the <code>get()</code> method:</p>
+<p>Before looping, let us take a deeper look at one of these replicas by calling the <code>get()</code> method:</p>
 
 </div>
 </div>
@@ -1237,7 +1237,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us loop through each of these replicas and remove them using the <code>unregister()</code> method:</p>
+<p>Let us loop through each of these replicas and remove them using the <code>unregister()</code> method:</p>
 
 </div>
 </div>
@@ -1283,7 +1283,7 @@
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

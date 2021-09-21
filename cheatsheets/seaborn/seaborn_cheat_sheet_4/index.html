@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>seaborn_cheat_sheet_4 | Atma’s blog</title>
+<title>seaborn_cheat_sheet_4 | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -117,7 +117,7 @@ In [4]:
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -201,7 +201,7 @@ In [4]:
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -219,22 +219,22 @@ In [4]:
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -252,7 +252,7 @@ In [4]:
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -260,7 +260,7 @@ In [4]:
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -416,7 +416,7 @@ In [4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Pairgrids">Pairgrids<a class="anchor-link" href="#Pairgrids">¶</a>
 <a href="#Pairgrids" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Pairgrid is similar to <code>pairplot</code>, except, it returns back an empty grid that you can fill up with desired plots later. Refresher on <a href="https://atmamani.github.io/talks/cheatsheets/seaborn_cheat_sheet_1.html#Plotting-dist-of-all-variables">pariplot</a></p>
+<p>Pairgrid is similar to <code>pairplot</code>, except, it returns back an empty grid that you can fill up with desired plots later. Refresher on <a href="https://atmamani.github.io/talks/cheatsheets/seaborn_cheat_sheet_1.html#Plotting-dist-of-all-variables">pariplot</a></p>
 
 </div>
 </div>
@@ -481,7 +481,7 @@ In [4]:
 <h3 id="lmplot()-for-scatter-and-regression-per-category">
 <code>lmplot()</code> for scatter and regression per category<a class="anchor-link" href="#lmplot()-for-scatter-and-regression-per-category">¶</a>
 <a href="#lmplot()-for-scatter-and-regression-per-category" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Sometimes, you need to do a <code>joinplot()</code> but split it by some categorical column. You can custom build it using <code>FacetGrid</code> shown in next section. However, seaborn provides a convenience function called <code>lmplot()</code>. Note: In previous pages, you created <code>lmplots()</code> for just 2 columns without any category.</p>
+<p>Sometimes, you need to do a <code>joinplot()</code> but split it by some categorical column. You can custom build it using <code>FacetGrid</code> shown in next section. However, seaborn provides a convenience function called <code>lmplot()</code>. Note: In previous pages, you created <code>lmplots()</code> for just 2 columns without any category.</p>
 
 </div>
 </div>
@@ -532,7 +532,7 @@ In [4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="FacetGrid">FacetGrid<a class="anchor-link" href="#FacetGrid">¶</a>
 <a href="#FacetGrid" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>During EDA, you want to find the distribution of data by sub-categories, sub-conditions. You can do so by building FacetGrids. As it means, you get a grid for every facet of the data.</p>
+<p>During <span class="caps">EDA</span>, you want to find the distribution of data by sub-categories, sub-conditions. You can do so by building FacetGrids. As it means, you get a grid for every facet of the data.</p>
 
 </div>
 </div>
@@ -654,7 +654,7 @@ In [4]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose we want to visualize <code>total_bill</code> by time of day and wheather or not it was a smoker. You need to filter data out then make dist plots. YOu can do all of that in 1 step with <code>FacetGrid</code>s.</p>
+<p>Suppose we want to visualize <code>total_bill</code> by time of day and wheather or not it was a smoker. You need to filter data out then make dist plots. YOu can do all of that in 1 step with <code>FacetGrid</code>s.</p>
 
 </div>
 </div>
@@ -717,7 +717,7 @@ In [4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Customizing-grids">Customizing grids<a class="anchor-link" href="#Customizing-grids">¶</a>
 <a href="#Customizing-grids" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>If you dont like the pale blue background of seaborn plots, you can modify that with <code>set_style</code>.</p>
+<p>If you dont like the pale blue background of seaborn plots, you can modify that with <code>set_style</code>.</p>
 <blockquote>
 <b>Note:</b> Using set_style() will control the appearance for the entire notebook and all future plots</blockquote>
 </div>
@@ -781,7 +781,7 @@ In [4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Fig-and-font-size">Fig and font size<a class="anchor-link" href="#Fig-and-font-size">¶</a>
 <a href="#Fig-and-font-size" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>You can use matplotlib <code>figsize</code> but have to specify that as a context as well.</p>
+<p>You can use matplotlib <code>figsize</code> but have to specify that as a context as well.</p>
 
 </div>
 </div>
@@ -840,7 +840,7 @@ In [4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Using-seaborn-context">Using seaborn context<a class="anchor-link" href="#Using-seaborn-context">¶</a>
 <a href="#Using-seaborn-context" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can use the <code>set_context()</code> to pick sizing templates</p>
+<p>You can use the <code>set_context()</code> to pick sizing templates</p>
 
 </div>
 </div>
@@ -902,7 +902,7 @@ In [4]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another way to set the size is to access the <code>fig</code> handle direclty</p>
+<p>Another way to set the size is to access the <code>fig</code> handle direclty</p>
 
 </div>
 </div>
@@ -962,7 +962,7 @@ In [4]:
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

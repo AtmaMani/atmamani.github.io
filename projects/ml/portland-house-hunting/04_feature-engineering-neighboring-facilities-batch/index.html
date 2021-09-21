@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04_feature-engineering-neighboring-facilities-batch | Atma’s blog</title>
+<title>04_feature-engineering-neighboring-facilities-batch | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -338,7 +338,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Connect to GIS</p>
+<p>Connect to <span class="caps">GIS</span></p>
 
 </div>
 </div>
@@ -535,7 +535,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
     <span class="n">shops_service_count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shops_service</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Shops'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" : "</span><span class="p">)</span>
     
-    <span class="c1"># travel <span class="amp">&amp;</span> transport</span>
+    <span class="c1"># travel &amp; transport</span>
     <span class="n">transport</span> <span class="o">=</span> <span class="n">geocode</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">'travel and transport'</span><span class="p">,</span> 
                         <span class="n">search_extent</span><span class="o">=</span><span class="n">prop_buffer</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">max_locations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">travel_transport_count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transport</span><span class="p">))</span>
@@ -988,15 +988,15 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <thead><tr style="text-align: right;">
 <th></th>
       <th>Unnamed: 0</th>
-      <th>SALE TYPE</th>
-      <th>PROPERTY TYPE</th>
-      <th>ADDRESS</th>
-      <th>CITY</th>
-      <th>STATE</th>
-      <th>ZIP</th>
-      <th>PRICE</th>
-      <th>BEDS</th>
-      <th>BATHS</th>
+      <th><span class="caps">SALE</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">PROPERTY</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">ADDRESS</span></th>
+      <th><span class="caps">CITY</span></th>
+      <th><span class="caps">STATE</span></th>
+      <th><span class="caps">ZIP</span></th>
+      <th><span class="caps">PRICE</span></th>
+      <th><span class="caps">BEDS</span></th>
+      <th><span class="caps">BATHS</span></th>
       <th>…</th>
       <th>hospitals_count</th>
       <th>coffee_count</th>
@@ -1013,11 +1013,11 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <tr>
 <th>0</th>
       <td>618</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>144 SE 191st Pl</td>
+      <td>144 <span class="caps">SE</span> 191st Pl</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97233.0</td>
       <td>334900.0</td>
       <td>4.0</td>
@@ -1037,11 +1037,11 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <tr>
 <th>1</th>
       <td>776</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>20028 NE Hoyt St</td>
+      <td>20028 <span class="caps">NE</span> Hoyt St</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97230.0</td>
       <td>349950.0</td>
       <td>3.0</td>
@@ -1061,11 +1061,11 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <tr>
 <th>2</th>
       <td>808</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>711 SE 160th Ave</td>
+      <td>711 <span class="caps">SE</span> 160th Ave</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97233.0</td>
       <td>358999.0</td>
       <td>4.0</td>
@@ -1085,11 +1085,11 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <tr>
 <th>3</th>
       <td>881</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>5536 SE 142nd Pl</td>
+      <td>5536 <span class="caps">SE</span> 142nd Pl</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97236.0</td>
       <td>369800.0</td>
       <td>4.0</td>
@@ -1109,11 +1109,11 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 <tr>
 <th>4</th>
       <td>955</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>15707 SE Flavel Dr</td>
+      <td>15707 <span class="caps">SE</span> Flavel Dr</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97236.0</td>
       <td>379900.0</td>
       <td>3.0</td>
@@ -1274,7 +1274,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>resources/shp/houses_facility_counts.shp'</pre>
+<pre>'resources/shp/houses_facility_counts.shp'</pre>
 </div>
 
 </div>
@@ -1287,7 +1287,7 @@ Feature engineering - quantifying access to facilities - batch modeRead the shor
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

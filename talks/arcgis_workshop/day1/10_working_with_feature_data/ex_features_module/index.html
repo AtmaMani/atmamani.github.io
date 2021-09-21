@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ex_features_module | Atma’s blog</title>
+<title>Ex_features_module | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ Make up ">
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -195,7 +195,7 @@ Make up ">
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -213,22 +213,22 @@ Make up ">
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -246,7 +246,7 @@ Make up ">
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Make up ">
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -287,7 +287,7 @@ Make up ">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise---add-new-cities-and-to-the-cities-over100k-FeatureLayer">Exercise - add new cities and to the <code>cities over100k</code> <code>FeatureLayer</code><a class="anchor-link" href="#Exercise---add-new-cities-and-to-the-cities-over100k-FeatureLayer">¶</a>
+<h2 id="Exercise---add-new-cities-and-to-the-cities-over100k-FeatureLayer">Exercise - add new cities and to the <code>cities over100k</code> <code>FeatureLayer</code><a class="anchor-link" href="#Exercise---add-new-cities-and-to-the-cities-over100k-FeatureLayer">¶</a>
 <a href="#Exercise---add-new-cities-and-to-the-cities-over100k-FeatureLayer" class="headerlink" title="Permalink to this heading">¶</a></h2>
 </div>
 </div>
@@ -300,14 +300,14 @@ Make up ">
 <h3 id="Goal:">Goal:<a class="anchor-link" href="#Goal:">¶</a>
 <a href="#Goal:" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
-<li>Add 4 new cities ‘Jackson, WY’, ‘Bend, OR’, ‘Cedar Falls, IA’, ‘Palm Springs, CA’ to the layer <code>cities over100k</code>.<ul>
+<li>Add 4 new cities ‘Jackson, <span class="caps">WY</span>’, ‘Bend, <span class="caps">OR</span>’, ‘Cedar Falls, <span class="caps">IA</span>’, ‘Palm Springs, <span class="caps">CA</span>’ to the layer <code>cities over100k</code>.<ul>
 <li>Make up your own values for their population. Better yet, get the 4 quantiles of population column and use them for the population of these 4 cities.</li>
 </ul>
 </li>
 <li>Add a new field called male_femal_ratio, float as data type</li>
 <li>Generate random number between bounds [0.7 - 1.3] and assign values for the male_female_ratio for all rows</li>
 <li>Update the service description and the item description with a string ‘hands on exercise completed’</li>
-<li>Explore if you can edit HTML popup for this layer for use when rendered in map widget</li>
+<li>Explore if you can edit <span class="caps">HTML</span> popup for this layer for use when rendered in map widget</li>
 </ul>
 </div>
 </div>
@@ -319,18 +319,18 @@ Make up ">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Hints">Hints<a class="anchor-link" href="#Hints">¶</a>
 <a href="#Hints" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<h3 id="---Publish-the-service-definition-datasets/fortune_500_styled_wfl.sd-to-your-account.-This-will-give-you-the-feature-layers-to-play-with"> - Publish the service definition <code>datasets/fortune_500_styled_wfl.sd</code> to your account. This will give you the feature layers to play with<a class="anchor-link" href="#---Publish-the-service-definition-datasets/fortune_500_styled_wfl.sd-to-your-account.-This-will-give-you-the-feature-layers-to-play-with">¶</a>
+<h3 id="---Publish-the-service-definition-datasets/fortune_500_styled_wfl.sd-to-your-account.-This-will-give-you-the-feature-layers-to-play-with"> - Publish the service definition <code>datasets/fortune_500_styled_wfl.sd</code> to your account. This will give you the feature layers to play with<a class="anchor-link" href="#---Publish-the-service-definition-datasets/fortune_500_styled_wfl.sd-to-your-account.-This-will-give-you-the-feature-layers-to-play-with">¶</a>
 <a href="#---Publish-the-service-definition-datasets/fortune_500_styled_wfl.sd-to-your-account.-This-will-give-you-the-feature-layers-to-play-with" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
-<li>Read the item as a <code>FeatureLayer</code> object and use <code>edit_features()</code> method to add new rows - cities<ul>
+<li>Read the item as a <code>FeatureLayer</code> object and use <code>edit_features()</code> method to add new rows - cities<ul>
 <li>for calculating the quantiles, read the attribute information as a pandas data frame. To do this, </li>
 <li>call <code>query()</code> without any parameters </li>
 </ul>
 </li>
-<li>Get the <code>FeatureLayerManager</code> object from the <code>FeatureLayer</code> and use <code>add_to_definition()</code> to create the new field</li>
-<li>Create random values using <code>numpy</code> package <code>random</code> function</li>
+<li>Get the <code>FeatureLayerManager</code> object from the <code>FeatureLayer</code> and use <code>add_to_definition()</code> to create the new field</li>
+<li>Create random values using <code>numpy</code> package <code>random</code> function</li>
 <li>In a loop add the ratio value to all features</li>
-<li>Once again call the <code>edit_features()</code> now with <code>updates</code> argument to feed the sex ratio values</li>
+<li>Once again call the <code>edit_features()</code> now with <code>updates</code> argument to feed the sex ratio values</li>
 </ul>
 </div>
 </div>
@@ -770,7 +770,7 @@ Make up ">
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

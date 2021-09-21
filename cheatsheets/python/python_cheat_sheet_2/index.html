@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>python_cheat_sheet_2 | Atma’s blog</title>
+<title>python_cheat_sheet_2 | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -115,7 +115,7 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <a href="../python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li class="active">
-<a href=".">Python OO and exception handling <span class="sr-only">(active)</span></a>
+<a href=".">Python <span class="caps">OO</span> and exception handling <span class="sr-only">(active)</span></a>
                     </li>
 <li>
 <a href="../python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -199,7 +199,7 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -217,22 +217,22 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -250,7 +250,7 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -258,7 +258,7 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -442,8 +442,8 @@ Functions¶Specify optional parameters in the end. Specify the default values fo
 <h3 id="Classes">Classes<a class="anchor-link" href="#Classes">¶</a>
 <a href="#Classes" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Everything is an object in Python including native types. You define class names with camel casing.
-You define the constructor with special name <code>__init__()</code>. The fields (private) are denoted with <code>_variable_name</code> specification and properties are decorated with <code>@property</code> decorator.</p>
-<p>Fields and properties are accessed within the class using <code>self.name</code> notation. This helps differentiate a class field / property from a local variable or method argument of the same name.</p>
+You define the constructor with special name <code>__init__()</code>. The fields (private) are denoted with <code>_variable_name</code> specification and properties are decorated with <code>@property</code> decorator.</p>
+<p>Fields and properties are accessed within the class using <code>self.name</code> notation. This helps differentiate a class field / property from a local variable or method argument of the same name.</p>
 <h4 id="A-simple-class">A simple class<a class="anchor-link" href="#A-simple-class">¶</a>
 <a href="#A-simple-class" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <pre><code>class MyClass:
@@ -552,7 +552,7 @@ You define the constructor with special name <code>__init__()</code>. The fields
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>123 XYZ Street'</pre>
+<pre>'123 XYZ Street'</pre>
 </div>
 
 </div>
@@ -726,7 +726,7 @@ class ImageryObject(builtins.object)
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Exception-handling">Exception handling<a class="anchor-link" href="#Exception-handling">¶</a>
 <a href="#Exception-handling" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Exceptions are classes. You can define your own by inheriting from <code>Exception</code> class.</p>
+<p>Exceptions are classes. You can define your own by inheriting from <code>Exception</code> class.</p>
 
 <pre><code>try:
     statements
@@ -958,7 +958,7 @@ exactly what whent bad? : __init__() missing 1 required positional argument: 'fi
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

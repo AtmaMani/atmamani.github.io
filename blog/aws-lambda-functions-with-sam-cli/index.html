@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building AWS Lambda Functions with SAM CLI | Atma’s blog</title>
+<title>Building AWS Lambda Functions with SAM CLI | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -108,7 +108,7 @@
 <a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -192,7 +192,7 @@
 <a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -210,22 +210,22 @@
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -243,7 +243,7 @@
 <a href="../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/">HTML basics</a>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -251,7 +251,7 @@
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -273,10 +273,10 @@
         <div class="row">
             
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building AWS Lambda Functions with SAM CLI</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building <span class="caps">AWS</span> Lambda Functions with <span class="caps">SAM</span> <span class="caps">CLI</span></a></h1>
 
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
                     Atma Mani
             </span></p>
             <p class="dateline">
@@ -290,26 +290,26 @@
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">SAM (Serverless Application Model)</a> allows you to build complex and production ready lambda functions that are performant yet light-weight. If you are new to serverless computing or lambda functions, checkout my <a href="../aws-lambda-functions-quickstart/">quick start guide</a>. This article helps you with getting started with SAM CLI.</p>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html"><span class="caps">SAM</span> (Serverless Application Model)</a> allows you to build complex and production ready lambda functions that are performant yet light-weight. If you are new to serverless computing or lambda functions, checkout my <a href="../aws-lambda-functions-quickstart/">quick start guide</a>. This article helps you with getting started with <span class="caps">SAM</span> <span class="caps">CLI</span>.</p>
 <!--TEASER_END-->
 
 <div class="toc">
 <ul>
-<li><a href="#installing-sam-cli">Installing SAM CLI</a></li>
-<li><a href="#sam-specification-the-model">SAM specification (the model)</a></li>
+<li><a href="#installing-sam-cli">Installing <span class="caps">SAM</span> <span class="caps">CLI</span></a></li>
+<li><a href="#sam-specification-the-model"><span class="caps">SAM</span> specification (the model)</a></li>
 </ul>
 </div>
-<p>The SAM CLI provides you a development environment that is identical to lambda execution environment. This is possible via a Docker image. Thus before installing SAM, you need a few prerequisites met:</p>
-<h3 id="installing-sam-cli">Installing SAM CLI<a href="#installing-sam-cli" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The <span class="caps">SAM</span> <span class="caps">CLI</span> provides you a development environment that is identical to lambda execution environment. This is possible via a Docker image. Thus before installing <span class="caps">SAM</span>, you need a few prerequisites met:</p>
+<h3 id="installing-sam-cli">Installing <span class="caps">SAM</span> <span class="caps">CLI</span><a href="#installing-sam-cli" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The prerequisites are</p>
 <ul>
 <li>Docker desktop</li>
 <li>Shared drive space between host and Docker</li>
 <li>Homebrew</li>
 </ul>
-<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html">SAM installation guide</a> walks you through the steps involved for various platforms. After installation, you need to configure it with your AWS account info as <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-set-up-credentials.html">explained here</a></p>
-<h3 id="sam-specification-the-model">SAM specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>The model is specified in a template while in YAML format as shown below:</p>
+<p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html"><span class="caps">SAM</span> installation guide</a> walks you through the steps involved for various platforms. After installation, you need to configure it with your <span class="caps">AWS</span> account info as <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-set-up-credentials.html">explained here</a></p>
+<h3 id="sam-specification-the-model"><span class="caps">SAM</span> specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The model is specified in a template while in <span class="caps">YAML</span> format as shown below:</p>
 <pre class="code literal-block"><span></span><span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
 
 <span class="nt">Globals</span><span class="p">:</span>
@@ -338,7 +338,7 @@
 </pre>
 
 
-<p>Only the <code>Transform</code> and <code>Resources</code> is required. Since this template is derived from AWS CloudFormation template, there are some overlaps. For example, below is the template created by the hello world application</p>
+<p>Only the <code>Transform</code> and <code>Resources</code> is required. Since this template is derived from <span class="caps">AWS</span> CloudFormation template, there are some overlaps. For example, below is the template created by the hello world application</p>
 <pre class="code literal-block"><span></span><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span> <span class="s">'2010-09-09'</span>
 <span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
 <span class="nt">Description</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>

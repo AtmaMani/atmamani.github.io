@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guide to spatial analysis - Introduction | Atma’s blog</title>
+<title>Guide to spatial analysis - Introduction | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -104,7 +104,7 @@ Basics of spatial data structures
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -188,7 +188,7 @@ Basics of spatial data structures
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -206,22 +206,22 @@ Basics of spatial data structures
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -239,7 +239,7 @@ Basics of spatial data structures
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -247,7 +247,7 @@ Basics of spatial data structures
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -310,12 +310,12 @@ Basics of spatial data structures
 <strong>Standard Deviation</strong>: Breaks are calculated by how many standard deviations they are from the mean. On the map, each group shows how many std each is from the mean.</li>
 </ul>
 <p><img alt="map classification schemes" src="../../../images/map-classification-schemes.jpg"></p>
-<p>Most people can distinguish up to <code>7</code> classes on a map. <code>4</code> or <code>5</code> are great number of classes to reveal patterns.</p>
+<p>Most people can distinguish up to <code>7</code> classes on a map. <code>4</code> or <code>5</code> are great number of classes to reveal patterns.</p>
 <h3 id="mapping-density">Mapping density<a href="#mapping-density" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Density is a ratio of number of features to a fixed areal extent. Thus, mapping number of people per sq. mile is a measure of population density. Mapping the density of features allows you to see patterns of where things are concentrated. Density surfaces are useful when mapping areas such as census tracts or counties which vary greatly in size.</p>
 <p>There are two ways to map density - a. mapping for defined areas (zip codes, census tracts, etc.) b. creating a density surface. When mapping for a defined area, a <strong>dot density renderer</strong> is a good visualization choice. You do this by summing the number of features within each polygon. Then you visualize each polygon with a set of dots, where each dot represents a chosen number of features (1 dot = 1000 features). The location of dots does not represent actual features though.</p>
 <p><img alt="dot density renderer" src="../../../images/dot-density-renderer-1.jpg"></p>
-<p><strong>Density surface</strong> is usually calculated as a <code>raster</code> layer. Each <code>cell</code> in the layer gets a value based on the number of features that fall within a given radius around the cell.</p>
+<p><strong>Density surface</strong> is usually calculated as a <code>raster</code> layer. Each <code>cell</code> in the layer gets a value based on the number of features that fall within a given radius around the cell.</p>
 <p><img alt="dot density vs surface" src="../../../images/dot-density-vs-density-surface.jpg"></p>
 <p>Calculation of the density surface depends on 1. cell size, 2. search radius, 3. calculation method and 4. units. <strong>Cell size</strong> will determine how coarse or smooth the patterns will appear. The smaller the cell size, the smoother the surface, the longer the computation. A larger cell size will make the surface coarser, but the calculation will be quicker.</p>
 <p><img alt="effects of cell size on density surface" src="../../../images/cell-size-on-density-surface.jpg"></p>

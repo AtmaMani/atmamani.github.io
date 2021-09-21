@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>03_feature-engineering-neighboring-facilities | Atma’s blog</title>
+<title>03_feature-engineering-neighboring-facilities | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -319,7 +319,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Feature-engineering---quantifying-access-to-facilities">Feature engineering - quantifying access to facilities<a class="anchor-link" href="#Feature-engineering---quantifying-access-to-facilities">¶</a>
 <a href="#Feature-engineering---quantifying-access-to-facilities" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>Often, when shortlisting facilities buyers look for access to facilities such as groceries, restaurants, schools, emergency and health care in thier neighborhood. In this notebook, we use the <code>geocoding</code> module to search for such facilities and build a table for each property.</p>
+<p>Often, when shortlisting facilities buyers look for access to facilities such as groceries, restaurants, schools, emergency and health care in thier neighborhood. In this notebook, we use the <code>geocoding</code> module to search for such facilities and build a table for each property.</p>
 
 </div>
 </div>
@@ -353,7 +353,7 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Connect to GIS</p>
+<p>Connect to <span class="caps">GIS</span></p>
 
 </div>
 </div>
@@ -491,35 +491,35 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
 <thead><tr style="text-align: right;">
 <th></th>
       <th>Unnamed: 0</th>
-      <th>SALE TYPE</th>
-      <th>PROPERTY TYPE</th>
-      <th>ADDRESS</th>
-      <th>CITY</th>
-      <th>STATE</th>
-      <th>ZIP</th>
-      <th>PRICE</th>
-      <th>BEDS</th>
-      <th>BATHS</th>
+      <th><span class="caps">SALE</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">PROPERTY</span> <span class="caps">TYPE</span></th>
+      <th><span class="caps">ADDRESS</span></th>
+      <th><span class="caps">CITY</span></th>
+      <th><span class="caps">STATE</span></th>
+      <th><span class="caps">ZIP</span></th>
+      <th><span class="caps">PRICE</span></th>
+      <th><span class="caps">BEDS</span></th>
+      <th><span class="caps">BATHS</span></th>
       <th>…</th>
-      <th>DAYS ON MARKET</th>
-      <th>PRICE PER SQFT</th>
-      <th>HOA PER MONTH</th>
-      <th>STATUS</th>
-      <th>URL</th>
-      <th>SOURCE</th>
-      <th>MLS</th>
-      <th>LATITUDE</th>
-      <th>LONGITUDE</th>
-      <th>SHAPE</th>
+      <th><span class="caps">DAYS</span> <span class="caps">ON</span> <span class="caps">MARKET</span></th>
+      <th><span class="caps">PRICE</span> <span class="caps">PER</span> <span class="caps">SQFT</span></th>
+      <th><span class="caps">HOA</span> <span class="caps">PER</span> <span class="caps">MONTH</span></th>
+      <th><span class="caps">STATUS</span></th>
+      <th><span class="caps">URL</span></th>
+      <th><span class="caps">SOURCE</span></th>
+      <th><span class="caps">MLS</span></th>
+      <th><span class="caps">LATITUDE</span></th>
+      <th><span class="caps">LONGITUDE</span></th>
+      <th><span class="caps">SHAPE</span></th>
     </tr></thead>
 <tbody><tr>
 <th>203</th>
       <td>2328</td>
-      <td>MLS Listing</td>
+      <td><span class="caps">MLS</span> Listing</td>
       <td>Single Family Residential</td>
-      <td>3775 NW Hilton Head Ter</td>
+      <td>3775 <span class="caps">NW</span> Hilton Head Ter</td>
       <td>Portland</td>
-      <td>OR</td>
+      <td><span class="caps">OR</span></td>
       <td>97229.0</td>
       <td>649900.0</td>
       <td>4.0</td>
@@ -529,8 +529,8 @@ Feature engineering - quantifying access to facilitiesRead one of the shortliste
       <td>221.0</td>
       <td>25.0</td>
       <td>Active</td>
-      <td>http://www.redfin.com/OR/Portland/3775-NW-Hilt…</td>
-      <td>RMLS</td>
+      <td>http://www.redfin.com/<span class="caps">OR</span>/Portland/3775-<span class="caps">NW</span>-Hilt…</td>
+      <td><span class="caps">RMLS</span></td>
       <td>18389440</td>
       <td>45.546644</td>
       <td>-122.815658</td>
@@ -811,7 +811,7 @@ var element = $('#d445522c-302e-4f62-83e3-12ffedac760d');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We will geocode for the following facilities within the said <code>5</code> mile buffer.</p>
+<p>We will geocode for the following facilities within the said <code>5</code> mile buffer.</p>
 
 <pre><code>Groceries
 Restaurants
@@ -1252,12 +1252,12 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
 <th>0</th>
       <td>Bales Market Place</td>
       <td>Coffee. Cup</td>
-      <td>Providence St Vincent Medical Center-ER</td>
+      <td>Providence St Vincent Medical Center-<span class="caps">ER</span></td>
       <td>Coffee. Cup</td>
       <td>None</td>
       <td>Shell</td>
       <td>Anderson Towing <span class="amp">&amp;</span> Recovery</td>
-      <td>MAX-Elmonica <span class="amp">&amp;</span> SW 170th Ave</td>
+      <td><span class="caps">MAX</span>-Elmonica <span class="amp">&amp;</span> <span class="caps">SW</span> 170th Ave</td>
       <td>Jqay House Park</td>
       <td>Portland Community College-Rock Creek</td>
     </tr>
@@ -1268,7 +1268,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>Providence St Vincent Medical Center</td>
       <td>Starbucks</td>
       <td>None</td>
-      <td>ARCO</td>
+      <td><span class="caps">ARCO</span></td>
       <td>Bassitt Auto Co</td>
       <td>Powder Lodging</td>
       <td>Jackie Husen Park</td>
@@ -1276,7 +1276,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
     </tr>
 <tr>
 <th>2</th>
-      <td>QFC</td>
+      <td><span class="caps">QFC</span></td>
       <td>Tilly’s Gelato</td>
       <td>None</td>
       <td>Starbucks</td>
@@ -1296,7 +1296,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>Costco</td>
       <td>Powell Paint Center</td>
-      <td>MAX-Sunset TC</td>
+      <td><span class="caps">MAX</span>-Sunset <span class="caps">TC</span></td>
       <td>Bonny Slope Park</td>
       <td>St Pius X Elementary School</td>
     </tr>
@@ -1309,7 +1309,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>76</td>
       <td>Retied</td>
-      <td>MAX-Merlo <span class="amp">&amp;</span> SW 158th Ave</td>
+      <td><span class="caps">MAX</span>-Merlo <span class="amp">&amp;</span> <span class="caps">SW</span> 158th Ave</td>
       <td>Burton Park</td>
       <td>Terra Linda Elementary School</td>
     </tr>
@@ -1322,7 +1322,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>Fred Meyer Fuel Center</td>
       <td>Chrisman’s Picture Frame <span class="amp">&amp;</span> Gallery</td>
-      <td>MAX-Beaverton Creek</td>
+      <td><span class="caps">MAX</span>-Beaverton Creek</td>
       <td>Lost Park</td>
       <td>Montessori School of Beaverton</td>
     </tr>
@@ -1413,7 +1413,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>76</td>
       <td>7-Eleven</td>
-      <td>Park <span class="amp">&amp;</span> Ride-Elmonica/SW 170th Ave</td>
+      <td>Park <span class="amp">&amp;</span> Ride-Elmonica/<span class="caps">SW</span> 170th Ave</td>
       <td>Commonwealth Park</td>
       <td>Ridgewood Elementary School</td>
     </tr>
@@ -1426,7 +1426,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>Motor Sports International</td>
-      <td>Park <span class="amp">&amp;</span> Ride-NW Cornell</td>
+      <td>Park <span class="amp">&amp;</span> Ride-<span class="caps">NW</span> Cornell</td>
       <td>Pioneer Park</td>
       <td>William Walker Elementary School</td>
     </tr>
@@ -1439,7 +1439,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>Bank of America</td>
-      <td>Park <span class="amp">&amp;</span> Ride-Sunset TRANSIT Center</td>
+      <td>Park <span class="amp">&amp;</span> Ride-Sunset <span class="caps">TRANSIT</span> Center</td>
       <td>Peppertree Park</td>
       <td>Meadow Park Middle School</td>
     </tr>
@@ -1464,7 +1464,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>Coffee Rush</td>
       <td>None</td>
       <td>None</td>
-      <td>US Bank</td>
+      <td><span class="caps">US</span> Bank</td>
       <td>Park <span class="amp">&amp;</span> Ride-Cedar Hills Church</td>
       <td>Kaiser Woods Park</td>
       <td>Holy Trinity Elementary School</td>
@@ -1490,7 +1490,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>None</td>
-      <td>US Bank</td>
+      <td><span class="caps">US</span> Bank</td>
       <td>Dock</td>
       <td>Kaiser Ridge Park</td>
       <td>Shiny Sparkles Montessori</td>
@@ -1498,7 +1498,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
 <tr>
 <th>19</th>
       <td>None</td>
-      <td>SUBWAY</td>
+      <td><span class="caps">SUBWAY</span></td>
       <td>None</td>
       <td>None</td>
       <td>None</td>
@@ -1589,7 +1589,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
 <tr>
 <th>26</th>
       <td>None</td>
-      <td>SUBWAY</td>
+      <td><span class="caps">SUBWAY</span></td>
       <td>None</td>
       <td>None</td>
       <td>None</td>
@@ -1646,7 +1646,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>None</td>
-      <td>SHERWIN-WILLIAMS</td>
+      <td><span class="caps">SHERWIN</span>-<span class="caps">WILLIAMS</span></td>
       <td>Tillamook/N</td>
       <td>Skyview Park</td>
       <td>Touchstone School</td>
@@ -1724,7 +1724,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>None</td>
-      <td>Sunset Science Park Federal CU</td>
+      <td>Sunset Science Park Federal <span class="caps">CU</span></td>
       <td>None</td>
       <td>Autumn Ridge Park</td>
       <td>Sunset High School</td>
@@ -1737,7 +1737,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>None</td>
-      <td>Sunset Science Park Federal CU</td>
+      <td>Sunset Science Park Federal <span class="caps">CU</span></td>
       <td>None</td>
       <td>Apollo Ridge Park</td>
       <td>Cedar Hills Kindercare</td>
@@ -1784,7 +1784,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
 <tr>
 <th>41</th>
       <td>None</td>
-      <td>SUBWAY</td>
+      <td><span class="caps">SUBWAY</span></td>
       <td>None</td>
       <td>None</td>
       <td>None</td>
@@ -1792,7 +1792,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
       <td>None</td>
       <td>None</td>
       <td>Stonegate at Willow Creek</td>
-      <td>ABC Children’s Academy</td>
+      <td><span class="caps">ABC</span> Children’s Academy</td>
     </tr>
 <tr>
 <th>42</th>
@@ -2011,7 +2011,7 @@ var element = $('#306fe733-035c-4d46-96a0-08192037c8e4');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>-122.81532304999996,45.546748785000034;-122.67727209699996,45.52153932300007'</pre>
+<pre>'-122.81532304999996,45.546748785000034;-122.67727209699996,45.52153932300007'</pre>
 </div>
 
 </div>
@@ -2084,7 +2084,7 @@ Trucking Distance
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre><span class="quo">'</span>TravelTime'</pre>
+<pre>'TravelTime'</pre>
 </div>
 
 </div>
@@ -2098,7 +2098,7 @@ Trucking Distance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Calculate time it takes to get to work. Set start time as <code>8:00 AM</code> on Mondays. ArcGIS routing service will use historic averages, so we provide this time as <code>8:00 AM, Monday, June 4 1990</code> in Unix epoch time. Read more about this <a href="https://developers.arcgis.com/rest/network/api-reference/route-synchronous-service.htm#ESRI_SECTION3_72F22EAF69BF4F6CB6076B583CEB4074">here</a></p>
+<p>Calculate time it takes to get to work. Set start time as <code>8:00 AM</code> on Mondays. ArcGIS routing service will use historic averages, so we provide this time as <code>8:00 AM, Monday, June 4 1990</code> in Unix epoch time. Read more about this <a href="https://developers.arcgis.com/rest/network/api-reference/route-synchronous-service.htm#ESRI_SECTION3_72F22EAF69BF4F6CB6076B583CEB4074">here</a></p>
 
 </div>
 </div>
@@ -2194,7 +2194,7 @@ Trucking Distance
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

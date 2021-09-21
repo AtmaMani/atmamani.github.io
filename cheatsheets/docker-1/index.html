@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Docker tutorial | Atma’s blog</title>
+<title>Docker tutorial | Atma's blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@ Pre-virtualization had a number of problems
 <a href="../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -191,7 +191,7 @@ Pre-virtualization had a number of problems
 <a href="../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../octave-1/">Octave / MATLAB - basics</a>
+<a href="../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../octave-2/">Octave - handling data</a>
@@ -209,22 +209,22 @@ Pre-virtualization had a number of problems
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -242,7 +242,7 @@ Pre-virtualization had a number of problems
 <a href="../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../html/">HTML basics</a>
+<a href="../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -250,7 +250,7 @@ Pre-virtualization had a number of problems
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml">RSS feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -283,26 +283,24 @@ Pre-virtualization had a number of problems
  - huge cost of VMs
  - slow deployment, hard to manage
  - VMWare and VirtualBox provided virtualization software which improved the process
- - things improved when Azure, AWS started providing VMs for hire. They provided pay-as-you-go model. Also deployment was extremely fast.</p>
-<p>Virtualization changed the game as they allowed to almost eliminate the virtual OS.
+ - things improved when Azure, <span class="caps">AWS</span> started providing VMs for hire. They provided pay-as-you-go model. Also deployment was extremely fast.</p>
+<p>Virtualization changed the game as they allowed to almost eliminate the virtual <span class="caps">OS</span>.
  - all containers run on the same linux kernel. However, isolation is provided at runtime.
- - containers pack up only the needed parts of the OS. Thus they are faster to deploy, scale up
+ - containers pack up only the needed parts of the <span class="caps">OS</span>. Thus they are faster to deploy, scale up
  - containers are fully portable</p>
 <h3 id="docker-architecture">Docker architecture<a href="#docker-architecture" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>There are 2 distinct parts
- - <code>docker client</code> - you interact with this layer, typically via CLI apps
- - <code>docker daemon</code> - the background process which powers the containers. We don’t talk to this directly, but only via the <code>docker client</code>.</p>
+<p>There are 2 distinct parts - <code>docker client</code> - you interact with this layer, typically via <span class="caps">CLI</span> apps - <code>docker daemon</code> - the background process which powers the containers. We don’t talk to this directly, but only via the <code>docker client</code>.</p>
 <p>Typically, the docker client and daemon run on the same machine, but it is possible from the client to connect to a remote daemon.</p>
 <h4 id="images-and-containers-registries-and-repositories">Images and Containers, Registries and Repositories<a href="#images-and-containers-registries-and-repositories" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><strong>Images</strong> are read-only templates composed by stacking up other images. They are hosted on docker registry.</p>
 <p><strong>Containers</strong> is an instance of an image.</p>
-<p><strong>Registry</strong> is where we store our images. You can host this yourself or use Docker’s public registry called <code>DockerHub</code>. <strong>Repositories</strong> are repos within the registry where images of a particular type are stored.</p>
-<p><strong>Docker Hub</strong> - is a public registry. Official repos are encouraged to be used as they are vetted by Docker and ensure they get security updates frequently. Generally, user created repos have a prefixing <code>username/repo_name/image_name</code>. Usually, <code>tags</code> are used to specify docker versions.</p>
+<p><strong>Registry</strong> is where we store our images. You can host this yourself or use Docker’s public registry called <code>DockerHub</code>. <strong>Repositories</strong> are repos within the registry where images of a particular type are stored.</p>
+<p><strong>Docker Hub</strong> - is a public registry. Official repos are encouraged to be used as they are vetted by Docker and ensure they get security updates frequently. Generally, user created repos have a prefixing <code>username/repo_name/image_name</code>. Usually, <code>tags</code> are used to specify docker versions.</p>
 <h3 id="docker-commands-quickstart">Docker commands - quickstart<a href="#docker-commands-quickstart" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
-<li>list all images held locally - <code>docker images</code>
+<li>list all images held locally - <code>docker images</code>
 </li>
-<li>run an image - <code>docker run busybox:1.23 echo "hello world"</code> which is of syntax <code>docker run image &lt;command to run on image&gt; &lt;argument for command&gt;</code> On running this, Docker will try to find the image locally, if not found, will download from docker hub and run. Example output below:</li>
+<li>run an image - <code>docker run busybox:1.23 echo "hello world"</code> which is of syntax <code>docker run image &lt;command to run on image&gt; &lt;argument for command&gt;</code> On running this, Docker will try to find the image locally, if not found, will download from docker hub and run. Example output below:</li>
 </ul>
 <pre class="code literal-block"><span></span><span class="nv">open</span><span class="o">-</span><span class="nv">geo</span> [<span class="nv">master</span>] $ <span class="nv">docker</span> <span class="nv">run</span> <span class="nv">busybox</span>:<span class="nv">latest</span> <span class="nv">echo</span> <span class="s2">"</span><span class="s">hello atma</span><span class="s2">"</span>
 <span class="nv">Unable</span> <span class="nv">to</span> <span class="nv">find</span> <span class="nv">image</span> <span class="s1">'</span><span class="s">busybox:latest</span><span class="s1">'</span> <span class="nv">locally</span>
@@ -317,54 +315,53 @@ Pre-virtualization had a number of problems
 
 <ul>
 <li>if you run the same command agin, it will run faster as there is no downloading.</li>
-<li>you can do other things like look at the contents of the image by calling <code>docker run busybox:latest ls /</code>
+<li>you can do other things like look at the contents of the image by calling <code>docker run busybox:latest ls /</code>
 </li>
 </ul>
 <h5 id="running-docker-in-interactive-mode">Running docker in interactive mode<a href="#running-docker-in-interactive-mode" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <ul>
-<li>run the image with <code>-i</code>, <code>-t</code> commands for interactive, TTY mode.</li>
+<li>run the image with <code>-i</code>, <code>-t</code> commands for interactive, <span class="caps">TTY</span> mode.</li>
 <li>
-<code>docker run -i -t busybox:latest</code>. You can exit by typing <code>exit</code>
+<code>docker run -i -t busybox:latest</code>. You can exit by typing <code>exit</code>
 </li>
 </ul>
 <h5 id="running-in-foreground-vs-detached-modes">Running in foreground vs detached modes<a href="#running-in-foreground-vs-detached-modes" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p>The default mode is to run in foreground. Docker will start the process in container, attaches the console to this process’ std output. You terminate the process and the connection together. When running, the terminal cannot be used for other things.</p>
-<p>Background / detached mode on the other hand can be stared with <code>-d</code> flag. The container is killed when the root process of container terminates. You can use the terminal to do other things while the container is running.</p>
+<p>Background / detached mode on the other hand can be stared with <code>-d</code> flag. The container is killed when the root process of container terminates. You can use the terminal to do other things while the container is running.</p>
 <ul>
 <li>
 <code>docker run -d busybox:latest sleep 100</code> will run it in background mode.</li>
-<li>You can list the running <strong>containers</strong> using <code>docker ps</code> command. Add the <code>-a</code> to list all containers that are stopped as well.</li>
-<li>By default, docker remembers both your containers and images. So you can rerun a docker container. If you do not want to retain a container, use <code>docker run --rm</code> option. The container is removed after it is run.</li>
-<li>to remove a container, run <code>docker rm &lt;name of container&gt;</code>.</li>
-<li>to run a container with a custom name, run <code>docker run --name &lt;custom_name&gt; &lt;commands&gt;</code>. Then you can verify this using <code>docker ps -a</code> command.</li>
-<li>When running in <strong>background mode</strong>, you cannot see the logs. Thus, you can call <code>docker logs &lt;container_name_or_id&gt;</code> to view the logs.</li>
+<li>You can list the running <strong>containers</strong> using <code>docker ps</code> command. Add the <code>-a</code> to list all containers that are stopped as well.</li>
+<li>By default, docker remembers both your containers and images. So you can rerun a docker container. If you do not want to retain a container, use <code>docker run --rm</code> option. The container is removed after it is run.</li>
+<li>to remove a container, run <code>docker rm &lt;name of container&gt;</code>.</li>
+<li>to run a container with a custom name, run <code>docker run --name &lt;custom_name&gt; &lt;commands&gt;</code>. Then you can verify this using <code>docker ps -a</code> command.</li>
+<li>When running in <strong>background mode</strong>, you cannot see the logs. Thus, you can call <code>docker logs &lt;container_name_or_id&gt;</code> to view the logs.</li>
 </ul>
 <h5 id="docker-inspect">Docker inspect<a href="#docker-inspect" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <p>Use inspect to display low level information about a container or image.</p>
 <ul>
-<li>to get low level details, run <code>docker inspect &lt;container_id&gt;</code> or <code>docker inspect &lt;conatiner_name&gt;</code>
+<li>to get low level details, run <code>docker inspect &lt;container_id&gt;</code> or <code>docker inspect &lt;conatiner_name&gt;</code>
 </li>
 </ul>
 <h5 id="port-mapping">Port mapping<a href="#port-mapping" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>We can expose a port on the container and map that to port on host using <code>-p</code> option. For instance: <code>docker run -it -p 8888:8080 tomcat:8.0</code> will run tomcat and map its <code>8888</code> port to the default <code>80</code> port on host.</p>
+<p>We can expose a port on the container and map that to port on host using <code>-p</code> option. For instance: <code>docker run -it -p 8888:8080 tomcat:8.0</code> will run tomcat and map its <code>8888</code> port to the default <code>80</code> port on host.</p>
 <h3 id="docker-images-in-detail">Docker images in detail<a href="#docker-images-in-detail" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="docker-image-layers">Docker image layers<a href="#docker-image-layers" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>A docker image is built as a list of read-only layers. At the bottom is a <strong>base layer</strong> on which other docker images or custom apps are installed. You can see all the <strong>layers</strong> of an image using <code>docker history &lt;image name:tag&gt;</code> command.</p>
+<p>A docker image is built as a list of read-only layers. At the bottom is a <strong>base layer</strong> on which other docker images or custom apps are installed. You can see all the <strong>layers</strong> of an image using <code>docker history &lt;image name:tag&gt;</code> command.</p>
 <p>When a new container is instantiated, a new <strong>editable, writable (container) layer</strong> is added on top of this read-only image layers. Thus when container is deleted, all changes are lost and the image remains unchanged. Thus different containers instantiated from same image can have different <strong>data states</strong> emanating from their thin, editable layers.</p>
 <h4 id="build-docker-image">Build docker image<a href="#build-docker-image" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>There are 2 ways of building an image
   1. commit changes made to a container (yay!)
   2. by writing a <strong><code>Dockerfile</code></strong>.</p>
 <h5 id="build-docker-image-by-committing-a-container">Build docker image by committing a container<a href="#build-docker-image-by-committing-a-container" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Here we make changes to the container, typically running it in interactive mode. Then after exiting the container (container can be stopped at this point), we call <code>docker commit &lt;container name or id&gt; &lt;username/image_name:tag&gt;</code>. Thus in this ex for example, I did the following
- - <code>docker run -it debian:jessie</code> which downloads and runs debian OS in interactive mode
- - from within the container, run <code>apt-get update &amp;&amp; apt-get install -y git</code> to install GIT
- - exit container and to commit, I do <code>docker commit hopeful_ellis atmamani/debian:0.1</code>
- - then running <code>docker images</code> will report the <code>atmamani/debian</code> image.
- - finally, running <code>docker history atmamani/debian:0.1</code> lists the changes I made. Note, it only states modification as bash, meaning it was a bash command, but not what the command is.</p>
-<h5 id="build-docker-image-using-dockerfile">Build docker image using <code>Dockerfile</code>
+<p>Here we make changes to the container, typically running it in interactive mode. Then after exiting the container (container can be stopped at this point), we call <code>docker commit &lt;container name or id&gt; &lt;username/image_name:tag&gt;</code>. Thus in this ex for example, I did the following - <code>docker run -it debian:jessie</code> which downloads and runs debian <span class="caps">OS</span> in interactive mode
+ - from within the container, run <code>apt-get update &amp;&amp; apt-get install -y git</code> to install <span class="caps">GIT</span>
+ - exit container and to commit, I do <code>docker commit hopeful_ellis atmamani/debian:0.1</code>
+ - then running <code>docker images</code> will report the <code>atmamani/debian</code> image.
+ - finally, running <code>docker history atmamani/debian:0.1</code> lists the changes I made. Note, it only states modification as bash, meaning it was a bash command, but not what the command is.</p>
+<h5 id="build-docker-image-using-dockerfile">Build docker image using <code>Dockerfile</code>
 <a href="#build-docker-image-using-dockerfile" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Dockerfile is a text based manifest. The file should not have any extension and must start with a capital <code>D</code>. Below is a sample Dockerfile</p>
+<p>Dockerfile is a text based manifest. The file should not have any extension and must start with a capital <code>D</code>. Below is a sample Dockerfile</p>
 <pre class="code literal-block"><span></span><span class="k">FROM</span><span class="s"> debain:jessie</span>
 <span class="k">RUN</span> apt-get update
 <span class="k">RUN</span> apt-get install -y git
@@ -372,7 +369,7 @@ Pre-virtualization had a number of problems
 </pre>
 
 
-<p>Then build it using command <code>docker build -t &lt;username/imagename:tag&gt; &lt;buildcontext&gt;</code> The build context here needs path to the dockerfile on disk. You can also use the build context to package up additional files into the docker image. Docker daemon will create a tarball of these files, send it to the contain, unpack. So I ran <code>docker build -t atmamani/debian:frmdckfile .</code> from the folder containing the Dockerfile.</p>
+<p>Then build it using command <code>docker build -t &lt;username/imagename:tag&gt; &lt;buildcontext&gt;</code> The build context here needs path to the dockerfile on disk. You can also use the build context to package up additional files into the docker image. Docker daemon will create a tarball of these files, send it to the contain, unpack. So I ran <code>docker build -t atmamani/debian:frmdckfile .</code> from the folder containing the Dockerfile.</p>
 <p>Once built, you can inspect the history and now it reports it correctly:</p>
 <pre class="code literal-block"><span></span><span class="n">docker</span><span class="o">-</span><span class="n">trials</span> <span class="err">$</span> <span class="n">docker</span> <span class="n">history</span> <span class="n">atmamani</span><span class="o">/</span><span class="n">debian</span><span class="p">:</span><span class="n">frmdckfile</span>
 <span class="n">IMAGE</span>               <span class="n">CREATED</span>              <span class="n">CREATED</span> <span class="k">BY</span>                                      <span class="k">SIZE</span>                <span class="k">COMMENT</span>
@@ -393,7 +390,7 @@ Pre-virtualization had a number of problems
 
 
 <h5 id="baking-run-commands-into-docker-image">Baking run commands into Docker image<a href="#baking-run-commands-into-docker-image" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>We can bake commands to be run when a container starts up from an image. The preferred way is to use <code>exec</code> commands, an alternate is to specify <code>bash</code> commands. We prefix such with <code>CMD</code> keyword. If you do not specify a CMD, the default is to bring up <code>bash</code>.</p>
+<p>We can bake commands to be run when a container starts up from an image. The preferred way is to use <code>exec</code> commands, an alternate is to specify <code>bash</code> commands. We prefix such with <code>CMD</code> keyword. If you do not specify a <span class="caps">CMD</span>, the default is to bring up <code>bash</code>.</p>
 <pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
 <span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
     <span class="n">git</span> <span class="err">\</span>
@@ -403,7 +400,7 @@ Pre-virtualization had a number of problems
 </pre>
 
 
-<p>When a container is created, it runs this <code>helllo world</code> with a typo. You can also modify this at runtime, by specifying <code>docker run &lt;image_name&gt; &lt;commands&gt; &lt;arguments&gt;</code> such as <code>docker run atmamani/echoer echo hello hello</code>.</p>
+<p>When a container is created, it runs this <code>helllo world</code> with a typo. You can also modify this at runtime, by specifying <code>docker run &lt;image_name&gt; &lt;commands&gt; &lt;arguments&gt;</code> such as <code>docker run atmamani/echoer echo hello hello</code>.</p>
 <h5 id="copying-files-into-the-image">Copying files into the image<a href="#copying-files-into-the-image" class="headerlink" title="Permalink to this heading">¶</a></h5>
 <pre class="code literal-block"><span></span><span class="k">FROM</span> <span class="n">debian</span><span class="p">:</span><span class="n">jessie</span>
 <span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="err">\</span>
@@ -414,14 +411,14 @@ Pre-virtualization had a number of problems
 </pre>
 
 
-<p>The above will copy <code>abc.txt</code> from local dir into the <code>tmp</code> dir of the image. This will be available for all containers spun up from this image.</p>
+<p>The above will copy <code>abc.txt</code> from local dir into the <code>tmp</code> dir of the image. This will be available for all containers spun up from this image.</p>
 <h5 id="pushing-images-to-docker-hub">Pushing images to Docker hub<a href="#pushing-images-to-docker-hub" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Some people say don’t use <code>latest</code> tag, instead use a real SEMVER version. To tag an image before pushing to hub or production, you need to tag it appropriately. <code>docker tag &lt;image name&gt; &lt;reponame/newname:tag&gt;</code> Thus, <code>docker tag atmamani/debian:frmdckfile atmamani/debian:0.2</code></p>
-<p>Then push using <code>docker push &lt;imagename&gt;</code> as <code>docker push atmamani/debian:0.2</code></p>
+<p>Some people say don’t use <code>latest</code> tag, instead use a real <span class="caps">SEMVER</span> version. To tag an image before pushing to hub or production, you need to tag it appropriately. <code>docker tag &lt;image name&gt; &lt;reponame/newname:tag&gt;</code> Thus, <code>docker tag atmamani/debian:frmdckfile atmamani/debian:0.2</code></p>
+<p>Then push using <code>docker push &lt;imagename&gt;</code> as <code>docker push atmamani/debian:0.2</code></p>
 <h3 id="a-hello-world-app-using-flask">A Hello world app using Flask<a href="#a-hello-world-app-using-flask" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Download the repo using <code>git clone -b v0.1 https://github.com/jleetutorial/dockerapp.git</code>. Then build the docker image using <code>docker build -t tut-dockerapp:v0.1 .</code></p>
-<p>Run the container as <code>docker run -d -p 5000:5000 tut-dockerapp:v0.1</code> this spins up the container and maps the port. You can use the web app at <code>localhost:5000</code>. If for some reason, this is not available or unknown, you can find the IP address of the docker using <code>docker-machine ls</code> or find which port is mapped using <code>docker ps</code>.</p>
-<p>To <strong>step into a running container</strong>, use <code>docker exec -it &lt;cont name or id&gt; &lt;command&gt;</code>, such as <code>docker exec -it keen_noyce bash</code>. The <code>-i</code> flag makes it interactive. To <strong>see the running process within the container</strong> do <code>ps axu</code> from within the <code>home</code> directory:</p>
+<p>Download the repo using <code>git clone -b v0.1 https://github.com/jleetutorial/dockerapp.git</code>. Then build the docker image using <code>docker build -t tut-dockerapp:v0.1 .</code></p>
+<p>Run the container as <code>docker run -d -p 5000:5000 tut-dockerapp:v0.1</code> this spins up the container and maps the port. You can use the web app at <code>localhost:5000</code>. If for some reason, this is not available or unknown, you can find the <span class="caps">IP</span> address of the docker using <code>docker-machine ls</code> or find which port is mapped using <code>docker ps</code>.</p>
+<p>To <strong>step into a running container</strong>, use <code>docker exec -it &lt;cont name or id&gt; &lt;command&gt;</code>, such as <code>docker exec -it keen_noyce bash</code>. The <code>-i</code> flag makes it interactive. To <strong>see the running process within the container</strong> do <code>ps axu</code> from within the <code>home</code> directory:</p>
 <pre class="code literal-block"><span></span><span class="nv">dockerapp</span> [<span class="ss">(</span><span class="nv">no</span> <span class="nv">branch</span><span class="ss">)</span>] $ <span class="nv">docker</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="nv">keen_noyce</span> <span class="nv">bash</span>
 <span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">/</span><span class="nv">app</span>$ <span class="nv">cd</span> <span class="o">~</span>
 <span class="nv">admin</span>@<span class="nv">dd29aef6445a</span>:<span class="o">~</span>$ <span class="nv">ps</span> <span class="nv">axu</span>
@@ -433,13 +430,13 @@ Pre-virtualization had a number of problems
 </pre>
 
 
-<p>To exit out of the container’s bash, type <code>exit</code>. To stop the container running as daemon, type <code>docker stop &lt;container_name&gt;</code>.</p>
-<h3 id="kvp-lookup-app-using-flask">KVP lookup app using Flask<a href="#kvp-lookup-app-using-flask" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<h3 id="linking-containers-using-redis">Linking containers using <code>redis</code>
+<p>To exit out of the container’s bash, type <code>exit</code>. To stop the container running as daemon, type <code>docker stop &lt;container_name&gt;</code>.</p>
+<h3 id="kvp-lookup-app-using-flask"><span class="caps">KVP</span> lookup app using Flask<a href="#kvp-lookup-app-using-flask" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h3 id="linking-containers-using-redis">Linking containers using <code>redis</code>
 <a href="#linking-containers-using-redis" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><code>redis</code> is a message broker, inmemory cache, db service that is containerized. We need a redis Python client.</p>
 <h3 id="linking-with-docker-compose">Linking with Docker compose<a href="#linking-with-docker-compose" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p><code>docker-compose.yml</code> is a YAML file. Verison 3 is up to date. You start with a version number. Then specify the services that needs to be run. The <code>dockerapp</code> contains the main, user facing app, the <code>depends_on</code> contains all other microservices that need to be spun up and the order in which they need to be spun up.
+<p><code>docker-compose.yml</code> is a <span class="caps">YAML</span> file. Verison 3 is up to date. You start with a version number. Then specify the services that needs to be run. The <code>dockerapp</code> contains the main, user facing app, the <code>depends_on</code> contains all other microservices that need to be spun up and the order in which they need to be spun up.
 A sample looks like:</p>
 <pre class="code literal-block"><span></span><span class="nt">verison</span><span class="p">:</span> <span class="s">'3'</span>
 <span class="nt">services</span><span class="p">:</span>
@@ -454,8 +451,8 @@ A sample looks like:</p>
 </pre>
 
 
-<p>To build and run using docker compose, run <code>docker-compose up -d</code> from dir that contains the yaml file. Once done, you can run <code>docker ps</code> to see the containers created and being run.</p>
-<p>To rebuild a docker compose, you may have to force it if are changing just the python stack. To force rebuild use <code>docker-compose build</code>.</p>
+<p>To build and run using docker compose, run <code>docker-compose up -d</code> from dir that contains the yaml file. Once done, you can run <code>docker ps</code> to see the containers created and being run.</p>
+<p>To rebuild a docker compose, you may have to force it if are changing just the python stack. To force rebuild use <code>docker-compose build</code>.</p>
 </div>
     </div>
     

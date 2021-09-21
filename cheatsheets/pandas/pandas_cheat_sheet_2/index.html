@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>pandas_cheat_sheet_2 | Atma’s blog</title>
+<title>pandas_cheat_sheet_2 | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -118,7 +118,7 @@ m">
 <a href="../../python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -202,7 +202,7 @@ m">
 <a href="../../r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / MATLAB - basics</a>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../octave-2/">Octave - handling data</a>
@@ -220,22 +220,22 @@ m">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -253,7 +253,7 @@ m">
 <a href="../../web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../html/">HTML basics</a>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -261,7 +261,7 @@ m">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -531,7 +531,7 @@ m">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Accessing-rows-and-columns">Accessing rows and columns<a class="anchor-link" href="#Accessing-rows-and-columns">¶</a>
 <a href="#Accessing-rows-and-columns" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can use <code>loc</code> and <code>iloc</code> as a chain to access the elements. Go from outer index to inner index</p>
+<p>You can use <code>loc</code> and <code>iloc</code> as a chain to access the elements. Go from outer index to inner index</p>
 
 </div>
 </div>
@@ -987,7 +987,7 @@ Name: (G1, 2), dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Missing-data">Missing data<a class="anchor-link" href="#Missing-data">¶</a>
 <a href="#Missing-data" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>You can either drop rows/cols with missing values using <code>dropna()</code> or fill those cells with values using the <code>fillna()</code> methods.</p>
+<p>You can either drop rows/cols with missing values using <code>dropna()</code> or fill those cells with values using the <code>fillna()</code> methods.</p>
 <h4 id="dropna">dropna<a class="anchor-link" href="#dropna">¶</a>
 <a href="#dropna" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Use <code>dropna(axis, thresh...)</code> where axis is 0 for rows, 1 for cols and thresh represents how many occurrences of nan before dropping happens</p>
@@ -1471,10 +1471,10 @@ Name: a, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Data-aggregation">Data aggregation<a class="anchor-link" href="#Data-aggregation">¶</a>
 <a href="#Data-aggregation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Pandas allows sql like control on the dataframes. You can treat each DF as a table and perform sql aggregation.</p>
+<p>Pandas allows sql like control on the dataframes. You can treat each <span class="caps">DF</span> as a table and perform sql aggregation.</p>
 <h4 id="groupby">groupby<a class="anchor-link" href="#groupby">¶</a>
 <a href="#groupby" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Format is: <code>df.groupby('col_name').aggregation()</code></p>
+<p>Format is: <code>df.groupby('col_name').aggregation()</code></p>
 
 </div>
 </div>
@@ -1531,37 +1531,37 @@ Name: a, dtype: float64</pre>
 <tbody>
 <tr>
 <th>0</th>
-      <td>GOOG</td>
+      <td><span class="caps">GOOG</span></td>
       <td>Sam</td>
       <td>200</td>
     </tr>
 <tr>
 <th>1</th>
-      <td>GOOG</td>
+      <td><span class="caps">GOOG</span></td>
       <td>Charlie</td>
       <td>120</td>
     </tr>
 <tr>
 <th>2</th>
-      <td>MSFT</td>
+      <td><span class="caps">MSFT</span></td>
       <td>Amy</td>
       <td>340</td>
     </tr>
 <tr>
 <th>3</th>
-      <td>MSFT</td>
+      <td><span class="caps">MSFT</span></td>
       <td>Vanessa</td>
       <td>124</td>
     </tr>
 <tr>
 <th>4</th>
-      <td>FB</td>
+      <td><span class="caps">FB</span></td>
       <td>Carl</td>
       <td>243</td>
     </tr>
 <tr>
 <th>5</th>
-      <td>FB</td>
+      <td><span class="caps">FB</span></td>
       <td>Sarah</td>
       <td>350</td>
     </tr>
@@ -1637,15 +1637,15 @@ Name: a, dtype: float64</pre>
 </thead>
 <tbody>
 <tr>
-<th>FB</th>
+<th><span class="caps">FB</span></th>
       <td>296.5</td>
     </tr>
 <tr>
-<th>GOOG</th>
+<th><span class="caps">GOOG</span></th>
       <td>160.0</td>
     </tr>
 <tr>
-<th>MSFT</th>
+<th><span class="caps">MSFT</span></th>
       <td>232.0</td>
     </tr>
 </tbody>
@@ -1710,15 +1710,15 @@ Name: a, dtype: float64</pre>
 </thead>
 <tbody>
 <tr>
-<th>FB</th>
+<th><span class="caps">FB</span></th>
       <td>75.660426</td>
     </tr>
 <tr>
-<th>GOOG</th>
+<th><span class="caps">GOOG</span></th>
       <td>56.568542</td>
     </tr>
 <tr>
-<th>MSFT</th>
+<th><span class="caps">MSFT</span></th>
       <td>152.735065</td>
     </tr>
 </tbody>
@@ -1737,7 +1737,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can run other aggregation functions like <code>mean, min, max, std, count</code> etc. Lets look at <code>describe</code> which does all of it.</p>
+<p>You can run other aggregation functions like <code>mean, min, max, std, count</code> etc. Lets look at <code>describe</code> which does all of it.</p>
 <h5 id="describe">describe<a class="anchor-link" href="#describe">¶</a>
 <a href="#describe" class="headerlink" title="Permalink to this heading">¶</a></h5>
 </div>
@@ -1811,7 +1811,7 @@ Name: a, dtype: float64</pre>
 </thead>
 <tbody>
 <tr>
-<th>FB</th>
+<th><span class="caps">FB</span></th>
       <td>2.0</td>
       <td>296.5</td>
       <td>75.660426</td>
@@ -1822,7 +1822,7 @@ Name: a, dtype: float64</pre>
       <td>350.0</td>
     </tr>
 <tr>
-<th>GOOG</th>
+<th><span class="caps">GOOG</span></th>
       <td>2.0</td>
       <td>160.0</td>
       <td>56.568542</td>
@@ -1833,7 +1833,7 @@ Name: a, dtype: float64</pre>
       <td>200.0</td>
     </tr>
 <tr>
-<th>MSFT</th>
+<th><span class="caps">MSFT</span></th>
       <td>2.0</td>
       <td>232.0</td>
       <td>152.735065</td>
@@ -1861,7 +1861,7 @@ Name: a, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="transpose">transpose<a class="anchor-link" href="#transpose">¶</a>
 <a href="#transpose" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Long over due, you can tile a DF by calling the <code>transpose()</code> method.</p>
+<p>Long over due, you can tile a <span class="caps">DF</span> by calling the <code>transpose()</code> method.</p>
 
 </div>
 </div>
@@ -1907,9 +1907,9 @@ Name: a, dtype: float64</pre>
 <thead><tr style="text-align: right;">
 <th></th>
       <th>Company</th>
-      <th>FB</th>
-      <th>GOOG</th>
-      <th>MSFT</th>
+      <th><span class="caps">FB</span></th>
+      <th><span class="caps">GOOG</span></th>
+      <th><span class="caps">MSFT</span></th>
     </tr></thead>
 <tbody>
 <tr>
@@ -2211,7 +2211,7 @@ Name: a, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="concat">concat<a class="anchor-link" href="#concat">¶</a>
 <a href="#concat" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><code>pd.concat([list_of_df], axis=0)</code> will extend a dataframe either along rows or columns. All DF in the list should be of same dimension.</p>
+<p><code>pd.concat([list_of_df], axis=0)</code> will extend a dataframe either along rows or columns. All <span class="caps">DF</span> in the list should be of same dimension.</p>
 
 </div>
 </div>
@@ -2487,8 +2487,8 @@ Name: a, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="merge">merge<a class="anchor-link" href="#merge">¶</a>
 <a href="#merge" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>merge lets you do a sql merge with <code>inner, outer, right</code> and <code>left</code> joins.
-<code>pd.merge(left, right, how='outer', on='key')</code> where, <code>left</code> and <code>right</code> are your two DataFrames (tables) and <code>on</code> refers to the <code>foreign key</code></p>
+<p>merge lets you do a sql merge with <code>inner, outer, right</code> and <code>left</code> joins.
+<code>pd.merge(left, right, how='outer', on='key')</code> where, <code>left</code> and <code>right</code> are your two DataFrames (tables) and <code>on</code> refers to the <code>foreign key</code></p>
 
 </div>
 </div>
@@ -2766,7 +2766,7 @@ Name: a, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When both tables have same column names that are not used for merging (<code>on</code>) then pandas appends <code>x</code> and <code>y</code> to their names to differentiate</p>
+<p>When both tables have same column names that are not used for merging (<code>on</code>) then pandas appends <code>x</code> and <code>y</code> to their names to differentiate</p>
 
 </div>
 </div>
@@ -2778,7 +2778,7 @@ Name: a, dtype: float64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="merge-on-multiple-columns">merge on multiple columns<a class="anchor-link" href="#merge-on-multiple-columns">¶</a>
 <a href="#merge-on-multiple-columns" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Sometimes, your foreign key is composite. Then you can merge on multiple keys by passing a list to the <code>on</code> argument.
+<p>Sometimes, your foreign key is composite. Then you can merge on multiple keys by passing a list to the <code>on</code> argument.
 Now lets add a key2 column to both the tables.</p>
 
 </div>
@@ -3041,7 +3041,7 @@ Now lets add a key2 column to both the tables.</p>
 <p><code>inner</code> merge will only keep the intersection, thus only 2 rows.</p>
 <h5 id="outer-merge">outer merge<a class="anchor-link" href="#outer-merge">¶</a>
 <a href="#outer-merge" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Use <code>how='outer'</code> to keep the union of both the tables. pandas fills <code>NaN</code> when a cell has no values.</p>
+<p>Use <code>how='outer'</code> to keep the union of both the tables. pandas fills <code>NaN</code> when a cell has no values.</p>
 
 </div>
 </div>
@@ -3506,7 +3506,7 @@ Now lets add a key2 column to both the tables.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="join">join<a class="anchor-link" href="#join">¶</a>
 <a href="#join" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Joins are like merges but work on index instead of columns. Further, they are by default either <code>left</code> or <code>right</code> with <code>inner</code> as mode of joins. See example below:</p>
+<p>Joins are like merges but work on index instead of columns. Further, they are by default either <code>left</code> or <code>right</code> with <code>inner</code> as mode of joins. See example below:</p>
 
 </div>
 </div>
@@ -3916,7 +3916,7 @@ Now lets add a key2 column to both the tables.</p>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

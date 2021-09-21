@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>sklearn-1 | Atma’s blog</title>
+<title>sklearn-1 | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -106,7 +106,7 @@ from sklearn.linear_mo">
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -190,7 +190,7 @@ from sklearn.linear_mo">
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -208,22 +208,22 @@ from sklearn.linear_mo">
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -241,7 +241,7 @@ from sklearn.linear_mo">
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -249,7 +249,7 @@ from sklearn.linear_mo">
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -298,7 +298,7 @@ from sklearn.linear_mo">
 <a href="#Library-constructs" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Estimator">Estimator<a class="anchor-link" href="#Estimator">¶</a>
 <a href="#Estimator" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Every algorithm is exposed via an <code>Estimator</code> which can be imported as</p>
+<p>Every algorithm is exposed via an <code>Estimator</code> which can be imported as</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.</span><span class="o">&lt;</span><span class="n">family</span><span class="o">&gt;</span> <span class="kn">import</span> <span class="o">&lt;</span><span class="n">model</span><span class="o">&gt;</span>
 </pre></div>
 <p>for linear regression</p>
@@ -324,7 +324,7 @@ from sklearn.linear_mo">
 <ul>
 <li>choose a class of model</li>
 <li>instantiate a model from the class by specifying hyperparameters to its constructor</li>
-<li>arrange data into <code>X</code> and <code>y</code> and split them for training and testing</li>
+<li>arrange data into <code>X</code> and <code>y</code> and split them for training and testing</li>
 <li>fit / learn the model on training data by calling <strong><code>fit()</code></strong> method</li>
 <li>predict new values by calling the <strong><code>predict()</code></strong> method</li>
 <li>evaluate results</li>
@@ -338,16 +338,16 @@ from sklearn.linear_mo">
 <p>to split it at 70% train and 30% test sets. This method splits both the dependent and independent attributes so as to validate the prediction.</p>
 <h4 id="Training">Training<a class="anchor-link" href="#Training">¶</a>
 <a href="#Training" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>The general syntax is <code>model.fit(independent_train, dependent_train)</code>. Thus</p>
+<p>The general syntax is <code>model.fit(independent_train, dependent_train)</code>. Thus</p>
 <div class="highlight"><pre><span></span><span class="n">lm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 <p>In case of <strong>unsupervised models</strong> you only have a training data, no test data. Hence</p>
 <div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
 </pre></div>
-<p>In Scikit-Learn, by convention all model parameters that were learned during the <code>fit()</code> process have trailing underscores; for example in this linear model, we have <code>model.coef_</code>, <code>model.intercept_</code></p>
+<p>In Scikit-Learn, by convention all model parameters that were learned during the <code>fit()</code> process have trailing underscores; for example in this linear model, we have <code>model.coef_</code>, <code>model.intercept_</code></p>
 <h5 id="Training-score">Training score<a class="anchor-link" href="#Training-score">¶</a>
 <a href="#Training-score" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>A <code>model.score()</code> method returns the a value <code>0-1</code> illustrating how well the model fitted the training data. Note this is useful to understand the influence of <strong>underfitting</strong> and <strong>overfitting</strong> of training data.</p>
+<p>A <code>model.score()</code> method returns the a value <code>0-1</code> illustrating how well the model fitted the training data. Note this is useful to understand the influence of <strong>underfitting</strong> and <strong>overfitting</strong> of training data.</p>
 <h4 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">¶</a>
 <a href="#Prediction" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Use <code>model.predict(&lt;independent_test data&gt;)</code>. Thus for linear reg,</p>
@@ -355,13 +355,13 @@ from sklearn.linear_mo">
 </pre></div>
 <h5 id="Prediction-probabilities">Prediction probabilities<a class="anchor-link" href="#Prediction-probabilities">¶</a>
 <a href="#Prediction-probabilities" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>In case of <strong>classification</strong> problems, you also get a <code>model.predict_proba()</code> method which will return the probabilities for each class. The <code>model.predict()</code> will return the class with highest probability.</p>
+<p>In case of <strong>classification</strong> problems, you also get a <code>model.predict_proba()</code> method which will return the probabilities for each class. The <code>model.predict()</code> will return the class with highest probability.</p>
 <h4 id="Transformation">Transformation<a class="anchor-link" href="#Transformation">¶</a>
 <a href="#Transformation" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Relevant in <strong>unsupervised</strong> models, <code>model.transform()</code> is used to transform input data to a new basis. Some models combine the fitting and transformation in one step using the <code>model.fit_transform()</code> method.</p>
+<p>Relevant in <strong>unsupervised</strong> models, <code>model.transform()</code> is used to transform input data to a new basis. Some models combine the fitting and transformation in one step using the <code>model.fit_transform()</code> method.</p>
 <h4 id="Validation">Validation<a class="anchor-link" href="#Validation">¶</a>
 <a href="#Validation" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can obtain the <strong>MAE</strong> (Mean Absolute Error), <strong>MSE</strong> (Mean Squared Error) and <strong>RMSE</strong> (Root Mean Squared Error) from the <code>metrics</code> module.</p>
+<p>You can obtain the <strong><span class="caps">MAE</span></strong> (Mean Absolute Error), <strong><span class="caps">MSE</span></strong> (Mean Squared Error) and <strong><span class="caps">RMSE</span></strong> (Root Mean Squared Error) from the <code>metrics</code> module.</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 <span class="kn">import</span> <span class="nn">numpy.np</span>
 
@@ -390,7 +390,7 @@ from sklearn.linear_mo">
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

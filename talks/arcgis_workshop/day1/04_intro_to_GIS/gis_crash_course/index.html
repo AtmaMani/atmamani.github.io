@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>gis_crash_course | Atma’s blog</title>
+<title>gis_crash_course | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -117,7 +117,7 @@ tracks of hurricanes
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -201,7 +201,7 @@ tracks of hurricanes
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -219,22 +219,22 @@ tracks of hurricanes
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -252,7 +252,7 @@ tracks of hurricanes
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -260,7 +260,7 @@ tracks of hurricanes
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -293,7 +293,7 @@ tracks of hurricanes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="GIS-crash-course">GIS crash course<a class="anchor-link" href="#GIS-crash-course">¶</a>
+<h2 id="GIS-crash-course"><span class="caps">GIS</span> crash course<a class="anchor-link" href="#GIS-crash-course">¶</a>
 <a href="#GIS-crash-course" class="headerlink" title="Permalink to this heading">¶</a></h2>
 </div>
 </div>
@@ -303,7 +303,7 @@ tracks of hurricanes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="GIS-is-everywhere!">GIS is everywhere!<a class="anchor-link" href="#GIS-is-everywhere!">¶</a>
+<h3 id="GIS-is-everywhere!"><span class="caps">GIS</span> is everywhere!<a class="anchor-link" href="#GIS-is-everywhere!">¶</a>
 <a href="#GIS-is-everywhere!" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li>80% of all data has some spatial component</li>
@@ -315,11 +315,11 @@ tracks of hurricanes
 <li>3d seismic data</li>
 <li>oil pipeline tracks across the country</li>
 <li>shipping tracks of oil containers</li>
-<li>fastest route from Palm Springs to LAX
+<li>fastest route from Palm Springs to <span class="caps">LAX</span>
 &lt;/td&gt;<td>
 <li>steaming traffic data from sensors</li>
 <li>real estate data in sunny Palm Springs (Location! Location! Location!)</li>
-<li>weather data from NOAA satellites, automated weather stations</li>
+<li>weather data from <span class="caps">NOAA</span> satellites, automated weather stations</li>
 <li>facility and utility maps of sewers, electricity lines
 &lt;/td&gt;
 &lt;/tr&gt; &lt;/table&gt;</li>
@@ -335,7 +335,7 @@ tracks of hurricanes
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Data from newer sources of late</p>
 <ul>
-<li>IP address pings</li>
+<li><span class="caps">IP</span> address pings</li>
 <li>geocoded photos on flickr, facebook, tweets</li>
 <li>3D maps of genomes</li>
 <li>3D viz of medical imaging</li>
@@ -354,7 +354,7 @@ tracks of hurricanes
 <a href="#How-to-represent-all-this-data?" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <h4 id="Vector-or-feature-data">Vector or feature data<a class="anchor-link" href="#Vector-or-feature-data">¶</a>
 <a href="#Vector-or-feature-data" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>It is quite suprising that so many types of GIS data can be represented using <strong>points, lines and polygons</strong>
+<p>It is quite suprising that so many types of <span class="caps">GIS</span> data can be represented using <strong>points, lines and polygons</strong>
 <img src="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/GUID-49497935-EDB0-4BCA-8861-8BE08F89AAA9-web.gif" alt="plp"></p>
 
 </div>
@@ -412,7 +412,7 @@ tracks of hurricanes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="GIS-data-in-ArcGIS">GIS data in ArcGIS<a class="anchor-link" href="#GIS-data-in-ArcGIS">¶</a>
+<h3 id="GIS-data-in-ArcGIS"><span class="caps">GIS</span> data in ArcGIS<a class="anchor-link" href="#GIS-data-in-ArcGIS">¶</a>
 <a href="#GIS-data-in-ArcGIS" class="headerlink" title="Permalink to this heading">¶</a></h3>
 </div>
 </div>
@@ -422,7 +422,7 @@ tracks of hurricanes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="GIS-data-accessed-as-files-on-disk">GIS data accessed as files on disk<a class="anchor-link" href="#GIS-data-accessed-as-files-on-disk">¶</a>
+<h4 id="GIS-data-accessed-as-files-on-disk"><span class="caps">GIS</span> data accessed as files on disk<a class="anchor-link" href="#GIS-data-accessed-as-files-on-disk">¶</a>
 <a href="#GIS-data-accessed-as-files-on-disk" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>What are some common data formats?</p>
 <p></p>
@@ -440,7 +440,7 @@ tracks of hurricanes
 <li>feature classes</li>
 <li>esri raster grid, mosaic dataset</li>
 <li>kml, geoJSON</li>
-<li>GeoTIFF, HDF, netCDF</li>
+<li>GeoTIFF, <span class="caps">HDF</span>, netCDF</li>
 <li>gpx
 &lt;/td&gt;<td>
 <li>ArcGIS Packages</li>
@@ -459,9 +459,9 @@ tracks of hurricanes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="GIS-data-accessed-via-web-layers">GIS data accessed via web layers<a class="anchor-link" href="#GIS-data-accessed-via-web-layers">¶</a>
+<h4 id="GIS-data-accessed-via-web-layers"><span class="caps">GIS</span> data accessed via web layers<a class="anchor-link" href="#GIS-data-accessed-via-web-layers">¶</a>
 <a href="#GIS-data-accessed-via-web-layers" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>GIS data served over HTTP. What are the different types of ArcGIS services?</p>
+<p><span class="caps">GIS</span> data served over <span class="caps">HTTP</span>. What are the different types of ArcGIS services?</p>
 <p></p>
 <table>
 <p></p>
@@ -487,7 +487,7 @@ tracks of hurricanes
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-The API can work with a number of popular web layers (in bold) and is quickly gaining support for other layer types as well.</li>
+The <span class="caps">API</span> can work with a number of popular web layers (in bold) and is quickly gaining support for other layer types as well.</li>
 
 
 
@@ -498,7 +498,7 @@ The API can work with a number of popular web layers (in bold) and is quickly ga
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The graphic below shows the different modules in the API. The module names correspond to the layer types they work with</p>
+<p>The graphic below shows the different modules in the <span class="caps">API</span>. The module names correspond to the layer types they work with</p>
 <p><img src="http://esri.github.io/arcgis-python-api/notebooks/nbimages/guide_api_overview_01.png" alt=""></p>
 
 </div>
@@ -549,7 +549,7 @@ The API can work with a number of popular web layers (in bold) and is quickly ga
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

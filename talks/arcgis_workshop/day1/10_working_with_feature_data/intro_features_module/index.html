@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>intro_features_module | Atma’s blog</title>
+<title>intro_features_module | Atma's blog</title>
 <link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -132,7 +132,7 @@ Each com">
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -216,7 +216,7 @@ Each com">
 <a href="../../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -234,22 +234,22 @@ Each com">
 <a href="../../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -267,7 +267,7 @@ Each com">
 <a href="../../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -275,7 +275,7 @@ Each com">
 <a href="../../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../../rss.xml">RSS feed</a>
+<a href="../../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -321,7 +321,7 @@ Each com">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction-to-the-features-module">Introduction to the <code>features</code> module<a class="anchor-link" href="#Introduction-to-the-features-module">¶</a>
+<h2 id="Introduction-to-the-features-module">Introduction to the <code>features</code> module<a class="anchor-link" href="#Introduction-to-the-features-module">¶</a>
 <a href="#Introduction-to-the-features-module" class="headerlink" title="Permalink to this heading">¶</a></h2>
 <pre><code>Feature
 FeatureSet
@@ -348,13 +348,13 @@ FeatureLayerCollection</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Fortune 500 company example</p>
 <ul>
-<li>Each company (single point in space) =  <code>Feature</code> object.</li>
-<li>All East-coast companies profit &gt; 5B = <code>FeatureSet</code>. A <code>FeatureSet</code> is a collection of <code>Feature</code> objects.</li>
-<li>When published as a feature service on your GIS. That layer is a <code>FeatureLayer</code>.</li>
-<li>The collection of all layers in the feature service is read as a <code>FeatureLayerCollection</code> object.</li>
-<li>Alternate to <code>FeatureLayer</code> - can store as lightweight item = <code>FeatureCollection</code>.<ul>
+<li>Each company (single point in space) =  <code>Feature</code> object.</li>
+<li>All East-coast companies profit &gt; 5B = <code>FeatureSet</code>. A <code>FeatureSet</code> is a collection of <code>Feature</code> objects.</li>
+<li>When published as a feature service on your <span class="caps">GIS</span>. That layer is a <code>FeatureLayer</code>.</li>
+<li>The collection of all layers in the feature service is read as a <code>FeatureLayerCollection</code> object.</li>
+<li>Alternate to <code>FeatureLayer</code> - can store as lightweight item = <code>FeatureCollection</code>.<ul>
 <li>
-<code>FeatureCollection</code> is a <code>FeatureSet</code> + <code>layerDefinition</code> info</li>
+<code>FeatureCollection</code> is a <code>FeatureSet</code> + <code>layerDefinition</code> info</li>
 </ul>
 </li>
 </ul>
@@ -366,7 +366,7 @@ FeatureLayerCollection</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On your enterprise, your feature data live either as a <code>FeatureLayer</code> or <code>FeatureCollection</code> which can also be an item without a feature service. The latter has a size limit though</p>
+<p>On your enterprise, your feature data live either as a <code>FeatureLayer</code> or <code>FeatureCollection</code> which can also be an item without a feature service. The latter has a size limit though</p>
 
 </div>
 </div>
@@ -382,18 +382,18 @@ FeatureLayerCollection</code></pre>
 <ul>
 <li>
 <code>Item.layers</code> property will give either a <ul>
-<li>list of [<code>FeatureLayer</code>] objects</li>
-<li>or a [<code>FeatureCollection</code>] object</li>
+<li>list of [<code>FeatureLayer</code>] objects</li>
+<li>or a [<code>FeatureCollection</code>] object</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<p>call the <code>query()</code> method on either a <code>FeatureLayer</code> or <code>FeatureCollection</code> you get</p>
+<p>call the <code>query()</code> method on either a <code>FeatureLayer</code> or <code>FeatureCollection</code> you get</p>
 <ul>
 <li><code>FeatureSet</code></li>
 <li>
-<code>features</code> property of <code>FeatureSet</code> gives a list of <code>[Feature]</code> objects</li>
+<code>features</code> property of <code>FeatureSet</code> gives a list of <code>[Feature]</code> objects</li>
 </ul>
 </li>
 </ul>
@@ -418,7 +418,7 @@ FeatureLayerCollection</code></pre>
 </ul>
 <ul>
 <li>
-<code>FeatureSet</code> - inputs to GP, can be drawn on map widget<ul>
+<code>FeatureSet</code> - inputs to <span class="caps">GP</span>, can be drawn on map widget<ul>
 <li>
 <code>df</code>, <code>spatial_reference</code>, <code>features</code>, <code>fields</code>
 </li>
@@ -427,7 +427,7 @@ FeatureLayerCollection</code></pre>
 </ul>
 <ul>
 <li>
-<code>FeatureCollection</code> - items in GIS, input to GP, output from GP<ul>
+<code>FeatureCollection</code> - items in <span class="caps">GIS</span>, input to <span class="caps">GP</span>, output from <span class="caps">GP</span><ul>
 <li>
 <code>query()</code> [does not support where clause]</li>
 </ul>
@@ -437,7 +437,7 @@ FeatureLayerCollection</code></pre>
 <li>
 <code>FeatureLayer</code> - through individual layers of a feature services.<ul>
 <li>
-<code>query()</code> [supports where clause], <code>attachments</code>
+<code>query()</code> [supports where clause], <code>attachments</code>
 </li>
 <li>
 <code>manager</code>, <code>edit_features()</code>, <code>calculate()</code>, <code>query_related_records()</code>
@@ -456,7 +456,7 @@ FeatureLayerCollection</code></pre>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

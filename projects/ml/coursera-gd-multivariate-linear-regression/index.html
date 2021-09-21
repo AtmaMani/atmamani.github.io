@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solving multivariate linear regression using Gradient Descent | Atma’s blog</title>
+<title>Solving multivariate linear regression using Gradient Descent | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ When we regress for y using multiple predictors of x, the hypothesis function be
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ When we regress for y using multiple predictors of x, the hypothesis function be
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ When we regress for y using multiple predictors of x, the hypothesis function be
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ When we regress for y using multiple predictors of x, the hypothesis function be
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ When we regress for y using multiple predictors of x, the hypothesis function be
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -275,7 +275,7 @@ When we regress for y using multiple predictors of x, the hypothesis function be
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p><strong>Note</strong>: This is a continuation of <a href="../coursera-gradient-descent/">Gradient Descent</a> topic. The context and equations used here derive from that article.</p>
-<p>When we regress for <code>y</code> using multiple predictors of <code>x</code>, the hypothesis function becomes:</p>
+<p>When we regress for <code>y</code> using multiple predictors of <code>x</code>, the hypothesis function becomes:</p>
 <p>$$
 h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{3} + … + \theta_{n}x_{n}
 $$
@@ -296,7 +296,7 @@ x = \begin{bmatrix}
 $$
 h_{\theta}(x) = \theta^{T}x
 $$
-Here the dimensions of $\theta$ and <code>x</code> is <code>n+1</code> as this goes from <code>0</code> to <code>n</code>.</p>
+Here the dimensions of $\theta$ and <code>x</code> is <code>n+1</code> as this goes from <code>0</code> to <code>n</code>.</p>
 <h3 id="loss-function-of-multivariate-linear-regression">Loss function of multivariate linear regression<a href="#loss-function-of-multivariate-linear-regression" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The loss function is given by</p>
 <p>$$
@@ -308,8 +308,8 @@ J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]^{2} $$</p
 <p>$$
 \theta_{j} := \theta_{j} - \alpha\frac{\partial}{\partial\theta_{j}}J(\theta)
 $$
-<strong>Note</strong>: Here <code>j</code> represents the <code>n+1</code> features (attributes) and <code>i</code> goes from <code>1 -&gt; m</code> representing the <code>m</code> records.</p>
-<p>Simplifying the partial differential equation, we get the <code>n+1</code> update rules as follows</p>
+<strong>Note</strong>: Here <code>j</code> represents the <code>n+1</code> features (attributes) and <code>i</code> goes from <code>1 -&gt; m</code> representing the <code>m</code> records.</p>
+<p>Simplifying the partial differential equation, we get the <code>n+1</code> update rules as follows</p>
 <p>$$
 \theta_{0} := \theta_{0} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{0}^{{(i)}}
 $$
@@ -323,27 +323,27 @@ $$
 \theta_{n} := \theta_{n} - \alpha \frac{1}{m}\sum_{i=1}^{m}[h_{\theta}(x^{(i)}) - y^{(i)}]x_{n}^{{(i)}} $$</p>
 <p>The equations above are very similar to ones from simple linear equations.</p>
 <h3 id="impact-of-scaling-on-gradient-descent">Impact of scaling on Gradient Descent<a href="#impact-of-scaling-on-gradient-descent" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>When the data ranges of features varies quite a bit from each other, the surface of GD is highly skewed as shown below:</p>
+<p>When the data ranges of features varies quite a bit from each other, the surface of <span class="caps">GD</span> is highly skewed as shown below:</p>
 <p><img src="../../../images/coursera-gd-scaling1.png" width="450"></p>
-<p>This is because $\theta$ (which is our weights) will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven. When scaled, the surface takes a healthier shape, allowing the algorithm to converge faster. Ideally scale values so they fall within <code>-1 to 1</code>.</p>
+<p>This is because $\theta$ (which is our weights) will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven. When scaled, the surface takes a healthier shape, allowing the algorithm to converge faster. Ideally scale values so they fall within <code>-1 to 1</code>.</p>
 <h4 id="scaling-methods">Scaling methods<a href="#scaling-methods" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p><strong>Feature Scaling</strong> is simply dividing values by <strong>range</strong>. <strong>Normalization</strong> is when you transform them to have a <code>mean = 0</code>.</p>
+<p><strong>Feature Scaling</strong> is simply dividing values by <strong>range</strong>. <strong>Normalization</strong> is when you transform them to have a <code>mean = 0</code>.</p>
 <p><strong>Mean normalization</strong> 
 $$
 scaled \ x_{j} = \frac{(x_{j} - \mu_{j})}{s_{j}}
 $$
-where $\mu$ is mean and <code>s</code> is range.</p>
-<p><strong>Standard normalization</strong> is similar to above, except, <code>s</code> is standard deviation.</p>
+where $\mu$ is mean and <code>s</code> is range.</p>
+<p><strong>Standard normalization</strong> is similar to above, except, <code>s</code> is standard deviation.</p>
 <p>The exact range of normalization is less important than having all features follow a particular range.</p>
 <h3 id="debugging-gradient-descent">Debugging Gradient Descent<a href="#debugging-gradient-descent" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>The general premise is, as number of iterations increase, the loss should reduce. You can also declare a threshold and if the loss reduces below that for <code>n</code> number of iterations, then you can declare <strong>convergence</strong>. However, Andrew Ng suggests against this and suggests visualizing the loss on a chart to pick LR.</p>
-<p><strong>When LR is too high</strong>: If you have a diverging graph - loss increases steadily or if the loss is oscillating (pic below), it is likely the the rate is too high. In case of oscillation, the weights sporadically hit the local minima but continue to overshoot.</p>
+<p>The general premise is, as number of iterations increase, the loss should reduce. You can also declare a threshold and if the loss reduces below that for <code>n</code> number of iterations, then you can declare <strong>convergence</strong>. However, Andrew Ng suggests against this and suggests visualizing the loss on a chart to pick <span class="caps">LR</span>.</p>
+<p><strong>When <span class="caps">LR</span> is too high</strong>: If you have a diverging graph - loss increases steadily or if the loss is oscillating (pic below), it is likely the the rate is too high. In case of oscillation, the weights sporadically hit the local minima but continue to overshoot.</p>
 <p><img src="../../../images/coursera-gd-lr1.png" width="400"></p>
-<p><strong>Iterating through a number of LRs</strong>: Andrew suggests picking a range of LRs <code>0.001, 0.01, 0.1, 1, ...</code> and iterating through them. He typically bumps rates by a factor of <code>10</code>. For convenience, he picks <code>..0.001, 0.003, 0.01, 0.03, 0.1, 0.3..</code> where he bumps by <code>~3</code> which is also effective.</p>
+<p><strong>Iterating through a number of LRs</strong>: Andrew suggests picking a range of LRs <code>0.001, 0.01, 0.1, 1, ...</code> and iterating through them. He typically bumps rates by a factor of <code>10</code>. For convenience, he picks <code>..0.001, 0.003, 0.01, 0.03, 0.1, 0.3..</code> where he bumps by <code>~3</code> which is also effective.</p>
 <h3 id="non-linear-functions-vs-non-linear-models">Non-linear functions vs non-linear models<a href="#non-linear-functions-vs-non-linear-models" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>A <strong>linear function</strong> is one which produces a straight line. It is typically of the form $y = \theta_{0} + \theta_{1}x_{1}$. A <strong>non-linear function</strong> is something that produces a curve. It is typically of the from $y = \theta_{0} + \theta_{1}x^{k}$. A <strong>linear model</strong> is when the model parameters are <strong>additive</strong>, even though individual parameters are non-linear. It takes form $y = \theta_{0} + \theta_{1}x_{1} + … + \theta_{n}x_{n}$. A <strong>non-linear</strong> model is when the model parameters are <strong>multiplicative</strong> even though they are of order <code>1</code>. It typically takes form $y = \theta_{0}x_{1}theta_{1}x_{2}^{k}x_{3}$ etc.</p>
+<p>A <strong>linear function</strong> is one which produces a straight line. It is typically of the form $y = \theta_{0} + \theta_{1}x_{1}$. A <strong>non-linear function</strong> is something that produces a curve. It is typically of the from $y = \theta_{0} + \theta_{1}x^{k}$. A <strong>linear model</strong> is when the model parameters are <strong>additive</strong>, even though individual parameters are non-linear. It takes form $y = \theta_{0} + \theta_{1}x_{1} + … + \theta_{n}x_{n}$. A <strong>non-linear</strong> model is when the model parameters are <strong>multiplicative</strong> even though they are of order <code>1</code>. It typically takes form $y = \theta_{0}x_{1}theta_{1}x_{2}^{k}x_{3}$ etc.</p>
 <h3 id="representing-non-linearity-using-polynomial-regression">Representing non-linearity using Polynomial Regression<a href="#representing-non-linearity-using-polynomial-regression" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Sometimes, when you plot the response variable with one of the predictors, it may not take a linear form. You might want an order <code>2</code> or <code>3</code> curve. You can still represent them using linear models. Consider the case where square footage is one of the parameters in predicting house price and you notice a non-linear relationship. From the graphic below, you might try a <strong>quadratic model</strong> as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2}$. But this model will eventually taper off. Instead, you may try a <strong>cubic</strong> model as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2} + \theta_{3}x_{3}^{3}$.</p>
+<p>Sometimes, when you plot the response variable with one of the predictors, it may not take a linear form. You might want an order <code>2</code> or <code>3</code> curve. You can still represent them using linear models. Consider the case where square footage is one of the parameters in predicting house price and you notice a non-linear relationship. From the graphic below, you might try a <strong>quadratic model</strong> as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2}$. But this model will eventually taper off. Instead, you may try a <strong>cubic</strong> model as $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2}^{2} + \theta_{3}x_{3}^{3}$.</p>
 <p><img src="../../../images/coursera-polynomial-regression1.png" width="450"></p>
 <p>The way to represent non-linearity is to sequentially raise the power / order of the parameter, represent them as additional features. This is a step in <strong>feature engineering</strong>. This method is called polynomial regression. When you raise the power, the range of that parameter also increases exponentially. Thus you model might become highly skewed. It is <strong>vital to scale features</strong> in a polynomial regression.</p>
 <p>Another option here is, instead of raising power, you take <strong>square roots</strong> or <strong>nth roots</strong>, such as: $h_{\theta}(x) = \theta_{0} + \theta_{1}x_{1} + \theta_{2}\sqrt{x_{2}} + \theta_{3}\sqrt[3]{x_{3}}$</p>
@@ -351,7 +351,7 @@ where $\mu$ is mean and <code>s</code> is range.</p>
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],

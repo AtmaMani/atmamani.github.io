@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Getting started with PySpark | Atma’s blog</title>
+<title>Getting started with PySpark | Atma's blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ Installing PySpa">
 <a href="../../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -187,7 +187,7 @@ Installing PySpa">
 <a href="../../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -205,22 +205,22 @@ Installing PySpa">
 <a href="../../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -238,7 +238,7 @@ Installing PySpa">
 <a href="../../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@ Installing PySpa">
 <a href="../../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../../rss.xml">RSS feed</a>
+<a href="../../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -274,19 +274,19 @@ Installing PySpa">
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>PySpark library gives you a Python API to read and work with your RDDs in HDFS through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.</p>
+<p>PySpark library gives you a Python <span class="caps">API</span> to read and work with your RDDs in <span class="caps">HDFS</span> through Apache spark. This tutorial explains the caveats in installing and getting started with PySpark.</p>
 <h3 id="installing-pyspark-scala-java-spark">Installing PySpark, Scala, Java, Spark<a href="#installing-pyspark-scala-java-spark" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><a href="https://medium.com/@josemarcialportilla/getting-spark-python-and-jupyter-notebook-running-on-amazon-ec2-dec599e1c297">Follow this tutorial</a>. The overall steps are</p>
 <ul>
-<li>get a linux VM ready. It could be an EC2 instance on AWS</li>
-<li>get SSH ability into this VM</li>
+<li>get a linux <span class="caps">VM</span> ready. It could be an <span class="caps">EC2</span> instance on <span class="caps">AWS</span></li>
+<li>get <span class="caps">SSH</span> ability into this <span class="caps">VM</span></li>
 <li>install anaconda. <strong>Note</strong>: Spark 2.0.0 cannot work with Python 3.6 and needs 3.5. So you can get a version of anaconda that installs 3.5 by default or you can get a higher version of Spark.</li>
 <li>change the default system Python to use Anaconda python</li>
-<li>install pip and <code>py4j</code> lib that allows you to run java via Python.</li>
-<li>download and extract Spark. Here if you get <code>spark-2.0.0-bin-hadoop2.7.tgz</code>, then you need Python 3.5 and not higher. I am getting <code>spark-2.2.1-bin-hadoop2.7.tgz</code> and it works well. <a href="https://issues.apache.org/jira/browse/SPARK-19019">Spark JIRA issue for reference</a>
+<li>install pip and <code>py4j</code> lib that allows you to run java via Python.</li>
+<li>download and extract Spark. Here if you get <code>spark-2.0.0-bin-hadoop2.7.tgz</code>, then you need Python 3.5 and not higher. I am getting <code>spark-2.2.1-bin-hadoop2.7.tgz</code> and it works well. <a href="https://issues.apache.org/jira/browse/SPARK-19019">Spark <span class="caps">JIRA</span> issue for reference</a>
 </li>
 </ul>
-<p>To premanently store the SPARK path store this in the <code>.bashrc</code> file on the home dir of the user account</p>
+<p>To premanently store the <span class="caps">SPARK</span> path store this in the <code>.bashrc</code> file on the home dir of the user account</p>
 <pre class="code literal-block"><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"your default path output"</span>
 
 <span class="c1"># anaconda bin dir - this replaces default Python to anaconda python</span>
@@ -304,18 +304,18 @@ Installing PySpa">
 <p><strong>Advantages of using Scala</strong>
  - concurrency as Scala supports async.
  - Type safety during compile time
- - User Defined Functions (UDF) are more efficient in Scala
+ - User Defined Functions (<span class="caps">UDF</span>) are more efficient in Scala
  - type safety - Scala is suitable for bigger projects as its hassle free when you are refactoring a large codebase.
- - due to absence of type safety, it does not make sense to with spark Datasets in Python. You can only work with RDD and DataFrames.</p>
+ - due to absence of type safety, it does not make sense to with spark Datasets in Python. You can only work with <span class="caps">RDD</span> and DataFrames.</p>
 <p><strong>Advantages of using Python</strong>
  - easy to learn and use
  - suitable for ad-hoc and small projects
- - SparkMLib for ML.</p>
+ - SparkMLib for <span class="caps">ML</span>.</p>
 <p><strong>tie points</strong>
  - Spark streaming is equally good in both
  - DataFrames are similar in both</p>
 <h3 id="rdds-dataframes-datasets">RDDs, DataFrames, Datasets<a href="#rdds-dataframes-datasets" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>For an overview on RDDs, refer <a href="the-big-data-ecosystem.html#rdd">here</a>. RDDs are compile-time type-safe and evaluate lazily. RDDs can slow in non-JVM langs like Python, cannot be optimized by spark. DataFrames are built on top of RDDs and you let Spark figure out how to work with RDDs. Hence DF is optimized. The only downside is compile-time type-safety. To rectify this, Spark built Datasets.</p>
+<p>For an overview on RDDs, refer <a href="the-big-data-ecosystem.html#rdd">here</a>. RDDs are compile-time type-safe and evaluate lazily. RDDs can slow in non-<span class="caps">JVM</span> langs like Python, cannot be optimized by spark. DataFrames are built on top of RDDs and you let Spark figure out how to work with RDDs. Hence <span class="caps">DF</span> is optimized. The only downside is compile-time type-safety. To rectify this, Spark built Datasets.</p>
 <p>In Spark 2.0, DataFrames and Datasets are merged. Conceptually, if you work with untyped data (as in Python, R), you can use a DataFrame where as if you work in typed languages (Scala), you can work with DataSets.</p>
 <h3 id="actions-and-transformations">Actions and transformations<a href="#actions-and-transformations" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Transformations create a new dataset. Actions return a value (like a summary statistic). All transformations in Spark are lazy. You can also persist RDDs on disk if you expect to read it later.</p>
@@ -325,16 +325,16 @@ Installing PySpa">
 <li>
 <code>rdd.textFile()</code> to read text files, csv files etc.</li>
 <li>
-<code>rdd.collect()</code> brings entire RDD to a single machine for processing and displays the result. This is mem intensive and can overwhelm the master if you use it on a large dataset.</li>
+<code>rdd.collect()</code> brings entire <span class="caps">RDD</span> to a single machine for processing and displays the result. This is mem intensive and can overwhelm the master if you use it on a large dataset.</li>
 <li>
-<code>rdd.take(n)</code> on the other hand will only collect and return <code>n</code> lines.</li>
+<code>rdd.take(n)</code> on the other hand will only collect and return <code>n</code> lines.</li>
 <li>
-<code>rdd.toDF()</code> to convert RDD to Spark DF</li>
+<code>rdd.toDF()</code> to convert <span class="caps">RDD</span> to Spark <span class="caps">DF</span></li>
 <li>
 <code>df.first()</code> and <code>df.top(n)</code> also work like take.</li>
 <li>
 <code>df.printSchema()</code> to list the columns and their types. </li>
-<li>You can also use <code>df.describe().show()</code> to get summary stats.</li>
+<li>You can also use <code>df.describe().show()</code> to get summary stats.</li>
 <li>
 <code>df.select('column1','column2').show(m)</code> to select a couple of columns and show their first m rows.</li>
 <li>
@@ -344,7 +344,7 @@ Installing PySpa">
 <ul>
 <li><a href="https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html">A tale of 3 Apache Spark APIs - RDDs, DataFrames, Datasets</a></li>
 <li><a href="https://www.datacamp.com/community/tutorials/apache-spark-python">Datacamp - Apache Spark and Python</a></li>
-<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning#install">Datacamp - Predict CA housing prices using SparkMLib and PySpark</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning#install">Datacamp - Predict <span class="caps">CA</span> housing prices using SparkMLib and PySpark</a></li>
 </ul>
 </div>
     </div>

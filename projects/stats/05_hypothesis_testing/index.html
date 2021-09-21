@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>05_hypothesis_testing | Atma’s blog</title>
+<title>05_hypothesis_testing | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 <a href="../../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python OO and exception handling</a>
+<a href="../../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
@@ -186,7 +186,7 @@
 <a href="../../../cheatsheets/r_cheat_sheet_1/">R basics</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/octave-1/">Octave / MATLAB - basics</a>
+<a href="../../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/octave-2/">Octave - handling data</a>
@@ -204,22 +204,22 @@
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+<a href="../../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+<a href="../../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+<a href="../../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+<a href="../../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
                     </li>
 <li>
 <a href="../../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
@@ -237,7 +237,7 @@
 <a href="../../../cheatsheets/web-development/">Web Development</a>
                     </li>
 <li>
-<a href="../../../cheatsheets/html/">HTML basics</a>
+<a href="../../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml">RSS feed</a>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -363,8 +363,8 @@
 <h3 id="Testing-your-hypothesis">Testing your hypothesis<a class="anchor-link" href="#Testing-your-hypothesis">¶</a>
 <a href="#Testing-your-hypothesis" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You calculate the test statistic as
-$$TS = \frac{\bar x - \mu}{\frac{s}{\sqrt n}}$$
-You either reject or approve the $H_{0}$ based on the value of the TS compared against the p value for the said $\alpha$ value (confidence interval)</p>
+$$<span class="caps">TS</span> = \frac{\bar x - \mu}{\frac{s}{\sqrt n}}$$
+You either reject or approve the $H_{0}$ based on the value of the <span class="caps">TS</span> compared against the p value for the said $\alpha$ value (confidence interval)</p>
 
 </div>
 </div>
@@ -375,16 +375,16 @@ You either reject or approve the $H_{0}$ based on the value of the TS compared a
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Example</strong>
-A sample of <code>49</code> batteries are tested for their limetimes. The SD is <code>15.0</code>, mean longivity is <code>1006.2</code>. Is it possible to claim the batteries last longer than <code>1000</code> hours on average?</p>
+A sample of <code>49</code> batteries are tested for their limetimes. The <span class="caps">SD</span> is <code>15.0</code>, mean longivity is <code>1006.2</code>. Is it possible to claim the batteries last longer than <code>1000</code> hours on average?</p>
 <p>$\bar x = 1006.2$, $n=49$, $s=15$, $\alpha = 0.01$ assumed.
 $$H_{0} =&gt; \mu \le 1000$$
 $$H_{A} =&gt; \mu &gt; 1000$$</p>
 <p>Find Test Statistic
-$$TS = \frac{1006.2-1000}{15/\sqrt{49}}$$
-$$TS=2.89$$
+$$<span class="caps">TS</span> = \frac{1006.2-1000}{15/\sqrt{49}}$$
+$$<span class="caps">TS</span>=2.89$$
 This is a right tailed hypothesis as we test if test statistic is &gt; z score for the said alpha.</p>
-<p>z score for $\alpha=0.01$ = 2.576 (for 99% CI)
-The TS is &gt; z score. Hence <strong>reject $H_{0}$. Thus mean battery life &gt; 1000 hours</strong> by significance.</p>
+<p>z score for $\alpha=0.01$ = 2.576 (for 99% <span class="caps">CI</span>)
+The <span class="caps">TS</span> is &gt; z score. Hence <strong>reject $H_{0}$. Thus mean battery life &gt; 1000 hours</strong> by significance.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ The TS is &gt; z score. Hence <strong>reject $H_{0}$. Thus mean battery life &gt
     </div>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
