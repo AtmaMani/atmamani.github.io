@@ -296,6 +296,12 @@
 <div class="toc">
 <ul>
 <li><a href="#installing-sam-cli">Installing <span class="caps">SAM</span> <span class="caps">CLI</span></a></li>
+<li>
+<a href="#setting-up-a-sam-app">Setting up a <span class="caps">SAM</span> <span class="caps">APP</span></a><ul>
+<li><a href="#build-sam-app">Build <span class="caps">SAM</span> app</a></li>
+<li><a href="#testing-app-locally">Testing App locally</a></li>
+</ul>
+</li>
 <li><a href="#sam-specification-the-model"><span class="caps">SAM</span> specification (the model)</a></li>
 </ul>
 </div>
@@ -308,12 +314,142 @@
 <li>Homebrew</li>
 </ul>
 <p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html"><span class="caps">SAM</span> installation guide</a> walks you through the steps involved for various platforms. After installation, you need to configure it with your <span class="caps">AWS</span> account info as <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-set-up-credentials.html">explained here</a></p>
+<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span> <span class="n">sam</span> <span class="c1">--version</span>
+<span class="n">SAM</span> <span class="n">CLI</span><span class="p">,</span> <span class="k">version</span> <span class="mi">1</span><span class="p">.</span><span class="mi">31</span><span class="p">.</span><span class="mi">0</span>
+</code></pre>
+
+<p>When installing <span class="caps">SAM</span> using <code>brew</code>, I noticed the install is global and not restricted to a particular <code>conda</code> env.</p>
+<h3 id="setting-up-a-sam-app">Setting up a <span class="caps">SAM</span> <span class="caps">APP</span><a href="#setting-up-a-sam-app" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p><span class="caps">SAM</span> makes it easy to get started with guided <span class="caps">CLI</span> set ups and deploys. To start a project, run <code>sam init</code> and answer the questions as shown below:</p>
+<pre class="code literal-block"><span></span><code><span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">sam</span><span class="o">-</span><span class="nv">try</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> <span class="nv">sam</span> <span class="nv">init</span>
+<span class="nv">Which</span> <span class="nv">template</span> <span class="nv">source</span> <span class="nv">would</span> <span class="nv">you</span> <span class="nv">like</span> <span class="nv">to</span> <span class="nv">use</span>?
+    <span class="mi">1</span> <span class="o">-</span> <span class="nv">AWS</span> <span class="nv">Quick</span> <span class="nv">Start</span> <span class="nv">Templates</span>
+    <span class="mi">2</span> <span class="o">-</span> <span class="nv">Custom</span> <span class="nv">Template</span> <span class="nv">Location</span>
+<span class="nv">Choice</span>: <span class="mi">1</span>
+<span class="nv">What</span> <span class="nv">package</span> <span class="nv">type</span> <span class="nv">would</span> <span class="nv">you</span> <span class="nv">like</span> <span class="nv">to</span> <span class="nv">use</span>?
+    <span class="mi">1</span> <span class="o">-</span> <span class="nv">Zip</span> <span class="ss">(</span><span class="nv">artifact</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">zip</span> <span class="nv">uploaded</span> <span class="nv">to</span> <span class="nv">S3</span><span class="ss">)</span>  
+    <span class="mi">2</span> <span class="o">-</span> <span class="nv">Image</span> <span class="ss">(</span><span class="nv">artifact</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">image</span> <span class="nv">uploaded</span> <span class="nv">to</span> <span class="nv">an</span> <span class="nv">ECR</span> <span class="nv">image</span> <span class="nv">repository</span><span class="ss">)</span>
+<span class="nv">Package</span> <span class="nv">type</span>: <span class="mi">1</span>
+
+<span class="nv">Which</span> <span class="nv">runtime</span> <span class="nv">would</span> <span class="nv">you</span> <span class="nv">like</span> <span class="nv">to</span> <span class="nv">use</span>?
+    <span class="mi">1</span> <span class="o">-</span> <span class="nv">nodejs14</span>.<span class="nv">x</span>
+    <span class="mi">2</span> <span class="o">-</span> <span class="nv">python3</span>.<span class="mi">9</span>
+    <span class="mi">3</span> <span class="o">-</span> <span class="nv">ruby2</span>.<span class="mi">7</span>
+    <span class="mi">4</span> <span class="o">-</span> <span class="nv">go1</span>.<span class="nv">x</span>
+    <span class="mi">5</span> <span class="o">-</span> <span class="nv">java11</span>
+    <span class="mi">6</span> <span class="o">-</span> <span class="nv">dotnetcore3</span>.<span class="mi">1</span>
+    <span class="mi">7</span> <span class="o">-</span> <span class="nv">nodejs12</span>.<span class="nv">x</span>
+    <span class="mi">8</span> <span class="o">-</span> <span class="nv">nodejs10</span>.<span class="nv">x</span>
+    <span class="mi">9</span> <span class="o">-</span> <span class="nv">python3</span>.<span class="mi">8</span>
+    <span class="mi">10</span> <span class="o">-</span> <span class="nv">python3</span>.<span class="mi">7</span>
+    <span class="mi">11</span> <span class="o">-</span> <span class="nv">python3</span>.<span class="mi">6</span>
+    <span class="mi">12</span> <span class="o">-</span> <span class="nv">python2</span>.<span class="mi">7</span>
+    <span class="mi">13</span> <span class="o">-</span> <span class="nv">ruby2</span>.<span class="mi">5</span>
+    <span class="mi">14</span> <span class="o">-</span> <span class="nv">java8</span>.<span class="nv">al2</span>
+    <span class="mi">15</span> <span class="o">-</span> <span class="nv">java8</span>
+    <span class="mi">16</span> <span class="o">-</span> <span class="nv">dotnetcore2</span>.<span class="mi">1</span>
+<span class="nv">Runtime</span>: <span class="mi">9</span>
+
+<span class="nv">Project</span> <span class="nv">name</span> [<span class="nv">sam</span><span class="o">-</span><span class="nv">app</span>]: <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span>
+
+<span class="nv">Cloning</span> <span class="nv">from</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">aws</span><span class="o">/</span><span class="nv">aws</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">cli</span><span class="o">-</span><span class="nv">app</span><span class="o">-</span><span class="nv">templates</span>
+
+<span class="nv">AWS</span> <span class="nv">quick</span> <span class="nv">start</span> <span class="nv">application</span> <span class="nv">templates</span>:
+    <span class="mi">1</span> <span class="o">-</span> <span class="nv">Hello</span> <span class="nv">World</span> <span class="nv">Example</span>
+    <span class="mi">2</span> <span class="o">-</span> <span class="nv">EventBridge</span> <span class="nv">Hello</span> <span class="nv">World</span>
+    <span class="mi">3</span> <span class="o">-</span> <span class="nv">EventBridge</span> <span class="nv">App</span> <span class="nv">from</span> <span class="nv">scratch</span> <span class="ss">(</span><span class="mi">100</span><span class="o">+</span> <span class="nv">Event</span> <span class="nv">Schemas</span><span class="ss">)</span>
+    <span class="mi">4</span> <span class="o">-</span> <span class="nv">Step</span> <span class="nv">Functions</span> <span class="nv">Sample</span> <span class="nv">App</span> <span class="ss">(</span><span class="nv">Stock</span> <span class="nv">Trader</span><span class="ss">)</span>
+    <span class="mi">5</span> <span class="o">-</span> <span class="nv">Elastic</span> <span class="nv">File</span> <span class="nv">System</span> <span class="nv">Sample</span> <span class="nv">App</span>
+<span class="nv">Template</span> <span class="nv">selection</span>: <span class="mi">1</span>
+
+    <span class="o">-----------------------</span>
+    <span class="nv">Generating</span> <span class="nv">application</span>:
+    <span class="o">-----------------------</span>
+    <span class="nv">Name</span>: <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span>
+    <span class="nv">Runtime</span>: <span class="nv">python3</span>.<span class="mi">8</span>
+    <span class="nv">Dependency</span> <span class="nv">Manager</span>: <span class="nv">pip</span>
+    <span class="nv">Application</span> <span class="nv">Template</span>: <span class="nv">hello</span><span class="o">-</span><span class="nv">world</span>
+    <span class="nv">Output</span> <span class="nv">Directory</span>: .
+
+    <span class="k">Next</span> <span class="nv">steps</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">found</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">README</span> <span class="nv">file</span> <span class="nv">at</span> .<span class="o">/</span><span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span><span class="o">/</span><span class="nv">README</span>.<span class="nv">md</span>
+</code></pre>
+
+<p>This creates a folder by the name you provided for the project name during the interactive setup. The structure of the project looks like below:</p>
+<pre class="code literal-block"><span></span><code><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span> <span class="err">➜</span>  <span class="n">sam</span><span class="o">-</span><span class="n">try</span> <span class="n">git</span><span class="p">:(</span><span class="n">master</span><span class="p">)</span> <span class="err">✗</span> <span class="n">exa</span> <span class="o">-</span><span class="n">T</span> <span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span> <span class="o">-</span><span class="n">R</span> <span class="o">-</span><span class="n">I</span> <span class="n">venv</span>
+<span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span>
+<span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+<span class="err">├──</span> <span class="n">events</span>
+<span class="err">│</span>  <span class="err">└──</span> <span class="n">event</span><span class="p">.</span><span class="n">json</span>
+<span class="err">├──</span> <span class="n">hello_world</span>
+<span class="err">│</span>  <span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+<span class="err">│</span>  <span class="err">├──</span> <span class="n">app</span><span class="p">.</span><span class="n">py</span>             <span class="o">#</span> <span class="n">The</span> <span class="n">main</span> <span class="n">app</span> <span class="n">which</span> <span class="n">has</span> <span class="n">the</span> <span class="n">lambda_handler</span> <span class="n">fn</span>
+<span class="err">│</span>  <span class="err">└──</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>   <span class="o">#</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pkgs</span>
+<span class="err">├──</span> <span class="n">README</span><span class="p">.</span><span class="n">md</span>
+<span class="err">├──</span> <span class="k">template</span><span class="p">.</span><span class="n">yaml</span>         <span class="o">#</span> <span class="n">cloud</span> <span class="n">formation</span> <span class="k">template</span> <span class="n">pre</span> <span class="n">populated</span>
+<span class="err">└──</span> <span class="n">tests</span>
+   <span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+   <span class="err">├──</span> <span class="n">integration</span>
+   <span class="err">│</span>  <span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+   <span class="err">│</span>  <span class="err">└──</span> <span class="n">test_api_gateway</span><span class="p">.</span><span class="n">py</span>
+   <span class="err">├──</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+   <span class="err">└──</span> <span class="n">unit</span>
+      <span class="err">├──</span> <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+      <span class="err">└──</span> <span class="n">test_handler</span><span class="p">.</span><span class="n">py</span>
+</code></pre>
+
+<p>You can now edit the files from here. For more info on this, skip to the <a href="#sam-specification-the-model"><span class="caps">SAM</span> spec model</a> topic.</p>
+<h4 id="build-sam-app">Build <span class="caps">SAM</span> app<a href="#build-sam-app" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The app can be built by calling <code>sam build</code> from inside the app dir (which has the <code>template.json</code> file.)</p>
+<pre class="code literal-block"><span></span><code><span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> ✗ <span class="nv">sam</span> <span class="nv">build</span>
+<span class="nv">Building</span> <span class="nv">codeuri</span>: <span class="o">~/</span>...<span class="o">/</span><span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span><span class="o">/</span><span class="nv">hello_world</span> <span class="nv">runtime</span>: <span class="nv">python3</span>.<span class="mi">8</span> <span class="nv">metadata</span>: {} <span class="nv">functions</span>: [<span class="s1">'</span><span class="s">HelloWorldFunction</span><span class="s1">'</span>]
+<span class="nv">Running</span> <span class="nv">PythonPipBuilder</span>:<span class="nv">ResolveDependencies</span>
+<span class="nv">Running</span> <span class="nv">PythonPipBuilder</span>:<span class="nv">CopySource</span>
+
+<span class="nv">Build</span> <span class="nv">Succeeded</span>
+
+<span class="nv">Built</span> <span class="nv">Artifacts</span>  : .<span class="nv">aws</span><span class="o">-</span><span class="nv">sam</span><span class="o">/</span><span class="nv">build</span>
+<span class="nv">Built</span> <span class="nv">Template</span>   : .<span class="nv">aws</span><span class="o">-</span><span class="nv">sam</span><span class="o">/</span><span class="nv">build</span><span class="o">/</span><span class="nv">template</span>.<span class="nv">yaml</span>
+
+<span class="nv">Commands</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">use</span> <span class="k">next</span>
+<span class="o">=========================</span>
+[<span class="o">*</span>] <span class="nv">Invoke</span> <span class="nv">Function</span>: <span class="nv">sam</span> <span class="nv">local</span> <span class="nv">invoke</span>
+[<span class="o">*</span>] <span class="nv">Deploy</span>: <span class="nv">sam</span> <span class="nv">deploy</span> <span class="o">--</span><span class="nv">guided</span>
+</code></pre>
+
+<h4 id="testing-app-locally">Testing App locally<a href="#testing-app-locally" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>There are 2 ways to test the app locally. One is the simpler <code>invoke</code> command which builds the app in a Docker image, calls the handler (based on what’s defined in <code>events.json</code>), reports the output and exits. It looks like below:</p>
+<pre class="code literal-block"><span></span><code><span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> ✗ <span class="nv">sam</span> <span class="nv">local</span> <span class="nv">invoke</span>
+<span class="nv">Invoking</span> <span class="nv">app</span>.<span class="nv">lambda_handler</span> <span class="ss">(</span><span class="nv">python3</span>.<span class="mi">8</span><span class="ss">)</span>
+<span class="nv">Image</span> <span class="nv">was</span> <span class="nv">not</span> <span class="nv">found</span>.
+<span class="nv">Removing</span> <span class="nv">rapid</span> <span class="nv">images</span> <span class="k">for</span> <span class="nv">repo</span> <span class="nv">public</span>.<span class="nv">ecr</span>.<span class="nv">aws</span><span class="o">/</span><span class="nv">sam</span><span class="o">/</span><span class="nv">emulation</span><span class="o">-</span><span class="nv">python3</span>.<span class="mi">8</span>
+<span class="nv">Building</span> <span class="nv">image</span>...................
+<span class="nv">Skip</span> <span class="nv">pulling</span> <span class="nv">image</span> <span class="nv">and</span> <span class="nv">use</span> <span class="nv">local</span> <span class="nv">one</span>: <span class="nv">public</span>.<span class="nv">ecr</span>.<span class="nv">aws</span><span class="o">/</span><span class="nv">sam</span><span class="o">/</span><span class="nv">emulation</span><span class="o">-</span><span class="nv">python3</span>.<span class="mi">8</span>:<span class="nv">rapid</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">31</span>.<span class="mi">0</span>.
+
+<span class="nv">Mounting</span> <span class="o">~/</span>...<span class="o">/</span><span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span><span class="o">/</span>.<span class="nv">aws</span><span class="o">-</span><span class="nv">sam</span><span class="o">/</span><span class="nv">build</span><span class="o">/</span><span class="nv">HelloWorldFunction</span> <span class="nv">as</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">task</span>:<span class="nv">ro</span>,<span class="nv">delegated</span> <span class="nv">inside</span> <span class="nv">runtime</span> <span class="nv">container</span>
+<span class="nv">START</span> <span class="nv">RequestId</span>: <span class="nv">e027b54f</span><span class="o">-</span><span class="mi">86</span><span class="nv">ea</span><span class="o">-</span><span class="mi">4</span><span class="nv">a31</span><span class="o">-</span><span class="mi">83</span><span class="nv">ed</span><span class="o">-</span><span class="nv">ce09d83b9053</span> <span class="nv">Version</span>: $<span class="nv">LATEST</span>
+<span class="k">END</span> <span class="nv">RequestId</span>: <span class="nv">e027b54f</span><span class="o">-</span><span class="mi">86</span><span class="nv">ea</span><span class="o">-</span><span class="mi">4</span><span class="nv">a31</span><span class="o">-</span><span class="mi">83</span><span class="nv">ed</span><span class="o">-</span><span class="nv">ce09d83b9053</span>
+<span class="nv">REPORT</span> <span class="nv">RequestId</span>: <span class="nv">e027b54f</span><span class="o">-</span><span class="mi">86</span><span class="nv">ea</span><span class="o">-</span><span class="mi">4</span><span class="nv">a31</span><span class="o">-</span><span class="mi">83</span><span class="nv">ed</span><span class="o">-</span><span class="nv">ce09d83b9053</span>  <span class="nv">Init</span> <span class="nv">Duration</span>: <span class="mi">0</span>.<span class="mi">11</span> <span class="nv">ms</span>  <span class="nv">Duration</span>: <span class="mi">98</span>.<span class="mi">97</span> <span class="nv">ms</span>  <span class="nv">Billed</span> <span class="nv">Duration</span>: <span class="mi">100</span> <span class="nv">ms</span> <span class="nv">Memory</span> <span class="nv">Size</span>: <span class="mi">128</span> <span class="nv">MB</span> <span class="nv">Max</span> <span class="nv">Memory</span> <span class="nv">Used</span>: <span class="mi">128</span> <span class="nv">MB</span> 
+{<span class="s2">"</span><span class="s">statusCode</span><span class="s2">"</span>: <span class="mi">200</span>, <span class="s2">"</span><span class="s">body</span><span class="s2">"</span>: <span class="s2">"</span><span class="s">{\</span><span class="s2">"</span><span class="nv">message</span>\<span class="s2">"</span><span class="s">: \</span><span class="s2">"</span><span class="nv">hello</span> <span class="nv">world</span>\<span class="s2">"</span><span class="s">}</span><span class="s2">"</span>}<span class="o">%</span>                                                                                                                                            <span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> ✗ 
+</code></pre>
+
+<p>The second method is to use the app interactively: Run <code>sam local start-api</code></p>
+<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span> <span class="nv">sam</span> <span class="nv">local</span> <span class="nv">start</span><span class="o">-</span><span class="nv">api</span>
+<span class="nv">Mounting</span> <span class="nv">HelloWorldFunction</span> <span class="nv">at</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">hello</span> [<span class="nv">GET</span>]
+<span class="nv">You</span> <span class="nv">can</span> <span class="nv">now</span> <span class="nv">browse</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">above</span> <span class="nv">endpoints</span> <span class="nv">to</span> <span class="nv">invoke</span> <span class="nv">your</span> <span class="nv">functions</span>. <span class="nv">You</span> <span class="k">do</span> <span class="nv">not</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">restart</span><span class="o">/</span><span class="nv">reload</span> <span class="nv">SAM</span> <span class="nv">CLI</span> <span class="k">while</span> <span class="nv">working</span> <span class="nv">on</span> <span class="nv">your</span> <span class="nv">functions</span>, <span class="nv">changes</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">reflected</span> <span class="nv">instantly</span><span class="o">/</span><span class="nv">automatically</span>. <span class="nv">You</span> <span class="nv">only</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">restart</span> <span class="nv">SAM</span> <span class="nv">CLI</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">update</span> <span class="nv">your</span> <span class="nv">AWS</span> <span class="nv">SAM</span> <span class="nv">template</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span>:<span class="mi">12</span>:<span class="mi">15</span>  <span class="o">*</span> <span class="nv">Running</span> <span class="nv">on</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">3000</span><span class="o">/</span> <span class="ss">(</span><span class="nv">Press</span> <span class="nv">CTRL</span><span class="o">+</span><span class="nv">C</span> <span class="nv">to</span> <span class="nv">quit</span><span class="ss">)</span>
+
+<span class="o">&gt;&gt;</span> <span class="nv">curl</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">3000</span><span class="o">/</span><span class="nv">hello</span>
+{<span class="s2">"</span><span class="s">message</span><span class="s2">"</span>: <span class="s2">"</span><span class="s">hello world</span><span class="s2">"</span>}<span class="o">%</span>
+</code></pre>
+
+<p>Now, if you go to <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a>, you get back the default “hello world” message.</p>
 <h3 id="sam-specification-the-model"><span class="caps">SAM</span> specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The model is specified in a template while in <span class="caps">YAML</span> format as shown below:</p>
-<pre class="code literal-block"><span></span><span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
+<pre class="code literal-block"><span></span><code><span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
 
 <span class="nt">Globals</span><span class="p">:</span>
   <span class="l l-Scalar l-Scalar-Plain">set of globals</span>
+  <span class="l l-Scalar l-Scalar-Plain">Defines whether product is a Function, API, SimpleTable, HttpApi</span>
 
 <span class="nt">Description</span><span class="p">:</span>
   <span class="l l-Scalar l-Scalar-Plain">String</span>
@@ -335,11 +471,10 @@
 
 <span class="nt">Outputs</span><span class="p">:</span>
   <span class="l l-Scalar l-Scalar-Plain">set of outputs</span> <span class="c1"># describe the values returned when you view the stack's properties</span>
-</pre>
-
+</code></pre>
 
 <p>Only the <code>Transform</code> and <code>Resources</code> is required. Since this template is derived from <span class="caps">AWS</span> CloudFormation template, there are some overlaps. For example, below is the template created by the hello world application</p>
-<pre class="code literal-block"><span></span><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span> <span class="s">'2010-09-09'</span>
+<pre class="code literal-block"><span></span><code><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span> <span class="s">'2010-09-09'</span>
 <span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
 <span class="nt">Description</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
   <span class="no">try-sam-app</span>
@@ -374,7 +509,7 @@
   <span class="nt">HelloWorldFunctionIamRole</span><span class="p">:</span>
     <span class="nt">Description</span><span class="p">:</span> <span class="s">"Implicit</span><span class="nv"> </span><span class="s">IAM</span><span class="nv"> </span><span class="s">Role</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">function"</span>
     <span class="nt">Value</span><span class="p">:</span> <span class="kt">!GetAtt</span> <span class="l l-Scalar l-Scalar-Plain">HelloWorldFunctionRole.Arn</span>
-</pre>
+</code></pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
