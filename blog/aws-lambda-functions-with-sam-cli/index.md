@@ -3,7 +3,6 @@ Date: 2020-06-18 14:05
 Category: technology
 Tags: aws, lambda, serverless, cloud, cloud-compute
 Slug: aws-lambda-functions-with-sam-cli
-status: draft
 
 The [SAM (Serverless Application Model)](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) allows you to build complex and production ready lambda functions that are performant yet light-weight. If you are new to serverless computing or lambda functions, checkout my [quick start guide](/blog/aws-lambda-functions-quickstart/). This article helps you with getting started with SAM CLI.
 
@@ -86,7 +85,7 @@ Template selection: 1
 ```
 This creates a folder by the name you provided for the project name during the interactive setup. The structure of the project looks like below:
 
-```exa
+```
 (aws_lambda_default) ➜  sam-try git:(master) ✗ exa -T try-sam-app -R -I venv
 try-sam-app
 ├── __init__.py
@@ -161,8 +160,12 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 >> curl http://127.0.0.1:3000/hello
 {"message": "hello world"}%
 ```
-Now, if you go to [http://127.0.0.1:3000/hello](http://127.0.0.1:3000/hello), you get back the default "hello world" message.
+Now, if you go to **[http://127.0.0.1:3000/hello](http://127.0.0.1:3000/hello)**, you get back the default "hello world" message.
 
+### Deploying to production
+Now that we have verified the local build works (using `sam local start-api`), we can use SAM to deploy the function to production. This is achieved by calling **`sam deploy`**. The first time this is called, SAM recommends calling it using the guided approach -> **`sam deploy --guided`**. This takes you through a series of questions which helps set up the deployment or cloud formation stack. Once deployment is complete, it returns with a publicly invocable URL that you can distribute to your users.
+
+Often, you might find that some set up which works in the local dev environment breaks in production. You might end up patching the function multiple times. During such cases, you can simply call **`sam deploy`** or better, `sam deploy --no-confirm-changeset` and let SAM build, configure the changesets and deploy them to production. The function is restarted and will get the updates.
 
 ## SAM specification (the model)
 The model is specified in a template while in YAML format as shown below:
@@ -234,3 +237,5 @@ Outputs:
     Description: "Implicit IAM Role created for Hello World function"
     Value: !GetAtt HelloWorldFunctionRole.Arn
 ```
+
+This blog is a quick overview of authoring, testing and deploying as simple Python based Lambda function using the SAM CLI.

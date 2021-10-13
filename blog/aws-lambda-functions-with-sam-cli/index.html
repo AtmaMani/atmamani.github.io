@@ -22,7 +22,8 @@
 
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
-<meta name="robots" content="noindex">
+<link rel="prev" href="../aws-lambda-functions-quickstart/" title="AWS Lambda Functions - a Quick Start guide" type="text/html">
+<link rel="next" href="../embedding-maps-in-photos/" title="Where was this photo taken? A Python based web-app to extract location information and embed maps in photos" type="text/html">
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="Building AWS Lambda Functions with SAM CLI">
 <meta property="og:url" content="https://atmamani.github.io/blog/aws-lambda-functions-with-sam-cli/">
@@ -300,6 +301,7 @@
 <a href="#setting-up-a-sam-app">Setting up a <span class="caps">SAM</span> <span class="caps">APP</span></a><ul>
 <li><a href="#build-sam-app">Build <span class="caps">SAM</span> app</a></li>
 <li><a href="#testing-app-locally">Testing App locally</a></li>
+<li><a href="#deploying-to-production">Deploying to production</a></li>
 </ul>
 </li>
 <li><a href="#sam-specification-the-model"><span class="caps">SAM</span> specification (the model)</a></li>
@@ -442,7 +444,10 @@
 {<span class="s2">"</span><span class="s">message</span><span class="s2">"</span>: <span class="s2">"</span><span class="s">hello world</span><span class="s2">"</span>}<span class="o">%</span>
 </code></pre>
 
-<p>Now, if you go to <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a>, you get back the default “hello world” message.</p>
+<p>Now, if you go to <strong><a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></strong>, you get back the default “hello world” message.</p>
+<h4 id="deploying-to-production">Deploying to production<a href="#deploying-to-production" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Now that we have verified the local build works (using <code>sam local start-api</code>), we can use <span class="caps">SAM</span> to deploy the function to production. This is achieved by calling <strong><code>sam deploy</code></strong>. The first time this is called, <span class="caps">SAM</span> recommends calling it using the guided approach -&gt; <strong><code>sam deploy --guided</code></strong>. This takes you through a series of questions which helps set up the deployment or cloud formation stack. Once deployment is complete, it returns with a publicly invocable <span class="caps">URL</span> that you can distribute to your users.</p>
+<p>Often, you might find that some set up which works in the local dev environment breaks in production. You might end up patching the function multiple times. During such cases, you can simply call <strong><code>sam deploy</code></strong> or better, <code>sam deploy --no-confirm-changeset</code> and let <span class="caps">SAM</span> build, configure the changesets and deploy them to production. The function is restarted and will get the updates.</p>
 <h3 id="sam-specification-the-model"><span class="caps">SAM</span> specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The model is specified in a template while in <span class="caps">YAML</span> format as shown below:</p>
 <pre class="code literal-block"><span></span><code><span class="nt">Transform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
@@ -510,6 +515,8 @@
     <span class="nt">Description</span><span class="p">:</span> <span class="s">"Implicit</span><span class="nv"> </span><span class="s">IAM</span><span class="nv"> </span><span class="s">Role</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">function"</span>
     <span class="nt">Value</span><span class="p">:</span> <span class="kt">!GetAtt</span> <span class="l l-Scalar l-Scalar-Plain">HelloWorldFunctionRole.Arn</span>
 </code></pre>
+
+<p>This blog is a quick overview of authoring, testing and deploying as simple Python based Lambda function using the <span class="caps">SAM</span> <span class="caps">CLI</span>.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
@@ -518,6 +525,14 @@
             <li><a class="tag p-category" href="../../categories/cloud-compute/" rel="tag">cloud-compute</a></li>
             <li><a class="tag p-category" href="../../categories/lambda/" rel="tag">lambda</a></li>
             <li><a class="tag p-category" href="../../categories/serverless/" rel="tag">serverless</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../aws-lambda-functions-quickstart/" rel="prev" title="AWS Lambda Functions - a Quick Start guide">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../embedding-maps-in-photos/" rel="next" title="Where was this photo taken? A Python based web-app to extract location information and embed maps in photos">Next post</a>
+            </li>
         </ul></nav></aside></article>
 </div>
         <!--End of body content-->

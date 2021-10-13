@@ -67,11 +67,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2021-09-20T21:47:00Z</lastmod>
+  <lastmod>2021-10-13T04:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
-  <lastmod>2021-09-20T21:47:00Z</lastmod>
+  <lastmod>2021-10-13T03:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/a-whole-new-way-experience-gis/</loc>
@@ -98,6 +98,10 @@
   <lastmod>2021-09-20T21:47:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/blog/aws-lambda-functions-with-sam-cli/</loc>
+  <lastmod>2020-07-09T16:01:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/blog/building-data-science-projects-using-azure-ml-stack/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -116,6 +120,10 @@
  <url>
   <loc>https://atmamani.github.io/blog/demystifying-python-jargon-datascience/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/blog/deploying-deep-learning-inference-as-serverless-functions/</loc>
+  <lastmod>2021-10-13T03:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/design-principles-behind-restful-apis/</loc>
@@ -155,7 +163,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2021-09-20T21:47:00Z</lastmod>
+  <lastmod>2021-10-13T04:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -199,7 +207,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/</loc>
-  <lastmod>2021-03-11T18:00:00Z</lastmod>
+  <lastmod>2021-10-13T04:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/agile/</loc>
@@ -298,6 +306,10 @@
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/categories/deep-learning/</loc>
+  <lastmod>2021-10-13T04:06:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/categories/devops/</loc>
   <lastmod>2019-10-31T17:45:00Z</lastmod>
  </url>
@@ -312,6 +324,10 @@
  <url>
   <loc>https://atmamani.github.io/categories/exif/</loc>
   <lastmod>2021-02-04T19:41:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/categories/fastai/</loc>
+  <lastmod>2021-10-13T04:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/categories/flask/</loc>
