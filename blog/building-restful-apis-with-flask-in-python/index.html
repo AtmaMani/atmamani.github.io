@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Building RESTful APIs with Flask in Python | Atma's blog</title>
@@ -15,7 +13,7 @@
 <link rel="icon" href="../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../scatter-64.png" sizes="64x64">
 <link rel="icon" href="../../scatter-128.png" sizes="128x128">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -28,8 +26,6 @@
 <meta property="og:title" content="Building RESTful APIs with Flask in Python">
 <meta property="og:url" content="https://atmamani.github.io/blog/building-restful-apis-with-flask-in-python/">
 <meta property="og:description" content="This article demonstrates how to quickly build a RESTful API in Python using the Flask library. To know about RESTful APIs, read the article on Design principles behind RESTful APIs.
-
-
 Boiler plate
 Th">
 <meta property="og:type" content="article">
@@ -64,28 +60,28 @@ Th">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../projects/math/">Learn math with Python</a>
+<a href="../../projects/math/">Learn math with Python</a>
                     </li>
 <li>
-<a href="../../projects/stats/">Learn stats with Python</a>
+<a href="../../projects/stats/">Learn stats with Python</a>
                     </li>
 <li>
-<a href="../../projects/ml/">Machine Learning projects</a>
+<a href="../../projects/ml/">Machine Learning projects</a>
                     </li>
 <li>
-<a href="../../projects/dl/">Deep Learning projects</a>
+<a href="../../projects/dl/">Deep Learning projects</a>
                     </li>
 <li>
-<a href="../../projects/spatial/">Spatial analysis</a>
+<a href="../../projects/spatial/">Spatial analysis</a>
                     </li>
 <li>
-<a href="../../projects/thermal/">Thermal remote sensing</a>
+<a href="../../projects/thermal/">Thermal remote sensing</a>
                     </li>
 <li>
-<a href="../../projects/mwrs/">Microwave remote sensing</a>
+<a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
-<a href="../../projects/fun/">Fun projects</a>
+<a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
 </li>
@@ -102,151 +98,151 @@ Th">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../cheatsheets/learning-resources/">General learning resources</a>
+<a href="../../cheatsheets/learning-resources/">General learning resources</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_1/">Python basics, comprehensions</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
                     </li>
 <li>
-<a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+<a href="../../cheatsheets/python/python_cheat_sheet_3/">Python map, reduce, lambdas</a>
                     </li>
 <li>
-<a href="../../images/regex-mindmap.jpg">Python regex</a>
-                    </li>
-<li>
-<a href="../../"><hr></a>
-                    </li>
-<li>
-<a href="../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
+<a href="../../images/regex-mindmap.jpg">Python regex</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+<a href="../../cheatsheets/conda_cheat_sheet/">Conda basics</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_1/">NumPy basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
+<a href="../../cheatsheets/numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_1/">Pandas basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
                     </li>
 <li>
-<a href="../../cheatsheets/matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
+<a href="../../cheatsheets/pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
                     </li>
 <li>
-<a href="../../"><hr></a>
-                    </li>
-<li>
-<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
+<a href="../../cheatsheets/pandas/pandas_data_viz_1/">Pandas data visualization</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+<a href="../../cheatsheets/matplotlib/matplotlib_1/">Matplotlib basics</a>
                     </li>
 <li>
-<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+<a href="../../cheatsheets/matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
                     </li>
 <li>
-<a href="../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
-                    </li>
-<li>
-<a href="../../"><hr></a>
-                    </li>
-<li>
-<a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/octave-2/">Octave - handling data</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/js_essentials/">Javascript essentials</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/latex-1/">Latex introduction</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/docker-1/">Docker introduction</a>
+<a href="../../cheatsheets/matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
                     </li>
 <li>
-<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
-                    </li>
-<li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
-                    </li>
-<li>
-<a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
-                    </li>
-<li>
-<a href="../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+<a href="../../cheatsheets/seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
                     </li>
 <li>
 <a href="../../"><hr></a>
                     </li>
 <li>
-<a href="../../cheatsheets/web-development/">Web Development</a>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
                     </li>
 <li>
-<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
+<a href="../../cheatsheets/plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../"><hr></a>
+                    </li>
+<li>
+<a href="../../cheatsheets/web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../cheatsheets/html/"><span class="caps">HTML</span> basics</a>
             </li>
 </ul>
 </li>
@@ -254,7 +250,7 @@ Th">
 <a href="../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
+<a href="../../rss.xml"><span class="caps">RSS</span> feed</a>
 
                 
             </li>
@@ -276,11 +272,11 @@ Th">
         <div class="row">
             
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building RESTful APIs with Flask in Python</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Building RESTful APIs with Flask in Python</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
-                    Atma Mani
+                    Atma Mani
             </span></p>
             <p class="dateline">
             <a href="." rel="bookmark">
@@ -297,8 +293,8 @@ Th">
 <p>This article demonstrates how to quickly build a RESTful <span class="caps">API</span> in Python using the <a href="https://www.fullstackpython.com">Flask</a> library. To know about RESTful APIs, read the article on <a href="../design-principles-behind-restful-apis/">Design principles behind RESTful APIs</a>.</p>
 <!-- TEASER_END -->
 
-<h3 id="boiler-plate">Boiler plate<a href="#boiler-plate" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>There is very little boiler plate necessary when defining a flask app. Something as limited as:</p>
+<h3 id="boiler-plate">Boiler plate<a href="#boiler-plate" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>There is very little boiler plate necessary when defining a flask app. Something as limited as:</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="kn">from</span> <span class="nn">datetime</span>
 
@@ -306,11 +302,11 @@ Th">
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="c1"># define your resource endpoints</span>
-<span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="n">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index_page</span><span class="p">():</span>
     <span class="k">return</span> <span class="s2">"Hello world"</span>
 
-<span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/time'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
+<span class="n">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/time'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_time</span><span class="p">():</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
 
@@ -320,11 +316,11 @@ Th">
 </pre>
 
 
-<p>In the code above, you have defined 2 endpoints - a root <code>/</code> landing page and a <code>/time</code> endpoint. You can run this app from terminal as <code>python -m &lt;filename&gt;</code> which will start the webserver and give you an <span class="caps">IP</span> address to go or call.</p>
-<h3 id="passing-arguments">Passing arguments<a href="#passing-arguments" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>When calling an endpoint, users can send the server some information. This info can be sent via <code>GET</code> or <code>POST</code> calls. By following <span class="caps">HTTP</span> verbs, if user wants to collect info back, they should send it via <code>GET</code>, else if the call is to perform some operation on the server side, then use <code>POST</code>, <code>PUT</code>, <code>DELETE</code>.</p>
+<p>In the code above, you have defined 2 endpoints - a root <code>/</code> landing page and a <code>/time</code> endpoint. You can run this app from terminal as <code>python -m &lt;filename&gt;</code> which will start the webserver and give you an <span class="caps">IP</span> address to go or call.</p>
+<h3 id="passing-arguments">Passing arguments<a href="#passing-arguments" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>When calling an endpoint, users can send the server some information. This info can be sent via <code>GET</code> or <code>POST</code> calls. By following <span class="caps">HTTP</span> verbs, if user wants to collect info back, they should send it via <code>GET</code>, else if the call is to perform some operation on the server side, then use <code>POST</code>, <code>PUT</code>, <code>DELETE</code>.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span> <span class="c1"># used to parse payload</span>
-<span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/hello'</span><span class="p">)</span>
+<span class="n">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/hello'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">welcome_message</span><span class="p">():</span>
     <span class="sd">"""</span>
 <span class="sd">    Called as /hello?name='value'</span>
@@ -335,9 +331,9 @@ Th">
 </pre>
 
 
-<p><strong>Note</strong>, sometimes your web app needs to make calls to other resources on the web. For this you can use the <code>requests</code> library. The <code>request</code> module of Flask used in the snippet is not to be confused with the <code>requests</code> library.</p>
-<h3 id="rendering-html-pages">Rendering <span class="caps">HTML</span> pages<a href="#rendering-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Flask allows you to define a <code>templates</code> directory and put <span class="caps">HTML</span> pages into it. In these <span class="caps">HTML</span> pages, you can define variables and pass values to be displayed when rendering the <span class="caps">HTML</span> pages. This totally expands your possibilities without having to write a line of <span class="caps">JS</span> code.</p>
+<p><strong>Note</strong>, sometimes your web app needs to make calls to other resources on the web. For this you can use the <code>requests</code> library. The <code>request</code> module of Flask used in the snippet is not to be confused with the <code>requests</code> library.</p>
+<h3 id="rendering-html-pages">Rendering <span class="caps">HTML</span> pages<a href="#rendering-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Flask allows you to define a <code>templates</code> directory and put <span class="caps">HTML</span> pages into it. In these <span class="caps">HTML</span> pages, you can define variables and pass values to be displayed when rendering the <span class="caps">HTML</span> pages. This totally expands your possibilities without having to write a line of <span class="caps">JS</span> code.</p>
 <pre class="code literal-block"><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -355,9 +351,9 @@ Th">
 </pre>
 
 
-<p>Put the above <span class="caps">HTML</span> page (saved as <code>index.html</code>) into a <code>templates</code> directory. Then you can render this page as</p>
+<p>Put the above <span class="caps">HTML</span> page (saved as <code>index.html</code>) into a <code>templates</code> directory. Then you can render this page as</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
-<span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/welcomePage'</span><span class="p">)</span>
+<span class="n">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/welcomePage'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">welcome_page</span><span class="p">():</span>
 
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">,</span>
@@ -366,8 +362,8 @@ Th">
 </pre>
 
 
-<h3 id="getting-user-input-via-html-pages">Getting user input via <span class="caps">HTML</span> pages<a href="#getting-user-input-via-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Not only are <span class="caps">HTML</span> pages good to display content on a <span class="caps">UI</span>, they are good to collect user input for processing. The snippet below defines a resource that when called via <code>GET</code>, will show an <span class="caps">HTML</span> page with form controls. If accessed via <code>POST</code>, it performs the actual processing defined by the resource.</p>
+<h3 id="getting-user-input-via-html-pages">Getting user input via <span class="caps">HTML</span> pages<a href="#getting-user-input-via-html-pages" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Not only are <span class="caps">HTML</span> pages good to display content on a <span class="caps">UI</span>, they are good to collect user input for processing. The snippet below defines a resource that when called via <code>GET</code>, will show an <span class="caps">HTML</span> page with form controls. If accessed via <code>POST</code>, it performs the actual processing defined by the resource.</p>
 <pre class="code literal-block"><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/eyeFromAbove'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">eye_from_above</span><span class="p">():</span>
     <span class="sd">"""</span>
@@ -450,7 +446,7 @@ Th">
 </pre>
 
 
-<p>Now, to display the image, we need this part in the template <span class="caps">HTML</span> file</p>
+<p>Now, to display the image, we need this part in the template <span class="caps">HTML</span> file</p>
 <pre class="code literal-block"><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     {% if media_type == 'image' %}
         <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">{{media_url}}</span> <span class="na">class</span><span class="o">=</span><span class="s">"img-fluid"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"Responsive image"</span><span class="p">&gt;</span>
@@ -458,31 +454,31 @@ Th">
 </pre>
 
 
-<h3 id="database-crud-operations">Database <span class="caps">CRUD</span> operations<a href="#database-crud-operations" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using <code>sqlalchemy</code> library to  create an in-memory <code>sqlite</code> database and perform <span class="caps">CRUD</span> - Create, Read, Update, Delete operations on it.</p>
+<h3 id="database-crud-operations">Database <span class="caps">CRUD</span> operations<a href="#database-crud-operations" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>One of the popular use cases of RESTful web services is, to perform operations on backend database via the web. In the snippet below, I am using <code>sqlalchemy</code> library to  create an in-memory <code>sqlite</code> database and perform <span class="caps">CRUD</span> - Create, Read, Update, Delete operations on it.</p>
 <h4 id="sqlalchemy-in-2-minutes">
-<code>sqlalchemy</code> in 2 minutes<a href="#sqlalchemy-in-2-minutes" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Sqlalchemy library is an <span class="caps">ORM</span> (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a <span class="caps">DB</span> and perform <span class="caps">CRUD</span> ops in addition to others.</p>
-<p>Connecting to a <span class="caps">DB</span>. In this case a sqllite db is created. If you want the db in-memory, then specify <code>memory</code> as location.</p>
+<code>sqlalchemy</code> in 2 minutes<a href="#sqlalchemy-in-2-minutes" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Sqlalchemy library is an <span class="caps">ORM</span> (Object Relatinal Mapper) which allows representing database elements as Python objects. In addition, it allows you to connect to a <span class="caps">DB</span> and perform <span class="caps">CRUD</span> ops in addition to others.</p>
+<p>Connecting to a <span class="caps">DB</span>. In this case a sqllite db is created. If you want the db in-memory, then specify <code>memory</code> as location.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">'sqlite:///filename.db'</span><span class="p">)</span>
 </pre>
 
 
-<p>The next step is to establish a session to this newly created db.</p>
+<p>The next step is to establish a session to this newly created db.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
 <span class="n">DBSession</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 <span class="n">my_session</span> <span class="o">=</span> <span class="n">DBSession</span><span class="p">()</span>
 </pre>
 
 
-<p>The next step is a little boiler plate and can be seen in many examples using sqlalchemy.</p>
+<p>The next step is a little boiler plate and can be seen in many examples using sqlalchemy.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
 </pre>
 
 
-<p>Next step is to create a Model - this represents the table, columns, rows as Python objects.</p>
+<p>Next step is to create a Model - this represents the table, columns, rows as Python objects.</p>
 <pre class="code literal-block"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Numeric</span><span class="p">,</span> <span class="n">String</span>
 
 <span class="k">class</span> <span class="nc">Puppy</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span> <span class="c1">#must inherit from declarative base</span>
@@ -494,13 +490,13 @@ Th">
 </pre>
 
 
-<p>Finnaly, we need to create the table define above on the db.</p>
+<p>Finnaly, we need to create the table define above on the db.</p>
 <pre class="code literal-block"><span></span><span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 </pre>
 
 
-<h4 id="inserting-rows">Inserting rows<a href="#inserting-rows" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Create an instance of the class you created that inherited the <code>declarative_base</code>.</p>
+<h4 id="inserting-rows">Inserting rows<a href="#inserting-rows" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Create an instance of the class you created that inherited the <code>declarative_base</code>.</p>
 <pre class="code literal-block"><span></span><span class="n">puppy1</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="n">puppy_name</span> <span class="o">=</span> <span class="s1">'nemo'</span><span class="p">)</span> <span class="c1">#pass the columns info to the constructor</span>
 
 <span class="c1"># insert row</span>
@@ -509,9 +505,9 @@ Th">
 </pre>
 
 
-<p>Since, we did not pass <code>puppy_id</code>, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an <code>add</code> but have the primary key specified.</p>
-<h4 id="user-facing-crud-api">User facing <span class="caps">CRUD</span> <span class="caps">API</span>:<a href="#user-facing-crud-api" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Below is an example endpoint that can perform all 4 <span class="caps">CRUD</span> operations:</p>
+<p>Since, we did not pass <code>puppy_id</code>, the Primary key, the session knows this is a new row and it has to be created. Else, to edit an existing row, you still do an <code>add</code> but have the primary key specified.</p>
+<h4 id="user-facing-crud-api">User facing <span class="caps">CRUD</span> <span class="caps">API</span>:<a href="#user-facing-crud-api" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Below is an example endpoint that can perform all 4 <span class="caps">CRUD</span> operations:</p>
 <pre class="code literal-block"><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/addresses/&lt;int:id&gt;'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'PUT'</span><span class="p">,</span> <span class="s1">'DELETE'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">address_id_handler</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="sd">"""</span>
@@ -536,7 +532,7 @@ Th">
 </pre>
 
 
-<p>If you called <code>/addresses/&lt;id&gt;</code> with an existing <code>id</code> via <code>GET</code>, you perform a Read operation. Calling with a new <code>id</code> via <code>PUT</code> will do a Create operation. However, calling with an existing <code>id</code> via <code>PUT</code> will do an Update operation. Finally, <code>DELETE</code> will Delete that record from the <span class="caps">DB</span>.</p>
+<p>If you called <code>/addresses/&lt;id&gt;</code> with an existing <code>id</code> via <code>GET</code>, you perform a Read operation. Calling with a new <code>id</code> via <code>PUT</code> will do a Create operation. However, calling with an existing <code>id</code> via <code>PUT</code> will do an Update operation. Finally, <code>DELETE</code> will Delete that record from the <span class="caps">DB</span>.</p>
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>To view the full app in action, checkout <a href="../../apps/">the apps section</a> section. To see its source code, see this <a href="https://github.com/AtmaMani/thermos">GitHub repo</a>.</p>
 </div>
@@ -548,10 +544,10 @@ Th">
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../design-principles-behind-restful-apis/" rel="prev" title="Design principles behind RESTful APIs">Previous post</a>
+                <a href="../design-principles-behind-restful-apis/" rel="prev" title="Design principles behind RESTful APIs">Previous post</a>
             </li>
             <li class="next">
-                <a href="../gentle-introduction-cloud-computing/" rel="next" title="A Gentle Introduction to Cloud Computing">Next post</a>
+                <a href="../gentle-introduction-cloud-computing/" rel="next" title="A Gentle Introduction to Cloud Computing">Next post</a>
             </li>
         </ul></nav></aside></article>
 </div>
@@ -575,5 +571,6 @@ Th">
             return element.getElementsByTagName('img')[0].alt;
     }});
     </script>
-</body>
-</html>
+
+
+</body></html>
