@@ -691,7 +691,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/</loc>
-  <lastmod>2020-02-04T08:03:00Z</lastmod>
+  <lastmod>2021-11-03T22:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/coursera-gd-multivariate-linear-regression/</loc>
@@ -736,6 +736,10 @@
  <url>
   <loc>https://atmamani.github.io/projects/ml/linear-algebra/</loc>
   <lastmod>2019-11-25T16:50:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/ml/ml-concepts/</loc>
+  <lastmod>2021-11-03T22:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/ml/mnist-digits-classification-using-logistic-regression-scikit-learn/</loc>

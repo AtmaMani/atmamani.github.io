@@ -6,6 +6,7 @@ Today, we teach machines to learn. Tomorrow, we hope they'd return the favor ;-)
 
 <img src='http://scipy-lectures.org/_images/scikit-learn-logo.png' width=300>
 
+ - [Foundational ML concepts](ml-concepts/)
  - [Understanding Scikit-Learn syntax](sklearn-1/)
  - [Understanding Gradient Descent](coursera-gradient-descent/)
  - [A primer on linear algebra](linear-algebra/)
