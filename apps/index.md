@@ -2,12 +2,20 @@ Title: Web apps
 
 -------------------------------------
 ## Full stack Python web apps
-Python never ceases to impress me. On one end of the spectrum, you can use it to build simulations, process images and signals and perform data science. On the other end, you can quickly and easily build a full stack web app that is complete with a front-end, REST API and a backend (which is typically a DB process), all in Python.
+Python never ceases to impress me. On one end of the spectrum, you can use it to build simulations, process images and signals and perform data science. On the other end, you can quickly and easily build a full stack web app that is complete with a front-end, REST API and a backend, all in Python. Below are some of my full-stack Python based web apps.
+
+**Serverless APIs**:
+
+ - [Embed maps into your photos](https://map-in-photo.herokuapp.com/)
+ - [Use Deep Learning to predict if a picture is Donut or Bagel](https://r4eajdv9i1.execute-api.us-west-2.amazonaws.com/Prod/)
+ - [Create a map of all incoming web requests to a Lambda function](https://xx5xvslmr8.execute-api.us-west-2.amazonaws.com/default/mapWebRequests)
+ 
+**Learning resources**
 
  - Before you get started, you need to know a bit about RESTful APIs. My article on the [design principles behind RESTful APIs](/blog/design-principles-behind-restful-apis/) may be helpful
  - Getting started with [building RESTful APIs in Python with Flask](/blog/building-restful-apis-with-flask-in-python/)
- - Then take a look at this [example fullstack Python web app](fullstack-python-webapp-1/) that is published on **Heroku**.
- - <img src='/images/flask-heroku-webapp.png' width=500>
+ - Then take a look at this [example fullstack Flask based Python web app](fullstack-python-webapp-1/) that is published on **Heroku**.
+ - If publishing on **AWS Lambda** is your preferred route, then take a look at this [FastAPI to Lambda function](https://pmvujqzmha.execute-api.us-west-2.amazonaws.com/Prod/) application.
 
 -------------------------------------
 ## Hazard monitoring apps
