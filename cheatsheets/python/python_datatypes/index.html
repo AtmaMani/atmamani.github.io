@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>python_cheat_sheet_1 | Atma's blog</title>
+<title>Python - Data types | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#d4567b">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
-<link rel="canonical" href="https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_1/">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/python/python_datatypes/">
 <link rel="icon" href="../../../scatter-16.png" sizes="16x16">
 <link rel="icon" href="../../../scatter-32.png" sizes="32x32">
 <link rel="icon" href="../../../scatter-64.png" sizes="64x64">
@@ -23,17 +23,21 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="python_cheat_sheet_1">
-<meta property="og:url" content="https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_1/">
-<meta property="og:description" content="Python cheat sheet - data structures¶A set of reference materials to help you in those occassional bouts of forgetfulness.
-Table of contents
+<meta property="og:title" content="Python - Data types">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/python/python_datatypes/">
+<meta property="og:description" content="Python - data types¶A set of reference materials to help you in those occassional bouts of forgetfulness.
 
-Play area
-Python tutorials and references
-Data structures
-">
+
+
+
+
+
+
+Python tutorials and references¶Following are some resources to learn Python
+
+Article w">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-11-26T14:18:46-08:00">
+<meta property="article:published_time" content="2022-03-14T22:17:09-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -51,7 +55,7 @@ Data structures
             </button>
             <a class="navbar-brand" href="https://atmamani.github.io/">
 
-                <span id="blog-title">Atma’s blog</span>
+                <span id="blog-title">Atma's blog</span>
             </a>
         </div>
 <!-- /.navbar-header -->
@@ -61,28 +65,28 @@ Data structures
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../../projects/math/">Learn math with Python</a>
+<a href="../../../projects/math/">Learn math with Python</a>
                     </li>
 <li>
-<a href="../../../projects/stats/">Learn stats with Python</a>
+<a href="../../../projects/stats/">Learn stats with Python</a>
                     </li>
 <li>
-<a href="../../../projects/ml/">Machine Learning projects</a>
+<a href="../../../projects/ml/">Machine Learning projects</a>
                     </li>
 <li>
-<a href="../../../projects/dl/">Deep Learning projects</a>
+<a href="../../../projects/dl/">Deep Learning projects</a>
                     </li>
 <li>
-<a href="../../../projects/spatial/">Spatial analysis</a>
+<a href="../../../projects/spatial/">Spatial analysis</a>
                     </li>
 <li>
-<a href="../../../projects/thermal/">Thermal remote sensing</a>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
                     </li>
 <li>
-<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
-<a href="../../../projects/fun/">Fun projects</a>
+<a href="../../../projects/fun/">Fun projects</a>
             </li>
 </ul>
 </li>
@@ -99,151 +103,160 @@ Data structures
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
             <ul class="dropdown-menu">
 <li>
-<a href="../../learning-resources/">General learning resources</a>
+<a href="../../learning-resources/">General learning resources</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li class="active">
-<a href=".">Python basics, comprehensions <span class="sr-only">(active)</span></a>
+<a href=".">Python datatypes <span class="sr-only">(active)</span></a>
                     </li>
 <li>
-<a href="../python_cheat_sheet_2/">Python <span class="caps">OO</span> and exception handling</a>
+<a href="../python_conditional_execution/">Python conditional execution</a>
                     </li>
 <li>
-<a href="../python_cheat_sheet_3/">Python map, reduce, lambdas</a>
+<a href="../python_functions/">Python functions</a>
                     </li>
 <li>
-<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+<a href="../python_iterations/">Python iterations</a>
                     </li>
 <li>
-<a href="../../../"><hr></a>
+<a href="../python_exception_handling/">Python exception handling</a>
                     </li>
 <li>
-<a href="../../conda_cheat_sheet/">Conda basics</a>
+<a href="../python_classes/">Python classes</a>
                     </li>
 <li>
-<a href="../../../"><hr></a>
-                    </li>
-<li>
-<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
-                    </li>
-<li>
-<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
-                    </li>
-<li>
-<a href="../../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
-                    </li>
-<li>
-<a href="../../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
-                    </li>
-<li>
-<a href="../../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
                     </li>
 <li>
-<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
-                    </li>
-<li>
-<a href="../../matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+<a href="../../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
                     </li>
 <li>
-<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+<a href="../../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
                     </li>
 <li>
-<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+<a href="../../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
                     </li>
 <li>
-<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
-                    </li>
-<li>
-<a href="../../../"><hr></a>
-                    </li>
-<li>
-<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
-                    </li>
-<li>
-<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
-                    </li>
-<li>
-<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+<a href="../../pandas/pandas_data_viz_1/">Pandas data visualization</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../r_cheat_sheet_1/">R basics</a>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
                     </li>
 <li>
-<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
                     </li>
 <li>
-<a href="../../octave-2/">Octave - handling data</a>
-                    </li>
-<li>
-<a href="../../js_essentials/">Javascript essentials</a>
-                    </li>
-<li>
-<a href="../../latex-1/">Latex introduction</a>
-                    </li>
-<li>
-<a href="../../docker-1/">Docker introduction</a>
+<a href="../../matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
                     </li>
 <li>
-<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
-                    </li>
-<li>
-<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
-                    </li>
-<li>
-<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
-                    </li>
-<li>
-<a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
-                    </li>
-<li>
-<a href="../../open-geo/postgis-1/">PostGIS - introduction</a>
-                    </li>
-<li>
-<a href="../../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids &amp; custom - pair, facet grids <br> customization</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
-<a href="../../web-development/">Web Development</a>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
                     </li>
 <li>
-<a href="../../html/"><span class="caps">HTML</span> basics</a>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../octave-1/">Octave / MATLAB - basics</a>
+                    </li>
+<li>
+<a href="../../octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-1/">GeoPandas - IO, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-2/">GeoPandas - GP, IO, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, OSM data IO</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - IO, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, SAM</a>
+                    </li>
+<li>
+<a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/">HTML basics</a>
             </li>
 </ul>
 </li>
@@ -251,7 +264,7 @@ Data structures
 <a href="../../../apps/">Apps</a>
                 </li>
 <li>
-<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
+<a href="../../../rss.xml">RSS feed</a>
 
                 
             </li>
@@ -273,175 +286,22 @@ Data structures
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">python_cheat_sheet_1</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python - Data types</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<div class="cell border-box-sizing text_cell rendered">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Python-cheat-sheet---data-structures">Python cheat sheet - data structures<a class="anchor-link" href="#Python-cheat-sheet---data-structures">¶</a>
-<a href="#Python-cheat-sheet---data-structures" class="headerlink" title="Permalink to this heading">¶</a></h2>
-<p>A set of reference materials to help you in those occassional bouts of forgetfulness.</p>
-<p><strong>Table of contents</strong></p>
-<ul>
-<li><a href="#Play-area">Play area</a></li>
-<li><a href="#Python-tutorials-and-references">Python tutorials and references</a></li>
-<li>
-<a href="#Data-structures">Data structures</a><ul>
-<li>
-<a href="#Lists">Lists</a><ul>
-<li><a href="#list-slicing">list slicing</a></li>
-<li><a href="#append-and-extend">append and extend</a></li>
-<li><a href="#mutability-of-lists">mutability of lists</a></li>
-<li><a href="#Lists-and-indices">lists and indices</a></li>
-</ul>
-</li>
-<li>
-<a href="#Dictionaries">Dictionaries</a><ul>
-<li><a href="#mutability-of-dicts">mutability of dicts</a></li>
-<li><a href="#dict-exploration">dict exploration</a></li>
-</ul>
-</li>
-<li>
-<a href="#Tuples">Tuples</a><ul>
-<li><a href="#mutability-of-tuples">mutability of tuples</a></li>
-</ul>
-</li>
-<li>
-<a href="#Sets">Sets</a><ul>
-<li><a href="#set-from-dictionary">set from dictionary</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#loops">Loops</a><ul>
-<li><a href="#for-loop">for loop</a></li>
-<li><a href="#while-loop">while loop</a></li>
-</ul>
-</li>
-<li>
-<a href="#Comprehensions">Comprehensions</a><ul>
-<li><a href="#List-comprehension">List comprehension</a></li>
-<li><a href="#Dictionary-comprehension">Dictionary comprehension</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Play-area">Play area<a class="anchor-link" href="#Play-area">¶</a>
-<a href="#Play-area" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Get a feel for Python in Jupyter notebooks. Type commands, press Shift + Enter to run the cells and get the outputs below each cell</p>
+<h2 id="Python---data-types">Python - data types<a class="anchor-link" href="#Python---data-types">¶</a>
+<a href="#Python---data-types" class="headerlink" title="Permalink to this heading">¶</a></h2>
+<p>A set of reference materials to help you in those occassional bouts of forgetfulness.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">15</span> <span class="o">+</span> <span class="mi">15</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the pound sighn '#' are comments in Python</span>
-<span class="s2">"string1"</span> <span class="o">+</span> <span class="s2">" string2"</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import a module or site-package using 'import' keyword.</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#list contents of current dir</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import sys module and find the OS of the current computer</span>
-<span class="kn">import</span> <span class="nn">...</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use OS module to find the number of cores on the current computer</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use datetime module to find the current date and time</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -450,13 +310,13 @@ Data structures
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Python-tutorials-and-references">Python tutorials and references<a class="anchor-link" href="#Python-tutorials-and-references">¶</a>
 <a href="#Python-tutorials-and-references" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Following are some resources to learn Python</p>
+<p>Following are some resources to learn Python</p>
 <ol>
 <li>Article with reviews about various tutorials <a href="http://noeticforce.com/best-free-tutorials-to-learn-python-pdfs-ebooks-online-interactive">http://noeticforce.com/best-free-tutorials-to-learn-python-pdfs-ebooks-online-interactive</a>
 </li>
 <li>user voted list of tutorials on quora: <a href="https://www.quora.com/What-is-the-best-online-resource-to-learn-Python">https://www.quora.com/What-is-the-best-online-resource-to-learn-Python</a>
 </li>
-<li>Google’s Python class <a href="https://developers.google.com/edu/python/">https://developers.google.com/edu/python/</a>
+<li>Google's Python class <a href="https://developers.google.com/edu/python/">https://developers.google.com/edu/python/</a>
 </li>
 <li><a href="https://www.learnpython.org/">https://www.learnpython.org/</a></li>
 <li>Python reference documentation <a href="https://docs.python.org/3/">https://docs.python.org/3/</a>
@@ -464,6 +324,108 @@ Data structures
 <li>A list of Python libraries for various applications: <a href="https://github.com/vinta/awesome-python">https://github.com/vinta/awesome-python</a>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-type-system">Python type system<a class="anchor-link" href="#Python-type-system">¶</a>
+<a href="#Python-type-system" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Before we get into data structures, let us talk about the type system in Python. At a high level, there are "Numbers", "Collections", "Callables" and "Singletons"</p>
+<p><strong>Numbers</strong> have two categories - Integral and Non-integral numbers.</p>
+<ul>
+<li>Integral number types:<ul>
+<li><code>Integers</code></li>
+<li><code>Booleans</code></li>
+</ul>
+</li>
+<li>Non integral number types:<ul>
+<li>
+<code>Floats</code> implemented as <code>doubles</code> in C</li>
+<li><code>Complex</code></li>
+<li><code>Decimals</code></li>
+<li><code>Fractions</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Collections</strong> have three sub categories:</p>
+<ul>
+<li>Sequence types<ul>
+<li>
+<code>List</code> (mutable)</li>
+<li>
+<code>Tuple</code> (immutable)</li>
+<li>
+<code>String</code> (immutable)</li>
+</ul>
+</li>
+<li>Sets<ul>
+<li>
+<code>Set</code> - mutable</li>
+<li>
+<code>FrozenSet</code> - immutable</li>
+</ul>
+</li>
+<li>Mappings<ul>
+<li><code>Dict</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Callables</strong> are types that can be called for execution</p>
+<ul>
+<li>UDF or user defined functions</li>
+<li>generators</li>
+<li>classes</li>
+<li>instance methods</li>
+</ul>
+<p><strong>Singletons</strong> are types that have only 1 instance within the execution space</p>
+<ul>
+<li><code>None</code></li>
+<li><code>NotImplemented</code></li>
+<li>Ellipsis operator : <code>(...)</code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-naming-conventions">Python naming conventions<a class="anchor-link" href="#Python-naming-conventions">¶</a>
+<a href="#Python-naming-conventions" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="Variable-/-identifier-names">Variable / identifier names<a class="anchor-link" href="#Variable-/-identifier-names">¶</a>
+<a href="#Variable-/-identifier-names" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The following rules apply when choosing variable names</p>
+<ul>
+<li>Can start with <code>_</code>, <code>a-z, A-z</code>
+</li>
+<li>Can be of any length and contain <code>0-9</code> in addition</li>
+<li>Can contain any unicode char</li>
+<li>Cannot be a reserved keyword in the Python language</li>
+</ul>
+<p><strong>Special names</strong></p>
+<ul>
+<li>Vars that start with <code>_</code> mean they are internal and not to be used by the consumer. They are private. But this is only by convention as everything is public in Python</li>
+<li>Further, when you run <code>from module import *</code>, vars that begin with <code>_</code> are <strong>not imported</strong> by the interpreter</li>
+<li>Vars that follow <code>__var_name__</code> are really reserved for Python internals. For example <code>__init__</code> is used for a class constructor. The <code>__lt__()</code> method is used to implement a custom <code>&lt;</code> operator etc. <strong>Don't invent your own <code>__var__</code> names.</strong>
+</li>
+<li>Vars that follow <code>__var_name</code> are slightly different. They are used in a specific feature called <strong>name mangling</strong> in inheritance chains.</li>
+</ul>
+<h4 id="PEP8-conventions">PEP8 conventions<a class="anchor-link" href="#PEP8-conventions">¶</a>
+<a href="#PEP8-conventions" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The list below are just conventions and not rules. Following these will improve code readability.</p>
+<ul>
+<li>Packages : short, all-lowercase names. No underscores</li>
+<li>Modules: short, all-lowercase names. Can have underscores</li>
+<li>Classes: CapWords or upper-camel case</li>
+<li>Functions &amp; Variables: snake_case</li>
+<li>Constants: UPPER_SNAKE_CASE</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1008,7 +970,7 @@ l3 = [1,2,3]</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="mutability-of-lists">mutability of lists<a class="anchor-link" href="#mutability-of-lists">¶</a>
 <a href="#mutability-of-lists" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>list elements are mutable and can be changed</p>
+<p>list elements are mutable and can be changed</p>
 
 </div>
 </div>
@@ -1346,7 +1308,7 @@ l3 = [1,2,3]</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Find all the indices of an element</p>
+<p>Find all the indices of an element</p>
 
 </div>
 </div>
@@ -1444,7 +1406,7 @@ l3 = [1,2,3]</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">¶</a>
 <a href="#Dictionaries" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Key value pairs</p>
+<p>Key value pairs</p>
 
 <pre><code>d1 = dict()
 d2 = {'key1':value,
@@ -1701,7 +1663,7 @@ d2 = {'key1':value,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="mutability-of-dicts">mutability of dicts<a class="anchor-link" href="#mutability-of-dicts">¶</a>
 <a href="#mutability-of-dicts" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>dicts like lists are mutable</p>
+<p>dicts like lists are mutable</p>
 
 </div>
 </div>
@@ -1793,7 +1755,7 @@ d2 = {'key1':value,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="dict-exploration">dict exploration<a class="anchor-link" href="#dict-exploration">¶</a>
 <a href="#dict-exploration" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>what happens when you inquire a key thats not present</p>
+<p>what happens when you inquire a key thats not present</p>
 
 </div>
 </div>
@@ -1956,7 +1918,7 @@ d2 = {'key1':value,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Tuple">Tuple<a class="anchor-link" href="#Tuple">¶</a>
 <a href="#Tuple" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>tuple is a immutable list</p>
+<p>tuple is a immutable list</p>
 
 </div>
 </div>
@@ -2104,7 +2066,7 @@ d2 = {'key1':value,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="mutability-of-tuples">mutability of tuples<a class="anchor-link" href="#mutability-of-tuples">¶</a>
 <a href="#mutability-of-tuples" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>cannot modify tuples.</p>
+<p>cannot modify tuples.</p>
 
 </div>
 </div>
@@ -2152,7 +2114,7 @@ d2 = {'key1':value,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Sets">Sets<a class="anchor-link" href="#Sets">¶</a>
 <a href="#Sets" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>set is a sequence of unique values</p>
+<p>set is a sequence of unique values</p>
 
 <pre><code>s1 = set(&lt;sequence&gt;)
 s2 = {}</code></pre>
@@ -2235,7 +2197,7 @@ s2 = {}</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="set-from-dictionary">set from dictionary<a class="anchor-link" href="#set-from-dictionary">¶</a>
 <a href="#set-from-dictionary" class="headerlink" title="Permalink to this heading">¶</a></h5>
-<p>Works on dicts too. But will return a set of keys only, not values.</p>
+<p>Works on dicts too. But will return a set of keys only, not values.</p>
 
 </div>
 </div>
@@ -2363,7 +2325,7 @@ s2 = {}</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note. When you create a dict with duplicate keys, Python just keeps the last occurrence of the kvp. It thinks the kvp needs to be updated to the latest value</p>
+<p>Note. When you create a dict with duplicate keys, Python just keeps the last occurrence of the kvp. It thinks the kvp needs to be updated to the latest value</p>
 
 </div>
 </div>
@@ -2402,384 +2364,6 @@ s2 = {}</code></pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Loops">Loops<a class="anchor-link" href="#Loops">¶</a>
-<a href="#Loops" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<h4 id="for-loop">for loop<a class="anchor-link" href="#for-loop">¶</a>
-<a href="#for-loop" class="headerlink" title="Permalink to this heading">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [71]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">" squared "</span><span class="p">,</span> <span class="n">element</span><span class="o">*</span><span class="n">element</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1  squared  1
-2  squared  4
-3  squared  9
-4  squared  16
-5  squared  25
-6  squared  36
-7  squared  49
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [72]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Comprehensions">Comprehensions<a class="anchor-link" href="#Comprehensions">¶</a>
-<a href="#Comprehensions" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Comprehensions are an effective way to loop through sequences</p>
-<h4 id="List-comprehension">List comprehension<a class="anchor-link" href="#List-comprehension">¶</a>
-<a href="#List-comprehension" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<pre><code>   [operation for index in sequence condition] </code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [73]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list2_comp</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">]</span>
-<span class="n">list2_comp</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[73]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1, 4, 9, 16, 25, 36, 49]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [74]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list2_even</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">list1</span> <span class="k">if</span> <span class="n">e</span><span class="o">%</span><span class="k">2</span>==0]
-<span class="n">list2_even</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[74]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[4, 16, 36]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Dictionary-comprehension">Dictionary comprehension<a class="anchor-link" href="#Dictionary-comprehension">¶</a>
-<a href="#Dictionary-comprehension" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>Same as list comprehension, but instead of lists, it returns a dictionary. You use {} instead of []</p>
-
-<pre><code>{key:value for key, value in dictionary if condition}</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'day'</span><span class="p">:</span><span class="s1">'Thursday'</span><span class="p">,</span>
-     <span class="s1">'day_of_week'</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-     <span class="s1">'start_of_week'</span><span class="p">:</span><span class="s1">'Sunday'</span><span class="p">,</span>
-     <span class="s1">'day_of_year'</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
-     <span class="s1">'dod'</span><span class="p">:{</span><span class="s1">'month_of_year'</span><span class="p">:</span><span class="s1">'Feb'</span><span class="p">,</span>
-           <span class="s1">'year'</span><span class="p">:</span><span class="mi">2017</span><span class="p">},</span>
-     <span class="s1">'list1'</span><span class="p">:[</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">66</span><span class="p">]}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get those kvp whose value is a list</span>
-<span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">d3</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">==</span><span class="nb">list</span><span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[43]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'list1': [8, 7, 66]}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>reverse keys and values? - works only when values are immutable types. hence filter them out</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d4</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">d3</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]}</span>
-<span class="n">d4</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[45]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'day': 'Thursday',
- 'day_of_week': 5,
- 'day_of_year': 123,
- 'start_of_week': 'Sunday'}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># reverse keys and values</span>
-<span class="n">d4_reverse</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">d4</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="n">d4_reverse</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[47]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{'Thursday': 'day',
- 5: 'day_of_week',
- 'Sunday': 'start_of_week',
- 123: 'day_of_year'}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
     </div>
     
         
@@ -2800,7 +2384,7 @@ MathJax.Hub.Config({
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2021         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2022         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>

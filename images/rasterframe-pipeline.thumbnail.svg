@@ -1,4 +1,4 @@
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="97 161 581.5 230.5" viewport="0 0 1600px 633px">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="97 161 581.5 230.5" viewport="0 0 400px 158px">
   <defs>
     <filter id="Shadow" filterUnits="userSpaceOnUse" x="97" y="161">
       <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1.308"/>
