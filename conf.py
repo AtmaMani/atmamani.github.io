@@ -164,6 +164,8 @@ NAVIGATION_LINKS = {
                 ('/cheatsheets/python/python_iterations/', "Python iterations"),
                 ('/cheatsheets/python/python_exception_handling/', "Python exception handling"),
                 ('/cheatsheets/python/python_classes/', "Python classes"),
+                ('/cheatsheets/python/python_memory/', "Python memory, ref counts, garbage collection"),
+                ('/cheatsheets/python/python_mutability/', "Python - mutability and immutability"),
                 ('/images/regex-mindmap.jpg', "Python regex"),
                 ('/', "<hr>"),
                 ('/cheatsheets/conda_cheat_sheet/', "Conda basics"),
