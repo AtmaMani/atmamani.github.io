@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2022-03-15T04:36:00Z</lastmod>
+  <lastmod>2022-03-16T19:39:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -159,11 +159,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2022-03-15T04:37:00Z</lastmod>
+  <lastmod>2022-03-16T19:39:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2022-03-15T04:37:00Z</lastmod>
+  <lastmod>2022-03-16T19:39:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -586,20 +586,8 @@
   <lastmod>2022-02-06T22:43:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_1/</loc>
-  <lastmod>2022-02-06T22:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_2/</loc>
-  <lastmod>2022-02-06T22:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_3/</loc>
-  <lastmod>2022-02-06T22:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/cheatsheets/python/python_cheat_sheet_4/</loc>
-  <lastmod>2022-03-04T18:07:00Z</lastmod>
+  <loc>https://atmamani.github.io/cheatsheets/python/python-memory/</loc>
+  <lastmod>2022-03-15T20:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/python/python_classes/</loc>
@@ -626,8 +614,12 @@
   <lastmod>2022-03-15T04:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/cheatsheets/python/untitled/</loc>
-  <lastmod>2022-03-04T18:07:00Z</lastmod>
+  <loc>https://atmamani.github.io/cheatsheets/python/python_memory/</loc>
+  <lastmod>2022-03-15T20:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/python/python_mutability/</loc>
+  <lastmod>2022-03-16T19:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/r_cheat_sheet_1/</loc>
