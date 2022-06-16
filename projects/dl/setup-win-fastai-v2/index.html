@@ -31,7 +31,7 @@ Install Fastai v2.
 What did not work:
  - The Fastbook install instructions don't work as the automatic ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-11-13T20:06:48-08:00">
+<meta property="article:published_time" content="2022-06-08T10:27:44-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -78,6 +78,9 @@ What did not work:
                     </li>
 <li>
 <a href="../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../fun/">Fun projects</a>
@@ -226,6 +229,9 @@ What did not work:
 <a href="../../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
@@ -312,14 +318,14 @@ What did not work:
  - Run <code>pip install -U fastbook</code> to install the book's deps and files on disk.</p>
 <h3 id="verify-gpu-is-picked-up">Verify GPU is picked up<a href="#verify-gpu-is-picked-up" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>From terminal or Notebook, run the following</p>
-<pre class="code literal-block"><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span> <span class="nn">torch</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
-</code></pre>
+</pre></div>
 
 <p>If you get a <code>True</code>, you are good to go. Else revisit the config doc page listed above.</p>
 <h3 id="verify-fastai-v2-can-be-imported">Verify FastAI v2 can be imported<a href="#verify-fastai-v2-can-be-imported" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Run the quickstart example from the book (or copy below):</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">PETS</span><span class="p">)</span><span class="o">/</span><span class="s1">'images'</span>
 
 <span class="k">def</span> <span class="nf">is_cat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
@@ -329,7 +335,7 @@ What did not work:
 
 <span class="n">learn</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">resnet34</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">error_rate</span><span class="p">)</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>As you run the above, open the Task Manager and monitor the GPU usage. You should see a spike while the CPU rate seems constant. The training should go much faster. Instead if you notice CPU peaking to 95-100%, then verify if <code>torch.cuda.is_available()</code> returns <code>True</code>. If it does not, then recheck the driver and OS version steps from above.</p>
 <p>Congrats! You are all set to use fastaiv2 on Windows OS without needing a dual boot for Linux or installing the Windows subsystem for linux options.</p>

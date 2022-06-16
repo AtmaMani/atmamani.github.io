@@ -81,6 +81,9 @@
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
+<a href="../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
 <a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
@@ -227,6 +230,9 @@
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -312,7 +318,7 @@
     <p>Concurrency and parallelism as seen earlier can speed up your Python application. However, when not careful, they can crop up a bunch of specific bugs and challenges. We will cover some of those in this article.</p>
 <h3 id="data-race">Data race<a href="#data-race" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>A common problem with concurrency is when multiple workers attempt to read the same location in memory and when at-least one of them is attempting to change the value.</p>
-<pre class="code literal-block"><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="n">garlic_count</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -330,13 +336,13 @@
     <span class="n">barron</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
     <span class="n">olivia</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'We should buy'</span><span class="p">,</span> <span class="n">garlic_count</span><span class="p">,</span> <span class="s1">'garlic.'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>The script above spawns <code>2</code> worker threads that increment the garlic count by <code>10</code> million. Ideally, they each are supposed to increment <code>10</code> million, resulting in a final count of <code>20</code> million. However, when you run it, you end up with this:</p>
-<pre class="code literal-block"><span></span><code>Current garlic count:  0
+<div class="code"><pre class="code literal-block">Current garlic count:  0
 Current garlic count:  83186
 We should buy 13724492 garlic.
-</code></pre>
+</pre></div>
 
 <p>which is a classic case of a data race.</p>
 <h3 id="mutex-mutual-exclusion">Mutex (Mutual Exclusion)<a href="#mutex-mutual-exclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
@@ -344,7 +350,7 @@ We should buy 13724492 garlic.
 <p>In programming, this is accomplished using <strong>Mutex</strong> or <strong>Mutual Exclusion</strong>. A mutex is a lock and only the thread possessing it will have access to update a shared resource / critical section. Only after the thread in possession releases a mutex, another thread can gain possession.</p>
 <p>Acquiring of a mutex (the lock) is atomic, meaning it appears as an indivisible action to other threads even thought it may internally involve multiple steps. Thus no other thread can interrupt the thread acquiring the lock.</p>
 <p>To rectify the previous code, we add create a mutex object using <code>threading.Lock()</code>. Then we call the <code>acquire()</code> and <code>release()</code> methods on the Mutex object appropriately when editing a shared resource. The snippet below rectifies the shopping cart code we had earlier.</p>
-<pre class="code literal-block"><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="n">garlic_count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">pencil</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span> <span class="c1"># create a Mutex</span>
@@ -364,11 +370,11 @@ We should buy 13724492 garlic.
     <span class="n">barron</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
     <span class="n">olivia</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'We should buy'</span><span class="p">,</span> <span class="n">garlic_count</span><span class="p">,</span> <span class="s1">'garlic.'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>This has spawn two threads as earlier, but the results prints <code>20,000,000</code> correctly:</p>
-<pre class="code literal-block"><span></span><code><span class="n">We</span> <span class="n">should</span> <span class="n">buy</span> <span class="mi">20000000</span> <span class="n">garlic</span><span class="o">.</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="n">We</span> <span class="n">should</span> <span class="n">buy</span> <span class="mi">20000000</span> <span class="n">garlic</span><span class="o">.</span>
+</pre></div>
 
 <h4 id="locks-and-reentrant-mutex">Locks and Reentrant Mutex<a href="#locks-and-reentrant-mutex" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>What happens when a thread locks a resource, does not unlock and tries to lock again? Well, a thread cannot lock a resource if it is already locked, so it just ends up waiting for its turn to lock, which will never come. This situation is called a <strong>deadlock</strong>.</p>

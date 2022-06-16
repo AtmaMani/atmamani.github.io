@@ -83,6 +83,9 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
+<a href="../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
 <a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
@@ -229,6 +232,9 @@ At some point, every Python developer wonders if it's their program that is slow
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -351,14 +357,14 @@ At some point, every Python developer wonders if it's their program that is slow
 <p><img src="../../images/concurrency-thread-states.png"></p>
 <h4 id="instantiating-the-thread-class">Instantiating the Thread class<a href="#instantiating-the-thread-class" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The constructor for Thread looks like below</p>
-<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="code"><pre class="code literal-block"><span class="k">class</span> <span class="nc">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                       <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{},</span>
                       <span class="n">daemon</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p><code>group</code> is reserved, primarily to be used when <code>ThreadGroup</code> class is implemented. <code>target</code> accepts a callable object (like a method). The <code>run()</code> method of the Thread object will call that that object. <code>name</code> is the name of the thread and by convention takes the form <code>Thread-N</code> where N is a number. <code>args</code> collects the arguments to pass to the callable object and <code>kwargs</code> does the same but with named arguments.</p>
 <p>So, a simple example could be:</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 
 <span class="k">def</span> <span class="nf">simple_worker</span><span class="p">(</span><span class="n">greet</span><span class="o">=</span><span class="s1">'hello'</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
@@ -367,10 +373,10 @@ At some point, every Python developer wonders if it's their program that is slow
 <span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>  <span class="c1"># prints False</span>
 <span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># prints hello</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">native_id</span><span class="p">)</span>   <span class="c1"># prints the thread ID.</span>
-</code></pre>
+</pre></div>
 
 <p>Typically, when you execute in a separate thread, you will notice the kernel's main becomes free even if the thread you spawned is still running. For example see this:</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="k">def</span> <span class="nf">worker</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
@@ -382,34 +388,34 @@ At some point, every Python developer wonders if it's their program that is slow
 <span class="n">t2</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'t2'</span><span class="p">)</span>
 <span class="n">t2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Done'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>will print</p>
-<pre class="code literal-block"><span></span><code>Starting
+<div class="code"><pre class="code literal-block">Starting
 .
 Done
 .......
-</code></pre>
+</pre></div>
 
 <p>See <code>Done</code> got printed before all the dots got printed, which means the execution proceeded right along with the next steps. The worker did not block the main thread.</p>
 <p>You can make one thread wait for another using the <code>join()</code> method. If you add a <code>t2.join()</code> after <code>t2.start()</code>, it would wait for the worker to finish and then print <code>Done</code>.</p>
 <h4 id="inspecting-threads">Inspecting threads<a href="#inspecting-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p><code>threading.enumerate()</code> will print all the threads that are running:</p>
-<pre class="code literal-block"><span></span><code><span class="p">[</span><span class="o">&lt;</span><span class="n">_MainThread</span><span class="p">(</span><span class="n">MainThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">4515802560</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
+<div class="code"><pre class="code literal-block"><span class="p">[</span><span class="o">&lt;</span><span class="n">_MainThread</span><span class="p">(</span><span class="n">MainThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">4515802560</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Thread</span><span class="p">(</span><span class="n">Thread</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">started</span> <span class="n">daemon</span> <span class="mi">123145471606784</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Heartbeat</span><span class="p">(</span><span class="n">Thread</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">started</span> <span class="n">daemon</span> <span class="mi">123145488396288</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">HistorySavingThread</span><span class="p">(</span><span class="n">IPythonHistorySavingThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">123145506258944</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">ParentPollerUnix</span><span class="p">(</span><span class="n">Thread</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">started</span> <span class="n">daemon</span> <span class="mi">123145523585024</span><span class="p">)</span><span class="o">&gt;</span>
  <span class="o">&lt;</span><span class="n">Thread</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">started</span> <span class="mi">123145540374528</span><span class="p">)</span><span class="o">&gt;</span><span class="p">]</span>  <span class="c1">## -&gt; my thread</span>
-</code></pre>
+</pre></div>
 
 <p>and <code>threading.current_thread()</code> will print the currently active thread:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&lt;</span><span class="n">_MainThread</span><span class="p">(</span><span class="n">MainThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">4515802560</span><span class="p">)</span><span class="o">&gt;</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="o">&lt;</span><span class="n">_MainThread</span><span class="p">(</span><span class="n">MainThread</span><span class="p">,</span> <span class="n">started</span> <span class="mi">4515802560</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
 
 <h4 id="multiple-threads">Multiple threads<a href="#multiple-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>You can start multiple threads for the same worker function. Each thread will invoke the function once, but will retain its own local heap space as can be seen below:</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">worker</span><span class="p">():</span>
@@ -429,19 +435,19 @@ Done
 <span class="n">tb</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">tc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Done'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>will print</p>
-<pre class="code literal-block"><span></span><code><span class="n">Starting</span>
+<div class="code"><pre class="code literal-block"><span class="n">Starting</span>
 <span class="n">a0</span> <span class="n">d0e0</span>  
 <span class="n">Done</span>
 <span class="n">a1d1e1</span>   <span class="n">a2d2e2</span>   <span class="n">e3d3a3</span>   <span class="n">e4d4a4</span>   <span class="n">e5</span> <span class="n">d5a5</span>  <span class="n">e6a6d6</span>   <span class="n">a7e7d7</span>   <span class="n">e8d8a8</span>   <span class="n">e9d9a9</span>
-</code></pre>
+</pre></div>
 
 <p>In this case, <code>a</code>,<code>d</code>,<code>e</code> are the prefixes each thread chose. As you see in the print, the threads don't go off in sequence as the prefix arrive mixed in the prints. The same thread never prints in succession, which would mean as soon as the sleep is encountered, the main thread switches to the other threads and so on until each thread has to eventually finish the sleep time.</p>
 <h4 id="establishing-dependency">Establishing dependency<a href="#establishing-dependency" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The operating system reserves the right to schedule your threads. Thus as a programmer, you do not have the ability to deterministically know when your threads will start and finish. However, in real life, you need certain workers to finish before you can proceed to the next step. You establish this using <code>join()</code> methods off <code>Thread</code> objects. See example below:</p>
-<pre class="code literal-block"><span></span><code><span class="sd">""" Two threads cooking soup """</span>
+<div class="code"><pre class="code literal-block"><span class="sd">""" Two threads cooking soup """</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -472,10 +478,10 @@ Done
     <span class="nb">print</span><span class="p">(</span><span class="s1">'  Olivia alive?:'</span><span class="p">,</span> <span class="n">olivia</span><span class="o">.</span><span class="n">is_alive</span><span class="p">())</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Barron and Olivia are both done!'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>which prints</p>
-<pre class="code literal-block"><span></span><code><span class="nv">Barron</span> <span class="nv">started</span> <span class="o">&amp;</span> <span class="nv">requesting</span> <span class="nv">Olivia</span><span class="s1">'</span><span class="s">s help.</span>
+<div class="code"><pre class="code literal-block"><span class="nv">Barron</span> <span class="nv">started</span> <span class="o">&amp;</span> <span class="nv">requesting</span> <span class="nv">Olivia</span><span class="s1">'</span><span class="s">s help.</span>
   <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">False</span>
 <span class="nv">Barron</span> <span class="nv">tells</span> <span class="nv">Olivia</span> <span class="nv">to</span> <span class="nv">start</span>.
 <span class="nv">Olivia</span> <span class="nv">started</span> <span class="o">&amp;</span> <span class="nv">waiting</span> <span class="k">for</span> <span class="nv">sausage</span> <span class="nv">to</span> <span class="nv">thaw</span>...
@@ -485,13 +491,13 @@ Done
 <span class="nv">Barron</span> <span class="nv">patiently</span> <span class="nv">waits</span> <span class="k">for</span> <span class="nv">Olivia</span> <span class="nv">to</span> <span class="nv">finish</span> <span class="nv">and</span> <span class="nv">join</span>...
 <span class="nv">Olivia</span> <span class="nv">is</span> <span class="nv">done</span> <span class="nv">cutting</span> <span class="nv">sausage</span>.
   <span class="nv">Olivia</span> <span class="nv">alive</span>?: <span class="nv">False</span>
-</code></pre>
+</pre></div>
 
 <p>In the example above, <code>Olivia</code> is the worker thread, on which the main thread waits before proceeding to a certain step. The example also shows how to inherit a <code>Thread</code> class. When doing this, you only override two methods - the constructor and <code>run()</code> which the scheduler will call once the thread is in <strong>Runnable</strong> state.</p>
 <h4 id="daemon-threads">Daemon threads<a href="#daemon-threads" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Normally, when a program spawns child threads, the program needs to wait until the child completes (that is, if you don't already have a dependency established using a <code>join()</code>). This may not always be ideal and you might want to kill off the child when the main program exits. You can establish this behavior using <code>daemon</code> threads. Daemon threads are created by passing that parameter to the constructor or by setting the <code>daemon</code> property to <code>True</code>. Once started, you cannot change a normal thread to a daemon thread.</p>
 <p>In the example below, if you did not set <code>daemon=True</code>, the child thread would run forever causing the program to never terminate.</p>
-<pre class="code literal-block"><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">kitchen_cleaner</span><span class="p">():</span>
@@ -508,15 +514,15 @@ Done
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Barron is cooking...'</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Barron is done!'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>which prints</p>
-<pre class="code literal-block"><span></span><code>Olivia cleaned the kitchen.
+<div class="code"><pre class="code literal-block">Olivia cleaned the kitchen.
 Barron is cooking...
 Barron is cooking...
 Olivia cleaned the kitchen.
 Barron is done!
-</code></pre>
+</pre></div>
 
 <p>The daemon thread is quit abruptly when the main thread terminates. Thus you should be careful what kinds of ops are relegated to a daemon thread. Good options are using daemon for heartbeat, garbage collection, license checks etc.</p>
 <h3 id="multiprocessing">Multiprocessing<a href="#multiprocessing" class="headerlink" title="Permalink to this heading">¶</a></h3>
@@ -525,9 +531,9 @@ Barron is done!
 <h4 id="instantiating-a-process">Instantiating a <code>Process</code>
 <a href="#instantiating-a-process" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Constructing a process looks like below:</p>
-<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">multiprocess</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="code"><pre class="code literal-block"><span class="k">class</span> <span class="nc">multiprocess</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                             <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p><code>group</code> is reserved as in threading and is to be used along with the threading API. <code>target</code> accepts a callable object, which will be invoked by the <code>run()</code> instance method. <code>name</code> is the process name, <code>args</code> accepts a tuple to pass to the called function and <code>kwargs</code> does the same with named args. <code>daemon</code> represents whether the process needs to be run as a background daemon.</p>
 <p>The <code>Process</code> class provides useful methods and properties</p>
@@ -554,16 +560,16 @@ Barron is done!
 </ul>
 <h4 id="using-a-pool">Using a Pool<a href="#using-a-pool" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Since creating processes are expensive, one option is to reuse processes within a given application. The <code>Pool</code> class represents a pool of worker processes and has methods that allow tasks to be offloaded to these worker processes. A Pool can be created as below:</p>
-<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">multiprocessing</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="code"><pre class="code literal-block"><span class="k">class</span> <span class="nc">multiprocessing</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">initargs</span><span class="o">=</span><span class="p">(),</span> <span class="n">maxtasksperchild</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                                 <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>where <code>processes</code> is the number of workers to use. Default is <code>os.cpu_count()</code>. <code>initializer(*initargs)</code> is used to represent the method to call and its arguments. <code>maxtasksperchild</code> is the number of tasks a worker can complete. If None, the worker will live as long as the pool.</p>
 <h4 id="poolmap-pattern">
 <code>Pool.map()</code> pattern<a href="#poolmap-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>An example of using the Pool is shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'In worker with: '</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
@@ -586,13 +592,13 @@ Barron is done!
 <span class="n">In</span> <span class="n">worker</span> <span class="k">with</span><span class="p">:</span>  <span class="mi">4</span>
 <span class="n">In</span> <span class="n">worker</span> <span class="k">with</span><span class="p">:</span>  <span class="mi">5</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
-</code></pre>
+</pre></div>
 
 <p>Best practice is to close the <code>Pool</code> object after use, so the <strong><code>with as</code></strong> statement is used in the example above. In the example above, only <code>4</code> processes were created, but <code>6</code> tasks were given. In this case, excess tasks should wait until running processes finish. The <code>map()</code> function returns an iterable, List in this case. <strong>Notice: the output order matches the input order</strong> despite things running in parallel.</p>
 <h4 id="poolimap_unordered-pattern">
 <code>Pool.imap_unordered()</code> pattern<a href="#poolimap_unordered-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>If output order does not matter, then you can use <code>imap_unordered()</code> function instead, which gives you a performance improvement. The above program can be modified as shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="code"><pre class="code literal-block"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">pool</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]):</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -610,14 +616,14 @@ Barron is done!
 <span class="mi">4</span>
 <span class="mi">16</span>
 <span class="mi">25</span>
-</code></pre>
+</pre></div>
 
 <p>Notice the mismatch between input numbers and their squares.</p>
 <h4 id="poolapply_asyc-pattern">
 <code>Pool.apply_asyc()</code> pattern<a href="#poolapply_asyc-pattern" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The <code>apply_async()</code> method allows for tasks to be executed asynchronously. This way, the main process can spawn off processes in a pool and continue to progress. The pool will munch the data. Results can be collected through a <strong>callback</strong> function or by using a blocking <strong><code>get()</code></strong> method.</p>
 <p>Example using blocking <code>get()</code> method:</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
 <span class="k">def</span> <span class="nf">collect_results</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'In collect results: '</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
@@ -641,7 +647,7 @@ Barron is done!
 <span class="c1"># output:</span>
 <span class="n">In</span> <span class="n">worker</span><span class="p">:</span>  <span class="mi">2</span>
 <span class="n">Blocking</span> <span class="n">result</span><span class="p">:</span> <span class="mi">4</span>
-</code></pre>
+</pre></div>
 
 <h3 id="conclusion">Conclusion<a href="#conclusion" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>This concludes the introduction to concurrency in Python. While this article explains the concepts of threads and processes with examples, it is no way close to explaining how to build a program to use these concepts. That is for another part of this article. In the subsequent parts of the article, we will see the need for locks, barriers, synchronization. We will also look into concurrency patterns such as <code>futures</code> and libraries such as <code>asyncio</code> and review their applications.</p>

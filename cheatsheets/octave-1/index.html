@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/octave-1/">
 <meta property="og:description" content="Octave is an open source scientific computing package. It has a GUI, kernel and a programming language modeled after MATLAB. File extensions are .m. This page is a guide to the octave programming lang">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:43-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -74,6 +74,9 @@
                     </li>
 <li>
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../projects/fun/">Fun projects</a>
@@ -222,6 +225,9 @@
 <a href="../docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -325,23 +331,23 @@
 <p><a id="markdown-variables" name="variables"></a></p>
 <h3 id="variables">Variables<a href="#variables" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Variables can be assigned without initializing.</p>
-<pre class="code literal-block"><span></span><code><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="c">% row vector</span><span class="w"></span>
 <span class="c">% Use % for comments</span><span class="w"></span>
 <span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">;</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">];</span><span class="w"> </span><span class="c">% col vector</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>2D arrays can be initialized as </p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a2d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="c">% ';' is used to separate rows.</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a2d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="c">% ';' is used to separate rows.</span><span class="w"></span>
 <span class="n">a2d</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">2</span><span class="w">   </span><span class="mi">3</span><span class="w"></span>
 <span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="mi">6</span><span class="w"></span>
 <span class="w">   </span><span class="mi">7</span><span class="w">   </span><span class="mi">8</span><span class="w">   </span><span class="mi">9</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-standard-matrix-creation-functions" name="standard-matrix-creation-functions"></a></p>
 <h3 id="standard-matrix-creation-functions">Standard matrix creation functions<a href="#standard-matrix-creation-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="c">% identity</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="c">% identity</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="n">Diagonal</span><span class="w"> </span><span class="s">Matrix</span><span class="w"></span>
 <span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
@@ -369,21 +375,21 @@
 <span class="w">   </span><span class="mi">8</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">6</span><span class="w"></span>
 <span class="w">   </span><span class="mi">3</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="mi">7</span><span class="w"></span>
 <span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">9</span><span class="w">   </span><span class="mi">2</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-automatic-map-operations" name="automatic-map-operations"></a></p>
 <h3 id="automatic-map-operations">Automatic <code>map</code> operations<a href="#automatic-map-operations" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Octave is designed to work primarily with arrays and vectors. Thus when you pass an array or vector to a standard function or operator, it <strong>automatically maps the function on each element and runs it</strong> and returns either an array/vector or scalar, depending on the operation.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">squares</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">49</span><span class="p">];</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">squares</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">49</span><span class="p">];</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="w"> </span><span class="c">% returns a vector output</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="mi">6</span><span class="w">   </span><span class="mi">7</span><span class="w"></span>
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="c">% scalar output</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>When you run functions on a 2D matrix, they run on each column vector:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c">% default is columnwise operation</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c">% default is columnwise operation</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mi">15</span><span class="w">   </span><span class="mi">15</span><span class="w">   </span><span class="mi">15</span><span class="w"></span>
 
@@ -401,29 +407,29 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mi">8</span><span class="w">   </span><span class="mi">9</span><span class="w">   </span><span class="mi">7</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Functions in Octave can return multiple values. For instance:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="w"></span>
 <span class="n">val</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">4</span><span class="w"></span>
 <span class="n">index</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-automatic-broadcasting" name="automatic-broadcasting"></a></p>
 <h4 id="automatic-broadcasting">Automatic broadcasting<a href="#automatic-broadcasting" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>When you operate a scalar against a vector, matlab will automatically scale up that scalar into a vector and perform an element wise computation as shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">=</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">0.7</span><span class="p">:</span><span class="mi">2</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">=</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">0.7</span><span class="p">:</span><span class="mi">2</span><span class="w"></span>
 <span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0000</span><span class="w">   </span><span class="o">-</span><span class="mf">1.3000</span><span class="w">   </span><span class="o">-</span><span class="mf">0.6000</span><span class="w">    </span><span class="mf">0.1000</span><span class="w">    </span><span class="mf">0.8000</span><span class="w">    </span><span class="mf">1.5000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="mi">10</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">8.0000</span><span class="w">     </span><span class="mf">8.7000</span><span class="w">     </span><span class="mf">9.4000</span><span class="w">    </span><span class="mf">10.1000</span><span class="w">    </span><span class="mf">10.8000</span><span class="w">    </span><span class="mf">11.5000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Similarly when you multiply, subtract or divide a scalar from a vector, it is automatically broadcasted.</p>
 <h3 id="looping-through-a-matrix">Looping through a matrix<a href="#looping-through-a-matrix" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The automatic map operations should have most things covered for you. Still, you might need to write a loop. Below is syntax of <code>for</code> loop.</p>
-<pre class="code literal-block"><span></span><code><span class="k">for</span><span class="w"> </span><span class="n">iterator</span><span class="p">=</span><span class="o">&lt;</span><span class="n">range</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">for</span><span class="w"> </span><span class="n">iterator</span><span class="p">=</span><span class="o">&lt;</span><span class="n">range</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
 <span class="w">   </span><span class="n">operation1</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">operation2</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">condition</span><span class="w"> </span><span class="s">check</span><span class="w"></span>
@@ -433,10 +439,10 @@
 <span class="w">      </span><span class="n">operation4</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
 <span class="k">end</span><span class="p">;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Note the <code>,</code> at end of the line with <code>for</code>.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">indices</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">indices</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="n">indices</span><span class="p">,</span><span class="w"></span>
 <span class="w">       </span><span class="nb">disp</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
@@ -446,14 +452,14 @@
 <span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="w"> </span><span class="p">.</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <h4 id="while-loop">While loop<a href="#while-loop" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The syntax for while loop is</p>
-<pre class="code literal-block"><span></span><code><span class="k">while</span><span class="w"> </span><span class="n">condition</span><span class="p">,</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">while</span><span class="w"> </span><span class="n">condition</span><span class="p">,</span><span class="w"></span>
 <span class="w">   </span><span class="n">operation</span><span class="p">;</span><span class="w"></span>
 <span class="k">end</span><span class="p">;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Once again, note the <code>,</code> at line 1.</p>
 <p><a id="markdown-array-multiplication" name="array-multiplication"></a></p>
@@ -462,7 +468,7 @@
  - element wise - which is accomplished by prefixing the operator with <code>.</code> such as: <code>.&lt;operator&gt;</code> or <code>.*</code>
  - matrix multiplication - which will happen when you use <code>*</code>.</p>
 <p>Thus:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
 <span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0000</span><span class="w">   </span><span class="o">-</span><span class="mf">1.3000</span><span class="w">   </span><span class="o">-</span><span class="mf">0.6000</span><span class="w">    </span><span class="mf">0.1000</span><span class="w">    </span><span class="mf">0.8000</span><span class="w">    </span><span class="mf">1.5000</span><span class="w"></span>
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span><span class="w"></span>
@@ -471,17 +477,17 @@
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">.*</span><span class="n">x2</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.00000</span><span class="w">  </span><span class="o">-</span><span class="mf">2.60000</span><span class="w">  </span><span class="o">-</span><span class="mf">1.80000</span><span class="w">   </span><span class="mf">0.40000</span><span class="w">   </span><span class="mf">4.00000</span><span class="w">   </span><span class="mf">9.00000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>When you want to multiply two matrixes, you do:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="nb">transpose</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="nb">transpose</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mf">7.0000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-transposing-a-matrix" name="transposing-a-matrix"></a></p>
 <h3 id="transposing-a-matrix">Transposing a matrix<a href="#transposing-a-matrix" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You can call the built-in <code>transpose()</code> function (shown previously) or use the <code>'</code> operator.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x2</span><span class="o">'</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x2</span><span class="o">'</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mi">1</span><span class="w"></span>
 <span class="w">   </span><span class="mi">2</span><span class="w"></span>
@@ -489,12 +495,12 @@
 <span class="w">   </span><span class="mi">4</span><span class="w"></span>
 <span class="w">   </span><span class="mi">5</span><span class="w"></span>
 <span class="w">   </span><span class="mi">6</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-reshaping-matrixes" name="reshaping-matrixes"></a></p>
 <h3 id="reshaping-matrixes">Reshaping matrixes<a href="#reshaping-matrixes" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You can reshape using the <code>reshape(&lt;arr&gt;, nrows, ncols)</code> function. Note, it flows elements <strong>column wise, followed by rows</strong> as shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">;</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">    </span><span class="mi">1</span><span class="w">    </span><span class="mi">3</span><span class="w">    </span><span class="mi">5</span><span class="w">    </span><span class="mi">7</span><span class="w">    </span><span class="mi">9</span><span class="w">   </span><span class="mi">11</span><span class="w">   </span><span class="mi">13</span><span class="w">   </span><span class="mi">15</span><span class="w"></span>
@@ -506,25 +512,25 @@
 <span class="w">    </span><span class="mi">2</span><span class="w">    </span><span class="mi">6</span><span class="w">   </span><span class="mi">10</span><span class="w">   </span><span class="mi">14</span><span class="w"></span>
 <span class="w">    </span><span class="mi">3</span><span class="w">    </span><span class="mi">7</span><span class="w">   </span><span class="mi">11</span><span class="w">   </span><span class="mi">15</span><span class="w"></span>
 <span class="w">    </span><span class="mi">4</span><span class="w">    </span><span class="mi">8</span><span class="w">   </span><span class="mi">12</span><span class="w">   </span><span class="mi">16</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-range-functions" name="range-functions"></a></p>
 <h3 id="range-functions">Range functions<a href="#range-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You can generate uniformly spaced vectors, using 2 methods. If you want uniformly spaced vectors, use the <code>:</code> operator. If you want a specific number of elements within a range, then use the <code>linspace</code> function.</p>
 <p>The <code>:</code> operator takes syntax <code>start:spacing:end</code></p>
-<pre class="code literal-block"><span></span><code><span class="n">first_10_even_numbers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">21</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="n">first_10_even_numbers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">21</span><span class="w"></span>
 <span class="n">first_10_even_numbers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="mi">2</span><span class="w">    </span><span class="mi">4</span><span class="w">    </span><span class="mi">6</span><span class="w">    </span><span class="mi">8</span><span class="w">   </span><span class="mi">10</span><span class="w">   </span><span class="mi">12</span><span class="w">   </span><span class="mi">14</span><span class="w">   </span><span class="mi">16</span><span class="w">   </span><span class="mi">18</span><span class="w">   </span><span class="mi">20</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>The <code>linspace</code> function takes arguments <code>linspace(start, end, numPoints)</code> where start and end are included.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">2.5000</span><span class="w">    </span><span class="mf">4.0000</span><span class="w">    </span><span class="mf">5.5000</span><span class="w">    </span><span class="mf">7.0000</span><span class="w">    </span><span class="mf">8.5000</span><span class="w">   </span><span class="mf">10.0000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-conditional-processing" name="conditional-processing"></a></p>
 <h3 id="conditional-processing">Conditional processing<a href="#conditional-processing" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Logical operators in octave are <code>&lt;, &gt;, &lt;=, &gt;=, ~, ==, ~=, &amp;, |</code>. Matlab returns <code>1</code> for True and <code>0</code> for False. Thus</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heat</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">74</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heat</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">74</span><span class="w"></span>
 <span class="n">heat</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">74</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heat</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
@@ -532,26 +538,26 @@
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heat</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">74</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Conditional operators also <code>map</code> on all elements of the vector. Thus to find elements in a vector greater than a threshold, do:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span><span class="c">% returns truth vector</span><span class="w"></span>
 <span class="n">ind</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v1</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span><span class="w"> </span><span class="c">% use truth vector as index</span><span class="w"></span>
 <span class="n">vals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">5.5000</span><span class="w">    </span><span class="mf">7.0000</span><span class="w">    </span><span class="mf">8.5000</span><span class="w">   </span><span class="mf">10.0000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>To find values that fall between a range:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">(</span><span class="n">v1</span><span class="o">&lt;</span><span class="mi">8</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">v1</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">(</span><span class="n">v1</span><span class="o">&lt;</span><span class="mi">8</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">v1</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">4.0000</span><span class="w">   </span><span class="mf">5.5000</span><span class="w">   </span><span class="mf">7.0000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-if-elseif-else-blocks" name="if-elseif-else-blocks"></a></p>
 <h4 id="if-elseif-else-blocks">
 <code>if-elseif-else</code> blocks<a href="#if-elseif-else-blocks" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Jump to defining functions if you want to read that first.</p>
-<pre class="code literal-block"><span></span><code><span class="k">function</span><span class="w"> </span>charge<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">parkingRates</span><span class="p">(</span>hours<span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">function</span><span class="w"> </span>charge<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">parkingRates</span><span class="p">(</span>hours<span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="c">%Calculates parking charge based on number of hours%</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">hours</span><span class="w"> </span><span class="o">&lt;=</span><span class="mi">1</span><span class="w"></span>
 <span class="w">    </span><span class="n">charge</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
@@ -561,26 +567,26 @@
 <span class="w">    </span><span class="n">charge</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>The <code>&amp;&amp;</code> operator is a performance opt that Matlab editor suggested. Else I would use only one of it.</p>
 <p><a id="markdown-styling-print-outputs" name="styling-print-outputs"></a></p>
 <h3 id="styling-print-outputs">Styling print outputs<a href="#styling-print-outputs" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Use <code>disp</code> to display. You can style print outputs with <code>sprintf</code> and sending the string composed to <code>disp()</code>.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="mi">2</span><span class="w">   </span><span class="mi">3</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">5</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">"Mean of the array is %0.3f"</span><span class="p">,</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec1</span><span class="p">)))</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">"Mean of the array is %0.3f"</span><span class="p">,</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec1</span><span class="p">)))</span><span class="w"></span>
 <span class="n">Mean</span><span class="w"> </span><span class="s">of</span><span class="w"> </span><span class="s">the</span><span class="w"> </span><span class="s">array</span><span class="w"> </span><span class="s">is</span><span class="w"> </span><span class="s">3.500</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Use <code>C</code> style statements within <code>sprintf</code>.</p>
 <p><a id="markdown-array-indexing-slicing-dicing" name="array-indexing-slicing-dicing"></a></p>
 <h3 id="array-indexing-slicing-dicing">Array indexing, slicing, dicing<a href="#array-indexing-slicing-dicing" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Consider this <code>4x4</code> matrix:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">readings</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
 <span class="n">readings</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 
@@ -589,30 +595,30 @@
 <span class="w">    </span><span class="mf">2.2000</span><span class="w">    </span><span class="mf">4.6000</span><span class="w">    </span><span class="mf">7.0000</span><span class="w">    </span><span class="mf">9.4000</span><span class="w"></span>
 <span class="w">    </span><span class="mf">2.8000</span><span class="w">    </span><span class="mf">5.2000</span><span class="w">    </span><span class="mf">7.6000</span><span class="w">   </span><span class="mf">10.0000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>To get the first column vector, use <code>:,n</code> where <code>:</code> means all rows here and replace <code>n</code> with column number, starting with <code>1</code> instead of <code>0</code>.:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c">% Note: matlab is 1 indexed, not 0 indexed</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c">% Note: matlab is 1 indexed, not 0 indexed</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mf">1.0000</span><span class="w"></span>
 <span class="w">   </span><span class="mf">1.6000</span><span class="w"></span>
 <span class="w">   </span><span class="mf">2.2000</span><span class="w"></span>
 <span class="w">   </span><span class="mf">2.8000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Also note, I am using <strong><code>()</code> to index arrays, not <code>[]</code></strong> as in Python and other languages.</p>
 <p>To dice the array by pulling 2nd, 3rd rows, 2nd, 3rd columns, do the following:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">readings</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mf">4.0000</span><span class="w">   </span><span class="mf">6.4000</span><span class="w"></span>
 <span class="w">   </span><span class="mf">4.6000</span><span class="w">   </span><span class="mf">7.0000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-array-concatenation" name="array-concatenation"></a></p>
 <h3 id="array-concatenation">Array concatenation<a href="#array-concatenation" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You can concatenate along rows or columns using the <code>,</code> or <code>;</code> operators:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span><span class="w">  </span><span class="c">% use , to concatenate along columns</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span><span class="w">  </span><span class="c">% use , to concatenate along columns</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mf">1.00000</span><span class="w">   </span><span class="mf">0.00000</span><span class="w">   </span><span class="mf">0.00000</span><span class="w">   </span><span class="mf">0.68098</span><span class="w">  </span><span class="o">-</span><span class="mf">1.07370</span><span class="w">  </span><span class="o">-</span><span class="mf">1.99950</span><span class="w"></span>
 <span class="w">   </span><span class="mf">0.00000</span><span class="w">   </span><span class="mf">1.00000</span><span class="w">   </span><span class="mf">0.00000</span><span class="w">   </span><span class="mf">0.19421</span><span class="w">   </span><span class="mf">0.06390</span><span class="w">   </span><span class="mf">0.29864</span><span class="w"></span>
@@ -627,49 +633,49 @@
 <span class="w">  </span><span class="o">-</span><span class="mf">0.93718</span><span class="w">   </span><span class="mf">0.34779</span><span class="w">   </span><span class="mf">0.27082</span><span class="w"></span>
 <span class="w">  </span><span class="o">-</span><span class="mf">2.00364</span><span class="w">  </span><span class="o">-</span><span class="mf">0.45362</span><span class="w">  </span><span class="o">-</span><span class="mf">1.47926</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-statistical-operations-on-arrays" name="statistical-operations-on-arrays"></a></p>
 <h3 id="statistical-operations-on-arrays">Statistical operations on arrays<a href="#statistical-operations-on-arrays" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Let us start with an array as below:</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec45</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec45</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
 <span class="n">vec45</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">    </span><span class="mf">1.0000</span><span class="w">    </span><span class="mf">2.8947</span><span class="w">    </span><span class="mf">4.7895</span><span class="w">    </span><span class="mf">6.6842</span><span class="w">    </span><span class="mf">8.5789</span><span class="w"></span>
 <span class="w">    </span><span class="mf">1.4737</span><span class="w">    </span><span class="mf">3.3684</span><span class="w">    </span><span class="mf">5.2632</span><span class="w">    </span><span class="mf">7.1579</span><span class="w">    </span><span class="mf">9.0526</span><span class="w"></span>
 <span class="w">    </span><span class="mf">1.9474</span><span class="w">    </span><span class="mf">3.8421</span><span class="w">    </span><span class="mf">5.7368</span><span class="w">    </span><span class="mf">7.6316</span><span class="w">    </span><span class="mf">9.5263</span><span class="w"></span>
 <span class="w">    </span><span class="mf">2.4211</span><span class="w">    </span><span class="mf">4.3158</span><span class="w">    </span><span class="mf">6.2105</span><span class="w">    </span><span class="mf">8.1053</span><span class="w">   </span><span class="mf">10.0000</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><strong>Find mean of each column</strong></p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">)</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">   </span><span class="mf">1.7105</span><span class="w">   </span><span class="mf">3.6053</span><span class="w">   </span><span class="mf">5.5000</span><span class="w">   </span><span class="mf">7.3947</span><span class="w">   </span><span class="mf">9.2895</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><strong>Find mean of each row</strong></p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c">% pass the dimension arg. Set it to 2 for mean along rows</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c">% pass the dimension arg. Set it to 2 for mean along rows</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
 <span class="w">   </span><span class="mf">4.7895</span><span class="w"></span>
 <span class="w">   </span><span class="mf">5.2632</span><span class="w"></span>
 <span class="w">   </span><span class="mf">5.7368</span><span class="w"></span>
 <span class="w">   </span><span class="mf">6.2105</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Another way of doing this is to transpose the matrix and take regular mean.</p>
 <p><strong>Find mean of entire matrix</strong>
 Turn the matrix into a column vector and pass that to the mean.</p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">(:))</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">vec45</span><span class="p">(:))</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mf">5.5000</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-writing-functions" name="writing-functions"></a></p>
 <h3 id="writing-functions">Writing functions<a href="#writing-functions" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You call functions as </p>
-<pre class="code literal-block"><span></span><code><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">func_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">);</span><span class="w"></span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">func_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">);</span><span class="w"></span>
+</pre></div>
 
 <p>The syntax to write functions is:</p>
-<pre class="code literal-block"><span></span><code><span class="k">function</span><span class="w"> </span><span class="nf">[out1, out2...] = functionName</span><span class="p">(</span>in1, in2, ...<span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">function</span><span class="w"> </span><span class="nf">[out1, out2...] = functionName</span><span class="p">(</span>in1, in2, ...<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c">%Doc string%</span><span class="w"></span>
 <span class="w">    </span><span class="n">statement1</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">statement2</span><span class="p">;</span><span class="w"></span>
@@ -677,10 +683,10 @@ Turn the matrix into a column vector and pass that to the mean.</p>
 <span class="w">    </span><span class="n">out2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">statement</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">...</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>There is no <code>return</code> statement. All variables you define in the out parameter array (or scalar) will get returned. Matlab allows you to <strong>return more than one variable</strong>.</p>
-<pre class="code literal-block"><span></span><code><span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">hmean</span><span class="p">(</span>vec1<span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">hmean</span><span class="p">(</span>vec1<span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="c">%calculates harmonic mean of the given vector%</span><span class="w"></span>
 <span class="w">  </span><span class="n">vec1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vec1</span><span class="p">(:)</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="c">%convert to vectors</span><span class="w"></span>
 <span class="w">  </span><span class="n">reciprocals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">./</span><span class="n">vec1</span><span class="p">;</span><span class="w">  </span><span class="c">%convert to reciprocals</span><span class="w"></span>
@@ -692,7 +698,7 @@ Turn the matrix into a column vector and pass that to the mean.</p>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">hmean</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span><span class="w"></span>
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mf">3.1169</span><span class="w"></span>
 <span class="o">&gt;&gt;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p><a id="markdown-reusing-functions" name="reusing-functions"></a></p>
 <h4 id="reusing-functions">Reusing functions<a href="#reusing-functions" class="headerlink" title="Permalink to this heading">¶</a></h4>

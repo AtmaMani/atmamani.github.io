@@ -83,6 +83,9 @@
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
+<a href="../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
 <a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
@@ -229,6 +232,9 @@
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -335,11 +341,11 @@
 <li>The container is instantiated with a user with least set of permissions. Ensure app code conforms with this.</li>
 <li>Container settings</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="n">ENTRYPOINT</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="o">.</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="n">ENTRYPOINT</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="o">.</span><span class="w"></span>
 <span class="n">CMD</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Specifies</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">pass</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">ENTRYPOINT</span><span class="o">.</span><span class="w"></span>
 <span class="n">WORKDIR</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"></span>
 <span class="n">ENV</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Specifies</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Lambda</span><span class="w"> </span><span class="n">function</span><span class="o">.</span><span class="w"> </span>
-</code></pre>
+</pre></div>
 
 <h3 id="steps">Steps<a href="#steps" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
@@ -348,7 +354,7 @@
 <li>Create your regular Lambda function into a folder called <code>app</code>. Store your <code>app.py</code>, <code>requirements.txt</code> files into it. See sample below:</li>
 </ul>
 <p><strong>app.py</strong>:</p>
-<pre class="code literal-block"><span></span><code><span class="k">try</span><span class="p">:</span>
+<div class="code"><pre class="code literal-block"><span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">json</span>
     <span class="kn">import</span> <span class="nn">sys</span>
     <span class="kn">import</span> <span class="nn">requests</span>
@@ -365,16 +371,16 @@
         <span class="s1">'statusCode'</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
         <span class="s1">'message'</span><span class="p">:</span> <span class="s1">'hello from docker lambda'</span>
     <span class="p">}</span>
-</code></pre>
+</pre></div>
 
 <p><strong>requirements.txt</strong>:</p>
-<pre class="code literal-block"><span></span><code>requests
-</code></pre>
+<div class="code"><pre class="code literal-block">requests
+</pre></div>
 
 <ul>
 <li>Create a docker file as below:</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">public.ecr.aws/lambda/python:3.8</span>
+<div class="code"><pre class="code literal-block"><span class="k">FROM</span><span class="w"> </span><span class="s">public.ecr.aws/lambda/python:3.8</span>
 
 <span class="c"># Copy function code</span>
 <span class="k">COPY</span><span class="w"> </span>app.py <span class="si">${</span><span class="nv">LAMBDA_TASK_ROOT</span><span class="si">}</span>
@@ -385,12 +391,12 @@
 
 <span class="c"># set the CMD to handler</span>
 <span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"app.lambda_handler"</span><span class="w"> </span><span class="p">]</span>
-</code></pre>
+</pre></div>
 
 <ul>
 <li>Build Docker image using syntax <code>docker build -t &lt;username/imagename:tag&gt; &lt;build context&gt;</code>. For example: <code>docker build -t atmamani/aws-lambda-docker:v1 .</code>. This prints an output like below:</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="o">[</span>+<span class="o">]</span> Building <span class="m">20</span>.7s <span class="o">(</span><span class="m">9</span>/9<span class="o">)</span> FINISHED                                                                                                 
+<div class="code"><pre class="code literal-block"><span class="o">[</span>+<span class="o">]</span> Building <span class="m">20</span>.7s <span class="o">(</span><span class="m">9</span>/9<span class="o">)</span> FINISHED                                                                                                 
  <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load build definition from Dockerfile                                                                         <span class="m">0</span>.0s
  <span class="o">=</span>&gt; <span class="o">=</span>&gt; transferring dockerfile: 44B                                                                                          <span class="m">0</span>.0s
  <span class="o">=</span>&gt; <span class="o">[</span>internal<span class="o">]</span> load .dockerignore                                                                                            <span class="m">0</span>.0s
@@ -421,13 +427,13 @@
  <span class="o">=</span>&gt; <span class="o">=</span>&gt; exporting layers                                                                                                      <span class="m">0</span>.1s
  <span class="o">=</span>&gt; <span class="o">=</span>&gt; writing image sha256:ac4783629d43f0d1f2c641133419bf47b52531b7535bc2ad25dca73ab126f4ce                                 <span class="m">0</span>.0s 
  <span class="o">=</span>&gt; <span class="o">=</span>&gt; naming to docker.io/atmamani/aws-lambda-docker:v1                                                                     <span class="m">0</span>.0s
-</code></pre>
+</pre></div>
 
 <ul>
 <li>Run the container locally using the command:</li>
 </ul>
-<pre class="code literal-block"><span></span><code>(base) ➜  app git:(master) docker run -p 9000:8080 atmamani/aws-lambda-docker:v1
-</code></pre>
+<div class="code"><pre class="code literal-block">(base) ➜  app git:(master) docker run -p 9000:8080 atmamani/aws-lambda-docker:v1
+</pre></div>
 
 <ul>
 <li>You can test by posting <code>curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'</code>
@@ -437,8 +443,8 @@
 <li>Pass the auth from AWS CLI to Docker CLI, so Docker can tag and later push the images. Docker CLI normally pushes to the default DockerHub registry. However, for Lambda to work, you need to push to Amazon ECR registry. In ECR, I used the web UI to make a repository called <code>ml2web</code>.</li>
 <li>Run below, where you replace <code>--region us-west-2</code> with your AWS region. You also replace <code>--profile &lt;aws_profile_name&gt;</code> with your AWS CLI profile name. If you are using just 1 account for all (don't do this), then you can skip this argument. The Docker username needs to be <code>AWS</code> always. The URL like string is the name of your ECR registry.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">aws</span><span class="w"> </span><span class="n">ecr</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">password</span><span class="w"> </span><span class="o">--</span><span class="n">region</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mh">2</span><span class="w"> </span><span class="o">--</span><span class="n">profile</span><span class="w"> </span><span class="o">&lt;</span><span class="n">aws_profile_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">-</span><span class="n">stdin</span><span class="w"> </span><span class="o">&lt;</span><span class="n">your_ECR_registry_name</span><span class="o">&gt;</span><span class="p">.</span><span class="n">dkr</span><span class="p">.</span><span class="n">ecr</span><span class="p">.</span><span class="n">us</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">2.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="w"></span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="n">sudo</span><span class="w"> </span><span class="n">aws</span><span class="w"> </span><span class="n">ecr</span><span class="w"> </span><span class="n">get</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">password</span><span class="w"> </span><span class="o">--</span><span class="n">region</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mh">2</span><span class="w"> </span><span class="o">--</span><span class="n">profile</span><span class="w"> </span><span class="o">&lt;</span><span class="n">aws_profile_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">-</span><span class="n">stdin</span><span class="w"> </span><span class="o">&lt;</span><span class="n">your_ECR_registry_name</span><span class="o">&gt;</span><span class="p">.</span><span class="n">dkr</span><span class="p">.</span><span class="n">ecr</span><span class="p">.</span><span class="n">us</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">2.</span><span class="n">amazonaws</span><span class="p">.</span><span class="n">com</span><span class="w"></span>
+</pre></div>
 
 <p>This threw an error saying permission denied, however it still works for me.</p>
 <ul>
@@ -449,7 +455,7 @@
 <p>Then push to ECR using the command: <code>docker push &lt;your_ECR_name&gt;.dkr.ecr.us-west-2.amazonaws.com/ml2web:v2</code></p>
 </li>
 </ul>
-<pre class="code literal-block"><span></span><code>The push refers to repository [your_ecr_name.dkr.ecr.us-west-2.amazonaws.com/ml2web]
+<div class="code"><pre class="code literal-block">The push refers to repository [your_ecr_name.dkr.ecr.us-west-2.amazonaws.com/ml2web]
 6b5cd20ea590: Pushed 
 aef77c8c9312: Pushed 
 623b1ac50c4e: Pushed 
@@ -460,7 +466,7 @@ f6ae2f36d5d7: Pushed
 3e5452c20c48: Pushed 
 9c4b6b04eac3: Pushed 
 v2: digest: sha256:abcdefgh_some_sha size: 2206
-</code></pre>
+</pre></div>
 
 <ul>
 <li>Finally, use the Lambda web UI to create a new function. The only difference is, you choose 'container image' in the radio and provide the URI to the ECR registry. You can then browse for your image and tag and choose it.</li>

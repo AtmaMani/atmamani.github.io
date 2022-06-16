@@ -31,7 +31,7 @@ Getting sample data
 fastai.datasets contains a set of curated datasets that sits on S3. You can get the list from fastai.datasets.URLs
 URLs.PETS for example wil">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-11-13T20:06:48-08:00">
+<meta property="article:published_time" content="2022-06-08T10:27:44-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -78,6 +78,9 @@ URLs.PETS for example wil">
                     </li>
 <li>
 <a href="../../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../../fun/">Fun projects</a>
@@ -226,6 +229,9 @@ URLs.PETS for example wil">
 <a href="../../../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../../../"><hr></a>
                     </li>
 <li>
@@ -316,10 +322,10 @@ URLs.PETS for example wil">
 <li>
 <strong><code>fastai.vision.data.ImageDataBunch.from_name_re()</code></strong> is a static, factory method allows you to construct an <code>ImageDataBunch</code> and while doing that, it can extract labels from file names. It accepts a Python Regular Expression syntax for this. You also feed it with transformations, size to resize and batch size the GPU can handle. See example below:</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="n">pat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'/([^/]+)_\d+.jpg$'</span>
+<div class="code"><pre class="code literal-block"><span class="n">pat</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'/([^/]+)_\d+.jpg$'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">ImageDataBunch</span><span class="o">.</span><span class="n">from_name_re</span><span class="p">(</span><span class="n">path_img</span><span class="p">,</span> <span class="n">fnames</span><span class="p">,</span> <span class="n">pat</span><span class="p">,</span> <span class="n">ds_tfms</span><span class="o">=</span><span class="n">get_transforms</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">bs</span><span class="o">=</span><span class="n">bs</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">imagenet_stats</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <ul>
 <li>
@@ -350,7 +356,7 @@ URLs.PETS for example wil">
 <li>
 <code>fastai.vision.models</code> module can list all models that are supported. For instance, <code>[mdl for mdl in dir(fastai.vision.models) if '__' not in mdl]</code> list comp will return <code>40</code> such models as of 2021.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="n">pprint</span><span class="p">([</span><span class="n">mdl</span> <span class="k">for</span> <span class="n">mdl</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">fastai</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="k">if</span> <span class="s1">'__'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mdl</span><span class="p">],</span> <span class="n">compact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="s1">'BasicBlock'</span><span class="p">,</span> <span class="s1">'Darknet'</span><span class="p">,</span> <span class="s1">'DynamicUnet'</span><span class="p">,</span> <span class="s1">'ResLayer'</span><span class="p">,</span> <span class="s1">'ResNet'</span><span class="p">,</span> <span class="s1">'SqueezeNet'</span><span class="p">,</span>
@@ -362,7 +368,7 @@ URLs.PETS for example wil">
  <span class="s1">'xresnet18_deep'</span><span class="p">,</span> <span class="s1">'xresnet34'</span><span class="p">,</span> <span class="s1">'xresnet34_deep'</span><span class="p">,</span> <span class="s1">'xresnet50'</span><span class="p">,</span>
  <span class="s1">'xresnet50_deep'</span><span class="p">]</span>
 <span class="mi">40</span>
-</code></pre>
+</pre></div>
 
 <ul>
 <li>
@@ -376,14 +382,14 @@ URLs.PETS for example wil">
 <li>
 <strong><code>learn.fit_one_cycle(cyc_len=4)</code></strong> is used to train the <code>restnet34</code> model. The cycle length parameter determines how many times to repeat the one cycle learning. The output of this cell shows the following:</li>
 </ul>
-<pre class="code literal-block"><span></span><code>epoch   train_loss  valid_loss  error_rate  time
+<div class="code"><pre class="code literal-block">epoch   train_loss  valid_loss  error_rate  time
 0       1.361700    0.337071    0.104195    02:24
 1       0.601790    0.297722    0.089310    02:07
 2       0.380089    0.282888    0.079838    02:26
 3       0.271350    0.246164    0.071719    02:07
 
 Wall time: 9min 6s
-</code></pre>
+</pre></div>
 
 <ul>
 <li>The output above shows at end of epoch 4, we have an error rate of <code>0.071</code> which means about <code>92.9%</code> accuracy.</li>
@@ -419,7 +425,7 @@ Wall time: 9min 6s
 </ul>
 <p><img alt="" src="../../../../images/fastai-lr1.jpg"></p>
 <p>In general, we are not looking for learning at lowest loss, but for rate at the steepest segment of the loss curve. Using this suggestion, you can run</p>
-<pre class="code literal-block"><span></span><code><span class="o">%%</span><span class="n">time</span>
+<div class="code"><pre class="code literal-block"><span class="o">%%</span><span class="n">time</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_lr</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">))</span>  <span class="c1"># LR chosen from the suggestion in the image</span>
 
@@ -429,7 +435,7 @@ Wall time: 9min 6s
     <span class="mi">1</span>   <span class="mf">0.246171</span>    <span class="mf">0.228836</span>    <span class="mf">0.064276</span>    <span class="mi">02</span><span class="p">:</span><span class="mi">15</span>
 
 <span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mi">4</span><span class="nb">min</span> <span class="mi">28</span><span class="n">s</span>
-</code></pre>
+</pre></div>
 
 <p>With an additional 4.5 minutes, we improved the accuracy to <code>93%</code>. You can then save that model as <code>learn.save('pets-lesson01-stage-2', return_path=True)</code> for later.</p>
 <h4 id="predict-on-real-world-data">Predict on real world data<a href="#predict-on-real-world-data" class="headerlink" title="Permalink to this heading">¶</a></h4>

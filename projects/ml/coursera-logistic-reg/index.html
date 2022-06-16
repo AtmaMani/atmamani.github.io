@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://atmamani.github.io/projects/ml/coursera-logistic-reg/">
 <meta property="og:description" content="A logistic regression is a binary classification alogrithm. Its values are 0 for false cases and 1 for true cases. Before talking about logistic reg, let us consider why not to use linear regression f">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:44-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -74,6 +74,9 @@
                     </li>
 <li>
 <a href="../../mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../fun/">Fun projects</a>
@@ -222,6 +225,9 @@
 <a href="../../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
@@ -305,11 +311,11 @@ $$
 where \; g(z) = \frac{1}{1+e^{-z}}
 $$</p>
 <p>$g(z)$ is a <code>sigmoid</code> function, also called a <code>logistic</code> function, from which the regression gets its name. The hypothesis function looks similar to that of a linear regression, except for the product with the sigmoid function. The shape of the sigmoid function is given by:</p>
-<pre class="code literal-block"><span></span><code><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="code"><pre class="code literal-block"><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">gz</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">vals</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">gz</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Sigmoid function'</span><span class="p">);</span>
-</code></pre>
+</pre></div>
 
 <p><img src="../../../images/coursera-sigmoid-fn.png"></p>
 <p>As <code>z</code> reaches $\infty$, $g(z)$ asymptotes to 1. The values always range betwen <code>0 &lt; g(z) &lt; 1</code>. Thus, the hypothesis can be rewritten as </p>
@@ -349,14 +355,14 @@ cost(h_{\theta}(x), y) = \begin{cases}
                         \end{cases}
 $$</p>
 <p>Note, <code>log(0) = inf</code>, <code>log(-1) = nan</code>, <code>log(1) = 0</code>. Thus, we can plot this cost term as follows:</p>
-<pre class="code literal-block"><span></span><code><span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="code"><pre class="code literal-block"><span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">y1vals</span> <span class="o">=</span> <span class="mi">0</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
 <span class="n">y0vals</span> <span class="o">=</span> <span class="mi">0</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xvals</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">y1vals</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'y=1'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">y0vals</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'y=0'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Loss functions of logistic regression'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Hypothesis: $h</span><span class="se">\\</span><span class="s1">theta(x)$'</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">);</span>
-</code></pre>
+</pre></div>
 
 <p><img src="../../../images/coursera-logistic-reg-costfn.png"></p>
 <p>From the graph, when <code>h(x)=1</code> for <code>y=1</code>, the cost term is <code>0</code> (blue line). As predicted class reduces and approaches <code>0</code>, the cost raises to <code>inf</code>. Likewise, when <code>h(x)=0</code> for <code>y=0</code>, the cost is also <code>0</code>. However as the predicted value increases, the cost also increases penalizing the wrong prediction.</p>

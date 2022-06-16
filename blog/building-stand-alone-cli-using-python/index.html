@@ -80,6 +80,9 @@
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
+<a href="../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
 <a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
@@ -226,6 +229,9 @@
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -317,26 +323,26 @@
     PyInstaller bundles a Python application and all its dependencies into a single package. The user can run the packaged app without installing a Python interpreter or any modules. PyInstaller supports Python 2.7 and Python 3.3+, and correctly bundles the major Python packages such as numpy, PyQt, Django, wxPython, and others. PyInstaller is tested against Windows, Mac OS X, and Linux.</p>
 <h3 id="how-to-install-pyinstaller">How to install PyInstaller<a href="#how-to-install-pyinstaller" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Before using PyInstaller, you need to install it in your active Python environment. If you are not already using, I would highly recommend using <code>conda</code> to isolate your various dev environments. You can install <a href="https://conda.anaconda.org">conda from here</a> and once installed, you can create a new environment using the command below:</p>
-<pre class="code literal-block"><span></span><code>conda create --name stand_alone_app_project python=3.5
-</code></pre>
+<div class="code"><pre class="code literal-block">conda create --name stand_alone_app_project python=3.5
+</pre></div>
 
 <p>Here, I am creating a new environment called <code>stand_alone_app_project</code> and installing a Python 3.5 kernel in it. To use this environment, I need to activate it - as shown below</p>
-<pre class="code literal-block"><span></span><code>source activate stand_alone_app_project
-</code></pre>
+<div class="code"><pre class="code literal-block">source activate stand_alone_app_project
+</pre></div>
 
 <p>Environments are folders at the end of the day and activation pretty much adds the path to this folder to your system path. Activation is transient and is only applicable for the life of that terminal's session. Once activated, install all the packages you need for your script to work. Next, install PyInstaller using PIP (an older package manager for Python)</p>
-<pre class="code literal-block"><span></span><code>pip install PyInstaller
-</code></pre>
+<div class="code"><pre class="code literal-block">pip install PyInstaller
+</pre></div>
 
 <h3 id="building-stand-alone-applications">Building stand-alone applications.<a href="#building-stand-alone-applications" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>PyInstaller allows you to create apps in two formats - as folder with dependencies and an application or option 2 - is to create a fully packaged single executable file. I prefer the latter as it resembles closely what my end users would want and also allows to run the tool from a flash drive, without any installation. In both cases, you will package a Python runtime and all dependencies.</p>
 <p>To build an app and package it into a folder, run</p>
-<pre class="code literal-block"><span></span><code>pyinstaller your_main_script.py
-</code></pre>
+<div class="code"><pre class="code literal-block">pyinstaller your_main_script.py
+</pre></div>
 
 <p>To build it as a single file executable, run</p>
-<pre class="code literal-block"><span></span><code>pyinstaller your_main_script.py --onefile
-</code></pre>
+<div class="code"><pre class="code literal-block">pyinstaller your_main_script.py --onefile
+</pre></div>
 
 <p>Upon running this, if there are no errors, PyInstaller creates a <code>dist</code> and a <code>build</code> folder. You ship the contents of the <code>dist</code> to your end users.</p>
 <h4 id="building-for-different-os">Building for different OS<a href="#building-for-different-os" class="headerlink" title="Permalink to this heading">¶</a></h4>

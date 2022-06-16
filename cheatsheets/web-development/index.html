@@ -37,7 +37,7 @@ images folder
 scripts folder - JS files
 styles folder - CSS fi">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:44-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -84,6 +84,9 @@ styles folder - CSS fi">
                     </li>
 <li>
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../projects/fun/">Fun projects</a>
@@ -232,6 +235,9 @@ styles folder - CSS fi">
 <a href="../docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -347,11 +353,11 @@ styles folder - CSS fi">
 <code>pseudo class selectors</code> - selects elements in a <strong>specified state</strong>. For instance <code>a:hover</code> selects <code>&lt;a&gt;</code> anchor tags when mouse pointer is hovering over it.</li>
 </ul>
 <p>It is intersting to note that in web development, you can make use of a number of resources that are already hosted. For instance, you can pick a font from Google's font index hosted at <a href="http://fonts.google.com/">fonts.google.com</a>. To do this, add the font source as a resource in the html's <code>&lt;head&gt;</code> tags: <code>&lt;link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"&gt;</code> and edit the CSS to specify which font from this family: </p>
-<pre class="code literal-block"><span></span><code><span class="nt">html</span><span class="p">{</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="nt">html</span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">'Droid Serif'</span><span class="p">,</span><span class="w"> </span><span class="kc">serif</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <h3 id="js">JS<a href="#js" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>You got to link the JS files to the html file, preferably in the end before <code>&lt;\body&gt;</code> section like this : <code>&lt;script src='scripts/main.js'&gt;&lt;/script&gt;</code>. This is because JS modifies the contents of this html file and it should be executed last else it would not know of the contents of this page.</p>

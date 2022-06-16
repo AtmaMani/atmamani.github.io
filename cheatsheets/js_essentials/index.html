@@ -32,7 +32,7 @@ JS can be run in browsers and outside - node.js, windows script host
 
 JS cannot access file system since">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:43-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -79,6 +79,9 @@ JS cannot access file system since">
                     </li>
 <li>
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../projects/fun/">Fun projects</a>
@@ -227,6 +230,9 @@ JS cannot access file system since">
 <a href="../docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -365,35 +371,35 @@ JS cannot access file system since">
 <code>arrayobj.pop()</code> to get remove and get the last element. Use <code>arrayobj.push(value)</code> to insert at the end.</li>
 </ul>
 <h4 id="switches">switches<a href="#switches" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<pre class="code literal-block"><span></span><code><span class="k">switch</span><span class="p">(</span><span class="nx">variable</span><span class="p">){</span>
-    <span class="k">case</span> <span class="s1">'a'</span><span class="o">:</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="s1">'b'</span><span class="o">:</span>
-        <span class="nx">statements</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="nx">statements</span>
-        <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="k">switch</span><span class="p">(</span><span class="nx">variable</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s1">'a'</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s1">'b'</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">statements</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">statements</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
 
 <h4 id="loops-while">loops - while<a href="#loops-while" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<pre class="code literal-block"><span></span><code><span class="k">while</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span>
-    <span class="nx">statements</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="k">while</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="nx">statements</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
 
 <p><strong>Note</strong>: When looping through arrays, dont use <code>for (element in array)</code> loop. Always use the regular for loop</p>
 <h4 id="functions">functions<a href="#functions" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <ul>
 <li>JS does not support overloading.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">par1</span><span class="p">,</span> <span class="nx">par2</span><span class="p">){</span>
-    <span class="c1">//statement</span>
-    <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">par1</span><span class="p">,</span><span class="w"> </span><span class="nx">par2</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//statement</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>when defining a function, dont use <code>var parameter</code>, use just the variable name</li>
@@ -427,16 +433,16 @@ JS cannot access file system since">
 <ul>
 <li>while JS does not give you a great namespace construct, you can fashion one by creating an object (of object class) and add your methods, classes to it.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">yourNamespace</span><span class="p">){</span>
-    <span class="kd">var</span> <span class="nx">yourNamespace</span><span class="o">=</span><span class="p">{};</span> <span class="c1">//this is checked everytime yoru scrip is loaded</span>
-<span class="p">}</span>
+<div class="code"><pre class="code literal-block"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">yourNamespace</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">yourNamespace</span><span class="o">=</span><span class="p">{};</span><span class="w"> </span><span class="c1">//this is checked everytime yoru scrip is loaded</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="c1">//extend it</span>
-<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">logic1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
-<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">property1</span><span class="o">:</span><span class="s1">'value'</span>
-<span class="p">}</span>
- <span class="sb">```</span>
+<span class="c1">//extend it</span><span class="w"></span>
+<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">logic1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(){};</span><span class="w"></span>
+<span class="nx">yourNamespace</span><span class="p">.</span><span class="nx">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">property1</span><span class="o">:</span><span class="s1">'value'</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="sb">```</span>
 
 <span class="sb">### strings</span>
 <span class="sb"> - strings are immutable</span>
@@ -444,7 +450,7 @@ JS cannot access file system since">
 <span class="sb"> - you can also access individual elements of the string just like in an array `</span><span class="nx">stringobj</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="sb">`</span>
 
 <span class="sb">### dates</span>
-<span class="sb"> - `</span><span class="kd">var</span> <span class="nx">rightNow</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">();</span><span class="sb">`</span>
+<span class="sb"> - `</span><span class="kd">var</span><span class="w"> </span><span class="nx">rightNow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span><span class="sb">`</span>
 
 <span class="sb">## JS and DOM</span>
 <span class="sb"> - You can write JS into `</span><span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span><span class="sb">` tags</span>
@@ -462,33 +468,33 @@ JS cannot access file system since">
 
 <span class="sb">## Inheritance</span>
 <span class="sb"> - `</span><span class="nx">prototyping</span><span class="sb">` concept allows you to not only inherit, but also extend your base class.</span>
-<span class="sb">```</span><span class="nx">js</span>
-<span class="nx">classname</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">your_extension</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">logic</span><span class="p">};</span>
-</code></pre>
+<span class="sb">```</span><span class="nx">js</span><span class="w"></span>
+<span class="nx">classname</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">your_extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(){</span><span class="nx">logic</span><span class="p">};</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>when inheriting your own objects, you will use the <code>call()</code> method to call the super's constructor</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="kd">function</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span>
-            <span class="p">}</span>
-<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
-                <span class="nx">Animal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">//calling the super's constructor</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-            <span class="p">}</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="kd">function</span><span class="w"> </span><span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="nx">Animal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">);</span><span class="w"> </span><span class="c1">//calling the super's constructor</span><span class="w"></span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">age</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>if you extended your base class using a constructor, then you got to also inherit the prototypes like below:</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">speak</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-                <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span>  <span class="s2">" is barking"</span><span class="p">);</span>
-            <span class="p">}</span>
-<span class="c1">//then you in herit the prototype as</span>
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
-<span class="c1">//when you inherit, you overwrite your own constructor, so you set it back.</span>
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">;</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">speak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(){</span><span class="w"></span>
+<span class="w">                </span><span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="s2">" is barking"</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="c1">//then you in herit the prototype as</span><span class="w"></span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="w"></span>
+<span class="c1">//when you inherit, you overwrite your own constructor, so you set it back.</span><span class="w"></span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">constructor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Person</span><span class="p">;</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>when inheriting prototypes, you can inherit from any other object. Thus, you can inherit from one object and inherit the prototypes from another.</li>
@@ -502,9 +508,9 @@ JS cannot access file system since">
 <li>You really dont play with prototypes in ecma6.</li>
 <li>you get <code>arrow</code> functions, which are lambda functions, similar to that in C#.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="p">()=&gt;</span> <span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span>
-<span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)=&gt;</span> <span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span> <span class="c1">//for a function wiht one or more args</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="p">()=&gt;</span><span class="w"> </span><span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span><span class="w"></span>
+<span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)=&gt;</span><span class="w"> </span><span class="p">{</span><span class="cm">/*function declaration*/</span><span class="p">}</span><span class="w"> </span><span class="c1">//for a function wiht one or more args</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>you read <code>=&gt;</code> as <code>goes to</code>.</li>
@@ -522,9 +528,9 @@ JS cannot access file system since">
 <li>jQuery is a library and a very popular one. You can use the Google CDN or download and put it in your server as well. <a href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js</a> is Google's CDN.</li>
 <li>If you are installing this locally instead of using the CDN, then use <code>npm</code> and <code>bower</code>. Bower will install it in the root of your site, so when you host your site, you will not forget to host the dependent libraries.</li>
 </ul>
-<pre class="code literal-block"><span></span><code>npm install -g bower
+<div class="code"><pre class="code literal-block">npm install -g bower
 bower install jquery
-</code></pre>
+</pre></div>
 
 <ul>
 <li>a couple of two different package managers is <code>yarn</code> and <code>webpack</code>.</li>
@@ -534,20 +540,20 @@ bower install jquery
 <li>when you call jQuery, you <strong>dont</strong> get back a DOM. Instead you get back a jQuery result object.</li>
 <li>in code, <code>$</code> is a shorthand representation of lib name <code>jQuery</code>.</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"page loaded, ready for JS"</span><span class="p">)</span>
-    <span class="p">})</span>
+<div class="code"><pre class="code literal-block"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"page loaded, ready for JS"</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
 
-<span class="c1">//general syntax is </span>
-<span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">action</span><span class="p">()</span>
-</code></pre>
+<span class="c1">//general syntax is </span><span class="w"></span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">action</span><span class="p">()</span><span class="w"></span>
+</pre></div>
 
 <ul>
 <li>it is good to check if the page has fully loaded before running JS. you can check it like above.</li>
 <li>a programming pattern is to use <code>$</code> suffix for jQuery result sets to differentiate from JS variables</li>
 </ul>
-<pre class="code literal-block"><span></span><code><span class="kd">var</span> <span class="nx">divs$</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.(</span><span class="s1">'div'</span><span class="p">);</span> <span class="c1">//get all the selectors of div</span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="kd">var</span><span class="w"> </span><span class="nx">divs$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">.(</span><span class="s1">'div'</span><span class="p">);</span><span class="w"> </span><span class="c1">//get all the selectors of div</span><span class="w"></span>
+</pre></div>
 
 <h4 id="ajax-jquery-library-for-io-with-backend">AJAX - jQuery library for IO with backend<a href="#ajax-jquery-library-for-io-with-backend" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <ul>
@@ -566,12 +572,12 @@ bower install jquery
 </ul>
 <h3 id="appendix-run-web-server-using-nodejs">Appendix - Run web server using node.js<a href="#appendix-run-web-server-using-nodejs" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>In terminal, after installing node.js, type:</p>
-<pre class="code literal-block"><span></span><code>npm install http-server -g
-</code></pre>
+<div class="code"><pre class="code literal-block">npm install http-server -g
+</pre></div>
 
 <p>This installs a server, <a href="https://www.npmjs.com/package/http-server">help for that server</a>. Then to start a web server, navigate to the folder with website and run</p>
-<pre class="code literal-block"><span></span><code>http-server -p 3000
-</code></pre>
+<div class="code"><pre class="code literal-block">http-server -p 3000
+</pre></div>
 
 <p>You can run this command either from terminal or from the terminal window in vs code.</p>
 <h3 id="appendix-documentation">Appendix - documentation<a href="#appendix-documentation" class="headerlink" title="Permalink to this heading">¶</a></h3>

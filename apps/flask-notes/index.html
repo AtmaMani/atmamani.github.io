@@ -32,7 +32,7 @@ Web server - load balancing, SLL endpoint, eg: nginx, apache
 http server - forwards dynamic content requests, servers dynamic content, eg: uWSGI, Gunicorn
 app se">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:43-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -79,6 +79,9 @@ app se">
                     </li>
 <li>
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../projects/cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../projects/fun/">Fun projects</a>
@@ -227,6 +230,9 @@ app se">
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -316,9 +322,9 @@ app se">
 <p>Use <code>redirect(&lt;new_url_here&gt;, 302)</code> to redirect.</p>
 <h3 id="login">Login<a href="#login" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><code>pip install Flask-Login</code> library is a simple one. This library is aware of sessions and can manage that. When storing passwords, use password hashes.</p>
-<pre class="code literal-block"><span></span><code><span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span>
+<div class="code"><pre class="code literal-block"><span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span>
 <span class="n">secret_pass</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s1">'123'</span><span class="p">)</span>
-</code></pre>
+</pre></div>
 
 <p>You will compare the hash of user password with a dynamic hash when user presents it.</p>
 <h4 id="users">Users<a href="#users" class="headerlink" title="Permalink to this heading">¶</a></h4>

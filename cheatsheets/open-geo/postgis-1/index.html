@@ -32,7 +32,7 @@ I am installing the all-in-one package - Postgres APP which inclues Postgres, Po
 I am following the tutorial from here
 Note: There">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2020-05-02T14:22:08-07:00">
+<meta property="article:published_time" content="2022-06-08T10:27:44-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -79,6 +79,9 @@ Note: There">
                     </li>
 <li>
 <a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/cloud/">Cloud computing</a>
                     </li>
 <li>
 <a href="../../../projects/fun/">Fun projects</a>
@@ -227,6 +230,9 @@ Note: There">
 <a href="../../docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../../"><hr></a>
                     </li>
 <li>
@@ -338,29 +344,29 @@ Note: There">
 <img alt="" src="../../../images/postgis-query.jpg"></p>
 <h3 id="working-with-geometries-in-postgis">Working with Geometries in PostGIS<a href="#working-with-geometries-in-postgis" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>A special table called <code>geometry_columns</code> exists which lists all tables within postGIS that are spatial. It lists details such as what their <code>SRID</code> is, their geometry type etc.</p>
-<pre class="code literal-block"><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geometry_columns</span><span class="w"></span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geometry_columns</span><span class="w"></span>
+</pre></div>
 
 <p>Spatial functions can be used to collect information about each feature (row)</p>
-<pre class="code literal-block"><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ST_GeometryType</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_NDims</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_SRID</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ST_GeometryType</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_NDims</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_SRID</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sample_geometries</span><span class="p">;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>will return</p>
-<pre class="code literal-block"><span></span><code>name             |    st_geometrytype    | st_ndims | st_srid
+<div class="code"><pre class="code literal-block">name             |    st_geometrytype    | st_ndims | st_srid
 -----------------+-----------------------+----------+---------
  Point           | ST_Point              |        2 |       0
  Polygon         | ST_Polygon            |        2 |       0
  PolygonWithHole | ST_Polygon            |        2 |       0
  Collection      | ST_GeometryCollection |        2 |       0
  Linestring      | ST_LineString         |        2 |       0
-</code></pre>
+</pre></div>
 
 <p><strong>Note</strong>: Spatial functions in postGIS are generally prefixed with <code>ST..</code></p>
 <h4 id="spatial-functions-for-point-geometries">Spatial functions for Point geometries<a href="#spatial-functions-for-point-geometries" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>Thus, to get the X, Y coordinates of a point, </p>
-<pre class="code literal-block"><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_X</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_Y</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sample_geometries</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">'Point'</span><span class="w"></span>
-</code></pre>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_X</span><span class="p">(</span><span class="n">geom</span><span class="p">),</span><span class="w"> </span><span class="n">ST_Y</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sample_geometries</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">'Point'</span><span class="w"></span>
+</pre></div>
 
 <h4 id="spatial-functions-for-linestring-geometries">Spatial functions for Linestring geometries<a href="#spatial-functions-for-linestring-geometries" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <ul>
@@ -399,12 +405,12 @@ Note: There">
 <code>ST_Length(geometry)</code> returns the total length of all linear parts</li>
 </ul>
 <h3 id="some-sql-queries">Some SQL queries<a href="#some-sql-queries" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<pre class="code literal-block"><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">boroname</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">popn_white</span><span class="p">)</span><span class="o">/</span><span class="k">SUM</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">white_pct</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">boroname</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">popn_white</span><span class="p">)</span><span class="o">/</span><span class="k">SUM</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">white_pct</span><span class="w"></span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_census_blocks</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">boroname</span><span class="p">;</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
-<pre class="code literal-block"><span></span><code>
-</code></pre>
+<div class="code"><pre class="code literal-block">
+</pre></div>
     </div>
     
 

@@ -83,6 +83,9 @@
 <a href="../../projects/mwrs/">Microwave remote sensing</a>
                     </li>
 <li>
+<a href="../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
 <a href="../../projects/fun/">Fun projects</a>
             </li>
 </ul>
@@ -229,6 +232,9 @@
 <a href="../../cheatsheets/docker-1/">Docker introduction</a>
                     </li>
 <li>
+<a href="../../cheatsheets/grep-1/">Grep introduction</a>
+                    </li>
+<li>
 <a href="../../"><hr></a>
                     </li>
 <li>
@@ -336,14 +342,14 @@
 <li>Homebrew</li>
 </ul>
 <p>The <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html">SAM installation guide</a> walks you through the steps involved for various platforms. After installation, you need to configure it with your AWS account info as <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-set-up-credentials.html">explained here</a></p>
-<pre class="code literal-block"><span></span><code>&gt;&gt; sam --version
+<div class="code"><pre class="code literal-block">&gt;&gt; sam --version
 SAM CLI, version 1.31.0
-</code></pre>
+</pre></div>
 
 <p>When installing SAM using <code>brew</code>, I noticed the install is global and not restricted to a particular <code>conda</code> env.</p>
 <h3 id="setting-up-a-sam-app">Setting up a SAM APP<a href="#setting-up-a-sam-app" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>SAM makes it easy to get started with guided CLI set ups and deploys. To start a project, run <code>sam init</code> and answer the questions as shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span><span class="w"> </span><span class="err">➜</span><span class="w">  </span><span class="n">sam</span><span class="o">-</span><span class="n">try</span><span class="w"> </span><span class="n">git</span><span class="p">:(</span><span class="k">master</span><span class="p">)</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">init</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span><span class="w"> </span><span class="err">➜</span><span class="w">  </span><span class="n">sam</span><span class="o">-</span><span class="n">try</span><span class="w"> </span><span class="n">git</span><span class="p">:(</span><span class="k">master</span><span class="p">)</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">init</span><span class="w"></span>
 <span class="n">Which</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">use</span><span class="err">?</span><span class="w"></span>
 <span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="n">Quick</span><span class="w"> </span><span class="n">Start</span><span class="w"> </span><span class="n">Templates</span><span class="w"></span>
 <span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Custom</span><span class="w"> </span><span class="n">Template</span><span class="w"> </span><span class="n">Location</span><span class="w"></span>
@@ -394,10 +400,10 @@ SAM CLI, version 1.31.0
 <span class="w">    </span><span class="n">Output</span><span class="w"> </span><span class="n">Directory</span><span class="p">:</span><span class="w"> </span><span class="o">.</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">Next</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">README</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">./</span><span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>This creates a folder by the name you provided for the project name during the interactive setup. The structure of the project looks like below:</p>
-<pre class="code literal-block"><span></span><code>(aws_lambda_default) ➜  sam-try git:(master) ✗ exa -T try-sam-app -R -I venv
+<div class="code"><pre class="code literal-block">(aws_lambda_default) ➜  sam-try git:(master) ✗ exa -T try-sam-app -R -I venv
 try-sam-app
 ├── __init__.py
 ├── events
@@ -417,12 +423,12 @@ try-sam-app
    └── unit
       ├── __init__.py
       └── test_handler.py
-</code></pre>
+</pre></div>
 
 <p>You can now edit the files from here. For more info on this, skip to the <a href="#sam-specification-the-model">SAM spec model</a> topic.</p>
 <h4 id="build-sam-app">Build SAM app<a href="#build-sam-app" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The app can be built by calling <code>sam build</code> from inside the app dir (which has the <code>template.json</code> file.)</p>
-<pre class="code literal-block"><span></span><code><span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> ✗ <span class="nv">sam</span> <span class="nv">build</span>
+<div class="code"><pre class="code literal-block"><span class="ss">(</span><span class="nv">aws_lambda_default</span><span class="ss">)</span> ➜  <span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span> <span class="nv">git</span>:<span class="ss">(</span><span class="nv">master</span><span class="ss">)</span> ✗ <span class="nv">sam</span> <span class="nv">build</span>
 <span class="nv">Building</span> <span class="nv">codeuri</span>: <span class="o">~/</span>...<span class="o">/</span><span class="nv">try</span><span class="o">-</span><span class="nv">sam</span><span class="o">-</span><span class="nv">app</span><span class="o">/</span><span class="nv">hello_world</span> <span class="nv">runtime</span>: <span class="nv">python3</span>.<span class="mi">8</span> <span class="nv">metadata</span>: {} <span class="nv">functions</span>: [<span class="s1">'</span><span class="s">HelloWorldFunction</span><span class="s1">'</span>]
 <span class="nv">Running</span> <span class="nv">PythonPipBuilder</span>:<span class="nv">ResolveDependencies</span>
 <span class="nv">Running</span> <span class="nv">PythonPipBuilder</span>:<span class="nv">CopySource</span>
@@ -436,11 +442,11 @@ try-sam-app
 <span class="o">=========================</span>
 [<span class="o">*</span>] <span class="nv">Invoke</span> <span class="nv">Function</span>: <span class="nv">sam</span> <span class="nv">local</span> <span class="nv">invoke</span>
 [<span class="o">*</span>] <span class="nv">Deploy</span>: <span class="nv">sam</span> <span class="nv">deploy</span> <span class="o">--</span><span class="nv">guided</span>
-</code></pre>
+</pre></div>
 
 <h4 id="testing-app-locally">Testing App locally<a href="#testing-app-locally" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>There are 2 ways to test the app locally. One is the simpler <code>invoke</code> command which builds the app in a Docker image, calls the handler (based on what's defined in <code>events.json</code>), reports the output and exits. It looks like below:</p>
-<pre class="code literal-block"><span></span><code><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span><span class="w"> </span><span class="err">➜</span><span class="w">  </span><span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span><span class="w"> </span><span class="n">git</span><span class="p">:(</span><span class="k">master</span><span class="p">)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">invoke</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span><span class="w"> </span><span class="err">➜</span><span class="w">  </span><span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span><span class="w"> </span><span class="n">git</span><span class="p">:(</span><span class="k">master</span><span class="p">)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">invoke</span><span class="w"></span>
 <span class="n">Invoking</span><span class="w"> </span><span class="n">app</span><span class="o">.</span><span class="n">lambda_handler</span><span class="w"> </span><span class="p">(</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
 <span class="n">Image</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span><span class="o">.</span><span class="w"></span>
 <span class="n">Removing</span><span class="w"> </span><span class="n">rapid</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="n">public</span><span class="o">.</span><span class="n">ecr</span><span class="o">.</span><span class="n">aws</span><span class="o">/</span><span class="n">sam</span><span class="o">/</span><span class="n">emulation</span><span class="o">-</span><span class="n">python3</span><span class="o">.</span><span class="mi">8</span><span class="w"></span>
@@ -452,17 +458,17 @@ try-sam-app
 <span class="n">END</span><span class="w"> </span><span class="n">RequestId</span><span class="p">:</span><span class="w"> </span><span class="n">e027b54f</span><span class="o">-</span><span class="mi">86</span><span class="n">ea</span><span class="o">-</span><span class="mi">4</span><span class="n">a31</span><span class="o">-</span><span class="mi">83</span><span class="n">ed</span><span class="o">-</span><span class="n">ce09d83b9053</span><span class="w"></span>
 <span class="n">REPORT</span><span class="w"> </span><span class="n">RequestId</span><span class="p">:</span><span class="w"> </span><span class="n">e027b54f</span><span class="o">-</span><span class="mi">86</span><span class="n">ea</span><span class="o">-</span><span class="mi">4</span><span class="n">a31</span><span class="o">-</span><span class="mi">83</span><span class="n">ed</span><span class="o">-</span><span class="n">ce09d83b9053</span><span class="w">  </span><span class="n">Init</span><span class="w"> </span><span class="n">Duration</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11</span><span class="w"> </span><span class="n">ms</span><span class="w">  </span><span class="n">Duration</span><span class="p">:</span><span class="w"> </span><span class="mf">98.97</span><span class="w"> </span><span class="n">ms</span><span class="w">  </span><span class="n">Billed</span><span class="w"> </span><span class="n">Duration</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="n">Memory</span><span class="w"> </span><span class="n">Size</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="n">MB</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="n">Memory</span><span class="w"> </span><span class="n">Used</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="n">MB</span><span class="w"> </span>
 <span class="p">{</span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">message</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">hello world</span><span class="se">\"</span><span class="s2">}"</span><span class="p">}</span><span class="o">%</span><span class="w">                                                                                                                                            </span><span class="p">(</span><span class="n">aws_lambda_default</span><span class="p">)</span><span class="w"> </span><span class="err">➜</span><span class="w">  </span><span class="n">try</span><span class="o">-</span><span class="n">sam</span><span class="o">-</span><span class="n">app</span><span class="w"> </span><span class="n">git</span><span class="p">:(</span><span class="k">master</span><span class="p">)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span>
-</code></pre>
+</pre></div>
 
 <p>The second method is to use the app interactively: Run <code>sam local start-api</code></p>
-<pre class="code literal-block"><span></span><code><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="k">start</span><span class="o">-</span><span class="n">api</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="k">start</span><span class="o">-</span><span class="n">api</span><span class="w"></span>
 <span class="n">Mounting</span><span class="w"> </span><span class="n">HelloWorldFunction</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">hello</span><span class="w"> </span><span class="o">[</span><span class="n">GET</span><span class="o">]</span><span class="w"></span>
 <span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="k">browse</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">endpoints</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">invoke</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">functions</span><span class="p">.</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">restart</span><span class="o">/</span><span class="n">reload</span><span class="w"> </span><span class="n">SAM</span><span class="w"> </span><span class="n">CLI</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">functions</span><span class="p">,</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reflected</span><span class="w"> </span><span class="n">instantly</span><span class="o">/</span><span class="n">automatically</span><span class="p">.</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">restart</span><span class="w"> </span><span class="n">SAM</span><span class="w"> </span><span class="n">CLI</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">AWS</span><span class="w"> </span><span class="n">SAM</span><span class="w"> </span><span class="n">template</span><span class="w"></span>
 <span class="mi">2021</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">16</span><span class="err">:</span><span class="mi">12</span><span class="err">:</span><span class="mi">15</span><span class="w">  </span><span class="o">*</span><span class="w"> </span><span class="n">Running</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">3000</span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">Press</span><span class="w"> </span><span class="n">CTRL</span><span class="o">+</span><span class="n">C</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">quit</span><span class="p">)</span><span class="w"></span>
 
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">curl</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">hello</span><span class="w"></span>
 <span class="err">{</span><span class="ss">"message"</span><span class="err">:</span><span class="w"> </span><span class="ss">"hello world"</span><span class="err">}</span><span class="o">%</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Now, if you go to <strong><a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></strong>, you get back the default "hello world" message.</p>
 <h4 id="deploying-to-production">Deploying to production<a href="#deploying-to-production" class="headerlink" title="Permalink to this heading">¶</a></h4>
@@ -470,7 +476,7 @@ try-sam-app
 <p>Often, you might find that some set up which works in the local dev environment breaks in production. You might end up patching the function multiple times. During such cases, you can simply call <strong><code>sam deploy</code></strong> or better, <code>sam deploy --no-confirm-changeset</code> and let SAM build, configure the changesets and deploy them to production. The function is restarted and will get the updates.</p>
 <h3 id="sam-specification-the-model">SAM specification (the model)<a href="#sam-specification-the-model" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The model is specified in a template while in YAML format as shown below:</p>
-<pre class="code literal-block"><span></span><code><span class="nt">Transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="nt">Transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span><span class="w"></span>
 
 <span class="nt">Globals</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">set of globals</span><span class="w"></span>
@@ -496,10 +502,10 @@ try-sam-app
 
 <span class="nt">Outputs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">set of outputs</span><span class="w"> </span><span class="c1"># describe the values returned when you view the stack's properties</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>Only the <code>Transform</code> and <code>Resources</code> is required. Since this template is derived from AWS CloudFormation template, there are some overlaps. For example, below is the template created by the hello world application</p>
-<pre class="code literal-block"><span></span><code><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">'2010-09-09'</span><span class="w"></span>
+<div class="code"><pre class="code literal-block"><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">'2010-09-09'</span><span class="w"></span>
 <span class="nt">Transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span><span class="w"></span>
 <span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="no">try-sam-app</span><span class="w"></span>
@@ -534,7 +540,7 @@ try-sam-app
 <span class="w">  </span><span class="nt">HelloWorldFunctionIamRole</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">"Implicit</span><span class="nv"> </span><span class="s">IAM</span><span class="nv"> </span><span class="s">Role</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">World</span><span class="nv"> </span><span class="s">function"</span><span class="w"></span>
 <span class="w">    </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HelloWorldFunctionRole.Arn</span><span class="w"></span>
-</code></pre>
+</pre></div>
 
 <p>This blog is a quick overview of authoring, testing and deploying as simple Python based Lambda function using the SAM CLI.</p>
     </div>
