@@ -25,11 +25,13 @@
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="An introduction to Google Cloud Platform - part 1">
 <meta property="og:url" content="https://atmamani.github.io/projects/cloud/gcp-1/">
-<meta property="og:description" content='Basics - logging in and getting set up.
-GCP "Project"
-A Google Cloud project is an organizing entity for your Google Cloud resources. It often contains resources and services; for example, it may hold'>
+<meta property="og:description" content="Basics - logging in and getting set up.
+About GCP
+Resource hierarchy in Google Cloud
+
+At the bottom of the stack are Resources which are storage buckets, databases, scripts. These are organized into P">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2022-06-26T23:17:06-07:00">
+<meta property="article:published_time" content="2022-07-07T09:03:42-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -302,10 +304,46 @@ A Google Cloud project is an organizing entity for your Google Cloud resources. 
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <h3 id="basics-logging-in-and-getting-set-up">Basics - logging in and getting set up.<a href="#basics-logging-in-and-getting-set-up" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<h4 id="gcp-project">GCP "Project"<a href="#gcp-project" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>A <strong>Google Cloud project</strong> is an organizing entity for your Google Cloud resources. It often contains resources and services; for example, it may hold a pool of virtual machines, a set of databases, and a network that connects them together. Projects also contain <strong>settings and permissions</strong>, which specify security rules and who has access to what resources.</p>
-<p>A Project ID is a unique identifier that is used to link Google Cloud resources and APIs to your specific project. <strong>Project IDs are unique across Google Cloud</strong>.</p>
 <h3 id="about-gcp">About GCP<a href="#about-gcp" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="resource-hierarchy-in-google-cloud">Resource hierarchy in Google Cloud<a href="#resource-hierarchy-in-google-cloud" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p><img alt="" src="../../../images/gcp-resource-hierarchy.jpg"></p>
+<p>At the bottom of the stack are <strong>Resources</strong> which are storage buckets, databases, scripts. These are organized into <strong>Projects</strong>. One or more projects can be in a folder or sub-folders, which themselves are organized under an <strong>Org</strong> node. Access, budgeting policies are defined at Org or folder level and sometimes at granular levels such as projects and resources. Policies are <strong>inherited downward</strong>.</p>
+<h4 id="gcp-project">GCP "Project"<a href="#gcp-project" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A <strong>Google Cloud project</strong> is an organizing entity for your Google Cloud resources. Each resources <strong>can belong to just 1 project</strong>. Projects also contain <strong>settings and permissions</strong>, which specify security rules and who has access to what resources. Orgs can allocate budgets to projects and set spending alerts so they don't accidentally run up a large GCP bill.</p>
+<p>Each project has <code>3</code> identifying entities: </p>
+<ul>
+<li>
+<strong>Project ID</strong>: a unique identifier that is used to link Google Cloud resources and APIs to your specific project. <strong>Project IDs are unique across Google Cloud</strong>. Project IDs are created by GCP and once created, they are immutable.</li>
+<li>
+<strong>Project Name</strong>: a label created by user. Not unique, can be edited later</li>
+<li>
+<strong>Project Number</strong>: globally unique, created by GCP and cannot be altered by user.</li>
+</ul>
+<h4 id="iam">IAM<a href="#iam" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>For smaller orgs, it is sufficient to just manage access via settings on Folders and Projects. However, when companies need to manage access in a sophisticated and granular manner, they can use <strong>IAM</strong> - Identity and Access Management. An IAM consists of a bunch of <strong>Who has access to What</strong>. The Who can be a <em>google account, google group, service account or a cloud identity domain</em> and the What part is <strong>defined by a Role</strong> which is a collection of permissions.</p>
+<p>There are 3 types of Roles:</p>
+<ul>
+<li>
+<strong>basic</strong>: Owner, Editor, Viewer, Billing Admin. These are broad by design.</li>
+<li>
+<strong>predefined</strong>: More nuanced such as Instance Admin, VM Admin etc.</li>
+<li>
+<strong>custom IAM</strong>: go crazy, go as narrow as you want.</li>
+</ul>
+<p>A special type of account is the <strong>Service Account</strong> which is tuned for all kinds of automation scenarios. Unlike regular accounts, this uses a <em>cryptographic key</em> instead of a password. Service accounts are also considered resources (not user accounts) and so can be tightly managed using policies.</p>
+<h4 id="ways-of-accessing-gcp">Ways of accessing GCP<a href="#ways-of-accessing-gcp" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p><img alt="" src="../../../images/gcp-access-ways.jpg"></p>
+<p>You can access GCP via 4 ways:</p>
+<ul>
+<li>
+<strong>Web interface</strong>: GUI. Allows you to check health, manage, set budgets. Can also connect to instances via SSH</li>
+<li>
+<strong>Cloud SDK &amp; Cloud shell</strong>: SDK has <code>gcloud</code> main CLI tool, <code>gsutil</code> CLI for storage, <code>bq</code> CLI for big query. SDK is installed on your workstation. Cloud Shell is a CLI running on the cloud and accessed via browser. Is Debian based with <code>5</code> GB persistent storage and loaded with SDK.</li>
+<li>
+<strong>GCP API</strong>: Web and client libraries in different languages - Java, Python, C#, node, Ruby, C++ etc.</li>
+<li>
+<strong>Cloud console mobile app</strong>: certain management, start-stop operations, view budgets, view server status etc, incident management. </li>
+</ul>
 <h4 id="7-main-categories-of-services">
 <code>7</code> main categories of services<a href="#7-main-categories-of-services" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>There are seven categories of Google Cloud services:</p>
@@ -326,29 +364,7 @@ A Google Cloud project is an organizing entity for your Google Cloud resources. 
 <strong>Artificial Intelligence</strong>: A suite of APIs that run specific artificial intelligence and machine learning tasks on Google Cloud.</li>
 </ul>
 <p><a href="https://googlecloudcheatsheet.withgoogle.com">Here</a> is a cheetsheat containing all GCP services.</p>
-<h4 id="iam-identity-and-access-management">IAM - Identity and Access management<a href="#iam-identity-and-access-management" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>GCP has <code>3</code> main types of roles:</p>
-<table>
-<thead><tr>
-<th>Role</th>
-<th>Permission</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><code>roles/viewer</code></td>
-<td>Permissions for read-only actions that do not affect state, such as viewing (but not modifying) existing resources or data.</td>
-</tr>
-<tr>
-<td><code>roles/editor</code></td>
-<td>All viewer permissions, plus permissions for actions that modify state, such as changing existing resources.</td>
-</tr>
-<tr>
-<td><code>roles/owner</code></td>
-<td>All editor permissions and permissions for the following actions: manage roles and permissions for a project and all resources within the project; set up billing for a project.</td>
-</tr>
-</tbody>
-</table>
-</div>
+    </div>
     
 
 </article>
