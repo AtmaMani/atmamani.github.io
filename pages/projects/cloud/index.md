@@ -15,3 +15,8 @@ As companies migrated from on-premises to cloud, they saw a switch from **capita
 The most profound effect of cloud tech is the vast amounts of data that is collected and consumed. Increasingly, humankind is switching from "connecting to online" to "living online". The result is the highly accurate and highly personalized predictive models that can be built. This leads us to the second paradigm shift - **Artificial Intelligence**.
 
 AI requires not-only vast amounts of data, but also commiserate compute power. AI's compute demand has led to newer generations of processors be developed. The newer GPU based processors (such as TPU) break **Moore's law**. Instead of being 2x powerful, each subsequent generation is ~50x powerful.
+
+## Cloud is in layers
+- **IaaS**: Infrastructure as a Service - is the rawest form of cloud offering. Users get access to compute, storage and networking. They pay for what they **allocate**.
+- **PaaS**: Platform as a Service - is an offering that wraps a layer over IaaS. PaaS is a bunch of **managed** services and users pay for what they **consume** rather than allocate.
+- **SaaS**: Software as a Service - can be thought of a layer on top of PaaS. This is typically managed, serverless and oriented toward consumers. Most web applications can be considered as SaaS. Users pay for a service model / subscription tier rather than allocation or consumption.
