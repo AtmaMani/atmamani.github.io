@@ -40,6 +40,28 @@ You can access GCP via 4 ways:
  - **GCP API**: Web and client libraries in different languages - Java, Python, C#, node, Ruby, C++ etc.
  - **Cloud console mobile app**: certain management, start-stop operations, view budgets, view server status etc, incident management. 
 
+### Networking on GCP
+Each project in GCP has a default VPC (virtual private cloud) configured. The resources within a project can talk to each other via this internal IP Address. By default, the firewall is configured to block all incoming traffic, but allow all out-going traffic from within a project.
+
+### Storage on GCP
+There are multiple storage services on GCP - depending on the type of data being stored and the application that is intended. Below is a list of 5 types of services:
+
+![](/images/gcp-storage-services.jpg)
+
+For **Cloud Storage**, there are multiple classes of storage, depending on how often you access the data as shown below:
+
+![](/images/gcp-storage-classes.jpg)
+
+No matter which class you use, all types allow for global access, no minimum amount, pay as you go rates. Data is always encrypted at rest.
+
+**Cloud SQL** provides fully managed RDBMS including `mysql`, `postgresql`, `sql server`. You can scale up to `64` cores, `400 GB` of RAM and `30 TB` of storage.
+
+**Cloud spanner** is also a fully managed RDBMS, but for high throughput SQL operations including joins, reads, writes. It sounds like you would start with Cloud SQL and upgrade to spanner if your needs warrant that.
+
+**Firestore** - scalable, **NoSQL** DB where data is stored in documents and stored in collections. Firestore is suitable for web or mobile apps (in addition to other users), allows for offline replication & sync. Cost is fine grained, per read, write, query ops and the amount of data stored.
+
+**Cloud Bigtable** - NoSQL, big data DB. Bigtable is suitable when data is high throughput, exceeds 1TB, either structured or unstructured, supports time-series. Frequently customers that run ML jobs on data use bigtable.
+
 ### `7` main categories of services
 There are seven categories of Google Cloud services:
 
