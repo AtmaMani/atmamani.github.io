@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://atmamani.github.io/projects/cloud/gke-1/">
 <meta property="og:description" content="Kubernetes is an open-source platform for managing containerized workloads and services. K8 (as it is colloquially known) makes it easy to orchestrate different containers on different hosts, scale th">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2022-07-19T23:35:48-07:00">
+<meta property="article:published_time" content="2022-07-21T22:08:05-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -305,16 +305,23 @@
 <li>
 <strong>Node</strong> - a physical machine that runs containers (with on-prem set up). In a cloud set up, this could be a <span class="caps">VM</span>.</li>
 <li>
-<strong>Cluster</strong> - a set of such nodes together running an application. A cluster can have a group of nodes that run as <strong>control plane</strong> and the remaining running as nodes for containers.</li>
+<strong>Cluster</strong> - a set of such nodes together running an application. A cluster can have a group of nodes that run as 
+<strong>control plane</strong> and the remaining running as nodes for containers.</li>
 <li>
-<strong>Pod</strong> - a process running a container (with a wrapper around it). Pods are the smallest unit of reference in K8. Usually only one container runs in a pod. But you can package more than 1 container, especially if they have to communicate or share resources. A pod can provide a unique <span class="caps">IP</span> per pod and different ports for different containers running within it. To interact with a pod, you can use the <code>kubectl</code> command.<ul>
+<strong>Node pool</strong> - designate subset of nodes within a cluster.</li>
+<li>
+<strong>Pod</strong> - a process running a container (with a wrapper around it). Pods are the <strong>smallest unit of reference in K8</strong>. Usually only one container runs in a pod. But you can package more than 1 container, especially if they have to communicate or share resources. A pod can provide a unique <span class="caps">IP</span> per pod and different ports for different containers running within it. To interact with a pod, you can use the <code>kubectl</code> command.<ul>
 <li><img alt="" src="../../../images/gcp-k8-arch.jpg"></li>
 <li>To see the list of pods in your cluster, run <code>kubectl get pods</code>
 </li>
 </ul>
 </li>
 </ul>
-</div>
+<p>The <span class="caps">IP</span> address of a pod can change over time, especially as pods are created and terminated over time. Thus if the front-end pods refer to back-end pods by <span class="caps">IP</span>, the application may break. This is why you wrap the relevant pods behind a <strong>service</strong> and give it a fixed <span class="caps">IP</span>. As you scale your app, any number of pods can share that <span class="caps">IP</span> of that service.</p>
+<p>You can use <code>kubectl</code> commands to create pods, create load balancer, network etc. However, k8 allows you to <strong>declaratively define</strong> your architecture in a Yaml file, called a <strong>deployment config</strong> file.</p>
+<h3 id="google-kubernetes-engine">Google Kubernetes Engine<a href="#google-kubernetes-engine" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p><span class="caps">GKE</span> is a managed K8 in the cloud. It is a bunch of compute engine instances that are bound together to form a cluster. This cluster can be created using web <span class="caps">UI</span> or <code>gcloud</code> <span class="caps">CLI</span>. When using <span class="caps">GKE</span>, Google provides a built-in load-balancer service. </p>
+    </div>
     
 
 </article>
