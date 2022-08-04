@@ -5,7 +5,9 @@ Some useful resources for building on the cloud. This page will primarily contai
 ## Pages
 - [Argo for Kubernetes](argo)
 - [Google cloud platform](gcp-1)
-- [Intro to Google Kubernetes Engine](gke-1)
+- [Intro to Kubernetes](gke-1)
+- [Kubernetes objects and specification](gke-2)
+- [`kubectl` commands](k8s-1)
 
 ## A little bit of history
 
@@ -20,4 +22,4 @@ AI requires not-only vast amounts of data, but also commiserate compute power. A
 ## Cloud is in layers
 - **IaaS**: Infrastructure as a Service - is the rawest form of cloud offering. Users get access to compute, storage and networking. They pay for what they **allocate**.
 - **PaaS**: Platform as a Service - is an offering that wraps a layer over IaaS. PaaS is a bunch of **managed** services and users pay for what they **consume** rather than allocate.
-- **SaaS**: Software as a Service - can be thought of a layer on top of PaaS. This is typically managed, serverless and oriented toward consumers. Most web applications can be considered as SaaS. Users pay for a service model / subscription tier rather than allocation or consumption.
+- **SaaS**: Software as a Service - can be thought of a layer on top of PaaS. This is typically managed, server-less and oriented toward consumers. Most web applications can be considered as SaaS. Users pay for a service model / subscription tier rather than allocation or consumption.
