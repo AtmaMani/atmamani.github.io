@@ -659,7 +659,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/cloud/</loc>
-  <lastmod>2022-07-20T06:22:00Z</lastmod>
+  <lastmod>2022-08-03T22:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/cloud/argo/</loc>
@@ -672,6 +672,14 @@
  <url>
   <loc>https://atmamani.github.io/projects/cloud/gke-1/</loc>
   <lastmod>2022-07-20T06:22:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/cloud/gke-2/</loc>
+  <lastmod>2022-07-25T22:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/cloud/k8s-1/</loc>
+  <lastmod>2022-08-03T22:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/dl/</loc>
