@@ -59,6 +59,7 @@ spec:
 The `templates` section accepts an **array of objects**. In Yaml, you prefix each element in an array of objects with a `-`. For, an **array of elements**, you enclose elements within `[]` in a single line or in a broken line.
 
 Argo has the following template types:
+
  - **Container**: specs to schedule a container. This follows the same spec used by K8s. So you can cross use the specs
  - **Script**: convenience wrapper around a container and follows the same spec. It has an additional `script` field which you can specify which file to be executed.
  - **Resource**: template to modify and operate on K8s resources

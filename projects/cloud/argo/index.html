@@ -355,11 +355,17 @@ workflow.argoproj.io/wf-resource-tmpl-55s7b created
 </pre></div>
 
 <p>The <code>templates</code> section accepts an <strong>array of objects</strong>. In Yaml, you prefix each element in an array of objects with a <code>-</code>. For, an <strong>array of elements</strong>, you enclose elements within <code>[]</code> in a single line or in a broken line.</p>
-<p>Argo has the following template types:
- - <strong>Container</strong>: specs to schedule a container. This follows the same spec used by K8s. So you can cross use the specs
- - <strong>Script</strong>: convenience wrapper around a container and follows the same spec. It has an additional <code>script</code> field which you can specify which file to be executed.
- - <strong>Resource</strong>: template to modify and operate on K8s resources
- - <strong>Suspend</strong>: to suspend operations</p>
+<p>Argo has the following template types:</p>
+<ul>
+<li>
+<strong>Container</strong>: specs to schedule a container. This follows the same spec used by K8s. So you can cross use the specs</li>
+<li>
+<strong>Script</strong>: convenience wrapper around a container and follows the same spec. It has an additional <code>script</code> field which you can specify which file to be executed.</li>
+<li>
+<strong>Resource</strong>: template to modify and operate on K8s resources</li>
+<li>
+<strong>Suspend</strong>: to suspend operations</li>
+</ul>
 <h4 id="container-template">Container template<a href="#container-template" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>An example container template is shown below. Notice the <strong>container</strong> object within the <strong>templates</strong> section of the spec which defines this is a container template.</p>
 <div class="code"><pre class="code literal-block"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span><span class="w"></span>
