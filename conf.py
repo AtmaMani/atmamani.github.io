@@ -172,6 +172,7 @@ NAVIGATION_LINKS = {
                 ('/images/regex-mindmap.jpg', "Python regex"),
                 ('/', "<hr>"),
                 ('/cheatsheets/conda_cheat_sheet/', "Conda basics"),
+                ('/cheatsheets/mamba_cheat_sheet/', "Mamba basics"),
                 ('/', "<hr>"),
                 ('/cheatsheets/numpy/numpy_cheat_sheet_1/', "NumPy basics"),
                 ('/cheatsheets/numpy/numpy_cheat_sheet_2/', "NumPy array slicing, dicing, searching"),
