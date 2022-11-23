@@ -7,6 +7,7 @@ Some useful resources for building on the cloud. This page will primarily contai
 - [Google cloud platform](gcp-1)
 - [Intro to Kubernetes](gke-1)
 - [Kubernetes objects and specification](gke-2)
+- [Helm charts](helm-1)
 - [`kubectl` commands](k8s-1)
 - [`gsutil` commands](gsutil-1)
 
