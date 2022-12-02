@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2022-11-03T17:15:00Z</lastmod>
+  <lastmod>2022-11-23T22:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -159,11 +159,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2022-11-03T17:15:00Z</lastmod>
+  <lastmod>2022-11-23T22:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2022-11-03T17:15:00Z</lastmod>
+  <lastmod>2022-11-23T22:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -467,7 +467,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/</loc>
-  <lastmod>2022-11-03T17:16:00Z</lastmod>
+  <lastmod>2022-11-18T04:29:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/conda_cheat_sheet/</loc>
@@ -476,6 +476,30 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/docker-1/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/</loc>
+  <lastmod>2022-11-22T23:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/golang-basics/</loc>
+  <lastmod>2022-11-18T04:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/golang-control-flow/</loc>
+  <lastmod>2022-11-18T22:05:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/golang-datatypes/</loc>
+  <lastmod>2022-11-18T06:24:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/golang-iteration/</loc>
+  <lastmod>2022-11-18T21:18:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/golang/goroutine/</loc>
+  <lastmod>2022-11-22T23:38:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/grep-1/</loc>
@@ -530,6 +554,14 @@
   <lastmod>2022-06-08T17:34:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/gdal-1/</loc>
+  <lastmod>2022-11-23T18:02:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/gdal-2/</loc>
+  <lastmod>2022-11-23T21:56:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/geopandas-1/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
  </url>
@@ -564,6 +596,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/reading-multidim-data-using-opengeotools/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/untitled/</loc>
+  <lastmod>2022-11-23T21:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/xarray-1/</loc>
@@ -671,7 +707,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/cloud/</loc>
-  <lastmod>2022-11-09T18:29:00Z</lastmod>
+  <lastmod>2022-11-18T04:29:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/cloud/argo/</loc>
@@ -692,6 +728,10 @@
  <url>
   <loc>https://atmamani.github.io/projects/cloud/gsutil-1/</loc>
   <lastmod>2022-11-09T18:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/projects/cloud/helm-1/</loc>
+  <lastmod>2022-11-18T04:29:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/cloud/k8s-1/</loc>

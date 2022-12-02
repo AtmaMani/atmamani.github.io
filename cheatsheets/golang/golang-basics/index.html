@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go basics | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/golang/golang-basics/">
+<link rel="icon" href="../../../scatter-16.png" sizes="16x16">
+<link rel="icon" href="../../../scatter-32.png" sizes="32x32">
+<link rel="icon" href="../../../scatter-64.png" sizes="64x64">
+<link rel="icon" href="../../../scatter-128.png" sizes="128x128">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="Go basics">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/golang/golang-basics/">
+<meta property="og:description" content="Creating variables
+Create variables by prefixing with var keyword:
+var variableName = &lt;value&gt;
+
+
+Since a value is assigned to the variable in the same line, go infers the datatype automatically. In oth">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2022-11-23T09:47:13-08:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma’s blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+                </li>
+<li>
+<a href="../../../books/">Books</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../python/python_datatypes/">Python datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_numeric_datatypes/">Python numeric datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_conditional_execution/">Python conditional execution</a>
+                    </li>
+<li>
+<a href="../../python/python_functions/">Python functions</a>
+                    </li>
+<li>
+<a href="../../python/python_iterations/">Python iterations</a>
+                    </li>
+<li>
+<a href="../../python/python_exception_handling/">Python exception handling</a>
+                    </li>
+<li>
+<a href="../../python/python_classes/">Python classes</a>
+                    </li>
+<li>
+<a href="../../python/python_memory/">Python memory, ref counts, garbage collection</a>
+                    </li>
+<li>
+<a href="../../python/python_mutability/">Python - mutability and immutability</a>
+                    </li>
+<li>
+<a href="../../python/python_language_optimizations/">Python - language optimizations</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../">Go introduction</a>
+                    </li>
+<li class="active">
+<a href=".">Go basics <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../golang-datatypes/">Go data types</a>
+                    </li>
+<li>
+<a href="../golang-control-flow/">Go control flow</a>
+                    </li>
+<li>
+<a href="../goroutine/">Goroutines - concurrency in Go lang</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../mamba_cheat_sheet/">Mamba basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
+                    </li>
+<li>
+<a href="../../octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../grep-1/">Grep introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../../open-geo/geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../../open-geo/open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
+                    </li>
+<li>
+<a href="../../open-geo/reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../../open-geo/postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../../open-geo/gdal-1/"><span class="caps">GDAL</span> - an introduction</a>
+                    </li>
+<li>
+<a href="../../open-geo/gdal-2/"><span class="caps">GDAL</span> - quickstart</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Go basics</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <h3 id="creating-variables">Creating variables<a href="#creating-variables" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Create variables by prefixing with <code>var</code> keyword:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">var</span><span class="w"> </span><span class="nx">variableName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">value</span><span class="p">&gt;</span><span class="w"></span>
+</pre></div>
+
+<p>Since a value is assigned to the variable in the same line, go <strong>infers</strong> the datatype automatically. In other cases, you need to specify the data type:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">var</span><span class="w"> </span><span class="nx">userName</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">userTickets</span><span class="w"> </span><span class="kt">int</span><span class="w"></span>
+
+<span class="nx">userName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"ponniyinselvan"</span><span class="w"></span>
+<span class="nx">userTickets</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">800</span><span class="w"></span>
+</pre></div>
+
+<p>Similarly, you can create constants using the <code>const</code> keyword:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">const</span><span class="w"> </span><span class="nx">constantName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">value</span><span class="p">&gt;</span><span class="w"></span>
+</pre></div>
+
+<p>In certain cases, you may want to override go’s default datatypes. In such case, you can instantiate, assign value and still declare the type:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">var</span><span class="w"> </span><span class="nx">remainingTickets</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">50</span><span class="w">  </span><span class="c1">//switch from default int to uint, to prevent negative values</span><span class="w"></span>
+</pre></div>
+
+<h4 id="short-code-for-creating-and-assigning-vars">Short code for creating and assigning vars<a href="#short-code-for-creating-and-assigning-vars" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Go allows the <code>:=</code> short code to create and assign vars:</p>
+<div class="code"><pre class="code literal-block"><span class="nx">confName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"go land conf"</span><span class="w"></span>
+</pre></div>
+
+<h4 id="scope-of-variables-and-functions">Scope of variables (and functions)<a href="#scope-of-variables-and-functions" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>In Go, there are 3 levels of scope:</p>
+<ul>
+<li>
+<strong>local</strong>: only available within the a specific block of code - such as for block, if block, a function</li>
+<li>
+<strong>package</strong>: available to all files within the same package</li>
+<li>
+<strong>global</strong>: available across packages. Created with <strong>Capitalized</strong> first letter. Available after importing the package that has the member defined The best practice is to define the variable as local as possible.</li>
+</ul>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">varName</span><span class="w"> </span><span class="nx">datatype</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//values. Defining pacakge level variables</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<h3 id="printing">Printing<a href="#printing" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>You can print statements to standard output using print functions that are available in the <code>fmt</code> module. This needs to be imported first.</p>
+<div class="code"><pre class="code literal-block"><span class="kn">import</span><span class="w"> </span><span class="nx">fmt</span><span class="w"></span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">"text here"</span><span class="p">)</span><span class="w">      </span><span class="c1">//prints a single line. No new line at the end.</span><span class="w"></span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"text here"</span><span class="p">)</span><span class="w">    </span><span class="c1">//prints with a new line at the end</span><span class="w"></span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"text"</span><span class="p">,</span><span class="w"> </span><span class="nx">varName</span><span class="p">,</span><span class="w"> </span><span class="s">"text"</span><span class="p">,</span><span class="w"> </span><span class="nx">varName</span><span class="p">,</span><span class="w"> </span><span class="s">"text"</span><span class="p">)</span><span class="w">   </span><span class="c1">//mixing vars and text</span><span class="w"></span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">"text %v text %v"</span><span class="p">,</span><span class="w"> </span><span class="nx">var1</span><span class="p">,</span><span class="w"> </span><span class="nx">var2</span><span class="p">)</span><span class="w">               </span><span class="c1">//Using formated print output</span><span class="w"></span>
+</pre></div>
+
+<h3 id="getting-user-input">Getting user input<a href="#getting-user-input" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>To get an input from user using std input, use <code>fmt.Scan()</code> function. You need to pass a placeholder for the value. For this you use <strong>pointers</strong>. A <strong>pointer</strong> in go is another variable that holds the address of a given variable.</p>
+<div class="code"><pre class="code literal-block"><span class="kd">var</span><span class="w"> </span><span class="nx">userName</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">"Enter your username: "</span><span class="p">)</span><span class="w"></span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nx">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">userName</span><span class="p">)</span><span class="w">  </span><span class="c1">//user input is saved to userName var</span><span class="w"></span>
+</pre></div>
+
+<h3 id="modularization">Modularization<a href="#modularization" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="functions-in-go">Functions in go<a href="#functions-in-go" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Functions are defined using <code>func</code> keyword, using the syntax: <code>func &lt;name&gt; {...}</code>. Values are returned using <code>return</code> keyword. In golang, you can return <strong>any number of values</strong>.</p>
+<div class="code"><pre class="code literal-block"><span class="kd">func</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">funcname</span><span class="p">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">arg1</span><span class="w"> </span><span class="nx">datatype1</span><span class="p">,</span><span class="w"> </span><span class="nx">arg2</span><span class="w"> </span><span class="nx">datatype2</span><span class="p">)</span><span class="w"> </span><span class="nx">return_datatype</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//statemetnts</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">variable</span><span class="p">&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<p>If returning multiple values, then:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">func</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">funcname</span><span class="p">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">arg1</span><span class="w"> </span><span class="nx">datatype1</span><span class="p">,</span><span class="w"> </span><span class="nx">arg2</span><span class="w"> </span><span class="nx">datatype2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">returntype1</span><span class="p">,</span><span class="w"> </span><span class="nx">returntype2</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//statemnts</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">value1</span><span class="p">,</span><span class="w"> </span><span class="nx">value2</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<div class="code"><pre class="code literal-block"><span class="kd">func</span><span class="w"> </span><span class="nx">greetUsers</span><span class="p">(</span><span class="nx">confName</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">remianingTx</span><span class="w"> </span><span class="kt">uint</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">"Welcome to %v .There are %v tix available"</span><span class="p">,</span><span class="w"> </span><span class="nx">confName</span><span class="p">,</span><span class="w"> </span><span class="nx">remainingTx</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">//call the fn</span><span class="w"></span>
+<span class="nx">greetUsers</span><span class="p">(</span><span class="s">"goland conf"</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+<h5 id="pass-by-value-vs-reference">Pass by value vs reference<a href="#pass-by-value-vs-reference" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>In Go, functions pass by value. To pass a var by reference do this:</p>
+<div class="code"><pre class="code literal-block"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">myVal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">myVal</span><span class="p">[</span><span class="s">"keuy"</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"value"</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">someFunc</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span><span class="w"> </span><span class="nx">param3</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">myVal</span><span class="p">)</span><span class="w">    </span><span class="c1">// passes address of myVal</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">someFunc</span><span class="p">(</span><span class="nx">param1</span><span class="w"> </span><span class="kd">type</span><span class="p">,</span><span class="w"> </span><span class="nx">param2</span><span class="w"> </span><span class="kd">type</span><span class="p">,</span><span class="w"> </span><span class="nx">param3</span><span class="w"> </span><span class="o">*</span><span class="p">[]</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//gets pointer to myVal</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<h4 id="packages-in-go">Packages in Go<a href="#packages-in-go" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Go apps can be organized using packages. A package is a collection of go files. The first line in a go file is usually the <code>package &lt;pkgname&gt;</code> which indicates which package the file belongs to. Files in the same package can share functions, package level variables etc <strong>without having to import</strong> the same package.</p>
+<div class="code"><pre class="code literal-block"><span class="c1">//main.go file</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="c1">//statements</span><span class="w"></span>
+
+
+<span class="c1">//common.go file</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="c1">//statements</span><span class="w"></span>
+</pre></div>
+
+<p>Both <code>main.go</code> and <code>common.go</code> are now part of the <code>main</code> package.</p>
+<h4 id="multiple-packages">Multiple packages<a href="#multiple-packages" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Larger applications often have multiple packages to organize code. By convention, each package has its own folder within the app’s root folder as shown in <a href="../#quick-start">Quickstart</a>. To use code or variables from a different package, you <strong>need to import the package</strong>. However, for go to find the local, user-defined package, you need to import it by <strong>prefixing package with module name</strong> defined in <strong><code>go.mod</code></strong> file. </p>
+<p>Further, for go to find members from a different package, that package needs to be of <strong>global</strong> scope, for which it should it <strong>start with a Capital letter</strong>. This allows go to <strong>“export”</strong> that member to global scope. If you notice, the functions you use from even std packages such as <code>fmt</code> start with capitals, for instance <code>fmt.Println()</code>.</p>
+<div class="code"><pre class="code literal-block"><span class="c1">//go.mod file</span><span class="w"></span>
+<span class="nx">module</span><span class="w"> </span><span class="nx">booking</span><span class="o">-</span><span class="nx">app</span><span class="w"></span>
+
+<span class="c1">// helper/helper.go file -- helper package</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">helper</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="s">"fmt"</span><span class="w">    </span><span class="c1">//all regular imports</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">GreetUsers</span><span class="p">(){</span><span class="w">      </span><span class="c1">//starts with Capital letter, so exported</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// main.go file -- main package</span><span class="w"></span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">"fmt"</span><span class="w"></span>
+<span class="w">    </span><span class="s">"strings"</span><span class="w"></span>
+<span class="w">    </span><span class="s">"booking-app/helper"</span><span class="w">    </span><span class="c1">//module name (from go.mod file) / pkg name</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//statements</span><span class="w"></span>
+<span class="w">    </span><span class="nx">val</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">helper</span><span class="p">.</span><span class="nx">GreetUsers</span><span class="p">()</span><span class="w">   </span><span class="c1">//calls func from helper package.</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+    </div>
+    
+
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2022         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
