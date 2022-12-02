@@ -218,6 +218,8 @@ NAVIGATION_LINKS = {
                 ('/cheatsheets/open-geo/reading-multidim-data-using-opengeotools/', "Reading multi-dimensional data using open geo tools"),
                 ('/cheatsheets/open-geo/postgis-1/', "PostGIS - introduction"),
                 ('/cheatsheets/open-geo/postgis-2/', "PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas"),
+                ('/cheatsheets/open-geo/gdal-1/', "GDAL - an introduction"),
+                ('/cheatsheets/open-geo/gdal-2/', "GDAL - quickstart"),
                 ('/', "<hr>"),
                 ('/cheatsheets/web-development/', "Web Development"),
                 ('/cheatsheets/html/', "HTML basics"),
