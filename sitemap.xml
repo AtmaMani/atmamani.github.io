@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2022-11-23T22:15:00Z</lastmod>
+  <lastmod>2022-12-13T06:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -159,11 +159,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2022-11-23T22:15:00Z</lastmod>
+  <lastmod>2022-12-13T06:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2022-11-23T22:15:00Z</lastmod>
+  <lastmod>2022-12-13T06:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -467,7 +467,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/</loc>
-  <lastmod>2022-11-18T04:29:00Z</lastmod>
+  <lastmod>2022-12-13T06:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/conda_cheat_sheet/</loc>
@@ -492,10 +492,6 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/golang/golang-datatypes/</loc>
   <lastmod>2022-11-18T06:24:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/cheatsheets/golang/golang-iteration/</loc>
-  <lastmod>2022-11-18T21:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/golang/goroutine/</loc>
@@ -598,10 +594,6 @@
   <lastmod>2022-06-08T17:34:00Z</lastmod>
  </url>
  <url>
-  <loc>https://atmamani.github.io/cheatsheets/open-geo/untitled/</loc>
-  <lastmod>2022-11-23T21:56:00Z</lastmod>
- </url>
- <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/xarray-1/</loc>
   <lastmod>2022-10-20T19:14:00Z</lastmod>
  </url>
@@ -696,6 +688,14 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/seaborn/seaborn_cheat_sheet_4/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/sql/sql-1/</loc>
+  <lastmod>2022-12-13T06:00:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/sql/sql-2/</loc>
+  <lastmod>2022-12-13T06:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/web-development/</loc>
