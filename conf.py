@@ -226,6 +226,7 @@ NAVIGATION_LINKS = {
                 ('/', "<hr>"),
                 ('/cheatsheets/web-development/', "Web Development"),
                 ('/cheatsheets/html/', "HTML basics"),
+                ('/cheatsheets/yaml_syntax/', "YAML Syntax basics")
             ),
             'Cheatsheets',
         ),
