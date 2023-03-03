@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2022-12-13T06:02:00Z</lastmod>
+  <lastmod>2023-03-03T16:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -159,11 +159,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2022-12-13T06:02:00Z</lastmod>
+  <lastmod>2023-03-03T16:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2022-12-13T06:02:00Z</lastmod>
+  <lastmod>2023-03-03T16:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -467,7 +467,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/</loc>
-  <lastmod>2022-12-13T06:00:00Z</lastmod>
+  <lastmod>2023-03-03T16:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/conda_cheat_sheet/</loc>
@@ -700,6 +700,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/web-development/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/yaml_syntax/</loc>
+  <lastmod>2023-03-03T16:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/projects/</loc>
