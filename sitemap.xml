@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://atmamani.github.io/</loc>
-  <lastmod>2022-06-08T17:34:00Z</lastmod>
+  <lastmod>2023-05-24T18:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/2007/</loc>
@@ -67,7 +67,7 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/archive.html</loc>
-  <lastmod>2023-03-03T16:09:00Z</lastmod>
+  <lastmod>2023-05-24T18:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/</loc>
@@ -159,11 +159,11 @@
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-1.html</loc>
-  <lastmod>2023-03-03T16:09:00Z</lastmod>
+  <lastmod>2023-05-24T18:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/index-2.html</loc>
-  <lastmod>2023-03-03T16:09:00Z</lastmod>
+  <lastmod>2023-05-24T18:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/blog/old-blog-posts/</loc>
@@ -612,10 +612,6 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/xarray-1/</loc>
   <lastmod>2022-10-20T19:14:00Z</lastmod>
- </url>
- <url>
-  <loc>https://atmamani.github.io/cheatsheets/open-geo/xarray-2/</loc>
-  <lastmod>2022-10-21T06:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/pandas/pandas_cheat_sheet_1/</loc>
