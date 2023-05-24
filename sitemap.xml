@@ -558,6 +558,18 @@
   <lastmod>2022-11-23T21:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/gdal_t1/</loc>
+  <lastmod>2023-05-24T18:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/gdal_t2/</loc>
+  <lastmod>2023-05-24T18:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/gdal_t3/</loc>
+  <lastmod>2023-05-24T18:20:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/geopandas-1/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
  </url>
@@ -572,6 +584,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/geopandas-4/</loc>
   <lastmod>2022-06-08T17:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/cheatsheets/open-geo/ogr_t1/</loc>
+  <lastmod>2023-05-24T18:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/cheatsheets/open-geo/open-geo-raster-1/</loc>

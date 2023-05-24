@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OGR_t1 | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/open-geo/ogr_t1/">
+<link rel="icon" href="../../../scatter-16.png" sizes="16x16">
+<link rel="icon" href="../../../scatter-32.png" sizes="32x32">
+<link rel="icon" href="../../../scatter-64.png" sizes="64x64">
+<link rel="icon" href="../../../scatter-128.png" sizes="128x128">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="OGR_t1">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/ogr_t1/">
+<meta property="og:description" content="OGR¶
+
+
+
+
+
+
+Commands
+
+ogrinfo: Lists information about an OGR-supported data source.
+ogr2ogr: Converts simple features data between file formats.
+ogrtindex: Creates a tileindex.
+ogrlineref: Create line">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-04-27T08:13:26-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma’s blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+                </li>
+<li>
+<a href="../../../books/">Books</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../python/python_datatypes/">Python datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_numeric_datatypes/">Python numeric datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_conditional_execution/">Python conditional execution</a>
+                    </li>
+<li>
+<a href="../../python/python_functions/">Python functions</a>
+                    </li>
+<li>
+<a href="../../python/python_iterations/">Python iterations</a>
+                    </li>
+<li>
+<a href="../../python/python_exception_handling/">Python exception handling</a>
+                    </li>
+<li>
+<a href="../../python/python_classes/">Python classes</a>
+                    </li>
+<li>
+<a href="../../python/python_memory/">Python memory, ref counts, garbage collection</a>
+                    </li>
+<li>
+<a href="../../python/python_mutability/">Python - mutability and immutability</a>
+                    </li>
+<li>
+<a href="../../python/python_language_optimizations/">Python - language optimizations</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../golang/">Go introduction</a>
+                    </li>
+<li>
+<a href="../../golang/golang-basics/">Go basics</a>
+                    </li>
+<li>
+<a href="../../golang/golang-datatypes/">Go data types</a>
+                    </li>
+<li>
+<a href="../../golang/golang-control-flow/">Go control flow</a>
+                    </li>
+<li>
+<a href="../../golang/goroutine/">Goroutines - concurrency in Go lang</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../mamba_cheat_sheet/">Mamba basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
+                    </li>
+<li>
+<a href="../../octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../grep-1/">Grep introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../sql/sql-1"><span class="caps">SQL</span> introduction</a>
+                    </li>
+<li>
+<a href="../../sql/sql-2"><span class="caps">SQL</span> Queries</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+                    </li>
+<li>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
+                    </li>
+<li>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
+                    </li>
+<li>
+<a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
+                    </li>
+<li>
+<a href="../postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../gdal-1/"><span class="caps">GDAL</span> - an introduction</a>
+                    </li>
+<li>
+<a href="../gdal-2/"><span class="caps">GDAL</span> - quickstart</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
+                    </li>
+<li>
+<a href="../../yaml_syntax/"><span class="caps">YAML</span> Syntax basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">OGR_t1</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="OGR"><span class="caps">OGR</span><a class="anchor-link" href="#OGR">¶</a>
+<a href="#OGR" class="headerlink" title="Permalink to this heading">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Commands</p>
+<ul>
+<li>ogrinfo: Lists information about an <span class="caps">OGR</span>-supported data source.</li>
+<li>ogr2ogr: Converts simple features data between file formats.</li>
+<li>ogrtindex: Creates a tileindex.</li>
+<li>ogrlineref: Create linear reference and provide some calculations using it.</li>
+<li>ogrmerge.py: Merge several vector datasets into a single one.</li>
+<li>ogr_layer_algebra.py: Performs various Vector layer algebraic operations.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">abharathi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">gis_data</span><span class="o">/</span><span class="n">gdal</span><span class="o">-</span><span class="n">tools</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">1870_southern-india.jpg</span>*           india-with-gcp.vrt
+1870_southern-india.jpg.aux.xml    <span class="ansi-cyan-intense-fg ansi-bold">landsat8</span>/
+5d16a93f1cf0f6000579ad2c.tif       <span class="ansi-cyan-intense-fg ansi-bold">london_1m_dsm</span>/
+<span class="ansi-red-fg">batch.py</span>*                          <span class="ansi-cyan-intense-fg ansi-bold">naip</span>/
+<span class="ansi-red-fg">batch_parallel.py</span>*                 precipitation.gpkg
+<span class="ansi-red-fg">earth_at_night.jpg</span>*                <span class="ansi-cyan-intense-fg ansi-bold">prism</span>/
+earth_at_night.tif                 reservoirs.xml
+<span class="ansi-cyan-intense-fg ansi-bold">earthquakes</span>/                       reservoirs_india.tif
+gdal_stuff.qgz                     reservoirs_india_proj.tif
+<span class="ansi-cyan-intense-fg ansi-bold">geonames</span>/                          spatial_query.gpkg
+india-reprojected-polynomial.tif   <span class="ansi-cyan-intense-fg ansi-bold">srtm</span>/
+india-reprojected-tps.tif          <span class="ansi-red-fg">worldcities.csv</span>*
+india-reprojected-tps.tif.aux.xml
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Info-using-OGRINFO">Info using <span class="caps">OGRINFO</span><a class="anchor-link" href="#Info-using-OGRINFO">¶</a>
+<a href="#Info-using-OGRINFO" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ogrinfo worldcities.csv
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO: Open of `worldcities.csv'
+      using driver `CSV' successful.
+1: worldcities (None)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ogrinfo -al -so worldcities.csv
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO: Open of `worldcities.csv'
+      using driver `CSV' successful.
+
+Layer name: worldcities
+Geometry: None
+Feature Count: 15493
+Layer SRS WKT:
+(unknown)
+city: String (0.0)
+city_ascii: String (0.0)
+lat: String (0.0)
+lng: String (0.0)
+country: String (0.0)
+iso2: String (0.0)
+iso3: String (0.0)
+admin_name: String (0.0)
+capital: String (0.0)
+population: String (0.0)
+id: String (0.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="ogr2ogr-the-Swiss-army-knife">
+<code>ogr2ogr</code> the Swiss army knife<a class="anchor-link" href="#ogr2ogr-the-Swiss-army-knife">¶</a>
+<a href="#ogr2ogr-the-Swiss-army-knife" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Convert-CSV-to-GeoPackage">Convert <span class="caps">CSV</span> to GeoPackage<a class="anchor-link" href="#Convert-CSV-to-GeoPackage">¶</a>
+<a href="#Convert-CSV-to-GeoPackage" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">ogr2ogr</span> <span class="o">-</span><span class="n">f</span> <span class="n">GPKG</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">gpkg</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">csv</span> \
+  <span class="o">-</span><span class="n">oo</span> <span class="n">X_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lng</span> <span class="o">-</span><span class="n">oo</span> <span class="n">Y_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lat</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">4326</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 9.59 ms, sys: 9.28 ms, total: 18.9 ms
+Wall time: 887 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Use-SQL-statements">Use <span class="caps">SQL</span> statements<a class="anchor-link" href="#Use-SQL-statements">¶</a>
+<a href="#Use-SQL-statements" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">ogr2ogr</span> <span class="o">-</span><span class="n">f</span> <span class="n">GPKG</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">gpkg</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">csv</span> \
+  <span class="o">-</span><span class="n">oo</span> <span class="n">X_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lng</span> <span class="o">-</span><span class="n">oo</span> <span class="n">Y_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lat</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">4326</span> \
+  <span class="o">-</span><span class="n">sql</span> <span class="s2">"SELECT city, country, CAST(population AS integer) as population from worldcities where country = 'India'"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 4.59 ms, sys: 8.77 ms, total: 13.4 ms
+Wall time: 381 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Rename-layer-in-gpkg">Rename layer in gpkg<a class="anchor-link" href="#Rename-layer-in-gpkg">¶</a>
+<a href="#Rename-layer-in-gpkg" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">ogr2ogr</span> <span class="o">-</span><span class="n">f</span> <span class="n">GPKG</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">gpkg</span> <span class="n">worldcities</span><span class="o">.</span><span class="n">csv</span> \
+  <span class="o">-</span><span class="n">oo</span> <span class="n">X_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lng</span> <span class="o">-</span><span class="n">oo</span> <span class="n">Y_POSSIBLE_NAMES</span><span class="o">=</span><span class="n">lat</span> <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">4326</span> \
+  <span class="o">-</span><span class="n">sql</span> <span class="s2">"SELECT city, country, CAST(population AS integer) as population from worldcities where country = 'India'"</span> \
+  <span class="o">-</span><span class="n">nln</span> <span class="n">mycities</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 4.89 ms, sys: 6.51 ms, total: 11.4 ms
+Wall time: 443 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ogrinfo -so -al worldcities.gpkg
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO: Open of `worldcities.gpkg'
+      using driver `GPKG' successful.
+
+Layer name: mycities
+Geometry: Point
+Feature Count: 212
+Extent: (69.670000, 8.180400) - (94.900000, 34.300000)
+Layer SRS WKT:
+GEOGCRS["WGS 84",
+    ENSEMBLE["World Geodetic System 1984 ensemble",
+        MEMBER["World Geodetic System 1984 (Transit)"],
+        MEMBER["World Geodetic System 1984 (G730)"],
+        MEMBER["World Geodetic System 1984 (G873)"],
+        MEMBER["World Geodetic System 1984 (G1150)"],
+        MEMBER["World Geodetic System 1984 (G1674)"],
+        MEMBER["World Geodetic System 1984 (G1762)"],
+        MEMBER["World Geodetic System 1984 (G2139)"],
+        ELLIPSOID["WGS 84",6378137,298.257223563,
+            LENGTHUNIT["metre",1]],
+        ENSEMBLEACCURACY[2.0]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    USAGE[
+        SCOPE["Horizontal component of 3D system."],
+        AREA["World."],
+        BBOX[-90,-180,90,180]],
+    ID["EPSG",4326]]
+Data axis to CRS axis mapping: 2,1
+FID Column = fid
+Geometry Column = geom
+city: String (0.0)
+country: String (0.0)
+population: Integer (0.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Exercise-6">Exercise 6<a class="anchor-link" href="#Exercise-6">¶</a>
+<a href="#Exercise-6" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ogr2ogr mycities.shp worldcities.gpkg <span class="err">\</span>
+<span class="o">-</span><span class="n">t_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">7755</span> <span class="o">-</span><span class="n">lco</span> <span class="n">ENCODING</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> \
+<span class="o">-</span><span class="n">lco</span> <span class="n">SPATIAL_INDEX</span><span class="o">=</span><span class="n">Yes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Querying-data-using-ogr2ogr">Querying data using <code>ogr2ogr</code><a class="anchor-link" href="#Querying-data-using-ogr2ogr">¶</a>
+<a href="#Querying-data-using-ogr2ogr" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">1870_southern-india.jpg</span>*           mycities.dbf
+1870_southern-india.jpg.aux.xml    mycities.prj
+5d16a93f1cf0f6000579ad2c.tif       mycities.qix
+<span class="ansi-red-fg">batch.py</span>*                          mycities.shp
+<span class="ansi-red-fg">batch_parallel.py</span>*                 mycities.shx
+<span class="ansi-red-fg">earth_at_night.jpg</span>*                <span class="ansi-cyan-intense-fg ansi-bold">naip</span>/
+earth_at_night.tif                 precipitation.gpkg
+<span class="ansi-cyan-intense-fg ansi-bold">earthquakes</span>/                       <span class="ansi-cyan-intense-fg ansi-bold">prism</span>/
+gdal_stuff.qgz                     reservoirs.xml
+<span class="ansi-cyan-intense-fg ansi-bold">geonames</span>/                          reservoirs_india.tif
+india-reprojected-polynomial.tif   reservoirs_india_proj.tif
+india-reprojected-tps.tif          spatial_query.gpkg
+india-reprojected-tps.tif.aux.xml  <span class="ansi-cyan-intense-fg ansi-bold">srtm</span>/
+india-with-gcp.vrt                 <span class="ansi-red-fg">worldcities.csv</span>*
+<span class="ansi-cyan-intense-fg ansi-bold">landsat8</span>/                          worldcities.gpkg
+<span class="ansi-cyan-intense-fg ansi-bold">london_1m_dsm</span>/                     worldcities.gpkg-shm
+mycities.cpg                       worldcities.gpkg-wal
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get country pop from city pop</span>
+<span class="o">!</span>ogr2ogr country_pop.csv worldcities.gpkg <span class="err">\</span>
+  <span class="o">-</span><span class="n">sql</span> <span class="s2">"SELECT country, sum(population) as total_population from worldcities GROUP BY country"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ERROR 1: In ExecuteSQL(): sqlite3_prepare_v2(SELECT country, sum(population) as total_population from worldcities GROUP BY country):
+  no such table: worldcities
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Merging-layers">Merging layers<a class="anchor-link" href="#Merging-layers">¶</a>
+<a href="#Merging-layers" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">earthquakes</span><span class="o">/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools/earthquakes
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">2020_01.geojson</span>* <span class="ansi-red-fg">2020_04.geojson</span>* <span class="ansi-red-fg">2020_07.geojson</span>* <span class="ansi-red-fg">2020_10.geojson</span>*
+<span class="ansi-red-fg">2020_02.geojson</span>* <span class="ansi-red-fg">2020_05.geojson</span>* <span class="ansi-red-fg">2020_08.geojson</span>* <span class="ansi-red-fg">2020_11.geojson</span>*
+<span class="ansi-red-fg">2020_03.geojson</span>* <span class="ansi-red-fg">2020_06.geojson</span>* <span class="ansi-red-fg">2020_09.geojson</span>* <span class="ansi-red-fg">2020_12.geojson</span>*
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>which ogrmerge.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/micromamba/envs/opengeo/bin/ogrmerge.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> -i /Users/abharathi/micromamba/envs/opengeo/bin/ogrmerge.py --help
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ERROR: Unrecognized argument : --help
+Usage: ogrmerge.py -o out_dsname src_dsname [src_dsname]*
+            [-f format] [-single] [-nln layer_name_template]
+            [-update | -overwrite_ds] [-append | -overwrite_layer]
+            [-src_geom_type geom_type_name[,geom_type_name]*]
+            [-dsco NAME=VALUE]* [-lco NAME=VALUE]*
+            [-s_srs srs_def] [-t_srs srs_def | -a_srs srs_def]
+            [-progress] [-skipfailures] [--help-general]
+
+Options specific to -single:
+            [-field_strategy FirstLayer|Union|Intersection]
+            [-src_layer_field_name name]
+            [-src_layer_field_content layer_name_template]
+
+* layer_name_template can contain the following substituable variables:
+     {AUTO_NAME}  : {DS_BASENAME}_{LAYER_NAME} if they are different
+                    or {LAYER_NAME} if they are identical
+     {DS_NAME}    : name of the source dataset
+     {DS_BASENAME}: base name of the source dataset
+     {DS_INDEX}   : index of the source dataset
+     {LAYER_NAME} : name of the source layer
+     {LAYER_INDEX}: index of the source layer
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+An exception has occurred, use %tb to see the full traceback.
+
+<span class="ansi-red-fg">SystemExit</span><span class="ansi-red-fg">:</span> 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> -i /Users/abharathi/micromamba/envs/opengeo/bin/ogrmerge.py -o earthquakes.gpkg *.geojson \
+ <span class="o">-</span><span class="n">single</span> <span class="o">-</span><span class="n">nln</span> <span class="n">all_earthquakes</span> <span class="o">-</span><span class="n">overwrite_ds</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Write-a-new-layer-into-the-existing-geopackage">Write a new layer into the existing geopackage<a class="anchor-link" href="#Write-a-new-layer-into-the-existing-geopackage">¶</a>
+<a href="#Write-a-new-layer-into-the-existing-geopackage" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ogr2ogr earthquakes.gpkg earthquakes.gpkg <span class="err">\</span>
+<span class="o">-</span><span class="n">where</span> <span class="s2">"mag&gt;4.5"</span> <span class="o">-</span><span class="n">nln</span> <span class="n">large_earthquakes</span> <span class="o">-</span><span class="n">update</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Spatial-SQL">Spatial <span class="caps">SQL</span><a class="anchor-link" href="#Spatial-SQL">¶</a>
+<a href="#Spatial-SQL" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p><span class="caps">OGR</span> supports dialect called SQLite dialect that is implemented by SpatiaLite. This is not as powerful as postGIS, but still useful.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="ETL-section"><span class="caps">ETL</span> section<a class="anchor-link" href="#ETL-section">¶</a>
+<a href="#ETL-section" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load batch.py</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">input_dir</span> <span class="o">=</span> <span class="s1">'naip'</span>
+
+<span class="n">command</span> <span class="o">=</span> <span class="s1">'gdal_translate -of GTiff -co COMPRESS=JPEG </span><span class="si">{input}</span><span class="s1"> </span><span class="si">{output}</span><span class="s1">'</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.jp2'</span><span class="p">):</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">'.tif'</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load batch_parallel.py</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+
+<span class="n">input_dir</span> <span class="o">=</span> <span class="s1">'naip'</span>
+
+<span class="n">command</span> <span class="o">=</span> <span class="s1">'gdal_translate -of GTiff -co COMPRESS=JPEG </span><span class="si">{input}</span><span class="s1"> </span><span class="si">{output}</span><span class="s1">'</span>
+
+<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">'.tif'</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span>
+    
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.jp2'</span><span class="p">)]</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+  <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>
+  <span class="n">end</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+  
+  <span class="c1"># start = timer()</span>
+  <span class="c1"># for file in files:</span>
+  <span class="c1">#   process(file)</span>
+  <span class="c1"># end = timer()</span>
+  <span class="c1"># print(end - start)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2023         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

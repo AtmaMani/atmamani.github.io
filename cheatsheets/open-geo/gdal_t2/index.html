@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gdal_t2 | Atma's blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#d4567b">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../../rss.xml">
+<link rel="canonical" href="https://atmamani.github.io/cheatsheets/open-geo/gdal_t2/">
+<link rel="icon" href="../../../scatter-16.png" sizes="16x16">
+<link rel="icon" href="../../../scatter-32.png" sizes="32x32">
+<link rel="icon" href="../../../scatter-64.png" sizes="64x64">
+<link rel="icon" href="../../../scatter-128.png" sizes="128x128">
+<!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113202945-1');
+</script><meta name="author" content="Atma Mani">
+<meta property="og:site_name" content="Atma's blog">
+<meta property="og:title" content="gdal_t2">
+<meta property="og:url" content="https://atmamani.github.io/cheatsheets/open-geo/gdal_t2/">
+<meta property="og:description" content="GDAL day 2¶
+
+
+
+
+
+
+GDAL - Geospatial Data Abstration Library
+Set up¶Use - opengeo micromamba env. 
+Move to gdal-tools folder.
+
+
+
+
+
+
+In [2]:
+
+    
+cd /Users/abharathi/Documents/gis_data/gdal-tools/
+
+
+  ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2023-04-27T05:51:39-07:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://atmamani.github.io/">
+
+                <span id="blog-title">Atma’s blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../../projects/math/">Learn math with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/stats/">Learn stats with Python</a>
+                    </li>
+<li>
+<a href="../../../projects/ml/">Machine Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/dl/">Deep Learning projects</a>
+                    </li>
+<li>
+<a href="../../../projects/spatial/">Spatial analysis</a>
+                    </li>
+<li>
+<a href="../../../projects/thermal/">Thermal remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/mwrs/">Microwave remote sensing</a>
+                    </li>
+<li>
+<a href="../../../projects/cloud/">Cloud computing</a>
+                    </li>
+<li>
+<a href="../../../projects/fun/">Fun projects</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../blog/">Blog</a>
+                </li>
+<li>
+<a href="../../../talks/">Talks</a>
+                </li>
+<li>
+<a href="../../../books/">Books</a>
+            </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cheatsheets <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../../learning-resources/">General learning resources</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../python/python_datatypes/">Python datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_numeric_datatypes/">Python numeric datatypes</a>
+                    </li>
+<li>
+<a href="../../python/python_conditional_execution/">Python conditional execution</a>
+                    </li>
+<li>
+<a href="../../python/python_functions/">Python functions</a>
+                    </li>
+<li>
+<a href="../../python/python_iterations/">Python iterations</a>
+                    </li>
+<li>
+<a href="../../python/python_exception_handling/">Python exception handling</a>
+                    </li>
+<li>
+<a href="../../python/python_classes/">Python classes</a>
+                    </li>
+<li>
+<a href="../../python/python_memory/">Python memory, ref counts, garbage collection</a>
+                    </li>
+<li>
+<a href="../../python/python_mutability/">Python - mutability and immutability</a>
+                    </li>
+<li>
+<a href="../../python/python_language_optimizations/">Python - language optimizations</a>
+                    </li>
+<li>
+<a href="../../../images/regex-mindmap.jpg">Python regex</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../golang/">Go introduction</a>
+                    </li>
+<li>
+<a href="../../golang/golang-basics/">Go basics</a>
+                    </li>
+<li>
+<a href="../../golang/golang-datatypes/">Go data types</a>
+                    </li>
+<li>
+<a href="../../golang/golang-control-flow/">Go control flow</a>
+                    </li>
+<li>
+<a href="../../golang/goroutine/">Goroutines - concurrency in Go lang</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../conda_cheat_sheet/">Conda basics</a>
+                    </li>
+<li>
+<a href="../../mamba_cheat_sheet/">Mamba basics</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_1/">NumPy basics</a>
+                    </li>
+<li>
+<a href="../../numpy/numpy_cheat_sheet_2/">NumPy array slicing, dicing, searching</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_1/">Pandas basics</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_2/">Pandas multilevel index, <br>    missing data, aggregation, merging</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_cheat_sheet_3/">Productivity with Pandas</a>
+                    </li>
+<li>
+<a href="../../pandas/pandas_data_viz_1/">Pandas data visualization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_1/">Matplotlib basics</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_2/">Matplotlib log scales, ticks, scientific</a>
+                    </li>
+<li>
+<a href="../../matplotlib/matplotlib_geo/">Geographical plotting with Basemap - matplotlib toolkit</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_1/">Seaborn dist, joint, pair, rug plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_2/">Seaborn categorical - bar, count, <br>violin, strip, swarm plots</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_3/">Seaborn matrix, regression - heatmap, <br> cluster, regression</a>
+                    </li>
+<li>
+<a href="../../seaborn/seaborn_cheat_sheet_4/">Seaborn grids <span class="amp">&amp;</span> custom - pair, facet grids <br> customization</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_1/">Plotly introduction</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_cufflinks_cheat_sheet_2/">Plotly - interactive plotting</a>
+                    </li>
+<li>
+<a href="../../plotly/plotly_geographical_plotting_1/">Plotly - geographic plotting</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../r_cheat_sheet_1/">R basics</a>
+                    </li>
+<li>
+<a href="../../octave-1/">Octave / <span class="caps">MATLAB</span> - basics</a>
+                    </li>
+<li>
+<a href="../../octave-2/">Octave - handling data</a>
+                    </li>
+<li>
+<a href="../../js_essentials/">Javascript essentials</a>
+                    </li>
+<li>
+<a href="../../latex-1/">Latex introduction</a>
+                    </li>
+<li>
+<a href="../../docker-1/">Docker introduction</a>
+                    </li>
+<li>
+<a href="../../grep-1/">Grep introduction</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../sql/sql-1"><span class="caps">SQL</span> introduction</a>
+                    </li>
+<li>
+<a href="../../sql/sql-2"><span class="caps">SQL</span> Queries</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../geopandas-1/">GeoPandas - <span class="caps">IO</span>, projections, plotting</a>
+                    </li>
+<li>
+<a href="../geopandas-2/">GeoPandas - <span class="caps">GP</span>, <span class="caps">IO</span>, interactive plotting, geocoding</a>
+                    </li>
+<li>
+<a href="../geopandas-3/">GeoPandas - spatial overlays, topology</a>
+                    </li>
+<li>
+<a href="../geopandas-4/">GeoPandas - PySal, <span class="caps">OSM</span> data <span class="caps">IO</span></a>
+                    </li>
+<li>
+<a href="../open-geo-raster-1/">Rasterio - <span class="caps">IO</span>, plotting, histograms</a>
+                    </li>
+<li>
+<a href="../open-geo-raster-2/">Rasterio - hyperspectral, <span class="caps">SAM</span></a>
+                    </li>
+<li>
+<a href="../reading-multidim-data-using-opengeotools/">Reading multi-dimensional data using open geo tools</a>
+                    </li>
+<li>
+<a href="../postgis-1/">PostGIS - introduction</a>
+                    </li>
+<li>
+<a href="../postgis-2/">PostGIS - SQLAlchemy, GeoAlchemy, GeoPandas</a>
+                    </li>
+<li>
+<a href="../gdal-1/"><span class="caps">GDAL</span> - an introduction</a>
+                    </li>
+<li>
+<a href="../gdal-2/"><span class="caps">GDAL</span> - quickstart</a>
+                    </li>
+<li>
+<a href="../../../"><hr></a>
+                    </li>
+<li>
+<a href="../../web-development/">Web Development</a>
+                    </li>
+<li>
+<a href="../../html/"><span class="caps">HTML</span> basics</a>
+                    </li>
+<li>
+<a href="../../yaml_syntax/"><span class="caps">YAML</span> Syntax basics</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../../../apps/">Apps</a>
+                </li>
+<li>
+<a href="../../../rss.xml"><span class="caps">RSS</span> feed</a>
+
+                
+            </li>
+</ul>
+<!-- DuckDuckGo custom search --><form method="get" id="search" action="https://duckduckgo.com/" class="navbar-form pull-left">
+<input type="hidden" name="sites" value="https://atmamani.github.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span2" style="margin-top: 4px;"><input type="submit" value="DuckDuckGo Search" style="visibility: hidden;">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">gdal_t2</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GDAL-day-2"><span class="caps">GDAL</span> day 2<a class="anchor-link" href="#GDAL-day-2">¶</a>
+<a href="#GDAL-day-2" class="headerlink" title="Permalink to this heading">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span class="caps">GDAL</span> - Geospatial Data Abstration Library</p>
+<h5 id="Set-up">Set up<a class="anchor-link" href="#Set-up">¶</a>
+<a href="#Set-up" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>Use - <code>opengeo</code> micromamba env. 
+Move to <code>gdal-tools</code> folder.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">abharathi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">gis_data</span><span class="o">/</span><span class="n">gdal</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">1870_southern-india.jpg</span>*      <span class="ansi-cyan-intense-fg ansi-bold">landsat8</span>/
+5d16a93f1cf0f6000579ad2c.tif  <span class="ansi-cyan-intense-fg ansi-bold">london_1m_dsm</span>/
+<span class="ansi-red-fg">batch.py</span>*                     <span class="ansi-cyan-intense-fg ansi-bold">naip</span>/
+<span class="ansi-red-fg">batch_parallel.py</span>*            precipitation.gpkg
+<span class="ansi-red-fg">earth_at_night.jpg</span>*           <span class="ansi-cyan-intense-fg ansi-bold">prism</span>/
+<span class="ansi-cyan-intense-fg ansi-bold">earthquakes</span>/                  spatial_query.gpkg
+gdal_stuff.qgz                <span class="ansi-cyan-intense-fg ansi-bold">srtm</span>/
+<span class="ansi-cyan-intense-fg ansi-bold">geonames</span>/                     <span class="ansi-red-fg">worldcities.csv</span>*
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Talk-to-Cloud-systems-via-streaming">Talk to Cloud systems via streaming<a class="anchor-link" href="#Talk-to-Cloud-systems-via-streaming">¶</a>
+<a href="#Talk-to-Cloud-systems-via-streaming" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>gdalinfo /vsigs/spatialthoughts-public-data/viirs_ntl_2021_global.tif --config GS_NO_SIGN_REQUEST YES
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Driver: GTiff/GeoTIFF
+Files: /vsigs/spatialthoughts-public-data/viirs_ntl_2021_global.tif
+Size is 80152, 80196
+Coordinate System is:
+PROJCRS["WGS 84 / Pseudo-Mercator",
+    BASEGEOGCRS["WGS 84",
+        ENSEMBLE["World Geodetic System 1984 ensemble",
+            MEMBER["World Geodetic System 1984 (Transit)"],
+            MEMBER["World Geodetic System 1984 (G730)"],
+            MEMBER["World Geodetic System 1984 (G873)"],
+            MEMBER["World Geodetic System 1984 (G1150)"],
+            MEMBER["World Geodetic System 1984 (G1674)"],
+            MEMBER["World Geodetic System 1984 (G1762)"],
+            MEMBER["World Geodetic System 1984 (G2139)"],
+            ELLIPSOID["WGS 84",6378137,298.257223563,
+                LENGTHUNIT["metre",1]],
+            ENSEMBLEACCURACY[2.0]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4326]],
+    CONVERSION["Popular Visualisation Pseudo-Mercator",
+        METHOD["Popular Visualisation Pseudo Mercator",
+            ID["EPSG",1024]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["False easting",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting (X)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["northing (Y)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Web mapping and visualisation."],
+        AREA["World between 85.06°S and 85.06°N."],
+        BBOX[-85.06,-180,85.06,180]],
+    ID["EPSG",3857]]
+Data axis to CRS axis mapping: 1,2
+Origin = (-20038000.000000000000000,20049000.000000000000000)
+Pixel Size = (500.000000000000000,-500.000000000000000)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  COMPRESSION=DEFLATE
+  INTERLEAVE=BAND
+  LAYOUT=COG
+  PREDICTOR=2
+Corner Coordinates:
+Upper Left  (-20038000.000,20049000.000) (179d59'44.10"E, 85d 3'36.09"N)
+Lower Left  (-20038000.000,-20049000.000) (179d59'44.10"E, 85d 3'36.09"S)
+Upper Right (20038000.000,20049000.000) (179d59'44.10"W, 85d 3'36.09"N)
+Lower Right (20038000.000,-20049000.000) (179d59'44.10"W, 85d 3'36.09"S)
+Center      (   0.0000000,   0.0000000) (  0d 0' 0.01"E,  0d 0' 0.01"N)
+Band 1 Block=512x512 Type=Float32, ColorInterp=Gray
+  NoData Value=-9999
+  Overviews: 40076x40098, 20038x20049, 10019x10024, 5009x5012, 2504x2506, 1252x1253, 626x626, 313x313
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Working-with-aerial-imagery">Working with aerial imagery<a class="anchor-link" href="#Working-with-aerial-imagery">¶</a>
+<a href="#Working-with-aerial-imagery" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">naip</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools/naip
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">aoi.cpg</span>*        <span class="ansi-red-fg">output_2_1.jp2</span>* <span class="ansi-red-fg">output_3_8.jp2</span>* <span class="ansi-red-fg">output_5_7.jp2</span>* <span class="ansi-red-fg">output_7_6.jp2</span>*
+<span class="ansi-red-fg">aoi.dbf</span>*        <span class="ansi-red-fg">output_2_2.jp2</span>* <span class="ansi-red-fg">output_4_1.jp2</span>* <span class="ansi-red-fg">output_5_8.jp2</span>* <span class="ansi-red-fg">output_7_7.jp2</span>*
+<span class="ansi-red-fg">aoi.prj</span>*        <span class="ansi-red-fg">output_2_3.jp2</span>* <span class="ansi-red-fg">output_4_2.jp2</span>* <span class="ansi-red-fg">output_6_1.jp2</span>* <span class="ansi-red-fg">output_7_8.jp2</span>*
+<span class="ansi-red-fg">aoi.qpj</span>*        <span class="ansi-red-fg">output_2_4.jp2</span>* <span class="ansi-red-fg">output_4_3.jp2</span>* <span class="ansi-red-fg">output_6_2.jp2</span>* <span class="ansi-red-fg">output_8_1.jp2</span>*
+<span class="ansi-red-fg">aoi.shp</span>*        <span class="ansi-red-fg">output_2_5.jp2</span>* <span class="ansi-red-fg">output_4_4.jp2</span>* <span class="ansi-red-fg">output_6_3.jp2</span>* <span class="ansi-red-fg">output_8_2.jp2</span>*
+<span class="ansi-red-fg">aoi.shx</span>*        <span class="ansi-red-fg">output_2_6.jp2</span>* <span class="ansi-red-fg">output_4_5.jp2</span>* <span class="ansi-red-fg">output_6_4.jp2</span>* <span class="ansi-red-fg">output_8_3.jp2</span>*
+filelist.txt    <span class="ansi-red-fg">output_2_7.jp2</span>* <span class="ansi-red-fg">output_4_6.jp2</span>* <span class="ansi-red-fg">output_6_5.jp2</span>* <span class="ansi-red-fg">output_8_4.jp2</span>*
+<span class="ansi-red-fg">output_1_1.jp2</span>* <span class="ansi-red-fg">output_2_8.jp2</span>* <span class="ansi-red-fg">output_4_7.jp2</span>* <span class="ansi-red-fg">output_6_6.jp2</span>* <span class="ansi-red-fg">output_8_5.jp2</span>*
+<span class="ansi-red-fg">output_1_2.jp2</span>* <span class="ansi-red-fg">output_3_1.jp2</span>* <span class="ansi-red-fg">output_4_8.jp2</span>* <span class="ansi-red-fg">output_6_7.jp2</span>* <span class="ansi-red-fg">output_8_6.jp2</span>*
+<span class="ansi-red-fg">output_1_3.jp2</span>* <span class="ansi-red-fg">output_3_2.jp2</span>* <span class="ansi-red-fg">output_5_1.jp2</span>* <span class="ansi-red-fg">output_6_8.jp2</span>* <span class="ansi-red-fg">output_8_7.jp2</span>*
+<span class="ansi-red-fg">output_1_4.jp2</span>* <span class="ansi-red-fg">output_3_3.jp2</span>* <span class="ansi-red-fg">output_5_2.jp2</span>* <span class="ansi-red-fg">output_7_1.jp2</span>* <span class="ansi-red-fg">output_8_8.jp2</span>*
+<span class="ansi-red-fg">output_1_5.jp2</span>* <span class="ansi-red-fg">output_3_4.jp2</span>* <span class="ansi-red-fg">output_5_3.jp2</span>* <span class="ansi-red-fg">output_7_2.jp2</span>*
+<span class="ansi-red-fg">output_1_6.jp2</span>* <span class="ansi-red-fg">output_3_5.jp2</span>* <span class="ansi-red-fg">output_5_4.jp2</span>* <span class="ansi-red-fg">output_7_3.jp2</span>*
+<span class="ansi-red-fg">output_1_7.jp2</span>* <span class="ansi-red-fg">output_3_6.jp2</span>* <span class="ansi-red-fg">output_5_5.jp2</span>* <span class="ansi-red-fg">output_7_4.jp2</span>*
+<span class="ansi-red-fg">output_1_8.jp2</span>* <span class="ansi-red-fg">output_3_7.jp2</span>* <span class="ansi-red-fg">output_5_6.jp2</span>* <span class="ansi-red-fg">output_7_5.jp2</span>*
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Mosaicing-aerial-images">Mosaicing aerial images<a class="anchor-link" href="#Mosaicing-aerial-images">¶</a>
+<a href="#Mosaicing-aerial-images" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">*.</span><span class="n">jp2</span> <span class="o">&gt;</span> <span class="n">filelist</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Alpha</strong> band is an additional band that simply states which cells have value and which have no-Data. It is an image mask. Alpha is useful when you compress raster using <span class="caps">PNG</span> or <span class="caps">JP2</span> formats and reduce quantization to 8bit Uint8. With such low dynamic range, it becomes tricky to use <code>0</code> or <code>255</code> as no-data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>gdalinfo output_1_1.jp2
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Driver: JP2OpenJPEG/JPEG-2000 driver based on OpenJPEG library
+Files: output_1_1.jp2
+Size is 5000, 5000
+Coordinate System is:
+PROJCRS["NAD83 / UTM zone 10N",
+    BASEGEOGCRS["NAD83",
+        DATUM["North American Datum 1983",
+            ELLIPSOID["GRS 1980",6378137,298.257222101,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4269]],
+    CONVERSION["UTM zone 10N",
+        METHOD["Transverse Mercator",
+            ID["EPSG",9807]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",-123,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["Scale factor at natural origin",0.9996,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8805]],
+        PARAMETER["False easting",500000,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["(E)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["(N)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Engineering survey, topographic mapping."],
+        AREA["North America - between 126°W and 120°W - onshore and offshore. Canada - British Columbia; Northwest Territories; Yukon. United States (USA) - California; Oregon; Washington."],
+        BBOX[30.54,-126,81.8,-119.99]],
+    ID["EPSG",26910]]
+Data axis to CRS axis mapping: 1,2
+Origin = (545028.000000000000000,4249325.999946000054479)
+Pixel Size = (0.600000000000000,-0.600000000600000)
+Image Structure Metadata:
+  INTERLEAVE=PIXEL
+  COMPRESSION_REVERSIBILITY=LOSSY
+Corner Coordinates:
+Upper Left  (  545028.000, 4249326.000) (122d29' 3.80"W, 38d23'27.65"N)
+Lower Left  (  545028.000, 4246326.000) (122d29' 4.49"W, 38d21'50.32"N)
+Upper Right (  548028.000, 4249326.000) (122d27' 0.14"W, 38d23'27.08"N)
+Lower Right (  548028.000, 4246326.000) (122d27' 0.87"W, 38d21'49.76"N)
+Center      (  546528.000, 4247826.000) (122d28' 2.32"W, 38d22'38.71"N)
+Band 1 Block=1024x1024 Type=Byte, ColorInterp=Undefined
+  Overviews: 2500x2500, 1250x1250, 625x625
+  Overviews: arbitrary
+  Image Structure Metadata:
+    COMPRESSION=JPEG2000
+Band 2 Block=1024x1024 Type=Byte, ColorInterp=Undefined
+  Overviews: 2500x2500, 1250x1250, 625x625
+  Overviews: arbitrary
+  Image Structure Metadata:
+    COMPRESSION=JPEG2000
+Band 3 Block=1024x1024 Type=Byte, ColorInterp=Undefined
+  Overviews: 2500x2500, 1250x1250, 625x625
+  Overviews: arbitrary
+  Image Structure Metadata:
+    COMPRESSION=JPEG2000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Build-virtual-tile-that-mosaics-the-drone-images-using-gdalbuildvrt">Build virtual tile that mosaics the drone images using <code>gdalbuildvrt</code><a class="anchor-link" href="#Build-virtual-tile-that-mosaics-the-drone-images-using-gdalbuildvrt">¶</a>
+<a href="#Build-virtual-tile-that-mosaics-the-drone-images-using-gdalbuildvrt" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="o">!</span>gdalbuildvrt -input_file_list filelist.txt naip.vrt
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 4 µs, sys: 1e+03 ns, total: 5 µs
+Wall time: 12.9 µs
+0...10...20...30...40...50...60...70...80...90...100 - done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Create-overview-file-for-visualizing-gdal_translate">Create overview file for visualizing <code>gdal_translate</code><a class="anchor-link" href="#Create-overview-file-for-visualizing-gdal_translate">¶</a>
+<a href="#Create-overview-file-for-visualizing-gdal_translate" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="o">-</span><span class="n">of</span> <span class="n">JPEG</span> <span class="o">-</span><span class="n">outsize</span> <span class="mi">2</span><span class="o">%</span> <span class="mi">2</span><span class="o">%</span> <span class="n">naip</span><span class="o">.</span><span class="n">vrt</span> <span class="n">naip_preview</span><span class="o">.</span><span class="n">jpg</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 40000, 40000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 38.4 ms, sys: 24.2 ms, total: 62.6 ms
+Wall time: 3.22 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="Users/abharathi/Documents/gis_data/gdal-tools/naip/naip_preview.jpg"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdaltindex</span> <span class="o">-</span><span class="n">write_absolute_path</span> <span class="n">index</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">optfile</span> <span class="n">filelist</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Creating new index file...
+CPU times: user 20 ms, sys: 15.3 ms, total: 35.4 ms
+Wall time: 1.17 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Processing-satellite-image">Processing satellite image<a class="anchor-link" href="#Processing-satellite-image">¶</a>
+<a href="#Processing-satellite-image" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">landsat8</span><span class="o">/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools/landsat8
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>total 1845384
+-rwxr-xr-x@ 1 abharathi  staff   110M Oct 12  2019 <span class="ansi-red-fg">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019-09-20_B2.tif</span>*
+-rwxr-xr-x@ 1 abharathi  staff   115M Oct 12  2019 <span class="ansi-red-fg">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019-09-20_B3.tif</span>*
+-rwxr-xr-x@ 1 abharathi  staff   115M Oct 12  2019 <span class="ansi-red-fg">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019-09-20_B4.tif</span>*
+-rwxr-xr-x@ 1 abharathi  staff   131M Oct 12  2019 <span class="ansi-red-fg">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019-09-20_B5.tif</span>*
+-rwxr-xr-x@ 1 abharathi  staff   430M Oct 12  2019 <span class="ansi-red-fg">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019-09-20_B8.tif</span>*
+-rw-r--r--  1 abharathi  staff   2.5K Apr 26 06:47 rgb.vrt
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Use-gdalbuildvrt-to-composite-bands-into-a-virtual-raster">Use <code>gdalbuildvrt</code> to composite bands into a virtual raster<a class="anchor-link" href="#Use-gdalbuildvrt-to-composite-bands-into-a-virtual-raster">¶</a>
+<a href="#Use-gdalbuildvrt-to-composite-bands-into-a-virtual-raster" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>gdalbuildvrt -o rgb.vrt -separate <span class="err">\</span>
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B4</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B3</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B2</span><span class="o">.</span><span class="n">tif</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0...10...20...30...40...50...60...70...80...90...100 - done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>gdalbuildvrt -o allbands.vrt -separate <span class="err">\</span>
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B4</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B3</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B2</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B5</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B8</span><span class="o">.</span><span class="n">tif</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0...10...20...30...40...50...60...70...80...90...100 - done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Use-gdaltranslate-to-convert-virtual-to-persisted-file">Use <code>gdaltranslate</code> to convert virtual to persisted file<a class="anchor-link" href="#Use-gdaltranslate-to-convert-virtual-to-persisted-file">¶</a>
+<a href="#Use-gdaltranslate-to-convert-virtual-to-persisted-file" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="n">rgp</span><span class="o">.</span><span class="n">vrt</span> <span class="n">rgb</span><span class="o">.</span><span class="n">tif</span> <span class="o">-</span><span class="n">co</span> <span class="n">PHOTOMETRIC</span><span class="o">=</span><span class="n">RGB</span> <span class="o">-</span><span class="n">co</span> <span class="n">COMPRESS</span><span class="o">=</span><span class="n">DEFLATE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ERROR 4: rgp.vrt: No such file or directory
+CPU times: user 7.96 ms, sys: 9.33 ms, total: 17.3 ms
+Wall time: 631 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Build-a-visualization-product-that-applies-histogram-stretch">Build a visualization product that applies histogram stretch<a class="anchor-link" href="#Build-a-visualization-product-that-applies-histogram-stretch">¶</a>
+<a href="#Build-a-visualization-product-that-applies-histogram-stretch" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="o">-</span><span class="n">scale</span> <span class="mi">0</span> <span class="mf">0.3</span> <span class="mi">0</span> <span class="mi">255</span> <span class="o">-</span><span class="n">ot</span> <span class="n">Byte</span> <span class="n">rgb</span><span class="o">.</span><span class="n">vrt</span> <span class="n">rgb_stretch</span><span class="o">.</span><span class="n">tif</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 7701, 7861
+Warning 1: for band 1, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 2, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 3, nodata value has been clamped to 0, the original value being out of range.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 41.6 ms, sys: 21.8 ms, total: 63.4 ms
+Wall time: 4.17 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Raster-algebra-using-gdal_calc.py">Raster algebra using <code>gdal_calc.py</code><a class="anchor-link" href="#Raster-algebra-using-gdal_calc.py">¶</a>
+<a href="#Raster-algebra-using-gdal_calc.py" class="headerlink" title="Permalink to this heading">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>which gdal_calc.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/micromamba/envs/opengeo/bin/gdal_calc.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> -i /Users/abharathi/micromamba/envs/opengeo/bin/gdal_calc.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>usage: gdal_calc.py [--help] --calc [expression ...] [-a [filename ...]]
+                    [--a_band [n ...]] [-b [filename ...]] [--b_band [n ...]]
+                    [-c [filename ...]] [--c_band [n ...]] [-d [filename ...]]
+                    [--d_band [n ...]] [-e [filename ...]] [--e_band [n ...]]
+                    [-f [filename ...]] [--f_band [n ...]] [-g [filename ...]]
+                    [--g_band [n ...]] [-h [filename ...]] [--h_band [n ...]]
+                    [-i [filename ...]] [--i_band [n ...]] [-j [filename ...]]
+                    [--j_band [n ...]] [-k [filename ...]] [--k_band [n ...]]
+                    [-l [filename ...]] [--l_band [n ...]] [-m [filename ...]]
+                    [--m_band [n ...]] [-n [filename ...]] [--n_band [n ...]]
+                    [-o [filename ...]] [--o_band [n ...]] [-p [filename ...]]
+                    [--p_band [n ...]] [-q [filename ...]] [--q_band [n ...]]
+                    [-r [filename ...]] [--r_band [n ...]] [-s [filename ...]]
+                    [--s_band [n ...]] [-t [filename ...]] [--t_band [n ...]]
+                    [-u [filename ...]] [--u_band [n ...]] [-v [filename ...]]
+                    [--v_band [n ...]] [-w [filename ...]] [--w_band [n ...]]
+                    [-x [filename ...]] [--x_band [n ...]] [-y [filename ...]]
+                    [--y_band [n ...]] [-z [filename ...]] [--z_band [n ...]]
+                    [-A [filename ...]] [--A_band [n ...]] [-B [filename ...]]
+                    [--B_band [n ...]] [-C [filename ...]] [--C_band [n ...]]
+                    [-D [filename ...]] [--D_band [n ...]] [-E [filename ...]]
+                    [--E_band [n ...]] [-F [filename ...]] [--F_band [n ...]]
+                    [-G [filename ...]] [--G_band [n ...]] [-H [filename ...]]
+                    [--H_band [n ...]] [-I [filename ...]] [--I_band [n ...]]
+                    [-J [filename ...]] [--J_band [n ...]] [-K [filename ...]]
+                    [--K_band [n ...]] [-L [filename ...]] [--L_band [n ...]]
+                    [-M [filename ...]] [--M_band [n ...]] [-N [filename ...]]
+                    [--N_band [n ...]] [-O [filename ...]] [--O_band [n ...]]
+                    [-P [filename ...]] [--P_band [n ...]] [-Q [filename ...]]
+                    [--Q_band [n ...]] [-R [filename ...]] [--R_band [n ...]]
+                    [-S [filename ...]] [--S_band [n ...]] [-T [filename ...]]
+                    [--T_band [n ...]] [-U [filename ...]] [--U_band [n ...]]
+                    [-V [filename ...]] [--V_band [n ...]] [-W [filename ...]]
+                    [--W_band [n ...]] [-X [filename ...]] [--X_band [n ...]]
+                    [-Y [filename ...]] [--Y_band [n ...]] [-Z [filename ...]]
+                    [--Z_band [n ...]] --outfile filename
+                    [--NoDataValue value] [--hideNoData] [--type datatype]
+                    [--format gdal_format] [--creation-option option]
+                    [--allBands [a-z, A-Z]] [--overwrite] [--debug] [--quiet]
+                    [--color-table COLOR_TABLE]
+                    [--extent {ignore,fail,union,intersect} | --projwin ulx uly lrx lry]
+                    [--projectionCheck]
+gdal_calc.py: error: the following arguments are required: --calc, --outfile
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+An exception has occurred, use %tb to see the full traceback.
+
+<span class="ansi-red-fg">SystemExit</span><span class="ansi-red-fg">:</span> 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Performing-NDVI">Performing <span class="caps">NDVI</span><a class="anchor-link" href="#Performing-NDVI">¶</a>
+<a href="#Performing-NDVI" class="headerlink" title="Permalink to this heading">¶</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="o">%</span><span class="n">run</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">abharathi</span><span class="o">/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">opengeo</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gdal_calc</span><span class="o">.</span><span class="n">py</span> \
+  <span class="o">-</span><span class="n">A</span> <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B5</span><span class="o">.</span><span class="n">TIF</span> \
+  <span class="o">-</span><span class="n">B</span> <span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B4</span><span class="o">.</span><span class="n">TIF</span> \
+  <span class="o">--</span><span class="n">outfile</span> <span class="n">ndvi</span><span class="o">.</span><span class="n">tif</span> <span class="o">--</span><span class="n">calc</span><span class="o">=</span><span class="s2">"(A-B)/(A+B)"</span> <span class="o">--</span><span class="n">NoDataValue</span><span class="o">=-</span><span class="mi">999</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Exercise---creating-FCC-viz-product">Exercise - creating <span class="caps">FCC</span> viz product<a class="anchor-link" href="#Exercise---creating-FCC-viz-product">¶</a>
+<a href="#Exercise---creating-FCC-viz-product" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdalbuildvrt</span> <span class="o">-</span><span class="n">o</span> <span class="n">nrg</span><span class="o">.</span><span class="n">vrt</span> <span class="o">-</span><span class="n">separate</span> \
+<span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B5</span><span class="o">.</span><span class="n">tif</span> \
+<span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B4</span><span class="o">.</span><span class="n">tif</span> \
+<span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B3</span><span class="o">.</span><span class="n">tif</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 5.41 ms, sys: 9.25 ms, total: 14.7 ms
+Wall time: 424 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="o">-</span><span class="n">of</span> <span class="n">JPEG</span> <span class="n">nrg</span><span class="o">.</span><span class="n">vrt</span> <span class="n">nrg</span><span class="o">.</span><span class="n">jpg</span> <span class="o">-</span><span class="n">co</span> <span class="n">COMPRESS</span><span class="o">=</span><span class="n">JPG</span> <span class="o">-</span><span class="n">scale</span> <span class="mi">0</span> <span class="mf">0.3</span> <span class="mi">0</span> <span class="mi">255</span> <span class="o">-</span><span class="n">ot</span> <span class="n">Byte</span> <span class="o">-</span><span class="n">outsize</span> <span class="mi">10</span><span class="o">%</span> <span class="mi">10</span><span class="o">%</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 7701, 7861
+Warning 1: for band 1, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 2, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 3, nodata value has been clamped to 0, the original value being out of range.
+Warning 6: driver JPEG does not support creation option COMPRESS
+0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 9.38 ms, sys: 11.1 ms, total: 20.4 ms
+Wall time: 589 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="nrg.jpg" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Pansharpen">Pansharpen<a class="anchor-link" href="#Pansharpen">¶</a>
+<a href="#Pansharpen" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>which gdal_pansharpen.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/micromamba/envs/opengeo/bin/gdal_pansharpen.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="o">%</span><span class="n">run</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">abharathi</span><span class="o">/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">opengeo</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gdal_pansharpen</span><span class="o">.</span><span class="n">py</span> \
+<span class="n">RT_LC08_L1TP_137042_20190920_20190926_01_T1_2019</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">20</span><span class="n">_B8</span><span class="o">.</span><span class="n">tif</span> \
+<span class="n">rgb</span><span class="o">.</span><span class="n">vrt</span> <span class="n">pansharpened</span><span class="o">.</span><span class="n">vrt</span> <span class="o">-</span><span class="n">r</span> <span class="n">bilinear</span> <span class="o">-</span><span class="n">co</span> <span class="n">COMPRESS</span><span class="o">=</span><span class="n">DEFLATE</span> <span class="o">-</span><span class="n">co</span> <span class="n">PHOTOMETRIC</span><span class="o">=</span><span class="n">RGB</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 6.39 ms, sys: 9.63 ms, total: 16 ms
+Wall time: 68.6 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [80]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="o">-</span><span class="n">of</span> <span class="n">JPEG</span> <span class="n">pansharpened</span><span class="o">.</span><span class="n">vrt</span> <span class="n">pansharpened</span><span class="o">.</span><span class="n">jpg</span> <span class="o">-</span><span class="n">scale</span> <span class="mi">0</span> <span class="mf">0.3</span> <span class="mi">0</span> <span class="mi">255</span> <span class="o">-</span><span class="n">ot</span> <span class="n">Byte</span> <span class="o">-</span><span class="n">outsize</span> <span class="mi">40</span><span class="o">%</span> <span class="mi">40</span><span class="o">%</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 15401, 15721
+Warning 1: for band 1, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 2, nodata value has been clamped to 0, the original value being out of range.
+Warning 1: for band 3, nodata value has been clamped to 0, the original value being out of range.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 97.1 ms, sys: 40.8 ms, total: 138 ms
+Wall time: 12.8 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise---Lidar-of-UK-viewshed-analysis">Exercise - Lidar of <span class="caps">UK</span> viewshed analysis<a class="anchor-link" href="#Exercise---Lidar-of-UK-viewshed-analysis">¶</a>
+<a href="#Exercise---Lidar-of-UK-viewshed-analysis" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p><span class="caps">STEPS</span></p>
+<ol>
+<li>mosaic using buildvrt</li>
+<li>assign <span class="caps">SRS</span> of 4326 and persist raster</li>
+<li>reproject using gdaltransform</li>
+<li>gdal_viewshed to produce the viewshed raster</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">london_1m_dsm</span><span class="o">/</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/Users/abharathi/Documents/gis_data/gdal-tools/london_1m_dsm
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">*.</span><span class="n">asc</span> <span class="o">&gt;</span> <span class="n">filelist</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="err">!</span><span class="n">gdalbuildvrt</span>  <span class="o">-</span><span class="n">input_file_list</span> <span class="n">filelist</span><span class="o">.</span><span class="n">txt</span> <span class="n">londondsm</span><span class="o">.</span><span class="n">vrt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 25.1 ms, sys: 17.7 ms, total: 42.8 ms
+Wall time: 1.55 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># No CRS in the vrt</span>
+<span class="o">!</span>gdalinfo londondsm.vrt
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Driver: VRT/Virtual Raster
+Files: londondsm.vrt
+       tq3080_DSM_1M.asc
+       tq3081_DSM_1M.asc
+       tq3082_DSM_1M.asc
+       tq3083_DSM_1M.asc
+       tq3084_DSM_1M.asc
+       tq3180_DSM_1M.asc
+       tq3181_DSM_1M.asc
+       tq3182_DSM_1M.asc
+       tq3183_DSM_1M.asc
+       tq3184_DSM_1M.asc
+       tq3280_DSM_1M.asc
+       tq3281_DSM_1M.asc
+       tq3282_DSM_1M.asc
+       tq3283_DSM_1M.asc
+       tq3284_DSM_1M.asc
+       tq3380_DSM_1M.asc
+       tq3381_DSM_1M.asc
+       tq3382_DSM_1M.asc
+       tq3383_DSM_1M.asc
+       tq3384_DSM_1M.asc
+       tq3480_DSM_1M.asc
+       tq3481_DSM_1M.asc
+       tq3482_DSM_1M.asc
+       tq3483_DSM_1M.asc
+       tq3484_DSM_1M.asc
+Size is 5000, 5000
+Origin = (530000.000000000000000,185000.000000000000000)
+Pixel Size = (1.000000000000000,-1.000000000000000)
+Corner Coordinates:
+Upper Left  (  530000.000,  185000.000) 
+Lower Left  (  530000.000,  180000.000) 
+Upper Right (  535000.000,  185000.000) 
+Lower Right (  535000.000,  180000.000) 
+Center      (  532500.000,  182500.000) 
+Band 1 Block=128x128 Type=Float32, ColorInterp=Undefined
+  NoData Value=-9999
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="c1">#Assign SRS</span>
+<span class="err">!</span><span class="n">gdal_translate</span> <span class="n">londondsm</span><span class="o">.</span><span class="n">vrt</span> <span class="n">londondsm</span><span class="o">.</span><span class="n">tif</span> \
+  <span class="o">-</span><span class="n">co</span> <span class="n">COMPRESS</span><span class="o">=</span><span class="n">DEFLATE</span> <span class="o">-</span><span class="n">co</span> <span class="n">PREDICTOR</span><span class="o">=</span><span class="mi">2</span> \
+  <span class="o">-</span><span class="n">a_srs</span> <span class="n">EPSG</span><span class="p">:</span><span class="mi">27700</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input file size is 5000, 5000
+0...10...20...30...40...50...60...70...80...90...100 - done.
+CPU times: user 30.6 ms, sys: 18.2 ms, total: 48.8 ms
+Wall time: 3.3 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Reproject">Reproject<a class="anchor-link" href="#Reproject">¶</a>
+<a href="#Reproject" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>gdaltransform -s_srs EPSG:4326
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2023         <a href="mailto:atma.mani@outlook.com">Atma Mani</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
