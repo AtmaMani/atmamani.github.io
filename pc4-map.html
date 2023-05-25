@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>USA Pluscodes</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css" />
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/GeoJSONLayer",
+            "esri/symbols/TextSymbol",
+            "esri/layers/support/LabelClass",
+            "esri/widgets/Search",
+            "dojo/domReady!"
+        ], function (Map, MapView, GeoJSONLayer, TextSymbol, LabelClass, Search) {
+            // Create the map
+            var map = new Map({
+                basemap: "streets-vector"
+            });
+
+            // Create the map view
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-97, 40],
+                zoom: 4
+            });
+
+            // Define the GeoJSON layer
+            var pc4_layer = new GeoJSONLayer({
+                url: "https://atmamani.github.io/usa_pc_len4.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0.15],
+                        outline: {
+                            color: "yellow",
+                            width: 2
+                        }
+                    }
+                },
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.trimmed_pluscodes" },
+                    symbol: new TextSymbol({
+                        color: "black",
+                        haloColor: "white",
+                        haloSize: "2px",
+                        font: {
+                            size: "11px",
+                            weight: "bold"
+                        }
+                    }),
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            //Define PC2 layer
+            var pc2_layer = new GeoJSONLayer({
+                url: "https://atmamani.github.io/world_pc_len2.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0.15],
+                        outline: {
+                            color: "green",
+                            width: 4
+                        }
+                    }
+                },
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.trimmed_pluscodes" },
+                    symbol: new TextSymbol({
+                        color: "red",
+                        haloColor: "black",
+                        haloSize: "2px",
+                        font: {
+                            size: "16px",
+                            weight: "bold"
+                        }
+                    }),
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            // Add the GeoJSON layer to the map
+            map.add(pc4_layer);
+            map.add(pc2_layer);
+
+            //Search widget
+            const searchWidget = new Search({
+                view: view,
+                allPlaceholder: "PC4 or PC2",
+                includeDefaultSources: false,
+                sources: [
+                    {
+                        layer: pc4_layer,
+                        searchFields: ['trimmed_pluscodes'],
+                        displayField: 'trimmed_pluscodes',
+                        exactMatch: true,
+                        outFields: ["trimmed_pluscodes"],
+                        placeholder: "76VV"
+
+                    }
+                ]
+            });
+
+            // Add the search widget to the top right corner of the view
+            view.ui.add(searchWidget, {
+                position: "top-right"
+            });
+        });
+    </script>
+</body>
+
+</html>
