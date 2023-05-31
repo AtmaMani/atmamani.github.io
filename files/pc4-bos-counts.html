@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>USA BOS counts</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css" />
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+
+    <script src="https://js.arcgis.com/4.24/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/GeoJSONLayer",
+            "esri/symbols/TextSymbol",
+            "esri/layers/support/LabelClass",
+            "esri/widgets/Search",
+            "esri/smartMapping/renderers/color",
+            "esri/symbols/SimpleLineSymbol",
+            "dojo/domReady!"
+        ], function (Map, MapView, GeoJSONLayer, TextSymbol, LabelClass, Search, colorRendererCreator, SimpleLineSymbol) {
+            // Create the map
+            var map = new Map({
+                basemap: "streets-vector"
+            });
+
+
+            // Create the map view
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-97, 40],
+                zoom: 4
+            });
+
+            //define popup template
+            const template = {
+                title: "{pluscode4}",
+                content:[
+                    {
+                        type: "fields",
+                        fieldInfos: [
+                            {
+                            fieldName: "substations",
+                            label: "Num Substations",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "powerlines",
+                            label: "Num Powerlines",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "powerpoles",
+                            label: "Num Powerpoles",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "airports",
+                            label: "Num Airports",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "highways",
+                            label: "Num Highways",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "bridges",
+                            label: "Num Bridges",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "ports",
+                            label: "Num Ports",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "buildings",
+                            label: "Num Buildings",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                            {
+                            fieldName: "total_bos",
+                            label: "Total built objects",
+                            format: {
+                                digitSeparator: true,
+                                places: 0
+                                }
+                            },
+                        ]
+                    }
+                ]
+            }
+
+            // Define the GeoJSON layer
+            var pc4_layer = new GeoJSONLayer({
+                url: "https://atmamani.github.io/usa_bos_counts_pc4.geojson",
+                opacity: 0.55,
+                popupTemplate: template,
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0],
+                        outline: {
+                            color: "red",
+                            width: 4
+                        }
+                    }
+                },
+                
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.pluscode4" },
+                    symbol: {
+                        type: "text",
+                        color: "black",
+                        haloColor: "white",
+                        haloSize: "1px",
+                        font: {
+                            size: "13px",
+                            weight: "bold"
+                        }
+                    },
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            //Define PC2 layer
+            var pc2_layer = new GeoJSONLayer({
+                url: "https://atmamani.github.io/world_pc_len2.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0],
+                        outline: {
+                            color: "green",
+                            width: 4
+                        }
+                    }
+                },
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.trimmed_pluscodes" },
+                    symbol: new TextSymbol({
+                        color: "red",
+                        haloColor: "black",
+                        haloSize: "2px",
+                        font: {
+                            size: "16px",
+                            weight: "bold"
+                        }
+                    }),
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            // Add the GeoJSON layer to the map
+            map.add(pc4_layer);
+            map.add(pc2_layer);
+
+            //Renderer for PC4 bos counts layer
+            colorRendererCreator
+                .createContinuousRenderer({
+                    layer: pc4_layer,
+                    field: "total_bos", // Specify the attribute field for coloring
+                    theme: "high-to-low",
+                    defaultSymbolEnabled: true
+                })
+                .then(function (response) {
+                    // set the outline symbol for polygon featuers
+                    response.renderer.defaultSymbol = new SimpleLineSymbol(
+                        {
+                            color: [0,0,0,0.5],
+                            width: 1
+                        }
+                    );
+                    pc4_layer.renderer = response.renderer;
+                })
+                .catch(function (error) {
+                    console.error("Error creating color renderer:", error);
+                });
+
+            //Search widget
+            const searchWidget = new Search({
+                view: view,
+                allPlaceholder: "PC4",
+                includeDefaultSources: false,
+                sources: [
+                    {
+                        layer: pc4_layer,
+                        searchFields: ['pluscode4'],
+                        displayField: 'pluscode4',
+                        exactMatch: true,
+                        outFields: ["pluscode4"],
+                        placeholder: "76VV"
+
+                    }
+                ]
+            });
+
+            // Add the search widget to the top right corner of the view
+            view.ui.add(searchWidget, {
+                position: "top-right"
+            });
+
+            // Bind the browser find keyboard shortcut to the search widget
+            document.addEventListener("keydown", function (event) {
+                if ((event.ctrlKey || event.metaKey) && event.key === "f") {
+                    event.preventDefault();
+                    searchWidget.focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
