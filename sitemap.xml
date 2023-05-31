@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://atmamani.github.io/</loc>
-  <lastmod>2023-05-25T17:06:00Z</lastmod>
+  <lastmod>2023-05-31T17:51:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/2007/</loc>
@@ -728,6 +728,10 @@
  <url>
   <loc>https://atmamani.github.io/cheatsheets/yaml_syntax/</loc>
   <lastmod>2023-03-03T16:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://atmamani.github.io/pc4-bos-counts.html</loc>
+  <lastmod>2023-05-31T17:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://atmamani.github.io/pc4-map.html</loc>
