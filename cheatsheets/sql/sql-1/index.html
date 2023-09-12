@@ -25,10 +25,13 @@
 <meta property="og:site_name" content="Atma's blog">
 <meta property="og:title" content="SQL Introduction">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/sql/sql-1/">
-<meta property="og:description" content="4 basic ops in a database:
-CRUD - Create, Read (Select), Update, Delete (Drop). In this page, we use sqlite3 for the database. SQLite is tiny, portable, fast, light-weight database and works on all ki">
+<meta property="og:description" content="SQL consists of 
+
+Data definition language : CREATE TABLE, ALTER TABLE, CREATE DATABASE etc.
+Data manipulation language: SELECT, INSERT, UPDATE, DELETE statements 
+Data control language: GRANT USER, R">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2022-12-13T15:25:56-08:00">
+<meta property="article:published_time" content="2023-08-14T21:38:20-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -348,7 +351,18 @@ CRUD - Create, Read (Select), Update, Delete (Drop). In this page, we use sqlite
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <h3 id="4-basic-ops-in-a-database">4 basic ops in a database:<a href="#4-basic-ops-in-a-database" class="headerlink" title="Permalink to this heading">¶</a></h3>
+    <p><span class="caps">SQL</span> consists of </p>
+<ul>
+<li>
+<strong>Data definition language</strong> : <span class="caps">CREATE</span> <span class="caps">TABLE</span>, <span class="caps">ALTER</span> <span class="caps">TABLE</span>, <span class="caps">CREATE</span> <span class="caps">DATABASE</span> etc.</li>
+<li>
+<strong>Data manipulation language</strong>: <span class="caps">SELECT</span>, <span class="caps">INSERT</span>, <span class="caps">UPDATE</span>, <span class="caps">DELETE</span> statements </li>
+<li>
+<strong>Data control language</strong>: <span class="caps">GRANT</span> <span class="caps">USER</span>, <span class="caps">REVOKE</span> <span class="caps">USER</span> etc.</li>
+</ul>
+<h3 id="sql-standards"><span class="caps">SQL</span> Standards<a href="#sql-standards" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p><span class="caps">SQL</span> was first created in 1970. <span class="caps">ANSI</span> then published the first <span class="caps">SQL</span> Standard in 1986, the second in 1992 called <span class="caps">SQL92</span> or <span class="caps">SQL2</span>, third in 1999 called <span class="caps">SQL99</span> or <span class="caps">SQL3</span>. The latest is <span class="caps">SQL</span>:2011</p>
+<h3 id="4-basic-ops-in-a-database">4 basic ops in a database:<a href="#4-basic-ops-in-a-database" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p><span class="caps">CRUD</span> - Create, Read (Select), Update, Delete (Drop). In this page, we use <a href="https://www.sqlite.org/index.html"><code>sqlite3</code></a> for the database. SQLite is tiny, portable, fast, light-weight database and works on all kinds of architectures (phones, laptops, cloud, edge devices etc). To enter sqlite, you type <code>&gt; sqlite3</code>. To exit and return back to bash, you type <code>.quit</code>.</p>
 <h3 id="creating-a-table">Creating a table<a href="#creating-a-table" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>Use <code>sqlite3</code> database which is portable and tiny. To create a new database, use <code>$ sqlite3 &lt;db_name&gt;</code></p>
@@ -413,6 +427,31 @@ CRUD - Create, Read (Select), Update, Delete (Drop). In this page, we use sqlite
 <span class="ss">"Family Guy"</span><span class="w"></span>
 <span class="ss">"New Girl"</span><span class="w"></span>
 <span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span>
+</pre></div>
+
+<h4 id="paging-output-using-offset-and-limit">Paging output using <code>OFFSET</code> and <code>LIMIT</code>
+<a href="#paging-output-using-offset-and-limit" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Use <code>LIMIT row_count OFFSET offset</code> syntax to page through the results. You can increment the offset as you page through a large result table. Is is important to <strong><code>ORDER BY</code></strong> when paging to avoid duplicates.</p>
+<div class="code"><pre class="code literal-block"><span class="c1">--page 2</span>
+<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">employee_id</span><span class="w">  </span><span class="n">first_name</span><span class="w">  </span><span class="n">last_name</span><span class="w"></span>
+<span class="c1">-----------  ----------  ---------</span>
+<span class="mi">105</span><span class="w">          </span><span class="n">David</span><span class="w">       </span><span class="n">Austin</span><span class="w">   </span>
+<span class="mi">106</span><span class="w">          </span><span class="n">Valli</span><span class="w">       </span><span class="n">Pataballa</span><span class="w"></span>
+<span class="mi">107</span><span class="w">          </span><span class="n">Diana</span><span class="w">       </span><span class="n">Lorentz</span><span class="w">  </span>
+<span class="mi">108</span><span class="w">          </span><span class="n">Nancy</span><span class="w">       </span><span class="n">Greenberg</span><span class="w"></span>
+<span class="mi">109</span><span class="w">          </span><span class="n">Daniel</span><span class="w">      </span><span class="n">Faviet</span><span class="w">   </span>
+
+<span class="c1">--page 3</span>
+<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="n">employee_id</span><span class="w">  </span><span class="n">first_name</span><span class="w">   </span><span class="n">last_name</span><span class="w"></span>
+<span class="c1">-----------  -----------  ---------</span>
+<span class="mi">110</span><span class="w">          </span><span class="n">John</span><span class="w">         </span><span class="n">Chen</span><span class="w">     </span>
+<span class="mi">111</span><span class="w">          </span><span class="n">Ismael</span><span class="w">       </span><span class="n">Sciarra</span><span class="w">  </span>
+<span class="mi">112</span><span class="w">          </span><span class="n">Jose</span><span class="w"> </span><span class="n">Manuel</span><span class="w">  </span><span class="n">Urman</span><span class="w">    </span>
+<span class="mi">113</span><span class="w">          </span><span class="n">Luis</span><span class="w">         </span><span class="n">Popp</span><span class="w">     </span>
+<span class="mi">114</span><span class="w">          </span><span class="n">Den</span><span class="w">          </span><span class="n">Raphaely</span><span class="w"></span>
 </pre></div>
 
 <h4 id="where-clauses">Where clauses<a href="#where-clauses" class="headerlink" title="Permalink to this heading">¶</a></h4>
