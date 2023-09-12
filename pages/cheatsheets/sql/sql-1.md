@@ -1,5 +1,14 @@
 title: SQL Introduction
 
+SQL consists of 
+
+ - **Data definition language** : CREATE TABLE, ALTER TABLE, CREATE DATABASE etc.
+ - **Data manipulation language**: SELECT, INSERT, UPDATE, DELETE statements 
+ - **Data control language**: GRANT USER, REVOKE USER etc.
+
+## SQL Standards
+SQL was first created in 1970. ANSI then published the first SQL Standard in 1986, the second in 1992 called SQL92 or SQL2, third in 1999 called SQL99 or SQL3. The latest is SQL:2011
+
 ## 4 basic ops in a database:
 CRUD - Create, Read (Select), Update, Delete (Drop). In this page, we use [`sqlite3`](https://www.sqlite.org/index.html) for the database. SQLite is tiny, portable, fast, light-weight database and works on all kinds of architectures (phones, laptops, cloud, edge devices etc). To enter sqlite, you type `> sqlite3`. To exit and return back to bash, you type `.quit`.
 
@@ -73,6 +82,32 @@ sqlite> SELECT title FROM fav LIMIT 5;
 "Family Guy"
 "New Girl"
 sqlite> 
+```
+
+### Paging output using `OFFSET` and `LIMIT`
+Use `LIMIT row_count OFFSET offset` syntax to page through the results. You can increment the offset as you page through a large result table. Is is important to **`ORDER BY`** when paging to avoid duplicates.
+
+```sql
+--page 2
+sqlite> SELECT employee_id, first_name, last_name FROM employees ORDER BY employee_id LIMIT 5 OFFSET 5;
+
+employee_id  first_name  last_name
+-----------  ----------  ---------
+105          David       Austin   
+106          Valli       Pataballa
+107          Diana       Lorentz  
+108          Nancy       Greenberg
+109          Daniel      Faviet   
+
+--page 3
+sqlite> SELECT employee_id, first_name, last_name FROM employees ORDER BY employee_id LIMIT 5 OFFSET 10;
+employee_id  first_name   last_name
+-----------  -----------  ---------
+110          John         Chen     
+111          Ismael       Sciarra  
+112          Jose Manuel  Urman    
+113          Luis         Popp     
+114          Den          Raphaely
 ```
 
 ### Where clauses

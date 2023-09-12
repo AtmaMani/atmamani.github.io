@@ -50,7 +50,33 @@ CREATE TABLE people (
             );
 ```
 
-## Raw joins
+## Operations on columns
+When querying data using `SELECT` statement, you can perform basic arithmetic and type conversions. The results are on-the-fly and not stored.
+
+```sql
+SELECT first_name, last_name, salary, salary * 1.05 as hike_salary
+    FROM employees;
+```
+
+### SQL operators
+Operators:
+
+ - `=` for equality. Note, just 1 equal sign.
+ - `<>` or `!=` for non equality
+ - `<`, `<=`, `>`, `>=` for size comparison
+ - `LIKE` - for tolerant string comparison
+ - `AND`, `OR` - to chain conditions
+ - `BETWEEN` - for range values such as money, dates, times, etc.
+ - `IS NULL` to check if a value is null. **Do not use** `= NULL`.
+
+Examples:
+```sql
+>SELECT * FROM employees WHERE department_id=5 ORDER BY first_name;
+>SELECT * FROM employees WHERE last_name LIKE "chen";
+
+```
+
+### Sub queries
 You can join two tables without actually using a join. This is a primitive and simpler way and is less readable. Below we try to find shows with "Arnold Sch..".
 
 ```sql
@@ -84,7 +110,21 @@ sqlite> SELECT * FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_
 ```
 I had no idea Arnold Schwarzenegger acted in so many shows, some as recent at 2021!
 
-## Simple JOINs
+In the example below, we find the employees with the second highest salary from emp db.
+
+```sql
+--limit 1 offset 1 gets the 2nd row from the result set
+sqlite> SELECT employee_id, first_name, last_name, salary
+   ...> FROM employees
+   ...> WHERE salary = (SELECT DISTINCT salary FROM
+   ...> employees ORDER BY salary DESC LIMIT 1 OFFSET 1);
+employee_id  first_name  last_name  salary 
+-----------  ----------  ---------  -------
+101          Neena       Kochhar    17000.0
+102          Lex         De Haan    17000.0
+```
+
+### Simple JOINs
 You can JOIN two tables using the syntax: Here `PK - primary key` and `FK - foreign key`.
 ```sql
 -- Simple join syntax
