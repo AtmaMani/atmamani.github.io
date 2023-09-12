@@ -1,5 +1,9 @@
 title: SQL Introduction
 
+Content derived from:
+ - https://www.sqltutorial.org/
+ - https://www.sqlitetutorial.net/
+
 SQL consists of 
 
  - **Data definition language** : CREATE TABLE, ALTER TABLE, CREATE DATABASE etc.

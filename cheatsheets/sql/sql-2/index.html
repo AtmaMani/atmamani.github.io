@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SQL Queries | Atma's blog</title>
+<title>SQL Operators and sorting rows | Atma's blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -23,14 +23,14 @@
   gtag('config', 'UA-113202945-1');
 </script><meta name="author" content="Atma Mani">
 <meta property="og:site_name" content="Atma's blog">
-<meta property="og:title" content="SQL Queries">
+<meta property="og:title" content="SQL Operators and sorting rows">
 <meta property="og:url" content="https://atmamani.github.io/cheatsheets/sql/sql-2/">
 <meta property="og:description" content='Optimizing queries using Index
 You can build an index using the CREATE command. Syntax: CREATE INDEX &lt;index name&gt; ON &lt;table&gt; (&lt;col_name&gt;);
 sqlite&gt; CREATE INDEX "title_index" ON "shows" ("title");
 Run '>
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2023-08-16T15:03:36-07:00">
+<meta property="article:published_time" content="2023-09-12T09:22:08-07:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -258,7 +258,13 @@ Run '>
 <a href="../sql-1"><span class="caps">SQL</span> introduction</a>
                     </li>
 <li>
-<a href="../sql-2"><span class="caps">SQL</span> Queries</a>
+<a href="../sql-2"><span class="caps">SQL</span> Operators and sorting rows</a>
+                    </li>
+<li>
+<a href="../sql-3"><span class="caps">SQL</span> Joining tables</a>
+                    </li>
+<li>
+<a href="../sql-problem-sets-1"><span class="caps">SQL</span> Problem Sets</a>
                     </li>
 <li>
 <a href="../../../"><hr></a>
@@ -345,7 +351,7 @@ Run '>
         <div class="row">
             
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url"><span class="caps">SQL</span> Queries</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url"><span class="caps">SQL</span> Operators and sorting rows</a></h1>
 
         
 
@@ -428,149 +434,49 @@ CREATE TABLE people (
 <span class="o">&gt;</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"chen"</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<h4 id="sub-queries">Sub queries<a href="#sub-queries" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can join two tables without actually using a join. This is a primitive and simpler way and is less readable. Below we try to find shows with “Arnold Sch..”.</p>
-<div class="code"><pre class="code literal-block"><span class="c1">--Step 1: find person ID of Arnold Sch..</span>
-<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"%Arnold Sch%"</span><span class="p">;</span><span class="w"></span>
-<span class="mi">216</span><span class="w"></span>
+<h4 id="order-by-operator">
+<code>ORDER BY</code> operator<a href="#order-by-operator" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Used to sort the displayed results. This does not change the data organization in the persisted table though. The general syntax is below. The default sort order is <code>ASC</code> for ascending.</p>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">columns</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">--example</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">hire_date</span><span class="w"> </span><span class="k">ASC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">hire_date</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+</pre></div>
 
-<span class="c1">--Step 2: pass this to stars table to find show id</span>
-<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">show_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"%Arnold Sch%"</span><span class="p">);</span><span class="w"></span>
-<span class="mi">200355</span><span class="w"></span>
-<span class="mi">1025006</span><span class="w"></span>
-<span class="mi">10408914</span><span class="w"></span>
+<h4 id="distinct-operator">
+<code>DISTINCT</code> operator<a href="#distinct-operator" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Used to remove duplicates from the result set. Also used to get unique values. If there is <code>1</code> column after <code>DISTINCT</code> the operator finds unique values in that column. If multiple columns are specified, the operator will use the <strong>combinations of values</strong> in all specified columns for uniqueness check.</p>
+<blockquote>
+<p><strong>Note:</strong> <span class="caps">DISTINCT</span> operator treats all <code>NULL</code> values the same. Thus it returns just one record per <span class="caps">NULL</span> value.</p>
+</blockquote>
+<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">--EXAMPLE find unique job_id</span>
+<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">job_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">job_id</span><span class="p">;</span><span class="w"></span>
+<span class="n">job_id</span><span class="w"></span>
+<span class="c1">------</span>
+<span class="mi">1</span><span class="w">     </span>
+<span class="mi">2</span><span class="w">     </span>
+<span class="mi">3</span><span class="w">     </span>
+<span class="mi">4</span><span class="w">     </span>
+<span class="p">....</span><span class="w"></span>
+
+<span class="c1">--EXAMPLE: find unique combinations of job_id and manager_id</span>
+<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">job_id</span><span class="p">,</span><span class="w"> </span><span class="n">manager_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">job_id</span><span class="p">;</span><span class="w"></span>
+<span class="n">job_id</span><span class="w">  </span><span class="n">manager_id</span><span class="w"></span>
+<span class="c1">------  ----------</span>
+<span class="mi">1</span><span class="w">       </span><span class="mi">205</span><span class="w">       </span>
+<span class="mi">2</span><span class="w">       </span><span class="mi">101</span><span class="w">       </span>
+<span class="mi">3</span><span class="w">       </span><span class="mi">101</span><span class="w">       </span>
+<span class="mi">4</span><span class="w">                 </span>
+<span class="mi">5</span><span class="w">       </span><span class="mi">100</span><span class="w">       </span>
+<span class="mi">6</span><span class="w">       </span><span class="mi">108</span><span class="w">   </span>
 <span class="p">...</span><span class="w"></span>
-
-<span class="c1">--Step 3: pass this to shows table to get show names</span>
-<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">show_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"%Arnold Sch%"</span><span class="p">));</span><span class="w"></span>
-<span class="mi">200355</span><span class="o">|</span><span class="n">Moviewatch</span><span class="o">|</span><span class="mi">1993</span><span class="o">|</span><span class="mi">68</span><span class="w"></span>
-<span class="mi">1025006</span><span class="o">|</span><span class="n">Regis</span><span class="w"> </span><span class="n">Philbin</span><span class="s1">'s Lifestyles|1984|11</span>
-<span class="s1">1388415|Citizen Kate|2008|</span>
-<span class="s1">1990507|Climate One Commonwealth Club Forum|2010|2</span>
-<span class="s1">2963070|Years of Living Dangerously|2014|17</span>
-<span class="s1">4074786|Radical Body Transformations|2015|30</span>
-<span class="s1">4995052|Explorer|2015|42</span>
-<span class="s1">5290904|Talking to Hollywood with Betty Zhou|2015|5</span>
-<span class="s1">7423218|Objectified|2016|25</span>
-<span class="s1">10408914|Superhero Kindergarten|2021|14</span>
-<span class="s1">10922386|Chad Goes Deep|2017|32</span>
-<span class="s1">12591074|Hallo, wie geht'</span><span class="n">s</span><span class="o">|</span><span class="mi">1989</span><span class="o">|</span><span class="mi">37</span><span class="w"></span>
-<span class="mi">14650368</span><span class="o">|</span><span class="n">The</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">Celebrity</span><span class="w"> </span><span class="n">Apprentice</span><span class="o">|</span><span class="mi">2017</span><span class="o">|</span><span class="mi">7</span><span class="w"></span>
-<span class="mi">15545956</span><span class="o">|</span><span class="n">Action</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Neu</span><span class="w"> </span><span class="n">im</span><span class="w"> </span><span class="n">Kino</span><span class="o">|</span><span class="mi">1986</span><span class="o">|</span><span class="w"></span>
 </pre></div>
 
-<p>I had no idea Arnold Schwarzenegger acted in so many shows, some as recent at 2021!</p>
-<p>In the example below, we find the employees with the second highest salary from emp db.</p>
-<div class="code"><pre class="code literal-block"><span class="c1">--limit 1 offset 1 gets the 2nd row from the result set</span>
-<span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
-<span class="w">   </span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
-<span class="w">   </span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"></span>
-<span class="w">   </span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="n">employee_id</span><span class="w">  </span><span class="n">first_name</span><span class="w">  </span><span class="n">last_name</span><span class="w">  </span><span class="n">salary</span><span class="w"> </span>
-<span class="c1">-----------  ----------  ---------  -------</span>
-<span class="mi">101</span><span class="w">          </span><span class="n">Neena</span><span class="w">       </span><span class="n">Kochhar</span><span class="w">    </span><span class="mi">17000</span><span class="p">.</span><span class="mi">0</span><span class="w"></span>
-<span class="mi">102</span><span class="w">          </span><span class="n">Lex</span><span class="w">         </span><span class="n">De</span><span class="w"> </span><span class="n">Haan</span><span class="w">    </span><span class="mi">17000</span><span class="p">.</span><span class="mi">0</span><span class="w"></span>
-</pre></div>
-
-<h4 id="simple-joins">Simple JOINs<a href="#simple-joins" class="headerlink" title="Permalink to this heading">¶</a></h4>
-<p>You can <span class="caps">JOIN</span> two tables using the syntax: Here <code>PK - primary key</code> and <code>FK - foreign key</code>.</p>
-<div class="code"><pre class="code literal-block"><span class="c1">-- Simple join syntax</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cols</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableA</span><span class="o">&gt;</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableB</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">how_to_join</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">fullname</span><span class="p">,</span><span class="w"> </span><span class="n">cars</span><span class="p">.</span><span class="n">mileage_info</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">cars</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">car_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cars</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
-
-<span class="c1">-- With where and order by</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cols_to_disp</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableA</span><span class="o">&gt;</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableB</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableA</span><span class="p">.</span><span class="n">PK</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableB</span><span class="p">.</span><span class="n">FK</span><span class="o">&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">field</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>You can nest multiple joins as shown below:</p>
-<div class="code"><pre class="code literal-block"><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">show_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"Arnold Sch%"</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="k">year</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>Another style to write this join, if you know the tables being used before hand, is this:</p>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="p">,</span><span class="w"> </span><span class="n">stars</span><span class="p">,</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">show_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="ss">"Arnold Sch%"</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="k">year</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>Notice the command <code>JOIN</code> does not show up in the case above.</p>
-<h3 id="problem-sets">Problem sets:<a href="#problem-sets" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<ol>
-<li>
-<strong>How many shows to type ‘Comedy’ were directed during a leap year?</strong>: This is a simple join between <code>shows</code> and <code>genres</code> tables. Use <code>%</code> operator as a modulus.</li>
-</ol>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shows</span><span class="w"></span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">genres</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genres</span><span class="p">.</span><span class="n">show_id</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="k">AND</span><span class="w"> </span><span class="n">genres</span><span class="p">.</span><span class="n">genre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"Comedy"</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<ol>
-<li>
-<strong>List all actors that have acted in a show called “Anandham”.</strong>: This requires joining 3 tables - <code>person</code>, <code>stars</code>, <code>shows</code> and getting the actor names</li>
-</ol>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"></span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">show_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"Anandham"</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>which returns:</p>
-<div class="code"><pre class="code literal-block"><span class="gh">name             </span>
-<span class="gh">-----------------</span>
-Saakshi Sivaa    
-Brinda Das       
-Kamalesh         
-<span class="gh">Delhi Kumar</span>
-<span class="gh">...</span>
-</pre></div>
-
-<ol>
-<li>
-<strong>Find the number of actors that acted in shows between 1970 and 1990</strong>: This requires joining the same 3 tables and counting distinct actor ids:</li>
-</ol>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">PEOPLE</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="n">id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">show_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"> </span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">1970</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1990</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>returns</p>
-<div class="code"><pre class="code literal-block"><span class="gh">COUNT(DISTINCT people.id)</span>
-<span class="gh">-------------------------</span>
-72095
-</pre></div>
-
-<ol>
-<li>
-<strong>How many actors also worked as writers</strong>?</li>
-</ol>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w"></span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span>
-<span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">stars</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">writers</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">stars</span><span class="p">.</span><span class="n">person_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writers</span><span class="p">.</span><span class="n">person_id</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<ol>
-<li><strong>List to top 10 shows that have highest votes and highest rating</strong></li>
-</ol>
-<div class="code"><pre class="code literal-block"><span class="k">SELECT</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">episodes</span><span class="p">,</span><span class="w"> </span><span class="n">ratings</span><span class="p">.</span><span class="n">rating</span><span class="p">,</span><span class="w"> </span><span class="n">ratings</span><span class="p">.</span><span class="n">votes</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">ratings</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">shows</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ratings</span><span class="p">.</span><span class="n">show_id</span><span class="w"> </span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ratings</span><span class="p">.</span><span class="n">votes</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">ratings</span><span class="p">.</span><span class="n">rating</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>returns</p>
-<div class="code"><pre class="code literal-block">title                  year  episodes  rating  votes  
----------------------  ----  --------  ------  -------
-Game of Thrones        2011  73        9.2     1888391
-Breaking Bad           2008  62        9.4     1596038
-Stranger Things        2016  34        8.7     920887 
-The Walking Dead       2010  177       8.2     907667 
-Friends                1994  235       8.8     905205 
-Sherlock               2010  15        9.1     854590 
-The Big Bang Theory    2007  280       8.1     754516 
-Dexter                 2006  96        8.6     679125 
-How I Met Your Mother  2005  208       8.3     635758 
-True Detective         2014  24        8.9     524834
-</pre></div>
+<h4 id="group-by-operator">
+<code>GROUP BY</code> operator<a href="#group-by-operator" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Used to group records by one or more columns. This is a variant of <code>DISTINCT</code> where you can select two or more columns but remove duplicates in 1 column from the result set.</p>
     </div>
     
 
