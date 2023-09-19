@@ -15,17 +15,17 @@ There is very little boiler plate necessary when defining a flask app. Something
 
 ```python
 from flask import Flask
-from datetime
+import datetime
 
 # define a variable to hold you app
 app = Flask(__name__)
 
 # define your resource endpoints
-app.route('/')
+@app.route('/')
 def index_page():
 	return "Hello world"
 
-app.route('/time', methods=['GET'])
+@app.route('/time', methods=['GET'])
 def get_time():
 	return str(datetime.datetime.now())
 
