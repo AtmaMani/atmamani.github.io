@@ -1,4 +1,0 @@
-Sitemap: https://atmamani.github.io/sitemapindex.xml
-
-User-Agent: *
-Host: atmamani.github.io
