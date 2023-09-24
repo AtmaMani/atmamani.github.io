@@ -1,0 +1,3279 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/">
+      
+      
+        <link rel="prev" href="../fastai/vision/">
+      
+      
+        <link rel="next" href="../coursera-understanding-backpropagation/">
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Neural networks - concepts - Atma's blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-113202945-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-113202945-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#why-use-neural-nets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Atma&#39;s blog" class="md-header__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atma's blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Neural networks - concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cloud/" class="md-tabs__link">
+          
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../apps/" class="md-tabs__link">
+          
+  
+    
+  
+  Apps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../books/2021-gis-for-science/" class="md-tabs__link">
+          
+  
+    
+  
+  Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../talks/2020-esri-seminar/" class="md-tabs__link">
+          
+  
+    
+  
+  Talks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blog/" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/category/parallel-processing/" class="md-tabs__link">
+          
+  
+    
+  
+  Categories
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Atma&#39;s blog" class="md-nav__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    Atma's blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cloud/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cloud
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_1">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/argo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Argo Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gke-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GKE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gke-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GKE Objects and specs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deep Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure-gpu-windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure GPU on windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-win-fastai-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-win-fastai-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastai/fastai-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started with Fast.ai
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastai/lesson1-pets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image classification with FastAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastai/vision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - `vision` module of FastAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Concepts - Neural Nets
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Neural Nets
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-neural-nets" class="md-nav__link">
+    Why use neural nets?
+  </a>
+  
+    <nav class="md-nav" aria-label="Why use neural nets?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-traditional-ml" class="md-nav__link">
+    Why not traditional ML?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-neural-nets-powerful" class="md-nav__link">
+    Why are neural nets powerful?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neural-net-representation" class="md-nav__link">
+    Neural net representation
+  </a>
+  
+    <nav class="md-nav" aria-label="Neural net representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vectorized-implementation-of-forward-propagation" class="md-nav__link">
+    Vectorized implementation of forward propagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neural-nets-learn-their-own-features" class="md-nav__link">
+    Neural nets learn their own features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-operations-with-neurons" class="md-nav__link">
+    Logical operations with neurons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiclass-classification-with-nn" class="md-nav__link">
+    Multiclass classification with NN
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiclass classification with NN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ocr-on-mnist-digits-database-using-nn" class="md-nav__link">
+    OCR on MNIST digits database using NN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coursera-understanding-backpropagation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Backpropagation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ml/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/ml-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ML Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/sklearn-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scikit Learn syntax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/gradient-descent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Gradient Descent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/linear-algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A primer on linear algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/sklearn_naive_bayes_classifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naive Bayes classification - Sklearn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Generalized linear models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generalized linear models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/multivariate-linear-regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solving multivariate linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/linear-regression-analytical-solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytical vs Gradient Descent methods for linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/logistic-reg-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logistic regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/model-regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model regularization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/gradient-descent-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Linear Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/sklearn_statmodels_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applying Linear Regression with scikit-learn and statmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/implementing-logistic-regression-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Logistic Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ml/mnist-digits-classification-using-logistic-regression-scikit-learn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MNIST digits classification using Logistic regression in Scikit-Learn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../stats/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/01_data_collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data collection methodologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/02_data_description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Describing Data Statistically
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/04_conditional_probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/04_normal_distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Normal distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/04_probability_distributions_binomial_poisson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binomial and Poisson distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/05_hypothesis_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/islr/02_stat_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dist-computing/pyspark/getting-started-pyspark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySpark an Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dist-computing/pyspark/spark-ml-ca-housing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predicting CA housing prices using SparkMLib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dist-computing/dask/part1_prepare_hurricane_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing historic hurricane tracks - Part 1/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dist-computing/dask/part2_explore_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 2/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dist-computing/dask/part3_analyze_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 3/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spatial Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Spatial Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial/guide-to-spatial-analysis-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial data structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spatial/guide-to-spatial-analysis-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/math-practical-odyssey-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mathematics - a practical odyssey
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fun
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fun/curve_fitting_model-complexity-vs-accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model complexity vs accuracy - empirical anlaysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fun/verifying_central_limit_theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fun/verifying_clt_in_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem in regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../apps/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Apps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/firemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/wildfire-hazard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wildfire hazard potential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/quakemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quake map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/usa-pluscodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USA Pluscodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/flask-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/fullstack-python-webapp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fullstack Python app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/2021-gis-for-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIS for Science - Climate Modeling chapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/2020-adv-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Advanced Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/2019-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/2018-essential-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Essential Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Talks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Talks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2020-esri-seminar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Training Seminar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2020-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2020-spatial-ds-mooc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Spatial Data Science MOOC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2019-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2019-dirmag-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Directions Magazine Webinar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2019-foss4gna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 FOSS4G North America
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2018-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2018-portland-geodev-meetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2017-geodev-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2017-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2017-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/2015-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/parallel-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parallel processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/threads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    serverless
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/arcgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    arcgis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/data-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    data-science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-neural-nets" class="md-nav__link">
+    Why use neural nets?
+  </a>
+  
+    <nav class="md-nav" aria-label="Why use neural nets?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-traditional-ml" class="md-nav__link">
+    Why not traditional ML?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-are-neural-nets-powerful" class="md-nav__link">
+    Why are neural nets powerful?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neural-net-representation" class="md-nav__link">
+    Neural net representation
+  </a>
+  
+    <nav class="md-nav" aria-label="Neural net representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vectorized-implementation-of-forward-propagation" class="md-nav__link">
+    Vectorized implementation of forward propagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neural-nets-learn-their-own-features" class="md-nav__link">
+    Neural nets learn their own features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-operations-with-neurons" class="md-nav__link">
+    Logical operations with neurons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiclass-classification-with-nn" class="md-nav__link">
+    Multiclass classification with NN
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiclass classification with NN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ocr-on-mnist-digits-database-using-nn" class="md-nav__link">
+    OCR on MNIST digits database using NN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Concepts - Neural Nets</h1>
+
+<h2 id="why-use-neural-nets">Why use neural nets?</h2>
+<p>Consider a classification problem where the decision boundary is non-linear as shown below:</p>
+<p><img src='/images/coursera-neural-nets1.png' width=450></p>
+<p>We can represent non-linearity in a linear model by adding higher order features. However, when the original dataset already comes with a large number of features (say <code>100</code>), then feature engineered features increases by <span class="arithmatex">\(\frac{O(n^{2})}{2}\)</span> if we want to include <strong>quadratic features</strong>. Thus, for input data set with <code>100</code> features, the feature engineered features is in the order of <code>5000s</code>. Fitting a model on such a data set is expensive, further, the model will overfit. Furthermore, if we want to represent <strong>cubic features</strong>, then order increases to <span class="arithmatex">\(O(n^{3})\)</span>.</p>
+<h3 id="why-not-traditional-ml">Why not traditional ML?</h3>
+<p><strong>Image classification</strong> is also a non-linear problem. This is because the algorithm sees images as matrices. In the graphic below, we build a training set that classifies cars from non-cars.</p>
+<p><img src='/images/coursera-neural-nets2.png' width=450></p>
+<p>Each pixel in the image is now a feature. Thus a <code>50x50</code> grayscale image has <code>2500</code> features! Since the decision boundary is usually non-linear, the number of feature required for a quadratic fit is <code>3 million</code> features. Trying to fit a logistic regression to this dataset is not feasible.</p>
+<h3 id="why-are-neural-nets-powerful">Why are neural nets powerful?</h3>
+<p>Neural nets mimic the biological neural nets found in animal brains. In brains, specific regions are responsible for specific functions. However, when scientists have conducted experiments where they would cut the signals from the ear to the sound processing region and rewrite the signals from eyes to it, the sound processing region now learns to process vision and functions just as good as the original vision processing engine. Similarly, they were able to repeat this for touch as well. Animal brain is effective as each region is not a bunch of complex algorithms, instead, most regions are general purpose systems built to infer data / signals.</p>
+<p>An example of this approach are usecases for differently abled people shown below:</p>
+<p><img src='/images/coursera-neural-nets3.png' width=450></p>
+<h2 id="neural-net-representation">Neural net representation</h2>
+<p>The physical neuron in a brain looks like below. It has a set of dendrites which act as inputs, a processing engine and the axon which acts as output.</p>
+<p><img src='/images/coursera-neural-nets4.png' width=350></p>
+<p>ANNs model these 3 parts of the neuron as shown below. A set of inputs, multiplied by their weights are fed to an activation function, which is a logit or sigmoid function.</p>
+<p><img src='/images/coursera-neural-nets5.png' width=400></p>
+<p>A group of neurons working together forms a neural net. The first layer is called the <strong>input layer</strong> and the last called the <strong>output layer</strong>. Sometimes, the <strong>bias</strong> is represented as an explicit node.</p>
+<p><img src='/images/coursera-neural-nets6.png' width=400></p>
+<p><strong>Weights in a neural net</strong>: The graphic below shows how weights are applied in a neural net. The hypothesis function for each neuron takes the familiar <span class="arithmatex">\(g(\theta^{T}X)\)</span> form. <code>g</code> is the sigmoid function and <span class="arithmatex">\(\theta_{i,k}^{j}\)</span> represents the weight for <code>jth</code> layer, hidden node <code>i</code>, input node <code>k</code>. There is always a <strong>bias node</strong> which is represented with index <code>0</code>.</p>
+<p><img src='/images/coursera-neural-nets7.png' width=700></p>
+<p>Thus, when you have <code>2</code> nodes in layer 1 (input) and <code>3</code> nodes in  layer 2, the dimension of the weight matrix for layer 2 is <code>3 x (2+1)</code>, we add <code>+1</code> to include the bias node in the first layer. Since weights is a matrix, we represent it with capital theta <span class="arithmatex">\(\Theta\)</span>.</p>
+<h4 id="vectorized-implementation-of-forward-propagation">Vectorized implementation of forward propagation</h4>
+<p>The input parameters in the previous slide can be represented as a vector <span class="arithmatex">\(x\)</span>
+$$
+x = \begin{bmatrix}
+    x_{0}\\
+    x_{1}\\
+    x_{2}\\
+    x_{3}
+\end{bmatrix}
+$$
+The activation function can be represented as <span class="arithmatex">\(a^{(j)} = g(z^{(j)})\)</span> where </p>
+<div class="arithmatex">\[
+z^{(2)} = \begin{bmatrix}
+    z_{1}^{2}\\\
+    z_{2}^{2}\\\
+    z_{3}^{2}
+\end{bmatrix}
+\]</div>
+<p>Thus, <span class="arithmatex">\(z^{(2)} = \Theta^{(1)}x\)</span> and <span class="arithmatex">\(a^{(2)} = g(z^{(2)})\)</span>. By extension, for the next layer, <span class="arithmatex">\(z^{(3)} = \Theta^{(2)}a^{(2)}\)</span> and <span class="arithmatex">\(h_{\Theta}(x) = a^{(3)} = g(z^{(3)})\)</span></p>
+<h4 id="neural-nets-learn-their-own-features">Neural nets learn their own features</h4>
+<p>If you look at the second half of the simple neural net presented earlier, it is simply a logistic regression. The inputs are however, not inputs from real world, but activations of the previous layer. Thus, neural net can create its own input features. Because of this, it is capable of representing non-linear and higher order functions, even when the real world input does not have them.</p>
+<h2 id="logical-operations-with-neurons">Logical operations with neurons</h2>
+<p>Neurons in neural nets build complex representations using simple condition checks. Below is an example of how logical <code>AND</code>, <code>OR</code> operators are represented:</p>
+<p><img src='/images/coursera-neural-nets8.png' width=500></p>
+<p>Then, by simply changing the weights, the same neuron can be switched to an <code>OR</code> operator:</p>
+<p><img src='/images/coursera-neural-nets9.png' width=500></p>
+<p>Why are these useful? Many layers of such neurons can build to represent more complex decision boundaries such as <code>XOR</code> or <code>XNOR</code> or even non-linear boundaries. Below is an example of how <code>2</code> layers of NN are used to build <code>XNOR</code> gate using <code>OR</code>, <code>AND</code>, <code>NOR</code> gates. <code>XNOR</code> gives <code>1</code> if both <code>x1</code>, <code>x2</code> are <code>0</code> or <code>1</code>.</p>
+<p><img src='/images/coursera-neural-nets11.png' width=500></p>
+<h2 id="multiclass-classification-with-nn">Multiclass classification with NN</h2>
+<p>Multiclass classification in NN is essentially a <strong>on-vs-all</strong> classification. The output layer has as many nodes as the number of classes. Further, the value of the output layer looks like <strong>one-hot</strong> encoding</p>
+<p><img src='/images/coursera-neural-nets12.png' width=550></p>
+<h3 id="ocr-on-mnist-digits-database-using-nn">OCR on MNIST digits database using NN</h3>
+<p>The MNIST database has <code>14</code> million images of handdrawn digits. We work with a subset of <code>5000</code> images. Each image is <code>20x20</code> pixels. When laid out as a column vector (which is how Neural Nets and log reg algorithms will read it), we get a <code>1x400</code> row vector. A sample of 100 images is below:</p>
+<p><img src='/images/coursera-logreg-mnist1.png/' width=400></p>
+<p>When classifying these digits, we work with <code>1</code> image at a time. This is unlike linear or logistic regression where we would represent the whole training set as matrix <code>X</code>. Here, we treat each pixel as a feature. Thus our input layer has <code>400+1</code> nodes (1 added to represent bias). The hidden layer from pre-trained network has <code>25</code> nodes. The output layer should have <code>10</code> nodes to represent the <code>10</code> classes we predict.</p>
+<p>Thus, input layer is x = <span class="arithmatex">\(a^{(1)}_{401x1}\)</span>. The weight matrix</p>
+<div class="arithmatex">\[
+a^{(1)} = x_{401x1}
+\]</div>
+<div class="arithmatex">\[
+z^{(2)} = \Theta^{(1)}_{25x401} . a^{(1)}
+\]</div>
+<div class="arithmatex">\[
+a^{(2)}_{25x1} = sigmoid(z^{(2)})
+\]</div>
+<p>We will add a bias to <span class="arithmatex">\(a^{(2)}\)</span> when computing the next layer, making it <span class="arithmatex">\(a^{(2)}_{26x1}\)</span></p>
+<div class="arithmatex">\[
+z^{(3)} = \Theta^{(2)}_{10x26} . a^{(2)}
+\]</div>
+<div class="arithmatex">\[
+a^{(3)}_{10x1} = sigmoid(z^{(3)})
+\]</div>
+<div class="arithmatex">\[
+h_{\Theta}(x) = max(sigmoid(a^{(3)}))
+\]</div>
+<p>The implementation code can be see <a href="https://github.com/AtmaMani/pyChakras/tree/master/ml/coursera-ml-matlabonline/machine-learning-ex/ex3">here</a>.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

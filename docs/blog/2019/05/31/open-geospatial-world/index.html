@@ -1,0 +1,3322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://atmamani.github.io/blog/2019/05/31/open-geospatial-world/">
+      
+      
+        <link rel="prev" href="../../../../2018/12/04/coding-standards-for-jupyter-notebooks/">
+      
+      
+        <link rel="next" href="../../../09/20/takeaways-strata-data-nyc2019/">
+      
+      
+      <link rel="icon" href="../../../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>The state of the Open Geospatial World in 2019 - Atma's blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-113202945-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-113202945-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-state-of-the-open-geospatial-world-in-2019" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Atma&#39;s blog" class="md-header__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atma's blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The state of the Open Geospatial World in 2019
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projects/cloud/" class="md-tabs__link">
+          
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../apps/" class="md-tabs__link">
+          
+  
+    
+  
+  Apps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../books/2021-gis-for-science/" class="md-tabs__link">
+          
+  
+    
+  
+  Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../talks/2020-esri-seminar/" class="md-tabs__link">
+          
+  
+    
+  
+  Talks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../../" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../category/parallel-processing/" class="md-tabs__link">
+          
+  
+    
+  
+  Categories
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Atma&#39;s blog" class="md-nav__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    Atma's blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../projects/cloud/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cloud
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_1">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/cloud/argo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Argo Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/cloud/gcp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/cloud/gke-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GKE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/cloud/gke-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GKE Objects and specs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../projects/dl/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deep Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/configure-gpu-windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure GPU on windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/setup-win-fastai-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/setup-win-fastai-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/fastai/fastai-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started with Fast.ai
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/fastai/lesson1-pets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image classification with FastAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/fastai/vision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - `vision` module of FastAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/coursera-neural-nets-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Neural Nets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dl/coursera-understanding-backpropagation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Backpropagation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../projects/ml/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/ml-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ML Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/sklearn-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scikit Learn syntax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/gradient-descent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Gradient Descent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/linear-algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A primer on linear algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/sklearn_naive_bayes_classifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naive Bayes classification - Sklearn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Generalized linear models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generalized linear models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/multivariate-linear-regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solving multivariate linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/linear-regression-analytical-solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytical vs Gradient Descent methods for linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/logistic-reg-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logistic regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/model-regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model regularization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/gradient-descent-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Linear Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/sklearn_statmodels_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applying Linear Regression with scikit-learn and statmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/implementing-logistic-regression-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Logistic Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/ml/mnist-digits-classification-using-logistic-regression-scikit-learn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MNIST digits classification using Logistic regression in Scikit-Learn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../projects/stats/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/01_data_collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data collection methodologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/02_data_description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Describing Data Statistically
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/04_conditional_probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/04_normal_distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Normal distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/04_probability_distributions_binomial_poisson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binomial and Poisson distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/05_hypothesis_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/islr/02_stat_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dist-computing/pyspark/getting-started-pyspark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySpark an Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dist-computing/pyspark/spark-ml-ca-housing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predicting CA housing prices using SparkMLib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dist-computing/dask/part1_prepare_hurricane_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing historic hurricane tracks - Part 1/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dist-computing/dask/part2_explore_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 2/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/dist-computing/dask/part3_analyze_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 3/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spatial Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Spatial Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/spatial/guide-to-spatial-analysis-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial data structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/spatial/guide-to-spatial-analysis-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../projects/math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/math/math-practical-odyssey-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mathematics - a practical odyssey
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fun
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/fun/curve_fitting_model-complexity-vs-accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model complexity vs accuracy - empirical anlaysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/fun/verifying_central_limit_theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/fun/verifying_clt_in_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem in regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../apps/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Apps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/firemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/wildfire-hazard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wildfire hazard potential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/quakemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quake map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/usa-pluscodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USA Pluscodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/flask-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../apps/fullstack-python-webapp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fullstack Python app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../books/2021-gis-for-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIS for Science - Climate Modeling chapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../books/2020-adv-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Advanced Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../books/2019-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../books/2018-essential-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Essential Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Talks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Talks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2020-esri-seminar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Training Seminar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2020-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2020-spatial-ds-mooc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Spatial Data Science MOOC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2019-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2019-dirmag-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Directions Magazine Webinar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2019-foss4gna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 FOSS4G North America
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2018-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2018-portland-geodev-meetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2017-geodev-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2017-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2017-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../talks/2015-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/parallel-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parallel processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/threads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/serverless/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    serverless
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/arcgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    arcgis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/data-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    data-science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    Executive summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Executive summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#big-data" class="md-nav__link">
+    Big data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagery-analysis" class="md-nav__link">
+    Imagery analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-discoverability" class="md-nav__link">
+    Data discoverability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-observations" class="md-nav__link">
+    Other observations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-to-ponder" class="md-nav__link">
+    Points to ponder
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#products-seen-in-the-wild-at-foss4gna" class="md-nav__link">
+    Products seen in the wild at FOSS4GNA
+  </a>
+  
+    <nav class="md-nav" aria-label="Products seen in the wild at FOSS4GNA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cesium-gis" class="md-nav__link">
+    Cesium GIS:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crunchy-data" class="md-nav__link">
+    Crunchy data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geosurgeio-no-website-yet" class="md-nav__link">
+    [Geosurge.io] - no website yet.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#omnisci" class="md-nav__link">
+    Omnisci
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-earth-engine-oss-server" class="md-nav__link">
+    Google Earth Engine OSS server:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geotrellis" class="md-nav__link">
+    GeoTrellis
+  </a>
+  
+    <nav class="md-nav" aria-label="GeoTrellis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geotrellisrasterframes" class="md-nav__link">
+    Geotrellis/RasterFrames
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azavea" class="md-nav__link">
+    Azavea
+  </a>
+  
+    <nav class="md-nav" aria-label="Azavea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azavearastervision" class="md-nav__link">
+    Azavea/rasterVision
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geomesa" class="md-nav__link">
+    GeoMesa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    AWS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#here-technologies" class="md-nav__link">
+    Here technologies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speaker-slide-decks-and-other-resources" class="md-nav__link">
+    Speaker slide decks and other resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__title">
+                <div class="md-nav__link">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+              </li>
+              <li class="md-nav__item">
+                <div class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                  <time datetime="2019-05-31 00:00:00" class="md-ellipsis">May 31, 2019</time>
+                </div>
+              </li>
+              
+              
+              
+                
+                <li class="md-nav__item">
+                  <div class="md-nav__link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                    <span class="md-ellipsis">
+                      
+                        8 min read
+                      
+                    </span>
+                  </div>
+                </li>
+              
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+<h1 id="the-state-of-the-open-geospatial-world-in-2019">The state of the Open Geospatial World in 2019</h1>
+<p>This article represents my takeaways from <a href="https://2019.foss4g-na.org/">FOSS4GNA 2019</a> conference. FOSS4G - free and open source software for geospatial industry is part of the larger <a href="http://osgeo.org/">OSGeo</a> organization.</p>
+<!-- more -->
+
+<h2 id="executive-summary">Executive summary</h2>
+<h3 id="big-data">Big data</h3>
+<p>Managing <strong>big data</strong> is the talk of the town. A number of players are solving different aspects of geospatial big data problem.
+- <a href="https://www.element84.com/about-us">Element84</a> is working on <a href="https://nasa.github.io/cumulus/docs/cumulus-docs-readme">Cumulus with NASA</a> for ETL of RS data on AWS cloud.
+- <a href="https://docs.geotrellis.io">GeoTrellis</a> is working on scalable raster analysis on Apache Spark.
+- <a href="https://www.geomesa.org/">GeoMesa</a> for vector data on top of Accumulo, Hbase, Cassandra db etc.
+- <a href="http://pangeo.io/">PanGeo</a> is working on a hosted notebook server solution for analyzing big geospatial raster datasets.
+- <a href="https://www.omnisci.com/platform/core">OmniSci core</a> is a high GPU database query engine.
+- <a href="http://www.opengee.org/">Google Earth Engine</a> has been revived and being maintained.</p>
+<h3 id="imagery-analysis">Imagery analysis</h3>
+<p>It was surprising to see <strong>raster and satellite imagery analysis</strong> be spoken at forefront. It was common understanding that we are about to witness an explosion in availability of Earth Observation (EO) images (via dove, cube sats, drone images, NASA and other international space agency satellites). And a number of products were focussed on solving the data analysis challenge such as GeoTrellis, PanGeo, Google Earth Engine.</p>
+<p><strong>Efficient tiling engines</strong> - GeoTrellis, other providers build tiles off raster outputs and serve that. The idea is serving WMTS is less CPU intensive than WMS (which is dynamic)</p>
+<p>NASA appears to be a big customer of FOSS4G on the cloud. Companies like Element84, Pangeo seem to be born out of NASA's transition to cloud.</p>
+<h3 id="data-discoverability">Data discoverability</h3>
+<p>The amount of data collected is projected to grow exponentially. However, today, different vendors use custom or sometimes proprietary metadata files, making indexing and searching difficult. Thus, <a href="https://stacspec.org/">STAC</a> - <strong>SpatioTemporal Asset Catalog</strong> is a common specification created to describe a range of geospatial datasets (Imagery, SAR, Point Clouds, Scientific data, FMV etc.).</p>
+<p>Even though STAC is relatively new (release in April 2018), a number of APIs, applications have already adopted this standard. For instance, <a href="https://github.com/sat-utils/sat-api">sat-api</a> of <a href="https://github.com/sat-utils">sat utils</a> project from <a href="https://developmentseed.org">Developmentseed</a> was used as a premier example of embracing STAC</p>
+<p>NASA's transition (specifically the <a href="https://earthdata.nasa.gov/community/community-data-system-programs/access-projects">NASA ACCESS 2017 grant</a>) appears to drive creation of new standards like STAC. New cloud-native data formats such as Cloud optimized GeoTIFF, Zarr (Z arryas for nD data similar to netCDF) are being worked upon.</p>
+<h3 id="other-observations">Other observations</h3>
+<p>Even though the FOSS ecosystem appears fragmented, a number of libraries effectively self-organize and reuse one another. For instance, <a href="https://intake.readthedocs.io">intake</a> (which specializes in data discovery, loading, management, dissemination)  uses <a href="http://xarray.pydata.org/en/stable/io.html">Xarray</a> which uses <a href="https://rasterio.readthedocs.io/en/stable/">rasterio</a> wich again uses <a href="http://gdal.org/">GDAL</a> for loading rasters.</p>
+<p>Python is everywhere. Most scientific analysis presentations used Python APIs to some extent.</p>
+<p>FOSS is struggling to maintain funding and a number of core projects have a very tiny team that's building them.</p>
+<blockquote>
+<p>While the above is about what was seen at FOSS4G, it is also important to note what was missing. There was little mention about native smartphone applications. I could not find a framework that allowed platform agnostic (or not) development of runtime applications. There wasn't an equivalent to ArcGIS Runtime stack.
+My colleague noted the absence of the term <code>Data Science</code>. While this crowd is certainly technical and does advanced machine learning, they don't to use or associate with the term Data Science.</p>
+</blockquote>
+<h3 id="points-to-ponder">Points to ponder</h3>
+<ol>
+<li>Should ArcGIS Image Server evaluate Spark stack for distributed raster processing (like it's existing GeoAnalytics stack)?</li>
+<li>A participant noted that ArcGIS Online needs an <strong>easy, one step imagery publishing</strong> functionality. The barrier to analyzing raster is to purchase and set up ArcGIS Desktop or ArcGIS Enterprise. Further, the AGS JS API cannot display and work with local rasters. These shortcomings raise the barrier when users need to analyze their own imagery datasets. FOSS on the other hand has identified this shortcoming and products like <a href="http://geotiff.io/">GeoTiff.io</a> were created which allows you to quickly analyze your local rasters right in your browser.</li>
+</ol>
+<hr />
+<h2 id="products-seen-in-the-wild-at-foss4gna">Products seen in the wild at FOSS4GNA</h2>
+<h3 id="cesium-gis"><a href="https://cesium.com/pricing/">Cesium GIS</a>:</h3>
+<p>| <img src="/images/cesium_gis_logo.png" width=100> | Ceasium is primarily for 3D GIS. Products include
+    - ion - cloud platform
+    - 3D tiling pipeline
+    - SDK
+    - 3D Content - imagery, 3D Tiles etc.  |</p>
+<h3 id="crunchy-data"><a href="https://www.crunchydata.com/">Crunchy data</a></h3>
+<p>| <img src="/images/crunchy_data_logo.png" width=200> | Crunchy is enterprise postgreSQL leader. They got postgres for cloud etc. As is, this is not a FOSS4G company. Just that Paul Ramsey works there. |</p>
+<h3 id="geosurgeio-no-website-yet">[Geosurge.io] - no website yet.</h3>
+<p>| <img src="/images/geotiff.io_logo.png" width=200> | Works on http://app.geotiff.io/ a UX for analyzing raster data on the browser using JS, client side computations |</p>
+<h3 id="omnisci"><a href="https://www.omnisci.com">Omnisci</a></h3>
+<p><img src="/images/omnisci_logo.svg" width=75> Omnisci has GPU based high speed sql queries. Their chief evangelist said "Speed is so high, that we don't worry about spaital indexing". Go to https://www.omnisci.com/demos/ and https://omnisci.cloud/accounts/login/?next=/ to spin up a trial omnisci cloud for you.</p>
+<ul>
+<li>Omnisci's core is FOSS, but higher stacks are SAAS, something similar to carto.com.</li>
+<li><a href="https://www.omnisci.com/platform/immerse">Omnisci Immerse</a> is similar to Insights for ArcGIS product.</li>
+<li>They talk about "VAST data" (volume, agility, spatio temporal data) and their platform is uniquely positioned to analyze that.</li>
+<li>From a climate science talk: A typical data analysis workflow is to use omnisci (cloud) for cleaning big data in the cloud. Then download to disk for Jupyter Notebooks and Python libraries like seaborn, geopandas, xarray to visualize, explore and analyze.</li>
+<li>Below is an architecture diagram of Omnisci cloud:</li>
+<li><img alt="" src="/images/omnisci-platform.png" /></li>
+</ul>
+<h3 id="google-earth-engine-oss-server"><a href="http://www.opengee.org/">Google Earth Engine</a> OSS server:</h3>
+<p><img alt="" src="/images/open-gee-logo.png" /> GEE is not dead, it is being maintained at http://www.opengee.org/. The talk showed how to build tilecache for local datasets, load on GEE. But the speaker ran into many issues and it looked cumbersome to work with.</p>
+<h3 id="geotrellis"><a href="https://geotrellis.io">GeoTrellis</a></h3>
+<p><img alt="" src="/images/geotrellis-logo.png" /> is a Scala Lib to work with raster data using Apache spark. It can do fast IO, map algebra, R2V, V2R conversions. It can render outputs to PNGs. It can perform dynamic computations as well as batch processing. The diagram below shows their overall architecture:
+<img alt="" src="/images/geotrellis-architecture.jpg" /></p>
+<p>Some recent additions allow GeoTrellis to build vector tiles off vector data, work with point cloud data, streaming data and they are working to enable GeoTrellis speak to GeoServer.</p>
+<p>Geotrellis had a lot of contributors and speakers from Azavea and the theme of this talk was 'cloud native GIS apps' as opposed to  Service Oriented Architecture (SOA) of traditional GIS Server apps.</p>
+<h4 id="geotrellisrasterframes"><a href="http://rasterframes.io/getting-started.html">Geotrellis/RasterFrames</a></h4>
+<p><img src="/images/RasterFrames-logo.png" width=200> is spark DF for raster data. It allows to perform spatiotemporal queries, map algebra ops on rasters along side Spark ML algorithms.
+<img alt="" src="/images/rasterframe-pipeline.svg" /></p>
+<p>The <a href="http://rasterframes.io/reference.html">PyRasterFrames</a> provides Python bindings for Geotrellis scala API. PyRF is based on PySpark API. Their <a href="https://geotrellis.github.io/maml/">MAML</a> (map algebra modeling language) was shown off significantly.</p>
+<h3 id="azavea"><a href="https://github.com/azavea/">Azavea</a></h3>
+<p><img src="/images/azavea-logo.png" width=50> appears to sponsor most of GeoTrellis work, their demo servers and speakers at this conference. Most of Azavea's talks were packed.</p>
+<h4 id="azavearastervision"><a href="https://docs.rastervision.io/en/0.9/">Azavea/rasterVision</a></h4>
+<p><img alt="" src="/images/raster-vision-logo.jpeg" /> framework is something to be noted. This API builds on top of <strong>Tensorflow</strong> and supports workflows such as classification, object detection and semantic segmentation of satellite images.
+<img alt="" src="/images/raster-vision-workflow.png" /></p>
+<p>Raster Vision's goal seems to be well defined. The <a href="https://docs.rastervision.io/en/0.9/why.html#why-do-we-need-yet-another-deep-learning-library">why?</a> article clearly outlines how Azavea pictures this library as a <strong>plumber</strong> and how it benefits in creating a repeatable and deployable deep learning pipeline.</p>
+<blockquote>
+<p>In these ways, raster vision is aligned with the 'learn' module of the ArcGIS API for Python.</p>
+</blockquote>
+<h3 id="geomesa"><a href="https://www.geomesa.org/">GeoMesa</a></h3>
+<p><img src="images/geomesa-logo.png" width=75> is for large-scale spatial querying, analytics on distributed systems. SpatioTemportal indexing on top of Accumulo, Hbase, Cassandra db etc for vector data.</p>
+<p>I did not collect more information about this product. I left that to my expert colleagues from database teams.</p>
+<h3 id="aws"><a href="https://aws.amazon.com">AWS</a></h3>
+<p><img alt="" src="/images/aws-logo.png" /> Arguably the elephant in the room. AWS was one of the biggest sponsors of this conference and its Geo Data lead Joe Flasher did a pretty good job of being a technical evangelist and also supporting a lot of his customers (including Esri) in a number of other talks.</p>
+<p>Why is AWS interested in FOSS4G? Simply because its customers are. NASA and DigitalGlobe are two of its biggest customers and AWS is pretty vested in supporting them.</p>
+<p>Joe spoke about https://registry.opendata.aws/ which contains all open data including spatial. Some subsets from the site are</p>
+<ul>
+<li><a href="https://registry.opendata.aws/tag/satellite-imagery/">https://registry.opendata.aws/tag/satellite-imagery/</a></li>
+<li><a href="https://registry.opendata.aws/tag/geospatial/">https://registry.opendata.aws/tag/geospatial/</a></li>
+</ul>
+<p>The landing page https://aws.amazon.com/earth/ is geared toward its efforts in the geospatial sector. This page features a number of talks on this topic from customers of AWS. (Esri's Peter Becker's talk from reInvent is featured here).</p>
+<p><center><img alt="" src="/images/Snowball-Edge-Image.png" /></center></p>
+<p>He spoke about AWS Snowball edge which is a portable AWS cloud that gets shipped out to disaster response centers for their local VPC. During such calamities, (for customers like element84), they start a data checkout into the snowball edge. STAC is the protocol for how data is laid out.</p>
+<p><img alt="" src="/images/aws-ground-stations.png" /></p>
+<p>AWS is also building a ground station network for satellite data reception. Thus straight from satellite into AWS infrastructure. This has been functional since 2018 Nov.</p>
+<p><img src="/images/spacenet-logo.png" width=150"> AWS and a few other companies sponsor the https://spacenet.ai/ contains ML challenges to be solved in the GeoAI community.</p>
+<h3 id="here-technologies"><a href="https://www.here.com">Here technologies</a></h3>
+<p><img src="/images/here-logo.png" width=75> showed off their geospatial platform. It looked good, but I didn't go into the details. Their emphasis however, seemed to be around managing <strong>mapping data from and for autonomous vehicles</strong>.</p>
+<hr />
+<h2 id="speaker-slide-decks-and-other-resources">Speaker slide decks and other resources</h2>
+<p>There isn't a formal place where the decks are shared. These are the ones I manage to source from Twitter and other similar sources
+ - <a href="https://docs.google.com/presentation/d/1-PAgIk9--nedCdfMGEwhcnqxqy1fGYUXwWhxzMfqJZg/edit#slide=id.g564eb4321c_0_59">Paul Ramsey's keynote on FOSS lifecycle</a>
+ - <a href="http://blog.gretchenpeterson.com/archives/5129">Gretchen's blog post</a>
+ - <a href="https://slides.com/atma_mani/deck#/">My slide deck on 'Let's take the machines house hunting'</a></p>
+<p>Resources:
+ - <a href="https://datacarpentry.org/geospatial-workshop/">GIS Carpentry</a> This teaches EDA using R. The root page for all geosaptial data carpentry is <a href="https://datacarpentry.org/lessons/#geospatial-curriculum">here</a>.</p>
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

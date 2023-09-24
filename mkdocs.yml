@@ -1,0 +1,146 @@
+site_name: Atma's blog
+site_url: https://atmamani.github.io
+docs_dir: src
+site_dir: docs
+nav:
+  - Home: index.md
+  - Projects:
+    - Cloud:
+      - projects/cloud/index.md
+      - Argo Workflows: projects/cloud/argo.md
+      - Intro to GCP: projects/cloud/gcp-1.md
+      - Intro to GKE: projects/cloud/gke-1.md
+      - GKE Objects and specs: projects/cloud/gke-2.md
+    - Deep Learning:
+      - projects/dl/index.md
+      - Configure GPU on windows: projects/dl/configure-gpu-windows.md
+      - Setup for FastAI v1: projects/dl/setup-win-fastai-v1.md
+      - Setup for FastAI v2: projects/dl/setup-win-fastai-v2.md
+      - Getting started with FastAI: projects/dl/fastai/fastai-1.ipynb
+      - Image classification with FastAI: projects/dl/fastai/lesson1-pets.ipynb
+      - Concepts - `vision` module of FastAI: projects/dl/fastai/vision.md
+      - Concepts - Neural Nets: projects/dl/coursera-neural-nets-concepts.md
+      - Concepts - Backpropagation: projects/dl/coursera-understanding-backpropagation.md
+    - Machine Learning:
+      - projects/ml/index.md
+      - Core Concepts:
+        - ML Concepts: projects/ml/ml-concepts.md
+        - Scikit Learn syntax: projects/ml/sklearn-1.ipynb
+        - Understanding Gradient Descent: projects/ml/gradient-descent.md
+        - A primer on linear algebra: projects/ml/linear-algebra.md
+        - Naive Bayes classification with sklearn: projects/ml/sklearn_naive_bayes_classifier.ipynb
+      - Generalized linear models:
+        - Linear regression concepts: projects/stats/islr/03_linear_regression.ipynb
+        - Solving multivariate linear regression: projects/ml/multivariate-linear-regression.md
+        - Analytical vs Gradient Descent methods for linear regression: projects/ml/linear-regression-analytical-solution.md
+        - Logistic regression concepts: projects/ml/logistic-reg-concepts.md
+        - Model regularization: projects/ml/model-regularization.md
+      - Applications:
+        - Implementing Gradient Descent for linear regression: projects/ml/gradient-descent-in-python.ipynb
+        - Applying Linear Regression with `sklearn` and `statmodels: projects/ml/sklearn_statmodels_linear_regression.ipynb
+        - Implementing Gradient Descent for logistic regression: projects/ml/implementing-logistic-regression-in-python.ipynb
+        - MNIST digits classification using Logistic regression in Scikit-Learn: projects/ml/mnist-digits-classification-using-logistic-regression-scikit-learn.ipynb
+    - Statistics:
+      - projects/stats/index.md
+      - Collecting data: projects/stats/01_data_collection.ipynb
+      - Describing data: projects/stats/02_data_description.ipynb
+      - Conditional probability: projects/stats/04_conditional_probability.ipynb
+      - Normal distribution: projects/stats/04_normal_distribution.ipynb
+      - Binomial and Poisson distributions: projects/stats/04_probability_distributions_binomial_poisson.ipynb
+      - Hypothesis testing: projects/stats/05_hypothesis_testing.ipynb
+      - Statistical learning: projects/stats/islr/02_stat_learning.ipynb
+      - Linear regression concepts: projects/stats/islr/03_linear_regression.ipynb
+    - Distributed Computing:
+      - PySpark an Introduction: projects/dist-computing/pyspark/getting-started-pyspark.md
+      - SparkMLLib - Predicting house prices: projects/dist-computing/pyspark/spark-ml-ca-housing.ipynb
+      - Dask - Preparing larger-than-memory hurricane data: projects/dist-computing/dask/part1_prepare_hurricane_data.ipynb
+      - Dask - EDA on hurricane tracks: projects/dist-computing/dask/part2_explore_hurricane_tracks.ipynb
+      - Dask - Does intensity of hurricanes increase over time?: projects/dist-computing/dask/part3_analyze_hurricane_tracks.ipynb
+    - Spatial Analysis:
+      - Spatial data structures: projects/spatial/guide-to-spatial-analysis-1.md
+      - Spatial statistics: projects/spatial/guide-to-spatial-analysis-2.md
+    - Math:
+      - projects/math/index.md
+      - Math, a practical odyssey: projects/math/math-practical-odyssey-1.ipynb 
+    - Fun:
+      - Model complexity vs accuracy - an empirical analysis: projects/fun/curve_fitting_model-complexity-vs-accuracy.ipynb
+      - Verifying central limit theorem: projects/fun/verifying_central_limit_theorem.ipynb
+      - Verifying central limit theorem in regression: projects/fun/verifying_clt_in_regression.ipynb
+  - Apps:
+    - apps/index.md
+    - Fire map: apps/firemap.md
+    - Wildfire hazard potential: apps/wildfire-hazard.md
+    - Quake map: apps/quakemap.md
+    - USA Pluscodes: apps/usa-pluscodes.md
+    - Flask notes: apps/flask-notes.md
+    - Fullstack Python app: apps/fullstack-python-webapp-1.md
+  - Books:
+    - GIS for Science - Climate Modeling chapter: books/2021-gis-for-science.md
+    - Reviewer - Advanced Python Scripting for ArcGIS: books/2020-adv-py-scripting.md
+    - Reviewer - Python Scripting for ArcGIS: books/2019-py-scripting.md
+    - Reviewer - Essential Python: books/2018-essential-python.md
+  - Talks:
+    - 2020 Esri Training Seminar: talks/2020-esri-seminar.md
+    - 2020 Esri Developer Summit: talks/2020-esri-devsummit.md
+    - 2020 Spatial Data Science MOOC: talks/2020-spatial-ds-mooc.md
+    - 2019 Esri Developer Summit: talks/2019-esri-devsummit.md
+    - 2019 Directions Magazine Webinar: talks/2019-dirmag-webinar.md
+    - 2019 FOSS4G North America: talks/2019-foss4gna.md
+    - 2018 Esri Developer Summit: talks/2018-esri-devsummit.md
+    - 2018 GeoDev Meetup: talks/2018-portland-geodev-meetup.md
+    - 2017 GeoDev Meetup: talks/2017-geodev-webinar.md
+    - 2017 Esri Developer Summit: talks/2017-esri-devsummit.md
+    - 2017 Esri User Conference: talks/2017-esri-uc.md
+    - 2015 Esri User Conference: talks/2015-esri-uc.md
+  - Blog: blog/index.md
+
+theme: 
+  name: material
+  logo: images/scatter-128.png
+  favicon: images/favicon.ico
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/brightness-3
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.path
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - mkdocs-jupyter
+  - search
+  - blog:
+      archive: false
+      pagination_per_page: 5
+      blog_toc: true
+
+extra:
+  analytics:
+    provider: google
+    property: UA-113202945-1
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

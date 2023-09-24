@@ -1,0 +1,3391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://atmamani.github.io/projects/dl/fastai/vision/">
+      
+      
+        <link rel="prev" href="../lesson1-pets/">
+      
+      
+        <link rel="next" href="../../coursera-neural-nets-concepts/">
+      
+      
+      <link rel="icon" href="../../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Deep Learning on imagery using `fastai.vision` module - Atma's blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-113202945-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-113202945-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-113202945-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#list-of-relevant-functions-and-classes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Atma&#39;s blog" class="md-header__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Atma's blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deep Learning on imagery using `fastai.vision` module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../cloud/" class="md-tabs__link">
+          
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../apps/" class="md-tabs__link">
+          
+  
+    
+  
+  Apps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../books/2021-gis-for-science/" class="md-tabs__link">
+          
+  
+    
+  
+  Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../talks/2020-esri-seminar/" class="md-tabs__link">
+          
+  
+    
+  
+  Talks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../blog/" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../blog/category/parallel-processing/" class="md-tabs__link">
+          
+  
+    
+  
+  Categories
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Atma&#39;s blog" class="md-nav__button md-logo" aria-label="Atma's blog" data-md-component="logo">
+      
+  <img src="../../../../images/scatter-128.png" alt="logo">
+
+    </a>
+    Atma's blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cloud/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cloud
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_1">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/argo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Argo Workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/gcp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/gke-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to GKE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/gke-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GKE Objects and specs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deep Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure-gpu-windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configure GPU on windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup-win-fastai-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup-win-fastai-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup for FastAI v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastai-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started with Fast.ai
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson1-pets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image classification with FastAI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Concepts - `vision` module of FastAI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - `vision` module of FastAI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-relevant-functions-and-classes" class="md-nav__link">
+    List of relevant functions and classes
+  </a>
+  
+    <nav class="md-nav" aria-label="List of relevant functions and classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-sample-data" class="md-nav__link">
+    Getting sample data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-image-data" class="md-nav__link">
+    Loading image data
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading image data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#different-ways-of-loading-data-into-databunch-objects" class="md-nav__link">
+    Different ways of loading data into DataBunch objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-accuracy" class="md-nav__link">
+    Model accuracy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fine-tuning" class="md-nav__link">
+    Model fine-tuning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predict-on-real-world-data" class="md-nav__link">
+    Predict on real world data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-parameter-tuning" class="md-nav__link">
+    Hyper-parameter tuning
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyper-parameter tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-too-high" class="md-nav__link">
+    Learning rate too high
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-too-low" class="md-nav__link">
+    Learning rate too low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-loss-validation-loss" class="md-nav__link">
+    Training loss &gt; Validation loss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-few-epochs" class="md-nav__link">
+    Too few epochs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-epochs" class="md-nav__link">
+    Too many epochs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coursera-neural-nets-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Neural Nets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coursera-understanding-backpropagation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts - Backpropagation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ml/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/ml-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ML Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/sklearn-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scikit Learn syntax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/gradient-descent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Gradient Descent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/linear-algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A primer on linear algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/sklearn_naive_bayes_classifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Naive Bayes classification - Sklearn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Generalized linear models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generalized linear models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/multivariate-linear-regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solving multivariate linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/linear-regression-analytical-solution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytical vs Gradient Descent methods for linear regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/logistic-reg-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logistic regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/model-regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model regularization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/gradient-descent-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Linear Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/sklearn_statmodels_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applying Linear Regression with scikit-learn and statmodels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/implementing-logistic-regression-in-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Gradient Descent for Logistic Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ml/mnist-digits-classification-using-logistic-regression-scikit-learn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MNIST digits classification using Logistic regression in Scikit-Learn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../stats/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/01_data_collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data collection methodologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/02_data_description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Describing Data Statistically
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/04_conditional_probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conditional Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/04_normal_distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Normal distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/04_probability_distributions_binomial_poisson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binomial and Poisson distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/05_hypothesis_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hypothesis testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/islr/02_stat_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistical Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stats/islr/03_linear_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear regression concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Computing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dist-computing/pyspark/getting-started-pyspark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySpark an Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dist-computing/pyspark/spark-ml-ca-housing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predicting CA housing prices using SparkMLib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dist-computing/dask/part1_prepare_hurricane_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing historic hurricane tracks - Part 1/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dist-computing/dask/part2_explore_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 2/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dist-computing/dask/part3_analyze_hurricane_tracks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analyzing hurricane tracks - Part 3/3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Spatial Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Spatial Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spatial/guide-to-spatial-analysis-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial data structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spatial/guide-to-spatial-analysis-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/math-practical-odyssey-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mathematics - a practical odyssey
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fun
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Fun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fun/curve_fitting_model-complexity-vs-accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model complexity vs accuracy - empirical anlaysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fun/verifying_central_limit_theorem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fun/verifying_clt_in_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verifying Central Limit Theorem in regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../apps/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Apps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/firemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/wildfire-hazard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wildfire hazard potential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/quakemap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quake map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/usa-pluscodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USA Pluscodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/flask-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../apps/fullstack-python-webapp-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fullstack Python app
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/2021-gis-for-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIS for Science - Climate Modeling chapter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/2020-adv-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Advanced Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/2019-py-scripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Python Scripting for ArcGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../books/2018-essential-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reviewer - Essential Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Talks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Talks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2020-esri-seminar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Training Seminar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2020-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2020-spatial-ds-mooc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020 Spatial Data Science MOOC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2019-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2019-dirmag-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 Directions Magazine Webinar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2019-foss4gna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019 FOSS4G North America
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2018-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2018-portland-geodev-meetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2017-geodev-webinar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 GeoDev Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2017-esri-devsummit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri Developer Summit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2017-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../talks/2015-esri-uc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015 Esri User Conference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/parallel-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    parallel processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/threads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/serverless/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    serverless
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    aws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/arcgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    arcgis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/data-science/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    data-science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-relevant-functions-and-classes" class="md-nav__link">
+    List of relevant functions and classes
+  </a>
+  
+    <nav class="md-nav" aria-label="List of relevant functions and classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-sample-data" class="md-nav__link">
+    Getting sample data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-image-data" class="md-nav__link">
+    Loading image data
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading image data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#different-ways-of-loading-data-into-databunch-objects" class="md-nav__link">
+    Different ways of loading data into DataBunch objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    Training
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-accuracy" class="md-nav__link">
+    Model accuracy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-fine-tuning" class="md-nav__link">
+    Model fine-tuning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predict-on-real-world-data" class="md-nav__link">
+    Predict on real world data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-parameter-tuning" class="md-nav__link">
+    Hyper-parameter tuning
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyper-parameter tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-too-high" class="md-nav__link">
+    Learning rate too high
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-too-low" class="md-nav__link">
+    Learning rate too low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-loss-validation-loss" class="md-nav__link">
+    Training loss &gt; Validation loss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-few-epochs" class="md-nav__link">
+    Too few epochs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-epochs" class="md-nav__link">
+    Too many epochs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Concepts - `vision` module of FastAI</h1>
+
+<h2 id="list-of-relevant-functions-and-classes">List of relevant functions and classes</h2>
+<h3 id="getting-sample-data">Getting sample data</h3>
+<ul>
+<li><code>fastai.datasets</code> contains a set of curated datasets that sits on S3. You can get the list from <code>fastai.datasets.URLs</code></li>
+<li><code>URLs.PETS</code> for example will return the download URL.</li>
+<li><code>fastai.datasets.untar_data()</code> will download to a <code>.fastai/data</code> folder under local user data and will return that path as a <code>Pathlib.Path</code> object</li>
+</ul>
+<h3 id="loading-image-data">Loading image data</h3>
+<ul>
+<li><code>fastai.vision.data.get_image_files()</code> will scan a directory of image files and return a list of <code>Path</code> objects.</li>
+<li>The next step is to create an <strong><code>ImageDataBunch</code></strong> instance. In FastAI, <code>DataBunch</code> objects form the main way to represent and hold training and test datasets.</li>
+<li><strong><code>fastai.vision.data.ImageDataBunch.from_name_re()</code></strong> is a static, factory method allows you to construct an <code>ImageDataBunch</code> and while doing that, it can extract labels from file names. It accepts a Python Regular Expression syntax for this. You also feed it with transformations, size to resize and batch size the GPU can handle. See example below:</li>
+</ul>
+<pre><code class="language-python">pat = r'/([^/]+)_\d+.jpg$'
+data = ImageDataBunch.from_name_re(path_img, fnames, pat, ds_tfms=get_transforms(), size=224, bs=bs)
+data = data.normalize(imagenet_stats)
+</code></pre>
+<ul>
+<li><code>fastai.vision.transform.get_transforms()</code> is a utility func that is used to specify and get back a list of transformation that need to applied on the DataBunch object.</li>
+<li>The <code>from_name_re()</code> will split the data into training and validation sets. These can be accessed via <code>data.valid_ds</code> and <code>data.train_ds</code> where, <code>data</code> is instance of <code>ImageDataBunch</code>.</li>
+<li><code>data.show_batch()</code> can be used to display training data in a notebook.</li>
+<li><code>data.classes</code> will return the label classes it has parsed using the regular expression earlier.</li>
+<li><code>data.batch_size</code> shows the batch size configured</li>
+</ul>
+<h4 id="different-ways-of-loading-data-into-databunch-objects">Different ways of loading data into DataBunch objects</h4>
+<ul>
+<li><code>data = ImageDataBunch.from_folder(path, ds_tfms, size)</code> can create it from folder, sub-folder structure</li>
+<li><code>data = ImageDataBunch.from_csv(path, ds_tfms, size)</code> can load it from a CSV containing file names and class values</li>
+<li><code>data = ImageDataBunch.from_df(path, df, ds_tfms, size)</code> can load data from a df</li>
+<li><code>data = ImageDataBunch.from_name_func(path, fn_paths, ds_tfms, size, label_func= lambda x:'3' if '/3/' in str(x) else '7')</code> to create from an anonymous function</li>
+<li><code>data = ImageDataBunch.from_lists(path, fn_paths, labels, ds_tfms, size)</code> to create from a list of class values.</li>
+</ul>
+<h3 id="training">Training</h3>
+<ul>
+<li><code>fastai.vision.models</code> module can list all models that are supported. For instance, <code>[mdl for mdl in dir(fastai.vision.models) if '__' not in mdl]</code> list comp will return <code>40</code> such models as of 2021.</li>
+</ul>
+<pre><code class="language-python">from pprint import pprint
+pprint([mdl for mdl in dir(fastai.vision.models) if '__' not in mdl], compact=True)
+
+&gt;&gt;&gt; ['BasicBlock', 'Darknet', 'DynamicUnet', 'ResLayer', 'ResNet', 'SqueezeNet',
+ 'UnetBlock', 'WideResNet', 'XResNet', 'alexnet', 'darknet', 'densenet121',
+ 'densenet161', 'densenet169', 'densenet201', 'mobilenet_v2', 'resnet101',
+ 'resnet152', 'resnet18', 'resnet34', 'resnet50', 'squeezenet1_0',
+ 'squeezenet1_1', 'unet', 'vgg11_bn', 'vgg13_bn', 'vgg16_bn', 'vgg19_bn', 'wrn',
+ 'wrn_22', 'xception', 'xresnet', 'xresnet101', 'xresnet152', 'xresnet18',
+ 'xresnet18_deep', 'xresnet34', 'xresnet34_deep', 'xresnet50',
+ 'xresnet50_deep']
+40
+</code></pre>
+<ul>
+<li><code>fastai.metrics.error_rate()</code> is a type of loss function, we use in training on images</li>
+<li><strong><code>fastai.vision.learner.cnn_learner()</code></strong> is a static, factory method that creates a convolutional neural network based on the backbone and loss function specified. For instance, <code>learn = cnn_learner(data, models.resnet34, metrics=error_rate)</code>.<ul>
+<li>Note, when creating the learner, you pass the whole data bunch - <strong>including both training and test data</strong>.</li>
+<li>The <code>error_rate</code> function will help in evaluating the performance on both the training data as well as the validation data.</li>
+</ul>
+</li>
+<li><strong><code>learn.fit_one_cycle(cyc_len=4)</code></strong> is used to train the <code>restnet34</code> model. The cycle length parameter determines how many times to repeat the one cycle learning. The output of this cell shows the following:</li>
+</ul>
+<pre><code>epoch   train_loss  valid_loss  error_rate  time
+0       1.361700    0.337071    0.104195    02:24
+1       0.601790    0.297722    0.089310    02:07
+2       0.380089    0.282888    0.079838    02:26
+3       0.271350    0.246164    0.071719    02:07
+
+Wall time: 9min 6s
+</code></pre>
+<ul>
+<li>The output above shows at end of epoch 4, we have an error rate of <code>0.071</code> which means about <code>92.9%</code> accuracy.</li>
+<li>Calling <code>learn.summary()</code> returns you a high level info on each of the layers in the DL model along with summary info at the end.</li>
+<li>Finally, <strong>save the model</strong> by calling <code>learn.save(file='pets-lesson01-stage1', return_path=True)</code> which will return the path to the model file on disk, such as: <code>PosixPath('/Users/atma6951/.fastai/data/oxford-iiit-pet/images/models/pets-lesson01-stage-1.pth)</code> and weighs about <code>90 MB</code> in size. By default, Fastai tries to keep the models in the same location as the data bunch.</li>
+</ul>
+<h3 id="model-accuracy">Model accuracy</h3>
+<p>Once training is complete, you can use the following tools to evaluate the accuracy.</p>
+<ul>
+<li>Use <code>interp = fastai.train.ClassificationInterpretation.from_learner(learn)</code> to create an instance of <code>ClassificationInterpretation</code> class. Running this takes a while as fastai will compute the accuracy of each of the result in the validation dataset.</li>
+<li><code>interp.top_losses()</code> will return a tuple of losses and indices which correspond to loss value and index of that dataset in the <code>data.valid_ds</code> bunch. Since the function sorts the data by descending loss value, it supplies the index to match with original dataset.</li>
+<li><code>interp.plot_top_losses(k=9, figsize=(7,7))</code> will plot the top losses in a matrix along with the <code>predicted / actual / loss / probability</code> values as annotations.</li>
+<li><code>interp.plot_confusion_matrix(figsize=(16,16))</code> will plot the seaborn style confusion matrix with heatmap. For a <code>37</code> class problem like the pets, this matrix gets hard to read. When num classes is high and accuracy is also generally high, use,</li>
+<li><code>interp.most_confused(min_val=2)</code> will return a list of tuples - containing <code>prediction, actual, num_confusions</code>. The <code>min_val=2</code> tells the API to ignore cases where just <code>1</code> file is misclassified. It is essentially, the descending order of non-diagonal cells in the confusion matrix.</li>
+</ul>
+<h3 id="model-fine-tuning">Model fine-tuning</h3>
+<p>So far, the <code>fit_one_cycle()</code> method was used on <code>4</code> epochs and the training went fairly quickly (<code>10</code> mins). This is because, the <code>cnn_learner()</code> produced a model that is based on <code>resnet32</code> and added a few layers to the end. The <code>fit_one_cycle()</code> trained only those last few layers and left most of the earlier ones intact.</p>
+<p>This (transfer learning) principle works fairly well and gets us about <code>92%</code> accuracy. To improve this further, we need to <strong><code>unfreeze</code></strong> all the layers in the models and adjust their weights during the training.</p>
+<ul>
+<li><code>learn.unfreeze()</code> will unfreeze the whole model - backbone and the additional layers</li>
+<li><code>learn.fit_one_cycle(1)</code> thereafter will try to teach / change weights on the whole model. Often this results in lower accuracy because the initial layers of the model need not be changed as much since they often do preliminary work compared to the later layers which do the actual classification.</li>
+</ul>
+<p>To resolve the lower accuracy issue, we need to introduce <strong>learning rate</strong> and modify the weights of the initial layers much less frequently than those of the later layers. Learning rate is usually specified as a list of floats to match each layer in the model. In Fastai, we use the <code>slice(low, high)</code> Python function to evenly distribute LR between the first and last layers of the model.</p>
+<ul>
+<li>Run <code>learn.lr_find()</code> where the API will evaluate various learning rates and find the loss for each.</li>
+<li>Run <code>learn.recorder.plot(suggestion=True, show_grid=True)</code> to view the learning rate plot. It looks like below:</li>
+</ul>
+<p><img alt="" src="/images/fastai-lr1.jpg" /></p>
+<p>In general, we are not looking for learning at lowest loss, but for rate at the steepest segment of the loss curve. Using this suggestion, you can run</p>
+<pre><code class="language-python">%%time
+learn.unfreeze()
+learn.fit_one_cycle(2, max_lr=slice(1e-6,1e-5))  # LR chosen from the suggestion in the image
+
+&gt;&gt;&gt;
+epoch   train_loss  valid_loss  error_rate  time
+    0   0.230512    0.231129    0.067659    02:13
+    1   0.246171    0.228836    0.064276    02:15
+
+Wall time: 4min 28s
+</code></pre>
+<p>With an additional 4.5 minutes, we improved the accuracy to <code>93%</code>. You can then save that model as <code>learn.save('pets-lesson01-stage-2', return_path=True)</code> for later.</p>
+<h3 id="predict-on-real-world-data">Predict on real world data</h3>
+<p>To predict on any given image, use the <code>fastai.vision.image.open_image()</code> function to load an image. You get back an <code>fastai.vision.image.Image</code> object that can be passed to <code>learn.predict()</code> function.</p>
+<p>The prediction is a <code>tuple</code> of (<code>Category</code>, <code>category index</code>, <code>probabilities for each class</code>).</p>
+<h2 id="hyper-parameter-tuning">Hyper-parameter tuning</h2>
+<h3 id="learning-rate-too-high">Learning rate too high</h3>
+<p>When the rate it too high, the validation loss gets obscenely high - like an impossible number. The default <code>max_lr</code> is <code>0.003</code>.</p>
+<h3 id="learning-rate-too-low">Learning rate too low</h3>
+<p>When the rate is too small, the model's validation drops, but very very slowly. The command <code>learn.recorder.plot_losses()</code> will plot the validation and training loss for visual interpretation. You can bump the rate by a factor of <code>10</code> or <code>100</code> and try again.</p>
+<h3 id="training-loss-validation-loss">Training loss &gt; Validation loss</h3>
+<p>When a model is properly trained, the training loss is typically lower than validation loss. If the training loss is greater, it means the model is not trained enough - try increasing number of epochs or increase the learning rate.</p>
+<h3 id="too-few-epochs">Too few epochs</h3>
+<p>Too few epochs and too low LR look alike. For instance when you train for just 1 epoch, the training loss might be greater than validation loss. Or, the difference between training and validation might be too high. Try increasing epochs or the LR.</p>
+<h3 id="too-many-epochs">Too many epochs</h3>
+<p>Too many epochs is too much training and can lead to <strong><code>overfitting</code></strong>. However, it is quite difficult to overfit in deep learning in practice. A sign of overfitting is when the model error starts increasing after a few epochs.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
