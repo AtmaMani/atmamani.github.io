@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>World Pluscodes 4</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css" />
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewDiv"></div>
+
+    <script src="https://js.arcgis.com/4.24/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/GeoJSONLayer",
+            "esri/symbols/TextSymbol",
+            "esri/layers/support/LabelClass",
+            "esri/widgets/Search",
+            "esri/symbols/SimpleLineSymbol",
+            "dojo/domReady!"
+        ], function (Map, MapView, GeoJSONLayer, TextSymbol, LabelClass, Search, SimpleLineSymbol) {
+            // Create the map
+            var map = new Map({
+                basemap: "streets-vector",
+            });
+
+            // Create the map view
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-97, 40],
+                // scale: 5000000
+                zoom: 4
+            });
+
+            // Define the GeoJSON layer
+            var pc4_layer = new GeoJSONLayer({
+                // url: "../data_files/world_pc4.geojson",
+                url: "https://atmamani.github.io/files/world_pc4.geojson",
+                // url: "http://127.0.0.1:8000/files/world_pc4.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0],
+                        outline: {
+                            color: "brown",
+                            width: 1.25
+                        }
+                    }
+                },
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.trimmed_pl" },
+                    symbol: {
+                        type: "text",
+                        color: "black",
+                        haloColor: "white",
+                        haloSize: "1px",
+                        font: {
+                            size: "13px",
+                            weight: "bold"
+                        }
+                    },
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            //Define PC2 layer
+            var pc2_layer = new GeoJSONLayer({
+                url: "https://atmamani.github.io/files/world_pc_len2.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        color: [0, 0, 0, 0.15],
+                        outline: {
+                            color: "green",
+                            width: 4
+                        }
+                    }
+                },
+                labelingInfo: [new LabelClass({
+                    labelExpressionInfo: { expression: "$feature.trimmed_pluscodes" },
+                    symbol: new TextSymbol({
+                        color: "red",
+                        haloColor: "black",
+                        haloSize: "2px",
+                        font: {
+                            size: "16px",
+                            weight: "bold"
+                        }
+                    }),
+                    labelPlacement: "always-horizontal"
+                })]
+            });
+
+            // Add the GeoJSON layer to the map
+            map.add(pc4_layer);
+            map.add(pc2_layer);
+
+            //Search widget
+            const searchWidget = new Search({
+                view: view,
+                allPlaceholder: "PC4 or PC2",
+                includeDefaultSources: false,
+                sources: [
+                    // primary search source is the PC4 layer
+                    {
+                        layer: pc4_layer,
+                        searchFields: ['trimmed_pl'],
+                        displayField: 'trimmed_pl',
+                        exactMatch: true,
+                        outFields: ["trimmed_pl"],
+                        placeholder: "PC4 or PC2 eg:76VV"
+
+                    },
+                    // Add AGS World Geocoding Service as a search source
+                    {
+                        name: "ArcGIS World Geocoding Service",
+                        url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+                        singleLineFieldName: "SingleLine",
+                    }
+                ]
+            });
+
+            // Earlier , I had another search widget for geocoding. Now I have consolidated both into one.
+            // const geocodeWidget = new Search({
+            // view: view,
+            // allPlaceholder: "Address",
+            // sources: [{
+            //     name: "ArcGIS World Geocoding Service",
+            //     url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer", 
+            //     // locator: new Locator({ url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer" }),
+            //     singleLineFieldName: "SingleLine",
+            //     placeholder: "Search for Addresses",
+            //     // maxResults: 3,
+            //     // maxSuggestions: 6,
+            //     // suggestionsEnabled: true,
+            //     // minSuggestCharacters: 0
+            // }]
+        });
+
+            // Add the search widget to the top right corner of the view
+            view.ui.add(searchWidget, {
+                position: "top-right"
+            });
+            // Commented out - earlier there were two search bars. Now they are consolidated into one.
+            // view.ui.add(geocodeWidget, {
+            //     position: "top-right",
+            //     index: 2
+            // });
+
+            // Bind the browser find keyboard shortcut to the search widget
+            document.addEventListener("keydown", function (event) {
+                if ((event.ctrlKey || event.metaKey) && event.key === "f") {
+                    event.preventDefault();
+                    searchWidget.focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
