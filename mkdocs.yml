@@ -92,6 +92,66 @@ nav:
     - 2017 Esri Developer Summit: talks/2017-esri-devsummit.md
     - 2017 Esri User Conference: talks/2017-esri-uc.md
     - 2015 Esri User Conference: talks/2015-esri-uc.md
+  - Teaching Resources:
+    - Python:
+      - Datatypes: teaching_resources/python/python_datatypes.ipynb
+      - Numeric datatypes: teaching_resources/python/python_numeric_datatypes.ipynb
+      - Conditional execution: teaching_resources/python/python_conditional_execution.ipynb
+      - Functions: teaching_resources/python/python_functions.ipynb
+      - Iteration: teaching_resources/python/python_iterations.ipynb
+      - Exception handling: teaching_resources/python/python_exception_handling.ipynb
+      - Classes: teaching_resources/python/python_classes.ipynb
+      - Mutability: teaching_resources/python/python_mutability.ipynb
+      - Memory: teaching_resources/python/python_memory.ipynb
+      - Python language optimizations: teaching_resources/python/python_language_optimizations.ipynb
+    - Golang:
+      - Intro: teaching_resources/golang/index.md
+      - Basics: teaching_resources/golang/golang-basics.md
+      - Datatypes: teaching_resources/golang/golang-datatypes.md
+      - Control structures: teaching_resources/golang/golang-control-flow.md
+      - Goroutines: teaching_resources/golang/goroutine.md
+    - NumPy:
+      - Array creation: teaching_resources/numpy/numpy_array_creation.ipynb
+      - Array searching: teaching_resources/numpy/numpy_array_searching.ipynb
+    - Pandas:
+      - DataFrame creation, exploration: teaching_resources/pandas/pandas_df_creation_exploration.ipynb
+      - Indices, sorting, merging: teaching_resources/pandas/pandas_indices_sorting_merging.ipynb
+      - Unique, isnull, time series: teaching_resources/pandas/pandas_unique_time_series.ipynb
+      - Data visualization: teaching_resources/pandas/pandas_data_viz_1.ipynb
+    - Matplotlib:
+      - Intro to subplots: teaching_resources/matplotlib/matplotlib_intro_subplots.ipynb
+      - Working with axes: teaching_resources/matplotlib/matplotlib_working_with_axes.ipynb
+      - Geographical plotting: teaching_resources/matplotlib/matplotlib_geo.ipynb
+    - Seaborn:
+      - Intro & Exploring distributions: teaching_resources/seaborn/seaborn_exploring_distributions.ipynb
+      - Categorical plotting: teaching_resources/seaborn/seaborn_categorical_plotting.ipynb
+      - Matrix and regression plots: teaching_resources/seaborn/seaborn_matrix_regression.ipynb
+      - Grids and customizations: teaching_resources/seaborn/seaborn_grids_customization.ipynb
+    - Plotly:
+      - Getting started: teaching_resources/plotly/plotly_getting_started.ipynb
+      - Plotting with Pandas: teaching_resources/plotly/plotly_plotting_with_pandas.ipynb
+      - Geographical plotting: teaching_resources/plotly/plotly_geographical_plotting.ipynb
+    - GDAL & OGR:
+      - Intro: teaching_resources/gdal/gdal_intro.md
+      - Inspecting rasters: teaching_resources/gdal/gdal_inspecting_rasters.ipynb
+      - Mosaicking, warping, pansharpening: teaching_resources/gdal/gdal_mosaicking_warping_pansharpening.ipynb
+      - Interacting with WMS: teaching_resources/gdal/gdal_wms.ipynb
+      - OGR - inspection, ogr2ogr: teaching_resources/gdal/ogr_inspection_ogr2ogr.ipynb
+    - Geopandas:
+      - Intro and plotting: teaching_resources/geopandas/geopandas_intro_plotting.ipynb
+      - Geocoding and interactive plotting: teaching_resources/geopandas/geopandas_geocoding_interactive_plotting.ipynb
+      - Spatial overlays: teaching_resources/geopandas/geopandas_spatial_overlays.ipynb
+      - Reclass, PySAL, OSM: teaching_resources/geopandas/geopandas_reclass_pysal_osm.ipynb
+    - Rasterio:
+      - Intro, inspection, plotting: teaching_resources/rasterio/rasterio_inspection_plotting.ipynb
+      - Working with Hyperspectral data: teaching_resources/rasterio/rasterio_hyperspectral.ipynb
+    - Xarray:
+      - Intro, inspection, plotting: teaching_resources/xarray/xarray_intro.ipynb
+      - Working with multidimensional data: teaching_resources/xarray/xarray_multidim_dataset.ipynb
+    - PostGIS:
+      - Intro, spatial queries: teaching_resources/postgis/postgis_intro.md
+      - Sqlalchemy, Geopandas: teaching_resources/postgis/postgis_sqlalchemy_gpd.ipynb
+
   - Blog: blog/index.md
 
 theme: 
