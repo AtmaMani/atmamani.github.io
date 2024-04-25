@@ -1,4 +1,4 @@
-title: Helm charts
+# Helm charts
 
 ![](/images/nautical-chart.jpg)
 *Nautical charts - called Helm charts where used to navigate vessels in open waters*

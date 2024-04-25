@@ -1,4 +1,4 @@
-title: SQL Introduction
+# SQL - CRUD
 
 Content derived from:
  - https://www.sqltutorial.org/

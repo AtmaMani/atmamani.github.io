@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://atmamani.github.io/sql-1/</loc>
-         <lastmod>2024-04-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://atmamani.github.io/apps/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
@@ -616,17 +611,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://atmamani.github.io/teaching_resources/gsutil-1/</loc>
+         <loc>https://atmamani.github.io/teaching_resources/front-end/html/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://atmamani.github.io/teaching_resources/helm-1/</loc>
+         <loc>https://atmamani.github.io/teaching_resources/front-end/js_essentials/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://atmamani.github.io/teaching_resources/k8s-1/</loc>
+         <loc>https://atmamani.github.io/teaching_resources/front-end/web_development/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -726,6 +721,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://atmamani.github.io/teaching_resources/octave/octave_loops_conditional_functions/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/octave/octave_plotting/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://atmamani.github.io/teaching_resources/pandas/pandas_data_viz_1/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
@@ -767,6 +772,16 @@
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/postgis/postgis_sqlalchemy_gpd/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/python/conda_pkg_manager/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/python/mamba_pkg_manager/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -821,6 +836,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://atmamani.github.io/teaching_resources/r/r_datatypes_variables/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://atmamani.github.io/teaching_resources/rasterio/rasterio_hyperspectral/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
@@ -847,6 +867,61 @@
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/seaborn/seaborn_matrix_regression/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/sql/sql_crud/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/sql/sql_joins/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/sql/sql_problem_sets_1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/sql/sql_query_operators/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/docker-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/grep-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/gsutil-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/helm-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/kubectl-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/latex-1/</loc>
+         <lastmod>2024-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://atmamani.github.io/teaching_resources/tools/yaml_syntax/</loc>
          <lastmod>2024-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>

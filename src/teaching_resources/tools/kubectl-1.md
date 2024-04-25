@@ -1,4 +1,4 @@
-title: Kubectl commands
+# Kubectl commands
 
 `kubectl` is the CLI tool that interfaces with Kubernetes. It can work with either a local setup (such as with Docker desktop's K8 or [Minikube](https://minikube.sigs.k8s.io/docs/)) or with one or more remote clusters. Most operations on K8s will be via `kubectl`.
 

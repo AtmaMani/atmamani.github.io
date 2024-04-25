@@ -1,4 +1,4 @@
-title: `gsutil` commands
+# `gsutil` commands
 
 ## Introduction
 [`gsutil`](https://cloud.google.com/storage/docs/gsutil) is a CLI tool to work with data on Google Storage Service. Using the tool, you can query public data anonymously. However, to query private data, you need to authenticate. Gsutil can inherit the auth from `gcloud` CLI.
