@@ -14,4 +14,4 @@ Slide deck for this talk [can be found here](https://assets.onlineeventapp.com/e
 ### Deploying Apps and Services with ArcGIS API for Python
 <iframe width="560" height="315" src="https://player.vimeo.com/video/524104979"></iframe>
 
-Slide deck fo this talk [can be found here](https://assets.onlineeventapp.com/esri/dev2021/EventFiles/esri2021dev/PresentationFiles/Uploads/19764796/25641967/12506-deploying-apps-and-services-with-arcgis-api-for-python.pdf)
+Slide deck of this talk [can be found here](https://assets.onlineeventapp.com/esri/dev2021/EventFiles/esri2021dev/PresentationFiles/Uploads/19764796/25641967/12506-deploying-apps-and-services-with-arcgis-api-for-python.pdf)

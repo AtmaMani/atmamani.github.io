@@ -9,7 +9,7 @@ This site is built using `mkdocs`, `mkdocs-jupyter` frameworks. Source is writte
 ### Environment & deps
 
 ```bash
-micromamba env create -n mkdocs python=3.11 -c conda-forge
+micromamba env create -n mkdocs python=3.12 -c conda-forge
 
 micromamba activate mkdocs
 
