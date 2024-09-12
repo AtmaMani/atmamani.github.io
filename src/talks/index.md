@@ -1,11 +1,13 @@
 Title: Atma's talks
 ## Talks in public conferences
+- 2024 [FOSS4G NA St Louis](https://foss4gna.org)
+    - [Building a lean and scalable raster lookup service using COGs](/talks/2024-foss4gna)
+- 2024 [Anna University](https://irs.annauniv.edu/irs/) Geo Innovation Challenge - Invited speaker series 
+    - [Disaster Resilience: Forecasting business interruptions in the face of climate change using meteorological big-data](/talks/2024-annauniv-geoinnovation-challenge)
 - [2019 - Explore How to Use ArcGIS and Jupyter for Geospatial Data Science ](https://www.directionsmag.com/webinar/9311)
     - <img src='/images/geospatial-datascience-banner-small.jpg' width=250>
-
 - [2019 FOSS4GNA](https://2019.foss4g-na.org/program/)
     - [Let's take the machines house hunting](https://www.papercall.io/speakers/atma-mani/speaker_talks/110943-let-s-take-the-machines-house-hunting)
-
 - [2018 Portland GeoDev Meetup](2018-portland-geodev-meetup/)
     - <img src="/images/house-hunting-slide1.jpeg" width=250>
 
