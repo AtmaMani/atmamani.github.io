@@ -4412,6 +4412,8 @@
       
         
       
+        
+      
     
     
       
@@ -4476,6 +4478,27 @@
   
   <span class="md-ellipsis">
     Query operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql_in_depth_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL In Depth
   </span>
   
 
@@ -5593,6 +5616,46 @@ The Big Bang Theory    2007  280       8.1     754516
 Dexter                 2006  96        8.6     679125 
 How I Met Your Mother  2005  208       8.3     635758 
 True Detective         2014  24        8.9     524834
+</code></pre>
+<ol>
+<li><strong>Find Second highest salary</strong> from Employees table</li>
+</ol>
+<p>Sorting approach - not efficient as it has to sort all the records.</p>
+<pre><code class="language-sql">/* Finding second highest salary */
+SET @max_salary = (SELECT MAX(Salary) FROM Employees);
+
+SELECT Salary AS SecondHighestSalary FROM Employees
+WHERE Salary &lt; @max_salary ORDER BY Salary DESC LIMIT 1;
+</code></pre>
+<p>Faster, without sorting</p>
+<pre><code class="language-sql">SELECT MAX(Salary) as SecondHighestSalary FROM Employees
+WHERE Salary &lt; @max_salary;
+</code></pre>
+<p>Least efficient query - sort everything, then get the second value using <code>OFFSET</code>:</p>
+<pre><code class="language-sql">SELECT   Salary AS SecondHighestSalary
+FROM     Employees 
+ORDER BY Salary DESC 
+LIMIT    1 OFFSET 1;
+</code></pre>
+<ol>
+<li>Check if some value <strong><code>IS NULL</code></strong></li>
+</ol>
+<pre><code class="language-sql">/* Count number of students who missed a test (marks is null) */
+SELECT COUNT(DISTINCT(StudentID)) AS AbsentStudents 
+FROM StudentGrades WHERE isnull(Marks);
+</code></pre>
+<p>Alternate way is </p>
+<pre><code class="language-sql">/* The query to find the count of exams missed */
+SELECT COUNT(*) AS AbsentStudents
+FROM   StudentGrades WHERE  Marks IS NULL;
+</code></pre>
+<p>Solution using conditional logic</p>
+<pre><code class="language-sql">SELECT SUM(CASE WHEN Marks IS NULL THEN 1 ELSE 0 END) AS AbsentStudents
+FROM   StudentGrades;
+
+/* simple if statements*/
+SELECT SUM(IF(Marks IS NULL, 1, 0)) AS AbsentSudents
+FROM StudentGrades;
 </code></pre>
 
 

@@ -83,3 +83,55 @@ Dexter                 2006  96        8.6     679125
 How I Met Your Mother  2005  208       8.3     635758 
 True Detective         2014  24        8.9     524834
 ```
+
+6. **Find Second highest salary** from Employees table
+
+Sorting approach - not efficient as it has to sort all the records.
+
+```sql
+/* Finding second highest salary */
+SET @max_salary = (SELECT MAX(Salary) FROM Employees);
+
+SELECT Salary AS SecondHighestSalary FROM Employees
+WHERE Salary < @max_salary ORDER BY Salary DESC LIMIT 1;
+```
+
+Faster, without sorting
+```sql
+SELECT MAX(Salary) as SecondHighestSalary FROM Employees
+WHERE Salary < @max_salary;
+```
+
+Least efficient query - sort everything, then get the second value using `OFFSET`:
+
+```sql
+SELECT   Salary AS SecondHighestSalary
+FROM     Employees 
+ORDER BY Salary DESC 
+LIMIT    1 OFFSET 1;
+```
+
+7. Check if some value **`IS NULL`**
+
+```sql
+/* Count number of students who missed a test (marks is null) */
+SELECT COUNT(DISTINCT(StudentID)) AS AbsentStudents 
+FROM StudentGrades WHERE isnull(Marks);
+```
+Alternate way is 
+
+```sql
+/* The query to find the count of exams missed */
+SELECT COUNT(*) AS AbsentStudents
+FROM   StudentGrades WHERE  Marks IS NULL;
+```
+
+Solution using conditional logic
+```sql
+SELECT SUM(CASE WHEN Marks IS NULL THEN 1 ELSE 0 END) AS AbsentStudents
+FROM   StudentGrades;
+
+/* simple if statements*/
+SELECT SUM(IF(Marks IS NULL, 1, 0)) AS AbsentSudents
+FROM StudentGrades;
+```

@@ -14,7 +14,7 @@
         <link rel="prev" href="../sql_crud/">
       
       
-        <link rel="next" href="../sql_joins/">
+        <link rel="next" href="../sql_in_depth_1/">
       
       
       <link rel="icon" href="../../../images/favicon.ico">
@@ -4412,6 +4412,8 @@
       
         
       
+        
+      
     
     
       
@@ -4545,9 +4547,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#order-by-operator" class="md-nav__link">
+  <a href="#sql-aggregate-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      ORDER BY operator
+      SQL Aggregate functions
     </span>
   </a>
   
@@ -4571,8 +4573,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#having-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAVING clause
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-datetime-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL DateTime operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-string-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL String operations
+    </span>
+  </a>
   
 </li>
       
@@ -4580,6 +4609,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql_in_depth_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL In Depth
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5579,9 +5629,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#order-by-operator" class="md-nav__link">
+  <a href="#sql-aggregate-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      ORDER BY operator
+      SQL Aggregate functions
     </span>
   </a>
   
@@ -5605,8 +5655,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#having-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAVING clause
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-datetime-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL DateTime operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-string-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL String operations
+    </span>
+  </a>
   
 </li>
       
@@ -5686,7 +5763,7 @@ CREATE TABLE people (
 <li><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> for size comparison</li>
 <li><code>LIKE</code> - for tolerant string comparison</li>
 <li><code>AND</code>, <code>OR</code> - to chain conditions</li>
-<li><code>BETWEEN</code> - for range values such as money, dates, times, etc.</li>
+<li><code>BETWEEN</code> - for range values such as money, dates, times, etc. Between is <strong>inclusive</strong> of upper and lower bounds used.</li>
 <li><code>IS NULL</code> to check if a value is null. <strong>Do not use</strong> <code>= NULL</code>.</li>
 </ul>
 <p>Examples:</p>
@@ -5694,9 +5771,27 @@ CREATE TABLE people (
 &gt;SELECT * FROM employees WHERE last_name LIKE &quot;chen&quot;;
 
 </code></pre>
-<h3 id="order-by-operator"><code>ORDER BY</code> operator</h3>
-<p>Used to sort the displayed results. This does not change the data organization in the persisted table though. The general syntax is below. The default sort order is <code>ASC</code> for ascending.</p>
-<pre><code class="language-sql">SELECT &lt;columns&gt; FROM &lt;table&gt; ORDER BY &lt;col 1&gt; &lt;ASC | DESC&gt;, &lt;col2&gt; &lt;ASC | DESC&gt;;
+<h3 id="sql-aggregate-functions">SQL Aggregate functions</h3>
+<p>These arithmetic functions reduce multiple records to a single record using aggregators.</p>
+<ul>
+<li><code>SUM</code></li>
+<li><code>AVG</code></li>
+<li><code>MIN</code></li>
+<li><code>MAX</code></li>
+<li><code>COUNT</code></li>
+</ul>
+<p>Ex:
+ ```sql
+ /<em> Find total of columns marks in Math subject </em>/
+SELECT SUM(Marks) AS TotalMarks FROM StudentGrades WHERE Subject = "Mathematics";</p>
+<pre><code>
+
+
+### `ORDER BY` operator
+Used to sort the displayed results. This does not change the data organization in the persisted table though. The general syntax is below. The default sort order is `ASC` for ascending.
+
+```sql
+SELECT &lt;columns&gt; FROM &lt;table&gt; ORDER BY &lt;col 1&gt; &lt;ASC | DESC&gt;, &lt;col2&gt; &lt;ASC | DESC&gt;;
 --example
 SELECT * FROM employees ORDER BY hire_date ASC LIMIT 10;
 SELECT * FROM employees ORDER BY hire_date ASC, salary DESC LIMIT 10;
@@ -5731,7 +5826,68 @@ job_id  manager_id
 ...
 </code></pre>
 <h3 id="group-by-operator"><code>GROUP BY</code> operator</h3>
-<p>Used to group records by one or more columns. This is a variant of <code>DISTINCT</code> where you can select two or more columns but remove duplicates in 1 column from the result set.</p>
+<p>Used to group records by one or more columns. This is a variant of <code>DISTINCT</code> where you can select two or more columns but remove duplicates in 1 column from the result set. Group by is commonly used with <strong>aggregation</strong> functions.</p>
+<pre><code class="language-sql">/* Find the average price of products for each category */
+SELECT   Category, AVG(Price) AS AveragePrice
+FROM     Products
+GROUP BY Category;
+</code></pre>
+<h3 id="having-clause"><code>HAVING</code> clause</h3>
+<p>The <code>HAVING</code> clause is used to filter results <strong>after</strong> the <strong>grouping</strong> operation. It operates on row-groups. The <code>WHERE</code> clause is used to filter <strong>before</strong> grouping operation. Where operates on individual rows, not row-groups.</p>
+<pre><code class="language-sql">/*Select categories with avg price &gt; 50*/
+SELECT Category, AVG(Price) AS AvgPrice FROM Products
+GROUP BY Category
+HAVING AVG(Price) &gt; 50;
+</code></pre>
+<p>Using both <code>WHERE</code> AND <code>HAVING</code> clauses:</p>
+<pre><code class="language-sql">SELECT column1, function_name(column2)
+FROM table_name
+WHERE condition
+GROUP BY column1, column2
+HAVING condition;
+</code></pre>
+<h2 id="sql-datetime-operations">SQL DateTime operations</h2>
+<p>SQL provides a number of functions to work with datetime:</p>
+<ul>
+<li><code>NOW()</code>: Returns the current date and time</li>
+<li><code>CURDATE()</code>: Returns the current date</li>
+<li><code>YEAR()</code>: Extracts the YEAR part from a datetime or a date type</li>
+<li><code>TIMESTAMPDIFF(unit, datetime1, datetime2)</code>: Calculates the difference between two datetimes based on a specified unit</li>
+<li><code>DATE_FORMAT(col, str_fmt)</code> such as <code>'%Y'</code> for year parsing, <code>'%W</code> for name of weekday.</li>
+<li><code>DAYNAME(col)</code>: To get name of week day (Eg: Tuesday)</li>
+<li><code>WEEKDAY(col)</code>: To get enumeration of the week day: 1-Sunday ... 7-Saturday.</li>
+</ul>
+<p>Example, to extract just the year from datetime:</p>
+<pre><code class="language-sql">/* The query to extract the year from a date */
+SELECT *, YEAR(DateOfJoining) AS YearOfJoining
+FROM   EmployeeDetails;
+</code></pre>
+<p>Example, calculate age of employees from date of birth:</p>
+<pre><code class="language-sql">/* Calc age from dob */
+SELECT *, 
+YEAR(CURDATE()) - YEAR(DateOfBirth) - (DAYOFYEAR(NOW()) &lt; DAYOFYEAR(DateOfBirth)) AS Age 
+FROM Employees;
+</code></pre>
+<p>Example: Select employees who have a DOB between two given dates:</p>
+<pre><code class="language-sql">SELECT COUNT(*) FROM Employees WHERE DateOfBirth BETWEEN '1993-01-01' AND '1995-12-31');
+</code></pre>
+<h2 id="sql-string-operations">SQL String operations</h2>
+<p>SQL provides a few string operators like this:</p>
+<ul>
+<li><code>SUBSTRING(col/string/date, start pos, end pos)</code>: To extract sub strings</li>
+<li><code>LEFT(col/string/date, num char)</code>: to extract left n chars</li>
+<li><code>RIGHT(col/string/date, num char)</code>: to extract right n chars (counted in reverse obviously)</li>
+</ul>
+<p>Find records of all students whose name ends with 'a':</p>
+<pre><code class="language-sql">/* The query to find the students whose name ends with 'a' */
+SELECT * FROM StudentGrades
+WHERE  StudentName LIKE '%a';
+
+--or--
+SELECT * FROM StudentGrades WHERE RIGHT(StudentName, 1) = 'a'
+
+
+</code></pre>
 
 
 

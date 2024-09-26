@@ -36,6 +36,16 @@ CREATE TABLE IF NOT EXISTS "fav"(
 sqlite> 
 ```
 
+Specifying primary keys, datatypes and auto-incrementing keys:
+
+```sql
+CREATE TABLE Employees (
+     EmpID   INT AUTO_INCREMENT PRIMARY KEY,
+     EmpName VARCHAR(50),
+     Salary  DECIMAL(10, 2)
+);
+```
+
 ### Opening back a SQLite DB
 To open a DB back, use `sqlite3 <db name>`
 
@@ -166,6 +176,25 @@ Use `INSERT INTO <table> (<columns>) VALUES (<comma sep values>);`. Example:
 sqlite> INSERT INTO genres (show_id, genre) VALUES (159, "Comedy");
 ```
 
+Insert multiple records using multiple comma separated tuples:
+
+```sql
+INSERT INTO TableName
+VALUES  (value1, value2, value3),
+        (value1, value2, value3),
+        (value1, value2, value3);
+```
+
+## CRUD command syntax
+
+```sql
+CREATE TABLE <tablename>;
+INSERT INTO <tablename> VALUES ();
+SELECT <cols> FROM <tablename> WHERE <condition>;
+UPDATE <tablename> SET col=val, col=val;
+DELETE FROM <tablename> WHERE <condition>;
+```
+
 ## Utility commands for `SQLite`
 
 * Getting schema of a database: `.schema`
@@ -173,3 +202,6 @@ sqlite> INSERT INTO genres (show_id, genre) VALUES (159, "Comedy");
 * Timing your queries: `sqlite> .timer on` will start to return tike taken for your queries
 * Printing column names for select queries - `.headers on`
 * Pretty print with table formatting `.mode column`
+
+## Drop vs Truncate table
+`DROP TABLE` will delete the entire table (schema and values). 

@@ -150,6 +150,7 @@ nav:
       - SQL:
         - Intro, CRUD operations: teaching_resources/sql/sql_crud.md
         - Query operators: teaching_resources/sql/sql_query_operators.md
+        - SQL In Depth: teaching_resources/sql/sql_in_depth_1.md
         - Joins: teaching_resources/sql/sql_joins.md
         - SQL problem sets 1: teaching_resources/sql/sql_problem_sets_1.md
     - Geospatial:

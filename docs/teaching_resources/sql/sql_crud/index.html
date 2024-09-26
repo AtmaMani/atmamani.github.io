@@ -4412,6 +4412,8 @@
       
         
       
+        
+      
     
     
       
@@ -4616,9 +4618,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#crud-command-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD command syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#utility-commands-for-sqlite" class="md-nav__link">
     <span class="md-ellipsis">
       Utility commands for SQLite
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-vs-truncate-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop vs Truncate table
     </span>
   </a>
   
@@ -4645,6 +4665,27 @@
   
   <span class="md-ellipsis">
     Query operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql_in_depth_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL In Depth
   </span>
   
 
@@ -5740,9 +5781,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#crud-command-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRUD command syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#utility-commands-for-sqlite" class="md-nav__link">
     <span class="md-ellipsis">
       Utility commands for SQLite
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drop-vs-truncate-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop vs Truncate table
     </span>
   </a>
   
@@ -5791,6 +5850,13 @@ sqlite&gt; .schema
 CREATE TABLE IF NOT EXISTS &quot;fav&quot;(
 &quot;Timestamp&quot; TEXT, &quot;title&quot; TEXT, &quot;genres&quot; TEXT);
 sqlite&gt; 
+</code></pre>
+<p>Specifying primary keys, datatypes and auto-incrementing keys:</p>
+<pre><code class="language-sql">CREATE TABLE Employees (
+     EmpID   INT AUTO_INCREMENT PRIMARY KEY,
+     EmpName VARCHAR(50),
+     Salary  DECIMAL(10, 2)
+);
 </code></pre>
 <h3 id="opening-back-a-sqlite-db">Opening back a SQLite DB</h3>
 <p>To open a DB back, use <code>sqlite3 &lt;db name&gt;</code></p>
@@ -5896,6 +5962,19 @@ sqlite&gt;
 <p>Use <code>INSERT INTO &lt;table&gt; (&lt;columns&gt;) VALUES (&lt;comma sep values&gt;);</code>. Example:</p>
 <pre><code>sqlite&gt; INSERT INTO genres (show_id, genre) VALUES (159, &quot;Comedy&quot;);
 </code></pre>
+<p>Insert multiple records using multiple comma separated tuples:</p>
+<pre><code class="language-sql">INSERT INTO TableName
+VALUES  (value1, value2, value3),
+        (value1, value2, value3),
+        (value1, value2, value3);
+</code></pre>
+<h2 id="crud-command-syntax">CRUD command syntax</h2>
+<pre><code class="language-sql">CREATE TABLE &lt;tablename&gt;;
+INSERT INTO &lt;tablename&gt; VALUES ();
+SELECT &lt;cols&gt; FROM &lt;tablename&gt; WHERE &lt;condition&gt;;
+UPDATE &lt;tablename&gt; SET col=val, col=val;
+DELETE FROM &lt;tablename&gt; WHERE &lt;condition&gt;;
+</code></pre>
 <h2 id="utility-commands-for-sqlite">Utility commands for <code>SQLite</code></h2>
 <ul>
 <li>Getting schema of a database: <code>.schema</code></li>
@@ -5904,6 +5983,8 @@ sqlite&gt;
 <li>Printing column names for select queries - <code>.headers on</code></li>
 <li>Pretty print with table formatting <code>.mode column</code></li>
 </ul>
+<h2 id="drop-vs-truncate-table">Drop vs Truncate table</h2>
+<p><code>DROP TABLE</code> will delete the entire table (schema and values). </p>
 
 
 
