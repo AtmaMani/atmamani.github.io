@@ -6,6 +6,6 @@ Title: 2024 FOSS4G North America Conference
 
 My talk was one of the highly attended of the sessions at FOSS4G!
 
-<img src="/images/2024-foss4g1.jpg">
+<img src="/images/2024-foss4g1.JPG">
 
-<img src="/images/2024-foss4g2.jpg">
+<img src="/images/2024-foss4g2.JPG">

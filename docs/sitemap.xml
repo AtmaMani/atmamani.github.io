@@ -2,1027 +2,1027 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://atmamani.github.io/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/firemap/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/flask-notes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/fullstack-python-webapp-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/quakemap/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/usa-pluscodes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/apps/wildfire-hazard/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/10/26/a-whole-new-way-to-experience-gis/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2010/01/26/articles-on-remote-sensing/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2020/06/02/aws-lambda-functions-quickstart/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/09/20/aws-lambda-functions-with-docker-images/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2020/06/18/aws-lambda-functions-with-sam-cli/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/02/26/building-data-science-projects-using-azure-ml-stack/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/10/20/building-restful-apis-with-flask-in-python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/12/04/coding-standards-for-jupyter-notebooks/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2015/03/15/demystifying-python-jargon-datascience/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/10/12/deploying-deep-learning-inference-as-serverless-functions/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/10/15/design-principles-behind-restful-apis/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/07/20/devops-today/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/02/04/embedding-maps-in-photos/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2020/05/05/gentle-introduction-aws-platform/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/12/11/gentle-introduction-cloud-computing/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/10/27/harness-the-power-of-gis-python-api/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/10/26/house-hunting-the-datascientist-way/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/03/03/how-many-snakes-python-concurrency-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/03/29/how-many-snakes-python-concurrency-2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2021/03/30/how-many-snakes-python-concurrency-3/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/03/30/imagery-in-arcgis-ecosystem/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2007/01/26/my-old-blog-posts/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/05/31/open-geospatial-world/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/07/10/practical-scrum-for-agile-teams/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/07/09/arcgis-api-for-python-v1-2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/12/22/arcgis-api-for-python-v1-3/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/11/26/python-distributed-ml/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/06/06/python-geospatial-world/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/01/08/scrum-crash-course-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/01/08/scrum-crash-course-2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/06/20/building-stand-alone-cli-using-python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2019/09/20/takeaways-strata-data-nyc2019/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2017/12/10/the-big-data-ecosystem/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/2018/01/26/tutorials-for-arcgis/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/books/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/books/2018-essential-python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/books/2019-py-scripting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/books/2020-adv-py-scripting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/books/2021-gis-for-science/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/cloud/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/cloud/argo/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/cloud/gcp-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/cloud/gke-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/cloud/gke-2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dist-computing/dask/part1_prepare_hurricane_data/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dist-computing/dask/part2_explore_hurricane_tracks/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dist-computing/dask/part3_analyze_hurricane_tracks/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dist-computing/pyspark/getting-started-pyspark/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dist-computing/pyspark/spark-ml-ca-housing/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/configure-gpu-windows/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/coursera-neural-nets-concepts/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/coursera-understanding-backpropagation/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/setup-win-fastai-v1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/setup-win-fastai-v2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/fastai/fastai-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/fastai/lesson1-pets/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/dl/fastai/vision/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/fun/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/fun/curve_fitting_model-complexity-vs-accuracy/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/fun/verifying_central_limit_theorem/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/fun/verifying_clt_in_regression/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/math/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/math/math-practical-odyssey-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/gradient-descent-in-python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/gradient-descent/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/implementing-logistic-regression-in-python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/linear-algebra/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/linear-regression-analytical-solution/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/logistic-reg-concepts/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/ml-concepts/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/mnist-digits-classification-using-logistic-regression-scikit-learn/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/model-regularization/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/multivariate-linear-regression/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/sklearn-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/sklearn_naive_bayes_classifier/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/ml/sklearn_statmodels_linear_regression/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/mwrs/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/spatial/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/spatial/guide-to-spatial-analysis-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/spatial/guide-to-spatial-analysis-2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/01_data_collection/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/02_data_description/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/04_conditional_probability/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/04_normal_distribution/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/04_probability_distributions_binomial_poisson/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/05_hypothesis_testing/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/islr/02_stat_learning/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/stats/islr/03_linear_regression/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/projects/thermal/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2015-esri-uc/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2017-esri-devsummit/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2017-esri-uc/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2017-geodev-webinar/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2018-esri-devsummit/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2018-portland-geodev-meetup/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2019-dirmag-webinar/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2019-esri-devsummit/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2019-foss4gna/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2020-esri-devsummit/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2020-esri-seminar/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2020-spatial-ds-mooc/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2021-esri-devsummit/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2024-annauniv-geoinnovation-challenge/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/2024-foss4gna/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/01_clean-housing-data/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/02_housing-exploratory-data-analysis/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/03_feature-engineering-neighboring-facilities/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/04_feature-engineering-neighboring-facilities-batch/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/05-rank-properties-using-features/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/talks/portland-house-hunting/06-build-recommendation-engine-scaled/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/front-end/html/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/front-end/js_essentials/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/front-end/web_development/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/gdal/gdal_inspecting_rasters/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/gdal/gdal_intro/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/gdal/gdal_mosaicking_warping_pansharpening/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/gdal/gdal_wms/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/gdal/ogr_inspection_ogr2ogr/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/geopandas/geopandas_geocoding_interactive_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/geopandas/geopandas_intro_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/geopandas/geopandas_reclass_pysal_osm/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/geopandas/geopandas_spatial_overlays/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/golang/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/golang/golang-basics/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/golang/golang-control-flow/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/golang/golang-datatypes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/golang/goroutine/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/matplotlib/matplotlib_geo/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/matplotlib/matplotlib_intro_subplots/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/matplotlib/matplotlib_working_with_axes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/numpy/numpy_array_creation/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/numpy/numpy_array_searching/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/octave/octave_loops_conditional_functions/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/octave/octave_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/pandas/pandas_data_viz_1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/pandas/pandas_df_creation_exploration/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/pandas/pandas_indices_sorting_merging/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/pandas/pandas_unique_time_series/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/plotly/plotly_geographical_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/plotly/plotly_getting_started/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/plotly/plotly_plotting_with_pandas/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/postgis/postgis_intro/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/postgis/postgis_sqlalchemy_gpd/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/conda_pkg_manager/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/mamba_pkg_manager/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_classes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_conditional_execution/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_datatypes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_exception_handling/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_functions/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_iterations/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_language_optimizations/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_memory/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_mutability/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/python/python_numeric_datatypes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/r/r_datatypes_variables/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/rasterio/rasterio_hyperspectral/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/rasterio/rasterio_inspection_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/seaborn/seaborn_categorical_plotting/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/seaborn/seaborn_exploring_distributions/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/seaborn/seaborn_grids_customization/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/seaborn/seaborn_matrix_regression/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/sql/sql_crud/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/sql/sql_in_depth_1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/sql/sql_joins/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/sql/sql_problem_sets_1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/sql/sql_query_operators/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/docker-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/grep-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/gsutil-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/helm-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/kubectl-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/latex-1/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/tools/yaml_syntax/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/xarray/xarray_intro/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/teaching_resources/xarray/xarray_multidim_dataset/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/parallel-processing/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/python/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/threads/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/processes/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/serverless/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/aws/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/cloud/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/arcgis/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/category/data-science/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/2/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/3/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/4/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/5/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/6/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://atmamani.github.io/blog/page/7/</loc>
-         <lastmod>2024-09-26</lastmod>
+         <lastmod>2024-09-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
