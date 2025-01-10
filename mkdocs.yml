@@ -107,6 +107,7 @@ nav:
         - Classes: teaching_resources/python/python_classes.ipynb
         - Mutability: teaching_resources/python/python_mutability.ipynb
         - Memory: teaching_resources/python/python_memory.ipynb
+        - Mocks: teaching_resources/python/python_mocks.ipynb
         - Python language optimizations: teaching_resources/python/python_language_optimizations.ipynb
         - Conda package manager: teaching_resources/python/conda_pkg_manager.ipynb
         - Mamba package manager: teaching_resources/python/mamba_pkg_manager.md
